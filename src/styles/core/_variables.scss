@@ -1,0 +1,25 @@
+// Global Variables
+
+$breakpoints: (
+  'small': 800px,
+  'medium': 992px,
+  'desktop': 1200px,
+  'large': 1600px,
+  'x-large': 1920px,
+) !default;
+
+$primary-font-family: 'Mulish' !default;
+$secondary-font-family: 'Caveat' !default;
+
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extra-bold: 800 !default;
+$font-weight-black: 900 !default;
+
+$white: #ffffff;
+$black: #000000;
+
+$header-height: 50px;
+$footer-height: 50px;

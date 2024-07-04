@@ -1,0 +1,50 @@
+import { defineConfig, loadEnv } from "vite";
+import vue from "@vitejs/plugin-vue";
+import svgLoader from 'vite-svg-loader';
+
+const { version } = require('./package.json');
+
+// https://vitejs.dev/config/
+export default defineConfig(async ({command, mode}) => {
+
+  // set environment variables for VITE
+  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+
+  console.log("[VITE_SERVER_NAME]", process.env.VITE_SERVER_NAME);
+  console.log("========================================");
+
+  return ({
+    define: {
+      'import.meta.env.VITE_APP_VERSION': JSON.stringify(version),
+      'import.meta.env.VITE_BUILD_MODE': JSON.stringify(mode),
+    },
+    plugins: [vue(), svgLoader()],
+  
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // imports to components using scss
+          additionalData: `
+            @use 'sass:math';
+            @import "./src/styles/core/variables";
+            @import "./src/styles/core/utils";
+          ` 
+        }
+      }
+    },
+
+    resolve: {
+      extensions: ['.ts', '.js', '.vue', '.svg'],
+      alias: [{ find: '@', replacement: '/src' }],
+    },
+  
+  
+    clearScreen: false,
+    server: {
+      port: 3005,
+      watch: {
+        // ignored: ["**/src-tauri/**"],
+      },
+    },
+  })
+});
