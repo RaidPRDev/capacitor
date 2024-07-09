@@ -6,7 +6,9 @@
   "scripts": {
     "start": "vite --host",
     "preview": "vite preview",
-    "build": "vue-tsc --noEmit && vite build"
+    "build": "vue-tsc --noEmit && vite build",
+    "android_open": "npx cap open android",
+    "android_run": "npx cap run android"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.0",
