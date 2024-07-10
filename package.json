@@ -7,6 +7,7 @@
     "start": "vite --host",
     "preview": "vite preview",
     "build": "vue-tsc --noEmit && vite build",
+    "sync": "npx cap sync",
     "android_open": "npx cap open android",
     "android_run": "npx cap run android"
   },

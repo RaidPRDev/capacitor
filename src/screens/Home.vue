@@ -6,7 +6,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import Greet from "../components/Greet.vue";
 import FullLayout from "../components/layout/FullLayout.vue";
 import BaseButton from "../components/ui/controls/BaseButton.vue";
 </script>
@@ -34,9 +33,7 @@ import BaseButton from "../components/ui/controls/BaseButton.vue";
 
     <BaseButton :label="`Button`" />
 
-    <p>Click on the Tauri Vite, and Vue logos to learn more.</p>
-
-    <Greet />
+    <p>Test Message</p>
   </template>
   
   <template v-slot:footerSlot>
