@@ -8,6 +8,7 @@ export default {
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { IButtonGroupSelected } from "@/ui/types";
+import { capitalizeFirstLetter } from "@/utils/StringTools";
 import FullScreen from "@/ui/panels/FullScreen.vue";
 import ButtonGroup from "@/ui/controls/ButtonGroup.vue";
 import ActionButton from '@/components/ActionButton.vue';
@@ -38,6 +39,12 @@ function onMenuTriggered(selected: IButtonGroupSelected) {
   router.push({ name:selected.data.route });
 }
 
+console.log("import.meta.env.PLATFORM", import.meta.env.PLATFORM);
+
+const APP_VERSION = import.meta.env.APP_VERSION;
+const BUILD_VERSION = import.meta.env.BUILD_VERSION;
+const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
+
 </script>
 
 <template>
@@ -47,12 +54,12 @@ function onMenuTriggered(selected: IButtonGroupSelected) {
   :bodySlotProps="{ class: 'splash-body flex align-center justify-center px-20' }" 
 >
   <template v-slot:bodySlot>
-    <div class="width-inherit height-100 flex flex-column justify-between ptb-3">
+    <div class="relative width-inherit height-100 flex flex-column justify-between ptb-3">
       <div class="flex justify-center"><img :src="Logo" width="120" height="89" /></div>
       <div class="flex justify-center">
         <div>
           <div class="splash-icon"><MicIcon /></div>
-          <div class="splash-title">Bedside<br>Assistant v0.0.1 build: 2</div>
+          <div class="splash-title">Bedside<br>Assistant</div>
         </div>
       </div>
       <div>
@@ -67,7 +74,9 @@ function onMenuTriggered(selected: IButtonGroupSelected) {
           :dataProvider="menuGroupItems" @triggered="onMenuTriggered"
         ></ButtonGroup>
       </div>
-
+      <div class="version absolute bx-0 width-100 text-center">
+        {{ `Version: ${APP_VERSION} | Build: ${BUILD_VERSION} | ${PLATFORM_NAME}` }}
+      </div>
     </div>
   </template>
   
@@ -108,6 +117,11 @@ function onMenuTriggered(selected: IButtonGroupSelected) {
     font-size: 64px;
     font-weight: 300;
     line-height: 77px;
+  }
+
+  .version {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
   }
 }
 </style>

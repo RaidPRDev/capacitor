@@ -27,8 +27,9 @@ export default defineConfig(async ({command, mode}) => {
 
   return ({
     define: {
-      'import.meta.env.VITE_APP_VERSION': JSON.stringify(APP_VERSION),
-      'import.meta.env.PLATFORM': PLATFORM,
+      'import.meta.env.APP_VERSION': JSON.stringify(APP_VERSION),
+      'import.meta.env.PLATFORM': JSON.stringify(PLATFORM),
+      'import.meta.env.BUILD_VERSION': JSON.stringify(BUILD_VERSION),
       'import.meta.env.ISMOBILE': ISMOBILE,
       'import.meta.env.IOS': ISIOS,
       'import.meta.env.ANDROID': ISANDROID,
