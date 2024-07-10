@@ -10,8 +10,8 @@ export default defineConfig(async ({command, mode}) => {
   // set environment variables for VITE
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
 
-  console.log("[VITE_SERVER_NAME]", process.env.VITE_SERVER_NAME);
-  console.log("========================================");
+  // console.log("[VITE_SERVER_NAME]", process.env.VITE_SERVER_NAME);
+  // console.log("========================================");
 
   return ({
     define: {

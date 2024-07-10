@@ -52,7 +52,7 @@ function onMenuTriggered(selected: IButtonGroupSelected) {
       <div class="flex justify-center">
         <div>
           <div class="splash-icon"><MicIcon /></div>
-          <div class="splash-title">Bedside<br>Assistant v0.0.1</div>
+          <div class="splash-title">Bedside<br>Assistant v0.0.1 build: 2</div>
         </div>
       </div>
       <div>

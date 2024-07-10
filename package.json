@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite --host",
     "preview": "vite preview",
+    "build_version": "node preBuild.js",
     "build": "vue-tsc --noEmit && vite build",
     "sync": "npx cap sync",
     "android_open": "npx cap open android",
