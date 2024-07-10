@@ -16,7 +16,13 @@ export default defineConfig(async ({command, mode}) => {
   // set environment variables for VITE
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
 
+  if (process.env?.['IS_IOS']) {
+    console.log("[IS_IOS]", process.env.IS_IOS);
+  }
+    
   console.log("[PLATFORM]", PLATFORM);
+
+
   // console.log("========================================");
 
   return ({
