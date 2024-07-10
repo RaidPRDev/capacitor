@@ -1,0 +1,49 @@
+// theme/core overrides
+$primary-font-family: Roboto, Inter, Avenir, Helvetica, Arial, sans-serif;
+
+$font-size: (
+  'small': 14px,
+  'normal': 16px,
+  'medium': 18px,
+  'large': 24px,
+  'x-large': 36px,
+);
+
+$font-leading: (
+  'small': 15px,
+  'normal': 22px,
+  'medium': 24px,
+  'large': 28px,
+  'x-large': 42px,
+);
+
+$header-height: 99; // pixels
+$footer-height: 77; // pixels
+$header-radius: 15px;
+$global-radius: 10px;
+
+// colors
+$primary-color: #0B247A;
+$secondary-color: #F5F5F5;
+$teniary-color: #FF2E59;
+$quad-color: #BEBEBE;
+
+// headers/footers
+$header-shadow-props: 0px 10px 20px 2px;
+$header-shadow-color: #{$primary-color}26;
+$header-border-radius: 0 0 $header-radius $header-radius;
+$footer-border-radius: $header-radius $header-radius 0 0;
+
+// gradients
+$primary-blue: $primary-color;
+$secondary-blue: #2C51CF;
+$blue-gradient: linear-gradient(106.56deg, $primary-blue 0%, $secondary-blue 100%);
+$blue-light-gradient: linear-gradient(180deg, #2C51CF 0%, #3966FF 100%);
+
+$primary-red: $teniary-color;
+$secondary-red: #DB0330;
+$red-gradient: linear-gradient(180deg, $primary-red 0%, $secondary-red 100%);
+$red-light-gradient: $teniary-color;
+
+$btn-transition-ms: 375ms;
+$btn-transition-ease: ease-out;
