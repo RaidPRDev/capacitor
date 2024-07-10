@@ -1,4 +1,4 @@
-package com.sweetrush.elsoappalpha;
+package com.sweetrush.staging.elso;
 
 import com.getcapacitor.BridgeActivity;
 
