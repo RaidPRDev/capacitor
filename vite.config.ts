@@ -1,14 +1,10 @@
-import { Capacitor } from '@capacitor/core';
 import { defineConfig, loadEnv } from "vite";
+import fs from "fs/promises";
 import vue from "@vitejs/plugin-vue";
 import svgLoader from 'vite-svg-loader';
 
-const { version } = require('./package.json');
-
-const PLATFORM = Capacitor.getPlatform();
-const mobile = !!/android|ios/.exec(PLATFORM);
-const isIOS = !!/ios/.exec(PLATFORM);
-const isAndroid = !!/android/.exec(PLATFORM);
+const { version: APP_VERSION } = require('./package.json');
+const BUILD_VERSION_FILE = "./build_version";
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({command, mode}) => {
@@ -16,22 +12,26 @@ export default defineConfig(async ({command, mode}) => {
   // set environment variables for VITE
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
 
-  if (process.env?.['IS_IOS']) {
-    console.log("[IS_IOS]", process.env.IS_IOS);
-  }
-    
+  const BUILD_VERSION = await getBuildVersion();
+  const PLATFORM = process?.env?.PLATFORM ?? "web";
+  const ISMOBILE = !!/android|ios/.exec(PLATFORM);
+  const ISIOS = !!/ios/.exec(PLATFORM);
+  const ISANDROID = !!/android/.exec(PLATFORM);
+  
   console.log("[PLATFORM]", PLATFORM);
-
-
-  // console.log("========================================");
+  console.log("[APP_VERSION]", APP_VERSION);
+  console.log("[BUILD_VERSION]", BUILD_VERSION);
+  console.log("[ISMOBILE]", ISMOBILE);
+  console.log("[ISIOS]", ISIOS);
+  console.log("[ISANDROID]", ISANDROID);
 
   return ({
     define: {
-      'import.meta.env.VITE_APP_VERSION': JSON.stringify(version),
+      'import.meta.env.VITE_APP_VERSION': JSON.stringify(APP_VERSION),
       'import.meta.env.PLATFORM': PLATFORM,
-      'import.meta.env.ISMOBILE': mobile,
-      'import.meta.env.IOS': isIOS,
-      'import.meta.env.ANDROID': isAndroid,
+      'import.meta.env.ISMOBILE': ISMOBILE,
+      'import.meta.env.IOS': ISIOS,
+      'import.meta.env.ANDROID': ISANDROID,
     },
     plugins: [vue(), svgLoader()],
   
@@ -40,12 +40,12 @@ export default defineConfig(async ({command, mode}) => {
         scss: {
           // imports to components using scss
           additionalData: `
-            @import "./src/styles/_core/_variables";
-            @import "./src/styles/_core/_utils";
-            @import "./src/styles/app/_fonts";
-            @import "./src/styles/app/_variables";
-            $is-mobile: true;
-          ` 
+          @import "./src/styles/_core/_variables";
+          @import "./src/styles/_core/_utils";
+          @import "./src/styles/app/_fonts";
+          @import "./src/styles/app/_variables";
+
+        ` + `$is-mobile: ${ISMOBILE};`
         }
       }
     },
@@ -65,3 +65,10 @@ export default defineConfig(async ({command, mode}) => {
     },
   })
 });
+
+async function getBuildVersion() {
+  // Build Version File - 
+  const data = await fs.readFile(BUILD_VERSION_FILE, 'utf8');
+  const parsedData = parseInt(data);
+  return parsedData;
+}
