@@ -1,0 +1,29 @@
+h1 {
+  @include getFontSize('large');
+  font-weight: 500;
+}
+
+h2 {
+  @include getFontSize('medium');
+  font-weight: 500;
+}
+
+h3 {
+  @include getFontSize('normal');
+  font-weight: 500;
+}
+
+h4 {
+  @include getFontSize('small');
+  font-weight: 500;
+}
+
+h5 {
+  @include getFontSize('small');
+  font-weight: 500;
+}
+
+h6 {
+  @include getFontSize('small');
+  font-weight: 500;
+}
