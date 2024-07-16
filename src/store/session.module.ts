@@ -8,8 +8,6 @@ const initialState: ISession = {
   currentIndex: 0
 };
 
-
-
 export const useSession = defineStore('session', {
   state: () => initialState,
 

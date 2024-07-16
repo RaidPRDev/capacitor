@@ -16,8 +16,8 @@ const buildNumber = await getBuildVersion() + 1;
 
 let resultData = "";
 
-console.log(`Project Version: ${PACKAGE_DATA.version}`)
-console.log(`Build Number: ${buildNumber}`)
+console.log(`Project Version: ${PACKAGE_DATA.version}`);
+console.log(`Build Number: ${buildNumber}`);
 
 updateIOSProject();
 updateAndroidProject();
