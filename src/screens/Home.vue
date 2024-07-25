@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, onMounted, ref, VueElement } from "vue";
+import { ComponentPublicInstance, computed, ref, VueElement } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
 import { IButtonGroupSelected } from "@/ui/types";
 
