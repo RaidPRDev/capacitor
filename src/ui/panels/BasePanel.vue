@@ -1,16 +1,16 @@
 <script lang="ts">
 export default {
-  inheritAttrs: true,
-  name: "ScreenView"
+  inheritAttrs: false,
+  name: "BasePanel"
 }   
 </script>
 
 <script setup lang="ts">
-import { IBaseScreenSlotProps } from '@/ui/types';
+import { IBasePanelProps } from '@/ui/types';
 import { ref } from 'vue';
 
 // Component Props Setup
-const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
+const props = withDefaults(defineProps<IBasePanelProps>(), {}) 
 
 // Reference Setup
 const element = ref<InstanceType<typeof HTMLElement>>()
@@ -22,13 +22,18 @@ defineExpose({
 </script>
 
 <template>
-  <div ref="element" class="screen-view grid grid-single gapx-20 width-100 height-inherit overflow-hidden" :class="props?.class" :style="props?.styles">
-    <div class="inner-screen height-inherit">
+  <div 
+    ref="element" 
+    class="base-panel grid grid-single gapx-20 width-100 height-inherit" 
+    :class="props?.class" 
+    :style="props?.styles"
+  >
+    <div class="inner-panel height-inherit">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-// .screen-view {}
+// .base-panel {}
 </style>

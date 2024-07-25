@@ -10,12 +10,18 @@ import { reactive, ref, shallowReactive, useAttrs, useSlots } from 'vue';
 import type { IBaseButtonProps } from '@/ui/types';
 
 // Component Props Setup
-const props = withDefaults(defineProps<IBaseButtonProps>(), {});
+const props = withDefaults(defineProps<IBaseButtonProps>(), {
+  usePressedState: true,
+  pressedTranstionDelay: 475,  
+});
 
 // Emission Event Setup
 const emit = defineEmits<{
   (e: 'triggered', event: Event): void
 }>()
+
+const isPressed = ref<boolean>(false);
+const isSelected = ref<boolean>(false);
 
 // Reference Setup
 const element = ref<InstanceType<typeof HTMLElement>>()
@@ -44,11 +50,22 @@ const styleObject = reactive({
   // gap: ( (props.icon || props.accessoryIcon) && (props.label)) ? props.gap : 0
 })
 
-
-function onClick(e:Event) {
-  if (props?.disabled) return;
-  
+function onUp(e:Event) {
+  if (props?.disabled || props?.usePressedState) return;
+  console.log("sadsdds", props?.usePressedState)
   emit('triggered', e);
+}
+
+function onDown(e:Event) {
+  if (props?.disabled || isPressed.value || isSelected.value) return;
+
+  if (props?.usePressedState) {
+    const speed = props.pressedTranstionDelay;
+    isPressed.value = isSelected.value = true; 
+    setTimeout(() => isPressed.value = false, speed / 2);
+    setTimeout(() => emit('triggered', e), speed / 1.3);
+    setTimeout(() => isSelected.value = false, speed);
+  }
 }
 
 </script>
@@ -57,14 +74,20 @@ function onClick(e:Event) {
 
 <button 
   ref="element"
-  class="base-button relative bg-transparent font-inherit color-inherit mx-0"
-  :class="[props?.elementClassName, { ['disabled']: props?.disabled }]" 
+  class="base-button relative bg-transparent font-inherit color-inherit select-none mx-0"
+  :class="[
+    props?.elementClassName, 
+    { 
+      ['disabled']: props?.disabled,
+      ['pressed']: isPressed,
+      ['selected']: isSelected,
+    }]" 
   v-bind="{
     style: styleObject,
     ...attrs
   }"
-  
-  @click="onClick"
+  @mouseup="onUp"
+  @mousedown="onDown"
 >
   <span class="inner-base-button height-100 flex align-center justify-center" :class="props?.innerClassName" >
     <span :class="`ui-background pointer-none absolute lx-0 tx-0 width-100 height-100`"></span>

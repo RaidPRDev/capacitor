@@ -119,7 +119,10 @@ function onAfterLeave(el:Element) {
           :class="`footer width-100`"
           :role="`contentinfo`"
           :selectedIndex="sectionIndex"
-          :defaultButtonProps="{ elementClassName: `menu-button mxlr-10`, innerClassName: `flex-column` }"
+          :defaultButtonProps="{ 
+            elementClassName: `menu-button mxlr-10`, 
+            innerClassName: `flex-column` 
+          }"
           :dataProvider="footerMenuGroup" @triggered="onFooterMenuTriggered"
         ></ButtonGroup>
       </template>
@@ -163,7 +166,6 @@ function onAfterLeave(el:Element) {
 .button-group {
   :deep(.menu-button) {
     color: $primary-color;
-    transition: color $btn-transition-ms $btn-transition-ease;
 
     .ui-label {
       @include getFontSize('small');

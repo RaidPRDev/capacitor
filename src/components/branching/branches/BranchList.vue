@@ -38,6 +38,7 @@ const computedList = computed(() => {
 <template>
   <h1 class="transform-z">{{ `${props?.view?.title}` }}</h1>
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="mb-1 transform-z"></div>
+  
   <transition-group name="list-scale-fade-in" tag="div" class="flex flex-column gapx-16">
     <div v-for="(item, index) in computedList" :key="`item-${index}` " class="item" :style="{ transitionDelay: 0.15 * index + 's' }">
       <BaseButton 

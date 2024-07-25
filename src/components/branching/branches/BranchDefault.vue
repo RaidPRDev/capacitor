@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   inheritAttrs: true,
-  name: "DefaultBranch"
+  name: "BranchDefault"
 }   
 </script>
 

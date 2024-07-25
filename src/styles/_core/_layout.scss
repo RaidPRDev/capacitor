@@ -10,6 +10,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  user-select: none;
 }
 
 body {
@@ -19,6 +21,18 @@ body {
 
 #app {
   height: 100vh;
+}
+
+.scroller {
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  /* Optional: show position indicator in red */
+  &::-webkit-scrollbar-thumb {
+    background: grey;
+  }
 }
 
 .grid { display: grid; }
@@ -51,10 +65,21 @@ body {
 .outline-none { outline: none; }
 .background-none { background: none; }
 .overflow-hidden { overflow: hidden; }
-.overflow-scroll { overflow: scroll; }
-.overflow-v-scroll { overflow: hidden scroll; }
-.overflow-h-scroll { overflow: scroll hidden; }
-
+.overflow-scroll { 
+  overflow: scroll; 
+  @extend .scroller !optional;
+}
+.overflow-v-scroll { 
+  overflow: hidden scroll; 
+  @extend .scroller !optional;
+}
+.overflow-h-scroll { 
+  overflow: scroll hidden; 
+  @extend .scroller !optional;
+}
+.select-none {
+  user-select: none;
+}
 // prevent text from shifting when transitining
 .transform-z { 
   -webkit-transform: translateZ(0px);

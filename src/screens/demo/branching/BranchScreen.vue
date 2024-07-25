@@ -7,14 +7,17 @@ export default {
 <script setup lang="ts">
 import { onMounted, ref, shallowRef } from 'vue';
 
-import ScreenView from "@/screens/base/ScreenView.vue";
+import BasePanel from '@/ui/panels/BasePanel.vue';
 import Branching from '@/ui/navigation/branching/Branching.vue';
-import DefaultBranch from './branches/DefaultBranch.vue';
-import BranchList from './branches/BranchList.vue';
+
+// branch view components
+import BranchDefault from '@/components/branching/branches/BranchDefault.vue';
+import BranchList from '@/components/branching/branches/BranchList.vue';
 
 import { IBaseScreenSlotProps } from '@/ui/types';
 import { BranchViewData } from '@/ui/navigation/branching/types';
 import { loadJSONFile } from '@/utils/FileTools';
+
 
 const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
 const loading = ref<boolean>(true);
@@ -35,7 +38,7 @@ async function loadData(url: string) {
       break;
       
       default:
-        viewData.component = DefaultBranch;
+        viewData.component = BranchDefault;
       break;
     }
     return viewData;
@@ -47,12 +50,12 @@ async function loadData(url: string) {
 </script>
 
 <template>
-  <ScreenView v-bind="props">
+  <BasePanel v-bind="props" class="overflow-hidden">
     <transition name="fade" mode="out-in">
       <div v-if="loading" class="flex justify-center align-center height-100">Loading</div>
       <Branching v-else :views="views" viewClassName="pxlr-20 pxb-20" :useNavigation="true"></Branching>
     </transition>
-  </ScreenView>
+  </BasePanel>
 </template>
 
 <style scoped lang="scss"></style>

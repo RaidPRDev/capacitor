@@ -69,7 +69,8 @@ const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
           :buttonComponent="ActionButton"
           :defaultButtonProps="{ 
             elementClassName: `width-100`, 
-            innerClassName: `pxlr-30 pxtb-18` 
+            innerClassName: `pxlr-30 pxtb-18`,
+            usePressedState: true,
           }"
           :dataProvider="menuGroupItems" @triggered="onMenuTriggered"
         ></ButtonGroup>

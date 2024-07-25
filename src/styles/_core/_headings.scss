@@ -1,3 +1,7 @@
+@for $i from 1 through 6 {
+  $step: $i;
+  h#{$step} { @extend .select-none; }
+}
 h1 {
   @include getFontSize('large');
   font-weight: 500;

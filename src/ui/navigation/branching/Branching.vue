@@ -70,7 +70,14 @@ onMounted(() => {});
 <template>
   <div class="branching flex flex-column height-inherit" v-bind="{ ...attrs }">
     <transition name="fade" mode="out-in">
-      <View :key="currentView?.id" :view="currentView" @navigate="handleNavigate" :height="props?.useNavigation ? props?.navigationHeight : 0" :class="viewClassName" />
+      <View 
+        :key="currentView?.id" 
+        :view="currentView" 
+        @navigate="handleNavigate" 
+        :height="props?.useNavigation 
+          ? props?.navigationHeight 
+          : 0" :class="viewClassName" 
+      />
     </transition>
 
     <div v-if="props?.useNavigation" class="branch-navigation bg-transparent flex justify-center align-center pxlr-20 width-100" :style="navigationStyles">

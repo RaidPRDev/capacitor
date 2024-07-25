@@ -34,6 +34,8 @@ export interface IBaseButtonProps extends IBaseControl {
   iconClassName?: string;
   accessoryIconClassName?: string;
   bodyClassName?: string;
+  pressedTranstionDelay?: number;
+  usePressedState?: boolean;
 }
 
 export type IBaseHeaderItemType = {
@@ -58,6 +60,12 @@ export interface IBaseScreenProps extends IBaseControl {
 }
 
 export interface IBaseScreenSlotProps {
+  class?: string;
+  height?: number;
+  styles?: Record<string, any>;
+}
+
+export interface IBasePanelProps {
   class?: string;
   height?: number;
   styles?: Record<string, any>;
