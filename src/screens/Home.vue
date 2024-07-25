@@ -113,10 +113,10 @@ function onAfterLeave(el:Element) {
   </template>
   
   <template v-slot:footerSlot>
-    <BaseHeader ref="footerRef" class="center-container pxlr-20">
+    <BaseHeader ref="footerRef" class="center-container pxlr-20" centerClassName="width-100">
       <template v-slot:headerCenter>
         <ButtonGroup 
-          :class="`footer`"
+          :class="`footer width-100`"
           :role="`contentinfo`"
           :selectedIndex="sectionIndex"
           :defaultButtonProps="{ elementClassName: `menu-button mxlr-10`, innerClassName: `flex-column` }"
@@ -151,7 +151,11 @@ function onAfterLeave(el:Element) {
 .screen-footer {
   .center-container {
     :deep(.inner-base-header) {
+      width: 100%;
       border-radius: $footer-border-radius;
+      .inner-button-group {
+        justify-content: space-around;
+      }
     }
   }
 }

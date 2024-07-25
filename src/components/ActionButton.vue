@@ -12,7 +12,7 @@ import { IBaseButtonProps } from "@/ui/types";
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseButtonProps>(), {
   elementClassName: "action-button",
-  innerClassName: "pxlr-16 pxtb-10",
+  innerClassName: "pxlr-16 pxtb-9",
   bodyClassName: "relative",
   accessoryIconClassName: "relative",
 });

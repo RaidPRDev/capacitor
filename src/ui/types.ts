@@ -29,6 +29,7 @@ export interface IBaseButtonProps extends IBaseControl {
   accessoryIcon?: string | object;
   gap?: string;
   elementClassName?: string;
+  centerClassName?: string;
   innerClassName?: string;
   iconClassName?: string;
   accessoryIconClassName?: string;
@@ -37,10 +38,12 @@ export interface IBaseButtonProps extends IBaseControl {
 
 export type IBaseHeaderItemType = {
   gap?: number;
+  className?: string;
 }
 
 export interface IBaseHeaderProps extends IBaseControl {
   innerClassName?: string;
+  centerClassName?: string;
   leftProps?: IBaseHeaderItemType;
   centerProps?: IBaseHeaderItemType;
   rightProps?: IBaseHeaderItemType;

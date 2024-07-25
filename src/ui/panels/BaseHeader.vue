@@ -38,6 +38,8 @@ const itemClasses = computed(() => {
   leftCls += (props?.leftProps?.gap) ? `gapx-${props?.leftProps?.gap} ` : ``;
 
   let centerCls = (props?.centerProps?.gap) ? `gapx-${props?.centerProps?.gap} ` : ``;
+  centerCls += props?.centerClassName ? ` ${props?.centerClassName}` : ``
+  
   let rightCls = (props?.rightProps?.gap) ? `gapx-${props?.rightProps?.gap} ` : ``;
   
   return { leftCls, centerCls, rightCls };
@@ -51,7 +53,7 @@ const itemClasses = computed(() => {
   role="banner"
   ref="element"
   class="base-header height-100"
-  :class="attrs?.class"
+  :class="[attrs?.class]"
   :v-bind="attrs"
 >
   <div :class="`inner-base-header height-inherit relative flex align-center justify-between ${props?.innerClassName ?? ``}`" >

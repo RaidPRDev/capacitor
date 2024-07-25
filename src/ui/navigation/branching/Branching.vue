@@ -77,7 +77,7 @@ onMounted(() => {});
       <div class="inner-navigation flex justify-between width-100 pxlr-10">
         <BaseButton 
           class="variant-red" 
-          innerClassName="pxlr-16 pxtb-6 justify-between"
+          innerClassName="pxlr-16 pxtb-9 justify-between"
           bodyClassName="text-left"
           :label="`Back`"
           :icon="ChevronLeftIcon"
@@ -86,7 +86,7 @@ onMounted(() => {});
         />
         <BaseButton 
           class="variant-red" 
-          innerClassName="pxlr-16 pxtb-6 justify-between"
+          innerClassName="pxlr-16 pxtb-9 justify-between"
           bodyClassName="text-left"
           :label="`Next`"
           :accessoryIcon="ChevronRightIcon"
