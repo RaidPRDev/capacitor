@@ -74,6 +74,7 @@ const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
           :dataProvider="menuGroupItems" @triggered="onMenuTriggered"
         ></ButtonGroup>
       </div>
+      
       <div class="version absolute bx-0 width-100 text-center">
         {{ `Version: ${APP_VERSION} | Build: ${BUILD_VERSION} | ${PLATFORM_NAME}` }}
       </div>

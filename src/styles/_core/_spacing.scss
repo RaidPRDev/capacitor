@@ -1,4 +1,4 @@
-@for $i from 0 through 50 {
+@for $i from 0 through 100 {
   $step: $i;
   .p-#{$step} { padding: #{$step}rem; }
   .ptb-#{$step} { padding-top: #{$step}rem; padding-bottom: #{$step}rem; }
@@ -39,6 +39,5 @@
   .bx-#{$step} { bottom: #{$step}px; }
   .bx--#{$step} { bottom: -#{$step}px; }
   .lx-#{$step} { left: #{$step}px; }
-  .rx-#{$step} { right: #{$step}px; }
-  
+  .rx-#{$step} { right: #{$step}px; }  
 }

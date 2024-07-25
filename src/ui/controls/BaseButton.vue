@@ -58,7 +58,7 @@ function onClick(e:Event) {
 <button 
   ref="element"
   class="base-button relative bg-transparent font-inherit color-inherit mx-0"
-  :class="props?.elementClassName" 
+  :class="[props?.elementClassName, { ['disabled']: props?.disabled }]" 
   v-bind="{
     style: styleObject,
     ...attrs
@@ -66,24 +66,24 @@ function onClick(e:Event) {
   
   @click="onClick"
 >
-  <span class="inner-base-button flex align-center justify-center px-6" :class="props?.innerClassName" >
+  <span class="inner-base-button height-100 flex align-center justify-center" :class="props?.innerClassName" >
     <span :class="`ui-background pointer-none absolute lx-0 tx-0 width-100 height-100`"></span>
   
-    <span class="ui-icon flex" :class="props?.iconClassName" v-if="_iconState.icon || slots.iconSlot">
+    <span class="ui-icon flex relative" :class="props?.iconClassName" v-if="_iconState.icon || slots.iconSlot">
       <slot name="iconSlot">
-        <component v-if="typeof(_iconState.icon) === 'object'" :is="_iconState.icon"></component>
+        <component v-if="typeof(_iconState.icon) === 'object'" :is="_iconState.icon" xmlns="yes" ></component>
         <img v-else-if="typeof(_iconState.icon) === 'string'" v-bind:src="_iconState.icon" /> 
       </slot>
     </span>
     
-    <span class="ui-body flex" :class="props?.bodyClassName">
+    <span class="ui-body flex relative" :class="props?.bodyClassName">
       <slot name="bodySlot">
         <span class="ui-label" v-html="label"></span>
         <span v-if="subLabel" class="ui-label sub-header" v-html="subLabel"></span>
       </slot>
     </span>
 
-    <span class="ui-accessory-icon flex" :class="props?.accessoryIconClassName" v-if="_accessoryIconState.icon || slots.accessorySlot">
+    <span class="ui-accessory-icon flex relative" :class="props?.accessoryIconClassName" v-if="_accessoryIconState.icon || slots.accessorySlot">
       <slot name="accessorySlot">
         <component v-if="typeof(_accessoryIconState.icon) === 'object'" :is="_accessoryIconState.icon"></component>
         <img v-else-if="typeof(_accessoryIconState.icon) === 'string'" v-bind:src="_accessoryIconState.icon" /> 
@@ -102,7 +102,6 @@ function onClick(e:Event) {
   }  
   &.disabled {
     cursor: not-allowed;
-    pointer-events: none;
   }  
 }
 </style>

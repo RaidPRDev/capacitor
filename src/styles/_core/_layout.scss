@@ -26,12 +26,13 @@ body {
 .grid-50 { grid-template-columns: 1fr 1fr; }
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
+.flex-grow { flex-grow: 1; }
 .align-center { align-items: center; }
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
+.relative { position: relative; }
 .absolute { position: absolute; }
 .fixed { position: fixed; }
-.relative { position: relative; }
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
@@ -50,3 +51,9 @@ body {
 .outline-none { outline: none; }
 .background-none { background: none; }
 .overflow-hidden { overflow: hidden; }
+.overflow-scroll { overflow: scroll; }
+.overflow-v-scroll { overflow: hidden scroll; }
+.overflow-h-scroll { overflow: scroll hidden; }
+
+// prevent text from shifting when transitining
+.transform-z { -webkit-transform: translateZ(0px); }

@@ -65,12 +65,11 @@ onMounted(() => {});
 </template>
 
 <style scoped lang="scss">
+$headersHeight: ($header-height + $footer-height);
+
 .base-screen {
   transition: transform 0.65s ease, opacity 0.65s ease;
 }
-
-$headersHeight: ($header-height + $footer-height);
-
 .screen-header {
   height: #{$header-height}px;
 }

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "branch-1",
+    "name": "View 1",
+    "layout": "list",
+    "items": [
+      {
+        "label": "Label 2",
+        "branchTo": "branch-2"
+      },
+      {
+        "label": "Label 3",
+        "branchTo": "branch-3"
+      }
+    ],
+    "branchTo": "branch-2"
+  },
+  {
+    "id": "branch-2",
+    "name": "View 2",
+    "layout": "default",
+    "items": [
+      {
+        "label": "Label 1",
+        "branchTo": "branch-1"
+      },
+      {
+        "label": "Label 3",
+        "branchTo": "branch-3"
+      }
+    ],
+    "branchTo": "branch-3"
+  },
+  {
+    "id": "branch-3",
+    "name": "View 3",
+    "layout": "default",
+    "items": [
+      {
+        "label": "Label 1",
+        "branchTo": "branch-1"
+      },
+      {
+        "label": "Label 2",
+        "branchTo": "branch-2"
+      }
+    ],
+    "branchTo": null
+  }
+]

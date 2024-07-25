@@ -12,7 +12,7 @@ onMounted(() => {
 });
 
 function onEnter(el:Element, done:() => void) {
-  if (true) console.log(el);
+  if (false) console.log(el);
   if (!renderCount.value) renderCount.value = true;
   done();
 }

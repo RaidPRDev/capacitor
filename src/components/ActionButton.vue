@@ -31,7 +31,7 @@ function onTriggered(e:Event) {
 </script>
 
 <template>
-  <BaseButton class="action-button" v-bind="props" @triggered="onTriggered">
+  <BaseButton class="action-button variant-red" v-bind="props" @triggered="onTriggered">
     <template v-slot:accessorySlot v-if="accessoryIcon">
       <component v-if="typeof(accessoryIcon) === 'object'" :is="accessoryIcon"></component>
     </template>
@@ -39,36 +39,5 @@ function onTriggered(e:Event) {
 </template>
 
 <style scoped lang="scss">
-.action-button {
-  color: white;
-
-  :deep(.inner-base-button) {
-    background: $red-gradient;
-    border-radius: $global-radius;
-
-    .ui-background {
-      transition: opacity $btn-transition-ms $btn-transition-ease;
-      background: $red-light-gradient;
-      border-radius: $global-radius;
-      opacity: 0;
-    }
-    
-    .ui-label {
-      @include getFontSize('small');
-      text-transform: uppercase;
-    }
-    
-    .ui-accessory-icon {
-      width: 19px;
-    }
-  }
-
-  &:hover {
-    :deep(.inner-base-button) {
-      .ui-background {
-        opacity: 1;
-      }
-    }
-  }
-}
+// .action-button {}
 </style>

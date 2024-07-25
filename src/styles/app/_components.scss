@@ -1,2 +1,69 @@
 //////////
 /// Buttons
+.base-button {
+  transition: opacity $btn-transition-ms $btn-transition-ease;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.variant-blue {
+    color: white;
+    border-radius: $global-radius;
+    
+    .inner-base-button {
+      background: $blue-gradient;
+      border-radius: inherit;
+    }
+    .ui-background {
+      transition: opacity $btn-transition-ms $btn-transition-ease;
+      background: $blue-light-gradient;
+      border-radius: inherit;
+      opacity: 0;
+    }
+    .ui-label {
+      @include getFontSize('small');
+    }
+    
+    .ui-accessory-icon {
+      width: 19px;
+    }
+  
+    &:hover:not(.disabled):not(.active) {
+      .ui-background {
+        opacity: 1;
+      }
+    }
+  }
+  
+  &.variant-red {
+    color: white;
+    border-radius: $global-radius;
+
+    .inner-base-button {
+      background: $red-gradient;
+      border-radius: inherit;
+    }
+    .ui-background {
+      transition: opacity $btn-transition-ms $btn-transition-ease;
+      background: $red-light-gradient;
+      border-radius: inherit;
+      opacity: 0;
+    }
+    .ui-label {
+      @include getFontSize('small');
+      text-transform: uppercase;
+    }
+    
+    .ui-accessory-icon {
+      width: 19px;
+    }
+  
+    &:hover:not(.disabled):not(.active) {
+      .ui-background {
+        opacity: 1;
+      }
+    }
+  }
+}
+

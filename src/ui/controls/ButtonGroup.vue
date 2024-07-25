@@ -44,14 +44,14 @@ function onTriggered(index:number) {
   ref="element"
   class="button-group relative"
   :class="props?.elementClassName" 
-  v-bind="{ ...attrs }"  
+  v-bind="{ ...attrs }"
 >
   <div class="inner-button-group flex align-center justify-center" :class="props?.innerClassName" >
     <template v-for="(button, index) in dataProvider">
       <component 
         :is="buttonComponent"
         :v-bind:key="`home-menu-nav-${index}`"
-        v-bind="{...props?.defaultButtonProps, ...button, class: selectedIndex === index ? `active` : ``}"
+        v-bind="{...props?.defaultButtonProps, class: selectedIndex === index ? `active` : ``, ...button}"
         @triggered="() => onTriggered(index)"
       ></component>
       

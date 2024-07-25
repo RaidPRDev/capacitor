@@ -56,6 +56,7 @@ export interface IBaseScreenProps extends IBaseControl {
 
 export interface IBaseScreenSlotProps {
   class?: string;
+  height?: number;
   styles?: Record<string, any>;
 }
 

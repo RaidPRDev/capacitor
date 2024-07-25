@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { ComponentPublicInstance, computed, onMounted, ref, VueElement } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
 import { IButtonGroupSelected } from "@/ui/types";
 
@@ -23,22 +23,47 @@ import SearchIcon from '@/assets/icons/search-icon.svg';
 import HomeIcon from '@/assets/icons/home-icon.svg';
 import PatientIcon from '@/assets/icons/patient-icon.svg';
 import SetupIcon from '@/assets/icons/setup-icon.svg';
-import PanicIcon from '@/assets/icons/panic-icon.svg';
+import PanicIcon from '@/assets/icons/panic-red-icon.svg';
 
 const router = useRouter();
 const session = useSession();
 
+// Reference Setup
+const headerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
+const bodyRef = ref<ComponentPublicInstance<typeof VueElement>>()
+const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
+
 const footerMenuGroup = [
-  { label: "Home", icon: HomeIcon, route: "Home" },
-  { label: "Patient", icon: PatientIcon, route: "Patient" },
-  { label: "Setup", icon: SetupIcon, route: "Setup" },
-  { label: "Panic", icon: PanicIcon, route: "Panic" },
+  { label: "Home", icon: HomeIcon, route: "Home", class: "" },
+  { label: "Patient", icon: PatientIcon, route: "Patient", class: "" },
+  { label: "Setup", icon: SetupIcon, route: "Setup", class: "" },
+  { label: "Panic", icon: PanicIcon, route: "Panic", class: "" },
 ];
 
 const sectionIndex = computed(() => {
   const index = footerMenuGroup.findIndex((item) => item.route === router.currentRoute.value.name);
   session?.setCurrentIndex(index);
   return index;
+})
+
+const bodyProps = computed(() => {
+  if (!headerRef?.value) return {}
+  if (!bodyRef?.value) return {}
+  if (!footerRef?.value) return {}
+
+  const headerEl = headerRef?.value?.elRef() as HTMLElement;
+  const headerBnds = headerEl?.getBoundingClientRect();
+  const footerEl = footerRef?.value?.elRef() as HTMLElement;
+  const footerBnds = footerEl?.getBoundingClientRect();
+  const topPadding = 40;
+  const bottomPadding = 0;
+  const diff = (footerBnds.top - headerBnds.bottom) - ( topPadding + bottomPadding );
+
+  return {
+    styles: {
+      height: `${diff}px`
+    }
+  }
 })
 
 function onFooterMenuTriggered(selected: IButtonGroupSelected) {
@@ -64,7 +89,7 @@ function onAfterLeave(el:Element) {
 <BaseScreen className="home">
   
   <template v-slot:headerSlot>
-    <BaseHeader class="center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
+    <BaseHeader ref="headerRef" class="center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
       <template v-slot:headerLeft>
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" />
       </template>
@@ -77,18 +102,22 @@ function onAfterLeave(el:Element) {
     </BaseHeader>
   </template>
   
-  <template v-slot:bodySlot="screenBodyProps">
+  <template v-slot:bodySlot>
+    <div class="inner-body" v-bind="{ style: { ...bodyProps?.styles } }" >
     <router-view v-slot="{ Component, route }">
       <transition :name="route.meta.transition || 'scale-slide'" @after-leave="onAfterLeave" @after-enter="(el) => onAfterEnter(el, route)">
-        <component :is="Component" v-bind="screenBodyProps" />
+        <component ref="bodyRef" :is="Component" v-bind="{ styles: { ...bodyProps?.styles } }" />
       </transition>
     </router-view>
+    </div>
   </template>
   
   <template v-slot:footerSlot>
-    <BaseHeader class="center-container pxlr-20">
+    <BaseHeader ref="footerRef" class="center-container pxlr-20">
       <template v-slot:headerCenter>
         <ButtonGroup 
+          :class="`footer`"
+          :role="`contentinfo`"
           :selectedIndex="sectionIndex"
           :defaultButtonProps="{ elementClassName: `menu-button mxlr-10`, innerClassName: `flex-column` }"
           :dataProvider="footerMenuGroup" @triggered="onFooterMenuTriggered"

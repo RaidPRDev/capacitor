@@ -30,7 +30,7 @@ const slots = useSlots();
 
 // Expose Definitions
 defineExpose({
-  headerRef: () => element.value
+  elRef: () => element.value
 }); 
 
 const itemClasses = computed(() => {
