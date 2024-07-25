@@ -56,4 +56,7 @@ body {
 .overflow-h-scroll { overflow: scroll hidden; }
 
 // prevent text from shifting when transitining
-.transform-z { -webkit-transform: translateZ(0px); }
+.transform-z { 
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
