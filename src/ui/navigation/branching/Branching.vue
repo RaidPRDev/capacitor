@@ -73,7 +73,7 @@ onMounted(() => {});
       <View :key="currentView?.id" :view="currentView" @navigate="handleNavigate" :height="props?.useNavigation ? props?.navigationHeight : 0" :class="viewClassName" />
     </transition>
 
-    <div v-if="props?.useNavigation" class="branch-navigation flex justify-center align-center pxlr-20 width-100" :style="navigationStyles">
+    <div v-if="props?.useNavigation" class="branch-navigation bg-transparent flex justify-center align-center pxlr-20 width-100" :style="navigationStyles">
       <div class="inner-navigation flex justify-between width-100 pxlr-10">
         <BaseButton 
           class="variant-red" 
@@ -99,7 +99,5 @@ onMounted(() => {});
 </template>
 
 <style scoped lang="scss">
-.branch-navigation {
-  background-color: transparent;
-}
+// .branch-navigation {}
 </style>
