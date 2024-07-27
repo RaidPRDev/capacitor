@@ -1,6 +1,7 @@
 <script lang="ts">
 export default {
-  inheritAttrs: false
+  inheritAttrs: false,
+  name: "BranchScreen"
 }   
 </script>
 
@@ -9,44 +10,21 @@ import { onMounted, ref, shallowRef } from 'vue';
 
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import Branching from '@/ui/navigation/branching/Branching.vue';
-
-// branch view components
-import BranchDefault from '@/components/branching/branches/BranchDefault.vue';
-import BranchList from '@/components/branching/branches/BranchList.vue';
+import PulseRateLoader from '@/components/PulseRateLoader.vue';
 
 import { IBaseScreenSlotProps } from '@/ui/types';
 import { BranchViewData } from '@/ui/navigation/branching/types';
-import { loadJSONFile } from '@/utils/FileTools';
-import PulseRateLoader from '@/components/PulseRateLoader.vue';
-
+import { loadViewData } from '@/components/branching/tools/DataTools';
 
 const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
 const loading = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
 
-onMounted(() => {
-  loadData('views.json');
-})
-
-async function loadData(url: string) {
-  const data = await loadJSONFile(`/assets/data/${url}`) as BranchViewData[];
-
-  views.value = data.map((dataItem) => {
-    const viewData = dataItem;
-    switch (viewData.layout) {
-      case "list":
-        viewData.component = BranchList;
-      break;
-      
-      default:
-        viewData.component = BranchDefault;
-      break;
-    }
-    return viewData;
-  });
+onMounted(async () => {
+  await loadViewData('template/branching.json', views);
 
   setTimeout(() => { loading.value = false; }, 750);
-}
+})
 
 </script>
 

@@ -28,6 +28,8 @@ export interface IBaseButtonProps extends IBaseControl {
   icon?: string | object;
   accessoryIcon?: string | object;
   gap?: string;
+  iconProps?: Record<string, any>;
+  accessoryIconProps?: Record<string, any>;
   elementClassName?: string;
   centerClassName?: string;
   innerClassName?: string;
@@ -36,6 +38,14 @@ export interface IBaseButtonProps extends IBaseControl {
   bodyClassName?: string;
   pressedTranstionDelay?: number;
   usePressedState?: boolean;
+  triggerCallback?: (data?: any) => void;
+}
+
+export interface IBaseToggleProps {
+  modelValue?: boolean | null;
+  label?: string;
+  class?: string;
+  triggerCallback?: (toggled?:boolean) => void;
 }
 
 export type IBaseHeaderItemType = {
@@ -103,4 +113,21 @@ export interface IButtonGroupProps extends IBaseControl {
 export type IButtonGroupSelected = {
   index: number;
   data: Record<string, any>
+}
+
+export interface IBaseListItemData {
+  type?: string;
+  label?: string;
+  icon?: any;
+  iconProps?: any;
+  accessoryIcon?: any;
+  accessoryIconProps?: any;
+  data?: Record<string, any>;
+}
+
+export interface IBaseListProps {
+  dataProvider?: Array<IBaseListItemData> | null;
+  listItemClass?: string; 
+  buttonProps?: IBaseButtonProps;
+  transitionProps?: any;
 }

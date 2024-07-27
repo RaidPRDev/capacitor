@@ -12,7 +12,7 @@ import { IBaseButtonProps } from "@/ui/types";
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseButtonProps>(), {
   elementClassName: "action-button",
-  innerClassName: "pxlr-16 pxtb-9",
+  innerClassName: "pxlr-13 pxtb-9 justify-between",
   bodyClassName: "relative",
   accessoryIconClassName: "relative",
 });
@@ -31,7 +31,7 @@ function onTriggered(e:Event) {
 </script>
 
 <template>
-  <BaseButton class="action-button variant-red" v-bind="props" @triggered="onTriggered">
+  <BaseButton class="action-button variant-red small" v-bind="props" @triggered="onTriggered">
     <template v-slot:accessorySlot v-if="accessoryIcon">
       <component v-if="typeof(accessoryIcon) === 'object'" :is="accessoryIcon"></component>
     </template>

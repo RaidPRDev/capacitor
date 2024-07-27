@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   inheritAttrs: true,
-  name: "Home"
+  name: "Template"
 }   
 </script>
 
@@ -21,9 +21,9 @@ import MenuIcon from '@/assets/icons/menu-icon.svg';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 
 import HomeIcon from '@/assets/icons/home-icon.svg';
-import PatientIcon from '@/assets/icons/patient-icon.svg';
-import SetupIcon from '@/assets/icons/setup-icon.svg';
-import PanicIcon from '@/assets/icons/panic-red-icon.svg';
+// import PatientIcon from '@/assets/icons/patient-icon.svg';
+// import SetupIcon from '@/assets/icons/setup-icon.svg';
+// import PanicIcon from '@/assets/icons/panic-red-icon.svg';
 
 const router = useRouter();
 const session = useSession();
@@ -35,9 +35,9 @@ const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 
 const footerMenuGroup = [
   { label: "Home", icon: HomeIcon, route: "Home", class: "" },
-  { label: "Patient", icon: PatientIcon, route: "Patient", class: "" },
-  { label: "Setup", icon: SetupIcon, route: "Setup", class: "" },
-  { label: "Panic", icon: PanicIcon, route: "Panic", class: "" },
+  { label: "Template", icon: HomeIcon, route: "Template", class: "" },
+  // { label: "Setup", icon: SetupIcon, route: "Template", class: "" },
+  // { label: "Panic", icon: PanicIcon, route: "Template", class: "" },
 ];
 
 const sectionIndex = computed(() => {
@@ -86,7 +86,7 @@ function onAfterLeave(el:Element) {
 </script>
 
 <template>
-<BaseScreen className="home" :headerSlotProps="{ class: `z-index-1` }">
+<BaseScreen className="home">
   
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
@@ -94,11 +94,7 @@ function onAfterLeave(el:Element) {
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" />
       </template>
       <template v-slot:headerCenter>
-        <BaseButton class="absolute bx--20" @triggered="() => router.push({ name: `Template` })">
-          <template v-slot:bodySlot>
-            <img :src="Logo" width="81" height="60" class="" />
-          </template>
-        </BaseButton>
+        <img :src="Logo" width="81" height="60" class="absolute bx--20" />
       </template>
       <template v-slot:headerRight>
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" />

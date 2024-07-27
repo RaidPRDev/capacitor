@@ -35,8 +35,8 @@ const viewHistory = ref<number[]>([]);
 
 // Computed properties
 const currentView = computed<BranchViewData | null>(() => props?.views?.length > 0 ? props?.views?.[currentViewIndex.value] : null);
-const canGoBack = computed<boolean>(() => viewHistory.value.length > 0);
-const canGoNext = computed<boolean>(() => currentView.value !== null && currentView.value.branchTo !== null);
+const canGoBack = computed<boolean>(() => viewHistory?.value?.length > 0);
+const canGoNext = computed<boolean>(() => currentView?.value !== null && currentView?.value?.branchTo !== null);
 const navigationStyles = computed(() => {
   if (!props?.useNavigation) return {}
   return { height: `${props?.navigationHeight}px` }
@@ -83,8 +83,8 @@ onMounted(() => {});
     <div v-if="props?.useNavigation" class="branch-navigation bg-transparent flex justify-center align-center pxlr-20 width-100" :style="navigationStyles">
       <div class="inner-navigation flex justify-between width-100 pxlr-10">
         <BaseButton 
-          class="variant-red" 
-          innerClassName="pxlr-16 pxtb-9 justify-between"
+          class="variant-red small" 
+          innerClassName="pxlr-13 pxtb-9 justify-between"
           bodyClassName="text-left"
           :label="`Back`"
           :icon="ChevronLeftIcon"
@@ -92,8 +92,8 @@ onMounted(() => {});
           @triggered="goBack"
         />
         <BaseButton 
-          class="variant-red" 
-          innerClassName="pxlr-16 pxtb-9 justify-between"
+          class="variant-red small" 
+          innerClassName="pxlr-13 pxtb-9 justify-between"
           bodyClassName="text-left"
           :label="`Next`"
           :accessoryIcon="ChevronRightIcon"

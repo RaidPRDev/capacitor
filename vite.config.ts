@@ -41,6 +41,7 @@ export default defineConfig(async ({command, mode}) => {
         scss: {
           // imports to components using scss
           additionalData: `
+          @use 'sass:math';
           @import "./src/styles/_core/_variables";
           @import "./src/styles/_core/_utils";
           @import "./src/styles/app/_fonts";

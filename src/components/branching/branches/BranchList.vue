@@ -45,11 +45,10 @@ const computedList = computed(() => {
         class="variant-blue width-100" 
         innerClassName="px-20 justify-between"
         bodyClassName="text-left"
+        accessoryIconClassName="base-control"
+        :label="item.label"
         @triggered="() => navigate(item.branchTo)"
       >
-        <template v-slot:bodySlot v-if="item.label">
-          {{ item.label }}
-        </template>
         <template v-slot:accessorySlot v-if="UpRightArrowIcon">
           <component v-if="typeof(UpRightArrowIcon) === 'object'" :is="UpRightArrowIcon"></component>
         </template>
@@ -67,6 +66,9 @@ const computedList = computed(() => {
   :deep(.inner-base-button) {
     .ui-label {
       @include getFontSize('medium');
+    }
+    .ui-accessory-icon {
+      width: 19px;
     }
   }
 }

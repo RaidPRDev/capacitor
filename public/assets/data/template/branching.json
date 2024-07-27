@@ -13,6 +13,10 @@
       {
         "label": "Go to 3",
         "branchTo": "branch-3"
+      },
+      {
+        "label": "Go to 7",
+        "branchTo": "branch-7"
       }
     ]
   },
@@ -107,6 +111,27 @@
         "label": "Go to 1",
         "branchTo": "branch-1"
       }
+    ]
+  },
+  {
+    "id": "branch-7",
+    "title": "Branch View 7",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "checklist",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Enable Option #1",
+        "branchTo": "branch-1"
+      },
+      {
+        "label": "Enable Option #2",
+        "branchTo": "branch-4"
+      },
+      {
+        "label": "Enable Option #3",
+        "branchTo": "branch-5"
+      }   
     ]
   }
 ]

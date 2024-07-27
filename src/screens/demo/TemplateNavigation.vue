@@ -1,6 +1,7 @@
 <script lang="ts">
 export default {
-  inheritAttrs: false
+  inheritAttrs: false,
+  name: "TemplateNavigation"
 }   
 </script>
 
@@ -10,12 +11,7 @@ import { useRouter } from 'vue-router';
 // import { IBaseScreenSlotProps } from '@/ui/types';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 
-import MedicalIcon from '@/assets/icons/homeMenu/medical-icon.svg';
-import MedicalBedIcon from '@/assets/icons/homeMenu/medical-bed-icon.svg';
-import StatsIcon from '@/assets/icons/homeMenu/stats-icon.svg';
-import TimePillIcon from '@/assets/icons/homeMenu/time-pill-icon.svg';
 import WrenchIcon from '@/assets/icons/homeMenu/wrench-icon.svg';
-import FavoritesIcon from '@/assets/icons/homeMenu/favorites-icon.svg';
 import { useAttrs } from 'vue';
 
 // Component Props Setup
@@ -24,12 +20,10 @@ const attrs = useAttrs();
 const router = useRouter();
 
 const menuItems = [
-  { label: "ECMO<br>Candidacy", icon: MedicalBedIcon, class: "" },
-  { label: "Calculators", icon: MedicalIcon, class: "" },
-  { label: "Equipment", icon: WrenchIcon, class: "" },
-  { label: "Medication", icon: TimePillIcon, class: "" },
-  { label: "Checklists", icon: StatsIcon, class: "" },
-  { label: "Favorites", icon: FavoritesIcon, class: "" },
+  { label: "Branching", icon: WrenchIcon, class: "" },
+  { label: "Calculators", icon: WrenchIcon, class: "" },
+  { label: "Checklists", icon: WrenchIcon, class: "" },
+  { label: "Favorites", icon: WrenchIcon, class: "" },
 ];
 
 function onMenuTriggered(index:number) {
@@ -37,17 +31,16 @@ function onMenuTriggered(index:number) {
 
   switch (index) {
     case 0:
-      // router.push({ name:"Branching" });
+      router.push({ name:"Branching" });
     break;
     case 1:
+      // router.push({ name:"Calculator" });
     break;
     case 2:
+      router.push({ name:"Checklist" });
     break;
     case 3:
-    break;
-    case 4:
-    break;
-    case 5:
+      // router.push({ name:"Favorite" });
     break;
   }
 }

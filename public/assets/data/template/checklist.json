@@ -1,0 +1,44 @@
+[
+  {
+    "id": "branch-1",
+    "title": "Checklist View 1",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "checklist",
+    "branchTo": "branch-2",
+    "items": [
+      {
+        "label": "Enable Option #1",
+        "branchTo": ""
+      },
+      {
+        "label": "Enable Option #2",
+        "branchTo": ""
+      },
+      {
+        "label": "Enable Option #3",
+        "branchTo": ""
+      }   
+    ]
+  },
+  {
+    "id": "branch-2",
+    "title": "Checklist View 2",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "checklist",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Enable Option #4",
+        "branchTo": ""
+      },
+      {
+        "label": "Enable Option #5",
+        "branchTo": ""
+      },
+      {
+        "label": "Enable Option #6",
+        "branchTo": ""
+      }   
+    ]
+  }
+]

@@ -8,11 +8,12 @@ export default {
 <script setup lang="ts">
 import { reactive, ref, shallowReactive, useAttrs, useSlots } from 'vue';
 import type { IBaseButtonProps } from '@/ui/types';
+import { findParentByClassName } from '@/utils/HTMLTools';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseButtonProps>(), {
   usePressedState: true,
-  pressedTranstionDelay: 475,  
+  pressedTranstionDelay: 475
 });
 
 // Emission Event Setup
@@ -50,22 +51,50 @@ const styleObject = reactive({
   // gap: ( (props.icon || props.accessoryIcon) && (props.label)) ? props.gap : 0
 })
 
-function onUp(e:Event) {
+function onUp() {
   if (props?.disabled || props?.usePressedState) return;
-  console.log("sadsdds", props?.usePressedState)
-  emit('triggered', e);
+
+  trigger();
 }
 
-function onDown(e:Event) {
-  if (props?.disabled || isPressed.value || isSelected.value) return;
+function onDown(e:MouseEvent) {
+  if (e?.button === 2) return;
+  if (props?.disabled) return;
+
+  const target = e?.target as HTMLElement;
+
+  // detect if clicking on icon or accessory slots
+  const checkIconSlot = findParentByClassName(e?.target as HTMLElement, 'ui-accessory-icon');
+  const checkAccIconSlot = findParentByClassName(e?.target as HTMLElement, 'ui-accessory-icon');
+ 
+  // use 'base-control' class name for interaction control within parent button
+  if (checkIconSlot || checkAccIconSlot) {
+    if (target?.classList.contains('base-control')) {
+      return;
+    }
+  }
+
+  if (isPressed.value || isSelected.value) return;
 
   if (props?.usePressedState) {
     const speed = props.pressedTranstionDelay;
     isPressed.value = isSelected.value = true; 
     setTimeout(() => isPressed.value = false, speed / 2);
-    setTimeout(() => emit('triggered', e), speed / 1.3);
+    setTimeout(() => trigger(e), speed / 1.3);
     setTimeout(() => isSelected.value = false, speed);
   }
+}
+
+function trigger(e?:Event) {
+  if (!findParentByClassName(e?.target as HTMLElement, 'base-control')) {
+    return;
+  }
+  emit('triggered', e!);
+
+  // console.log("target", e?.target)
+  // console.log("currentTarget", e?.currentTarget)
+
+  props?.triggerCallback && props?.triggerCallback({ e });
 }
 
 </script>
@@ -74,7 +103,7 @@ function onDown(e:Event) {
 
 <button 
   ref="element"
-  class="base-button relative bg-transparent font-inherit color-inherit select-none mx-0"
+  class="base-control base-button relative bg-transparent font-inherit color-inherit select-none mx-0"
   :class="[
     props?.elementClassName, 
     { 
@@ -94,21 +123,21 @@ function onDown(e:Event) {
   
     <span class="ui-icon flex relative" :class="props?.iconClassName" v-if="_iconState.icon || slots.iconSlot">
       <slot name="iconSlot">
-        <component v-if="typeof(_iconState.icon) === 'object'" :is="_iconState.icon" xmlns="yes" ></component>
+        <component v-if="typeof(_iconState.icon) === 'object'" :is="_iconState.icon" xmlns="yes" v-bind="props?.iconProps"></component>
         <img v-else-if="typeof(_iconState.icon) === 'string'" v-bind:src="_iconState.icon" /> 
       </slot>
     </span>
     
     <span class="ui-body flex relative" :class="props?.bodyClassName">
       <slot name="bodySlot">
-        <span class="ui-label" v-html="label"></span>
-        <span v-if="subLabel" class="ui-label sub-header" v-html="subLabel"></span>
+        <span class="ui-label transform-z" v-html="label"></span>
+        <span v-if="subLabel" class="ui-label sub-header transform-z" v-html="subLabel"></span>
       </slot>
     </span>
 
     <span class="ui-accessory-icon flex relative" :class="props?.accessoryIconClassName" v-if="_accessoryIconState.icon || slots.accessorySlot">
       <slot name="accessorySlot">
-        <component v-if="typeof(_accessoryIconState.icon) === 'object'" :is="_accessoryIconState.icon"></component>
+        <component v-if="typeof(_accessoryIconState.icon) === 'object'" :is="_accessoryIconState.icon" v-bind="props?.accessoryIconProps"></component>
         <img v-else-if="typeof(_accessoryIconState.icon) === 'string'" v-bind:src="_accessoryIconState.icon" /> 
       </slot>
     </span>
