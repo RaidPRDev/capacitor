@@ -63,6 +63,8 @@ function onDown(e:MouseEvent) {
 
   const target = e?.target as HTMLElement;
 
+  console.log("target", e?.target)
+
   // detect if clicking on icon or accessory slots
   const checkIconSlot = findParentByClassName(e?.target as HTMLElement, 'ui-accessory-icon');
   const checkAccIconSlot = findParentByClassName(e?.target as HTMLElement, 'ui-accessory-icon');
@@ -128,7 +130,7 @@ function trigger(e?:Event) {
       </slot>
     </span>
     
-    <span class="ui-body flex relative" :class="props?.bodyClassName">
+    <span v-if="label" class="ui-body flex relative" :class="props?.bodyClassName">
       <slot name="bodySlot">
         <span class="ui-label transform-z" v-html="label"></span>
         <span v-if="subLabel" class="ui-label sub-header transform-z" v-html="subLabel"></span>

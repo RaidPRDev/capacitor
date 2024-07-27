@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   inheritAttrs: false,
-  name: "BranchScreen"
+  name: "InputListScreen"
 }   
 </script>
 
@@ -21,7 +21,7 @@ const loading = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
 
 onMounted(async () => {
-  await loadViewData('template/branching.json', views);
+  await loadViewData('template/input.json', views);
 
   setTimeout(() => { loading.value = false; }, 750);
 })

@@ -90,3 +90,26 @@
   }
 }
 
+//////////
+/// Input
+.base-input {
+  &.variant-calc {
+    .ui-input-field {
+      background-color: rgba($primary-color, 0.25);
+      box-shadow: .05em .05em .05em rgba(0, 0, 0, 0.3) inset;
+      border-radius: calc($global-radius - 2px);
+    }
+    .ui-input-element {
+      background: transparent;
+      padding: 12px 12px;
+      color: white;
+      font-weight: 800;
+      font-size: 24px;
+
+      &::placeholder {
+        color: rgba(white, 0.5);
+        font-weight: 300;
+      }
+    }
+  }
+}

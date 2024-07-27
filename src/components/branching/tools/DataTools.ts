@@ -6,6 +6,7 @@ import { ShallowRef } from "vue";
 import BranchDefault from '@/components/branching/branches/BranchDefault.vue';
 import BranchList from '@/components/branching/branches/BranchList.vue';
 import BranchChecklist from '@/components/branching/branches/BranchChecklist.vue';
+import BranchInput from "../branches/BranchInput.vue";
 
 export async function loadViewData(url: string, views: ShallowRef<BranchViewData[]>) {
   
@@ -23,6 +24,10 @@ export async function loadViewData(url: string, views: ShallowRef<BranchViewData
         
         case "checklist":
           viewData.component = BranchChecklist;
+        break;
+        
+        case "input":
+          viewData.component = BranchInput;
         break;
         
         default:

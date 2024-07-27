@@ -5,8 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-
+// import { useRouter } from 'vue-router';
 // import { IBaseScreenSlotProps } from '@/ui/types';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 
@@ -21,7 +20,7 @@ import { useAttrs } from 'vue';
 // Component Props Setup
 // const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
 const attrs = useAttrs();
-const router = useRouter();
+// const router = useRouter();
 
 const menuItems = [
   { label: "ECMO<br>Candidacy", icon: MedicalBedIcon, class: "" },

@@ -10,6 +10,7 @@ import Template from '@/screens/demo/Template.vue';
 import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
 import BranchScreen from '@/screens/demo/branching/BranchScreen.vue';
 import ChecklistScreen from '@/screens/demo/checklist/ChecklistScreen.vue';
+import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
 
 const defaultTransition = { transition: "scale-slide" };
 
@@ -29,6 +30,7 @@ const routes = [
     { path: '', name: "Template", component: TemplateNavigation, meta: { ...defaultTransition } },
     { path: 'branching', name: "Branching", component: BranchScreen, meta: { ...defaultTransition } },
     { path: 'checklist', name: "Checklist", component: ChecklistScreen, meta: { ...defaultTransition } },
+    { path: 'input', name: "Input", component: InputListScreen, meta: { ...defaultTransition } },
   ]},
 ]
 

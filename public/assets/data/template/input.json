@@ -1,0 +1,52 @@
+[
+  {
+    "id": "branch-1",
+    "title": "Input View 1",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "input",
+    "branchTo": "branch-2",
+    "items": [
+      {
+        "label": "",
+        "branchTo": "",
+        "inputProps": {
+          "type": "number",
+          "step": ".01",
+          "placeholder": "Enter number"
+        }
+      },
+      {
+        "label": "",
+        "branchTo": "",
+        "inputProps": {
+          "type": "text"
+        }
+      },
+      {
+        "label": "",
+        "branchTo": ""
+      }   
+    ]
+  },
+  {
+    "id": "branch-2",
+    "title": "Input View 2",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "checklist",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Enable Option #4",
+        "branchTo": ""
+      },
+      {
+        "label": "Enable Option #5",
+        "branchTo": ""
+      },
+      {
+        "label": "Enable Option #6",
+        "branchTo": ""
+      }   
+    ]
+  }
+]

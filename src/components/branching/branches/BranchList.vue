@@ -59,11 +59,10 @@ const computedList = computed(() => {
 
 <style scoped lang="scss">
 .item {
-  .base-button {
+  :deep(.base-button) {
     box-shadow: 2px 10px 40px -13px #0B247ACC;
-  }
-  
-  :deep(.inner-base-button) {
+
+    // .inner-base-button {}
     .ui-label {
       @include getFontSize('medium');
     }

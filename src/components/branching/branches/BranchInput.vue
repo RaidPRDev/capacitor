@@ -1,19 +1,21 @@
 <script lang="ts">
 export default {
   inheritAttrs: true,
-  name: "BranchChecklist"
+  name: "BranchInput"
 }   
 </script>
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import BaseButton from '@/ui/controls/BaseButton.vue';
-import BaseToggle from '@/ui/controls/BaseToggle.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
 import { BranchItem, BranchViewData } from '@/ui/navigation/branching/types';
-import { IBaseListItemData } from '@/ui/types';
+import { IBaseInputProps, IBaseListItemData } from '@/ui/types';
+import BaseInput from '@/ui/controls/BaseInput.vue';
 
-type CheckListItemType = IBaseListItemData & Partial<BranchItem> & { toggle?: boolean };
+type InputListItemType = IBaseListItemData & Partial<BranchItem> & { 
+  inputProps?: IBaseInputProps; 
+};
 
 const props = defineProps<{
   view: BranchViewData | null;
@@ -34,34 +36,37 @@ onMounted(() => {
 })
 
 const computedList = computed(() => {
-  if (mounted.value) return props.view?.items as IBaseListItemData[]
+  if (mounted.value) return props.view?.items as InputListItemType[]
   return null;
 })
 </script>
 
 <template>
-  <h1 class="transform-z">{{ `${props?.view?.title}` }}</h1>
+  <h1 v-if="props?.view?.title" class="transform-z">{{ `${props?.view?.title}` }}</h1>
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="mb-1 transform-z"></div>
   
   <BaseList :dataProvider="computedList">
     <template v-slot:listItemSlot="data">
       <BaseButton 
-        :class="`variant-blue ignore-icon width-100`" 
+        :class="`variant-blue width-100`" 
         :innerClassName="`px-20 justify-between`"
         :bodyClassName="`text-left`"
         :label="data.item.label"
-        :accessoryIcon="BaseToggle"
+        :accessoryIcon="BaseInput"
+        :accessoryIconClassName="`width-100`"
         :accessoryIconProps="{ 
-          modelValue: null,
-          label: ``, 
-          class: `pointer-all`, 
+          placeholder: `Enter value`,
+          ...(data?.item as InputListItemType).inputProps,
+          containerClass: `variant-calc pointer-all width-inherit ${(data?.item as InputListItemType)?.inputProps?.containerClass}`, 
+          elementClass: `base-control px-12 ${(data?.item as InputListItemType)?.inputProps?.elementClass}`,
           triggerCallback:(toggled:boolean) => {
             console.log(`BaseToggleCallback`, toggled);
-            (data.item as CheckListItemType).toggle = !toggled;
+            // (data.item as InputListItemType).toggle = !toggled;
           }
         }"
         :triggerCallback="() => {
-          const bView = data.item as CheckListItemType;
+          const bView = data.item as InputListItemType;
+          
           if (!bView?.branchTo) return;
 
           navigate(bView?.branchTo!);
@@ -73,14 +78,6 @@ const computedList = computed(() => {
 </template>
 
 <style scoped lang="scss">
-.base-list {
-  :deep(.list-item) {
-    .base-button {
-      box-shadow: 2px 10px 40px -13px #0B247ACC;
-      .ui-label {
-        @include getFontSize('medium');
-      }
-    }
-  }
-}
+
+
 </style>

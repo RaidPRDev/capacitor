@@ -34,7 +34,7 @@ function onMenuTriggered(index:number) {
       router.push({ name:"Branching" });
     break;
     case 1:
-      // router.push({ name:"Calculator" });
+      router.push({ name:"Input" });
     break;
     case 2:
       router.push({ name:"Checklist" });
