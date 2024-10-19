@@ -2,42 +2,150 @@
 export default {
   inheritAttrs: false
 }   
+const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { IBaseScreenSlotProps } from "@/ui/types";
+import { ComponentPublicInstance, onMounted, ref, shallowRef } from "vue";
+
+import { 
+  COMPILED_DATA_PATH,
+  BRANCH_HEADER_HEIGHT, 
+  SCREEN_BODY_BOTTOM_PADDING 
+} from "@/Constants";
+
+import { getNavigationRoot } from "@/ui/navigation/branching/tools";
+import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
-import Input from '@/components/Input.vue';
-import ActionButton from '@/components/ActionButton.vue';
-import PanicIcon from '@/assets/icons/panic-icon.svg';
+import Branching from '@/ui/navigation/branching/Branching.vue';
+import useBranching from "@/ui/navigation/branching/hooks/useBranching";
+import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";
+import { IBaseScreenSlotProps } from "@/ui/types";
+import { loadViewData } from "@/components/branching/tools/DataTools";
+import PulseRateLoader from '@/components/PulseRateLoader.vue';
+
+import PanicIcon from '@/assets/icons/panic-header-icon.svg';
 
 // Component Props Setup
-const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
+const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
+
+const loading = ref<boolean>(true);
+const showMainHeader = ref<boolean>(true);
+const views = shallowRef<BranchViewData[]>([]);
+const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
+  
+const { 
+  baseHeight, 
+} = useBranching({
+  branchingRef: branchingRef,
+  extraHeight: 0,
+  overrideHeight: 0
+})
+
+onMounted(async () => {
+  await loadViewData(`${COMPILED_DATA_PATH}/panic_compiled.json`, views);
+
+  setTimeout(() => { 
+    loading.value = false; 
+  }, 750);
+})
+
+function onViewLeave(params: BranchViewParamData) {
+  if (DEBUG) console.log(`Panic.onViewLeave`, params);
+  
+  const rootInfo = getNavigationRoot(params);
+  
+  // hide header if not in root view
+  if (!rootInfo.isViewRoot) showMainHeader.value = false;
+}
+
+function onViewBeforeEnter(params: BranchViewParamData) {
+  if (DEBUG) console.log(`Panic.onViewBeforeEnter`, params);
+  
+  const rootInfo = getNavigationRoot(params);
+  
+  // show/hide header if not in root view
+  showMainHeader.value = rootInfo.isViewRoot;
+
+  if (rootInfo.isViewRoot) {
+    baseHeight.value = BRANCH_HEADER_HEIGHT + SCREEN_BODY_BOTTOM_PADDING;
+  }
+  else {
+    baseHeight.value = 0;
+  }
+}
 
 </script>
 
 <template>
-  <div 
-    class="grid grid-single gapx-20 pxl-20 pxr-20"
-    :style="{ width: props?.styles?.width }"
-  >
-    <BaseHeader class="screen-heading">
-      <template v-slot:headerLeft>
-        <h1>Panic</h1>    
-      </template>
-      <template v-slot:headerRight>
-        <span class="flex"><PanicIcon /></span>
-      </template>
-    </BaseHeader>
+  
+  <BasePanel v-bind="props" class="pxl-0 pxr-0">
+    <transition name="fade" appear mode="out-in">
+      <div v-if="loading" class="loading flex justify-center align-center height-100">
+        <PulseRateLoader />
+      </div>
+      <div v-else class="height-inherit">
+        <transition name="fade" appear mode="out-in">
+          <BaseHeader v-if="showMainHeader" class="screen-heading pxlr-20 mxb-20 height-auto">
+            <template v-slot:headerLeft>
+              <h1 class="screen-title">{{`Don't Panic`}}</h1>
+            </template>
+            <template v-slot:headerRight>
+              <span class="flex"><PanicIcon /></span>
+            </template>
+          </BaseHeader>
+        </transition>
+        
+        <Branching 
+          ref="branchingRef"
+          viewClassName="pxlr-20 pxt-10 pxb-20" 
+          :branchRoute="props.branchRoute"
+          :views="views" 
+          :useNavigation="true"
+          :listHeight="baseHeight"
+          @onViewLeave="onViewLeave"
+          @onViewBeforeEnter="onViewBeforeEnter"
+        />
+      </div>
+    </transition>
+   </BasePanel>
 
-    <div>Lorem ipsum dolor sit amet consectetur.</div>
-    <div><Input id="gender" name="gender" :label="`Gender:`" /></div>
-    <div><Input id="age" name="age" :label="`Age:`" /></div>
-    <div><Input id="weight" name="weight" :label="`Weight (kg):`" /></div>
-    <div>If your patient settings are okay, please select SAVE to continue.</div>
-    <div><ActionButton :label="`Save`" /></div>
-
-  </div>  
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.branching {
+  transition: all 450ms ease-in;
+
+  :deep(.branch-view) {
+    transition: all 450ms ease-in;
+
+    // non title class elements
+    h2:not(.title) {
+      @extend .helvetica-nueue;
+      font-size: 22px;
+    }
+
+    .title {
+      @extend .helvetica-nueue;
+      font-size: 22px;
+    }
+
+    .text-content {
+      // SubHeading Body Text
+      @extend .helvetica-nueue;
+      color: $sixth-color;
+      font-weight: 500;
+      font-size: 17px;
+      
+      // Default Body Text
+      > span {
+        @extend .roboto;
+        color: $primary-color;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+</style>

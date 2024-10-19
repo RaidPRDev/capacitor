@@ -6,20 +6,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, useSlots } from 'vue';
+import { useSlots } from 'vue';
 import type { IBaseScreenProps } from '@/ui/types';
-// import { useDevice } from '@/plugins/Device';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenProps>(), {}) 
 
 // Attributes and Slots Setup
 const slots = useSlots();
-
-// Device Tools
-// const device = useDevice();
-
-onMounted(() => {});
 
 </script>
 
@@ -60,6 +54,7 @@ onMounted(() => {});
     >
       <slot name="footerSlot"></slot>
     </div>
+   
   </div>
 </div>
 </template>

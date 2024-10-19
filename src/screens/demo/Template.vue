@@ -6,9 +6,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, ref, VueElement } from "vue";
+import { ComponentPublicInstance, computed, inject, ref, VueElement } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
-import { IButtonGroupSelected } from "@/ui/types";
+import { IApp, IAppScreenProps, IButtonGroupSelected } from "@/ui/types";
 
 import BaseScreen from "@/ui/panels/BaseScreen.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
@@ -21,10 +21,12 @@ import MenuIcon from '@/assets/icons/menu-icon.svg';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 
 import HomeIcon from '@/assets/icons/home-icon.svg';
-// import PatientIcon from '@/assets/icons/patient-icon.svg';
-// import SetupIcon from '@/assets/icons/setup-icon.svg';
-// import PanicIcon from '@/assets/icons/panic-red-icon.svg';
+import { APP_ID } from "@/App.vue";
 
+// Component Props Setup
+const props = withDefaults(defineProps<IAppScreenProps>(), {}) 
+
+const app = inject<IApp>(APP_ID) as IApp;
 const router = useRouter();
 const session = useSession();
 
@@ -36,8 +38,6 @@ const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const footerMenuGroup = [
   { label: "Home", icon: HomeIcon, route: "Home", class: "" },
   { label: "Template", icon: HomeIcon, route: "Template", class: "" },
-  // { label: "Setup", icon: SetupIcon, route: "Template", class: "" },
-  // { label: "Panic", icon: PanicIcon, route: "Template", class: "" },
 ];
 
 const sectionIndex = computed(() => {
@@ -85,19 +85,24 @@ function onAfterLeave(el:Element) {
 
 </script>
 
-<template>
-<BaseScreen className="home">
+<template><BaseScreen 
+  :className="[`home`,  props?.class, props?.drawerOpen ? `drawer-open` : ``].join(` `)"
+  :headerSlotProps="{ class: `z-index-1` }">
   
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
       <template v-slot:headerLeft>
-        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" />
+        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
+          app.drawers.left.open = !app.drawers.left.open;
+        }"/>
       </template>
       <template v-slot:headerCenter>
         <img :src="Logo" width="81" height="60" class="absolute bx--20" />
       </template>
       <template v-slot:headerRight>
-        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" />
+        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" @triggered="() => {
+          app.drawers.bottom.open = !app.drawers.bottom.open;
+        }"/>
       </template>
     </BaseHeader>
   </template>

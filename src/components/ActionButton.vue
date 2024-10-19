@@ -6,11 +6,15 @@ export default {
 </script>
 
 <script setup lang="ts">
+import classnames from 'classnames';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import { IBaseButtonProps } from "@/ui/types";
 
 // Component Props Setup
-const props = withDefaults(defineProps<IBaseButtonProps>(), {
+const props = withDefaults(defineProps<IBaseButtonProps & { outlined?: boolean }>(), {
+  class: "",
+  outlined: false,
+  usePressedState: true,
   elementClassName: "action-button",
   innerClassName: "pxlr-13 pxtb-9 justify-between",
   bodyClassName: "relative",
@@ -23,15 +27,21 @@ const emit = defineEmits<{
 }>()
 
 function onTriggered(e:Event) {
-  console.log("Action.onTriggered");
-
   emit('triggered', e);
 }
 
 </script>
 
 <template>
-  <BaseButton class="action-button variant-red small" v-bind="props" @triggered="onTriggered">
+  <BaseButton 
+    :class="classnames(
+      `action-button variant-red small`, 
+      elementClassName,
+      { [`outlined`]: outlined }
+    )"
+    v-bind="props" 
+    @triggered="onTriggered"
+  >
     <template v-slot:accessorySlot v-if="accessoryIcon">
       <component v-if="typeof(accessoryIcon) === 'object'" :is="accessoryIcon"></component>
     </template>

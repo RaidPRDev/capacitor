@@ -6,9 +6,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, ref, VueElement } from "vue";
+import { APP_DRAWERS_ID, APP_ID } from "@/App.vue";
+import { ComponentPublicInstance, computed, ref, VueElement, inject } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
-import { IButtonGroupSelected } from "@/ui/types";
+import { IApp, IAppDrawerComponents, IAppScreenProps, IButtonGroupSelected } from "@/ui/types";
 
 import BaseScreen from "@/ui/panels/BaseScreen.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
@@ -16,15 +17,22 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import ButtonGroup from "@/ui/controls/ButtonGroup.vue";
 import useSession from '@/store/session.module';
 
+import AppSideMenuPanel from "@/components/panels/AppSideMenuPanel.vue";
+import AppSearchPanel from "@/components/panels/AppSearchPanel.vue";
+
 import Logo from '/assets/elso_logo.png';
 import MenuIcon from '@/assets/icons/menu-icon.svg';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 
 import HomeIcon from '@/assets/icons/home-icon.svg';
-import PatientIcon from '@/assets/icons/patient-icon.svg';
+import NotesIcon from '@/assets/icons/homeMenu/notes-icon.svg';
 import SetupIcon from '@/assets/icons/setup-icon.svg';
 import PanicIcon from '@/assets/icons/panic-red-icon.svg';
 
+// Component Props Setup
+const props = withDefaults(defineProps<IAppScreenProps>(), {}) 
+const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const router = useRouter();
 const session = useSession();
 
@@ -35,9 +43,9 @@ const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 
 const footerMenuGroup = [
   { label: "Home", icon: HomeIcon, route: "Home", class: "" },
-  { label: "Patient", icon: PatientIcon, route: "Patient", class: "" },
-  { label: "Setup", icon: SetupIcon, route: "Setup", class: "" },
-  { label: "Panic", icon: PanicIcon, route: "Panic", class: "" },
+  { label: "Notes", icon: NotesIcon, route: "Notes", class: "" },
+  { label: "My Circuit", icon: SetupIcon, route: "MyCircuit", class: "" },
+  { label: "PANIC!", icon: PanicIcon, route: "Panic", class: "" }
 ];
 
 const sectionIndex = computed(() => {
@@ -82,37 +90,44 @@ function onAfterEnter(el:Element, route:RouteLocationGeneric) {
 function onAfterLeave(el:Element) {
   if (false) console.log("onAfterLeave", el);
 }
-
 </script>
 
 <template>
-<BaseScreen className="home" :headerSlotProps="{ class: `z-index-1` }">
+<BaseScreen 
+  :className="[`home`,  props?.class, props?.drawerOpen ? `drawer-open` : ``].join(` `)"
+  :headerSlotProps="{ class: `z-index-1` }">
   
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
       <template v-slot:headerLeft>
-        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" />
+        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
+          drawerComponents.left = AppSideMenuPanel;
+          app.drawers.left.open = !app.drawers.left.open;
+        }"/>
       </template>
       <template v-slot:headerCenter>
-        <BaseButton class="absolute bx--20" @triggered="() => router.push({ name: `Template` })">
+        <BaseButton class="absolute bx--20" @triggered="() => router.push({ name: `Home` })">
           <template v-slot:bodySlot>
             <img :src="Logo" width="81" height="60" class="" />
           </template>
         </BaseButton>
       </template>
       <template v-slot:headerRight>
-        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" />
+        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" @triggered="() => {
+          drawerComponents.bottom = AppSearchPanel;
+          app.drawers.bottom.open = !app.drawers.bottom.open;
+        }"/>
       </template>
     </BaseHeader>
   </template>
   
   <template v-slot:bodySlot>
     <div class="inner-body" v-bind="{ style: { ...bodyProps?.styles } }" >
-    <router-view v-slot="{ Component, route }">
-      <transition :name="route.meta.transition || 'scale-slide'" @after-leave="onAfterLeave" @after-enter="(el) => onAfterEnter(el, route)">
-        <component ref="bodyRef" :is="Component" v-bind="{ styles: { ...bodyProps?.styles } }" />
-      </transition>
-    </router-view>
+      <router-view :key="`__HOME__`" v-slot="{ Component, route,  }">
+        <transition :name="route.meta.transition || 'scale-slide'" @after-leave="onAfterLeave" @after-enter="(el) => onAfterEnter(el, route)">
+          <component ref="bodyRef" :is="Component" v-bind="{ styles: { ...bodyProps?.styles }, products: `sadsd` }" />
+        </transition>
+      </router-view>
     </div>
   </template>
   
@@ -137,6 +152,12 @@ function onAfterLeave(el:Element) {
 </template>
 
 <style scoped lang="scss">
+
+.base-screen {
+  &.drawer-open {
+    transform: scale(0.95);
+  }
+}
 
 .screen-header, .screen-footer {
   .center-container {

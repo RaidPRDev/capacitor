@@ -1,5 +1,13 @@
 // theme/core overrides
 $primary-font-family: Roboto, Inter, Avenir, Helvetica, Arial, sans-serif;
+$secondary-font-family: HelveticaNeue, Helvetica, sans-serif;
+
+.roboto {
+  font-family: $primary-font-family;
+}
+.helvetica-nueue {
+  font-family: $secondary-font-family;
+}
 
 $font-size: (
   'small': 14px,
@@ -26,7 +34,11 @@ $global-radius: 10px;
 $primary-color: #0B247A;
 $secondary-color: #F5F5F5;
 $teniary-color: #FF2E59;
-$quad-color: #BEBEBE;
+$fourth-color: #BEBEBE;
+$fifth-color: #DB0330;
+$sixth-color: #2C51CF;
+$seven-color: #44A410;
+$transparent-color: #FFFFFF00;
 
 // headers/footers
 $header-shadow-props: 0px 10px 20px 2px;
@@ -47,3 +59,8 @@ $red-light-gradient: $teniary-color;
 
 $btn-transition-ms: 375ms;
 $btn-transition-ease: ease-out;
+
+$base-button-transition: opacity 375ms ease-out, 
+  color 375ms ease-out, 
+  background-color 375ms ease-out, 
+  transform 425ms cubic-bezier(0.175, 0.885, 0.32, 1.275);

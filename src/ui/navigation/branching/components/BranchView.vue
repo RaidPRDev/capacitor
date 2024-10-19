@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, defineProps, ref, useAttrs } from 'vue';
+import { computed, ref, useAttrs } from 'vue';
 import { BranchViewData } from '../types';
 
 interface IBranchViewProps {
@@ -16,13 +16,12 @@ interface IBranchViewProps {
 
 const props = withDefaults(defineProps<IBranchViewProps>(), {});
 
-const hasScroll = !props?.view?.hasOwnProperty("useScroll") && !props?.view?.useScroll;
-
 // Attributes and Slots Setup
 const attrs = useAttrs();
 
 const emit = defineEmits<{
   (e: 'navigate', branchTo: string | null): void;
+  (e: 'triggered', dataProps: any): void;
 }>();
 
 // Reference Setup
@@ -41,20 +40,27 @@ defineExpose({
 function navigate(branchTo: string | null) {
   emit('navigate', branchTo);
 }
+
+function triggered(dataProps: any) {
+  emit('triggered', dataProps);
+}
 </script>
 
 <template>
   <div ref="element" 
     class="branch-view" 
     v-bind="{ ...attrs }" 
-    :class="[{ ['overflow-v-scroll']: hasScroll }]"
-    
+    :class="[{ ['overflow-v-scroll']: false }]"
     :style="styles"
   >
-    <component :is="props?.view?.component" :view="props?.view" @navigate="navigate"></component>
+    <component 
+      :is="props?.view?.component" 
+      :view="props?.view" 
+      :showTitle="view?.showTitle" 
+      @navigate="navigate"
+      @triggered="triggered"
+    />
   </div>
 </template>
 
-<style scoped lang="scss">
-// .branch-view {}
-</style>
+<style scoped lang="scss"></style>

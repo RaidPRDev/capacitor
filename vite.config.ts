@@ -3,6 +3,9 @@ import fs from "fs/promises";
 import vue from "@vitejs/plugin-vue";
 import svgLoader from 'vite-svg-loader';
 
+/** @ts-ignore */
+import customHmr from "./src/plugins/customreload/CustomHmr";
+
 const { version: APP_VERSION } = require('./package.json');
 const BUILD_VERSION_FILE = "./build_version";
 
@@ -11,8 +14,9 @@ export default defineConfig(async ({command, mode}) => {
 
   // set environment variables for VITE
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
-
+  
   const BUILD_VERSION = await getBuildVersion();
+  const BUILD_PHASE = 'Alpha';
   const PLATFORM = process?.env?.PLATFORM ?? "web";
   const ISMOBILE = !!/android|ios/.exec(PLATFORM);
   const ISIOS = !!/ios/.exec(PLATFORM);
@@ -30,22 +34,27 @@ export default defineConfig(async ({command, mode}) => {
       'import.meta.env.APP_VERSION': JSON.stringify(APP_VERSION),
       'import.meta.env.PLATFORM': JSON.stringify(PLATFORM),
       'import.meta.env.BUILD_VERSION': JSON.stringify(BUILD_VERSION),
+      'import.meta.env.BUILD_PHASE': JSON.stringify(BUILD_PHASE),
       'import.meta.env.ISMOBILE': ISMOBILE,
       'import.meta.env.IOS': ISIOS,
       'import.meta.env.ANDROID': ISANDROID,
     },
-    plugins: [vue(), svgLoader()],
+
+    plugins: [customHmr(), vue(), svgLoader()],
   
     css: {
       preprocessorOptions: {
         scss: {
+          // Deprecation Warning: The 'legacy' JS API is deprecated and will be removed in Dart Sass 2.0.0.
+          api: 'modern-compiler', 
           // imports to components using scss
           additionalData: `
           @use 'sass:math';
-          @import "./src/styles/_core/_variables";
-          @import "./src/styles/_core/_utils";
-          @import "./src/styles/app/_fonts";
-          @import "./src/styles/app/_variables";
+          @import "@/styles/_core/_variables";
+          @import "@/styles/_core/_utils";
+          @import "@/styles/app/_fonts";
+          @import "@/styles/app/_variables";
+          @import "@/styles/app/_scroller";
 
         ` + `$is-mobile: ${ISMOBILE};`
         }
@@ -56,7 +65,8 @@ export default defineConfig(async ({command, mode}) => {
       extensions: ['.ts', '.js', '.vue', '.svg'],
       alias: [{ find: '@', replacement: '/src' }],
     },
-  
+
+    // base: "/",  
   
     clearScreen: false,
     server: {

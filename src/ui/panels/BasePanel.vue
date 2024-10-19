@@ -6,11 +6,14 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { ref, useSlots } from 'vue';
 import { IBasePanelProps } from '@/ui/types';
-import { ref } from 'vue';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBasePanelProps>(), {}) 
+
+// Attributes and Slots Setup
+const slots = useSlots();
 
 // Reference Setup
 const element = ref<InstanceType<typeof HTMLElement>>()
@@ -28,12 +31,22 @@ defineExpose({
     :class="props?.class" 
     :style="props?.styles"
   >
-    <div class="inner-panel height-inherit">
+    <div class="inner-panel height-inherit" :class="props?.innerClass">
+      <div 
+        v-if="slots?.headerSlot" 
+        :class="['panel-header width-100', props?.headerSlotProps?.class]"
+        :style="[props?.headerSlotProps?.styles]"
+      >
+        <slot name="headerSlot"></slot>
+      </div>
       <slot></slot>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-// .base-panel {}
+.base-panel {
+  z-index: 1;
+  pointer-events: all;
+}
 </style>

@@ -19,12 +19,14 @@ $font-size: (
 ) !default;
 
 $font-leading: (
-  'small': 16px,
+  'small': 19px,
   'normal': 22px,
   'medium': 24px,
   'large': 28px,
   'x-large': 42px,
 ) !default;
+
+$font-letter-spacing: 0.02rem !default;
 
 $white: #ffffff !default;
 $black: #000000 !default;

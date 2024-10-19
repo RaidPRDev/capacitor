@@ -4,6 +4,7 @@
     "title": "Checklist View 1",
     "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
     "layout": "checklist",
+    "useScroll": true,
     "branchTo": "branch-2",
     "items": [
       {

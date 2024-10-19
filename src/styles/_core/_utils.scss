@@ -22,6 +22,14 @@
   left: $offset;
 }
 
+@mixin grayscale($value: 100%) {
+  filter: $value;
+  -webkit-filter: grayscale($value);
+  -moz-filter:    grayscale($value);
+  -ms-filter:     grayscale($value);
+  -o-filter:      grayscale($value);
+}
+
 /**
   Breakpoint tools
 */
@@ -93,6 +101,7 @@
   // Render phone template if not on a mobile device
   // Note: value set in vite.config.ts
   @if $is-mobile == false {
+    
     background-color: rgb(239, 238, 237);
     background-image: url(/assets/iphone_14.png);
     background-size: 437px;
@@ -104,4 +113,33 @@
   }
  
   @else {}
+}
+
+@mixin makeTextSelectable() {
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+@mixin setInputPlaceholder($pFont: Arial, $pColor: black, $text-transform: none) {
+  &::placeholder {
+      // Chrome, Firefox, Opera, Safari 10.1+
+      font-family: $pFont;
+      color: $pColor;
+      text-transform: $text-transform;
+  }
+  &:-ms-input-placeholder {
+      // Internet Explorer 10-11
+      font-family: $pFont;
+      color: $pColor;
+      text-transform: $text-transform;
+  }
+  &::-ms-input-placeholder {
+      // Microsoft Edge
+      font-family: $pFont;
+      color: $pColor;
+      text-transform: $text-transform;
+  }
 }

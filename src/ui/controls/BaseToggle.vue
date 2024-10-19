@@ -11,7 +11,10 @@ import { ref, useAttrs } from 'vue'
 import { IBaseToggleProps } from '../types';
 
 // Component Props Setup
-const props = withDefaults(defineProps<IBaseToggleProps>(), {}) 
+const props = withDefaults(defineProps<IBaseToggleProps>(), {
+  asSubControl: false
+}) 
+
 const isControlled = ref<boolean>(props?.modelValue !== null);
 const uncontrolledRef = ref<boolean>(false);
 
@@ -34,6 +37,8 @@ defineExpose({
 const attrs = useAttrs();
 
 function onTrigger(e:Event) {
+  if (props?.asSubControl) e.stopPropagation();
+  
   emit('click', e);
 
   if (isControlled.value) {
@@ -43,8 +48,9 @@ function onTrigger(e:Event) {
   }
 
   // Uncontrolled
-  uncontrolledRef.value = !uncontrolledRef.value;
-  props?.triggerCallback && props?.triggerCallback(uncontrolledRef.value);
+  const uncontrolledValue = !uncontrolledRef.value;
+  uncontrolledRef.value = uncontrolledValue;
+  props?.triggerCallback && props?.triggerCallback(uncontrolledValue);
 }
 
 function onMouseClick(e:Event) {
@@ -60,7 +66,7 @@ function onKeyEnter(e:Event) {
 <template>
   <div 
     role="checkbox"
-    :class="['base-control toggle-switch flex align-center justify-center width-100 cursor-pointer outline-none', props?.class, {
+    :class="['base-control toggle-switch flex align-center justify-center width-100 cursor-pointer outline-none', props?.elementClass, {
       ['selected']: isControlled ? props.modelValue : uncontrolledRef,
     }]" 
     v-bind="{...attrs}"
@@ -69,11 +75,21 @@ function onKeyEnter(e:Event) {
     @click="onMouseClick"
     @keydown.enter="onKeyEnter" 
   >
-    <span v-if="props?.label" 
+    <span v-if="props?.label && !props?.defaultIcon && !props?.activeIcon" 
       class="toggle-label relative text-right"
       role="presentation" 
     >{{ props?.label }}</span>
-    <div class="toggle relative"></div>
+    <div v-if="!props?.defaultIcon && !props?.activeIcon" class="toggle relative"></div>
+
+    <div class="toggle-icons">
+      <div v-if="props?.defaultIcon && !props.modelValue">
+        <component :is="props?.defaultIcon" :class="`flex`"></component>
+      </div>
+      <div v-else-if="props?.activeIcon && props.modelValue">
+        <component :is="props?.activeIcon" :class="`flex`"></component>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -148,5 +164,9 @@ $toggle-thumb-size: calc($toggle-height - (($toggle-border-width * 2) + $toggle-
     font-weight: 400;
     line-height: 100%;
   }
+
+  // &.checkbox-type {
+
+  // }
 }
 </style>

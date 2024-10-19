@@ -4,7 +4,7 @@
 */
 
 // import KeyboardFocus from '@/baseui/utils/KeyboardFocus';
-import { App, inject, reactive } from 'vue'
+import { App, inject, reactive, shallowRef } from 'vue'
 
 const IS_CLIENT = typeof window !== 'undefined';
 
@@ -53,6 +53,7 @@ interface IDeviceState {
   pointer: boolean;
   webp: boolean;
   keyboard: boolean;
+  navigator: Navigator | any;
 }
 
 interface IAgent {
@@ -74,6 +75,7 @@ export interface IDevice {
   get(): IDeviceState;
   isMobile():boolean;
   getOffsetWidth():number;
+  getNavigator():any;
 }
 
 class Device implements IDevice
@@ -106,6 +108,7 @@ class Device implements IDevice
       pointer: false,
       webp: false,
       keyboard: false,
+      navigator: shallowRef<any>(null)
     });
 
     this.app = document.getElementById("app") as HTMLElement;
@@ -202,6 +205,8 @@ class Device implements IDevice
     const ua = (navigator) ? navigator.userAgent : false;
     if (!ua) { console.warn("[uar_device] no user agent found"); return; }
     const platform = navigator.platform; // OR Navigator.userAgentData || Navigator.userAgentData.platform
+
+    this.state.navigator = shallowRef<Navigator>(navigator);
 
     // mobile devices ie: tablet/phone 
     android = !!ua.match(/(Android);?[\s\/]+([\d.]+)?/);
@@ -344,6 +349,16 @@ class Device implements IDevice
       }
     })
   }
+
+  getNavigator() {
+    // const navigator = window.navigator;
+    // const ua = (navigator) ? navigator.userAgent : false;
+    // if (!ua) { console.warn("[uar_device] no user agent found"); return; }
+    // const platform = navigator.platform; // OR Navigator.userAgentData || Navigator.userAgentData.platform
+
+    return window.navigator;
+  }
+
 
   get():IDeviceState
   {

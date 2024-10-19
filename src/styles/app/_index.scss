@@ -3,6 +3,8 @@
 @import './variables';
 @import './headings';
 @import './components';
+@import './scroller';
+@import './content';
 
 :root {
   font-family: $primary-font-family;

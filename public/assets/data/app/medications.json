@@ -1,0 +1,297 @@
+[
+  {
+    "id": "ELSOBA_MED_000",
+    "dataType": "medications",
+    "heading": "Medication",
+    "title": "",
+    "content": "Medications are organized by class. Choose a medication class to see medications and dosing guidance included within that category.",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "isRootParent": true,
+    "items": [
+      {
+        "label": "Anticoagulants",
+        "branchTo": "ELSOBA_MED_CAT1",
+        "class": "disabled"
+      },
+      {
+        "label": "Antifungals",
+        "branchTo": "ELSOBA_MED_CAT2",
+        "class": "disabled"
+      },
+      {
+        "label": "Antimicrobials",
+        "branchTo": "ELSOBA_MED_CAT3",
+        "class": "disabled"
+      },
+      {
+        "label": "Antivirals",
+        "branchTo": "ELSOBA_MED_CAT4",
+        "class": "disabled"
+      },
+      {
+        "label": "Anti-seizure",
+        "branchTo": "ELSOBA_MED_CAT5",
+        "class": "disabled"
+      },
+      {
+        "label": "Corticosteroids",
+        "branchTo": "ELSOBA_MED_CAT6",
+        "class": "disabled"
+      },
+      {
+        "label": "Hemostatic Agents",
+        "branchTo": "ELSOBA_MED_CAT7",
+        "class": "disabled"
+      },
+      {
+        "label": "Immunosuppressives",
+        "branchTo": "ELSOBA_MED_CAT8",
+        "class": "disabled"
+      },      
+      {
+        "label": "Inhaled Anesthetics",
+        "branchTo": "ELSOBA_MED_CAT9",
+        "class": "disabled"
+      },      
+      {
+        "label": "Neuromuscular Blocking Agents",
+        "branchTo": "ELSOBA_MED_CAT10",
+        "class": "disabled"
+      },      
+      {
+        "label": "Opioids",
+        "branchTo": "ELSOBA_MED_110",
+        "class": ""
+      },     
+      {
+        "label": "Pulmonary Vasodilators",
+        "branchTo": "ELSOBA_MED_CAT12",
+        "class": "disabled"
+      },     
+      {
+        "label": "Sedatives",
+        "branchTo": "ELSOBA_MED_130"
+      },     
+      {
+        "label": "Steroids",
+        "branchTo": "ELSOBA_MED_CAT14",
+        "class": "disabled"
+      },     
+      {
+        "label": "Stimulants",
+        "branchTo": "ELSOBA_MED_CAT15",
+        "class": "disabled"
+      },     
+      {
+        "label": "Vasopressors and Inotropes",
+        "branchTo": "ELSOBA_MED_CAT16",
+        "class": "disabled"
+      }      
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_110",
+    "title": "Opiods",
+    "content": "",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Alfentanil",
+        "content": "Alfentanil",
+        "branchTo": "ELSOBA_MED_110__1"
+      },
+      {
+        "label": "Fentanyl",
+        "content": "Fentanyl",
+        "branchTo": "ELSOBA_MED_110__2"
+      },
+      {
+        "label": "Hydromorphone",
+        "content": "Hydromorphone",
+        "branchTo": "ELSOBA_MED_110__3"
+      },
+      {
+        "label": "Morphine",
+        "content": "Morphine",
+        "branchTo": "ELSOBA_MED_110__4"
+      },
+      {
+        "label": "Remifentanil",
+        "content": "Remifentanil",
+        "branchTo": "ELSOBA_MED_110__5"
+      },
+      {
+        "label": "Sufentanil",
+        "content": "Sufentanil",
+        "branchTo": "ELSOBA_MED_110__6"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_110__1",
+    "title": "Alfentanil",
+    "content": "medications/ELSOBA_MED_110/ELSOBA_MED_110_1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_110__2",
+    "title": "Fentanyl",
+    "content": "medications/ELSOBA_MED_110/ELSOBA_MED_110_2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_110__3",
+    "title": "Hydromorphone",
+    "content": "medications/ELSOBA_MED_110/ELSOBA_MED_110_3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_110__4",
+    "title": "Morphine",
+    "content": "medications/ELSOBA_MED_110/ELSOBA_MED_110_4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_110__5",
+    "title": "Remifentanil",
+    "content": "medications/ELSOBA_MED_110/ELSOBA_MED_110_5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_110__6",
+    "title": "Sufentanil",
+    "content": "medications/ELSOBA_MED_110/ELSOBA_MED_110_6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_130",
+    "title": "Sedatives",
+    "content": "",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Dexmedetomidine",
+        "content": "Dexmedetomidine",
+        "branchTo": "ELSOBA_MED_130__1"
+      },
+      {
+        "label": "Ketamine",
+        "content": "Ketamine",
+        "branchTo": "ELSOBA_MED_130__2"
+      },
+      {
+        "label": "Lorazepam",
+        "content": "Lorazepam",
+        "branchTo": "ELSOBA_MED_130__3"
+      },
+      {
+        "label": "Midazolam",
+        "content": "Morphine",
+        "branchTo": "ELSOBA_MED_130__4"
+      },
+      {
+        "label": "Propofol",
+        "content": "Remifentanil",
+        "branchTo": "ELSOBA_MED_130__5"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_130__1",
+    "title": "Dexmedetomidine",
+    "content": "medications/ELSOBA_MED_130/ELSOBA_MED_130_1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_130__2",
+    "title": "Ketamine",
+    "content": "medications/ELSOBA_MED_130/ELSOBA_MED_130_2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_130__3",
+    "title": "Lorazepam",
+    "content": "medications/ELSOBA_MED_130/ELSOBA_MED_130_3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_130_4",
+    "title": "Midazolam",
+    "content": "medications/ELSOBA_MED_130/ELSOBA_MED_130_4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_130__5",
+    "title": "Propofol",
+    "content": "medications/ELSOBA_MED_130/ELSOBA_MED_130_5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_170",
+    "title": "References",
+    "content": "",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Browder K, Wanek M, Wang L, Hohlfelder B",
+        "content": "Browder K, Wanek M, Wang L, Hohlfelder B",
+        "branchTo": "ELSOBA_MED_170"
+      }
+    ]
+  }
+]

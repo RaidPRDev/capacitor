@@ -20,3 +20,14 @@ export function findParentByClassName(element: HTMLElement, className: string):H
   // Return null if no matching parent element is found
   return null;
 }
+
+/**
+ * Replace url query without refreshing page
+ * Ex: window.history.replaceState(null, '', '?query=myquery');
+ * 
+ * @param query 
+ * @param refresh 
+ */
+export function replaceQuery(query:string, refresh: boolean = false) {
+  if (!refresh) window.history.replaceState(null, '', query);
+}

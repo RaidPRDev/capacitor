@@ -10,7 +10,13 @@ import { ref, useAttrs, useSlots, reactive, watch } from 'vue';
 import { IBaseInputProps } from '../types';
 
 // Component Props Setup
-const props = defineProps<IBaseInputProps>();
+
+const props = withDefaults(defineProps<IBaseInputProps>(), {
+  elementClass: "",
+  required: false,
+  disabled: false,
+});
+
 
 // Emission Event Setup
 const emit = defineEmits<{
@@ -90,39 +96,47 @@ watch(props, (({ error }) =>
     </label>
   </div>
 
-  <div :class="[
-      'ui-input-field relative flex align-center justify-between outline-none',
-      { ['error']: error?.hasError }
-    ]" 
-    v-bind:style="styleObject"
-  >
-      
+  <div class="inner-input flex align-center width-100" :class="[props?.innerClass]">
+
     <div v-if="icon || slots.iconSlot" class="ui-icon flex">
       <component v-if="typeof(icon) === 'object'" :is="icon"></component>
       <img v-else-if="typeof(icon) === 'string'" v-bind:src="icon" />
       <slot v-if="slots.iconSlot" name="iconSlot"></slot>
     </div>
-    
-    <input 
-      ref="inputElement"
-      v-bind="{
-        ...attrs,
-        class: ['ui-input-element border-none plr-0 width-100', props?.elementClass, { ['required']: props.required && !props.disabled }],
-        id: props.id,
-        type: props.type,
-        pattern: props.pattern,
-        name: props.name,
-        autocomplete: props.autocomplete,
-        placeholder: props.placeholder,
-        required: props.required && !props.disabled,
-        value: modelValue,
-        disabled: props.disabled
-      }"
-      @blur="onBlur"
-      @input="onInput" 
-      @keypress="onKeyPress"
-    />
-    
+
+    <div :class="[
+        'ui-input-field relative flex align-center justify-between outline-none width-100',
+        props?.inputFieldClass,
+        { ['error']: error?.hasError }
+      ]" 
+      v-bind:style="styleObject"
+    >
+      <input 
+        ref="inputElement"
+        v-bind="{
+          ...attrs,
+          class: [
+            'ui-input-element border-none width-100', 
+            props?.elementClass, { 
+              ['required']: props.required && !props.disabled }
+            ],
+          id: props.id,
+          type: props.type,
+          pattern: props.pattern,
+          name: props.name,
+          autocomplete: props.autocomplete,
+          placeholder: props.placeholder,
+          required: props.required && !props.disabled,
+          value: modelValue,
+          disabled: props.disabled
+        }"
+        @blur="onBlur"
+        @input="onInput" 
+        @keypress="onKeyPress"
+      />
+      
+    </div>
+
     <div v-if="accessoryIcon || slots.accessorySlot" class="ui-icon accessory flex">
       <component v-if="typeof(accessoryIcon) === 'object'" :is="accessoryIcon"></component>
       <img v-else-if="typeof(accessoryIcon) === 'string'" v-bind:src="accessoryIcon" />
@@ -130,7 +144,7 @@ watch(props, (({ error }) =>
     </div>
 
   </div>
-
+  
   <div v-if="error?.hasError" class="error-field flex">{{error.message}}</div>
     
 </div>

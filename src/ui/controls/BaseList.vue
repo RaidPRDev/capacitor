@@ -5,55 +5,87 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref, useAttrs } from 'vue';
 import BaseButton from '@/ui/controls/BaseButton.vue';
-import { IBaseListProps } from '../types';
+import { IBaseListProps, IBaseTransitionProps } from '../types';
 
 const props = withDefaults(defineProps<IBaseListProps>(), {
   transitionEnabled: true,
+  transitionDelayedStart: 0,
+  transitionAppear: true,
   transitionProps: {
-    name: "list-scale-fade-in", 
+    name: "list-default-fade-in",
     tag: "div", 
-    class: "flex flex-column gapx-16",
-    transitionDelay: 0.15
-  }
+    transitionDelay: 0.15,
+  } as IBaseTransitionProps as any
 });
 
-const computedList = computed(() => {
-  if (Array.isArray(props?.dataProvider) && props?.dataProvider?.length === 0) return [];
+// Attributes and Slots Setup
+const attrs = useAttrs();
 
-  const listItems = props?.dataProvider?.map((item) => {
-    return item;
-  })
+// const computedList = computed(() => {
+//   if (Array.isArray(props?.dataProvider) && props?.dataProvider?.length === 0) return [];
 
-  return listItems;
-})
+//   const listItems = props?.dataProvider?.map((item) => {
+//     return item;
+//   })
 
+//   return listItems;
+// })
+
+const hasTransitioned = ref<boolean>(false);
+
+const setTransitionStyles = (index: number, isTransition?: boolean) => {
+  
+  const { 
+    transitionDelayedStart
+  } = props;
+
+  const delay = !isTransition ? { transitionDelay: index === 0 
+      ? (transitionDelayedStart + props?.transitionProps?.transitionDelay!) + 's'
+      : (transitionDelayedStart) + (props?.transitionProps?.transitionDelay! * (index + 1)) + 's'
+  } : {};
+
+  return {
+    ...delay,
+    ...props?.listItemStyles
+  };
+
+}
 </script>
 
 
 <template>
 <transition-group 
   role="list"  
-  :class="['base-list', props?.transitionProps?.class]"  
-  :name="props?.transitionProps?.name"
+  :class="['base-list flex flex-column', props?.class]"  
+  :name="!hasTransitioned ? props?.transitionProps?.name : `list-delete`"
   :tag="props?.transitionProps?.tag"
-  :transitionDelay="props?.transitionProps?.transitionDelay"
   :css="props?.transitionEnabled"  
+  :appear="props?.transitionAppear"
+  v-bind="{
+    ...attrs
+  }"
+  @after-enter="(element) => { 
+    const elIdx = parseInt((element as HTMLElement).dataset.index!);
+    if (props?.dataProvider?.length === elIdx + 1) {
+      hasTransitioned = true;
+    }
+  }"
 >
   <div 
-    v-for="(item, index) in computedList" :key="`item-${index}`"  
+    v-for="(item, index) in props?.dataProvider" :key="item.label"  
     :class="[`list-item`, props?.listItemClass]"  
-    :style="{ transitionDelay: props?.transitionProps?.transitionDelay * index + 's' }"
+    :data-index="index"
+    :style="setTransitionStyles(index, hasTransitioned)"
   >
-    <slot name="listItemSlot" :item="{ ...item, index }">
+    <slot name="listItemSlot" :item="{ ...item, index: index }">
       <BaseButton 
         role="listitem"
-        :data-list-item="index"
-        :v-bind="buttonProps"  
         :class="`variant-blue width-100`" 
         :innerClassName="`px-20 justify-between`"
         :bodyClassName="`text-left`"
+        :v-bind="buttonProps"  
         iconClassName=""
         accessoryIconClassName=""
       >
@@ -82,4 +114,6 @@ const computedList = computed(() => {
 </transition-group>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+// .base-list {}
+</style>

@@ -1,3 +1,41 @@
+.nested-enter-active, .nested-leave-active {
+	transition: all 0.3s ease-in-out;
+}
+/* delay leave of parent element */
+.nested-leave-active {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .inner,
+.nested-leave-active .inner { 
+  transition: all 0.3s ease-in-out;
+}
+/* delay enter of nested element */
+.nested-enter-active {
+	transition-delay: 0.95s;
+}
+.nested-enter-active .inner {
+	transition-delay: 0.25s;
+}
+
+.nested-enter-from .inner,
+.nested-leave-to .inner {
+  transform: translateX(30px);
+  /*
+  	Hack around a Chrome 96 bug in handling nested opacity transitions.
+    This is not needed in other browsers or Chrome 99+ where the bug
+    has been fixed.
+  */
+  opacity: 0.001;
+}
+
 //////////
 /// Scale Slide
 /// 
@@ -39,33 +77,114 @@
 }
 
 //////////
-/// Slide
+/// Slide Left
 ///
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.75s ease-out;
+.slide-left-enter-active {
+  transition: transform 0.45s ease;
 }
 
-.slide-enter-to {
+.slide-left-leave-active {
+  transition: transform 0.25s ease-out;
+}
+
+.slide-left-enter-to {
   position: absolute;
-  right: 0;
 }
 
-.slide-enter-from {
+.slide-left-enter-from {
   position: absolute;
-  right: -100%;
+  transform: translateX(100%);
 }
 
-.slide-leave-to {
+.slide-left-leave-to {
   position: absolute;
-  left: -100%;
+  transform: translateX(100%);
 }
 
-.slide-leave-from {
+.slide-left-leave-from {
   position: absolute;
-  left: 0;
+  transform: translateX(0%);
 }
 
+//////////
+/// Slide Right
+///
+.slide-right-enter-active {
+  transition: transform 0.45s ease;
+}
+
+.slide-right-leave-active {
+  transition: transform 0.25s ease-out;
+}
+
+.slide-right-enter-to {
+  position: absolute;
+}
+
+.slide-right-enter-from {
+  position: absolute;
+  transform: translateX(-100%);
+}
+
+.slide-right-leave-to {
+  position: absolute;
+  transform: translateX(-100%);
+}
+
+.slide-right-leave-from {
+  position: absolute;
+  transform: translateX(0%);
+}
+
+//////////
+/// Slide In From Bottom
+///
+.slide-in-from-bottom-enter-active {
+  transition: transform 0.45s ease;
+}
+
+.slide-in-from-bottom-leave-active {
+  transition: transform 0.65s ease;
+}
+
+.slide-in-from-bottom-enter-to {
+  position: absolute;
+  transform: translateY(0%);
+}
+
+.slide-in-from-bottom-enter-from {
+  position: absolute;
+  transform: translateY(100%);
+}
+
+.slide-in-from-bottom-leave-to {
+  position: absolute;
+  transform: translateY(100%);
+}
+
+.slide-in-from-bottom-leave-from {
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+//////////
+/// List Scale Default Fade In
+///
+.list-default-fade-in-move,
+.list-default-fade-in-enter-active,
+.list-default-fade-in-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.list-default-fade-in-enter-from,
+.list-default-fade-in-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+.list-default-fade-in-leave-active {
+  position: absolute;
+}
 
 
 
@@ -81,9 +200,28 @@
 .list-scale-fade-in-enter-from,
 .list-scale-fade-in-leave-to {
   opacity: 0;
-  transform: scaleY(0.01) translate(30px, 0);
+  transform: scaleY(0.01) translate(70px, 0);
 }
 
 .list-scale-fade-in-leave-active {
+  position: absolute;
+} 
+
+//////////
+/// List Delete Fade
+///
+.list-delete-move,
+.list-delete-enter-active,
+.list-delete-leave-active {
+  transition: all 0.35s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.list-delete-enter-from,
+.list-delete-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(0, 0);
+}
+
+.list-delete-leave-active {
   position: absolute;
 } 

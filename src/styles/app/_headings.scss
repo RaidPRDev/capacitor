@@ -3,9 +3,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .screen-heading {
+ 
+  .screen-title {
+    font-family: $secondary-font-family;
+  }
+
   .header-right {
     > span {
       color: $primary-color;
     }
   }
+}
+
+.screen-breadcrumbs {
+  background-color: #dbd8d8;  
+}
+
+.screen-bottom-nav,
+.bottom-nav {
+  height: 76px;
 }
