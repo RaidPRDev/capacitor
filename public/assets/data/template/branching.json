@@ -1,0 +1,174 @@
+[
+  {
+    "id": "branch-1",
+    "title": "View 1",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies, nibh ut consectetur elementum, orci urna egestas enim, eget lobortis lorem tellus ac turpis. Integer consequat iaculis nisl, et lobortis urna ornare consectetur. ",
+    "layout": "list",
+    "branchTo": "branch-2",
+    "items": [
+      {
+        "label": "Go to 2",
+        "branchTo": "branch-2"
+      },
+      {
+        "label": "Go to 3",
+        "branchTo": "branch-3"
+      },
+      {
+        "label": "Checklist Demo",
+        "branchTo": "branch-7"
+      },
+      {
+        "label": "Input Demo",
+        "branchTo": "branch-8"
+      }      
+    ]
+  },
+  {
+    "id": "branch-2",
+    "title": "View 2",
+    "content": "Suspendisse vestibulum dictum pellentesque. Nunc sed tincidunt tellus.",
+    "layout": "list",
+    "branchTo": "branch-3",
+    "items": [
+      {
+        "label": "Go to 1",
+        "branchTo": "branch-1"
+      },
+      {
+        "label": "Go to 3",
+        "branchTo": "branch-3"
+      },
+      {
+        "label": "Go to 4",
+        "branchTo": "branch-4"
+      },
+      {
+        "label": "Go to 5",
+        "branchTo": "branch-5"
+      }      
+    ]    
+  },
+  {
+    "id": "branch-3",
+    "title": "View 3",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "list",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Go to 1",
+        "branchTo": "branch-1"
+      },
+      {
+        "label": "Go to 4",
+        "branchTo": "branch-4"
+      },
+      {
+        "label": "Go to 5",
+        "branchTo": "branch-5"
+      },
+      {
+        "label": "Input Demo",
+        "branchTo": "branch-8"
+      }
+    ]
+  },
+  {
+    "id": "branch-4",
+    "title": "View 4",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "list",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Go to 2",
+        "branchTo": "branch-2"
+      },
+      {
+        "label": "Go to 5",
+        "branchTo": "branch-5"
+      }   
+    ]
+  },
+  {
+    "id": "branch-5",
+    "title": "View 5",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "list",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Go to 3",
+        "branchTo": "branch-3"
+      },     
+      {
+        "label": "Go to 6",
+        "branchTo": "branch-6"
+      }     
+    ]
+  },
+  {
+    "id": "branch-6",
+    "title": "View 6",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "list",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Go to 1",
+        "branchTo": "branch-1"
+      }
+    ]
+  },
+  {
+    "id": "branch-7",
+    "title": "View 7",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "checklist",
+    "branchTo": null,
+    "items": [
+      {
+        "label": "Enable Option #1",
+        "branchTo": "branch-1"
+      },
+      {
+        "label": "Enable Option #2",
+        "branchTo": "branch-4"
+      },
+      {
+        "label": "Enable Option #3",
+        "branchTo": "branch-5"
+      }   
+    ]
+  },
+  {
+    "id": "branch-8",
+    "title": "View 8",
+    "content": "Vestibulum nibh nisi, volutpat non leo vel, blandit pretium tortor.",
+    "layout": "input",
+    "branchTo": "branch-1",
+    "items": [
+      {
+        "label": "",
+        "branchTo": "",
+        "inputProps": {
+          "type": "number",
+          "step": ".01",
+          "placeholder": "Enter number"
+        }
+      },
+      {
+        "label": "",
+        "branchTo": "",
+        "inputProps": {
+          "type": "text"
+        }
+      },
+      {
+        "label": "",
+        "branchTo": ""
+      }   
+    ]
+  }
+]

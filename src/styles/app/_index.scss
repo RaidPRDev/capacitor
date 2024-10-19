@@ -1,0 +1,14 @@
+// App Custom Styles
+@import './fonts';
+@import './variables';
+@import './headings';
+@import './components';
+@import './scroller';
+@import './content';
+
+:root {
+  font-family: $primary-font-family;
+  @include getFontSize('medium');
+  font-weight: 400;
+  color: $primary-color;
+}

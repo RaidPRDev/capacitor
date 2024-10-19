@@ -1,0 +1,280 @@
+//////////
+/// Buttons
+.base-button {
+  transition: opacity $btn-transition-ms $btn-transition-ease,
+  color $btn-transition-ms $btn-transition-ease,
+  background-color $btn-transition-ms $btn-transition-ease,
+  transform 425ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  $scale: 0.9;
+  &.pressed {
+    //pointer-events: none;
+    -webkit-transform: scale3d($scale, $scale, $scale);
+            transform: scale3d($scale, $scale, $scale);
+  }
+
+  &.active, &.selected {
+    //pointer-events: none;
+    .ui-background {
+      opacity: 1;
+    }
+  }
+
+  &.small {
+    min-width: 89px;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.variant-blue {
+    color: white;
+    border-radius: $global-radius;
+    
+    .inner-base-button {
+      background: $blue-gradient;
+      border-radius: inherit;
+    }
+    .ui-background {
+      transition: opacity $btn-transition-ms $btn-transition-ease;
+      background: $blue-light-gradient;
+      border-radius: inherit;
+      opacity: 0;
+    }
+    // .ui-label {
+    //   @include getFontSize('small');
+    // }
+    
+    &:hover:not(.disabled):not(.active):not(.sub-control-active) {
+      .ui-background {
+        opacity: 1;
+      }
+    }
+  }
+  
+  &.variant-red {
+    color: white;
+    border-radius: $global-radius;
+
+    .inner-base-button {
+      background: $red-gradient;
+      border-radius: inherit;
+    }
+    .ui-background {
+      transition: opacity $btn-transition-ms $btn-transition-ease;
+      background: $red-light-gradient;
+      border-radius: inherit;
+      opacity: 0;
+    }
+    .ui-label {
+      @include getFontSize('small');
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    
+    .ui-accessory-icon {
+      width: 19px;
+    }
+  
+    &:hover:not(.disabled):not(.active)
+    :not(.selected):not(.pressed) {
+      .ui-background {
+        opacity: 1;
+      }
+    }
+
+    &.outlined {
+      color: $fifth-color;
+      background: white;
+      
+      .inner-base-button {
+        background: none;
+        padding: 7px 13px;
+        border: 2px solid $fifth-color;
+        
+      }
+      .ui-background {
+        background-color: $red-light-gradient;
+      }
+
+      &:hover {
+        color: white;
+        .inner-base-button {
+          background: none;
+          background: $red-gradient;
+          border: 2px solid $fifth-color;
+        }
+      }
+    }
+  }
+
+  &.ignore-icon {
+    .ui-accessory-icon {
+      width: auto;
+    }
+  }
+}
+
+//////////
+/// Input
+.base-input {
+  &.variant-calc {
+    .ui-input-field {
+      background-color: white;
+      border-radius: 12px;
+      border: 2px solid #BEBEBE;
+      box-shadow: 0px 6px 20px -13px #0B247A66;
+
+    }
+    .ui-input-element {
+      background: transparent;
+      padding: 10px 12px;
+      color: $primary-color;
+      font-weight: 800;
+      font-size: 24px;
+
+      &::placeholder {
+        color: rgba(white, 0.5);
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+//////////
+/// Favorites Heading Button
+.favorites-head-button {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  box-shadow: 0px 3.69px 3.69px 0px #00000040;
+  border-radius: 50%;
+  border: 1px solid $transparent-color;
+  transition: #{$base-button-transition}, 
+    border-color 350ms ease-out;
+
+  &:hover:not(.edit-button) {
+    border: 2px solid $seven-color;
+  }
+
+  &.edit-button {
+    //border: 2px solid $seven-color;
+    &:hover {
+      border: 2px solid $teniary-color;
+    }
+  }
+  
+  &.added {
+    color: $seven-color;
+
+    &:hover {
+      border: 2px solid $teniary-color;
+    }
+  }
+  
+  &.edit-mode {
+    color: $seven-color;
+    border: 2px solid $teniary-color;
+
+    &:hover, &.pressed, &.selected {
+      border: 2px solid $teniary-color;
+    }
+  }
+
+  &.disabled {
+    @include grayscale();
+    pointer-events: none;
+
+    svg { opacity: 0.75 }
+  }
+}
+
+
+//////////
+/// Blue Menu Item
+
+.blue-menu-item {
+  .base-button {
+    box-shadow: 2px 10px 40px -13px #0B247ACC;
+
+    &.disabled {
+      opacity: 1;
+      box-shadow: 2px 10px 40px -13px #adadadcc;
+      
+      .inner-base-button {
+        background: $fourth-color;
+      }
+    }
+    
+    &.no-action {
+      opacity: 1;
+      box-shadow: none;
+      pointer-events: none;
+      
+      .inner-base-button {
+        background: none;
+        padding: 0px 0px 0px 20px;
+
+        .ui-label {
+          color: $primary-color;
+          font-weight: 300;
+        }
+        .ui-accessory-icon {
+          display: none
+        }
+      }
+    }
+
+    // .inner-base-button {}
+    .ui-label {
+      @include getFontSize('medium');
+      font-weight: 300;
+    }
+
+    .ui-accessory-icon {
+      width: 19px;
+    }
+  }
+}
+
+//////////
+/// BaseTextArea 
+/// 
+.base-textarea-input {
+  &.disabled {
+    .base-textarea-field {
+      border: 1px solid #7d96a1;
+    }
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+// textarea element container
+.base-textarea-field {
+  border: 1px solid #d8d6de;
+  border-radius: $global-radius;
+  background: #ffffff;
+  overflow: hidden;
+  transition-property: border-color, box-shadow, fill;
+  transition-duration: 0.2s;
+
+  &:focus-within {
+    border: 1px solid $teniary-color;
+    box-shadow: 0 0 20px 10px rgb(0 188 255 / 0%);
+  }
+}
+
+// textarea element
+.base-textarea-element {
+  padding: 1rem;
+  font-family: $primary-font-family, "Helvetica";
+  font-style: normal;
+  border-radius: 0;
+  color: $primary-color;
+  font-weight: 400;
+  font-size: 16px;
+
+  @include setInputPlaceholder($primary-font-family, rgba($primary-color, 50%));
+}

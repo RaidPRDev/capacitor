@@ -1,0 +1,37 @@
+// Global Variables
+
+$breakpoints: (
+  'small': 800px,
+  'medium': 992px,
+  'desktop': 1200px,
+  'large': 1600px,
+  'x-large': 1920px,
+) !default;
+
+$primary-font-family: Inter, Avenir, Helvetica, Arial, sans-serif !default;
+
+$font-size: (
+  'small': 14px,
+  'normal': 16px,
+  'medium': 18px,
+  'large': 24px,
+  'x-large': 36px,
+) !default;
+
+$font-leading: (
+  'small': 19px,
+  'normal': 22px,
+  'medium': 24px,
+  'large': 28px,
+  'x-large': 42px,
+) !default;
+
+$font-letter-spacing: 0.02rem !default;
+
+$white: #ffffff !default;
+$black: #000000 !default;
+
+$header-height: 50 !default; // pixels
+$footer-height: 50 !default; // pixels
+
+$default-scrollbar-width: 17px;

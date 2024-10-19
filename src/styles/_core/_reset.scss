@@ -1,0 +1,50 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+input,
+button, 
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  font-family: inherit;
+  font-size: inherit;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  
+  &:focus-visible {
+    outline-style: dashed;
+    outline-offset: 0.1rem;
+    outline-width: 0.15rem;
+    outline-color: cornflowerblue;
+  }
+}
+
+button, a {
+  cursor: pointer;
+  letter-spacing: $font-letter-spacing;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
