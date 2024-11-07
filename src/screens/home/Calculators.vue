@@ -17,14 +17,14 @@ import {
 
 import { IBaseScreenSlotProps } from "@/ui/types";
 import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";
-import { loadViewData } from "@/components/branching/tools/DataTools";
+import { loadViewData } from "@/ui/navigation/branching/utils/DataTools";
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import Branching from '@/ui/navigation/branching/Branching.vue';
 import PulseRateLoader from '@/components/PulseRateLoader.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import useBranching from "@/ui/navigation/branching/hooks/useBranching";
-import { getNavigationRoot } from "@/ui/navigation/branching/tools";
+import { getNavigationRoot } from "@/ui/navigation/branching/utils/tools";
 
 import CalculatorIcon from '@/assets/icons/homeMenu/calculator-icon.svg';
 

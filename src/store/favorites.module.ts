@@ -24,6 +24,10 @@ export const useFavoritesStore = defineStore('favorites', {
       delete this.data?.[id!];
       return true;
     },
+    clearItems() {
+      // console.log("Clear Favorites");
+      this.data = {}
+    },
 
   },
 });

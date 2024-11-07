@@ -11,7 +11,7 @@ import { IBaseBreadcrumbProps, IBreadcrumbItem } from '@/ui/navigation/branching
 import { computed, inject, onMounted, reactive, ref, watch } from 'vue';
 
 import { IApp } from '@/ui/types';
-import { APP_ID } from '@/App.vue';
+import { APP_ID } from '@/Constants';
 
 import DividerIcon from '@/assets/icons/breadcrumb-div-icon.svg';
 

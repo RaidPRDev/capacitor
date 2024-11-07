@@ -15,7 +15,7 @@ import FullScreen from "@/ui/panels/FullScreen.vue";
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
 
-import { APP_DRAWERS_ID, APP_ID } from "@/App.vue";
+import { APP_DRAWERS_ID, APP_ID } from "@/Constants";
 import { IApp, IAppDrawerComponents } from "@/ui/types";
 import useSession from "@/store/session.module";
 import useToasterService from '@/ui/notifications/toaster/AppToastService';

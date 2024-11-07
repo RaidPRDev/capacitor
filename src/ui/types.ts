@@ -141,6 +141,7 @@ export type IButtonGroupSelected = {
 
 export interface IBaseListItemData {
   type?: string;
+  groupType?: BaseListGroupType;
   label?: string;
   class?: string;
   icon?: any;
@@ -155,6 +156,8 @@ export interface IBaseTransitionProps {
   tag: string;
   transitionDelay: number;
 }
+
+export type BaseListGroupType = "GroupHeader" | "GroupItem"
 
 export interface IBaseListProps {
   dataProvider?: Array<IBaseListItemData> | null;
@@ -253,4 +256,8 @@ export interface IHtmlParserElementItem {
   textContent?: string;                               // The content of text nodes, if applicable
 }
 
-export type IHtmlParserDataProps = HTMLAttributes & { wrapperClass?: string, dataId?: string, ['data-id']?: string }
+export type IHtmlParserDataProps = HTMLAttributes & { 
+  wrapperClass?: string, 
+  dataId?: string, 
+  ['data-id']?: string 
+}

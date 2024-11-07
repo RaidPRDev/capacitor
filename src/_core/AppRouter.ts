@@ -20,6 +20,8 @@ import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
 import usePassKey from '@/store/passkey.module';
 import { BranchRouteProps } from '@/ui/navigation/branching/types';
 
+const DEBUG = false;
+
 const defaultTransition = { transition: "scale-slide" };
 
 type AppRoute = RouteLocationGeneric;
@@ -57,56 +59,21 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   
+  if (DEBUG) console.log("router.beforeEach()");
+  if (DEBUG) console.log("  to", to);
+  if (DEBUG) console.log("  from", from);
+
   const { isAuthorized } = usePassKey();
-    
+  
+  if (DEBUG) console.log("  isAuthorized", isAuthorized);
+  
   if (!isAuthorized && to.name !== "Unauthorized") {
     next({ name: 'Unauthorized', replace: true });
     return;
   }
 
-  if (false) console.log(to, from);
-
-  
-  // if (!router.hasRoute(to.fullPath)) {
-  //   console.error("NO ROUTE FOUND", to)
-  //   router.addRoute({
-  //     path: to.fullPath,
-  //     component: Panic,
-  //     props: (route:RouteLocationGeneric) => {
-          
-  //       // const params = route.params.myParams
-  //       console.log("ROUTE PROPS222", route)
-  //       let routeViewId = "", parsedParams: any = {};
-  //       if (route.params?.id) {
-  //         const routesFromParams = (route?.params?.id as string).split("/")
-  //         const parentRoute = routesFromParams[0] as string;
-  //         routesFromParams.shift();
-  //         console.log("routesFromParams", routesFromParams)
-
-  //         let subRoutes = (routesFromParams.length >= 1) ? routesFromParams : []
-  //         let branchId = (routesFromParams.length >= 1) ? routesFromParams[routesFromParams.length - 1] : parentRoute;
-  //         parsedParams = {
-  //           parentRoute,
-  //           subRoutes, 
-  //           branchId
-  //         }
-  //         console.log("parsedParams", parsedParams);
-  //         routeViewId = routesFromParams[0];
-  //       }
-
-  //       const props = {
-  //         name: route.name,
-  //         fullPath: route.fullPath,
-  //         params: route.params,
-  //         query: route.query,
-  //         redirectedFrom: route.redirectedFrom,
-  //         branchRoute: parsedParams
-  //       }
-        
-  //       return props as BranchRouteProps
-  //     }
-  //   })
-  // }
+  // save previous route
+  router.from = from;
 
   next();
 })

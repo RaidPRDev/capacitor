@@ -1,4 +1,4 @@
-import { CalculatorParamType } from "@/components/branching/types";
+import { CalculatorParamType } from "@/ui/navigation/branching/types";
 
 /**
  * ELSOBA_CALC_010_01
@@ -74,5 +74,65 @@ export function ConvertPoundsToKilograms(params:CalculatorParamType):number {
   if (pounds === 0) return 0;
 
   const group = pounds * 2.2;
+  return group;  
+}
+
+/**
+ * ELSOBA_CALC_010_04
+ * Convert Farenheit to Celcius
+ * 
+ * °C = 5/9 * (°F - 32)
+ * 
+ */
+export function ConvertFarenheitToCelcius(params:CalculatorParamType):number {
+  const farenheit = params?.['farenheit'];
+  if (farenheit === 0) return 0;
+
+  const group = (5 / 9) * (farenheit - 32);
+  return group;  
+}
+
+/**
+ * ELSOBA_CALC_010_05
+ * Convert French Gauge to Millimeters
+ * 
+ * 1 Fr = ⅓ mm
+ * 
+ */
+export function ConvertFrenchGaugeToMillimeters(params:CalculatorParamType):number {
+  const frenchGauge = params?.['frenchGauge'];
+  if (frenchGauge === 0) return 0;
+
+  const group = frenchGauge * (1 / 3);
+  return group;  
+}
+
+/**
+ * ELSOBA_CALC_010_06
+ * Convert French Gauge to Millimeters
+ * 
+ * 1 Fr = ⅓ mm
+ * 
+ */
+export function ConvertMillimetersToKilopascals(params:CalculatorParamType):number {
+  const millimeters = params?.['millimeters'];
+  if (millimeters === 0) return 0;
+
+  const group = millimeters / 7.501;
+  return group;  
+}
+
+/**
+ * ELSOBA_CALC_010_07
+ * Convert Milliliters to Liters
+ * 
+ * 1 Fr = ⅓ mm
+ * 
+ */
+export function ConvertMillimetersToLiters(params:CalculatorParamType):number {
+  const millimeters = params?.['millimeters'];
+  if (millimeters === 0) return 0;
+
+  const group = millimeters / 1000;
   return group;  
 }

@@ -6,6 +6,9 @@ declare module '*.json' {
 
 import 'vue-router'
 declare module 'vue-router' {
+  interface Router {
+    from?: RouteLocationNormalized;
+  }
   interface RouteMeta {
     transition?: string;
   }

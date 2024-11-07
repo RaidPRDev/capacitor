@@ -6,9 +6,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { APP_DRAWERS_ID, APP_ID } from "@/App.vue";
-import { ComponentPublicInstance, computed, ref, VueElement, inject } from "vue";
+import { APP_DRAWERS_ID, APP_ID } from "@/Constants";
+import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
+import { storeToRefs } from "pinia";
 import { IApp, IAppDrawerComponents, IAppScreenProps, IButtonGroupSelected } from "@/ui/types";
 
 import BaseScreen from "@/ui/panels/BaseScreen.vue";
@@ -16,9 +17,11 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
 import ButtonGroup from "@/ui/controls/ButtonGroup.vue";
 import useSession from '@/store/session.module';
+import useBranchingStore from '@/store/branching.module';
 
 import AppSideMenuPanel from "@/components/panels/AppSideMenuPanel.vue";
 import AppSearchPanel from "@/components/panels/AppSearchPanel.vue";
+import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 
 import Logo from '/assets/elso_logo.png';
 import MenuIcon from '@/assets/icons/menu-icon.svg';
@@ -35,11 +38,15 @@ const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const router = useRouter();
 const session = useSession();
+const branchingStore = useBranchingStore();
+const { refferedView } = storeToRefs(branchingStore);
 
 // Reference Setup
 const headerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const bodyRef = ref<ComponentPublicInstance<typeof VueElement>>()
 const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
+
+const footerSelectedItem = ref<IButtonGroupSelected>();
 
 const footerMenuGroup = [
   { label: "Home", icon: HomeIcon, route: "Home", class: "" },
@@ -75,11 +82,33 @@ const bodyProps = computed(() => {
 })
 
 function onFooterMenuTriggered(selected: IButtonGroupSelected) {
+  
+  // check if we are in panic mode
+  if (refferedView?.value !== null) {
+    footerSelectedItem.value = selected;
+    nextTick(() => { showPanicAlert(); });    
+    return;
+  }
+  
+  // show if in panic and want to go back to the panic menu
+  // 3 === Panic Button
+  if (selected.index === 3) {
+    // if already in panic home, do nothing
+    const checkCurPath = router.currentRoute?.value?.fullPath;
+    const checkLen = checkCurPath?.split("/")?.length;
+    if (checkCurPath?.indexOf("/home/panic") === 0 && checkLen > 3) {
+      footerSelectedItem.value = selected;
+      nextTick(() => { showGoPanicHomeAlert(); });    
+      return;
+    }
+  }
+  
+  goToSection(selected);
+}
+
+function goToSection(selected: IButtonGroupSelected) {
   if (sectionIndex.value === selected.index) return;
-
-  // session?.setCurrentIndex(selected.index);
   session.$patch({ currentIndex: selected.index })
-
   router.push({ name:selected.data.route });
 }
 
@@ -89,6 +118,66 @@ function onAfterEnter(el:Element, route:RouteLocationGeneric) {
 
 function onAfterLeave(el:Element) {
   if (false) console.log("onAfterLeave", el);
+}
+
+function showPanicAlert() {
+  let message = `You are currently in the `;
+  message += `<span style="color: red">${refferedView?.value?.title}</span> panic session. `;
+  message += `Do you want to be taken to your current session or exit panic?`;
+
+  app.alert.component = shallowRef(AppAlertPanel);
+  app.alert.options.props = {
+    title: '',
+    content: `${message}`,
+    labels: ['No', 'Exit', 'Take me'],
+    action: (index:number) => {
+      if (index === 0) return;
+
+      // Exit
+      if (index === 1) {
+        // clear store referral
+        branchingStore.$patch({ refferedView: null });
+        goToSection(footerSelectedItem.value!);
+      }
+      // Take me
+      else if (index === 2) {
+        // replace route
+        const view = refferedView.value;
+        // clear store referral
+        branchingStore.$patch({ refferedView: null });
+        // wait, then replace
+        nextTick(() => router.replace({ path: `${view?.fullPath}` }))
+      }
+    }
+  }
+  app.alert.options.open = !app.alert.options.open;
+}
+
+function showGoPanicHomeAlert() {
+  let message = `Would you want to go back to the Panic menu?`;
+
+  app.alert.component = shallowRef(AppAlertPanel);
+  app.alert.options.props = {
+    title: '',
+    content: `${message}`,
+    labels: ['No', 'Yes'],
+    action: (index:number) => {
+      if (index === 0) return;
+
+      // Exit
+      if (index === 1) {
+        // clear store referral
+        branchingStore.$patch({ refferedView: null });
+        goToSection(footerSelectedItem.value!);
+        let nextRoute = "", rawRoute = footerSelectedItem?.value?.data?.route as string;
+        if (footerSelectedItem?.value?.data?.route) {
+          nextRoute = rawRoute?.toLowerCase();
+        }
+        nextTick(() => router.replace({ path: `/home/${nextRoute}` }))
+      }
+    }
+  }
+  app.alert.options.open = !app.alert.options.open;
 }
 </script>
 
@@ -102,6 +191,7 @@ function onAfterLeave(el:Element) {
       <template v-slot:headerLeft>
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
           drawerComponents.left = AppSideMenuPanel;
+          app.drawers.left.props = { name: `menu` }
           app.drawers.left.open = !app.drawers.left.open;
         }"/>
       </template>
@@ -115,6 +205,7 @@ function onAfterLeave(el:Element) {
       <template v-slot:headerRight>
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" @triggered="() => {
           drawerComponents.bottom = AppSearchPanel;
+          app.drawers.bottom.props = { name: `search` }
           app.drawers.bottom.open = !app.drawers.bottom.open;
         }"/>
       </template>

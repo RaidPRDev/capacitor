@@ -15,16 +15,16 @@ import {
   GLOBAL_PADDING 
 } from "@/Constants";
 
-import { IBaseScreenSlotProps } from "@/ui/types";
-import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";
-import { loadViewData } from "@/components/branching/tools/DataTools";
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import Branching from '@/ui/navigation/branching/Branching.vue';
 import PulseRateLoader from '@/components/PulseRateLoader.vue';
 import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import useBranching from "@/ui/navigation/branching/hooks/useBranching";
-import { getNavigationRoot } from "@/ui/navigation/branching/tools";
+import { IBaseScreenSlotProps } from "@/ui/types";
+import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";
+import { loadViewData } from "@/ui/navigation/branching/utils/DataTools";
+import { getNavigationRoot } from "@/ui/navigation/branching/utils/tools";
 
 import ChecklistIcon from '@/assets/icons/homeMenu/checklist-icon.svg';
 

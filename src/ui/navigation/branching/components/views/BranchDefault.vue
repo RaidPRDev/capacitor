@@ -9,7 +9,7 @@ export default {
 import { CSSProperties, onMounted, onUnmounted, ref } from 'vue';
 import { IBranchTypeProps } from '@/ui/navigation/branching/types';
 import { loadHTMLFile } from '@/utils/FileTools';
-import { parseAndReplaceCurlyBraceContent } from '../tools/DataTools';
+import { parseAndReplaceCurlyBraceContent } from '../../utils/DataTools';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false

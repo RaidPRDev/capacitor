@@ -169,12 +169,12 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Basic Patient Monitoring and Management [Waiting for content]",
+        "label": "Basic Patient Monitoring and Management",
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_010"
       },
       {
-        "label": "Circuit Change (Emergent and Elective) [Waiting for content]",
+        "label": "Circuit Change (Emergent and Elective)",
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_020"
       },
@@ -384,7 +384,7 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Waiting for content",
+        "label": "No content found.",
         "branchTo": "",
         "class": "disabled"
       }
@@ -400,9 +400,324 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Waiting for content",
-        "branchTo": "",
-        "class": "disabled"
+        "label": "Sample #1",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #2",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #3",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #4",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #5",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #6",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #7",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #8",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #9",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sample #10",
+        "layout": "checklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Color",
+            "checked": false
+          },
+          {
+            "label": "Temperature (touch)",
+            "checked": false
+          },
+          {
+            "label": "Evidence of vibrations",
+            "checked": false
+          },
+          {
+            "label": "Evidence of clots or fibrin",
+            "checked": false
+          },
+          {
+            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
+            "checked": false
+          },
+          {
+            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "checked": false
+          }
+        ]
       }
     ]
   },  
@@ -1026,6 +1341,127 @@
     ]
   },
   {
+    "id": "ELSOBA_CHKLST_035",
+    "title": "Coming Off ECMO Emergently",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "ECMO; EMERGENTLY; COMING OFF",
+    "doc": "https://drive.google.com/file/d/1utSsq2n_502SF2_9-zz5M0ebMtckLc6k/view?usp=sharing",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "Step 1: You suspect the need for coming off emergently",
+        "class": "",
+        "layout": "checklist",
+        "items": [
+          { "label": "Call for help", "checked": false },
+          { "label": "Alert and/or activate the ECLS and the ICU teams", "checked": false }
+        ]
+      }, 
+      {
+        "label": "Step 2: Identify the need for coming off emergently",
+        "class": "",
+        "layout": "checklist",
+        "items": [
+          { 
+            "label": "If at least one of the following is true:", 
+            "type": "comment" 
+          },
+          { "label": "Massive air entrance <br><span>Go to Air in Circuit</span>", "checked": false },
+          { "label": "Accidental decannulation <br><span>Go to: Accidental Decannulation</span>", "checked": false },
+          { "label": "Acute circuit thrombosis <br><span>Go to No Flow</span>", "checked": false },
+          { "label": "Major circuit disruption <br><span>Go to: Panic!: (link to circuit disruption algorithm)</span>", "checked": false },
+          { 
+            "label": "If weaning is deemed feasible or no other management option is feasible for any reason, proceed to the next step.", 
+            "type": "comment" 
+          }
+        ]
+      }, 
+      {
+        "label": "Step 3: Cannula Management",
+        "class": "",
+        "layout": "checklist",
+        "items": [
+          { 
+            "label": "Coming off Emergently:", 
+            "type": "comment" 
+          },
+          { "label": "Clamp the return tubing to interrupt blood flow", "checked": false },
+          { "label": "Reduce RPM and SGF to 0", "checked": false },
+          { "label": "Clamp the drainage tubing", "checked": false },
+          { 
+            "label": "If the cannulas are not functional or no longer required:", 
+            "type": "comment" 
+          },
+          { "label": "Proceed to decannulation", "checked": false },
+          { "label": "Consider surgical repair or hemostatic devices for arterial cannulas", "checked": false },
+          { "label": "Use mattress suture in the skin for venous cannulas. Compression is not necessary unless there is formation.", "checked": false },
+          { "label": "If cutdown with ligation into the vessel, it will need surgical decannulation.", "checked": false },
+          { 
+            "label": "If one or more cannulas are still functional or required (also to be used as introducers for alternative cannula)", 
+            "type": "comment" 
+          },
+          { 
+            "label": "If coming off due to temporary loss of vascular access due to accidental decannulation, rupture or thrombosis of one cannula, consider:", 
+            "type": "comment" 
+          },
+          { "label": "Clamp the cannula(s) that are still required", "checked": false },
+          { "label": "Separate the circuit from the cannulas", "checked": false },
+          { "label": "Flush and clamp the cannulas which are still required", "checked": false }
+        ]
+      }, 
+      {
+        "label": "Step 4: Circuit Management",
+        "class": "",
+        "layout": "checklist",
+        "items": [
+          { 
+            "label": "If the circuit is NOT functional OR no longer required:", 
+            "type": "comment" 
+          },
+          { "label": "Dispose of the circuit and the cannulas according to hospital protocol.", "checked": false },
+          { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false },
+          { 
+            "label": "If the circuit is still required (resources constraint scenario):", 
+            "type": "comment" 
+          },
+          { "label": "Coming off due to temporary loss of vascular access due to accidental decannulation, rupture or thrombosis of one cannula, in a scenario of resources constraint", "checked": false },
+          { "label": "Keep the circuit functional by recirculating over a bridge OR keep the circuit functional by connecting drainage and return tubing to create a loop.", "checked": false },
+          { "label": "Flush and clamp the cannula still on site.", "checked": false }
+        ]
+      }, 
+      {
+        "label": "Step 5: Post-Coming Off Management",
+        "class": "",
+        "layout": "checklist",
+        "items": [
+          { "label": "Optimize conventional respiratory and/or circulatory support as needed", "checked": false },
+          { "label": "Strictly monitor the patient", "checked": false },
+          { "label": "Consider post-decannulation screening of the cannulated vessels for complications", "checked": false },
+          { "label": "Document the procedure in the patient's chart and include the reason for coming off and timing off", "checked": false },
+          { "label": "Report the procedure in the ELSO registry", "checked": false }
+        ]
+      } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_060",
+    "title": "DIT Anticoagulation Monitoring and Management",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "DIT; Anticoagulation; Monitoring; Management",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },
+  {
     "id": "ELSOBA_CHKLST_070",
     "title": "Emergency Cart",
     "content": "An emergency ECMO cart is used for emergent cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.",
@@ -1602,18 +2038,14 @@
     "keywords": "HIT; Diagnosis; Management; Anticoagulation",
     "showFavorites": true,
     "useScroll": true, 
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_060",
-    "title": "DIT Anticoagulation Monitoring and Management",
-    "content": "",
-    "layout": "checklist",
-    "keywords": "DIT; Anticoagulation; Monitoring; Management",
-    "showFavorites": true,
-    "useScroll": true, 
-    "items": []
-  },
+    "items": [
+      {
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },  
   {
     "id": "ELSOBA_CHKLST_110",
     "title": "Hybrid Cannulation Procedure",
@@ -1622,7 +2054,13 @@
     "keywords": "Hybrid; Cannulation; Procedure",
     "showFavorites": true,
     "useScroll": true, 
-    "items": []
+    "items": [
+      {
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
   },
   {
     "id": "ELSOBA_CHKLST_120",
@@ -1632,7 +2070,13 @@
     "keywords": "Insert; DPC; VA ECMO; Procedure",
     "showFavorites": true,
     "useScroll": true, 
-    "items": []
+    "items": [
+      {
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
   },
   {
     "id": "ELSOBA_CHKLST_130",
@@ -1645,7 +2089,7 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Waiting for client content",
+        "label": "No content found.",
         "class": "disabled",
         "branchTo": ""
       } 
@@ -1662,7 +2106,7 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Waiting for client content",
+        "label": "No content found.",
         "class": "disabled",
         "branchTo": ""
       } 
@@ -1678,7 +2122,7 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Waiting for client content",
+        "label": "No content found.",
         "class": "disabled"
       } 
     ]
@@ -1688,7 +2132,7 @@
     "title": "Membrane Lung Failure",
     "content": "",
     "layout": "checklist",
-    "keywords": "",
+    "keywords": "Membrane; Lung; Failure",
     "showFavorites": true,
     "useScroll": true, 
     "items": [
@@ -1710,7 +2154,7 @@
               { "label": "Assess pre-membrane lung pressure (PPRE-ML)", "checked": false },
               { "label": "Assess post-membrane lung pressure (PPOST-ML)", "checked": false },
               { "label": "Assess extracorporeal blood flow (EBF)", "checked": false },
-              { "label": "Calculate pressure drop or delta P <br><span>ΔP = PPRE-ML – PPOST-ML</span><br><span>Open Notes to record the value.</span>", "checked": false },
+              { "label": "Calculate pressure drop or delta P <br><span>ΔP = PPRE-ML - PPOST-ML</span><br><span>Open Notes to record the value.</span>", "checked": false },
               { "label": "Calculate membrane lung resistances (MLR) <br><span>MLR = ΔP/EBF</span><br><span>Open Notes to record the value.</span>", "checked": false },
               { 
                 "label": "Check your values against the standard pressures for the device, listed in the Almanac [link?].", 
@@ -1732,7 +2176,7 @@
             ]
           }, 
           {
-            "label": "Evaluate ML Gas Transfer Eﬀectiveness",
+            "label": "Evaluate ML Gas Transfer Effectiveness",
             "type": "subchecklist",
             "layout": "checklist",
             "class": "",
@@ -1766,7 +2210,7 @@
                 "type": "comment"
               },
               {
-                "label": "Consider performing a <a href='#'>circuit change</a> or <a href='#'>coming oﬀ ECMO</a> if it’s preferable for the patient.",
+                "label": "Consider performing a <a href='#'>Circuit Change</a> or <a href='#'>Coming Off ECMO</a> if it’s preferable for the patient.",
                 "checked": false
               },
               {
@@ -1833,107 +2277,98 @@
     ]
   },
   {
-    "id": "ELSOBA_CHKLST_035",
-    "title": "Coming Off ECMO Emergently",
+    "id": "ELSOBA_CHKLST_170",
+    "title": "Monitoring and Managing LV Distension on VA ECMO Algorithm",
     "content": "",
     "layout": "checklist",
-    "keywords": "ECMO; EMERGENTLY; COMING OFF",
-    "doc": "https://drive.google.com/file/d/1utSsq2n_502SF2_9-zz5M0ebMtckLc6k/view?usp=sharing",
+    "keywords": "Monitor; Management; LV distension; VA ECMO; Algorithm",
     "showFavorites": true,
     "useScroll": true, 
     "items": [
       {
-        "label": "Step 1: You suspect the need for coming off emergently",
-        "class": "",
-        "layout": "checklist",
-        "items": [
-          { "label": "Call for help", "checked": false },
-          { "label": "Alert and/or activate the ECLS and the ICU teams", "checked": false }
-        ]
-      }, 
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_180",
+    "title": "Monitoring Limb Perfusion",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Monitor; Limb perfusion",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
       {
-        "label": "Step 2: Identify the need for coming off emergently",
-        "class": "",
-        "layout": "checklist",
-        "items": [
-          { 
-            "label": "If at least one of the following is true:", 
-            "type": "comment" 
-          },
-          { "label": "Massive air entrance <br><span>Go to Air in Circuit</span>", "checked": false },
-          { "label": "Accidental decannulation <br><span>Go to: Accidental Decannulation</span>", "checked": false },
-          { "label": "Acute circuit thrombosis <br><span>Go to No Flow</span>", "checked": false },
-          { "label": "Major circuit disruption <br><span>Go to: Panic!: (link to circuit disruption algorithm)</span>", "checked": false },
-          { 
-            "label": "If weaning is deemed feasible or no other management option is feasible for any reason, proceed to the next step.", 
-            "type": "comment" 
-          }
-        ]
-      }, 
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_190",
+    "title": "Monitoring Native Cardiac Function on VA ECMO",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Monitor; Native; Cardiac function; VA ECMO",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
       {
-        "label": "Step 3: Cannula Management",
-        "class": "",
-        "layout": "checklist",
-        "items": [
-          { 
-            "label": "Coming off Emergently:", 
-            "type": "comment" 
-          },
-          { "label": "Clamp the return tubing to interrupt blood flow", "checked": false },
-          { "label": "Reduce RPM and SGF to 0", "checked": false },
-          { "label": "Clamp the drainage tubing", "checked": false },
-          { 
-            "label": "If the cannulas are not functional or no longer required:", 
-            "type": "comment" 
-          },
-          { "label": "Proceed to decannulation", "checked": false },
-          { "label": "Consider surgical repair or hemostatic devices for arterial cannulas", "checked": false },
-          { "label": "Use mattress suture in the skin for venous cannulas. Compression is not necessary unless there is formation.", "checked": false },
-          { "label": "If cutdown with ligation into the vessel, it will need surgical decannulation.", "checked": false },
-          { 
-            "label": "If one or more cannulas are still functional or required (also to be used as introducers for alternative cannula)", 
-            "type": "comment" 
-          },
-          { 
-            "label": "If coming off due to temporary loss of vascular access due to accidental decannulation, rupture or thrombosis of one cannula, consider:", 
-            "type": "comment" 
-          },
-          { "label": "Clamp the cannula(s) that are still required", "checked": false },
-          { "label": "Separate the circuit from the cannulas", "checked": false },
-          { "label": "Flush and clamp the cannulas which are still required", "checked": false }
-        ]
-      }, 
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200",
+    "title": "Neuromonitoring in ECMO Algorithm",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Monitor; Neuromonitoring; ECMO; Algorithm",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
       {
-        "label": "Step 4: Circuit Management",
-        "class": "",
-        "layout": "checklist",
-        "items": [
-          { 
-            "label": "If the circuit is NOT functional OR no longer required:", 
-            "type": "comment" 
-          },
-          { "label": "Dispose of the circuit and the cannulas according to hospital protocol.", "checked": false },
-          { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false },
-          { 
-            "label": "If the circuit is still required (resources constraint scenario):", 
-            "type": "comment" 
-          },
-          { "label": "Coming off due to temporary loss of vascular access due to accidental decannulation, rupture or thrombosis of one cannula, in a scenario of resources constraint", "checked": false },
-          { "label": "Keep the circuit functional by recirculating over a bridge OR keep the circuit functional by connecting drainage and return tubing to create a loop.", "checked": false },
-          { "label": "Flush and clamp the cannula still on site.", "checked": false }
-        ]
-      }, 
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_210",
+    "title": "Organ Function in ECMO Algorithm",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Organ function; ECMO; Algorithm",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
       {
-        "label": "Step 5: Post-Coming Off Management",
-        "class": "",
-        "layout": "checklist",
-        "items": [
-          { "label": "Optimize conventional respiratory and/or circulatory support as needed", "checked": false },
-          { "label": "Strictly monitor the patient", "checked": false },
-          { "label": "Consider post-decannulation screening of the cannulated vessels for complications", "checked": false },
-          { "label": "Document the procedure in the patient's chart and include the reason for coming off and timing off", "checked": false },
-          { "label": "Report the procedure in the ELSO registry", "checked": false }
-        ]
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
+      } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_220",
+    "title": "Percutaneous Cannulation Procedure",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Cannulation; Percutaneous; Procedure",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "No content found.",
+        "class": "disabled",
+        "branchTo": ""
       } 
     ]
   },
@@ -2230,6 +2665,24 @@
           { "label": "Exclude tension pneumothorax, cardiac tamponade, or vascular thrombosis in the vessel or chamber where the return cannula is located", "checked": false },
           { "label": "If any clinical issue is detected, try to fix it as it is likely causing the return obstruction.", "checked": false }
         ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_260",
+    "title": "Surgical Cannulation Procedure",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Surgical; Cannulation; Procedure",
+    "doc": "https://docs.google.com/document/d/1llzINFw2NHGoEf25QA0KM-MRJGlXlmR854kZv7vt5cc/edit",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "No content found.",
+        "class": "disabled",
+        "layout": "checklist",
+        "items": []
       }
     ]
   }

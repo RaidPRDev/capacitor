@@ -33,6 +33,8 @@ type DeviceType = "tablet" | "phone" | "desktop" | "unknown";
 type DeviceOrientation = "landscape" | "portrait" | "init";
 type DeviceBrowser = "edge" | "chrome" | "safari" | "firefox" | "ie11" | "unknown";
 
+interface DeviceVersionDetails { major: number, minor: number, versionString:string }
+
 interface IDeviceResolution {
   width: number;
   height: number;
@@ -41,6 +43,7 @@ interface IDeviceResolution {
 interface IDeviceState {
   type: DeviceType; 
   os: DeviceOS;
+  version: DeviceVersionDetails;
   browser: DeviceBrowser; 
   resolution: IDeviceResolution; 
   viewport: IDeviceResolution;
@@ -76,6 +79,10 @@ export interface IDevice {
   isMobile():boolean;
   getOffsetWidth():number;
   getNavigator():any;
+  // getiOSVersion():any;
+  // getAndroidVersion():any;
+  // getWindowsVersion():Promise<DeviceVersionDetails | null>;
+  // getMacOSVersion():any;
 }
 
 class Device implements IDevice
@@ -96,6 +103,7 @@ class Device implements IDevice
     this.state = reactive<IDeviceState>({
       type: "unknown",
       os: "unknown",
+      version: { major: 0, minor: 0, versionString: "" },
       browser: "unknown",
       resolution: { width: 0, height: 0 },
       viewport: { width: 0, height: 0 },
@@ -136,8 +144,6 @@ class Device implements IDevice
 
   deferUpdate()
   {
-    // console.log("**** RESIZE DEFER UPDATE")
-
     window.clearTimeout(this.timeout);
 
     // no need to defer on desktop
@@ -153,8 +159,7 @@ class Device implements IDevice
     
   }
 
-  update()
-  {
+  update() {
     // console.log("**** RESIZE UPDATE")
 
     // init user agent and platform
@@ -334,6 +339,12 @@ class Device implements IDevice
     this.state.touch = touch;
     this.state.pointer = pointer;
 
+    // set device version spec
+    if (ios) { this.getiOSVersion() }
+    else if (android) { this.getAndroidVersion() }
+    else if (windows) { this.getWindowsVersion(); }
+    else if (macos) { this.getMacOSVersion(); }
+
     window.requestAnimationFrame(() => 
     {
       /*
@@ -359,6 +370,137 @@ class Device implements IDevice
     return window.navigator;
   }
 
+  getDeviceVersion() {
+    if (this.state.ios) {
+      this.getiOSVersion();
+    }
+    else if (this.state.android) {
+      this.getAndroidVersion();
+    }
+    else if (this.state.windows) {
+      this.getWindowsVersion();
+    }
+    else if (this.state.windows) {
+      this.getMacOSVersion();
+    }
+    else {
+      this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+    }
+  }
+
+  getiOSVersion() {
+    const ua = this.state.navigator.userAgent;
+    const match = ua.match(/OS (\d+)_(\d+)(?:_(\d+))?/); // Matches versions like "OS 15_4_1"
+    
+    if (match) {
+      const major = parseInt(match[1], 10);
+      const minor = parseInt(match[2], 10);
+      const patch = match[3] ? parseInt(match[3], 10) : 0;
+      return { major, minor, patch };
+    }
+    
+    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+  }
+
+  getAndroidVersion() {
+    const ua = this.state.navigator.userAgent;
+    const match = ua.match(/Android (\d+)\.(\d+)(?:\.(\d+))?/); // Matches versions like "Android 12.1.0"
+    
+    if (match) {
+      const major = parseInt(match[1], 10);
+      const minor = parseInt(match[2], 10);
+      const patch = match[3] ? parseInt(match[3], 10) : 0;
+      return { major, minor, patch };
+    }
+  
+    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+  }
+
+  /**
+   * source:
+   * https://learn.microsoft.com/en-us/microsoft-edge/web-platform/how-to-detect-win11
+   * 
+   * @returns 
+   */
+  getWindowsVersion() {
+    const ua = this.state.navigator.userAgent;
+    const match = ua.match(/Windows NT (\d+)\.(\d+)/); // Matches versions like "Windows NT 10.0"
+    
+    let major = 0;
+    let minor = 0;
+    let versionString = ``;
+    // Map some common versions to OS names (optional)
+    const versionMap: Record<string, any> = {
+      "10.0": "Windows 10 / 11", // Both share the same version
+      "6.3": "Windows 8.1",
+      "6.2": "Windows 8",
+      "6.1": "Windows 7",
+      "6.0": "Windows Vista",
+      "5.1": "Windows XP",
+    };
+
+    if (match) {
+      major = parseInt(match[1], 10);
+      minor = parseInt(match[2], 10);
+      versionString = versionMap[`${major}.${minor}`] || `Windows NT ${major}.${minor}`;
+
+      if (major >= 10) {
+        this.state.navigator.userAgentData.getHighEntropyValues(["platformVersion"])
+        /** @ts-ignore */
+        .then(ua => {
+          if (this.state.navigator.userAgentData.platform === "Windows") {
+            const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
+            if (majorPlatformVersion >= 13) {
+              major = 11;
+            }
+            else if (majorPlatformVersion > 0) {
+              major = 10;
+            }
+            else {
+              major = 8;
+            }
+
+            versionString = `Windows ${major}`;
+
+            this.state.version = { major, minor, versionString }
+          }
+        });
+
+        return;
+      }
+
+      this.state.version = { major, minor, versionString }
+      return;
+    }
+
+    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+  }
+
+  getMacOSVersion() {
+    const ua = this.state.navigator;
+    const match = ua.match(/Mac OS X (\d+)_(\d+)(?:_(\d+))?/); // Matches versions like "Mac OS X 10_15_7"
+    
+    if (match) {
+      const major = parseInt(match[1], 10);
+      const minor = parseInt(match[2], 10);
+      const patch = match[3] ? parseInt(match[3], 10) : 0;
+  
+      // Optional mapping for known macOS versions (example subset)
+      const versionMap: Record<string, any> = {
+        "10.15": "macOS Catalina",
+        "11.0": "macOS Big Sur",
+        "12.0": "macOS Monterey",
+        "13.0": "macOS Ventura",
+        "14.0": "macOS Sonoma",
+      };
+  
+      const versionKey = `${major}.${minor}`;
+      const versionString = versionMap[versionKey] || `macOS ${versionKey}`;
+      return { major, minor, patch, versionString };
+    }
+  
+    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+  }
 
   get():IDeviceState
   {

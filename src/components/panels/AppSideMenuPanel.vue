@@ -12,7 +12,7 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseList from '@/ui/controls/BaseList.vue';
 
-import { APP_DRAWERS_ID, APP_ID } from '@/App.vue';
+import { APP_DRAWERS_ID, APP_ID } from '@/Constants';
 import { IApp, IAppDrawerComponents } from '@/ui/types';
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
@@ -66,24 +66,28 @@ function onMenuTriggered(selected: number) {
   switch (selected) {
     case 0: // Bedside App Help
       drawerComponents.bottom = ElsoHelpPanel;
+      app.drawers.bottom.props = { name: "bedside-app-help" }
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     break;
 
     case 1: // Terms
       drawerComponents.bottom = TermsAndConditionsPanel;
+      app.drawers.bottom.props = { name: "terms" }
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     break;
 
     case 2: // Privacy
       drawerComponents.bottom = PrivacyPolicyPanel;
+      app.drawers.bottom.props = { name: "privacy-policy" }
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     break;
     
     case 3: // Resources
       drawerComponents.bottom = ResourcesPanel;
+      app.drawers.bottom.props = { name: "resources" }
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     break;
@@ -147,6 +151,14 @@ onMounted(() => {
         :label="`Version: ${APP_VERSION} | Build: ${BUILD_VERSION} | ${PLATFORM_NAME}`"
         :triggerCallback="(_data) => {
           drawerComponents.bottom = BuildDetailsPanel;
+          app.drawers.bottom.props = {
+            onCopy: () => {
+              console.log(`Branching.onCopyBuildDetails2`)
+              // await copyToClipboard(data);
+              // console.log(`Branching.Copy Complete`);
+              // nextTick(() => addToast({ label: `Copied to clipboard.` }));
+            }
+          }
           app.drawers.bottom.closeOutside = false;
           app.drawers.bottom.open = !app.drawers.bottom.open;
         }"

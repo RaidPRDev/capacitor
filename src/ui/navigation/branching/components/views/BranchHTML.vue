@@ -13,13 +13,11 @@ import { IBranchTypeProps } from '@/ui/navigation/branching/types';
 import { loadHTMLFile } from '@/utils/FileTools';
 import HtmlParserComponent from '@/ui/parsers/HtmlParserComponent.vue';
 import { IHtmlParserDataProps } from '@/ui/types';
-// import { APP_ID } from '@/App.vue';
+// import { APP_ID } from '@/Constants';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
 });
-
-console.log("default", props)
 
 // error TS6133: 'emit' is declared but its value is never read.
 /** @ts-ignore */

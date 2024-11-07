@@ -77,6 +77,7 @@ const setTransitionStyles = (index: number, isTransition?: boolean) => {
     v-for="(item, index) in props?.dataProvider" :key="item.label"  
     :class="[`list-item`, props?.listItemClass]"  
     :data-index="index"
+    :data-group-header="item?.groupType === `GroupHeader` ? true : null"
     :style="setTransitionStyles(index, hasTransitioned)"
   >
     <slot name="listItemSlot" :item="{ ...item, index: index }">

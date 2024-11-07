@@ -16,6 +16,7 @@ export default defineConfig(async ({command, mode}) => {
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
   
   const BUILD_VERSION = await getBuildVersion();
+  const BUILD_DATE = Date.now();
   const BUILD_PHASE = 'Alpha';
   const PLATFORM = process?.env?.PLATFORM ?? "web";
   const ISMOBILE = !!/android|ios/.exec(PLATFORM);
@@ -25,6 +26,7 @@ export default defineConfig(async ({command, mode}) => {
   console.log("[PLATFORM]", PLATFORM);
   console.log("[APP_VERSION]", APP_VERSION);
   console.log("[BUILD_VERSION]", BUILD_VERSION);
+  console.log("[BUILD_DATE]", new Date(BUILD_DATE));
   console.log("[ISMOBILE]", ISMOBILE);
   console.log("[ISIOS]", ISIOS);
   console.log("[ISANDROID]", ISANDROID);
@@ -33,6 +35,7 @@ export default defineConfig(async ({command, mode}) => {
     define: {
       'import.meta.env.APP_VERSION': JSON.stringify(APP_VERSION),
       'import.meta.env.PLATFORM': JSON.stringify(PLATFORM),
+      'import.meta.env.BUILD_DATE': JSON.stringify(new Date(BUILD_DATE)),
       'import.meta.env.BUILD_VERSION': JSON.stringify(BUILD_VERSION),
       'import.meta.env.BUILD_PHASE': JSON.stringify(BUILD_PHASE),
       'import.meta.env.ISMOBILE': ISMOBILE,
@@ -52,7 +55,6 @@ export default defineConfig(async ({command, mode}) => {
           @use 'sass:math';
           @import "@/styles/_core/_variables";
           @import "@/styles/_core/_utils";
-          @import "@/styles/app/_fonts";
           @import "@/styles/app/_variables";
           @import "@/styles/app/_scroller";
 

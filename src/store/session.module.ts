@@ -1,5 +1,7 @@
 import { capitalizeFirstLetter } from '@/utils/StringTools';
 import { defineStore } from 'pinia';
+import useChecklistStore from "@/store/checklist.module";
+import useFavoritesStore from "@/store/favorites.module";
 
 const APP_VERSION = import.meta.env.APP_VERSION;
 const BUILD_VERSION = import.meta.env.BUILD_VERSION;
@@ -23,8 +25,7 @@ const initialState: ISession = {
   currentIndex: 0,
   loggedIn: false,
   hasCompletedPrivacy: false,
-  hasCompletedTerms: false,
-
+  hasCompletedTerms: false
 };
 
 export const useSession = defineStore('session', {
@@ -45,14 +46,22 @@ export const useSession = defineStore('session', {
 
   actions: {
     initSession() {
+      const favoritesStore = useFavoritesStore();
+      const checklistStore = useChecklistStore();
+
       if (this.appVersion !== APP_VERSION) {
         console.log("App Version update found.");
+        this.$state.appVersion = APP_VERSION;
       }
-      if (this.buildVersion !== BUILD_VERSION) {
+      if (parseInt(this.buildVersion!) !== BUILD_VERSION) {
         console.log("Build Version update found.");
+        this.$state.buildVersion = BUILD_VERSION;
+        favoritesStore.clearItems();
+        checklistStore.clearItems();
       }
       if (this.buildPhase !== BUILD_PHASE) {
         console.log("Build Phase update found.");
+        this.$state.buildPhase = BUILD_PHASE;
       }      
     },
 

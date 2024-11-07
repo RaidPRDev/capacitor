@@ -12,19 +12,10 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import ButtonGroup from "@/ui/controls/ButtonGroup.vue";
 
-import { APP_ID } from '@/App.vue';
+import { APP_ID } from '@/Constants';
 import { IApp } from '@/ui/types';
 
 import CloseIcon from '@/assets/icons/close-icon.svg';
-
-// const app = inject<IApp>(APP_ID) as IApp;
-// const alertComponent = inject<IAppAlert>(APP_ALERT_ID) as IAppAlert;
-
-// const checklistStore = useChecklistStore();
-// const { setChecklistItem } = checklistStore;
-// const { data: checklistData } = storeToRefs(checklistStore);
-
-// type CheckListItemType = IBaseListItemData & Partial<BranchItem> & { checked?: boolean };
   
 interface IAppAlertProps {
   title?: string;
@@ -38,14 +29,6 @@ interface IAppAlertProps {
 // Component Props Setup
 const props = withDefaults(defineProps<IAppAlertProps>(), {});
   
-// Component State Setup
-// interface IState {
-//   default: boolean;
-// }
-// const state:IState = reactive({
-//   default: false
-// })
-
 const app = inject<IApp>(APP_ID) as IApp;
 
 const labels = computed(() => {
@@ -76,7 +59,7 @@ const labels = computed(() => {
       </template>
     </BaseHeader>
 
-    <div v-if="props?.content" class="content">{{ props?.content }}</div>
+    <div v-if="props?.content" class="content" v-html="props?.content"></div>
     
     <BaseHeader class="alert-footer pxlr-20 mxb-6 height-auto" centerClassName="width-100">
       <template v-slot:headerCenter>
@@ -114,8 +97,8 @@ const labels = computed(() => {
 
 .content {
   font-size: 20px;
-  color: #2C51CF;
-  font-weight: 700;
+  color: $primary-color;
+  font-weight: 500;
 }
 
 .close-button {

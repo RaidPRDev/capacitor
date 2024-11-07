@@ -1,4 +1,4 @@
-import { BranchViewData, BranchViewParamData } from "./types";
+import { BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";
 
 /**
  * 
@@ -40,7 +40,7 @@ export function findBranchParents(data:Array<BranchViewData>, id:any) {
 export function getNavigationRoot(params: BranchViewParamData) {
   
   if (!params?.view) {
-    console.log(`getNavigationRoot`, params);
+    // console.log(`getNavigationRoot`, params);
     return { isPreviousRoot: false, isViewRoot: false }
   }
 

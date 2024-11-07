@@ -254,6 +254,8 @@ onUnmounted(()=> {
       </slot>
     </span>
 
+    <slot></slot>
+
   </span>
   <slot name="optionalSlot"></slot>
 </button>

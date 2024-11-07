@@ -1,0 +1,81 @@
+<div class="data-content">
+  <div class="mxb-20 text-content">
+    The pump is airlocked
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">A</div>
+    <div class="">If there is a massive air visible in the pumphead or noise arising from pumphead, go to Air in Circuit
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_PANIC_020", 
+          "data-type": "panic", 
+          "label": "Air Circuit", 
+          "class": "html-action-button" 
+        }'>
+      </BaseButton>
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">B</div>
+    <div class="">If there is an acute pumphead thrombosis, and there is a visible clot and/or noise arising from pumphead, with no disengagement nor air presence, determine if the patient can be weaned from ECMO. 
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">C</div>
+    <div class="">If the patient can be weaned from ECMO, go to Coming Off ECMO Emergently
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_CHKLST_035", 
+          "data-type": "checklists", 
+          "label": "Coming Off ECMO Emergently", 
+          "class": "html-action-button" 
+        }'>
+      </BaseButton>
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">D</div>
+    <div class="">If the patient CANNOT be weaned from ECMO, go to Whole Circuit Replacement or Circuit Component Replacement for the pumphead as indicated.
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">E</div>
+    <div class="">Exclude other complications impacting on blood flow:
+      <ul>
+        <li>Evidence of severe drainage failure: severely decreased PINLET [LINK to drainage insuﬃciency]</li>
+        <li>Evidence of return obstruction: severely increased PPRE-ML/PPOST-ML
+          <BaseButton 
+            data-props='{
+              "data-id": "ELSOBA_CHKLST_250", 
+              "data-type": "checklists", 
+              "label": "Return Obstruction", 
+              "class": "html-action-button" 
+            }'>
+          </BaseButton>
+        </li>
+        <li>Evidence of acute ML failure: severely increased PPRE-ML / severely decreased ΔP
+          <BaseButton 
+            data-props='{
+              "data-id": "ELSOBA_CHKLST_160", 
+              "data-type": "checklists", 
+              "label": "Membrane Lung Failure", 
+              "class": "html-action-button" 
+            }'>
+          </BaseButton>
+        </li>
+      </ul>
+      <div class="">If any of the above scenarios are detected, treat accordingly.</div>
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">F</div>
+    <div class="">Exclude motor failure:
+      <ul>
+        <li>Screen on</li>
+        <li>No disengagement</li>
+        <li>No air or clot</li>
+        <li>No other potential causes, i.e., motor failure with a working driving unit.</li>
+      </ul>
+    </div>
+  </div>
+</div>

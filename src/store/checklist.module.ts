@@ -16,6 +16,10 @@ export const useChecklistStore = defineStore('checklists', {
     setChecklistItem(payload: any) {
       this.data[payload.id] = payload.value;
     },
+    clearItems() {
+      // console.log("Clear Checklists");
+      this.data = {}
+    },
   },
 });
 

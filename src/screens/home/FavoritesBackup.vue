@@ -9,7 +9,7 @@ import { computed, inject, nextTick, onMounted, onUnmounted, reactive, ref, shal
 import { useRouter } from "vue-router";
 import { storeToRefs } from 'pinia';
 import { BOTTOM_HEADER_NAV_HEIGHT, GLOBAL_PADDING } from "@/Constants";
-import { APP_ID } from '@/App.vue';
+import { APP_ID } from '@/Constants';
 import { IApp } from '@/ui/types';
 
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
@@ -19,7 +19,7 @@ import BaseButton from '@/ui/controls/BaseButton.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
 import BaseToggle from "@/ui/controls/BaseToggle.vue";
 
-import { getBranchQueryByUID } from '@/components/branching/tools/DataTools';
+import { getBranchQueryByUID } from '@/ui/navigation/branching/utils/DataTools';
 import { IBaseScreenSlotProps } from "@/ui/types";
 import { BranchViewData } from "@/ui/navigation/branching/types";
 

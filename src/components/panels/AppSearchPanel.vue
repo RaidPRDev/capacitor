@@ -12,7 +12,7 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseList from '@/ui/controls/BaseList.vue';
 import BaseInput from '@/ui/controls/BaseInput.vue';
 
-import { APP_ID } from '@/App.vue';
+import { APP_ID } from '@/Constants';
 import { IApp } from '@/ui/types';
 
 // import Logo from '/assets/elso_logo.png';
@@ -149,6 +149,7 @@ const resultLabel = computed(() =>
   </div>
   <BaseButton class="close-button absolute tx-20 rx-20" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
     app.drawers.bottom.open = !app.drawers.bottom.open;
+    app.drawers.bottom.props = {};
   }" />
 </BasePanel>
 </template>

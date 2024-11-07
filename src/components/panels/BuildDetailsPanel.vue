@@ -6,37 +6,97 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject } from 'vue';
+import { inject, nextTick, reactive, shallowRef } from 'vue';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 
-import { APP_ID } from '@/App.vue';
+import { APP_ID } from '@/Constants';
 import { IApp } from '@/ui/types';
-import { storeToRefs } from 'pinia';
-import useSession from '@/store/session.module';
+
+import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import { useDevice } from '@/plugins/Device';
+import { capitalizeFirstLetter, copyToClipboard } from '@/utils/StringTools';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
-import { capitalizeFirstLetter } from '@/utils/StringTools';
 
 const APP_VERSION = import.meta.env.APP_VERSION;
 const BUILD_VERSION = import.meta.env.BUILD_VERSION;
+const BUILD_DATE = import.meta.env.BUILD_DATE;
+const BUILD_PHASE = import.meta.env.BUILD_PHASE;
 
-const session = useSession();
 const device = useDevice();
-const { hasCompletedTerms } = storeToRefs(session);
+const toasterService = useToasterService();
+const { addToast } = toasterService;
 
 const app = inject<IApp>(APP_ID) as IApp;
 
-console.log("device", device)
+const buildDate = new Date(BUILD_DATE);
+const dateTime = `${buildDate.getHours()}:${buildDate.getMinutes()} ${buildDate.getHours() > 11 ? 'PM' : 'AM'}`;
+const dateLabel = `${buildDate.getMonth() + 1}/${buildDate.getDate()}/${buildDate.getFullYear()} ${dateTime}`;
+
+const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
+const state = reactive<{ isCopying?: boolean }>({
+  isCopying: false
+})
+
+function generateCopy(): string {
+  let platform = ``;
+  if (device?.state.android) platform = `Android`;
+  else if (device?.state.ios) platform = `iOS`;
+  else if (device?.state.macos) platform = `MacOS`;
+  else if (device?.state.windows) platform = `Windows`;
+  else platform = `Unknown`;
+  
+  const content = `
+App Version: ${APP_VERSION}
+Build Number: ${BUILD_VERSION}
+Build Type: ${BUILD_PHASE}
+Date Published: ${dateLabel}
+\nDEVICE:
+Platform: ${platform}
+Version: ${device?.state?.version?.major}
+Type: ${capitalizeFirstLetter(device?.state.type!)}
+\nDISPLAY:
+Resolution: ${device?.state.resolution.width}w ${device?.state.resolution.height}h [px]
+Orientation: ${capitalizeFirstLetter(device?.state.orientation!)}
+\nWEBVIEW:
+Browser: ${capitalizeFirstLetter(device?.state.browser!)}
+Viewport: ${device?.state.viewport.width}w ${device?.state.viewport.height}h [px]
+Agent: ${device?.state?.navigator?.userAgent}
+CodeName: ${device?.state?.navigator?.appCodeName}
+AppName: ${device?.state?.navigator?.appName}
+IsMobile: ${capitalizeFirstLetter(device?.state?.navigator?.userAgentData?.mobile.toString()!)}
+\nACCESSORIES:
+Touch: ${capitalizeFirstLetter(device?.state.touch.toString()!)}
+Pointer: ${capitalizeFirstLetter(device?.state.pointer.toString()!)}
+WebP: ${capitalizeFirstLetter(device?.state.webp.toString()!)}
+\nTECHNOLOGIES:
+Ionic Capacitor: 6.1.0
+Vue Framework: 3.5.7
+Vite Builder: 5.4.7
+Pinia Data Store: 2.2.2`;
+
+  return content;
+}
+
+async function onCopy() {
+  if (state.isCopying) return;
+  clearTimeout(timeoutCopy.value);
+  state.isCopying = true;
+
+  await copyToClipboard(generateCopy());
+
+  timeoutCopy.value = setTimeout(() => state.isCopying = false, 1000);
+  nextTick(() => addToast({ label: `Copied to clipboard.` }));
+}
 
 </script>
 
 <template>
-<BasePanel :class="classnames(`relative`, { ['accepted']: hasCompletedTerms })">
+<BasePanel :class="classnames(`relative`)">
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container" :innerClassName="`pxlr-30 pxt-18`">
       <template v-slot:headerLeft>
@@ -48,21 +108,31 @@ console.log("device", device)
   <div class="side-content pxlr-0 pxt-20 pxb-0 relative">
     <div class="pxlr-0 height-100">
 
-      <div class="title width-100 text-center mxb-30">Build Details</div>
+      <div class="title width-100 text-center mxb-30 relative">
+        Build Details
+        <BaseButton 
+          class="copy-btn absolute mxl-10"
+          inner-class-name="px-4" 
+          :label="`COPY`" 
+          @triggered="onCopy" 
+        />
+      </div>
     
       <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-40">
+        <div class="inner-scroller pxb-80 select-text">
+
+          <div><p>App Version: <b>{{ `${APP_VERSION}` }}</b></p></div>
+          <div><p>Build Number: <b>{{ `${BUILD_VERSION}` }}</b></p></div>
+          <div><p>Build Type: <b>{{ `${BUILD_PHASE}` }}</b></p></div>
+          <div><p>Date Published: <b>{{ `${dateLabel}` }}</b></p></div>
           
-
-          <div><p>Version: <b>{{ `${APP_VERSION}` }}</b></p></div>
-          <div><p>Build: <b>{{ `${BUILD_VERSION}` }}</b></p></div>
-
           <p class="p-title">Device:</p>
             <div v-if="device?.state.android"><p>Platform: <b>{{ `Android` }}</b></p></div>
             <div v-else-if="device?.state.ios"><p>Platform: <b>{{ `iOS` }}</b></p></div>
             <div v-else-if="device?.state.macos"><p>Platform: <b>{{ `MacOS` }}</b></p></div>
             <div v-else-if="device?.state.windows"><p>Platform: <b>{{ `Windows` }}</b></p></div>
             <div v-else><p>Platform: <b>{{ `Unknown` }}</b></p></div>
+            <div><p>Version: <b>{{ device?.state?.version?.major }}</b></p></div>
             <div><p>Type: <b>{{ capitalizeFirstLetter(device?.state.type!) }}</b></p></div>
             
           <p class="p-title">Display:</p>
@@ -75,16 +145,18 @@ console.log("device", device)
             <div><p>Agent: <b>{{ `${device?.state?.navigator?.userAgent}` }}</b></p></div>
             <div><p>CodeName: <b>{{ `${device?.state?.navigator?.appCodeName}` }}</b></p></div>
             <div><p>AppName: <b>{{ `${device?.state?.navigator?.appName}` }}</b></p></div>
-            <div><p>IsMobile: <b>{{ `${device?.state?.navigator?.userAgentData?.mobile}` }}</b></p></div>
-
-          <!-- <p class="p-title">SoftKeyboard:</p>
-            <div><p>Size: <b>{{ `${device?.state?.navigator?.virtualKeyboard?.boundingRect?.width}h ${device?.state?.navigator?.virtualKeyboard?.boundingRect?.height}h` }}</b></p></div>
-            <div><p>IsOpen: <b>{{ `${device?.softKeyboardOpen}` }}</b></p></div> -->
+            <div><p>IsMobile: <b>{{ `${capitalizeFirstLetter(device?.state?.navigator?.userAgentData?.mobile.toString()!)}` }}</b></p></div>
 
           <p class="p-title">Accessories:</p>
-            <div><p>Touch: <b>{{ `${device?.state.touch}` }}</b></p></div>
-            <div><p>Pointer: <b>{{ `${device?.state.pointer}` }}</b></p></div>
-            <div><p>WebP: <b>{{ `${device?.state.webp}` }}</b></p></div>
+            <div><p>Touch: <b>{{ `${capitalizeFirstLetter(device?.state.touch.toString()!)}` }}</b></p></div>
+            <div><p>Pointer: <b>{{ `${capitalizeFirstLetter(device?.state.pointer.toString()!)}` }}</b></p></div>
+            <div><p>WebP: <b>{{ `${capitalizeFirstLetter(device?.state.webp.toString()!)}` }}</b></p></div>
+          
+          <p class="p-title">Technologies:</p>
+            <div><p>Ionic Capacitor: <b>{{ `6.1.0` }}</b></p></div>  
+            <div><p>Vue Framework: <b>{{ `3.5.7` }}</b></p></div>
+            <div><p>Vite Builder: <b>{{ `5.4.7` }}</b></p></div>
+            <div><p>Pinia Data Store: <b>{{ `2.2.2` }}</b></p></div>
         </div>
 
         <div class="scroll-fade absolute lx-0 bx-8"></div>
@@ -116,23 +188,6 @@ console.log("device", device)
   $scroller-bottom: 20px;
   $scroll-height: $header-height + $header-padding + $header-title + $header-title-padding + $footer-height;
 
-  &.accepted {
-    .content-scroller {
-      height: calc(100% - ($header-title + 10px));
-      font-size: 16px;
-
-      .inner-scroller {
-        @include use-scroller-styles();
-
-        overflow: hidden auto;
-        height: calc(100% - ($scroller-bottom));
-      }
-    }
-    .confirm-panel {
-      display: none;
-    }
-  }
-
   .side-content {
     height: calc(100% - ($header-height));
   }
@@ -144,20 +199,24 @@ console.log("device", device)
   }
 
   .content-scroller {
-    height: calc(100% - ($header-title + 10px + $footer-height));
+    height: calc(100% - ($header-title + 10px));
     font-size: 16px;
 
     .inner-scroller {
       @include use-scroller-styles();
-
+      
       overflow: hidden auto;
       height: calc(100% - ($scroller-bottom));
+
+      p:not(.p-title) { margin: 0; font-size: 14px; }
     }
 
     .p-title {
       color: $sixth-color;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 16px;
+      margin: 1rem 0 0.35rem 0;
+      border-bottom: 1px solid rgba(black, .15)
     }
 
     .scroll-fade {
@@ -168,14 +227,6 @@ console.log("device", device)
     }
   }
 
-  .confirm-panel {
-    height: 90px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    background-color: white;
-  }
-
-  
   :deep(.inner-panel) {
     background-color: rgba(white, .95);
 
@@ -207,4 +258,16 @@ console.log("device", device)
   }
 }
 
+.copy-btn {
+  :deep(.inner-base-button) {
+    .ui-background {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .ui-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
 </style>

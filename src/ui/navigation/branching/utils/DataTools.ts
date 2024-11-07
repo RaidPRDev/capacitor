@@ -3,12 +3,12 @@ import { loadJSONFile } from "@/utils/FileTools";
 import { ShallowRef } from "vue";
 
 // branch view components
-import BranchDefault from '@/components/branching/branches/BranchDefault.vue';
-import BranchHTML from '@/components/branching/branches/BranchHTML.vue';
-import BranchList from '@/components/branching/branches/BranchList.vue';
-import BranchChecklist from '@/components/branching/branches/BranchChecklist.vue';
-import BranchInput from "../branches/BranchInput.vue";
-import { BranchDataQuery, BranchUID } from "../types";
+import BranchDefault from '@/ui/navigation/branching/components/views/BranchDefault.vue';
+import BranchHTML from '@/ui/navigation/branching/components/views/BranchHTML.vue';
+import BranchList from '@/ui/navigation/branching/components/views/BranchList.vue';
+import BranchChecklist from '@/ui/navigation/branching/components/views/BranchChecklist.vue';
+import BranchInput from '@/ui/navigation/branching/components/views/BranchInput.vue';
+import { BranchDataQuery, BranchUID } from "@/ui/navigation/branching/types";
 
 export async function loadViewData(url: string, views: ShallowRef<BranchViewData[]>) {
   
@@ -68,7 +68,7 @@ export function getBranchQueryByUID(uid:string, type:string):BranchDataQuery {
 
   let queryParams: BranchDataQuery = { type: '', id: '', childId: '' };
   queryParams.type = type;
-  queryParams.id = uidData[0];
+  queryParams.id = uid;
   queryParams.childId = uidData?.[1] ?? '';
 
   return queryParams;

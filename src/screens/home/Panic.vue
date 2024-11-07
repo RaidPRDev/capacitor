@@ -14,14 +14,14 @@ import {
   SCREEN_BODY_BOTTOM_PADDING 
 } from "@/Constants";
 
-import { getNavigationRoot } from "@/ui/navigation/branching/tools";
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import Branching from '@/ui/navigation/branching/Branching.vue';
 import useBranching from "@/ui/navigation/branching/hooks/useBranching";
 import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";
 import { IBaseScreenSlotProps } from "@/ui/types";
-import { loadViewData } from "@/components/branching/tools/DataTools";
+import { loadViewData } from "@/ui/navigation/branching/utils/DataTools";
+import { getNavigationRoot } from "@/ui/navigation/branching/utils/tools";
 import PulseRateLoader from '@/components/PulseRateLoader.vue';
 
 import PanicIcon from '@/assets/icons/panic-header-icon.svg';
@@ -91,7 +91,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
               <h1 class="screen-title">{{`Don't Panic`}}</h1>
             </template>
             <template v-slot:headerRight>
-              <span class="flex"><PanicIcon /></span>
+              <span class="flex icon"><PanicIcon /></span>
             </template>
           </BaseHeader>
         </transition>
@@ -99,6 +99,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
         <Branching 
           ref="branchingRef"
           viewClassName="pxlr-20 pxt-10 pxb-20" 
+          :baseRoutePath="`home`"
           :branchRoute="props.branchRoute"
           :views="views" 
           :useNavigation="true"
@@ -145,7 +146,18 @@ function onViewBeforeEnter(params: BranchViewParamData) {
         font-size: 16px;
       }
     }
+
+    ul {
+      padding-left: 20px;
+      li {
+        margin-bottom: 10px;
+      }
+    }
   }
+}
+
+.icon {
+  width: 48px;
 }
 
 </style>

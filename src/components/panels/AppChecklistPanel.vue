@@ -13,7 +13,7 @@ import BaseList from '@/ui/controls/BaseList.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseToggle from '@/ui/controls/BaseToggle.vue';
 
-import { APP_ID } from '@/App.vue';
+import { APP_ID } from '@/Constants';
 import { IApp, IBaseListItemData } from '@/ui/types';
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import FavoriteAddedToast from "@/components/toasts/FavoriteAddedToast.vue";
@@ -274,6 +274,7 @@ function resetCheckData() {
   </div>
   <BaseButton class="close-button absolute tx-20 rx-20" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
     app.drawers.bottom.open = !app.drawers.bottom.open;
+    app.drawers.bottom.props = {};
   }" />
   
 </BasePanel>

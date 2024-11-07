@@ -1,5 +1,6 @@
 export interface IAppToaster {
-  enabled: boolean;
+  id?: string;
+  enabled?: boolean;
 }
 
 export interface IToaster { 

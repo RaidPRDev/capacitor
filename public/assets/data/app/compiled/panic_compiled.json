@@ -26,13 +26,13 @@
             },
             {
                 "label": "Cardiac Arrest",
-                "branchTo": "ELSOBA_PANIC_CAT4",
-                "class": "disabled"
+                "branchTo": "ELSOBA_PANIC_040",
+                "class": ""
             },
             {
                 "label": "No Flow",
-                "branchTo": "ELSOBA_PANIC_CAT5",
-                "class": "disabled"
+                "branchTo": "ELSOBA_PANIC_050",
+                "class": ""
             }
         ]
     },
@@ -236,7 +236,7 @@
                 "class": "no-action"
             },
             {
-                "label": "C: Turn the gas oﬀ and disconnect the gas line.",
+                "label": "C: Turn the gas off and disconnect the gas line.",
                 "class": "no-action"
             },
             {
@@ -338,7 +338,7 @@
             },
             {
                 "label": "NO",
-                "branchTo": "ELSOBA_PANIC_020__STEP6",
+                "branchTo": "ELSOBA_PANIC_020__STEP4",
                 "class": ""
             }
         ]
@@ -394,28 +394,23 @@
                 "class": "no-action"
             },
             {
-                "label": "B. Call for help.",
+                "label": "B. Provide conventional respiratory and/or circulatory support as needed.",
                 "branchTo": "",
                 "class": "no-action"
             },
             {
-                "label": "C. Provide conventional respiratory and/or circulatory support as needed.",
-                "branchTo": "",
-                "class": "no-action"
-            },
-            {
-                "label": "D. Is circuit de-airing feasible?",
+                "label": "C. Is circuit de-airing feasible?",
                 "branchTo": "",
                 "class": "no-action"
             },
             {
                 "label": "YES",
-                "branchTo": "ELSOBA_PANIC_020__STEP3",
+                "branchTo": "ELSOBA_PANIC_020__TERMA",
                 "class": ""
             },
             {
                 "label": "NO",
-                "branchTo": "ELSOBA_PANIC_020__STEP4",
+                "branchTo": "ELSOBA_PANIC_020__TERMB",
                 "class": ""
             }
         ]
@@ -424,30 +419,74 @@
         "id": "ELSOBA_PANIC_020__STEP2__NO",
         "showTitle": true,
         "useScroll": true,
-        "title": "Is a small amount of air visible before or inside the ML?",
-        "content": "",
-        "layout": "list",
+        "title": "A small amount of air is visible before or inside the ML.",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3.html",
+        "layout": "html",
         "keywords": "",
-        "items": [
-            {
-                "label": "YES",
-                "branchTo": "ELSOBA_PANIC_020__STEP5",
-                "class": ""
-            },
-            {
-                "label": "NO",
-                "branchTo": "ELSOBA_PANIC_020__STEP5",
-                "class": ""
-            }
-        ]
+        "branchTo": "ELSOBA_PANIC_020__STEP3",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_020__TERMA",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination A",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__TERMA.html",
+        "layout": "html",
+        "branchTo": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_020__TERMB",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination B",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__TERMB.html",
+        "layout": "html",
+        "branchTo": "",
+        "items": []
     },
     {
         "id": "ELSOBA_PANIC_020__STEP3",
         "showTitle": true,
         "useScroll": true,
+        "title": "3. Assess the extracorporeal blood flow (EBF)",
+        "content": "Is the pump still running and providing the target blood flow?",
+        "layout": "list",
+        "branchTo": "",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_020__STEP3__YES",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_020__STEP3__NO",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_020__STEP3__YES",
+        "showTitle": true,
+        "useScroll": true,
         "showRestart": true,
-        "title": "3. Circuit de-airing [Termination A]",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3.html",
+        "title": "Is the pump still running and providing the target blood flow? YES",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__YES.html",
+        "layout": "html",
+        "branchTo": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_020__STEP3__NO",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Is the pump still running and providing the target blood flow? NO",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__NO.html",
         "layout": "html",
         "branchTo": "",
         "items": []
@@ -456,9 +495,49 @@
         "id": "ELSOBA_PANIC_020__STEP4",
         "showTitle": true,
         "useScroll": true,
+        "title": "4. Air is not clearly visible in the circuit",
+        "content": "Is the bubble sensor alarming?",
+        "layout": "list",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_020__STEP4__YES",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_020__STEP4__NO",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_020__STEP4__YES",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "The bubble sensor is alarming.",
+        "content": "Is the pump still running and providing the target blood flow?",
+        "layout": "list",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_020__STEP5",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_020__STEP6",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_020__STEP4__NO",
+        "showTitle": true,
+        "useScroll": true,
         "showRestart": true,
-        "title": "4. Assess if ECLS is still required [Termination A]",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP4.html",
+        "title": "Air is not clearly visible and the bubble sensor is not alarming.",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP4__NO.html",
         "layout": "html",
         "branchTo": "",
         "items": []
@@ -468,116 +547,19 @@
         "showTitle": true,
         "useScroll": true,
         "showRestart": true,
-        "title": "5. Assess the extracorporeal blood flow (EBF)",
-        "content": "Is the pump still running and providing the target blood flow?",
-        "layout": "list",
-        "branchTo": "",
-        "items": [
-            {
-                "label": "YES",
-                "branchTo": "ELSOBA_PANIC_020__STEP5__YES",
-                "class": ""
-            },
-            {
-                "label": "NO",
-                "branchTo": "ELSOBA_PANIC_020__STEP5__NO",
-                "class": ""
-            }
-        ]
-    },
-    {
-        "id": "ELSOBA_PANIC_020__STEP5__YES",
-        "showTitle": true,
-        "useScroll": true,
-        "showRestart": true,
-        "title": "Is the pump still running and providing the target blood flow? YES",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP5__YES.html",
+        "title": "Microbubbles are suspected",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP5.html",
         "layout": "html",
-        "branchTo": "",
-        "items": []
-    },
-    {
-        "id": "ELSOBA_PANIC_020__STEP5__NO",
-        "showTitle": true,
-        "useScroll": true,
-        "showRestart": true,
-        "title": "Is the pump still running and providing the target blood flow? NO",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP5__NO.html",
-        "layout": "html",
-        "branchTo": "",
         "items": []
     },
     {
         "id": "ELSOBA_PANIC_020__STEP6",
         "showTitle": true,
         "useScroll": true,
-        "title": "6. Air is not clearly visible in the circuit",
-        "content": "Is the bubble sensor alarming?",
-        "layout": "list",
-        "items": [
-            {
-                "label": "YES",
-                "branchTo": "ELSOBA_PANIC_020__STEP6__YES",
-                "class": ""
-            },
-            {
-                "label": "NO",
-                "branchTo": "ELSOBA_PANIC_020__STEP6__NO",
-                "class": ""
-            }
-        ]
-    },
-    {
-        "id": "ELSOBA_PANIC_020__STEP6__YES",
-        "showTitle": true,
-        "useScroll": true,
-        "title": "Is the pump still running and providing the target blood flow?",
-        "content": "",
-        "layout": "list",
-        "items": [
-            {
-                "label": "YES",
-                "branchTo": "ELSOBA_PANIC_020__STEP6__YES__YES",
-                "class": ""
-            },
-            {
-                "label": "NO",
-                "branchTo": "ELSOBA_PANIC_020__STEP6__YES__NO",
-                "class": ""
-            }
-        ]
-    },
-    {
-        "id": "ELSOBA_PANIC_020__STEP6__YES__YES",
-        "showTitle": true,
-        "useScroll": true,
-        "showRestart": true,
-        "title": "Is the pump still running and providing the target blood flow? YES",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP6__YES__YES.html",
+        "title": "Servo regulation on the bubble sensor",
+        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP6.html",
         "layout": "html",
-        "branchTo": "",
-        "items": []
-    },
-    {
-        "id": "ELSOBA_PANIC_020__STEP6__YES__NO",
-        "showTitle": true,
-        "useScroll": true,
-        "showRestart": true,
-        "title": "Is the pump still running and providing the target blood flow? NO",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP6__YES__NO.html",
-        "layout": "html",
-        "branchTo": "",
-        "items": []
-    },
-    {
-        "id": "ELSOBA_PANIC_020__STEP6__NO",
-        "showTitle": true,
-        "useScroll": true,
-        "showRestart": true,
-        "title": "Is the bubble sensor alarming? NO",
-        "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP6__NO.html",
-        "layout": "html",
-        "branchTo": "",
+        "branchTo": "ELSOBA_PANIC_020__STEP5",
         "items": []
     },
     {
@@ -684,6 +666,7 @@
         "id": "ELSOBA_PANIC_030__A__A",
         "showTitle": true,
         "useScroll": true,
+        "showRestart": true,
         "title": "Termination A",
         "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030_A/ELSOBA_PANIC_030__A__A.html",
         "layout": "html",
@@ -840,6 +823,409 @@
         "showRestart": true,
         "title": "Step 4. Ongoing management",
         "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__STEP4.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "__": "==================================================================================",
+        "id": "ELSOBA_PANIC_040_SEGMENT",
+        "layout": "comment",
+        "___": "=================================================================================="
+    },
+    {
+        "id": "ELSOBA_PANIC_040",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Cardiac Arrest",
+        "content": "Cardiac arrest on ECMO suspected.",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "Call for help",
+                "branchTo": "ELSOBA_PANIC_040__STEP1",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP1",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 1. Confirm cardiac arrest",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "branchTo": "ELSOBA_PANIC_040__STEP1__YES_NO",
+        "items": [
+            {
+                "label": "A. Indications of asystole, ventricular fibrillation (VF), or ventricular tachycardia (VT) on the electrocardiogram (ECG)",
+                "branchTo": "",
+                "class": "no-action"
+            },
+            {
+                "label": "B. A loss of central pulses and/or a flat pressure line in veno-venous (VV) or veno-pulmonary artery (VP) ECMO",
+                "branchTo": "",
+                "class": "no-action"
+            },
+            {
+                "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (VVA) ECMO",
+                "branchTo": "",
+                "class": "no-action"
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP1__YES_NO",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Has a Do Not Resuscitate (DNR) order been signed?",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_040__STEP2",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_040__STEP3",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP2",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Step 2. DNR order has been signed.",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP2.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP3",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 3. DNR order has NOT been signed.",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "A. VV or VP ECMO",
+                "branchTo": "ELSOBA_PANIC_040__STEP4",
+                "class": ""
+            },
+            {
+                "label": "B. VA or VVA ECMO",
+                "branchTo": "ELSOBA_PANIC_040__STEP5",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP4",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 4. VV or VP ECMO",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP4.html",
+        "layout": "html",
+        "branchTo": "ELSOBA_PANIC_040__STEP4__YES_NO",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP4__YES_NO",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Is there a return of spontaneous circulation (ROSC)?",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_040__TERMA",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_040__TERMB",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__TERMA",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination A",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__TERMA.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_040__TERMB",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination B",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__TERMB.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP5",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 5. VA or VVA ECMO",
+        "content": "Is the pump running?",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_040__STEP5__YES",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_040__STEP4",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP5__YES",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Is extracorporeal blood flow (EBF) achieving full body perfusion?",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_040__STEP7",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_040__STEP6",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP6",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 6. EBF not achieving full=body perfusion",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP6.html",
+        "layout": "html",
+        "keywords": "",
+        "branchTo": "ELSOBA_PANIC_040__STEP7",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_040__STEP7",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 7. Assess native heart function",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP7.html",
+        "layout": "html",
+        "keywords": "",
+        "branchTo": "ELSOBA_PANIC_040__TERMC",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_040__TERMC",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination C",
+        "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__TERMC.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "__": "==================================================================================",
+        "id": "ELSOBA_PANIC_050_SEGMENT",
+        "layout": "comment",
+        "___": "=================================================================================="
+    },
+    {
+        "id": "ELSOBA_PANIC_050",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "No Flow",
+        "content": "No blood flow is suspected.",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "Call for help",
+                "branchTo": "ELSOBA_PANIC_050__STEP1",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP1",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 1. Confirm a \"No blood flow\" scenario",
+        "content": "Is the driving unit screen off?",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "YES",
+                "branchTo": "ELSOBA_PANIC_050__STEP2",
+                "class": ""
+            },
+            {
+                "label": "NO",
+                "branchTo": "ELSOBA_PANIC_050__STEP3",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP2",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 2. Driving Unit (console) Failure",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP2.html",
+        "layout": "html",
+        "branchTo": "ELSOBA_PANIC_050__STEP2__YES_NO",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP2__YES_NO",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Confirm power failure",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "YES, Power failure confirmed",
+                "branchTo": "ELSOBA_PANIC_050__TERMA",
+                "class": ""
+            },
+            {
+                "label": "NO, Power failure not confirmed.",
+                "branchTo": "ELSOBA_PANIC_050__TERMB",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP3",
+        "showTitle": true,
+        "useScroll": true,
+        "title": "Step 3. Driving Unit Screen is on",
+        "content": "",
+        "layout": "list",
+        "keywords": "",
+        "items": [
+            {
+                "label": "The flow is reading NOT available but circuit pressures are consistent with ongoing forward flow",
+                "branchTo": "ELSOBA_PANIC_050__STEP3__A",
+                "class": ""
+            },
+            {
+                "label": "The flow is reading AVAILABLE and approaching no flow/0 LPM",
+                "branchTo": "ELSOBA_PANIC_050__STEP3__B",
+                "class": ""
+            },
+            {
+                "label": "The pumphead is disengaged or uncoupled",
+                "branchTo": "ELSOBA_PANIC_050__STEP3__C",
+                "class": ""
+            },
+            {
+                "label": "The pump is airlocked",
+                "branchTo": "ELSOBA_PANIC_050__STEP3__D",
+                "class": ""
+            }
+        ]
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP3__A",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP3__A.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP3__B",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP3__B.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP3__C",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP3__C.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_050__STEP3__D",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP3__D.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_050__TERMA",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination A",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__TERMA.html",
+        "layout": "html",
+        "keywords": "",
+        "items": []
+    },
+    {
+        "id": "ELSOBA_PANIC_050__TERMB",
+        "showTitle": true,
+        "useScroll": true,
+        "showRestart": true,
+        "title": "Termination B",
+        "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__TERMB.html",
         "layout": "html",
         "keywords": "",
         "items": []

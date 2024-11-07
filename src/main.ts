@@ -2,8 +2,8 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import App from "./App.vue";
+import AppRouter from '@/_core/AppRouter';
 import Device from './plugins/Device';
-import Router from './router/index';
 
 import './styles/index.scss';
 
@@ -13,5 +13,5 @@ Pinia.use(piniaPluginPersistedstate);
 createApp(App)
 .use(Device)
 .use(Pinia)
-.use(Router)
+.use(AppRouter)
 .mount("#app");

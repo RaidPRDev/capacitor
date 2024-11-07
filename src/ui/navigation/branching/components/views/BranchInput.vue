@@ -15,13 +15,18 @@ import { IBaseInputProps, IBaseListItemData } from '@/ui/types';
 import ActionButton from '@/components/ActionButton.vue';
 import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
 import ResetIcon from '@/assets/icons/reset-icon.svg';
-import { CalculatorParamType } from '../types';
+import { CalculatorParamType } from '@/ui/navigation/branching/types';
 import { 
   BSAByWeight, 
   BSAByWeightAndHeight, 
   ConvertFeetToCentimeters,
   ConvertInchesToCentimeters,
-  ConvertPoundsToKilograms 
+  ConvertPoundsToKilograms,
+  ConvertFarenheitToCelcius,
+  ConvertFrenchGaugeToMillimeters,
+  ConvertMillimetersToKilopascals,
+  ConvertMillimetersToLiters
+  
 } from '@/utils/ElsoMath';
 
 const calculationFunctions:Record<string, Function> = {
@@ -29,7 +34,11 @@ const calculationFunctions:Record<string, Function> = {
   BSAByWeightAndHeight,
   ConvertFeetToCentimeters,
   ConvertInchesToCentimeters,
-  ConvertPoundsToKilograms
+  ConvertPoundsToKilograms,
+  ConvertFarenheitToCelcius,
+  ConvertFrenchGaugeToMillimeters,
+  ConvertMillimetersToKilopascals,
+  ConvertMillimetersToLiters
 }
 
 type InputListItemType = IBaseListItemData & Partial<BranchItem> & { 

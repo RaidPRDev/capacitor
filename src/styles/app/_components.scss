@@ -193,14 +193,13 @@
 
 //////////
 /// Blue Menu Item
-
 .blue-menu-item {
   .base-button {
     box-shadow: 2px 10px 40px -13px #0B247ACC;
 
     &.disabled {
       opacity: 1;
-      box-shadow: 2px 10px 40px -13px #adadadcc;
+      box-shadow: 2px 10px 40px -13px #adadadcc!important;
       
       .inner-base-button {
         background: $fourth-color;
@@ -214,11 +213,12 @@
       
       .inner-base-button {
         background: none;
-        padding: 0px 0px 0px 20px;
+        padding: 0px 0px 0px 0px;
 
         .ui-label {
           color: $primary-color;
-          font-weight: 300;
+          font-size: 16px;
+          font-weight: 400;
         }
         .ui-accessory-icon {
           display: none
@@ -277,4 +277,32 @@
   font-size: 16px;
 
   @include setInputPlaceholder($primary-font-family, rgba($primary-color, 50%));
+}
+
+// HTML Content Template
+.html-action-button {
+  box-shadow: 2px 10px 40px -13px rgba(11, 36, 122, 0.8);
+  @extend .blue-menu-item;
+  @extend .mxt-10;
+
+  &.base-button {
+    @extend .variant-blue;
+    @extend .width-100;
+
+    .inner-base-button {
+      @extend .px-20;
+      @extend .justify-between;
+      @extend .align-start;
+
+      .ui-body {
+        @extend .text-left; 
+        @extend .mxr-20;
+      }
+      .ui-label {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 300;
+      }
+    }
+  }
 }

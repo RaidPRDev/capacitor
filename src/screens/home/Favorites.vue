@@ -17,12 +17,11 @@ import {
   JSON_DATA_TYPE_MEDICATIONS,
   JSON_DATA_TYPE_CALCULATORS,
   JSON_DATA_TYPE_EQUIPMENT,
-  // JSON_DATA_TYPE_PANIC,
   JSON_DATA_TYPE_CHECKLIST_ITEM,
 } from "@/Constants";
 
-import { APP_ID } from '@/App.vue';
-import { IApp } from '@/ui/types';
+import { APP_ID } from '@/Constants';
+import { BaseListGroupType, IApp } from '@/ui/types';
 
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import BasePanel from '@/ui/panels/BasePanel.vue';
@@ -30,18 +29,20 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
 
-import { getBranchQueryByUID } from '@/components/branching/tools/DataTools';
-import { IBaseScreenSlotProps } from "@/ui/types";
-
 import PulseRateLoader from '@/components/PulseRateLoader.vue';
 import useFavoritesStore from "@/store/favorites.module";
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
+
+import { IFavoriteDataItem } from "@/store/types/StoreTypes";
+import { capitalizeFirstLetter } from "@/utils/StringTools";
+import { getBranchQueryByUID } from "@/ui/navigation/branching/utils/DataTools";
+import { IBaseScreenSlotProps } from "@/ui/types";
 
 import NoFavoritesHeadIcon from '@/assets/icons/favorites-no-heading-icon.svg';
 import FavoritesHeadStarIcon from '@/assets/icons/favorites-star-line-icon.svg';
 import UpRightArrowIcon from '@/assets/icons/up-right-arrow-icon.svg';
 import TrashIcon from '@/assets/icons/trash-icon.svg';
-import { IFavoriteDataItem } from "@/store/types/StoreTypes";
+import { sortItemsByProperty, sortObjectByKeys } from "@/utils/ObjectTools";
 
 const router = useRouter();
 
@@ -64,16 +65,65 @@ interface IFavoriteListItem {
   toggled?: boolean;
 }
 
-const getInitialItems = () => Object.entries(favoritesData.value).map((item) => {
-  
+groupAndFlattenItemsByType(favoritesData.value);
+
+const getInitialItems = () => groupAndFlattenItemsByType(favoritesData.value as Record<string, IFavoriteFlatDataItem>).map((item) => {
   return ({ 
-    id: item[1].data.id, 
-    label: item[1].data.title, 
-    type: item[1].type,
-    toggled: false,
+    id: item.id, 
+    label: item.label, 
+    type: item.type,
+    groupType: item.groupType,
+    toggled: item.toggled,
   });
 })
 const handleList = ref<IFavoriteListItem[]>(getInitialItems())
+
+interface IFavoriteItemRender {
+  id?: string;
+  groupType: BaseListGroupType;
+  label?: string; 
+  type?: string;
+  toggled?: boolean;
+}
+type IFavoriteFlatDataItem = IFavoriteDataItem & { id?:string, groupType?: "GroupHeader" | "GroupItem" }
+function groupAndFlattenItemsByType(data:Record<string, IFavoriteFlatDataItem>) {
+  // console.log("data", data)
+
+  const grouped:Record<string, IFavoriteFlatDataItem[]> = {};
+  
+  // Group items by their type
+  for (const key in data) {
+    const item = data[key] as IFavoriteDataItem;
+    if (!grouped[item.type]) {
+      grouped[item.type] = [];
+    }
+    grouped[item.type].push({ ...item, id: key });
+  }
+
+  const result:IFavoriteItemRender[] = [];
+
+  // // Build flattened array with Group Header and Group Item Types
+  let countIdx = 0;
+
+  const sortedGroup = sortObjectByKeys(grouped) as Record<string, IFavoriteFlatDataItem[]>;
+
+  for (const type in sortedGroup) {
+    const ts = Date.now();
+    // Add Group Header Type
+    result.push({ groupType: "GroupHeader", label: capitalizeFirstLetter(type), id: `${type}_${ts}_${countIdx}` });
+    countIdx++;
+    
+    sortItemsByProperty(sortedGroup[type] as IFavoriteFlatDataItem[], "title", "asc");
+
+    // Add Group Item Types
+    sortedGroup[type].forEach(item => {
+      result.push({ ...item, groupType: "GroupItem", label: item.data.title });
+    });
+  }
+  
+  // console.log("result", result)
+  return result;
+}
 
 // Component State Setup
 interface IState {
@@ -198,32 +248,32 @@ function showAlert() {
 }
 
 function goToSection(data:{ item: IFavoriteListItem }) {
+  if (DEBUG) console.log("Favorites.goToSection()");
   if (state.isEdit) return;
 
   nextTick(() => {
     const listData = data.item as IFavoriteListItem;
     const branchQuery = getBranchQueryByUID(listData?.id!, listData?.type!);
 
-    if (DEBUG) console.log("Favorites.goToSection.listData", listData)
-    if (DEBUG) console.log("Favorites.goToSection.query", branchQuery)
+    if (DEBUG) console.log("  listData", listData)
+    if (DEBUG) console.log("  query", branchQuery)
     
     let dataType = branchQuery?.type, dataId = branchQuery?.id;
 
-    if (DEBUG) console.log("Favorites.goToSection.listData?.type", listData?.type)
+    if (DEBUG) console.log("  listData?.type", listData?.type)
     if (listData?.type === JSON_DATA_TYPE_CHECKLISTS) {
       dataId = listData?.id as string;
       dataType = JSON_DATA_TYPE_CHECKLIST_ITEM;
 
-      if (DEBUG) console.log("Favorites.goToSection.dataId", dataId)
-      if (DEBUG) console.log("Favorites.goToSection.dataType", dataType)
+      if (DEBUG) console.log("  dataId", dataId)
+      if (DEBUG) console.log("  dataType", dataType)
     }
 
     const favItem = getItem(dataId) as IFavoriteDataItem ;
-    if (DEBUG) console.log("Favorites.goToSection.favItem", favItem)
+    if (DEBUG) console.log("  favItem", favItem)
 
     switch (dataType) {
       case JSON_DATA_TYPE_CHECKLIST_ITEM:
-      if (DEBUG) console.log("Favorites.goToSection.HEY")
         dataType = JSON_DATA_TYPE_CHECKLISTS;
         router.push({ path: `${dataType}/${branchQuery.id}`, query: branchQuery });
       break;
@@ -273,7 +323,11 @@ onUnmounted(() => {
         :listItemStyles="listItemStyles"
         :dataProvider="handleList">
         <template v-slot:listItemSlot="data">
+          <div v-if="data.item.groupType === `GroupHeader`" class="group-header">
+            {{ data.item.label }}
+          </div>
           <BaseButton 
+            v-else
             :asSubControl="true"
             :useLongPressedState="true"
             :class="[`list-button variant-blue ignore-icon width-100`, {
@@ -302,10 +356,10 @@ onUnmounted(() => {
           </BaseButton>
         </template>
       </BaseList>
-      <div v-if="!state.showList" class="no-list-panel flex align-center justify-center width-100">
+      <div v-if="!state.showList" class="no-list-panel flex align-center justify-center width-100 mxt-50">
         <div class="flex align-center justify-center flex-column">
           <div class="no-list-icon"><NoFavoritesHeadIcon/></div>
-          <div class="no-list-label mxt-20">No favorite items added.</div>
+          <div class="no-list-label mxt-20">No items added.</div>
         </div>
       </div>
     </div> 
@@ -324,6 +378,11 @@ onUnmounted(() => {
 
 .edit-label {
   font-size: 14px;
+  font-weight: 600;
+}
+
+.group-header {
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -348,6 +407,10 @@ onUnmounted(() => {
       margin-top: 1rem;
     }
     
+    &[data-group-header="true"]:not(:first-of-type) {
+      margin-top: 1.5rem;
+    }
+
     .list-button {
       > .inner-base-button {
         width: 100%;

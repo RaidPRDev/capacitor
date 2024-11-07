@@ -14,7 +14,7 @@ import PulseRateLoader from '@/components/PulseRateLoader.vue';
 
 import { IBaseScreenSlotProps } from '@/ui/types';
 import { BranchViewData } from '@/ui/navigation/branching/types';
-import { loadViewData } from '@/components/branching/tools/DataTools';
+import { loadViewData } from '@/ui/navigation/branching/utils/DataTools';
 
 const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
 const loading = ref<boolean>(true);

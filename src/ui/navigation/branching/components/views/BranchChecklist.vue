@@ -10,12 +10,12 @@ import { computed, inject, onMounted, ref } from 'vue';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import BaseToggle from '@/ui/controls/BaseToggle.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
+import AppChecklistPanel from "@/components/panels/AppChecklistPanel.vue";
 import { BranchItem, BranchViewData, IBranchTypeProps } from '@/ui/navigation/branching/types';
 import { IApp, IAppDrawerComponents, IBaseListItemData } from '@/ui/types';
-import AppChecklistPanel from "@/components/panels/AppChecklistPanel.vue";
-
-import { APP_DRAWERS_ID, APP_ID } from '@/App.vue';
+import { APP_DRAWERS_ID, APP_ID } from '@/Constants';
 import { useRoute } from 'vue-router';
+import useAppStore from '@/store/app.module';
 
 type CheckListItemType = IBaseListItemData & Partial<BranchItem> & { toggle?: boolean };
 type CheckListDataType = IBaseListItemData & Partial<BranchViewData>;
@@ -24,6 +24,7 @@ const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
 });
 
+const appStore = useAppStore();
 const route = useRoute();
 const itemID = route?.query?.id;
 const childID = parseInt(route?.query?.childId! as string);
@@ -53,6 +54,9 @@ onMounted(() => {
     const branchData = props?.view?.items?.[childID]!;
     branchData.parentId = props.view?.id as string;
     
+    // update current id
+    appStore.setCurrentID(branchData?.id);
+
     drawerComponents.bottom = AppChecklistPanel;
     app.drawers.bottom.props = { 
       id: branchData?.id, 
@@ -82,7 +86,7 @@ const computedList = computed(() => {
         :class="[`variant-blue ignore-icon width-100`, {
           ['is-comment']: data.item.type === 'comment'
         }]" 
-        :disabled="data.item.class ? data.item.class?.indexOf(`disabled`) > 0 : false"
+        :disabled="data.item.class ? data.item.class?.indexOf(`disabled`) >= 0 : false"
         :innerClassName="`px-20 justify-between`"
         :bodyClassName="`text-left`"
         :label="data.item.label"
@@ -109,6 +113,7 @@ const computedList = computed(() => {
           
           drawerComponents.bottom = AppChecklistPanel;
           app.drawers.bottom.props = { 
+            name: `checklist-panel`,
             id: branchData?.id, 
             title: branchData?.label, 
             parentID: branchData?.parentId, 

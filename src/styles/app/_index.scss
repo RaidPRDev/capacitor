@@ -7,8 +7,6 @@
 @import './content';
 
 :root {
-  font-family: $primary-font-family;
   @include getFontSize('medium');
-  font-weight: 400;
   color: $primary-color;
 }

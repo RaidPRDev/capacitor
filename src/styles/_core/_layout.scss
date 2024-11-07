@@ -39,6 +39,7 @@ body {
 .z-index-1 { z-index: 1; }
 .z-index-2 { z-index: 2; }
 .z-index-3 { z-index: 3; }
+.z-index-4 { z-index: 4; }
 
 .cursor-pointer { cursor: pointer; }
 .grid { display: grid; }
@@ -48,6 +49,7 @@ body {
 .flex-column { flex-direction: column; }
 .flex-reverse { flex-direction: column-reverse }
 .flex-grow { flex-grow: 1; }
+.no-shrink { flex-shrink: 0; }
 .align-center { align-items: center; }
 .align-start { align-items: flex-start; }
 .align-end { align-items: flex-end; }
@@ -101,6 +103,9 @@ body {
 .select-none {
   user-select: none;
 }
+.select-text {
+  user-select: text;
+}
 .transform-none {
   transform: none;
 }
@@ -115,4 +120,19 @@ body {
 
 .set-scroll {
   @include use-scroller-styles();
+}
+
+.abs-fs {
+  @extend .absolute;
+  @extend .lx-0;
+  @extend .tx-0;
+  @extend .width-100;
+  @extend .height-inherit;
+  @extend .pointer-none;  
+}
+
+.rel-inherit {
+  @extend .relative;
+  @extend .width-inherit;
+  @extend .height-inherit;
 }

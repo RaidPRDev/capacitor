@@ -5,30 +5,24 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, onMounted, reactive, ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import AppToasterItem from './AppToasterItem.vue';
 import { IAppToaster, IToaster } from './types';
+import { APP_TOASTER_ID } from '@/Constants';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppToaster>(), {
-  enabled: false
+  id: APP_TOASTER_ID.toLowerCase(),
+  enabled: true,
 });
 
 const toasterService = useToasterService();
 const { removeToast } = toasterService;
 const { toasts, positions } = storeToRefs(toasterService);
 
-// Component State Setup
-interface IState {}
-/** @ts-ignore */
-const state = reactive<IState>({})
-
-// Expose Component Definitions
-const element = ref<HTMLElement | undefined>();
-    
 onMounted(() => {})
 
 const __toasts = computed(() => {
@@ -53,7 +47,7 @@ function onToastRemove(data: IToaster) {
 
 <template>
 
-<div ref="element" class="app-toaster pointer-none absolute tx-0 lx-0 width-inherit height-inherit">
+<div :id="props?.id" class="abs-fs z-index-3">
   <div class="inner-toaster flex flex-column justify-end width-100 height-100 mxlr-10 mxtb-20 relative">
     <TransitionGroup tag="div" data-transition name="toaster-slide-up" mode="out-in" type="transition">
         <template v-for="(item) in __toasts" :key="`toaster-item-${item.id}`">
@@ -66,9 +60,6 @@ function onToastRemove(data: IToaster) {
 </template>
 
 <style scoped lang="scss">
-.app-toaster {
-  z-index: 3;
-}
 .inner-toaster {
   width: calc(100% - 20px);
   height: calc(100% - 40px);
