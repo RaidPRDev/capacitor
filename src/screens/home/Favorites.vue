@@ -11,6 +11,7 @@ import { useRouter } from "vue-router";
 import { storeToRefs } from 'pinia';
 
 import { 
+  APP_ID,
   BOTTOM_HEADER_NAV_HEIGHT, 
   GLOBAL_PADDING, 
   JSON_DATA_TYPE_CHECKLISTS,
@@ -18,9 +19,7 @@ import {
   JSON_DATA_TYPE_CALCULATORS,
   JSON_DATA_TYPE_EQUIPMENT,
   JSON_DATA_TYPE_CHECKLIST_ITEM,
-} from "@/Constants";
-
-import { APP_ID } from '@/Constants';
+} from "@/_core/Constants";
 import { BaseListGroupType, IApp } from '@/ui/types';
 
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';

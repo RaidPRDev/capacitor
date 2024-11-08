@@ -12,7 +12,7 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseList from '@/ui/controls/BaseList.vue';
 
-import { APP_DRAWERS_ID, APP_ID } from '@/Constants';
+import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
 import { IApp, IAppDrawerComponents } from '@/ui/types';
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";

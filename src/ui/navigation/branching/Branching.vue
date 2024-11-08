@@ -9,7 +9,7 @@ const DEBUG = false;
 <script lang="ts" setup>
 import { ref, computed, useAttrs, onMounted, watch, nextTick, shallowRef, ComponentPublicInstance } from 'vue';
 import { useRoute, useRouter } from "vue-router";
-import { APP_BODY_ID, TOP_HEADER_NAV_HEIGHT } from '@/Constants';
+import { APP_BODY_ID, TOP_HEADER_NAV_HEIGHT } from '@/_core/Constants';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import View from './components/BranchView.vue';
 import BranchReferralPanel from './components/BranchReferralPanel.vue';

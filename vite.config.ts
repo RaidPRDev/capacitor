@@ -5,7 +5,6 @@ import svgLoader from 'vite-svg-loader';
 
 /** @ts-ignore */
 import customHmr from "./src/plugins/customreload/CustomHmr";
-
 import { APP_HEADER_HEIGHT, BOTTOM_HEADER_NAV_HEIGHT } from "./constants";
 
 const { version: APP_VERSION } = require('./package.json');

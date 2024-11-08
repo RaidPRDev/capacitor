@@ -13,7 +13,7 @@ import {
   BRANCH_HEADER_HEIGHT, 
   BREADCRUMB_HEIGHT, 
   GLOBAL_PADDING 
-} from "@/Constants";
+} from "@/_core/Constants";
 
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";

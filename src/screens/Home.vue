@@ -6,7 +6,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { APP_DRAWERS_ID, APP_ID, BOTTOM_HEADER_NAV_HEIGHT } from "@/Constants";
+import { 
+  APP_DRAWERS_ID, 
+  APP_ID, 
+  BOTTOM_HEADER_NAV_HEIGHT 
+} from "@/_core/Constants";
 import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
@@ -259,11 +263,11 @@ function showGoPanicHomeAlert() {
       align-items: start;
       padding-top: 6px;
 
-      .menu-button {
-        .ui-icon {
-          // svg { width: 80%; margin: 0 auto; }
-        }
-      }
+      // .menu-button {
+      //   .ui-icon {
+      //     // svg { width: 80%; margin: 0 auto; }
+      //   }
+      // }
     }
   }
 }
