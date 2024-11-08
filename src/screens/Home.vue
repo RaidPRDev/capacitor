@@ -49,10 +49,10 @@ const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const footerSelectedItem = ref<IButtonGroupSelected>();
 
 const footerMenuGroup = [
-  { label: "Home", icon: HomeIcon, route: "Home", class: "" },
-  { label: "Notes", icon: NotesIcon, route: "Notes", class: "" },
-  { label: "My Circuit", icon: SetupIcon, route: "MyCircuit", class: "" },
-  { label: "PANIC!", icon: PanicIcon, route: "Panic", class: "" }
+  { label: "Home", icon: HomeIcon, route: "Home", class: "footer-home" },
+  { label: "Notes", icon: NotesIcon, route: "Notes", class: "footer-notes" },
+  { label: "My Circuit", icon: SetupIcon, route: "MyCircuit", class: "footer-setup" },
+  { label: "PANIC!", icon: PanicIcon, route: "Panic", class: "footer-panic" }
 ];
 
 const sectionIndex = computed(() => {
@@ -187,7 +187,7 @@ function showGoPanicHomeAlert() {
   :headerSlotProps="{ class: `z-index-1` }">
   
   <template v-slot:headerSlot>
-    <BaseHeader ref="headerRef" class="center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
+    <BaseHeader ref="headerRef" class="home-header center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
       <template v-slot:headerLeft>
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
           drawerComponents.left = AppSideMenuPanel;
@@ -223,7 +223,7 @@ function showGoPanicHomeAlert() {
   </template>
   
   <template v-slot:footerSlot>
-    <BaseHeader ref="footerRef" class="center-container pxlr-20" centerClassName="width-100">
+    <BaseHeader ref="footerRef" class="home-footer center-container pxlr-20" centerClassName="width-100">
       <template v-slot:headerCenter>
         <ButtonGroup 
           :class="`footer width-100`"
@@ -241,6 +241,31 @@ function showGoPanicHomeAlert() {
  
 </BaseScreen>
 </template>
+
+<style lang="scss">
+.home-header {
+  html.ios & {
+    .inner-base-header {
+      padding-top: 30px; // iOS Header Padding
+    }
+  }
+}
+
+.home-footer {
+  html.ios & {
+    .header-center {
+      align-items: start;
+      padding-top: 6px;
+
+      .menu-button {
+        .ui-icon {
+          svg { width: 80%; margin: 0 auto; }
+        }
+      }
+    }
+  }
+}
+</style>
 
 <style scoped lang="scss">
 
@@ -275,16 +300,41 @@ function showGoPanicHomeAlert() {
       .inner-button-group {
         justify-content: space-around;
       }
+      .menu-button {
+        .ui-label {
+          font-size: 13px;
+          line-height: 14px;
+          // @include getFontSize('small');
+        }
+      }
     }
   }
 }
 
+// Footer Button Group
 .button-group {
   :deep(.menu-button) {
     color: $primary-color;
 
+    &.footer-setup {
+      .ui-icon {
+        width: 44px;
+        height: 43px;
+      }
+    }
+
+    &.footer-notes {
+      
+    }
+
     .ui-label {
       @include getFontSize('small');
+    }
+
+    .ui-icon {
+      width: 43px;
+      height: 43px;
+      svg { width: 100%; height: 100%; }
     }
 
     &:hover:not(.active) {

@@ -163,6 +163,7 @@ function onDown(e:MouseEvent) {
 }
 
 function onMove(e:MouseEvent) {
+  console.log("onMove");
   if (_longPressIsRunning || _longPressIsActive) {
     if (LOG) console.log("x", e.movementX, "y", e.movementY);
     if ((e.movementX > 1) || (e.movementX < -1) || (e.movementY > 1) || (e.movementY < -1) ) {
@@ -203,12 +204,16 @@ function handleInternalBodyLinks(e:Event) {
 onMounted(() => {
   if (props?.hasInternalLinks) bodyRef?.value?.addEventListener("click", handleInternalBodyLinks);
   // document?.body?.addEventListener("mousemove", onMove);
+
+  element?.value?.addEventListener("pointerdown", onDown, { passive: false });
+  element?.value?.addEventListener("pointerup", onUp, { passive: false });
 })
 
 onUnmounted(()=> {
   if (props?.hasInternalLinks) bodyRef?.value?.removeEventListener("click", handleInternalBodyLinks);
   document?.body?.removeEventListener("pointermove", onMove);
-}) 
+})
+
 </script>
 
 <template>
@@ -226,8 +231,7 @@ onUnmounted(()=> {
   v-bind="{
     ...attrs
   }"
-  @pointerup="onUp"
-  @pointerdown="onDown"
+  
 >
   <span class="inner-base-button height-100 flex align-center justify-center" :class="props?.innerClassName" >
     <span :class="`ui-background pointer-none absolute lx-0 tx-0 width-100 height-100`"></span>
