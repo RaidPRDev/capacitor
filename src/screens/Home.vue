@@ -329,9 +329,9 @@ function showGoPanicHomeAlert() {
       }
     }
 
-    &.footer-notes {
+    // &.footer-notes {
       
-    }
+    // }
 
     .ui-label {
       @include getFontSize('small');
