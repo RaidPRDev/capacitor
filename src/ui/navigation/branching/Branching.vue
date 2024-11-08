@@ -527,6 +527,16 @@ onMounted(() => {
 
 })
 
+function onScroll(e:Event) {
+  console.log("onScroll", e);
+}
+
+function onScrollEnd(e:Event) {
+  console.log("onScrollEnd", e);
+
+  alert("hello");
+}
+
 </script>
 
 <template>
@@ -539,6 +549,8 @@ onMounted(() => {
     <div 
       class="relative height-inherit set-scroll" 
       :class="[{ ['overflow-v-scroll-show']: true }]" 
+      @scroll="onScroll"
+      @scrollend="onScrollEnd"
     >
       <transition 
         name="fade" 

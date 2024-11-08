@@ -181,10 +181,9 @@ function showGoPanicHomeAlert() {
       }
     }
   }
-  app.alert.options.open = !app.alert.options.open;
-
-  
+  app.alert.options.open = !app.alert.options.open;  
 }
+
 </script>
 
 <template>
