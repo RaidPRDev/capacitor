@@ -60,7 +60,7 @@ function onMenuTriggered(selected: number) {
     break;
     
     case 2: // Start
-      router.push({ name: "Home" });
+      if (hasCompletedPrivacy.value && hasCompletedTerms.value) router.push({ name: "Home" });
     break;
   }
 }
