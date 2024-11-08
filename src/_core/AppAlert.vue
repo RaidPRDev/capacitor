@@ -8,7 +8,7 @@ export default {
 <script setup lang="ts">
 import { computed, inject } from 'vue';
 import { IApp } from '@/ui/types';
-import { APP_ID, APP_ALERT_ID } from '@/Constants';
+import { APP_ID, APP_ALERT_ID } from '@/_core/Constants';
 
 interface IAppAlertProps {
   id?: string;

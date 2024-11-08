@@ -12,7 +12,7 @@ import {
   COMPILED_DATA_PATH,
   BRANCH_HEADER_HEIGHT, 
   SCREEN_BODY_BOTTOM_PADDING 
-} from "@/Constants";
+} from "@/_core/Constants";
 
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";

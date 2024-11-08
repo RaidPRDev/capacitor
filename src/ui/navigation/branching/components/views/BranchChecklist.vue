@@ -13,7 +13,7 @@ import BaseList from '@/ui/controls/BaseList.vue';
 import AppChecklistPanel from "@/components/panels/AppChecklistPanel.vue";
 import { BranchItem, BranchViewData, IBranchTypeProps } from '@/ui/navigation/branching/types';
 import { IApp, IAppDrawerComponents, IBaseListItemData } from '@/ui/types';
-import { APP_DRAWERS_ID, APP_ID } from '@/Constants';
+import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
 import { useRoute } from 'vue-router';
 import useAppStore from '@/store/app.module';
 

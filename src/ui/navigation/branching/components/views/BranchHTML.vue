@@ -13,7 +13,7 @@ import { IBranchTypeProps } from '@/ui/navigation/branching/types';
 import { loadHTMLFile } from '@/utils/FileTools';
 import HtmlParserComponent from '@/ui/parsers/HtmlParserComponent.vue';
 import { IHtmlParserDataProps } from '@/ui/types';
-// import { APP_ID } from '@/Constants';
+// import { APP_ID } from '@/_core/Constants';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false

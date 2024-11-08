@@ -7,7 +7,7 @@ export default {
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef } from "vue";
 import { IBaseScreenSlotProps } from "@/ui/types";
-import { BRANCH_HEADER_HEIGHT, GLOBAL_PADDING } from "@/Constants";
+import { BRANCH_HEADER_HEIGHT, GLOBAL_PADDING } from "@/_core/Constants";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseTextArea from "@/ui/controls/BaseTextArea.vue";
 import useNotesStore from "@/store/notes.module";

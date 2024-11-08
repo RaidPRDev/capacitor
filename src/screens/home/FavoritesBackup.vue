@@ -8,8 +8,8 @@ export default {
 import { computed, inject, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef } from "vue";
 import { useRouter } from "vue-router";
 import { storeToRefs } from 'pinia';
-import { BOTTOM_HEADER_NAV_HEIGHT, GLOBAL_PADDING } from "@/Constants";
-import { APP_ID } from '@/Constants';
+import { BOTTOM_HEADER_NAV_HEIGHT, GLOBAL_PADDING } from "@/_core/Constants";
+import { APP_ID } from '@/_core/Constants';
 import { IApp } from '@/ui/types';
 
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';

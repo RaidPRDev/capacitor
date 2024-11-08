@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, provide, reactive, shallowReactive } from "vue";
 
-import { APP_BODY_ID, APP_DRAWERS_ID, APP_ID } from "@/Constants";
+import { APP_BODY_ID, APP_DRAWERS_ID, APP_ID } from "@/_core/Constants";
 import { IAppProvider, IAppProviderDeviceProps, IDrawerPosition } from "@/types";
 import { IApp, IAppDrawerComponents } from "@/ui/types";
 

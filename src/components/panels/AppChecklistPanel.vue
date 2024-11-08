@@ -13,7 +13,7 @@ import BaseList from '@/ui/controls/BaseList.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseToggle from '@/ui/controls/BaseToggle.vue';
 
-import { APP_ID } from '@/Constants';
+import { APP_ID } from '@/_core/Constants';
 import { IApp, IBaseListItemData } from '@/ui/types';
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import FavoriteAddedToast from "@/components/toasts/FavoriteAddedToast.vue";

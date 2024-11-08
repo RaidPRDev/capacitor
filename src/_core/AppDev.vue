@@ -8,7 +8,7 @@ export default {
 <script setup lang="ts">
 import { inject, nextTick, reactive, shallowRef, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { APP_ID } from '@/Constants';
+import { APP_ID } from '@/_core/Constants';
 import useAppStore from '@/store/app.module';
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import { IApp } from '@/ui/types';

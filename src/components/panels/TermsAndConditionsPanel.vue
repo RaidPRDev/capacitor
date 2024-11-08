@@ -12,7 +12,7 @@ import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 
-import { APP_ID } from '@/Constants';
+import { APP_ID } from '@/_core/Constants';
 import { IApp } from '@/ui/types';
 import useSession from '@/store/session.module';
 import { storeToRefs } from 'pinia';

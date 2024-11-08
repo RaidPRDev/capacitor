@@ -13,7 +13,7 @@ import {
   BREADCRUMB_HEIGHT, 
   COMPILED_DATA_PATH, 
   GLOBAL_PADDING 
-} from "@/Constants";
+} from "@/_core/Constants";
 
 import { IBaseScreenSlotProps } from "@/ui/types";
 import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navigation/branching/types";

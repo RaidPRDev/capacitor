@@ -11,7 +11,7 @@ import { storeToRefs } from 'pinia';
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import AppToasterItem from './AppToasterItem.vue';
 import { IAppToaster, IToaster } from './types';
-import { APP_TOASTER_ID } from '@/Constants';
+import { APP_TOASTER_ID } from '@/_core/Constants';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppToaster>(), {

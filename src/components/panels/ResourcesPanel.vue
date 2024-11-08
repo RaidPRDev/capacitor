@@ -14,7 +14,7 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 
 import useSession from '@/store/session.module';
-import { APP_ID } from '@/Constants';
+import { APP_ID } from '@/_core/Constants';
 import { IApp } from '@/ui/types';
 
 import Logo from '/assets/elso_logo.png';

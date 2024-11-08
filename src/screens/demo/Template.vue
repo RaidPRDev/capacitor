@@ -21,7 +21,7 @@ import MenuIcon from '@/assets/icons/menu-icon.svg';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 
 import HomeIcon from '@/assets/icons/home-icon.svg';
-import { APP_ID } from "@/Constants";
+import { APP_ID } from "@/_core/Constants";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppScreenProps>(), {}) 

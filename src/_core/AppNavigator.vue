@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { APP_ID, APP_NAV_ID } from '@/Constants';
+import { APP_ID, APP_NAV_ID } from '@/_core/Constants';
 
 interface IAppNavigatorProps {
   id?: string;
