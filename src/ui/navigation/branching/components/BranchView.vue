@@ -28,7 +28,9 @@ const emit = defineEmits<{
 const element = ref<InstanceType<typeof HTMLElement>>()
 
 const styles = computed(() => {
-  if (props?.height === undefined) return { flexGrow: 1 }
+  // if (props?.height === undefined) return { flexGrow: 1 }
+  if (props?.height === undefined) return {}
+  
   return { height: `calc(100% - ${props?.height}px)` }
 })
 

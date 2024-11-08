@@ -527,15 +527,29 @@ onMounted(() => {
 
 })
 
-function onScroll(e:Event) {
-  console.log("onScroll", e);
-}
+// const isScrolling = ref<boolean>(false);
+// const timeoutScroll = shallowRef<ReturnType<typeof setTimeout>>();
 
-function onScrollEnd(e:Event) {
-  console.log("onScrollEnd", e);
+// function scrollingCheck() {
+//   isScrolling.value = false;
+// }
 
-  alert("hello");
-}
+// function onScroll(e:Event) {
+//   console.log("onScroll", e);
+
+//   if (isScrolling.value) isScrolling.value = false;
+
+//   clearTimeout(timeoutScroll.value);
+
+//   timeoutScroll.value = setTimeout(scrollingCheck, 150);
+
+// }
+
+// function onScrollEnd(e:Event) {
+//   console.log("onScrollEnd", e);
+
+//   alert("hello");
+// }
 
 </script>
 
@@ -549,8 +563,6 @@ function onScrollEnd(e:Event) {
     <div 
       class="relative height-inherit set-scroll" 
       :class="[{ ['overflow-v-scroll-show']: true }]" 
-      @scroll="onScroll"
-      @scrollend="onScrollEnd"
     >
       <transition 
         name="fade" 

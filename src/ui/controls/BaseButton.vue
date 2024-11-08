@@ -115,7 +115,18 @@ function stopLongPressMode() {
 function onUp(e:MouseEvent) {
   if (props?.useLongPressedState) stopLongPressMode();
   if (props?.asSubControl) e.stopPropagation()
-  if (props?.disabled || props?.usePressedState) return;
+  if (props?.disabled) return;
+  if (props?.usePressedState) {
+    nextTick(() => {
+      const speed = props.pressedTranstionDelay;
+      isPressed.value = true; 
+      isSelected.value = true; 
+      setTimeout(() => isPressed.value = false, speed / 2);
+      setTimeout(() => trigger(e, "down"), speed / 1.3);
+      setTimeout(() => isSelected.value = false, speed);
+    })
+    return;
+  }
   if (_longPressIsRunning) return;
 
   trigger(e, "up");
@@ -150,15 +161,15 @@ function onDown(e:MouseEvent) {
 
   if (isPressed.value || isSelected.value) return;
   if (props?.usePressedState) {
-    nextTick(() => {
-      const speed = props.pressedTranstionDelay;
-      isPressed.value = true; 
-      isSelected.value = true; 
+    // nextTick(() => {
+    //   const speed = props.pressedTranstionDelay;
+    //   isPressed.value = true; 
+    //   isSelected.value = true; 
 
-      setTimeout(() => isPressed.value = false, speed / 2);
-      setTimeout(() => trigger(e, "down"), speed / 1.3);
-      setTimeout(() => isSelected.value = false, speed);
-    })
+    //   setTimeout(() => isPressed.value = false, speed / 2);
+    //   setTimeout(() => trigger(e, "down"), speed / 1.3);
+    //   setTimeout(() => isSelected.value = false, speed);
+    // })
   }
 }
 
