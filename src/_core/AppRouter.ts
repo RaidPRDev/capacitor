@@ -63,13 +63,16 @@ router.beforeEach((to, from, next) => {
   if (DEBUG) console.log("  to", to);
   if (DEBUG) console.log("  from", from);
 
-  const { isAuthorized } = usePassKey();
+  console.log("  import.meta.env.IOS", import.meta.env.IOS);
+  if (!import.meta.env.IOS && !import.meta.env.ISANDROID) {
+    const { isAuthorized } = usePassKey();
   
-  if (DEBUG) console.log("  isAuthorized", isAuthorized);
-  
-  if (!isAuthorized && to.name !== "Unauthorized") {
-    next({ name: 'Unauthorized', replace: true });
-    return;
+    if (DEBUG) console.log("  isAuthorized", isAuthorized);
+    
+    if (!isAuthorized && to.name !== "Unauthorized") {
+      next({ name: 'Unauthorized', replace: true });
+      return;
+    }  
   }
 
   // save previous route
