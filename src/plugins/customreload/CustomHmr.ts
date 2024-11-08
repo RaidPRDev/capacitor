@@ -2,6 +2,10 @@ import { PluginOption } from "vite";
 import fsSync from "fs";
 import fs from "fs/promises";
 
+const SOURCE_CONSTANTS_FILE = "./constants.ts";
+const TARGET_CONSTANTS_FILE = "./src/_core/Constants.ts";
+
+
 const DATA_PATH = `public/assets/data/app`;
 const COMPILED_DATA_PATH = "public/assets/data/app/compiled";
 const DATA = [
@@ -24,7 +28,11 @@ export default function CustomHmr():PluginOption {
     },
     async buildStart(options) {
       console.log('[BUILD_START]', options);
-      startJSONCompiler()
+      startJSONCompiler();
+
+      // Copy Constants
+      console.log('[COPYING_CONSTANTS]');
+      copyFile(SOURCE_CONSTANTS_FILE, TARGET_CONSTANTS_FILE);
     },
     // HMR
     async handleHotUpdate({ file, server }) {
@@ -41,6 +49,10 @@ export default function CustomHmr():PluginOption {
         console.log(`[FILE][${file}]\n`);
 
         await startJSONCompiler()
+
+        // Copy Constants
+        console.log('[COPYING_CONSTANTS]');
+        copyFile(SOURCE_CONSTANTS_FILE, TARGET_CONSTANTS_FILE);
 
         server.ws.send({
           type: 'full-reload',          
@@ -114,6 +126,29 @@ function iterateArray(arr:Array<any> = [], parent: Record<string, any> | null = 
       if (Array.isArray(item.items) && item.items.length > 0) {
         // Pass the current item as the parent
         iterateArray(item.items, item, callback);
+      }
+  });
+}
+
+function copyFile(source: string, destination: string) {
+  // Check if the source file exists
+  // if (!fsSync.existsSync(source)) {
+  //     console.error(`Source file does not exist: ${source}`);
+  //     return;
+  // }
+
+  // // Check if the destination directory exists, create it if not
+  // const destinationDir = destination;
+  // if (!fsSync.existsSync(destinationDir)) {
+  //   fsSync.mkdirSync(destinationDir, { recursive: true });
+  // }
+
+  // Copy the file
+  fsSync.copyFile(source, destination, (err) => {
+      if (err) {
+          console.error(`Error copying file: ${err}`);
+      } else {
+          console.log(`File copied successfully to ${destination}`);
       }
   });
 }
