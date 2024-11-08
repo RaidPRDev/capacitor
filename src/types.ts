@@ -9,6 +9,7 @@ export interface IAppProviderDeviceProps {
   height: number;
   margin: number;
   mobile: boolean;
+  isIOS: boolean;
 }
 
 export interface IAppProviderAlertProps {

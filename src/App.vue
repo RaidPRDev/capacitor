@@ -19,7 +19,7 @@ import AppDev from "./_core/AppDev.vue";
 // App Provider
 const app = reactive<IAppProvider>({ 
   device: reactive<IAppProviderDeviceProps>({ 
-    width: 0, height: 0, margin: 0, mobile: false 
+    width: 0, height: 0, margin: 0, mobile: false, isIOS: false
   }),
   alert: { options: {} },
   drawers: {

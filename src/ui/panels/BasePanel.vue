@@ -31,7 +31,7 @@ defineExpose({
     :class="props?.class" 
     :style="props?.styles"
   >
-    <div class="inner-panel height-inherit" :class="props?.innerClass">
+    <div class="inner-panel height-inherit relative" :class="props?.innerClass">
       <div 
         v-if="slots?.headerSlot" 
         :class="['panel-header width-100', props?.headerSlotProps?.class]"

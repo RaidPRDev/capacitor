@@ -216,6 +216,7 @@ export interface IApp {
     height: number;
     margin: number;
     mobile: boolean;
+    isIOS: boolean;
   };
   alert: IAppAlert;
   drawers: IAppDrawers;

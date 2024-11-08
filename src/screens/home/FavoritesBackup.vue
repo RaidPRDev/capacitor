@@ -91,10 +91,12 @@ onMounted(async () => {
   }, 750);
 })
 
+const IOS_PADDING = import.meta.env.IOS ? 20 : 0;
+
 const panelStyles = computed(() => {
   let adjustedWidth = 0;
   let adjustedHeight = 0;
-  adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT;
+  adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING);
   adjustedWidth = app.device.width;  
 
   return {

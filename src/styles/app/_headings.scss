@@ -23,3 +23,20 @@ h1, h2, h3, h4, h5, h6 {
 .bottom-nav {
   height: 76px;
 }
+
+
+.app-drawer-item {
+  html.ios & {
+    .panel-header {
+      padding-top: 40px;
+    }
+  }
+  
+  .close-button {
+    //top: 40px;
+  }
+
+  .side-content + .close-button {
+    top: 40px;
+  }
+}

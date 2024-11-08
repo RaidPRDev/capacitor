@@ -195,7 +195,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="fixed tx-0 lx-0 width-100 height-100 z-index-2" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
+  <div class="fixed tx-0 lx-0 width-100 height-100 z-index-2 overflow-hidden" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
     <div class="backdrop fixed tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Opened && state.hasInit }" @click="() => {
       if (state.mode === Mode.Opened && state.hasInit) {
         clearTimers();
@@ -205,7 +205,7 @@ onUnmounted(() => {
     }"></div>
     <div 
       ref="element" 
-      class="branch-referral fixed rx-0 pointer-all"
+      class="branch-referral absolute rx-0 pointer-all"
       :class="[{ 
         ['hidden']: state.mode === Mode.Hidden,
         ['docked']: state.mode === Mode.Docked,

@@ -65,6 +65,7 @@ const useAppStyles = (props: IUseAppStyleProps) => {
     props.app.device.height = res.height;
     props.app.device.margin = 20;
     props.app.device.mobile = props.device?.isMobile()!;
+    props.app.device.isIOS = props.device?.state.ios;
 
     if (DEBUG) console.log("  desktop.width:", props.app.device.width);
     if (DEBUG) console.log("  desktop.height:", props.app.device.height);

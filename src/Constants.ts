@@ -12,8 +12,11 @@ export const APP_TOASTER_ID = "__APP_TOASTER__";
 export const COMPILED_DATA_PATH = "app/compiled";
 
 export const GLOBAL_PADDING = 20;
+export const APP_HEADER_HEIGHT = 99;
 export const TOP_HEADER_NAV_HEIGHT = 60;
-export const BOTTOM_HEADER_NAV_HEIGHT = 77;
+export const BOTTOM_HEADER_NAV_HEIGHT = (padding: number = 0) => {
+  return 77 + padding;
+};
 export const BREADCRUMB_HEIGHT = 56;
 export const SCREEN_BODY_TOP_PADDING = 40;
 export const SCREEN_BODY_BOTTOM_PADDING = 20;

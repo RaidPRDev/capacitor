@@ -6,6 +6,8 @@ import svgLoader from 'vite-svg-loader';
 /** @ts-ignore */
 import customHmr from "./src/plugins/customreload/CustomHmr";
 
+import { APP_HEADER_HEIGHT, BOTTOM_HEADER_NAV_HEIGHT } from "./src/Constants";
+
 const { version: APP_VERSION } = require('./package.json');
 const BUILD_VERSION_FILE = "./build_version";
 
@@ -30,6 +32,8 @@ export default defineConfig(async ({command, mode}) => {
   console.log("[ISMOBILE]", ISMOBILE);
   console.log("[ISIOS]", ISIOS);
   console.log("[ISANDROID]", ISANDROID);
+
+  BOTTOM_HEADER_NAV_HEIGHT
 
   return ({
     define: {
@@ -59,6 +63,9 @@ export default defineConfig(async ({command, mode}) => {
           @import "@/styles/app/_scroller";
 
         ` + `$is-mobile: ${ISMOBILE};`
+          + `$header-height: ${APP_HEADER_HEIGHT};`
+          + `$footer-height: ${BOTTOM_HEADER_NAV_HEIGHT(ISIOS ? 20 : 0)};`
+
         }
       }
     },

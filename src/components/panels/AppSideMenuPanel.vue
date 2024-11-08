@@ -108,7 +108,7 @@ onMounted(() => {
 </script>
 
 <template>
-<BasePanel class="relative" :headerSlotProps="{ styles: { height: `${HEADER_HEIGHT}px` } }">
+<BasePanel class="app-side-panel relative" :headerSlotProps="{ styles: { height: `${HEADER_HEIGHT}px` } }">
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container pxlr-0" :innerClassName="`px-20`">
       <template v-slot:headerLeft>
@@ -167,6 +167,16 @@ onMounted(() => {
   </div>
 </BasePanel>
 </template>
+
+<style lang="scss">
+.app-side-panel {
+  html.ios & {
+    > .inner-panel {
+      padding-top: 36px;
+    }
+  }
+}
+</style>
 
 <style scoped lang="scss">
 .base-panel {

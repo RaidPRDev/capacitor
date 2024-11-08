@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { APP_DRAWERS_ID, APP_ID } from "@/Constants";
+import { APP_DRAWERS_ID, APP_ID, BOTTOM_HEADER_NAV_HEIGHT } from "@/Constants";
 import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
@@ -178,13 +178,15 @@ function showGoPanicHomeAlert() {
     }
   }
   app.alert.options.open = !app.alert.options.open;
+
+  
 }
 </script>
 
 <template>
 <BaseScreen 
   :className="[`home`,  props?.class, props?.drawerOpen ? `drawer-open` : ``].join(` `)"
-  :headerSlotProps="{ class: `z-index-1` }">
+  :headerSlotProps="{ class: `z-index-1` }" :footerSlotProps="{ styles: { height: `${BOTTOM_HEADER_NAV_HEIGHT(app.device.isIOS ? 20 : 0)}px` } }">
   
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="home-header center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
@@ -259,7 +261,7 @@ function showGoPanicHomeAlert() {
 
       .menu-button {
         .ui-icon {
-          svg { width: 80%; margin: 0 auto; }
+          // svg { width: 80%; margin: 0 auto; }
         }
       }
     }
