@@ -339,11 +339,12 @@ class Device implements IDevice
     this.state.touch = touch;
     this.state.pointer = pointer;
 
+    console.log("UPDATE")
     // set device version spec
-    if (ios) { this.getiOSVersion() }
-    else if (android) { this.getAndroidVersion() }
-    else if (windows) { this.getWindowsVersion(); }
-    else if (macos) { this.getMacOSVersion(); }
+    if (ios) { this.state.version = this.getiOSVersion() }
+    else if (android) { this.state.version = this.getAndroidVersion() }
+    else if (windows) { this.state.version = this.getWindowsVersion(); }
+    else if (macos) { this.state.version = this.getMacOSVersion(); }
 
     window.requestAnimationFrame(() => 
     {
@@ -389,31 +390,32 @@ class Device implements IDevice
   }
 
   getiOSVersion() {
-    const ua = this.state.navigator.userAgent;
+    const ua = this.state.navigator.appVersion;
     const match = ua.match(/OS (\d+)_(\d+)(?:_(\d+))?/); // Matches versions like "OS 15_4_1"
     
     if (match) {
       const major = parseInt(match[1], 10);
       const minor = parseInt(match[2], 10);
       const patch = match[3] ? parseInt(match[3], 10) : 0;
-      return { major, minor, patch };
+      return { major, minor, versionString: patch?.toString() };
     }
     
-    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+    return { major: 0, minor: 0, versionString: `Unknown` }
   }
 
   getAndroidVersion() {
-    const ua = this.state.navigator.userAgent;
-    const match = ua.match(/Android (\d+)\.(\d+)(?:\.(\d+))?/); // Matches versions like "Android 12.1.0"
-    
+    const ua = this.state.navigator.appVersion;
+    const match = ua.match(/Android\s([\d.]+)/);
+
     if (match) {
       const major = parseInt(match[1], 10);
       const minor = parseInt(match[2], 10);
       const patch = match[3] ? parseInt(match[3], 10) : 0;
-      return { major, minor, patch };
+      console.log("{ major, minor, patch }", { major, minor, patch })
+      return { major, minor, versionString: patch?.toString() };
     }
   
-    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+    return { major: 0, minor: 0, versionString: `Unknown` }
   }
 
   /**
@@ -423,7 +425,7 @@ class Device implements IDevice
    * @returns 
    */
   getWindowsVersion() {
-    const ua = this.state.navigator.userAgent;
+    const ua = this.state.navigator.appVersion;
     const match = ua.match(/Windows NT (\d+)\.(\d+)/); // Matches versions like "Windows NT 10.0"
     
     let major = 0;
@@ -438,6 +440,8 @@ class Device implements IDevice
       "6.0": "Windows Vista",
       "5.1": "Windows XP",
     };
+
+    console.log("match", match)
 
     if (match) {
       major = parseInt(match[1], 10);
@@ -462,28 +466,27 @@ class Device implements IDevice
 
             versionString = `Windows ${major}`;
 
-            this.state.version = { major, minor, versionString }
+            return { major, minor, versionString };
           }
         });
 
-        return;
+        return { major, minor, versionString };
       }
 
-      this.state.version = { major, minor, versionString }
-      return;
+      return { major, minor, versionString };
     }
 
-    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+    return { major: 0, minor: 0, versionString: `Unknown` }
   }
 
   getMacOSVersion() {
-    const ua = this.state.navigator;
+    const ua = this.state.navigator.appVersion;
     const match = ua.match(/Mac OS X (\d+)_(\d+)(?:_(\d+))?/); // Matches versions like "Mac OS X 10_15_7"
     
     if (match) {
       const major = parseInt(match[1], 10);
       const minor = parseInt(match[2], 10);
-      const patch = match[3] ? parseInt(match[3], 10) : 0;
+      // const patch = match[3] ? parseInt(match[3], 10) : 0;
   
       // Optional mapping for known macOS versions (example subset)
       const versionMap: Record<string, any> = {
@@ -496,10 +499,10 @@ class Device implements IDevice
   
       const versionKey = `${major}.${minor}`;
       const versionString = versionMap[versionKey] || `macOS ${versionKey}`;
-      return { major, minor, patch, versionString };
+      return { major, minor, versionString };
     }
   
-    this.state.version = { major: 0, minor: 0, versionString: `Unknown` }
+    return { major: 0, minor: 0, versionString: `Unknown` }
   }
 
   get():IDeviceState

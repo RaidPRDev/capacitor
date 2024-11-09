@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, nextTick, reactive, shallowRef } from 'vue';
+import { computed, inject, nextTick, onMounted, reactive, ref, shallowRef } from 'vue';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
@@ -40,7 +40,8 @@ const dateLabel = `${buildDate.getMonth() + 1}/${buildDate.getDate()}/${buildDat
 const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
 const state = reactive<{ isCopying?: boolean }>({
   isCopying: false
-})
+});
+const IsOnline = ref<boolean>(false);
 
 function generateCopy(): string {
   let platform = ``;
@@ -59,6 +60,8 @@ Date Published: ${dateLabel}
 Platform: ${platform}
 Version: ${device?.state?.version?.major}
 Type: ${capitalizeFirstLetter(device?.state.type!)}
+Vendor: ${capitalizeFirstLetter(device?.state.navigator.vendor!)}
+Is Online: ${capitalizeFirstLetter(IsOnline?.value?.toString())}
 \nDISPLAY:
 Resolution: ${device?.state.resolution.width}w ${device?.state.resolution.height}h [px]
 Orientation: ${capitalizeFirstLetter(device?.state.orientation!)}
@@ -68,7 +71,8 @@ Viewport: ${device?.state.viewport.width}w ${device?.state.viewport.height}h [px
 Agent: ${device?.state?.navigator?.userAgent}
 CodeName: ${device?.state?.navigator?.appCodeName}
 AppName: ${device?.state?.navigator?.appName}
-IsMobile: ${capitalizeFirstLetter(device?.state?.navigator?.userAgentData?.mobile.toString()!)}
+IsMobile: ${capitalizeFirstLetter(navigatorDataIsMobile.value)}
+IsOnline: ${capitalizeFirstLetter(IsOnline?.value?.toString())}
 \nACCESSORIES:
 Touch: ${capitalizeFirstLetter(device?.state.touch.toString()!)}
 Pointer: ${capitalizeFirstLetter(device?.state.pointer.toString()!)}
@@ -92,6 +96,24 @@ async function onCopy() {
   timeoutCopy.value = setTimeout(() => state.isCopying = false, 1000);
   nextTick(() => addToast({ label: `Copied to clipboard.` }));
 }
+
+const navigatorDataIsMobile = computed(() => {
+
+  if (device?.state?.ios) {
+    return "True";
+  }
+
+  return capitalizeFirstLetter(device?.state?.navigator?.userAgentData?.mobile.toString());
+})
+
+onMounted(() => {
+  console.log("device", device?.state)
+
+  console.log('IsOnline?', device?.state?.navigator?.onLine);
+  if (device?.state?.navigator?.onLine) {
+    IsOnline.value = true;
+  }
+})
 
 </script>
 
@@ -134,7 +156,9 @@ async function onCopy() {
             <div v-else><p>Platform: <b>{{ `Unknown` }}</b></p></div>
             <div><p>Version: <b>{{ device?.state?.version?.major }}</b></p></div>
             <div><p>Type: <b>{{ capitalizeFirstLetter(device?.state.type!) }}</b></p></div>
-            
+            <div><p>Vendor: <b>{{ capitalizeFirstLetter(device?.state.navigator.vendor!) }}</b></p></div>
+            <div><p>Is Online: <b>{{ capitalizeFirstLetter(IsOnline?.toString()) }}</b></p></div>
+
           <p class="p-title">Display:</p>
             <div><p>Resolution: <b>{{ `${device?.state.resolution.width}w ${device?.state.resolution.height}h [px]` }}</b></p></div>
             <div><p>Orientation: <b>{{ `${capitalizeFirstLetter(device?.state.orientation!)}` }}</b></p></div>
@@ -145,7 +169,7 @@ async function onCopy() {
             <div><p>Agent: <b>{{ `${device?.state?.navigator?.userAgent}` }}</b></p></div>
             <div><p>CodeName: <b>{{ `${device?.state?.navigator?.appCodeName}` }}</b></p></div>
             <div><p>AppName: <b>{{ `${device?.state?.navigator?.appName}` }}</b></p></div>
-            <div><p>IsMobile: <b>{{ `${capitalizeFirstLetter(device?.state?.navigator?.userAgentData?.mobile.toString()!)}` }}</b></p></div>
+            <div><p>IsMobile: <b>{{ `${navigatorDataIsMobile}` }}</b></p></div>
 
           <p class="p-title">Accessories:</p>
             <div><p>Touch: <b>{{ `${capitalizeFirstLetter(device?.state.touch.toString()!)}` }}</b></p></div>

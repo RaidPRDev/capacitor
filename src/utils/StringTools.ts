@@ -33,14 +33,20 @@ export function copyToClipboard(text: string) {
   
   return new Promise<boolean>((resolve) => {
 
-    navigator.clipboard.writeText(text)
-    .then(() => {
-      // console.log('Text copied to clipboard');
-      resolve(true);
-    })
-    .catch(err => {
-      console.error('Failed to copy text: ', err);
+    try {
+      navigator.clipboard.writeText(text)
+      .then(() => {
+        // console.log('Text copied to clipboard');
+        resolve(true);
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+        resolve(false);
+      });
+    }
+    catch(e:any) {
       resolve(false);
-    });
+    }
+    
   })
 }
