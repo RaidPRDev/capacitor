@@ -96,6 +96,15 @@ async function onCopy() {
   </div>
 </template>
 
+<style lang="scss">
+._id {
+  html.ios & {
+    margin-top: 26px;
+  }
+}
+
+</style>
+
 <style scoped lang="scss">
 ._id {
   font-size: 12px;

@@ -176,6 +176,8 @@ onMounted(() => {
   
   if (refferedView.value === null) return;
   
+  clearTimers();
+
   timeout.value = setTimeout(() => {
     element?.value?.addEventListener("transitionend", onTransitionEnd);
   }, 1000);
@@ -195,7 +197,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="abs-fs z-index-3" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
+  <div class="abs-fs z-index-5 fixed" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
     <div class="backdrop tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Opened && state.hasInit }" @click="() => {
       if (state.mode === Mode.Opened && state.hasInit) {
         clearTimers();
@@ -223,7 +225,7 @@ onUnmounted(() => {
         <div class="r-grad fixed tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Docked }"></div>
         <div class="r-inner relative flex align-center justify-start px-10 pxtb-14" :class="{ ['show']: state.mode === Mode.Opened }">
           <div class="icon mxr-10 no-shrink" :class="{ ['shake']: state.shakeIcon }"><PanicIcon/></div>
-          <div class="content relative width-100 pxr-60">
+          <div class="content relative width-100">
             
             <transition 
               name="fade" 
@@ -239,7 +241,7 @@ onUnmounted(() => {
                   <UpRightArrowIcon />
                 </div>
               </div>
-              <div v-else class="content-icon flex"><ChevronRightIcon /></div>   
+              <div v-else class="content-icon flex absolute"><ChevronRightIcon /></div>   
             </transition>
           </div>
         </div>
@@ -253,7 +255,7 @@ onUnmounted(() => {
 $panel-width: 260px;
 $panel-height: 60px;
 $half-icon: 24px;
-$panel-offset-area: 60px;
+$panel-offset-area: 20px;
 
 .disabled {
   pointer-events: none;
@@ -280,10 +282,23 @@ $panel-offset-area: 60px;
     .ui-background { width: auto; }
   }
 
-  &.docked {
-    transform: translateX(calc($panel-offset-area - 70px));
+  .content {
+    padding-right: $panel-offset-area;
+  }
 
-    .icon, .content-icon {
+  .icon {
+    transition: opacity 350ms ease-out;
+  }
+
+  &.docked {
+    transform: translateX(-16px);
+
+    .icon {
+      opacity: 0;
+      color: $secondary-red;
+    }
+
+    .content-icon {
       color: white;
     }
   }
@@ -301,7 +316,13 @@ $panel-offset-area: 60px;
 
     .icon {
       color: $secondary-red;
+
+      &.shake {
+        animation: shake-animation 1.5s ease-in-out 1;
+      }
     }
+
+    
     
     // .r-inner {}
   }
@@ -338,7 +359,8 @@ $panel-offset-area: 60px;
   }
 
   .content-icon {
-    margin-left: -14px;
+    left: -48px;
+    top: -9px;
   }
 
   .action-control {
@@ -373,9 +395,9 @@ $panel-offset-area: 60px;
       width: 100%;
     }
 
-    &.shake {
-      animation: shake-animation 1.5s ease-in-out 1;
-    }
+    // &.shake {
+    //   animation: shake-animation 1.5s ease-in-out 1;
+    // }
   }
 
   @keyframes shake-animation {
