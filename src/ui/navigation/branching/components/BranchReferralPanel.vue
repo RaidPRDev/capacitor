@@ -195,8 +195,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="fixed tx-0 lx-0 width-100 height-100 z-index-2 overflow-hidden" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
-    <div class="backdrop fixed tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Opened && state.hasInit }" @click="() => {
+  <div class="abs-fs z-index-3" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
+    <div class="backdrop tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Opened && state.hasInit }" @click="() => {
       if (state.mode === Mode.Opened && state.hasInit) {
         clearTimers();
         state.mode = Mode.Docked;
