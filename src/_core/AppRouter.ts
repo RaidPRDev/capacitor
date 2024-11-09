@@ -63,8 +63,8 @@ router.beforeEach((to, from, next) => {
   if (DEBUG) console.log("  to", to);
   if (DEBUG) console.log("  from", from);
 
-  console.log("  import.meta.env.IOS", import.meta.env.IOS);
-  if (!import.meta.env.IOS && !import.meta.env.ISANDROID) {
+  // console.log("  import.meta.env.IOS", import.meta.env.IOS);
+  if (!import.meta.env.IOS && !import.meta.env.ANDROID) {
     const { isAuthorized } = usePassKey();
   
     if (DEBUG) console.log("  isAuthorized", isAuthorized);

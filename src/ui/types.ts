@@ -217,6 +217,7 @@ export interface IApp {
     margin: number;
     mobile: boolean;
     isIOS: boolean;
+    isAndroid: boolean;
   };
   alert: IAppAlert;
   drawers: IAppDrawers;

@@ -339,7 +339,6 @@ class Device implements IDevice
     this.state.touch = touch;
     this.state.pointer = pointer;
 
-    console.log("UPDATE")
     // set device version spec
     if (ios) { this.state.version = this.getiOSVersion() }
     else if (android) { this.state.version = this.getAndroidVersion() }
@@ -411,7 +410,6 @@ class Device implements IDevice
       const major = parseInt(match[1], 10);
       const minor = parseInt(match[2], 10);
       const patch = match[3] ? parseInt(match[3], 10) : 0;
-      console.log("{ major, minor, patch }", { major, minor, patch })
       return { major, minor, versionString: patch?.toString() };
     }
   
@@ -440,8 +438,6 @@ class Device implements IDevice
       "6.0": "Windows Vista",
       "5.1": "Windows XP",
     };
-
-    console.log("match", match)
 
     if (match) {
       major = parseInt(match[1], 10);

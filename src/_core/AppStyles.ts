@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { IApp } from '@/ui/types';
 import { IDevice } from '@/plugins/Device';
 
@@ -11,6 +11,8 @@ interface IUseAppStyleProps {
 
 const useAppStyles = (props: IUseAppStyleProps) => {
 
+  const hasRendered = ref<boolean>(false);
+  
   /**
    * This function prepares and returns custom styles for the 'app-wrapper' div element. 
    * It leverages Vue's computed properties to automatically trigger updates to the 
@@ -61,14 +63,23 @@ const useAppStyles = (props: IUseAppStyleProps) => {
     }
 
     const res = props.device?.state.resolution;
+
+    // prevent resizing when running on device.
+    if (hasRendered.value) {
+      return { width: `${res.width}px`, height: `${res.height}px` }
+    }
+
     props.app.device.width = res.width;
     props.app.device.height = res.height;
     props.app.device.margin = 20;
     props.app.device.mobile = props.device?.isMobile()!;
     props.app.device.isIOS = props.device?.state.ios;
+    props.app.device.isAndroid = props.device?.state.android;
 
     if (DEBUG) console.log("  desktop.width:", props.app.device.width);
     if (DEBUG) console.log("  desktop.height:", props.app.device.height);
+
+    hasRendered.value = true;
 
     return { width: `${res.width}px`, height: `${res.height}px` }
   });
