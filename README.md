@@ -6,16 +6,13 @@ com.sweetrush.staging.elso
 Production App ID
 com.sweetrush.elso
 
-
 # Docker
 docker build -t elso-app .
 docker run -it -p 8080:8080 --rm --name elso-app-production elso-app
 or run dev.sh script
 
-
 # json data link example
 <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure checklist</a>
-
 
 ## Deploy Service
 https://ionic.io/appflow
@@ -35,5 +32,13 @@ b. Set Build Type to Development
 c. Set environment variables exposed to your build per platform.
 d. Press Build. If setup right, App Flow will upload to the Apple Dev Account Store via Testflight.
 
+# References
+Ionic App Flow
+https://dashboard.ionicframework.com/org/4df82aa8-703e-4243-a310-fc777fe36d7f/apps
 
+Figma Designs
+https://www.figma.com/files/865628658352013984/project/238209524?fuid=644590515443336826
+
+Storyboard
+https://docs.google.com/document/d/1llzINFw2NHGoEf25QA0KM-MRJGlXlmR854kZv7vt5cc/edit?tab=t.0
 
