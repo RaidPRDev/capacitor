@@ -158,6 +158,9 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 
 .icon {
   width: 48px;
+  svg {
+    width: 48px;
+  }
 }
 
 </style>

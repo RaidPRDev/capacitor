@@ -139,7 +139,7 @@ function onFocusOut() {
         <Transition name="fade" :duration="750">
           <span v-if="state.hasSaved" class="save-label mxr-10">Saved</span>
         </Transition>
-        <span class="flex"><NotesIcon /></span>
+        <span class="flex icon"><NotesIcon /></span>
       </template>
     </BaseHeader>
 
@@ -159,4 +159,11 @@ function onFocusOut() {
 .save-label {
   font-size: 15px;
 }
+.icon {
+  width: 43px;
+  svg {
+    width: 43px;
+  }
+}
+
 </style>

@@ -28,8 +28,9 @@ const props = withDefaults(defineProps<IBranchReferralViewProps>(), {});
 interface IState {
   mode?: Mode;
   hasInit?: boolean;
-  showLabel?: boolean;  
-  shakeIcon?: boolean;  
+  showLabel?: boolean;
+  shakeIcon?: boolean;
+  isMobileDevice?: boolean;
 }
 
 enum Mode {
@@ -44,6 +45,7 @@ const state:IState = reactive({
   mode: Mode.Hidden,
   showLabel: false,
   shakeIcon: false,
+  isMobileDevice: import.meta.env.ISMOBILE
 })
 
 const emit = defineEmits<{
@@ -207,7 +209,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="abs-fs z-index-5 fixed" :class="{ ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked }">
+  <div 
+    class="abs-fs z-index-5" 
+    :class="{ 
+      ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked, 
+      ['fixed']: state.isMobileDevice, 
+    }"
+  >
     <div class="backdrop tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Opened && state.hasInit }" @click="() => {
       if (state.mode === Mode.Opened && state.hasInit) {
         clearTimers();

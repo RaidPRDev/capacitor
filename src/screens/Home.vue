@@ -271,7 +271,7 @@ function onLogo() {
     <div class="inner-body" v-bind="{ style: { ...bodyProps?.styles } }" >
       <router-view :key="`__HOME__`" v-slot="{ Component, route,  }">
         <transition :name="route.meta.transition || 'scale-slide'" @after-leave="onAfterLeave" @after-enter="(el) => onAfterEnter(el, route)">
-          <component ref="bodyRef" :is="Component" v-bind="{ styles: { ...bodyProps?.styles }, products: `sadsd` }" />
+          <component ref="bodyRef" :is="Component" v-bind="{ styles: { ...bodyProps?.styles }, products: `` }" />
         </transition>
       </router-view>
     </div>

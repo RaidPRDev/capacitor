@@ -99,7 +99,7 @@ async function onCopy() {
 <style lang="scss">
 ._id {
   html.ios & {
-    margin-top: 26px;
+    margin-top: 33px;
   }
 }
 
@@ -120,6 +120,5 @@ async function onCopy() {
   width: calc(100% + 15px);
   height: calc(100% + 15px);
   user-select: none;
-  // background-color: rgba(0, 0, 0, 0.1);
 }
 </style>

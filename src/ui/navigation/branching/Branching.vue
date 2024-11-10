@@ -562,7 +562,6 @@ onMounted(() => {
       <Teleport to="#__app_body__">
         <BranchReferralPanel ref="branchReferralRef" :baseRoutePath="baseRoutePath" />
       </Teleport>
-      
 
     </div>
 

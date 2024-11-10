@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {})
         <h1>My Circuit</h1>    
       </template>
       <template v-slot:headerRight>
-        <span class="flex"><SetupIcon /></span>
+        <span class="flex icon"><SetupIcon /></span>
       </template>
     </BaseHeader>
 
@@ -35,4 +35,13 @@ const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {})
   </div>  
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.icon {
+  width: 44px;
+  height: 43px;
+  svg {
+    width: 44px;
+    height: 43px;
+  }
+}
+</style>
