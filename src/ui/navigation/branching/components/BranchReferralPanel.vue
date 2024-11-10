@@ -7,7 +7,7 @@ const DEBUG = false;
 </script>
 
 <script lang="ts" setup>
-import { ComponentPublicInstance, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from 'vue';
+import { ComponentPublicInstance, computed, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from 'vue';
 import { useRouter } from "vue-router";
 import { storeToRefs } from 'pinia';
 import BaseButton from '@/ui/controls/BaseButton.vue';
@@ -64,7 +64,8 @@ const transDelay = shallowRef<ReturnType<typeof setTimeout>>();
 
 const router = useRouter();
 const branchingStore = useBranchingStore();
-const { refferedView } = storeToRefs(branchingStore);
+const { refferedViews } = storeToRefs(branchingStore);
+const { removeLastReferrallView } = branchingStore;
 
 function triggered(dataProps: any) {
   if (!state.hasInit) return;
@@ -79,12 +80,13 @@ function triggered(dataProps: any) {
 
     nextTick(() => {
       transDelay.value = setTimeout(() => {
-        // replace route
-        const view = refferedView.value;
-        router.replace({ path: `${view?.fullPath}` });
         
-        // clear store referral
-        branchingStore.$patch({ refferedView: null });
+        // get last view and clear from store
+        const lastView = removeLastReferrallView();
+        
+        // replace route
+        router.replace({ path: `${lastView?.fullPath}` });
+
       }, 375);
     })
     
@@ -153,8 +155,16 @@ function onTransitionEnd(e: TransitionEvent) {
   }  
 }
 
-watch(refferedView, () => {
-  if (refferedView?.value === null) return;
+const currentReferralView = computed(() => {
+  if (!refferedViews?.value) return null;
+  if (refferedViews.value.length! === 0) return null;
+
+  return refferedViews?.value[refferedViews?.value.length - 1];
+})
+
+watch(refferedViews, () => {
+  if (!refferedViews?.value) return null;
+  if (refferedViews.value.length! === 0) return null;
 
   clearTimers();
   
@@ -173,9 +183,9 @@ watch(refferedView, () => {
 
 onMounted(() => {
   if (DEBUG) console.log("BranchReferral.onMounted");
-  
-  if (refferedView.value === null) return;
-  
+  if (!refferedViews?.value) return null;
+  if (refferedViews.value.length! === 0) return null;
+
   clearTimers();
 
   timeout.value = setTimeout(() => {
@@ -235,7 +245,7 @@ onUnmounted(() => {
               <div v-if="state.showLabel" class="content-label text-left flex align-center justify-between">
                 <div class="content-inner-label flex-grow">
                   <div class="title mxb-5">continue...</div>
-                  <div v-if="refferedView !== null" class="subtitle">{{`${capitalizeFirstLetter(refferedView?.dataType!)}`}} | {{ `${refferedView?.title}` }}</div>
+                  <div v-if="currentReferralView !== null" class="subtitle">{{`${capitalizeFirstLetter(currentReferralView?.dataType!)}`}} | {{ `${currentReferralView?.title}` }}</div>
                 </div>
                 <div class="content-redirect-icon flex">
                   <UpRightArrowIcon />

@@ -76,6 +76,7 @@ const { getItem, setItem, removeItem } = favoritesStore;
 const toasterService = useToasterService();
 const { addToast } = toasterService;
 const branchingStore = useBranchingStore();
+const { addReferrallView, getCurrentReferredView, removeAllReferralViews } = branchingStore;
 const appStore = useAppStore();
 
 // Computed properties
@@ -105,7 +106,9 @@ const isAddedToFavorites = ref<boolean>(currentView?.value?.showFavorites!);
 // Navigation Methods
 function goBack() {
   if (DEBUG) console.log("Branching.goBack");
-  if (branchingStore.$state.refferedView !== null) {
+  
+  const currentReferralView = getCurrentReferredView();
+  if (currentReferralView !== null) {
     if (DEBUG) console.log("  branchReferralRef", branchReferralRef?.value);
     if (DEBUG) console.log("  routerFrom", branchingStore.$state.routerFrom);
    
@@ -121,11 +124,11 @@ function goBack() {
 
       if (DEBUG) console.log("  fromId", fromId);
 
-      if (DEBUG) console.log("  ReferredView", branchingStore.$state.refferedView.id);
-      if (DEBUG) console.log("  currentView", currentView?.value?.id);
-      if (fromId === branchingStore.$state.refferedView?.id) {
+      if (DEBUG) console.log("  ReferredView", currentReferralView.id);
+      if (DEBUG) console.log("  currentView", currentReferralView.id);
+      if (fromId === currentReferralView.id) {
         if (DEBUG) console.log("  Views are the same");
-        branchingStore.$patch({ refferedView: null });
+        removeAllReferralViews();
         branchReferralRef?.value?.setMode("removed");
         nextTick(() => {
           if (DEBUG) console.warn("  Run Router.Go!")
@@ -150,7 +153,6 @@ function goBack() {
 function goNext() {
   if (canGoNext.value) {
     viewHistory.value.push(currentViewIndex.value);
-    // currentViewIndex.value = props?.views?.findIndex(view => view.id == currentView?.value?.branchTo);
     handleNavigate(currentView?.value?.branchTo!);
   }
 }
@@ -197,14 +199,12 @@ function handleTriggered(dataProps: any) {
   // get root view
   const refferredRootView = getBranchRootView();
 
-  branchingStore.$patch({
-    refferedView: { 
-      id: currentView?.value?.id, 
-      dataType: currentDataType,
-      title: refferredRootView?.title,
-      subTitle: currentView?.value?.title || currentView?.value?.heading,
-      fullPath: `${route.fullPath}`,
-    }
+  addReferrallView({
+    id: currentView?.value?.id, 
+    dataType: currentDataType,
+    title: refferredRootView?.title,
+    subTitle: currentView?.value?.title || currentView?.value?.heading,
+    fullPath: `${route.fullPath}`,
   })
   
   const dataType = dataProps['data-type'];
@@ -526,30 +526,6 @@ onMounted(() => {
   // check refferred view
 
 })
-
-// const isScrolling = ref<boolean>(false);
-// const timeoutScroll = shallowRef<ReturnType<typeof setTimeout>>();
-
-// function scrollingCheck() {
-//   isScrolling.value = false;
-// }
-
-// function onScroll(e:Event) {
-//   console.log("onScroll", e);
-
-//   if (isScrolling.value) isScrolling.value = false;
-
-//   clearTimeout(timeoutScroll.value);
-
-//   timeoutScroll.value = setTimeout(scrollingCheck, 150);
-
-// }
-
-// function onScrollEnd(e:Event) {
-//   console.log("onScrollEnd", e);
-
-//   alert("hello");
-// }
 
 </script>
 

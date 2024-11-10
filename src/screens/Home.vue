@@ -13,7 +13,6 @@ import {
 } from "@/_core/Constants";
 import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
-import { storeToRefs } from "pinia";
 import { IApp, IAppDrawerComponents, IAppScreenProps, IButtonGroupSelected } from "@/ui/types";
 
 import BaseScreen from "@/ui/panels/BaseScreen.vue";
@@ -43,13 +42,17 @@ const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDra
 const router = useRouter();
 const session = useSession();
 const branchingStore = useBranchingStore();
-const { refferedView } = storeToRefs(branchingStore);
+const { 
+  getCurrentReferredView, 
+  removeLastReferrallView, 
+  removeAllReferralViews 
+} = branchingStore;
+
 
 // Reference Setup
 const headerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const bodyRef = ref<ComponentPublicInstance<typeof VueElement>>()
 const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
-
 const footerSelectedItem = ref<IButtonGroupSelected>();
 
 const footerMenuGroup = [
@@ -87,10 +90,40 @@ const bodyProps = computed(() => {
 
 function onFooterMenuTriggered(selected: IButtonGroupSelected) {
   
+  const currentReferredView = getCurrentReferredView();
+
   // check if we are in panic mode
-  if (refferedView?.value !== null) {
+  if (currentReferredView !== null) {
     footerSelectedItem.value = selected;
-    nextTick(() => { showPanicAlert(); });    
+
+    let message = `You are currently in the `;
+    message += `<span style="color: red">${currentReferredView?.title}</span> panic session. `;
+    message += `Do you want to be taken to your current session or exit panic?`;
+
+    const actions = {
+      action: (index:number) => {
+        if (index === 0) return;
+
+        // Exit
+        if (index === 1) {
+          // clear store referral
+          removeAllReferralViews();
+
+          goToSection(footerSelectedItem.value!);
+        }
+        // Take me
+        else if (index === 2) {
+          // get last view and clear from store
+          const lastView = removeLastReferrallView();
+          
+          // replace route
+          // wait, then replace
+          nextTick(() => router.replace({ path: `${lastView?.fullPath}` }))
+        }
+      }
+    }
+
+    nextTick(() => { showPanicAlert(message, actions); });    
     return;
   }
   
@@ -113,7 +146,7 @@ function onFooterMenuTriggered(selected: IButtonGroupSelected) {
 function goToSection(selected: IButtonGroupSelected) {
   if (sectionIndex.value === selected.index) return;
   session.$patch({ currentIndex: selected.index })
-  router.push({ name:selected.data.route });
+  router.push({ name: selected.data.route });
 }
 
 function onAfterEnter(el:Element, route:RouteLocationGeneric) {
@@ -124,35 +157,13 @@ function onAfterLeave(el:Element) {
   if (false) console.log("onAfterLeave", el);
 }
 
-function showPanicAlert() {
-  let message = `You are currently in the `;
-  message += `<span style="color: red">${refferedView?.value?.title}</span> panic session. `;
-  message += `Do you want to be taken to your current session or exit panic?`;
-
+function showPanicAlert(msg: string = "", actions: any = null) {
   app.alert.component = shallowRef(AppAlertPanel);
   app.alert.options.props = {
     title: '',
-    content: `${message}`,
+    content: `${msg}`,
     labels: ['No', 'Exit', 'Take me'],
-    action: (index:number) => {
-      if (index === 0) return;
-
-      // Exit
-      if (index === 1) {
-        // clear store referral
-        branchingStore.$patch({ refferedView: null });
-        goToSection(footerSelectedItem.value!);
-      }
-      // Take me
-      else if (index === 2) {
-        // replace route
-        const view = refferedView.value;
-        // clear store referral
-        branchingStore.$patch({ refferedView: null });
-        // wait, then replace
-        nextTick(() => router.replace({ path: `${view?.fullPath}` }))
-      }
-    }
+    ...actions
   }
   app.alert.options.open = !app.alert.options.open;
 }
@@ -170,8 +181,9 @@ function showGoPanicHomeAlert() {
 
       // Exit
       if (index === 1) {
-        // clear store referral
-        branchingStore.$patch({ refferedView: null });
+        // clear store referrals
+        removeAllReferralViews();
+
         goToSection(footerSelectedItem.value!);
         let nextRoute = "", rawRoute = footerSelectedItem?.value?.data?.route as string;
         if (footerSelectedItem?.value?.data?.route) {
@@ -182,6 +194,44 @@ function showGoPanicHomeAlert() {
     }
   }
   app.alert.options.open = !app.alert.options.open;  
+}
+
+function onLogo() {
+  
+  const currentReferredView = getCurrentReferredView();
+  if (!currentReferredView) {
+    router.push({ name: `Home` });
+    return;
+  }
+
+  let message = `You are currently in the `;
+  message += `<span style="color: red">${currentReferredView?.title}</span> panic session. `;
+  message += `Do you want to be taken to your current session or exit panic?`;
+
+  const actions = {
+    action: (index:number) => {
+      if (index === 0) return;
+
+      // Exit
+      if (index === 1) {
+        // clear store referral
+        removeAllReferralViews();
+
+        router.push({ name: `Home` });
+      }
+      // Take me
+      else if (index === 2) {
+        // get last view and clear from store
+        const lastView = removeLastReferrallView();
+        
+        // replace route
+        // wait, then replace
+        nextTick(() => router.replace({ path: `${lastView?.fullPath}` }))
+      }
+    }
+  }
+
+  nextTick(() => { showPanicAlert(message, actions); });   
 }
 
 </script>
@@ -201,7 +251,7 @@ function showGoPanicHomeAlert() {
         }"/>
       </template>
       <template v-slot:headerCenter>
-        <BaseButton class="absolute bx--20" @triggered="() => router.push({ name: `Home` })">
+        <BaseButton class="absolute bx--20" @triggered="onLogo">
           <template v-slot:bodySlot>
             <img :src="Logo" width="81" height="60" class="" />
           </template>

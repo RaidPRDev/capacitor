@@ -6,15 +6,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue';
+import { computed, nextTick, onMounted, reactive, ref, shallowRef } from 'vue';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
 import BaseInput from '@/ui/controls/BaseInput.vue';
 import { BranchItem, IBranchTypeProps } from '@/ui/navigation/branching/types';
 import { IBaseInputProps, IBaseListItemData } from '@/ui/types';
 import ActionButton from '@/components/ActionButton.vue';
-import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
-import ResetIcon from '@/assets/icons/reset-icon.svg';
+import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import { CalculatorParamType } from '@/ui/navigation/branching/types';
 import { 
   BSAByWeight, 
@@ -28,6 +27,9 @@ import {
   ConvertMillimetersToLiters
   
 } from '@/utils/ElsoMath';
+import { copyToClipboard } from '@/utils/StringTools';
+import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
+import ResetIcon from '@/assets/icons/reset-icon.svg';
 
 const calculationFunctions:Record<string, Function> = {
   BSAByWeight,
@@ -53,27 +55,22 @@ const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
 });
 
-
 // Component State Setup
 interface IState {
   result: number;
+  isCopying: boolean;
 }
 
 const state:IState = reactive({
   result: 0,
+  isCopying: false
 })
-
-const emit = defineEmits<{
-  (e: 'navigate', branchTo: string | null): void;
-  (e: 'triggered', dataProps?: any): void;
-}>();
-
-function navigate(branchTo: string | null) {
-  emit('navigate', branchTo);
-}
 
 const mounted = ref(false);
 const baseFormRef = ref<InstanceType<typeof HTMLFormElement>>();
+const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
+const toasterService = useToasterService();
+const { addToast } = toasterService;
 
 onMounted(() => {
   setTimeout(() => mounted.value = true, 75)
@@ -162,6 +159,17 @@ function findAndReturnItemRefValueByID(id:string) {
   return isNaN(inputValue) ? 0 : inputValue;
 }
 
+async function onCopy(value: any) {
+  if (state.isCopying) return;
+  clearTimeout(timeoutCopy.value);
+  state.isCopying = true;
+
+  await copyToClipboard(value?.toString());
+
+  timeoutCopy.value = setTimeout(() => state.isCopying = false, 1000);
+  nextTick(() => addToast({ label: `Copied to clipboard.` }));
+}
+
 </script>
 
 <template>
@@ -191,17 +199,9 @@ function findAndReturnItemRefValueByID(id:string) {
           class: `pointer-all`, 
           containerClass: `variant-calc pointer-all width-inherit ${computedList?.[data.item.index]?.inputProps?.containerClass ?? ``}`, 
           elementClass: `base-control px-12 text-center ${computedList?.[data.item.index]?.inputProps?.elementClass ?? ``}`,
-          // triggerCallback:(toggled:boolean) => {
-          //   // console.log(`BaseToggleCallback`, toggled);
-          //   // (data.item as InputListItemType).toggle = !toggled;
-          // }
-        }"
-        :triggerCallback="() => {
-          const bView = data.item as InputListItemType;
-          
-          if (!bView?.branchTo) return;
-
-          navigate(bView?.branchTo!);
+          onEnter: () => {
+            calculate();
+          }
         }"
       >
       </BaseButton>
@@ -219,7 +219,7 @@ function findAndReturnItemRefValueByID(id:string) {
   <transition name="nested" appear>
     <div class="result-item flex flex-column align-start mxt-30 outer">
       <div class="result-label mxb-6 inner">RESULT</div>
-      <div class="result-box width-100 text-center px-7">
+      <div class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result > 0 ? state.result : '---' }}
       </div>
     </div>

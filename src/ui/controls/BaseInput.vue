@@ -23,6 +23,7 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: number | string): void;
   (e: 'input', value: number | string): void;
   (e: 'key', value: KeyboardEvent): void;
+  (e: 'enter', value: KeyboardEvent): void;
   (e: 'focus', value: Event): void;
   (e: 'focusOut', value: Event): void;
   (e: 'errorValidation', element: HTMLInputElement): void;
@@ -59,11 +60,21 @@ function onInput(event:Event | InputEvent)
 
 function onKeyPress(event:KeyboardEvent)
 {
+  if (event?.key === "Enter" || event?.code === "Enter") {
+    event?.preventDefault();
+    props?.onEnter && props?.onEnter(props);
+    
+    emit("enter", event);
+    return;
+  }
+
   emit("key", event);
 }
 
 function onBlur(event:Event | InputEvent)
 {
+  event?.preventDefault();
+
   emit("focusOut", event);
 }
 

@@ -122,6 +122,7 @@ export interface IBaseInputProps extends IBaseControl {
   autocomplete?: string;
   pattern?: string;
   error?: IErrorFieldProps;
+  onEnter?: (data?: any) => void;
 }
 
 export interface IButtonGroupProps extends IBaseControl { 

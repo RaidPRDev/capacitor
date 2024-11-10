@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject } from "vue";
+import { inject, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import classnames from "classnames";
 
@@ -19,6 +19,7 @@ import { APP_DRAWERS_ID, APP_ID } from "@/_core/Constants";
 import { IApp, IAppDrawerComponents } from "@/ui/types";
 import useSession from "@/store/session.module";
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
+import useBranchingStore from "@/store/branching.module";
 import { capitalizeFirstLetter } from "@/utils/StringTools";
 import { storeToRefs } from "pinia";
 
@@ -27,6 +28,12 @@ import Logo from '/assets/elso_logo.png';
 const router = useRouter();
 const session = useSession();
 const { hasCompletedPrivacy, hasCompletedTerms } = storeToRefs(session);
+
+const branchingStore = useBranchingStore();
+const { 
+  getCurrentReferredView,  
+  removeAllReferralViews 
+} = branchingStore;
 
 const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
@@ -65,11 +72,16 @@ function onMenuTriggered(selected: number) {
   }
 }
 
-console.log("PLATFORM", import.meta.env.PLATFORM);
-
 const APP_VERSION = import.meta.env.APP_VERSION;
 const BUILD_VERSION = import.meta.env.BUILD_VERSION;
 const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
+
+onMounted(() => {
+  const currentReferralView = getCurrentReferredView();
+  if (currentReferralView) {
+    removeAllReferralViews();
+  }
+})
 
 </script>
 

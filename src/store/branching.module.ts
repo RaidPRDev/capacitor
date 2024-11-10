@@ -16,12 +16,12 @@ interface IRefferedBranchView {
 
 interface IBranchingStore {
   routerFrom?: IRouterFrom | null;
-  refferedView: IRefferedBranchView | null;
+  refferedViews: Array<IRefferedBranchView> | null;
 }
 
 const initialState: IBranchingStore = {
   routerFrom: null,
-  refferedView: null,
+  refferedViews: null,
 };
 
 export const useBranchingStore = defineStore('branching', {
@@ -29,17 +29,37 @@ export const useBranchingStore = defineStore('branching', {
 
   state: () => initialState,
 
-  getters: {
-    getReferredView: (state) => state.refferedView,
-  },
-
   actions: {
     initSession() {
-      this.refferedView = {}   
+      this.refferedViews = null;
     },
 
-    setReferredView(some: any) {
-      this.refferedView = some;
+    addReferrallView(view: any) {
+      if (!this.refferedViews) this.refferedViews = []
+      
+      this.refferedViews.push(view);
+    },
+    
+    removeLastReferrallView() {
+      if (!this.refferedViews) return;
+      
+      const view = this.refferedViews.pop();
+      if (this.refferedViews?.length === 0) {
+        this.refferedViews = null;
+      }
+
+      return view;
+    },
+    
+    removeAllReferralViews() {
+      this.refferedViews = null;
+    },
+
+    getCurrentReferredView() {
+      if (!this.refferedViews) return null;
+      if (this.refferedViews.length === 0) return null;
+
+      return this.refferedViews[this.refferedViews.length - 1];
     },
   }
 
