@@ -375,9 +375,9 @@ onUnmounted(() => {
   font-family: $secondary-font-family;
 }
 
-.screen-heading {
-  // background-color: rgb(245, 245, 245);
-}
+// .screen-heading {
+//   // background-color: rgb(245, 245, 245);
+// }
 
 .edit-label {
   font-size: 14px;
