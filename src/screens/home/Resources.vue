@@ -26,7 +26,7 @@ import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/ui/navi
 import { loadViewData } from '@/ui/navigation/branching/utils/DataTools';
 import { getNavigationRoot } from "@/ui/navigation/branching/utils/tools";
 
-import TimePillIcon from '@/assets/icons/homeMenu/time-pill-icon.svg';
+import ResourcesIcon from '@/assets/icons/sideMenu/paperclip-icon.svg';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -84,7 +84,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
           <h1 class="screen-title">{{headingTitle}}</h1>    
         </template>
         <template v-slot:headerRight>
-          <span class="flex"><TimePillIcon /></span>
+          <span class="flex"><ResourcesIcon /></span>
         </template>
       </BaseHeader>
       <BaseHeader class="screen-breadcrumbs pxlr-20 mxb-0 height-auto">
