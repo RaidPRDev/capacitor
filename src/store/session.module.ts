@@ -64,6 +64,9 @@ export const useSession = defineStore('session', {
         favoritesStore.clearItems();
         checklistStore.clearItems();
         branchingStore.clearItems();
+        this.$state.hasCompletedDisclaimer = false;
+        this.$state.hasCompletedTerms = false;
+        this.$state.hasCompletedPrivacy = false;
       }
       if (this.buildPhase !== BUILD_PHASE) {
         console.log("Build Phase update found.");
