@@ -11,7 +11,7 @@ import {
   APP_ID, 
   BOTTOM_HEADER_NAV_HEIGHT 
 } from "@/_core/Constants";
-import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick } from "vue";
+import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
 import { IApp, IAppDrawerComponents, IAppScreenProps, IButtonGroupSelected } from "@/ui/types";
 
@@ -34,6 +34,7 @@ import HomeIcon from '@/assets/icons/home-icon.svg';
 import NotesIcon from '@/assets/icons/homeMenu/notes-icon.svg';
 import SetupIcon from '@/assets/icons/setup-icon.svg';
 import PanicIcon from '@/assets/icons/panic-red-icon.svg';
+import DisclaimerPanel from "@/components/panels/DisclaimerPanel.vue";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppScreenProps>(), {}) 
@@ -54,6 +55,7 @@ const headerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const bodyRef = ref<ComponentPublicInstance<typeof VueElement>>()
 const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const footerSelectedItem = ref<IButtonGroupSelected>();
+const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
 
 const footerMenuGroup = [
   { label: "Home", icon: HomeIcon, route: "Home", class: "footer-home" },
@@ -233,6 +235,21 @@ function onLogo() {
 
   nextTick(() => { showPanicAlert(message, actions); });   
 }
+
+onMounted(() => {
+
+  clearTimeout(timeoutCopy.value);
+  
+  timeoutCopy.value = setTimeout(() => {
+    drawerComponents.bottom = DisclaimerPanel;
+    app.drawers.bottom.closeOutside = false;
+    app.drawers.bottom.open = !app.drawers.bottom.open;
+  }, 950);
+})
+
+onUnmounted(() => {
+  clearTimeout(timeoutCopy.value);
+})
 
 </script>
 

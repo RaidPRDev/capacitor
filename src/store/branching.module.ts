@@ -60,6 +60,12 @@ export const useBranchingStore = defineStore('branching', {
       if (this.refferedViews.length === 0) return null;
 
       return this.refferedViews[this.refferedViews.length - 1];
+
+    },
+
+    clearItems() {
+      // console.log("Clear Checklists");
+      this.refferedViews = null;
     },
   }
 

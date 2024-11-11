@@ -60,9 +60,44 @@ function onMenuTriggered(selected: number) {
     
       <div class="content-scroller relative pxlr-16">
         <div class="inner-scroller pxb-40">
-          <p class="p-title">First Point:</p>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-          <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias.</p>
+          
+          <p class="p-title">PRIVACY POLICY</p>
+          <p>Extracorporeal Life Support Organization (“ELSO”) is committed to protecting your privacy and has created this Privacy Policy to describe the information we collect about you when you download and use ELSO’s ECMO Bedside Guide App (the “App”), how that information may be used and disclosed and how we protect your information. This Privacy Policy applies to the App and governs data collection and usage. By using the App, you consent to the data practices described in this Privacy Policy.</p>
+
+          <p class="p-title">Collection of your Personal Information</p>
+          <p>ELSO collects personally identifiable information, such as your name, e-mail address, address or telephone number. ELSO also collects demographic information such as your role, title, place of work.</p>
+
+          <p>There is information about your hardware and software that is automatically collected by ELSO. This information is used by ELSO for the operation of its services, to maintain quality of the services, and to provide general statistics regarding use of the App.</p>
+
+          <p>The App uses “cookies” to help you personalize your online experience. “Cookies” are small pieces of information that are stored by a user’s Internet browser on a user’s device. You have the ability to accept or decline cookies. Most Web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. If you choose to decline cookies, you may not be able to fully experience the interactive features of the ELSO services or the App.</p>
+
+          <p class="p-title">Use of your Personal Information</p>
+          <p>ELSO collects and uses your personal information to operate the App and deliver the services you have requested. ELSO also uses your personally identifiable information to inform you of other products or services available from ELSO and its affiliates. ELSO may also contact you via surveys to conduct research about your opinion of current services or of potential new services that may be offered.</p>
+
+          <p>ELSO does not sell, rent, or lease its customer lists to third parties. ELSO may, from time to time, contact you on behalf of external business partners about a particular offering that may be of interest to you. In those cases, your unique personally identifiable information (name, e-mail, address, telephone number) is not transferred to the third party. In addition, ELSO may share data with trusted partners to help us perform statistical analysis, send you e-mail or postal mail, provide customer support, or arrange for deliveries. All such third parties are prohibited from using your personal information except to provide these services to ELSO, and they are required to maintain the confidentiality of your information.</p>
+
+          <p>Due to the existing regulatory environment, we cannot ensure that all of your private communications and other personally identifiable information will never be disclosed in ways not otherwise described in this Privacy Policy. ELSO will disclose your personal information, without notice, only if required to do so by law or in the good faith belief that such action is necessary to: (a) conform to the law or comply with legal process served on ELSO; (b) protect and defend the rights or property of ELSO; and, (c) act under exigent circumstances to protect the personal safety of users of the App or the public.</p>
+
+          <p class="p-title">Security of your Personal Information</p>
+          <p>ELSO secures your personal information from unauthorized access, use or disclosure as described in the Terms of Use on the App.</p>
+
+          <p>ELSO makes every effort to protect your information. However:</p>
+
+          <p>ELSO CANNOT GUARANTEE SECURITY OR PRIVACY. ELSO ASSUMES NO RESPONSIBILITY OR LIABILITY FOR DISCLOSURE OF YOUR PERSONAL INFORMATION THAT OCCURS BY NEGLIGENCE OF ELSO, ERRORS IN TRANSMISSION, UNAUTHORIZED OR ILLEGAL ACCESS, OR ANY OTHER VEHICLE FOR DISCLOSURE.</p>
+
+          <p>THE APP CONTAINS LINKS TO OTHER WEBSITES. ELSO IS NOT RESPONSIBLE FOR THE CONTENT, TERMS OF USE, OR PRIVACY POLICIES ON ANY THIRD-PARTY WEBSITES, OR PRIVACY PRACTICES BY ANY THIRD PARTIES.</p>
+
+          <p class="p-title">Children Under Thirteen</p>
+          <p>ESLO does not knowingly accept personal information from anyone under the age of 13. By using the App and/or providing personal information, you represent and warrant that you are over the age of 13.</p>
+
+          <p class="p-title">Changes to this Privacy Policy</p>
+          <p>ELSO may amend this Privacy Policy from time to time by posting the amended terms on this App.</p>
+
+          <p class="p-title">Contact Information</p>
+          <p>If you have any questions about ELSO’s Privacy Policy, please contact us at: <a href="mailto:support@elso.org">support@elso.org</a>.</p>
+
+
+
         </div>
 
         <div class="scroll-fade absolute lx-0 bx-8"></div>
@@ -173,7 +208,8 @@ function onMenuTriggered(selected: number) {
 
   
   :deep(.inner-panel) {
-    background-color: rgba(white, .95);
+    // background-color: rgba(white, .95);
+    background-color: white;
 
     .base-header {
       img {
@@ -195,12 +231,12 @@ function onMenuTriggered(selected: number) {
   }
 
   // Does not work in chrome
-  html:not(.desktop) & {
-    :deep(.inner-panel) {
-      background-color: rgba(white, .85);
-      backdrop-filter: blur(10px);
-    }
-  }
+  // html:not(.desktop) & {
+  //   :deep(.inner-panel) {
+  //     background-color: rgba(white, .85);
+  //     backdrop-filter: blur(10px);
+  //   }
+  // }
 }
 
 </style>
