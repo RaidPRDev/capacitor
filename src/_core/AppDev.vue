@@ -86,11 +86,11 @@ async function onCopy() {
   nextTick(() => addToast({ label: `ID copied to clipboard.` }));
 }
 
-function stopLoop() {
-  if (_requestId.value) {
-    window.cancelAnimationFrame(_requestId.value);
-  }
-}
+// function stopLoop() {
+//   if (_requestId.value) {
+//     window.cancelAnimationFrame(_requestId.value);
+//   }
+// }
 
 function fpsMeter() {
   let prevTime = Date.now(), frames = 0;
