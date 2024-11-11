@@ -183,17 +183,17 @@ onMounted(() => {
   width: 80%;
 
   :deep(.inner-panel) {
-    background-color: rgba(#2C51CF, .85);
+    background-color: rgba(#2C51CF, 1);
     border-top-right-radius: 20px;
   }
 
   // Does not work in chrome
-  html:not(.desktop) & {
-    :deep(.inner-panel) {
-      background-color: rgba(#2C51CF, .75);
-      backdrop-filter: blur(10px);
-    }
-  }
+  // html:not(.desktop) & {
+  //   :deep(.inner-panel) {
+  //     background-color: rgba(#2C51CF, .75);
+  //     backdrop-filter: blur(10px);
+  //   }
+  // }
 }
 .side-content {
   height: calc(100% - 94px);

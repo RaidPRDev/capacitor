@@ -156,16 +156,17 @@ const resultLabel = computed(() =>
 <style scoped lang="scss">
 .base-panel {
   :deep(.inner-panel) {
-    background-color: rgba(white, .95);
+    // background-color: rgba(white, .95);
+    background-color: white;
   }
 
   // Does not work in chrome
-  html:not(.desktop) & {
-    :deep(.inner-panel) {
-      background-color: rgba(white, .85);
-      backdrop-filter: blur(10px);
-    }
-  }
+  // html:not(.desktop) & {
+  //   :deep(.inner-panel) {
+  //     background-color: rgba(white, .85);
+  //     backdrop-filter: blur(10px);
+  //   }
+  // }
 }
 .side-content {
   height: calc(100% - 0px);

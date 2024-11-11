@@ -167,7 +167,11 @@ async function onCopy(value: any) {
   await copyToClipboard(value?.toString());
 
   timeoutCopy.value = setTimeout(() => state.isCopying = false, 1000);
-  nextTick(() => addToast({ label: `Copied to clipboard.` }));
+  nextTick(() => addToast({ label: `Copied to clipboard.` })); 
+}
+
+function setFocusToResult() {
+  document.getElementById(`result-label`)?.focus();
 }
 
 </script>
@@ -201,6 +205,7 @@ async function onCopy(value: any) {
           elementClass: `base-control px-12 text-center ${computedList?.[data.item.index]?.inputProps?.elementClass ?? ``}`,
           onEnter: () => {
             calculate();
+            setFocusToResult();
           }
         }"
       >
@@ -219,7 +224,7 @@ async function onCopy(value: any) {
   <transition name="nested" appear>
     <div class="result-item flex flex-column align-start mxt-30 outer">
       <div class="result-label mxb-6 inner">RESULT</div>
-      <div class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
+      <div id="result-label" tabindex="0" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result > 0 ? state.result : '---' }}
       </div>
     </div>

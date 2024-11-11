@@ -247,12 +247,13 @@ onMounted(() => {
       width: 100%;
       height: 100px;
       background: linear-gradient(180deg, #FFFFFF00 0%, #FFF 100%);
-      box-shadow: 0px 10px 20px 2px #0B247A26;
+      // box-shadow: 0px 10px 20px 2px #0B247A26;
     }
   }
 
   :deep(.inner-panel) {
-    background-color: rgba(white, .95);
+    // background-color: rgba(white, .95);
+    background-color: white;
 
     .base-header {
       img {

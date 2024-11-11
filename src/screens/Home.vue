@@ -347,7 +347,15 @@ function onLogo() {
   }
 }
 
+.base-screen {
+  opacity: 1;
+  :deep(.screen-footer) {
+    position: fixed;
+  }
+}
+
 .screen-footer {
+  
   .center-container {
     :deep(.inner-base-header) {
       width: 100%;

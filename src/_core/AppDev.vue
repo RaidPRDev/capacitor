@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, nextTick, reactive, shallowRef, watch } from 'vue';
+import { inject, nextTick, onMounted, reactive, ref, shallowRef, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { APP_ID } from '@/_core/Constants';
 import useAppStore from '@/store/app.module';
@@ -25,8 +25,9 @@ const props = withDefaults(defineProps<IAppDevProps>(), {
 }) 
 
 const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
-const state = reactive<{ isCopying?: boolean }>({
-  isCopying: false
+const state = reactive<{ isCopying?: boolean, fps?: string }>({
+  isCopying: false,
+  fps: `0`
 })
 
 const app = inject<IApp>(APP_ID) as IApp;
@@ -34,6 +35,7 @@ const appStore = useAppStore();
 const toasterService = useToasterService();
 const { addToast } = toasterService;
 const route = useRoute();
+const _requestId = ref<number>(0);
 
 watch(route, () => {
   let routePathID = route.path?.split("/").pop();
@@ -84,6 +86,50 @@ async function onCopy() {
   nextTick(() => addToast({ label: `ID copied to clipboard.` }));
 }
 
+function stopLoop() {
+  if (_requestId.value) {
+    window.cancelAnimationFrame(_requestId.value);
+  }
+}
+
+function fpsMeter() {
+  let prevTime = Date.now(), frames = 0;
+  let lastFrameTime = performance.now();
+
+  const cap = 60;
+  const minFrameTime = 1000 / cap; // Minimum time per frame in ms
+
+  _requestId.value = requestAnimationFrame(function loop() {
+    const time = Date.now();
+    frames++;
+    if (time > prevTime + minFrameTime) {
+      let fps = Math.round( ( frames * 1000 ) / ( time - prevTime ) );
+      prevTime = time;
+      frames = 0;
+
+      // console.info('FPS: ', fps);
+      state.fps = `${Math.min(fps, cap).toFixed(2)}`;
+    }
+    
+    // const now = performance.now();
+    // const deltaTime = now - lastFrameTime;
+
+    // if (deltaTime >= minFrameTime) {
+    //     const fps = 1000 / deltaTime;
+    //     state.fps = `${Math.min(fps, cap).toFixed(2)}`;
+    //     lastFrameTime = now;
+    // }
+
+    _requestId.value = requestAnimationFrame(loop);
+  });
+}
+
+onMounted(() => {
+
+  nextTick(() => fpsMeter());
+
+})
+
 </script>
 
 <template>
@@ -91,6 +137,9 @@ async function onCopy() {
     <div class="width-inherit height-inherit px-10">
       <div class="_id text-center relative">{{ appStore?.$state.currentViewID }}
         <div class="_hit-area absolute width-100 height-100 tx-0 lx-0 pointer-all" @click="onCopy"></div>
+      </div>
+      <div class="_fps absolute flex align-end justify-end pointer-none">
+        <div class="_label-area">{{ state.fps }}</div>        
       </div>
     </div>
   </div>
@@ -102,7 +151,6 @@ async function onCopy() {
     margin-top: 33px;
   }
 }
-
 </style>
 
 <style scoped lang="scss">
@@ -120,5 +168,18 @@ async function onCopy() {
   width: calc(100% + 15px);
   height: calc(100% + 15px);
   user-select: none;
+}
+
+._fps {
+  transform: translate3d(0, 0, 0);
+  left: -7.5px;
+  top: -7.5px;
+  width: calc(100% + 0px);
+  height: calc(100% + 0px);
+  font-size: 55px;
+  line-height: 1;
+  font-family: sans-serif;
+  user-select: none;
+  color: red;
 }
 </style>
