@@ -14,6 +14,7 @@ const DATA = [
   `medications`,
   `equipment`,
   `calculators`,
+  `resources`,
 ];
 const DEBUG = false;
 

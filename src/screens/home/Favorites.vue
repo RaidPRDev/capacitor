@@ -19,6 +19,7 @@ import {
   JSON_DATA_TYPE_CALCULATORS,
   JSON_DATA_TYPE_EQUIPMENT,
   JSON_DATA_TYPE_CHECKLIST_ITEM,
+  JSON_DATA_TYPE_RESOURCES,
 } from "@/_core/Constants";
 import { BaseListGroupType, IApp } from '@/ui/types';
 
@@ -278,6 +279,7 @@ function goToSection(data:{ item: IFavoriteListItem }) {
         dataType = JSON_DATA_TYPE_CHECKLISTS;
         router.push({ path: `${dataType}/${branchQuery.id}`, query: branchQuery });
       break;
+      case JSON_DATA_TYPE_RESOURCES:
       case JSON_DATA_TYPE_MEDICATIONS:
       case JSON_DATA_TYPE_CALCULATORS:
       // case JSON_DATA_TYPE_PANIC:

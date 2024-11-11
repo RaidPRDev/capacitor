@@ -44,7 +44,7 @@ function onMenuTriggered(selected: number) {
 </script>
 
 <template>
-<BasePanel :class="classnames(`relative`, { ['accepted']: hasCompletedDisclaimer })">
+<BasePanel class="disclaimer-panel" :class="classnames(`relative`, { ['accepted']: hasCompletedDisclaimer })">
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container" :innerClassName="`pxlr-30 pxt-18`">
       <template v-slot:headerLeft>
@@ -57,7 +57,7 @@ function onMenuTriggered(selected: number) {
     <div class="pxlr-0 height-100">
 
       <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-40">
+        <div class="inner-scroller pxb-60">
           
           <p><b>Disclaimer:</b> ELSO’s ECMO Bedside Guide App is intended for educational use to provide
 useful information easily accessible to clinical care professionals in assessing the conditions
@@ -100,6 +100,7 @@ Guide App.</p>
   
 </BasePanel>
 </template>
+
 
 <style scoped lang="scss">
 .base-panel {
@@ -203,4 +204,22 @@ Guide App.</p>
   // }
 }
 
+</style>
+
+<style lang="scss">
+.base-panel.disclaimer-panel {
+  .side-content {
+    height: calc(100% - (112px));
+  }
+  :deep(.content-scroller) {
+    height: calc(100%);
+  }
+
+  html.ios & {
+    // iOS Top Padding 40px
+    .side-content { 
+      height: calc(100% - (112px + 40px));
+    }
+  }
+}
 </style>

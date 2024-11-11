@@ -7,6 +7,8 @@ export default {
 
 <script setup lang="ts">
 import { inject, onMounted, ref, watch } from 'vue';
+import { useRouter } from "vue-router";
+
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
@@ -16,7 +18,6 @@ import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
 import { IApp, IAppDrawerComponents } from '@/ui/types';
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
-import ResourcesPanel from "@/components/panels/ResourcesPanel.vue";
 // import SendFeedbackPanel from "@/components/panels/SendFeedbackPanel.vue";
 import ElsoHelpPanel from "@/components/panels/ElsoHelpPanel.vue";
 
@@ -46,6 +47,7 @@ const HEADER_HEIGHT = 94;
 const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const mounted = ref<boolean>(false);
+const router = useRouter();
 
 watch(props, () => {
   console.log("watch.props", props)
@@ -86,10 +88,11 @@ function onMenuTriggered(selected: number) {
     break;
     
     case 3: // Resources
-      drawerComponents.bottom = ResourcesPanel;
-      app.drawers.bottom.props = { name: "resources" }
-      app.drawers.bottom.closeOutside = false;
-      app.drawers.bottom.open = !app.drawers.bottom.open;
+      // drawerComponents.bottom = ResourcesPanel;
+      // app.drawers.bottom.props = { name: "resources" }
+      // app.drawers.bottom.closeOutside = false;
+      // app.drawers.bottom.open = !app.drawers.bottom.open;
+      router.push({ name: 'Resources'});
     break;
     
     case 4: // Feedback

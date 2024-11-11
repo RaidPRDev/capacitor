@@ -27,6 +27,7 @@ export const BRANCH_FOOTER_HEIGHT = 76;
 export const BRANCH_BOTTOM_NAV_HEIGHT = 60;
 
 // JSON DATA TYPES
+export const JSON_DATA_TYPE_RESOURCES = "resources";
 export const JSON_DATA_TYPE_MEDICATIONS = "medications";
 export const JSON_DATA_TYPE_EQUIPMENT = "equipment";
 export const JSON_DATA_TYPE_PANIC = "panic";

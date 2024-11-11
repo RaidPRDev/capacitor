@@ -1,0 +1,45 @@
+[
+  {
+    "id": "ELSOBA_RES_000",
+    "dataType": "resources",
+    "heading": "Resources",
+    "title": "",
+    "content": "",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "isRootParent": true,
+    "items": [
+      {
+        "label": "Accidental Decannulation",
+        "branchTo": "ELSOBA_RES_010",
+        "class": ""
+      },
+      {
+        "label": "Membrane Lung Failure",
+        "branchTo": "ELSOBA_RES_020",
+        "class": ""
+      }   
+    ]
+  },
+  {
+    "id": "ELSOBA_RES_010",
+    "title": "Accidental Decannulation Resources",
+    "content": "resources/ELSOBA_RES_010.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_020",
+    "title": "Membrane Lung Failure Resources",
+    "content": "resources/ELSOBA_RES_020.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  }
+]

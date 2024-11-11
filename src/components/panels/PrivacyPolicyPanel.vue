@@ -44,7 +44,7 @@ function onMenuTriggered(selected: number) {
 </script>
 
 <template>
-<BasePanel :class="classnames(`relative`, { ['accepted']: hasCompletedPrivacy })">
+<BasePanel :class="classnames(`privacy-panel`, `relative`, { ['accepted']: hasCompletedPrivacy })">
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container" :innerClassName="`pxlr-30 pxt-18`">
       <template v-slot:headerLeft>
@@ -59,7 +59,7 @@ function onMenuTriggered(selected: number) {
       <div class="title width-100 text-center mxb-30">Privacy Policy</div>
     
       <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-40">
+        <div class="inner-scroller pxb-60">
           
           <p class="p-title">PRIVACY POLICY</p>
           <p>Extracorporeal Life Support Organization (“ELSO”) is committed to protecting your privacy and has created this Privacy Policy to describe the information we collect about you when you download and use ELSO’s ECMO Bedside Guide App (the “App”), how that information may be used and disclosed and how we protect your information. This Privacy Policy applies to the App and governs data collection and usage. By using the App, you consent to the data practices described in this Privacy Policy.</p>
@@ -239,4 +239,24 @@ function onMenuTriggered(selected: number) {
   // }
 }
 
+</style>
+
+<style lang="scss">
+.base-panel.privacy-panel {
+  .side-content {
+    // Title Height 24px
+    height: calc(100% - (112px + 24px));
+  }
+  :deep(.content-scroller) {
+    height: calc(100%);
+  }
+
+  html.ios & {
+    // Title Height 24px
+    // iOS Top Padding 40px
+    .side-content { 
+      height: calc(100% - (112px + 24px + 40px));
+    }
+  }
+}
 </style>

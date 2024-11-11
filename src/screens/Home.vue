@@ -42,6 +42,7 @@ const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const router = useRouter();
 const session = useSession();
+const { hasCompletedDisclaimer } = session;
 const branchingStore = useBranchingStore();
 const { 
   getCurrentReferredView, 
@@ -237,6 +238,7 @@ function onLogo() {
 }
 
 onMounted(() => {
+  if (hasCompletedDisclaimer) return;
 
   clearTimeout(timeoutCopy.value);
   

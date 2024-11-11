@@ -45,7 +45,7 @@ function onMenuTriggered(selected: number) {
 </script>
 
 <template>
-<BasePanel :class="classnames(`relative`, { ['accepted']: hasCompletedTerms })">
+<BasePanel :class="classnames(`terms-panel`, `relative`, { ['accepted']: hasCompletedTerms })">
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container" :innerClassName="`pxlr-30 pxt-18`">
       <template v-slot:headerLeft>
@@ -60,7 +60,7 @@ function onMenuTriggered(selected: number) {
       <div class="title width-100 text-center mxb-30">Terms & Conditions</div>
     
       <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-40">
+        <div class="inner-scroller pxb-60">
           
           <p class="p-title">TERMS OF USE</p>
           <p>Extracorporeal Life Support Organization (ELSO)’s ECMO Bedside Guide App (the “App”) is comprised of various content owned and operated by ELSO.</p>
@@ -250,4 +250,25 @@ function onMenuTriggered(selected: number) {
   // }
 }
 
+</style>
+
+<style lang="scss">
+.base-panel.terms-panel {
+  .side-content {
+    // Title Height 24px
+
+    height: calc(100% - (112px + 24px));
+  }
+  :deep(.content-scroller) {
+    height: calc(100%);
+  }
+
+  html.ios & {
+    // Title Height 24px
+    // iOS Top Padding 40px
+    .side-content { 
+      height: calc(100% - (112px + 24px + 40px));
+    }
+  }
+}
 </style>

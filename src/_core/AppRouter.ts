@@ -11,6 +11,7 @@ import Favorites from '@/screens/home/Favorites.vue';
 import Medication from '@/screens/home/Medication.vue';
 import Calculators from '@/screens/home/Calculators.vue';
 import Equipment from '@/screens/home/Equipment.vue';
+import Resources from '@/screens/home/Resources.vue';
 
 import Template from '@/screens/demo/Template.vue';
 import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
@@ -40,6 +41,7 @@ const routes = [
     { path: 'medications/:id(.*)?', name: "Medication", component: Medication, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'calculators/:id(.*)?', name: "Calculators", component: Calculators, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'equipment/:id(.*)?', name: "Equipment", component: Equipment, meta: { ...defaultTransition }, props: (route:RouteLocationGeneric) => parseParams(route) },
+    { path: 'resources/:id(.*)?', name: "Resources", component: Resources, meta: { ...defaultTransition }, props: (route:RouteLocationGeneric) => parseParams(route) },
     { path: 'favorites', name: "Favorites", component: Favorites, meta: { ...defaultTransition } },
   ]},
 

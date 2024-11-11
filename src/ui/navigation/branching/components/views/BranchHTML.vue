@@ -51,10 +51,9 @@ function handleTriggered(data: { dataProps?: IHtmlParserDataProps }) {
 </template>
 
 <style scoped lang="scss">
-.html-parser {
-  opacity: 1;
-  :deep(.data-content) {
-    opacity: 1;
-  }
-}
+// .html-parser {
+//   :deep(.data-content) {
+//     opacity: 1;
+//   }
+// }
 </style>
