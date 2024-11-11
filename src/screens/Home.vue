@@ -8,8 +8,10 @@ export default {
 <script setup lang="ts">
 import { 
   APP_DRAWERS_ID, 
+  APP_HEADER_HEIGHT, 
   APP_ID, 
-  BOTTOM_HEADER_NAV_HEIGHT 
+  BOTTOM_HEADER_NAV_HEIGHT, 
+  SCREEN_BODY_TOP_PADDING
 } from "@/_core/Constants";
 import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
@@ -76,13 +78,14 @@ const bodyProps = computed(() => {
   if (!bodyRef?.value) return {}
   if (!footerRef?.value) return {}
 
-  const headerEl = headerRef?.value?.elRef() as HTMLElement;
-  const headerBnds = headerEl?.getBoundingClientRect();
-  const footerEl = footerRef?.value?.elRef() as HTMLElement;
-  const footerBnds = footerEl?.getBoundingClientRect();
-  const topPadding = 40;
+  const topPadding = SCREEN_BODY_TOP_PADDING;
   const bottomPadding = 0;
-  const diff = (footerBnds.top - headerBnds.bottom) - ( topPadding + bottomPadding );
+
+  const IOS_PADDING = app.device.isIOS ? 20 : 0;
+  const headerHeight = APP_HEADER_HEIGHT;
+  const footerHeight = BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING);
+  const footerMargin = app.device.height - (footerHeight);
+  let diff = (footerMargin - headerHeight) - ( topPadding + bottomPadding );
 
   return {
     styles: {

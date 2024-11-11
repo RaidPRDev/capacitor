@@ -84,6 +84,7 @@ const currentDataType = props?.views?.length > 0 ? props?.views?.[0].dataType : 
 const currentView = computed<BranchViewData | null>(() => props?.views?.length > 0 ? props?.views?.[currentViewIndex.value] : null);
 const canGoBack = computed<boolean>(() => true);
 const canGoNext = computed<boolean>(() => currentView?.value !== null && currentView?.value?.branchTo !== null);
+
 const branchViewStyles = computed(() => {
   const adjustHeight = getWrapperMaskHeight();
   return adjustHeight;
@@ -229,7 +230,7 @@ function getWrapperMaskHeight() {
   let adjustedHeight = 0;
   
   if (props?.useNavigation) adjustedHeight += props?.navigationHeight;
-  if (props.listHeight > 0) adjustedHeight += props?.listHeight;
+  if (props?.listHeight > 0) adjustedHeight += props?.listHeight;
 
   // const rect = document.body?.getElementsByClassName("app-wrapper")[0]?.getBoundingClientRect();
   const rect = document.getElementById(APP_BODY_ID?.toLowerCase())?.getBoundingClientRect()!;
@@ -240,7 +241,7 @@ function getWrapperMaskHeight() {
   if (DEBUG) {
     console.log("  getWrapperMaskHeight.options");
     if (props?.useNavigation) console.log("  navigationHeight", props?.navigationHeight);
-    if (props.listHeight > 0) console.log("  listHeight", props?.listHeight);
+    if (props?.listHeight > 0) console.log("  listHeight", props?.listHeight);
     console.log("  rectInner.height", rectInner.height);
     console.log("  adjustedHeight", adjustedHeight);
     console.log(`  Height Result:`, `${rectInner.height - adjustedHeight}px`);

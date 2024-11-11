@@ -12,7 +12,7 @@ import {
   BRANCH_HEADER_HEIGHT, 
   BREADCRUMB_HEIGHT, 
   COMPILED_DATA_PATH, 
-  GLOBAL_PADDING 
+  GLOBAL_PADDING, 
 } from "@/_core/Constants";
 
 import BasePanel from '@/ui/panels/BasePanel.vue';
@@ -68,6 +68,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
   }
 }
+
 
 </script>
 

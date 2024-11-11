@@ -95,6 +95,7 @@ function onDrawerAfterLeave() {}
   // background-color: rgba(0, 0, 0, 0.5);
   background-image: url(/assets/images/overlay_shadow.png);
   background-repeat: repeat;
+  pointer-events: all;
 }
 .app-drawer-item {
   
