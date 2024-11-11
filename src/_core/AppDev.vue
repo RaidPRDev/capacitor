@@ -94,7 +94,7 @@ function stopLoop() {
 
 function fpsMeter() {
   let prevTime = Date.now(), frames = 0;
-  let lastFrameTime = performance.now();
+  // let lastFrameTime = performance.now();
 
   const cap = 60;
   const minFrameTime = 1000 / cap; // Minimum time per frame in ms
