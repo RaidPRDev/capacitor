@@ -28,6 +28,7 @@ import {
   
 } from '@/utils/ElsoMath';
 import { copyToClipboard } from '@/utils/StringTools';
+import { IHtmlParserDataProps } from '@/ui/types';
 import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
 import ResetIcon from '@/assets/icons/reset-icon.svg';
 
@@ -54,6 +55,13 @@ type InputListItemType = IBaseListItemData & Partial<BranchItem> & {
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
 });
+
+// error TS6133: 'emit' is declared but its value is never read.
+/** @ts-ignore */
+const emit = defineEmits<{
+  (e: 'navigate', branchTo: string | null): void;
+  (e: 'triggered', dataProps?: IHtmlParserDataProps): void;
+}>();
 
 // Component State Setup
 interface IState {
@@ -224,7 +232,7 @@ function setFocusToResult() {
   <transition name="nested" appear>
     <div class="result-item flex flex-column align-start mxt-30 outer">
       <div class="result-label mxb-6 inner">RESULT</div>
-      <div id="result-label" tabindex="0" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
+      <div id="result-label" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result > 0 ? state.result : '---' }}
       </div>
     </div>

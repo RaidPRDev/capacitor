@@ -92,7 +92,9 @@ function onDrawerAfterLeave() {}
 
 <style scoped lang="scss">
 .drawer-backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+  // background-color: rgba(0, 0, 0, 0.5);
+  background-image: url(/assets/images/overlay_shadow.png);
+  background-repeat: repeat;
 }
 .app-drawer-item {
   

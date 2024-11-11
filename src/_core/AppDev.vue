@@ -92,6 +92,7 @@ async function onCopy() {
 //   }
 // }
 
+/** @ts-ignore */
 function fpsMeter() {
   let prevTime = Date.now(), frames = 0;
   // let lastFrameTime = performance.now();
@@ -125,21 +126,24 @@ function fpsMeter() {
 }
 
 onMounted(() => {
-
-  nextTick(() => fpsMeter());
-
+  // nextTick(() => fpsMeter());
 })
+
+/*
+ 
+<div class="_fps absolute flex align-end justify-end pointer-none">
+  <div class="_label-area">{{ state.fps }}</div>        
+</div>
+
+*/
 
 </script>
 
 <template>
   <div :id="props?.id" ref="element" class="abs-fs z-index-4">
-    <div class="width-inherit height-inherit px-10">
-      <div class="_id text-center relative">{{ appStore?.$state.currentViewID }}
-        <div class="_hit-area absolute width-100 height-100 tx-0 lx-0 pointer-all" @click="onCopy"></div>
-      </div>
-      <div class="_fps absolute flex align-end justify-end pointer-none">
-        <div class="_label-area">{{ state.fps }}</div>        
+    <div class="width-inherit height-inherit px-10 pointer-none">
+      <div class="_id text-center relative">
+        <span class="px-20 cursor-pointer pointer-all" @click="onCopy">{{ appStore?.$state.currentViewID }}</span>
       </div>
     </div>
   </div>
@@ -161,25 +165,16 @@ onMounted(() => {
   color: grey;
   user-select: none;
 }
-._hit-area {
-  cursor: pointer;
-  left: -7.5px;
-  top: -7.5px;
-  width: calc(100% + 15px);
-  height: calc(100% + 15px);
-  user-select: none;
-}
-
-._fps {
-  transform: translate3d(0, 0, 0);
-  left: -7.5px;
-  top: -7.5px;
-  width: calc(100% + 0px);
-  height: calc(100% + 0px);
-  font-size: 55px;
-  line-height: 1;
-  font-family: sans-serif;
-  user-select: none;
-  color: red;
-}
+// ._fps {
+//   transform: translate3d(0, 0, 0);
+//   left: -7.5px;
+//   top: -7.5px;
+//   width: calc(100% + 0px);
+//   height: calc(100% + 0px);
+//   font-size: 55px;
+//   line-height: 1;
+//   font-family: sans-serif;
+//   user-select: none;
+//   color: red;
+// }
 </style>
