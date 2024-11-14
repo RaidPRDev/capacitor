@@ -15,7 +15,7 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseList from '@/ui/controls/BaseList.vue';
 
 import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
-import { IApp, IAppDrawerComponents } from '@/ui/types';
+import { IApp, IAppDrawerComponents } from '@/types';
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
 // import SendFeedbackPanel from "@/components/panels/SendFeedbackPanel.vue";
@@ -23,7 +23,7 @@ import ElsoHelpPanel from "@/components/panels/ElsoHelpPanel.vue";
 
 import CloseIcon from '@/assets/icons/close-icon.svg';
 import Logo from '/assets/elso_logo.png';
-import HeartIcon from '@/assets/icons/sideMenu/heart-icon.svg';
+// import HeartIcon from '@/assets/icons/sideMenu/heart-icon.svg';
 import TermsIcon from '@/assets/icons/sideMenu/terms-icon.svg';
 import PrivacyIcon from '@/assets/icons/sideMenu/privacy-icon.svg';
 import FeedbackIcon from '@/assets/icons/sideMenu/feedback-icon.svg';
@@ -40,7 +40,7 @@ interface ILeftSidePanelProps {
 const props = withDefaults(defineProps<ILeftSidePanelProps>(), {});
 
 const APP_VERSION = import.meta.env.APP_VERSION;
-const BUILD_VERSION = import.meta.env.BUILD_VERSION;
+const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
 const HEADER_HEIGHT = 94;
 
@@ -54,10 +54,10 @@ watch(props, () => {
 })
 
 const sideMenu = [
-  { label: "ECMO Bedside<br>Assistant App Help", icon: HeartIcon, route: "Home", class: "" },
+  // { label: "ECMO Bedside<br>Guide App Help", icon: HeartIcon, route: "Home", class: "" },
   { label: "Terms and Conditions", icon: TermsIcon, route: "Home", class: "" },
   { label: "Privacy Policy", icon: PrivacyIcon, route: "Home", class: "" },
-  { label: "Resources", icon: ResourcesIcon, route: "Home", class: "" },
+  { label: "Resources", icon: ResourcesIcon, route: "Home", class: "res-icon" },
   { label: "Send Feedback", icon: FeedbackIcon, route: "Home", class: "" },
 ];
 
@@ -133,7 +133,7 @@ onMounted(() => {
       <template v-slot:listItemSlot="data">
         <BaseButton 
           :data-id="data.item.index"
-          :class="`menu-item width-100`" 
+          :class="`menu-item width-100 ${data.item.class}`" 
           :innerClassName="`px-20 justify-start gapx-10 align-start`"
           :bodyClassName="`text-left`"
           :label="data.item.label"
@@ -151,7 +151,7 @@ onMounted(() => {
         :class="`menu-item width-100`" 
         :innerClassName="`px-20 justify-center gapx-10`"
         :bodyClassName="`text-left`"
-        :label="`Version: ${APP_VERSION} | Build: ${BUILD_VERSION} | ${PLATFORM_NAME}`"
+        :label="`Version: ${APP_VERSION} | Build: ${BUILD_NUMBER} | ${PLATFORM_NAME}`"
         :triggerCallback="(_data) => {
           drawerComponents.bottom = BuildDetailsPanel;
           app.drawers.bottom.props = {
@@ -226,6 +226,7 @@ onMounted(() => {
     }
   }
 }
+
 .version {
   :deep(.inner-base-button) {
     .ui-label {
@@ -233,6 +234,14 @@ onMounted(() => {
       font-weight: 300;
       color: rgba(white, 0.25);
     }
+  }
+}
+
+.res-icon {
+  :deep(.ui-icon) {
+    width: 28px;
+    height: 28px;
+    svg { width: 100%; height: 100%; }
   }
 }
 

@@ -1,6 +1,7 @@
 import { PluginOption } from "vite";
 import fsSync from "fs";
 import fs from "fs/promises";
+import { BranchViewData } from "@/types";
 
 const SOURCE_CONSTANTS_FILE = "./constants.ts";
 const TARGET_CONSTANTS_FILE = "./src/_core/Constants.ts";
@@ -33,7 +34,7 @@ export default function CustomHmr():PluginOption {
 
       // Copy Constants
       console.log('[COPYING_CONSTANTS]');
-      copyFile(SOURCE_CONSTANTS_FILE, TARGET_CONSTANTS_FILE);
+      await copyFile(SOURCE_CONSTANTS_FILE, TARGET_CONSTANTS_FILE);
     },
     // HMR
     async handleHotUpdate({ file, server }) {
@@ -88,32 +89,51 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
   
   // Build Version File - 
   const data = await fs.readFile(`${sourcePath}/${file}.json`, 'utf8');
-  const parsedData = JSON.parse(data);
+  const parsedData: BranchViewData[] = JSON.parse(data);
 
   // start compilation
+  let count = 0, ParentItem: any  = null, total = 0;
   iterateArray(parsedData, null, (item:any, index:number, parent:any) => {
     switch (file) {
       case "checklists":
         const isCheckList = parent && parent?.layout === "checklist";
-        if (isCheckList) item.id = `${parent.id}#${index}`;  
-        else {
+        if (isCheckList) {
+          item.id = `${parent.id}#${index}`;  
+        } else {
           if (item.branchTo) item.id = `${item.branchTo}#${index}`;  
         }
-      break;
-      default: 
-        if (parent) {
-          // item.id = `${parent.id}$$${index}`;  
-          // if (item.branchTo) item.branchTo = `${item.branchTo}$$${index}`;  
+
+        if (ParentItem) {
+
+        }
+
+        const checkParentItem = item && item?.layout === "checklist"
+        && item?.type === "subchecklist";
+
+        if (checkParentItem) {
+          if (ParentItem !== item) {
+            
+            if (ParentItem !== null) {
+              ParentItem.totalChecks = count;
+              total += count;
+            }
+            
+            count = 0;
+            ParentItem = item;
+          }
         }
         else {
-          // item.id = `${item.id}$$${index}`;  
-          // if (item.branchTo) item.branchTo = `${item.branchTo}$$${index}`;  
+          const checkIfCheckBox = item && item?.hasOwnProperty("checked");
+          if (checkIfCheckBox) count++;
         }
+
+      break;
+      default: 
     }
   });
 
   console.log(`Writing [${file}] data to ${targetPath}/${file}_compiled.json \n`);
-  await fs.writeFile(`${targetPath}/${file}_compiled.json`, JSON.stringify(parsedData, null, 4), 'utf8');
+  await fs.writeFile(`${targetPath}/${file}_compiled.json`, JSON.stringify(parsedData, null, 0), 'utf8');
 
   return parsedData;
 }
@@ -131,25 +151,71 @@ function iterateArray(arr:Array<any> = [], parent: Record<string, any> | null = 
   });
 }
 
-function copyFile(source: string, destination: string) {
-  // Check if the source file exists
-  // if (!fsSync.existsSync(source)) {
-  //     console.error(`Source file does not exist: ${source}`);
-  //     return;
-  // }
+export function flattenChecklist(items: any, level: number = 1) {
+  const result = [] as any[];
 
-  // // Check if the destination directory exists, create it if not
-  // const destinationDir = destination;
-  // if (!fsSync.existsSync(destinationDir)) {
-  //   fsSync.mkdirSync(destinationDir, { recursive: true });
-  // }
+  items.forEach((item:any) => {
+    
+    // Copy the item and add the class based on the current level
+    const flattenedItem = { ...item, class: `sub-level-${level}` };
 
-  // Copy the file
-  fsSync.copyFile(source, destination, (err) => {
-      if (err) {
-          console.error(`Error copying file: ${err}`);
-      } else {
-          console.log(`File copied successfully to ${destination}`);
-      }
+    if (item.type === 'subchecklist' && item.items && item.items.length > 0) {
+      flattenedItem.isRootParent = true;
+    }
+
+    result.push(flattenedItem);
+
+    // If the item has a 'subchecklist' type and contains nested items, process them
+    if (item.type === 'subchecklist' && item.items && item.items.length > 0) {
+      result.push(...flattenChecklist(item.items, level + 1));
+    }
   });
+
+  return result;
+}
+
+export function findCheckListByID(id: string, items: any, level: number = 1) {
+  console.log("findCheckListByID: ", id);
+  
+  let selectedItem = null;
+  
+  for (let i = 0; i < items.length - 1; i++) {
+    const item = items[i];
+    console.log("YES_item: ", item.id);
+    if (item.id == id) {
+      console.log("YES_FUUUUUUUUUUUUUUUUUCCC_item: ", item.id);
+      selectedItem = item;
+      break;
+    }
+    if (item && item.type === 'subchecklist' && item.items && item.items.length > 0) {
+      findCheckListByID(id, item.items, level + 1);
+    }
+  }
+  
+  // items.forEach((item:any) => {
+    
+  //   if (item.id === id) {
+  //     return item;
+  //   }
+
+  //   // If the item has a 'subchecklist' type and contains nested items, process them
+  //   if (item.type === 'subchecklist' && item.items && item.items.length > 0) {
+  //     findCheckListByID(id, item.items, level + 1);
+  //   }
+  // });
+
+  return selectedItem;
+}
+
+async function copyFile(source: string, destination: string) {
+  const CONSTANTS_DATA = await fs.readFile(source, 'utf8');
+
+  let data = "/* **********************************************************************\n";
+  data += "************************************************************************\n";
+  data += "*** DO NOT MODIFY! USE constants.ts IN THE PROJECT ROOT FOLDER ***\n";
+  data += "************************************************************************\n";
+  data += "************************************************************************** */\n\n";
+  data += CONSTANTS_DATA;
+
+  await fs.writeFile(`${destination}`, data, 'utf8');
 }

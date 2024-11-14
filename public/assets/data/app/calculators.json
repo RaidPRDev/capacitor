@@ -23,42 +23,42 @@
       {
         "label": "Flow Calculator",
         "branchTo": "ELSOBA_CALC_030",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "Oxygen Transfer",
         "branchTo": "ELSOBA_CALC_040",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "DO2i Calculator",
         "branchTo": "ELSOBA_CALC_050",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "Post Dilutional HCT",
         "branchTo": "ELSOBA_CALC_060",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "Oxygen Index",
         "branchTo": "ELSOBA_CALC_070",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "PF Ratio",
         "branchTo": "ELSOBA_CALC_080",
-        "class": "disabled"
+        "class": ""
       },      
       {
         "label": "Recirculation",
         "branchTo": "ELSOBA_CALC_090",
-        "class": "disabled"
+        "class": ""
       },      
       {
         "label": "Tubing Volume Constants and Conversions",
         "branchTo": "ELSOBA_CALC_100",
-        "class": "disabled"
+        "class": ""
       }
     ]
   },
@@ -297,33 +297,363 @@
   {
     "id": "ELSOBA_CALC_030",
     "title": "Flow Calculator",
-    "content": "content",
-    "layout": "list",
+    "content": "Calculate the appropriate blood flow.",
+    "layout": "input",
     "useScroll": true,
     "showFavorites": true,
     "items": [
       {
-        "label": "Convert Feet (ft) to Centimeters (cm)",
-        "branchTo": "ELSOBA_CALC_030__01"
+        "id": "constant",
+        "type": "dropdown",
+        "label": "Select cc/kg/min constant",
+        "data": ["300", "250", "200", "175", "150", "125", "100", "75", "65"]
+      },
+      {
+        "id": "weight",
+        "type": "number",
+        "label": "Enter kg (weight)"
+      },
+      {
+        "type": "operator",
+        "operation": "CalculateBloodFlowByWeight"
+      }
+    ],
+    "data": {
+      "postHtml": "calculators/ELSOBA_CALC_030.html"
+    }
+  },
+  {
+    "id": "ELSOBA_CALC_040",
+    "title": "Oxygen Transfer Calculator",
+    "content": "Use this calculator to assess the severity of hypoxic respiratory failure.",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "id": "arterial_saturation",
+        "type": "number",
+        "label": "Enter Arterial saturation (range of 0.01 – 1.0)",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange"
+        }
+      },
+      {
+        "id": "hemoglobin",
+        "type": "number",
+        "label": "Enter Hemoglobin"
+      },
+      {
+        "id": "flow",
+        "type": "number",
+        "label": "Enter Blood Flow (mL/min)"
+      },
+      {
+        "type": "operator",
+        "operation": "CalculateOxygenTransfer"
       }
     ]
   },
   {
-    "id": "ELSOBA_CALC_030__01",
-    "title": "Convert Feet to Centimeters",
+    "id": "ELSOBA_CALC_050",
+    "title": "DO₂i Calculator",
+    "content": "To calculate oxygen delivery, first determine the cardiac index, then the oxygen carrying capacity, and finally the oxygen delivery (DO₂i).",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "type": "heading",
+        "label": "Step 1: CI = Flow/BSA"
+      },
+      {
+        "id": "flow",
+        "type": "number",
+        "label": "Enter Blood Flow"
+      },
+      {
+        "id": "bsa",
+        "type": "number",
+        "label": "Enter Body Surface Area"
+      },
+      {
+        "type": "heading",
+        "label": "Step 2: CaO₂ = (Hb * 1.34)(SaO₂) + (0.003 * PaO₂)"
+      },
+      {
+        "id": "hemoglobin",
+        "type": "number",
+        "label": "Hemoglobin (% decimal)",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        }
+      },
+      {
+        "id": "sao2",
+        "type": "number",
+        "label": "Enter Arterial oxygen saturation (range of 0.01 – 1.0)",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange"
+        }
+      },
+      {
+        "id": "pao2",
+        "type": "number",
+        "label": "Enter Arterial partial pressure of oxygen in mmHg (millimeters of mecury)"
+      },
+      {
+        "type": "heading",
+        "label": "Step 3: DO₂i = 10 * CI * CaO₂"
+      },
+      {
+        "type": "operator",
+        "operation": "CalculateOxygenDelivery"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_060",
+    "title": "Estimated Post-Dilutional Hematocrit (Hct)",
+    "content": "Use this calculator to help you plan patient care and identify how much blood you need for the patient to notify the blood bank.",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "type": "heading",
+        "label": "Step 1: Prime = Circuit Prime<br><span><i>Note: To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span>"
+      },
+      {
+        "id": "constant",
+        "type": "dropdown",
+        "label": "Select cc constant",
+        "data": ["70", "75", "80", "85"]
+      },
+      {
+        "id": "membrane_volume",
+        "type": "number",
+        "label": "Enter Membrane lung volume (cc)"
+      },
+      {
+        "id": "tubing_volume",
+        "type": "number",
+        "label": "Enter Tubing volume (cc)"
+      },
+      {
+        "id": "pump_volume",
+        "type": "number",
+        "label": "Enter Pump volume (cc)",
+        "dependsOn": " centrifugal_pump"
+      },
+      {
+        "type": "heading",
+        "label": "Step 2: Estimated post-dilutional Hct"
+      },
+      {
+        "id": "patient_weight",
+        "type": "number",
+        "label": "Enter Patient weight (kg)"
+      },
+      {
+        "id": "hematocrit",
+        "type": "number",
+        "label": "Enter Hematocrit (Hct)"
+      },
+      {
+        "type": "operator",
+        "operation": "CalculateHct"
+      }
+    ],
+    "data": {
+      "postHtml": "calculators/ELSOBA_CALC_060.html"
+    }
+  },
+  {
+    "id": "ELSOBA_CALC_070",
+    "title": "Oxygenation Index (OI)",
     "content": "",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
     "items": [
       {
-        "id": "feet",
+        "id": "airway_pressure",
+        "type": "number",
+        "label": "Enter Mean airway pressure"
+      },
+      {
+        "id": "fraction",
+        "type": "number",
+        "label": "Enter fraction of inspired oxygen (% decimal)",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange"
+        }
+      },
+      {
+        "id": "pao2",
+        "type": "number",
+        "label": "Enter PaO2"
+      },
+      {
+        "type": "operator",
+        "operation": "CalculateOI"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_080",
+    "title": "PF Ratio",
+    "content": "P/F ratio is used to classify the severity of acute respiratory distress syndrome (ARDS).",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "id": "oxygen_pressure",
+        "type": "number",
+        "label": "Enter Mean airway pressure"
+      },
+      {
+        "id": "fraction",
+        "type": "number",
+        "label": "Enter fraction of inspired oxygen (% decimal)",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange"
+        }
+      },
+      {
+        "type": "operator",
+        "operation": "CalculatePF"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_090",
+    "title": "Recirculation Percentage",
+    "content": "Use this calculator to determine the percentage of oxygenated blood that is being recirculated back into the ECMO circuit.<br><div class='heading'>Interpreting your results:</div><ul><li>Recirculation >20% – 30% is likely clinically significant</li><li>SvO2 of venous line <75% suggests recirculation is unlikely</li></ul>",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "id": "pre_oxygen",
+        "type": "number",
+        "label": "Pre-oxygenator oxygen saturation"
+      },
+      {
+        "id": "venous_oxygen",
+        "type": "number",
+        "label": "Venous oxygen saturation"
+      },
+      {
+        "id": "post_oxygen",
+        "type": "number",
+        "label": "Post-oxygenator oxygen saturation"
+      },
+      {
+        "type": "operator",
+        "operation": "CalculateRP"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_100",
+    "title": "Tubing Volume Constants and Conversions",
+    "content": "Measure the length of tubing used within the ECMO circuit. Then use the equations below to calculate the volume of the tubing.",
+    "showFavorites": true,
+    "layout": "list",
+    "useScroll": true,
+    "items": [
+      {
+        "label": "¼” Tubing Volume",
+        "branchTo": "ELSOBA_CALC_100__01"
+      },
+      {
+        "label": "⅜” Tubing Volume",
+        "branchTo": "ELSOBA_CALC_100__02"
+      },
+      {
+        "label": "½” Tubing Volume",
+        "branchTo": "ELSOBA_CALC_100__03"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_100__01",
+    "title": "¼” Tubing Volume",
+    "content": "",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "id": "foot",
         "type": "number",
         "label": "Enter Feet (ft)"
       },
       {
         "type": "operator",
-        "operation": "ConvertFeetToCentimeters"
+        "operation": "Calculate_1_4_Tubing"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_100__02",
+    "title": "⅜” Tubing Volume",
+    "content": "",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "id": "foot",
+        "type": "number",
+        "label": "Enter Feet (ft)"
+      },
+      {
+        "type": "operator",
+        "operation": "Calculate_3_8_Tubing"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_100__03",
+    "title": "½” Tubing Volume",
+    "content": "",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "items": [
+      {
+        "id": "foot",
+        "type": "number",
+        "label": "Enter Feet (ft)"
+      },
+      {
+        "type": "operator",
+        "operation": "Calculate_1_2_Tubing"
       }
     ]
   }

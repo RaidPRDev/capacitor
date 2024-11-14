@@ -13,7 +13,7 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import ButtonGroup from "@/ui/controls/ButtonGroup.vue";
 
 import { APP_ID } from '@/_core/Constants';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 
 import CloseIcon from '@/assets/icons/close-icon.svg';
   

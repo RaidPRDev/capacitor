@@ -1,12 +1,13 @@
 {
   "name": "elso_app",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.7.9",
+  "build_number": "46",
   "type": "module",
   "scripts": {
     "start": "vite --host",
     "preview": "vite preview",
-    "build_version": "node preBuild.js",
+    "update_version": "node app.update.js",
     "build": "vue-tsc --noEmit && vite build",
     "sync": "npx cap sync",
     "android_open": "npx cap open android",
@@ -19,6 +20,7 @@
     "@capacitor/ios": "^6.1.0"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@vitejs/plugin-vue": "^5.1.4",
     "classnames": "^2.5.1",
     "pinia": "^2.2.2",

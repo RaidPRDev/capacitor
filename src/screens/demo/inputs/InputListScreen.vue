@@ -9,12 +9,12 @@ export default {
 import { onMounted, ref, shallowRef } from 'vue';
 
 import BasePanel from '@/ui/panels/BasePanel.vue';
-import Branching from '@/ui/navigation/branching/Branching.vue';
-import PulseRateLoader from '@/components/PulseRateLoader.vue';
+import Branching from '@/components/branching/Branching.vue';
+import PulseRateLoader from '@/components/pulserateloader/PulseRateLoader.vue';
 
 import { IBaseScreenSlotProps } from '@/ui/types';
-import { BranchViewData } from '@/ui/navigation/branching/types';
-import { loadViewData } from '@/ui/navigation/branching/utils/DataTools';
+import { BranchViewData } from '@/types';
+import { loadViewData } from '@/components/branching/data/DataTools';
 
 const props = withDefaults(defineProps<IBaseScreenSlotProps>(), {}) 
 const loading = ref<boolean>(true);

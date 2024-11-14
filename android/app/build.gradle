@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.sweetrush.staging.elso"
+    namespace "com.ecmo.bedside"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.sweetrush.staging.elso"
+        applicationId "com.ecmo.bedside"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 36
-        versionName "0.0.1"
+        versionCode 46
+        versionName "0.7.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

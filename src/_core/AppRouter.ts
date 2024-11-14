@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory, RouteLocationGeneric } from 'vue-router';
+import AppHome from '@/AppHome.vue';
 import Unauthorized from '@/screens/Unauthorized.vue';
 import Splash from '@/screens/Splash.vue';
-import Home from '@/screens/Home.vue';
-import HomeNavigation from '@/screens/home/HomeNavigation.vue';
-import Notes from '@/screens/home/Notes.vue';
-import MyCircuit from '@/screens/home/MyCircuit.vue';
-import Panic from '@/screens/home/Panic.vue';
-import Checklists from '@/screens/home/Checklists.vue';
-import Favorites from '@/screens/home/Favorites.vue';
-import Medication from '@/screens/home/Medication.vue';
-import Calculators from '@/screens/home/Calculators.vue';
-import Equipment from '@/screens/home/Equipment.vue';
-import Resources from '@/screens/home/Resources.vue';
+import HomeMenu from '@/screens/HomeMenu.vue';
+import Notes from '@/screens/Notes.vue';
+import MyCircuit from '@/screens/MyCircuit.vue';
+import Panic from '@/screens/Panic.vue';
+import Checklists from '@/screens/Checklists.vue';
+import Favorites from '@/screens/Favorites.vue';
+import Medication from '@/screens/Medication.vue';
+import Calculators from '@/screens/Calculators.vue';
+import Equipment from '@/screens/Equipment.vue';
+import Resources from '@/screens/Resources.vue';
 
 import Template from '@/screens/demo/Template.vue';
 import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
@@ -19,7 +19,7 @@ import BranchScreen from '@/screens/demo/branching/BranchScreen.vue';
 import ChecklistScreen from '@/screens/demo/checklist/ChecklistScreen.vue';
 import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
 import usePassKey from '@/store/passkey.module';
-import { BranchRouteProps } from '@/ui/navigation/branching/types';
+import { BranchRouteProps } from '@/types';
 
 const DEBUG = false;
 
@@ -32,8 +32,8 @@ const routes = [
   { path: '/unauthorized', name: "Unauthorized", component: Unauthorized, meta: { ...defaultTransition } },
   
   // HOME
-  { path: '/home', component: Home, meta: { ...defaultTransition }, children:[
-    { path: '', name: "Home", component: HomeNavigation, meta: { ...defaultTransition } },
+  { path: '/home', component: AppHome, meta: { ...defaultTransition }, children:[
+    { path: '', name: "Home", component: HomeMenu, meta: { ...defaultTransition } },
     { path: 'notes', name: "Notes", component: Notes, meta: { ...defaultTransition } },
     { path: 'circuit', name: "MyCircuit", component: MyCircuit, meta: { ...defaultTransition } },
     { path: 'panic/:id(.*)?', name: "Panic", component: Panic, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },

@@ -6,7 +6,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, inject, nextTick, shallowRef } from 'vue';
+import { computed, inject, nextTick, ref, shallowRef } from 'vue';
+import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
+
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseList from '@/ui/controls/BaseList.vue';
@@ -14,23 +17,23 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseToggle from '@/ui/controls/BaseToggle.vue';
 
 import { APP_ID } from '@/_core/Constants';
-import { IApp, IBaseListItemData } from '@/ui/types';
+import { IBaseListItemData } from '@/ui/types';
+import { IApp } from '@/types';
+import { BranchItem, BranchViewData } from '@/types';
+import { flattenChecklist } from '@/utils/ObjectTools';
+
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import FavoriteAddedToast from "@/components/toasts/FavoriteAddedToast.vue";
-import { BranchItem, BranchViewData } from '@/ui/navigation/branching/types';
-import { iterateArray } from '@/utils/ObjectTools';
 
 import useChecklistStore from "@/store/checklist.module";
 import useFavoritesStore from "@/store/favorites.module";
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
-import { storeToRefs } from 'pinia';
 
 import CloseIcon from '@/assets/icons/close-icon.svg';
-import FavoritesDefaultIcon from '@/assets/icons/favorites-default-icon.svg';
 import CheckboxDefaultIcon from '@/assets/icons/checkbox-default-icon.svg';
 import CheckboxActiveIcon from '@/assets/icons/checkbox-active-icon.svg';
-import { useRouter } from 'vue-router';
-
+import FavoritesSmallIcon from '@/assets/icons/favorites-small-icon.svg';
+import RestartIcon from '@/assets/icons/restart-icon.svg';
 
 const toasterService = useToasterService();
 const { addToast } = toasterService;
@@ -74,21 +77,12 @@ function updateAllCheckLists() {
 
   let list = [] as BranchViewData[];
 
-  /** @ts-ignore */
-  iterateArray(props.items, null, (item:any, index:number, parent:any) => {
-    if (checklistData.value?.hasOwnProperty(item.id!)) {
-      if (item.hasOwnProperty('checked')) {
-        item.checked = checklistData.value?.[item.id!];
-      }
-      else if (item?.layout === "checklist" && item.hasOwnProperty('items')) {
-        item.checked = checklistData.value?.[item.id!];
-      }
-    }
-    if (parent?.type === "subchecklist") {
-      item.type = "sublistitem"
-    }
-    list.push(item);
-  });
+  list = flattenChecklist(props.items, 1, checklistData) as BranchViewData[];
+
+  // list.forEach((item) => {
+  //   console.log("item.label", item.label)
+  //   console.log("item", item)
+  // })
 
   return list;
 }
@@ -106,8 +100,14 @@ function resetCheckData() {
   
   // reset checklist items
 
-  /** @ts-ignore */
-  iterateArray(props.items, null, (item:any, index:number, parent:any) => {
+  let list = [] as BranchViewData[];
+
+  list = flattenChecklist(props.items, 1, checklistData) as BranchViewData[];
+
+  list.forEach((item) => {
+    console.log("item.label", item.label)
+    console.log("item", item)
+
     if (checklistData.value?.hasOwnProperty(item.id!)) {
       if (item.hasOwnProperty('checked')) {
         item.checked = false;
@@ -115,12 +115,47 @@ function resetCheckData() {
         checklistData.value[item.id!] = false;
       }
     }
-  });
+  })
 
   // update store
   checklistStore.$patch({
     data: checklistData.value
   });
+}
+
+const isAdded = getItem(props?.id!);
+
+const isFavoritesEnabled = ref<boolean>(isAdded ? false : true);
+const isFavoritesShowing = ref<boolean>(true);
+
+function addToFavorites() {
+  
+  isFavoritesEnabled.value = false;
+
+  if (getItem(props?.id!)) {
+    removeItem(props?.id!);
+    nextTick(() => addToast({ label: `Removed from favorites.` }));
+    isFavoritesEnabled.value = true;
+    return;
+  }
+
+  setItem({
+    type: 'checklists',
+    data: {
+      id: props?.data?.id!,
+      title: props?.title!,
+    },
+    parentData: {
+      id: props?.parentData?.id!,
+      title: props?.parentData?.title!,
+    },
+  });
+  nextTick(() => addToast({ 
+    component: shallowRef(FavoriteAddedToast),
+    componentProps: {
+      label: `Added to favorites.` 
+    }
+  }));
 }
 
 </script>
@@ -133,43 +168,6 @@ function resetCheckData() {
       <template v-slot:headerLeft>
         <div v-if="props?.title" class="title">{{ props?.title }}</div>
       </template>
-      <template v-slot:headerRight>
-        <BaseButton 
-          :class="[
-            `favorites-head-button`,
-            {
-              ['added']: getItem(props?.id!) ?? false
-            }
-          ]" 
-          :icon="FavoritesDefaultIcon"
-          @triggered="() => {
-
-            if (getItem(props?.id!)) {
-              removeItem(props?.id!);
-              nextTick(() => addToast({ label: `Removed from favorites.` }));
-              return;
-            }
-
-            setItem({
-              type: 'checklists',
-              data: {
-                id: props?.data?.id!,
-                title: props?.title!,
-              },
-              parentData: {
-                id: props?.parentData?.id!,
-                title: props?.parentData?.title!,
-              },
-            });
-            nextTick(() => addToast({ 
-              component: shallowRef(FavoriteAddedToast),
-              componentProps: {
-                label: `Added to favorites.` 
-              }
-            }));
-          }"
-        />
-      </template>
     </BaseHeader>
     
     <BaseList 
@@ -180,9 +178,10 @@ function resetCheckData() {
     >
       <template v-slot:listItemSlot="data">
         <BaseButton 
-          :class="[`list-button-item width-100`, {
-            ['sub-item']: data.item.type === 'sublistitem',
+          :class="[`list-button-item width-100`, data.item.class, {
+            // ['subchecklist']: data.item.type === 'subchecklist',
             ['comment']: data.item.type === 'comment',
+            ['no-checkbox']: !dataList?.[data.item.index].hasOwnProperty(`checked`),
           }]" 
           :hasInternalLinks="true"
           :innerClassName="`pxtb-18 justify-start align-start gapx-10`"
@@ -247,12 +246,14 @@ function resetCheckData() {
         </BaseButton>
       </template>
     </BaseList>
+
     <BaseHeader class="footer-panel pxlr-20 height-auto" centerClassName="width-100">
-      <template v-slot:headerCenter>
-          <BaseButton 
+      <template v-slot:headerLeft>
+        <BaseButton 
             class="reset-button variant-red small" 
-            :innerClassName="`pxlr-13 pxtb-9`" 
+            :innerClassName="`pxlr-13 pxtb-9 justify-between gapx-6`" 
             :label="`Reset`" 
+            :icon="RestartIcon"
             @triggered="() => {
               app.alert.component = shallowRef(AppAlertPanel);
               app.alert.options.props = {
@@ -270,6 +271,33 @@ function resetCheckData() {
             }"
           />
       </template>
+      <template v-slot:headerRight>
+          
+          <transition 
+            name="fade" 
+            mode="out-in"
+            :appear="isFavoritesShowing"
+          >
+            <BaseButton 
+              v-if="isFavoritesEnabled"
+              class="add-favorites-btn variant-red small" 
+              innerClassName="pxlr-13 pxtb-9 justify-between gapx-6"
+              bodyClassName="text-left"
+              :label="`Add To Favorites`"
+              :icon="FavoritesSmallIcon"
+              @triggered="addToFavorites"
+            />
+            <BaseButton 
+              v-else
+              class="remove-favorite-btn variant-blue small" 
+              innerClassName="pxlr-13 pxtb-9 justify-between gapx-6"
+              bodyClassName="text-left"
+              :label="`Remove`"
+              :icon="FavoritesSmallIcon"
+              @triggered="addToFavorites"
+            />
+          </transition>
+      </template>
     </BaseHeader>
   </div>
   <BaseButton class="close-button absolute tx-20 rx-20" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
@@ -286,6 +314,20 @@ function resetCheckData() {
   overflow: hidden scroll;
   height: calc(100% - (71px + #{$reset-btn-height}px));
   @include use-scroller-styles();
+}
+
+.add-favorites-btn {
+}
+
+.remove-favorite-btn {
+  :deep(.inner-base-button) {
+    .ui-label {
+      font-size: 14px;
+      line-height: 15px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
 }
 
 .header {
@@ -325,8 +367,16 @@ function resetCheckData() {
       &.sub-item {
         padding-left: 2rem;
       }
+      
+      &.sub-level-2 {
+        padding-left: 2rem;
+      }
+      
+      &.sub-level-3 {
+        padding-left: 3rem;
+      }
 
-      &.comment {
+      &.no-checkbox, &.comment {
         pointer-events: none;
 
         a {

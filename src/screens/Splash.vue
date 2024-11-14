@@ -16,7 +16,7 @@ import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
 
 import { APP_DRAWERS_ID, APP_ID } from "@/_core/Constants";
-import { IApp, IAppDrawerComponents } from "@/ui/types";
+import { IApp, IAppDrawerComponents } from "@/types";
 import useSession from "@/store/session.module";
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import useBranchingStore from "@/store/branching.module";
@@ -73,7 +73,7 @@ function onMenuTriggered(selected: number) {
 }
 
 const APP_VERSION = import.meta.env.APP_VERSION;
-const BUILD_VERSION = import.meta.env.BUILD_VERSION;
+const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
 
 onMounted(() => {
@@ -137,7 +137,7 @@ onMounted(() => {
       </div>
       
       <div class="version absolute bx-0 width-100 text-center">
-        {{ `Version: ${APP_VERSION} | Build: ${BUILD_VERSION} | ${PLATFORM_NAME}` }}
+        {{ `Version: ${APP_VERSION} | Build: ${BUILD_NUMBER} | ${PLATFORM_NAME}` }}
       </div>
     </div>
   </template>

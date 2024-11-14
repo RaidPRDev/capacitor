@@ -122,6 +122,8 @@ export interface IBaseInputProps extends IBaseControl {
   autocomplete?: string;
   pattern?: string;
   error?: IErrorFieldProps;
+  onBlur?: (data?: any) => void;
+  onInput?: (data?: any) => void;
   onEnter?: (data?: any) => void;
 }
 
@@ -149,7 +151,7 @@ export interface IBaseListItemData {
   iconProps?: any;
   accessoryIcon?: any;
   accessoryIconProps?: any;
-  data?: Record<string, any>;
+  data?: any;
 }
 
 export interface IBaseTransitionProps {
@@ -171,57 +173,6 @@ export interface IBaseListProps {
   transitionAppear?: boolean,
   transitionDelayedStart?: number;
   transitionProps?: IBaseTransitionProps;
-}
-
-export interface IAppAlertProps {
-  open: boolean;
-  closeOutside: boolean;
-  props?: Record<string, any>;
-}
-
-export interface IAppAlert {
-  closeOutside: boolean;
-  options: IAppAlertProps;
-  component: any;
-}
-
-export interface IAppDrawerPosition {
-  open: boolean;
-  closeOutside: boolean;
-  props?: Record<string, any>;
-}
-
-export interface IAppDrawers {
-  closeOutside: boolean;
-  left: IAppDrawerPosition;
-  right: IAppDrawerPosition;
-  top: IAppDrawerPosition;
-  bottom: IAppDrawerPosition;
-}
-
-export interface IAppDrawerComponents {
-  left?: any;
-  right?: any;
-  top?: any;
-  bottom?: any;
-}
-
-export interface IAppScreenProps {
-  class?: string;
-  drawerOpen?: boolean;
-}
-
-export interface IApp {
-  device: {
-    width: number;
-    height: number;
-    margin: number;
-    mobile: boolean;
-    isIOS: boolean;
-    isAndroid: boolean;
-  };
-  alert: IAppAlert;
-  drawers: IAppDrawers;
 }
 
 export interface IBaseTextAreaProps {
@@ -263,4 +214,17 @@ export type IHtmlParserDataProps = HTMLAttributes & {
   wrapperClass?: string, 
   dataId?: string, 
   ['data-id']?: string 
+}
+
+
+export interface IBaseComboxBoxProps {
+  options: string[];
+  id?: string;
+  disabled?: boolean;
+  isAutoSelect?: boolean;
+  disableSearch?: boolean;
+  required?: boolean;
+  label?: string;
+  labelClass?: string;
+  icon?: string | object;
 }

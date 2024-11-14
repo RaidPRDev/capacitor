@@ -30,6 +30,11 @@ const props = withDefaults(defineProps<IFavoriteToastProps>(), {});
 <style lang="scss" scoped>
 .icon {
   color: white;
+
+  .icon-fx, .icon-trans {
+    width: 48px;
+    svg { width: 100%; height: 100%; }
+  }
 }
 
 // first star scale in

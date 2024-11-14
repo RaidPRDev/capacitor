@@ -7,7 +7,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, inject } from 'vue';
-import { IApp, IAppDrawerComponents } from '@/ui/types';
+import { IApp, IAppDrawerComponents } from '@/types';
 import { APP_ID, APP_DRAWERS_ID } from '@/_core/Constants';
 
 interface IAppDrawersProps {

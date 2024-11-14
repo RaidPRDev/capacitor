@@ -13,13 +13,12 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 
 import { APP_ID } from '@/_core/Constants';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 import useSession from '@/store/session.module';
 import { storeToRefs } from 'pinia';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
-
 
 const session = useSession();
 const { hasCompletedTerms } = storeToRefs(session);

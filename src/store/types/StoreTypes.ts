@@ -2,7 +2,7 @@
  * Typescript types for stores
  * 
  */
-import { BranchViewData } from "@/ui/navigation/branching/types";
+import { BranchViewData } from "@/types";
 
 
 // PASS KEY /////////////////////

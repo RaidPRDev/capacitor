@@ -56,6 +56,8 @@ function onInput(event:Event | InputEvent)
 
   // invoke? input
   emit("input", target?.value as string);
+
+  props?.onInput && props?.onInput(props);
 }
 
 function onKeyPress(event:KeyboardEvent)
@@ -76,6 +78,8 @@ function onBlur(event:Event | InputEvent)
   event?.preventDefault();
 
   emit("focusOut", event);
+
+  props?.onBlur && props?.onBlur(props);
 }
 
 /**

@@ -9,6 +9,7 @@
     "useScroll": true,
     "showFavorites": true,
     "isRootParent": true,
+    "sort": "ByActive",
     "items": [
       {
         "label": "Anticoagulants",

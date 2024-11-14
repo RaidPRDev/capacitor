@@ -1,20 +1,24 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, provide, reactive, shallowReactive } from "vue";
+import { useDevice } from "@/plugins/Device";
+import useSession from "@/store/session.module";
+import AppToaster from "@/ui/notifications/toaster/AppToaster.vue";
+import RedGradientSVG from '@/components/redgradient/RedGradientSVG.vue';
 
 import { APP_BODY_ID, APP_DRAWERS_ID, APP_ID } from "@/_core/Constants";
-import { IAppProvider, IAppProviderDeviceProps, IDrawerPosition } from "@/types";
-import { IApp, IAppDrawerComponents } from "@/ui/types";
+import { 
+  IApp, 
+  IAppDrawerComponents, 
+  IAppProvider, 
+  IAppProviderDeviceProps, 
+  IDrawerPosition 
+} from "@/types";
 
 import AppDrawers from "@/_core/AppDrawers.vue";
 import AppAlert from "@/_core/AppAlert.vue";
 import AppNavigator from "@/_core/AppNavigator.vue";
-import AppToaster from "@/ui/notifications/toaster/AppToaster.vue";
-import useAppStyles from "@/_core/AppStyles";
-import useSession from "@/store/session.module";
-import { useDevice } from "@/plugins/Device";
-
-import RedGradientSVG from '@/components/RedGradientSVG.vue';
 import AppDev from "./_core/AppDev.vue";
+import AppStyles from "@/_core/AppStyles";
 
 // App Provider
 const app = reactive<IAppProvider>({ 
@@ -47,7 +51,7 @@ const session = useSession();
 // Init Device and Styles
 const renderCount = ref(false);
 const device = useDevice();
-const { styles: appStyles } = useAppStyles({ app, device });
+const { styles: appStyles } = AppStyles({ app, device });
 
 /**
  * 

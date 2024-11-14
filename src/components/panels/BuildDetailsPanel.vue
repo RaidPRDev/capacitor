@@ -13,7 +13,7 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 
 import { APP_ID } from '@/_core/Constants';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
 import { useDevice } from '@/plugins/Device';
@@ -23,7 +23,7 @@ import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
 
 const APP_VERSION = import.meta.env.APP_VERSION;
-const BUILD_VERSION = import.meta.env.BUILD_VERSION;
+const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const BUILD_DATE = import.meta.env.BUILD_DATE;
 const BUILD_PHASE = import.meta.env.BUILD_PHASE;
 
@@ -53,7 +53,7 @@ function generateCopy(): string {
   
   const content = `
 App Version: ${APP_VERSION}
-Build Number: ${BUILD_VERSION}
+Build Number: ${BUILD_NUMBER}
 Build Type: ${BUILD_PHASE}
 Date Published: ${dateLabel}
 \nDEVICE:
@@ -144,7 +144,7 @@ onMounted(() => {
         <div class="inner-scroller pxb-80 select-text">
 
           <div><p>App Version: <b>{{ `${APP_VERSION}` }}</b></p></div>
-          <div><p>Build Number: <b>{{ `${BUILD_VERSION}` }}</b></p></div>
+          <div><p>Build Number: <b>{{ `${BUILD_NUMBER}` }}</b></p></div>
           <div><p>Build Type: <b>{{ `${BUILD_PHASE}` }}</b></p></div>
           <div><p>Date Published: <b>{{ `${dateLabel}` }}</b></p></div>
           

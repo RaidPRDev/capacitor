@@ -1,7 +1,5 @@
 *.log
 node_modules
 .env
-!dist/assets/elso_logo.png
-dist/assets/index*
-dist/assets/fonts/helveticaneue*
-dist/assets/data*
+dist/*
+!dist/README.md

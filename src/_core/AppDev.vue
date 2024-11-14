@@ -11,7 +11,7 @@ import { useRoute } from 'vue-router';
 import { APP_ID } from '@/_core/Constants';
 import useAppStore from '@/store/app.module';
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 import { copyToClipboard } from '@/utils/StringTools';
 
 interface IAppDevProps {

@@ -1,5 +1,5 @@
 import { computed, ref } from 'vue';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 import { IDevice } from '@/plugins/Device';
 
 const DEBUG = false;

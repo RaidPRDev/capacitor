@@ -8,7 +8,8 @@ export default {
 <script setup lang="ts">
 import { ComponentPublicInstance, computed, inject, ref, VueElement } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
-import { IApp, IAppScreenProps, IButtonGroupSelected } from "@/ui/types";
+import { IButtonGroupSelected } from "@/ui/types";
+import { IApp, IAppScreenProps } from "@/types";
 
 import BaseScreen from "@/ui/panels/BaseScreen.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";

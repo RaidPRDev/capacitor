@@ -9,26 +9,22 @@
     "useScroll": true,
     "isRootParent": true,
     "showFavorites": true,
+    "sort": "ByActive",
     "items": [
-      {
-        "label": "All Checklists (Alphabetical)",
-        "branchTo": "ELSOBA_CHKLST_CAT1",
-        "class": "disabled"
-      },
       {
         "label": "Anticoagulation",
         "branchTo": "ELSOBA_CHKLST_CAT2",
-        "class": ""
+        "class": "disabled"
       },
       {
         "label": "Cannulation",
         "branchTo": "ELSOBA_CHKLST_CAT3",
-        "class": ""
+        "class": "disabled"
       },
       {
         "label": "ECMO Complications",
         "branchTo": "ELSOBA_CHKLST_CAT4",
-        "class": ""
+        "class": "disabled"
       },
       {
         "label": "ECMO Management",
@@ -47,7 +43,7 @@
       {
         "label": "Initiating ECMO",
         "branchTo": "ELSOBA_CHKLST_CAT8",
-        "class": ""
+        "class": "disabled"
       },      
       {
         "label": "Team Dynamics",
@@ -62,12 +58,12 @@
       {
         "label": "Weaning ECMO",
         "branchTo": "ELSOBA_CHKLST_CAT11",
-        "class": ""
+        "class": "disabled"
       },
       {
         "label": "Precedures on ECMO",
         "branchTo": "ELSOBA_CHKLST_CAT12",
-        "class": ""
+        "class": "disabled"
       }   
     ]
   },
@@ -402,6 +398,7 @@
       {
         "label": "Sample #1",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -434,6 +431,7 @@
       {
         "label": "Sample #2",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -466,6 +464,7 @@
       {
         "label": "Sample #3",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -498,6 +497,7 @@
       {
         "label": "Sample #4",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -530,6 +530,7 @@
       {
         "label": "Sample #5",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -562,6 +563,7 @@
       {
         "label": "Sample #6",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -594,6 +596,7 @@
       {
         "label": "Sample #7",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -626,6 +629,7 @@
       {
         "label": "Sample #8",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -658,6 +662,7 @@
       {
         "label": "Sample #9",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -690,6 +695,7 @@
       {
         "label": "Sample #10",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -733,6 +739,7 @@
       {
         "label": "Drainage Tubing",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -765,6 +772,7 @@
       {
         "label": "Secondary Drainage Tubing*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -801,6 +809,7 @@
       {
         "label": "Vent Line*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -837,6 +846,7 @@
       {
         "label": "Return Tubing",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -869,6 +879,7 @@
       {
         "label": "Distal Perfusion Cannula Line*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -905,6 +916,7 @@
       {
         "label": "Secondary Return Tubing*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -941,6 +953,7 @@
       {
         "label": "Drainage Cannula Insertion Site",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -973,6 +986,7 @@
       {
         "label": "Secondary Drainage Cannula Insertion Site*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1005,6 +1019,7 @@
       {
         "label": "Return Cannula Insertion Site",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1037,6 +1052,7 @@
       {
         "label": "Secondary Return Cannula Insertion Site*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1069,6 +1085,7 @@
       {
         "label": "Distal Perfusion Cannula Insertion Site*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1101,6 +1118,7 @@
       {
         "label": "Vent Insertion Site*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1133,6 +1151,7 @@
       {
         "label": "Display/Driving Unit",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1195,6 +1214,7 @@
       {
         "label": "Flow Meter/Bubble Sensor",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1227,6 +1247,7 @@
       {
         "label": "Secondary Flow Meter/Bubble Sensor*",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1259,6 +1280,7 @@
       {
         "label": "Pumphead",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1291,6 +1313,7 @@
       {
         "label": "Heater Unit or Heater-Cooler Unit",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
@@ -1319,6 +1342,7 @@
       {
         "label": "Membrane Lung",
         "layout": "checklist",
+        "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "keywords": "circuit; monitoring; tubing; cannulation; cannula; distal perfusion; insertion site; display unit; bubble sensor; membrane lung; flow meter; heater unit; heater-cooler unit; driving unit; secondary; vent line",
@@ -1354,6 +1378,7 @@
         "label": "Step 1: You suspect the need for coming off emergently",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Call for help", "checked": false },
           { "label": "Alert and/or activate the ECLS and the ICU teams", "checked": false }
@@ -1363,6 +1388,7 @@
         "label": "Step 2: Identify the need for coming off emergently",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { 
             "label": "If at least one of the following is true:", 
@@ -1382,6 +1408,7 @@
         "label": "Step 3: Cannula Management",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { 
             "label": "Coming off Emergently:", 
@@ -1415,6 +1442,7 @@
         "label": "Step 4: Circuit Management",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { 
             "label": "If the circuit is NOT functional OR no longer required:", 
@@ -1435,6 +1463,7 @@
         "label": "Step 5: Post-Coming Off Management",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Optimize conventional respiratory and/or circulatory support as needed", "checked": false },
           { "label": "Strictly monitor the patient", "checked": false },
@@ -1474,6 +1503,7 @@
       {
         "label": "Cannulas and Cannulation Procedure (including DPC insertion)",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Peripheral drainage cannulas of various sizes/lengths*", "checked": false },
           { "label": "Peripheral return cannulas of various sizes/lengths*", "checked": false },
@@ -1501,6 +1531,7 @@
       {
         "label": "Tubings and Connectors (in sterile single packs)",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "⅜-⅜ straight connectors", "checked": false },
           { "label": "¼-¼ straight connectors", "checked": false },
@@ -1518,6 +1549,7 @@
       {
         "label": "Miscellaneous IV-Related Components",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "General 3-way stopcocks", "checked": false },
           { "label": "3-way stopcocks with extension tubing of different lengths (10-100 cm)", "checked": false },
@@ -1539,6 +1571,7 @@
       {
         "label": "Surgical Instruments",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Sterile tubing clamps (>6)", "checked": false },
           { "label": "Sterile tubing scissors for emergency circuit exchange or reconfiguration", "checked": false },
@@ -1555,6 +1588,7 @@
       {
         "label": "Fluids and Medications",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Heparin or alternative anticoagulant per center institutional policy", "checked": false },
           { "label": "Sterile saline flushes", "checked": false },
@@ -1568,6 +1602,7 @@
     "title": "Gas Supply Interruption",
     "content": "Complete this checklist if a gas supply interruption is suspected.",
     "layout": "checklist",
+    
     "keywords": "Gas; Supply; Interruption",
     "doc": "https://drive.google.com/file/d/165mIj1G8mf477rSXyivAvyKs2JMzXQRr/view?usp=drive_link",
     "showFavorites": true,
@@ -1575,6 +1610,7 @@
     "items": [
       {
         "layout": "checklist",
+        "type": "subchecklist",
         "label": "Evaluate the Drainage and Return Lines",
         "items": [
           { "label": "Evaluate the drainage and return lines using a flashlight", "checked": false },
@@ -1613,13 +1649,13 @@
                   { "label": "Weaning test is NOT ongoing in VV/VP ECMO", "checked": false }
                 ]
               },
-              { "label": "Fraction of Oxygen in the SGF (FsO2) is above 21 and appropriate for the specific patient/configuration", "checked": false },
-              { "label": "Blender/wall connection for O2", "checked": false },
+              { "label": "Fraction of Oxygen in the SGF (FsO₂) is above 21 and appropriate for the specific patient/configuration", "checked": false },
+              { "label": "Blender/wall connection for O₂", "checked": false },
               { "label": "Blender/wall connection for air", "checked": false }
             ] 
           },
           { 
-            "label": "If the O2 cylinder or air/O2 cylinders are in use:", "checked": false,
+            "label": "If the O₂ cylinder or air/O₂ cylinders are in use:",
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
@@ -1628,9 +1664,9 @@
               { "label": "Gas filter is intact", "checked": false },
               { "label": "Gas line is connected to the cylinder", "checked": false },
               { "label": "Gas line is connected to the Y connector*", "checked": false },
-              { "label": "Line after the Y connector is connected to air/O2 cylinders*", "checked": false },
-              { "label": "O2 cylinder open", "checked": false },
-              { "label": "O2 cylinder full", "checked": false },
+              { "label": "Line after the Y connector is connected to air/O₂ cylinders*", "checked": false },
+              { "label": "O₂ cylinder open", "checked": false },
+              { "label": "O₂ cylinder full", "checked": false },
               { "label": "Air cylinder open*", "checked": false },
               { "label": "Air cylinder full*", "checked": false }
             ]
@@ -1646,6 +1682,7 @@
       {
         "label": "Cause is Detected",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Fix as required", "checked": false },
           { 
@@ -1668,8 +1705,9 @@
       {
         "label": "Cause is NOT Detected",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
-          { "label": "Increase FsO2 to 100% until the issue is resolved", "checked": false },
+          { "label": "Increase FsO₂ to 100% until the issue is resolved", "checked": false },
           { "label": "Confirm that there is a persistent lack of color difference between the tubing entering and exiting the ML by using a flashlight", "checked": false },
           { "label": "Confirm that gas exchange though pre/post-ML blood sampling is NOT consistent with the device and gas blender settings", "checked": false },
           { 
@@ -1695,10 +1733,12 @@
         "label": "Basic Patient Information",
         "branchTo": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Identification",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Patient full name", "checked": false },
               { "label": "Room and bed numbers", "checked": false },
@@ -1714,6 +1754,7 @@
           {
             "label": "Isolation requirement",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "NO", "checked": false },
               { "label": "YES—preemptive", "checked": false },
@@ -1727,10 +1768,12 @@
         "id": "ELSOBA_CHKLST_090-20",
         "label": "ECMO Assessment",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Cannulas",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Size and length for each cannula", "checked": false },
               { "label": "Insertion sites including the appearance", "checked": false },
@@ -1741,6 +1784,7 @@
           {
             "label": "Settings",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Size and length for each cannula", "checked": false },
               { "label": "Insertion sites including the appearance", "checked": false },
@@ -1751,12 +1795,13 @@
           {
             "label": "Settings",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Revolutions per minute (RPM)", "checked": false },
               { "label": "Target extracorporeal blood flow (EBF)", "checked": false },
               { "label": "Current mean EBF range", "checked": false },
               { "label": "Sweep gas flow (SGF)", "checked": false },
-              { "label": "Fraction of O2 in the sweep gas flow (FsO2)", "checked": false },
+              { "label": "Fraction of O₂ in the sweep gas flow (FsO₂)", "checked": false },
               { "label": "Set heater unit (HU) or heater-cooler unit (HCU) water temperature", "checked": false },
               { "label": "Blood temperature", "checked": false },
               { "label": "Alarms", "checked": false },
@@ -1767,6 +1812,7 @@
           {
             "label": "Circuit Status",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Presence of clots or fibrin strands", "checked": false },
               { "label": "Current mean circuit pressures", "checked": false },
@@ -1781,22 +1827,25 @@
         "id": "ELSOBA_CHKLST_090-30",
         "label": "POCT and Laboratory Data",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Latest Arterial Blood Gas Analysis (ABG)",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
-              { "label": "Arterial partial pressure of oxygen (PaO2)", "checked": false },
-              { "label": "Ratio of PaO2 and Fraction of inspired O2 (FiO2)", "checked": false },
-              { "label": "Arterial partial pressure of carbon dioxide (PaCO2)", "checked": false },
+              { "label": "Arterial partial pressure of oxygen (PaO₂)", "checked": false },
+              { "label": "Ratio of PaO₂ and Fraction of inspired O₂ (FiO₂)", "checked": false },
+              { "label": "Arterial partial pressure of carbon dioxide (PaCO₂)", "checked": false },
               { "label": "HCO3 (bicarbonates)", "checked": false },
-              { "label": "Arterial O2 saturation (SaO2)", "checked": false },
+              { "label": "Arterial O₂ saturation (SaO₂)", "checked": false },
               { "label": "Lactate", "checked": false }
             ]                  
           },
           {
             "label": "Coagulation",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Activated clotting time (ACT)", "checked": false },
               { "label": "Anti-activated factor X (Anti-Xa)", "checked": false },
@@ -1808,6 +1857,7 @@
           {
             "label": "Other Blood Tests",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Complete blood count (CBC)", "checked": false },
               { "label": "Electrolytes", "checked": false },
@@ -1820,6 +1870,7 @@
           {
             "label": "Microbiology Data",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Bronchoalveolar lavage (BAL)", "checked": false },
               { "label": "Blood culture(s) including sampling site(s)", "checked": false },
@@ -1842,10 +1893,12 @@
         "id": "ELSOBA_CHKLST_090-40",
         "label": "Patient Assessment",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Neurological Status",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Level of consciousness", "checked": false },
               { "label": "Motor response", "checked": false },
@@ -1870,6 +1923,7 @@
           {
             "label": "Hemodynamics",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Arterial blood pressure (ABP)", "checked": false },
               { "label": "Pulse pressure (PP)", "checked": false },
@@ -1900,22 +1954,24 @@
           {
             "label": "Respiratory Support",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Include settings", "type": "comment" },
               { "label": "Invasive mechanical ventilation (IMV)", "checked": false },
               { "label": "Neuromuscular blocking agents (NMBAs)", "checked": false },
               { "label": "Inhaled nitric oxide (iNO)", "checked": false },
               { "label": "Non-invasive mechanical ventilation (NIMV)", "checked": false },
-              { "label": "High flow nasal O2 (HFNO)", "checked": false },
-              { "label": "Low flow O2", "checked": false },
-              { "label": "No O2", "checked": false },
+              { "label": "High flow nasal O₂ (HFNO)", "checked": false },
+              { "label": "Low flow O₂", "checked": false },
+              { "label": "No O₂", "checked": false },
               { "label": "Prone positioning (include timing)", "checked": false },
-              { "label": "Peripheral O2 saturation (SpO2)", "checked": false }
+              { "label": "Peripheral O₂ saturation (SpO₂)", "checked": false }
             ]                   
           },
           {
             "label": "Anticoagulation",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Anticoagulant type, dose, and recent changes or route", "checked": false },
               { "label": "Anticoagulant on hold, including rationale and timing", "checked": false }
@@ -1924,6 +1980,7 @@
           {
             "label": "Renal Function and Support",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Urinary output (UO)", "checked": false },
               { "label": "Fluid balance", "checked": false },
@@ -1934,6 +1991,7 @@
           {
             "label": "Metabolic Support",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Nutrition including dietary restrictions", "checked": false },
               { "label": "Enteral nutrition <br><span>If checked, open Notes and add the type, dose, route, NG/NJ/OG/OJ/PEG/PEJ.</span>", "checked": false },
@@ -1944,6 +2002,7 @@
           {
             "label": "Other Relevant Medications",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Fluids", "checked": false },
               { "label": "Antibiotics", "checked": false },
@@ -1953,6 +2012,7 @@
           {
             "label": "Rehabilitation Plan",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Physical therapy", "checked": false },
               { "label": "Other", "checked": false }
@@ -1961,6 +2021,7 @@
           {
             "label": "Recent Consults and/or Exams",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Yes", "checked": false },
               { "label": "No", "checked": false },
@@ -1973,6 +2034,7 @@
           {
             "label": "Complications",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Bleeding events <br><span>If checked, open Notes and enter the site, severity, and management of the bleeding.</span>", "checked": false },
               { "label": "Thrombosis (site, severity, management) <br><span>If checked, open Notes and enter the site, severity, and management of the thrombosis.</span>", "checked": false },
@@ -1985,10 +2047,12 @@
         "id": "ELSOBA_CHKLST_090-50",
         "label": "Multidisciplinary Team",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Multidisciplinary Team",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "ECMOlogist in charge", "checked": false },
               { "label": "Perfusionist", "checked": false },
@@ -2008,15 +2072,18 @@
         "id": "ELSOBA_CHKLST_090-60",
         "label": "Documentation",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Documentation",
             "layout": "checklist",
+            "type": "subchecklist",
             "items": [
               { "label": "Circuit monitoring checklists", "checked": false },
               { 
                 "label": "Latest monitoring completed by responsible ECMO specialist or perfusionist<br>End-of-life preferences:", 
                 "checked": false,
+                "type": "subchecklist",
                 "items": [
                   { "label": "Do not resuscitate order (DNR) if applicable in the country", "checked": false },
                   { "label": "Organ donation (OD), if applicable", "checked": false }
@@ -2140,6 +2207,7 @@
         "label": "Exclude a Gas Supply Interruption",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           {
             "label": "Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160'>Gas Supply Interruption</a> checklist. Once a gas supply interruption is ruled out, return to and complete this checklist.",
@@ -2182,27 +2250,27 @@
             "class": "",
             "items": [
               { "label": "Flush the gas line (Link to ML recruitment checklist)", "checked": false },
-              { "label": "Maximize sweep gas flow (SGF) and O2 fraction in the sweep gas flow (FsO2)", "checked": false },
+              { "label": "Maximize sweep gas flow (SGF) and O₂ fraction in the sweep gas flow (FsO₂)", "checked": false },
               { 
-                "label": "Sample the blood before and after the ML to assess the O2 uptake", 
+                "label": "Sample the blood before and after the ML to assess the O₂ uptake", 
                 "type": "subchecklist",
                 "layout": "checklist",
                 "checked": false, 
                 "items": [
-                  { "label": "Is there a decreased O2 uptake?", "checked": false },
-                  { "label": "Is the PPOST-ML O2 < 200 mmHg ?", "checked": false },
-                  { "label": "Is the V’O2 < 100-150 ml/min ? (link to calculator)", "checked": false }
+                  { "label": "Is there a decreased O₂ uptake?", "checked": false },
+                  { "label": "Is the PPOST-ML O₂ < 200 mmHg ?", "checked": false },
+                  { "label": "Is the V’O₂ < 100-150 ml/min ? (link to calculator)", "checked": false }
                 ]
               },
               { 
-                "label": "Assess CO2 removal", 
+                "label": "Assess CO₂ removal", 
                 "type": "subchecklist",
                 "layout": "checklist",
                 "checked": false,
                 "items": [
                   { "label": "Has it decreased?", "checked": false },
-                  { "label": "Is the PPOST-ML CO2 > 40 mmHg?", "checked": false },
-                  { "label": "Is the PPRE-ML CO2 – PPOST-ML CO2 < 10 mmHg?", "checked": false } 
+                  { "label": "Is the PPOST-ML CO₂ > 40 mmHg?", "checked": false },
+                  { "label": "Is the PPRE-ML CO₂ – PPOST-ML CO₂ < 10 mmHg?", "checked": false } 
                 ]
               },
               {
@@ -2386,6 +2454,7 @@
         "label": "Evaluate Membrane Lung Pressures and Blood Flow",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Assess pre-membrane lung (ML) pressure (PPRE-ML)", "checked": false },
           { "label": "Assess post-ML pressure (PPOST-ML)", "checked": false },
@@ -2429,6 +2498,7 @@
         "label": "Assess the Circuit",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Evaluate the return tubing. ", "type": "comment" },
           { "label": "Check for clamp (at initiation), kinking, or compression as a result of:", "checked": false },
@@ -2495,6 +2565,7 @@
         "label": "Assess the Return Cannula",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Evaluate the return cannula for clamp (at initiation) or kinking", "checked": false },
           { "label": "If an obstruction is detected on the external portion of the return cannula, release or remove.", "checked": false },
@@ -2640,6 +2711,7 @@
         "label": "Evaluate the Patient",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Look for signs of increased afterload to the blood return.", "type": "comment" },
           { "label": "<b>If you have a VA ECMO configuration</b>", "type": "comment" },
@@ -2652,6 +2724,7 @@
         "label": "If you have a VAV ECMO configuration",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "If YES, consider weaning.", "checked": false },
           { "label": "If NO or if any other VA ECMO cannulation strategy, check with ultrasound and/or fluoroscopy/CT according to the technique more readily available and according to local preferences for signs of arterial dissection", "checked": false }
@@ -2661,6 +2734,7 @@
         "label": "If you have a VV ECMO or VP configuration",
         "class": "",
         "layout": "checklist",
+        "type": "subchecklist",
         "items": [
           { "label": "Exclude tension pneumothorax, cardiac tamponade, or vascular thrombosis in the vessel or chamber where the return cannula is located", "checked": false },
           { "label": "If any clinical issue is detected, try to fix it as it is likely causing the return obstruction.", "checked": false }

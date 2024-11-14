@@ -37,6 +37,12 @@ b. Set Build Type to Development
 c. Set environment variables exposed to your build per platform.
 d. Press Build. If setup right, App Flow will upload to the Apple Dev Account Store via Testflight.
 
+
+# Generate Icons
+Ref: https://capacitorjs.com/docs/guides/splash-screens-and-icons
+npm install @capacitor/assets --save-dev
+npx capacitor-assets generate
+
 # References
 Ionic App Flow
 https://dashboard.ionicframework.com/org/4df82aa8-703e-4243-a310-fc777fe36d7f/apps

@@ -13,7 +13,7 @@ import BaseList from '@/ui/controls/BaseList.vue';
 import BaseInput from '@/ui/controls/BaseInput.vue';
 
 import { APP_ID } from '@/_core/Constants';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 
 // import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';

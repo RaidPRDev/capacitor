@@ -15,7 +15,7 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 
 import useSession from '@/store/session.module';
 import { APP_ID } from '@/_core/Constants';
-import { IApp } from '@/ui/types';
+import { IApp } from '@/types';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';

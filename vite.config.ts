@@ -7,8 +7,7 @@ import svgLoader from 'vite-svg-loader';
 import customHmr from "./src/plugins/customreload/CustomHmr";
 import { APP_HEADER_HEIGHT, BOTTOM_HEADER_NAV_HEIGHT } from "./constants";
 
-const { version: APP_VERSION } = require('./package.json');
-const BUILD_VERSION_FILE = "./build_version";
+const { version: APP_VERSION, build_number: APP_BUILD_NUMBER } = require('./package.json');
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({command, mode}) => {
@@ -16,7 +15,7 @@ export default defineConfig(async ({command, mode}) => {
   // set environment variables for VITE
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
   
-  const BUILD_VERSION = await getBuildVersion();
+  const BUILD_NUMBER = parseInt(APP_BUILD_NUMBER);
   const BUILD_DATE = Date.now();
   const BUILD_PHASE = 'Alpha';
   const PLATFORM = process?.env?.PLATFORM ?? "web";
@@ -26,7 +25,7 @@ export default defineConfig(async ({command, mode}) => {
   
   console.log("[PLATFORM]", PLATFORM);
   console.log("[APP_VERSION]", APP_VERSION);
-  console.log("[BUILD_VERSION]", BUILD_VERSION);
+  console.log("[BUILD_NUMBER]", BUILD_NUMBER);
   console.log("[BUILD_DATE]", new Date(BUILD_DATE));
   console.log("[ISMOBILE]", ISMOBILE);
   console.log("[ISIOS]", ISIOS);
@@ -37,7 +36,7 @@ export default defineConfig(async ({command, mode}) => {
       'import.meta.env.APP_VERSION': JSON.stringify(APP_VERSION),
       'import.meta.env.PLATFORM': JSON.stringify(PLATFORM),
       'import.meta.env.BUILD_DATE': JSON.stringify(new Date(BUILD_DATE)),
-      'import.meta.env.BUILD_VERSION': JSON.stringify(BUILD_VERSION),
+      'import.meta.env.BUILD_NUMBER': JSON.stringify(BUILD_NUMBER),
       'import.meta.env.BUILD_PHASE': JSON.stringify(BUILD_PHASE),
       'import.meta.env.ISMOBILE': ISMOBILE,
       'import.meta.env.IOS': ISIOS,
@@ -83,10 +82,3 @@ export default defineConfig(async ({command, mode}) => {
     },
   })
 });
-
-async function getBuildVersion() {
-  // Build Version File - 
-  const data = await fs.readFile(BUILD_VERSION_FILE, 'utf8');
-  const parsedData = parseInt(data);
-  return parsedData;
-}

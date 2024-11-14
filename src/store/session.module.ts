@@ -1,11 +1,11 @@
 import { capitalizeFirstLetter } from '@/utils/StringTools';
 import { defineStore } from 'pinia';
 import useChecklistStore from "@/store/checklist.module";
-import useFavoritesStore from "@/store/favorites.module";
+// import useFavoritesStore from "@/store/favorites.module";
 import useBranchingStore from "@/store/branching.module";
 
 const APP_VERSION = import.meta.env.APP_VERSION;
-const BUILD_VERSION = import.meta.env.BUILD_VERSION;
+const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const BUILD_PHASE = import.meta.env.BUILD_PHASE;
 const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
 
@@ -22,7 +22,7 @@ interface ISession {
 
 const initialState: ISession = {
   appVersion: APP_VERSION,
-  buildVersion: BUILD_VERSION,
+  buildVersion: BUILD_NUMBER,
   buildPhase: BUILD_PHASE,
   currentIndex: 0,
   loggedIn: false,
@@ -50,7 +50,7 @@ export const useSession = defineStore('session', {
 
   actions: {
     initSession() {
-      const favoritesStore = useFavoritesStore();
+      // const favoritesStore = useFavoritesStore();
       const checklistStore = useChecklistStore();
       const branchingStore = useBranchingStore();
 
@@ -58,10 +58,10 @@ export const useSession = defineStore('session', {
         console.log("App Version update found.");
         this.$state.appVersion = APP_VERSION;
       }
-      if (parseInt(this.buildVersion!) !== BUILD_VERSION) {
+      if (parseInt(this.buildVersion!) !== BUILD_NUMBER) {
         console.log("Build Version update found.");
-        this.$state.buildVersion = BUILD_VERSION;
-        favoritesStore.clearItems();
+        this.$state.buildVersion = BUILD_NUMBER;
+        // favoritesStore.clearItems();
         checklistStore.clearItems();
         branchingStore.clearItems();
         this.$state.hasCompletedDisclaimer = false;

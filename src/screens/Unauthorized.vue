@@ -9,9 +9,9 @@ export default {
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import FullScreen from "@/ui/panels/FullScreen.vue";
-import Input from '@/components/Input.vue';
+import Input from '@/components/passkeyinput/PasskeyInput.vue';
 import ButtonGroup from "@/ui/controls/ButtonGroup.vue";
-import ActionButton from '@/components/ActionButton.vue';
+import ActionButton from '@/components/actionbutton/ActionButton.vue';
 import usePassKey from "@/store/passkey.module";
 // import useSession from "@/store/session.module";
 

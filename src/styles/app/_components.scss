@@ -143,6 +143,58 @@
 }
 
 //////////
+/// ComboBox
+.base-combobox {
+  .ui-combo-label {
+    font-weight: 700;
+    font-size: inherit;
+  }
+  .ui-combo-input-field {
+    padding: 0;
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid #BEBEBE;
+    box-shadow: 0px 6px 20px -13px rgba(11, 36, 122, 0.4);
+  }
+  .ui-combo-input {
+    padding: 10px 12px;
+    color: #0B247A;
+    font-weight: 800;
+    font-size: 24px;
+  }
+  .ui-combo-input-icon {
+    position: absolute;
+    right: 20px;
+
+    .icon-element {
+      transform: rotate(90deg);
+      width: 19px;
+      display: flex;
+      margin-top: -9px;
+    }
+  }
+}
+.ui-combo-modal {
+  background: none;
+  background-image: url(/assets/images/overlay_shadow.png);
+  background-repeat: repeat;
+
+  .ui-combo-panel {
+    @include use-scroller-styles();
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    max-height: 260px;
+    width: 300px;
+  }
+  .ui-combo-panel li {
+    padding: 20px 8px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+
+//////////
 /// Favorites Heading Button
 .favorites-head-button {
   width: 50px;
@@ -189,7 +241,6 @@
     svg { opacity: 0.75 }
   }
 }
-
 
 //////////
 /// Blue Menu Item
@@ -251,7 +302,9 @@
   }
 }
 
-// textarea element container
+//////////
+/// TextArea Element Field
+/// 
 .base-textarea-field {
   border: 1px solid #d8d6de;
   border-radius: $global-radius;
@@ -266,7 +319,9 @@
   }
 }
 
-// textarea element
+//////////
+/// TextArea Element
+/// 
 .base-textarea-element {
   padding: 1rem;
   font-family: $primary-font-family, "Helvetica";
@@ -279,7 +334,9 @@
   @include setInputPlaceholder($primary-font-family, rgba($primary-color, 50%));
 }
 
-// HTML Content Template
+//////////
+/// HTML Content Template
+/// 
 .html-action-button {
   box-shadow: 2px 10px 40px -13px rgba(11, 36, 122, 0.8);
   @extend .blue-menu-item;
