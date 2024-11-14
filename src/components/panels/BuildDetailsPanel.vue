@@ -252,7 +252,6 @@ onMounted(() => {
   }
 
   :deep(.inner-panel) {
-    // background-color: rgba(white, .95);
     background-color: white;
 
     .base-header {
@@ -261,32 +260,21 @@ onMounted(() => {
         height: 54px;
       }
     }
-
-    .variant-red {
-      box-shadow: 0px 0px 12px 0px #0B247A26;
-
-      &.cancel {
-        opacity: 1;
-        .inner-base-button {
-          background: $fourth-color;
-        }
-      }
-    }
   }
 
   // Does not work in chrome
-  html:not(.desktop) & {
-    :deep(.inner-panel) {
-      background-color: rgba(white, .85);
-      backdrop-filter: blur(10px);
-    }
-  }
+  // html:not(.desktop) & {
+  //   :deep(.inner-panel) {
+  //     background-color: rgba(white, .85);
+  //     backdrop-filter: blur(10px);
+  //   }
+  // }
 }
 
 .copy-btn {
   :deep(.inner-base-button) {
     .ui-background {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: lightgray;
     }
     .ui-label {
       font-size: 12px;
