@@ -66,28 +66,28 @@ function onMenuTriggered(selected: number) {
   app.drawers.left.open = !app.drawers.left.open;
   
   switch (selected) {
-    case 0: // Bedside App Help
-      drawerComponents.bottom = ElsoHelpPanel;
-      app.drawers.bottom.props = { name: "bedside-app-help" }
-      app.drawers.bottom.closeOutside = false;
-      app.drawers.bottom.open = !app.drawers.bottom.open;
-    break;
+    // case 0: // Bedside App Help
+    //   drawerComponents.bottom = ElsoHelpPanel;
+    //   app.drawers.bottom.props = { name: "bedside-app-help" }
+    //   app.drawers.bottom.closeOutside = false;
+    //   app.drawers.bottom.open = !app.drawers.bottom.open;
+    // break;
 
-    case 1: // Terms
+    case 0: // Terms
       drawerComponents.bottom = TermsAndConditionsPanel;
       app.drawers.bottom.props = { name: "terms" }
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     break;
 
-    case 2: // Privacy
+    case 1: // Privacy
       drawerComponents.bottom = PrivacyPolicyPanel;
       app.drawers.bottom.props = { name: "privacy-policy" }
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     break;
     
-    case 3: // Resources
+    case 2: // Resources
       // drawerComponents.bottom = ResourcesPanel;
       // app.drawers.bottom.props = { name: "resources" }
       // app.drawers.bottom.closeOutside = false;
@@ -95,7 +95,7 @@ function onMenuTriggered(selected: number) {
       router.push({ name: 'Resources'});
     break;
     
-    case 4: // Feedback
+    case 3: // Feedback
       // drawerComponents.bottom = SendFeedbackPanel;
       // app.drawers.bottom.closeOutside = false;
       // app.drawers.bottom.open = !app.drawers.bottom.open;

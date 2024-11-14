@@ -37,7 +37,7 @@ import SearchIcon from '@/assets/icons/search-icon.svg';
 import HomeIcon from '@/assets/icons/home-icon.svg';
 import NotesIcon from '@/assets/icons/homeMenu/notes-icon.svg';
 import PanicIcon from '@/assets/icons/panic-red-icon.svg';
-import FavoritesIcon from '@/assets/icons/favorites-star-line-icon.svg';
+import FavoritesIcon from '@/assets/icons/favorites-star-solid.svg';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppScreenProps>(), {}) 

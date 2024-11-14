@@ -22,14 +22,30 @@ http://localhost:3005/
 ## Deploy Service
 https://ionic.io/appflow
 
-### 1. Generate new build number
+### Generate new iOS XCode Project
+npx cap add ios
+
+Note: Ensure the following key is added to the app plist file
+<key>ITSAppUsesNonExemptEncryption</key>
+<false/>
+
+Also, make sure the app does not support device orientation, only portrait
+<key>UISupportedInterfaceOrientations</key>
+<array>
+  <string>UIInterfaceOrientationPortrait</string>
+</array>
+
+### Generate new Android XCode Project
+npx cap add ios
+
+### Generate new build number
 The **Build Version Number** is used on iOS and Android services.  These are considered for minor updates. 
 While the Project Version is used for mayor updates.
 ```npm run build_version```
 
-### 2. Upload to Github/Gitlab
+### Upload to Github/Gitlab
 
-### 3. Use App Flow to launch iOS and Android builds.
+### Use App Flow to launch iOS and Android builds.
 
 ### Development distribution flow 
 a. Select the Target Device - iOS or Android
