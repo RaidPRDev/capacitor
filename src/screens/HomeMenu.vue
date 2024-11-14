@@ -59,7 +59,7 @@ function onMenuTriggered(index:number) {
 
 <template>
   <div class="width-100">
-    <div class="title mxl-26 mxb-18">ECMO Bedside Guide</div>
+    <div class="title mxl-26 mxb-18">ECMO Bedside Guide (Beta)</div>
     <div class="subtitle mxl-26 mxb-14">Select a tile that fits your needs.</div>
     <div class="grid grid-50 gapx-20 width-100 pxl-20 pxr-20 width-100"  v-bind="{ ...attrs }">
     <template v-for="(item, index) in menuItems" :key="`home-menu-nav-${index}`">
