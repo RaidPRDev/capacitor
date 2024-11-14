@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.ecmo.bedside"
+    namespace "com.sweetrush.staging.elso"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.ecmo.bedside"
+        applicationId "com.sweetrush.staging.elso"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 46
+        versionCode 47
         versionName "0.7.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {

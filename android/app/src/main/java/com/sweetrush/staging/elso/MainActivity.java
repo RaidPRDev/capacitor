@@ -1,4 +1,4 @@
-package com.ecmo.bedside;
+package com.sweetrush.staging.elso;
 
 import com.getcapacitor.BridgeActivity;
 

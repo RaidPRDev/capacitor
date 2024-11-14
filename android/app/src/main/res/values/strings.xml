@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">elso</string>
-    <string name="title_activity_main">elso</string>
-    <string name="package_name">com.ecmo.bedside</string>
-    <string name="custom_url_scheme">com.ecmo.bedside</string>
+    <string name="app_name">ECMO Bedside Guide (Beta)</string>
+    <string name="title_activity_main">ECMO Bedside Guide (Beta)</string>
+    <string name="package_name">com.sweetrush.staging.elso</string>
+    <string name="custom_url_scheme">com.sweetrush.staging.elso</string>
 </resources>
