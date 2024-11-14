@@ -151,7 +151,7 @@ onMounted(() => {
         :class="`menu-item width-100`" 
         :innerClassName="`px-20 justify-center gapx-10`"
         :bodyClassName="`text-left`"
-        :label="`Version: ${APP_VERSION} | Build: ${BUILD_NUMBER} | ${PLATFORM_NAME}`"
+        :label="`Version: ${APP_VERSION} | Build: ${BUILD_NUMBER} | ${PLATFORM_NAME} (Beta)`"
         :triggerCallback="(_data) => {
           drawerComponents.bottom = BuildDetailsPanel;
           app.drawers.bottom.props = {
