@@ -19,7 +19,7 @@ import { IApp, IAppDrawerComponents } from '@/types';
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
 // import SendFeedbackPanel from "@/components/panels/SendFeedbackPanel.vue";
-import ElsoHelpPanel from "@/components/panels/ElsoHelpPanel.vue";
+// import ElsoHelpPanel from "@/components/panels/ElsoHelpPanel.vue";
 
 import CloseIcon from '@/assets/icons/close-icon.svg';
 import Logo from '/assets/elso_logo.png';
