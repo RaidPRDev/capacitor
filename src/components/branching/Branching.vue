@@ -196,23 +196,32 @@ function handleTriggered(dataProps: any) {
     console.error("no data id or type");
     return;
   }
+  
+  
+  if (!dataProps.hasOwnProperty("data-no-referral")) {
+    // get root view
+    const refferredRootView = getBranchRootView();
 
-  // get root view
-  const refferredRootView = getBranchRootView();
-
-  addReferrallView({
-    id: currentView?.value?.id, 
-    dataType: currentDataType,
-    title: refferredRootView?.title,
-    subTitle: currentView?.value?.title || currentView?.value?.heading,
-    fullPath: `${route.fullPath}`,
-  })
+    addReferrallView({
+      id: currentView?.value?.id, 
+      dataType: currentDataType,
+      title: refferredRootView?.title,
+      subTitle: currentView?.value?.title || currentView?.value?.heading,
+      fullPath: `${route.fullPath}`,
+    })
+  }
   
   const dataType = dataProps['data-type'];
   const baseRoutePath = props?.baseRoutePath?.length! > 0 ? `/${props?.baseRoutePath}` : ``;
   if (DEBUG) console.log("  dataType", dataType);
   switch (dataType) {
+    case "resources":
+      router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
+    break;
     case "panic":
+      router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
+    break;
+    case "ecmo":
       router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
     break;
     case "equipment":

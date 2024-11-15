@@ -14,6 +14,7 @@ const SEARCH_JSON_DATA_FILE = "search_compiled.json";
 let searchData: Array<ISearchData> = [];
 
 const DATA = [
+  `ecmo`,
   `panic`,
   `checklists`,
   `medications`,
@@ -82,7 +83,7 @@ export async function startJSONCompiler() {
     await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
   }
 
-  
+  // TODO FIX 
   // for (let i = 0; i < DATA.length; i++) {
   //   await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
   // }

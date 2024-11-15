@@ -24,7 +24,7 @@ const attrs = useAttrs();
 const router = useRouter();
 
 const menuItems = [
-  { label: "ECMO<br>Candidacy", icon: MedicalBedIcon, class: "disabled" },
+  { label: "ECMO<br>Candidacy", icon: MedicalBedIcon, class: "" },
   { label: "Calculators", icon: CalculatorIcon, class: "" },
   { label: "Equipment", icon: WrenchIcon, class: "" },
   { label: "Medication", icon: TimePillIcon, class: "" },
@@ -35,7 +35,7 @@ const menuItems = [
 function onMenuTriggered(index:number) {
   switch (index) {
     case 0:   // Ecmo Candadacy
-      // router.push({ name:"Branching" });
+      router.push({ name:"EcmoCandidacy" });
     break;
     case 1:   // Calculators
       router.push({ name: "Calculators" });

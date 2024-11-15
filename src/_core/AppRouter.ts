@@ -12,6 +12,7 @@ import Medication from '@/screens/Medication.vue';
 import Calculators from '@/screens/Calculators.vue';
 import Equipment from '@/screens/Equipment.vue';
 import Resources from '@/screens/Resources.vue';
+import EcmoCandidacy from '@/screens/EcmoCandidacy.vue';
 
 import Template from '@/screens/demo/Template.vue';
 import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
@@ -36,6 +37,7 @@ const routes = [
     { path: '', name: "Home", component: HomeMenu, meta: { ...defaultTransition } },
     { path: 'notes', name: "Notes", component: Notes, meta: { ...defaultTransition } },
     { path: 'circuit', name: "MyCircuit", component: MyCircuit, meta: { ...defaultTransition } },
+    { path: 'ecmo/:id(.*)?', name: "EcmoCandidacy", component: EcmoCandidacy, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'panic/:id(.*)?', name: "Panic", component: Panic, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'checklists/:id(.*)?', name: "Checklists", component: Checklists, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'medications/:id(.*)?', name: "Medication", component: Medication, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },

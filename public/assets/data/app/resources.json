@@ -19,6 +19,26 @@
         "label": "Membrane Lung Failure",
         "branchTo": "ELSOBA_RES_020",
         "class": ""
+      },
+      {
+        "label": "Adults with Cardiac Failure",
+        "branchTo": "ELSOBA_RES_030",
+        "class": ""
+      },
+      {
+        "label": "Adults with Cardiac Arrest (ECPR)",
+        "branchTo": "ELSOBA_RES_040",
+        "class": ""
+      },  
+      {
+        "label": "Children with Cardiac Failure",
+        "branchTo": "ELSOBA_RES_050",
+        "class": ""
+      },   
+      {
+        "label": "Children with Cardiac Arrest (ECPR)",
+        "branchTo": "ELSOBA_RES_060",
+        "class": ""
       }   
     ]
   },
@@ -36,6 +56,46 @@
     "id": "ELSOBA_RES_020",
     "title": "Membrane Lung Failure Resources",
     "content": "resources/ELSOBA_RES_020.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_030",
+    "title": "Adults with Cardiac Failure",
+    "content": "resources/ELSOBA_RES_030.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_040",
+    "title": "Adults with Cardiac Arrest (ECPR)",
+    "content": "resources/ELSOBA_RES_040.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_050",
+    "title": "Children with Cardiac Failure",
+    "content": "resources/ELSOBA_RES_050.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_060",
+    "title": "Children with Cardiac Arrest (ECPR)",
+    "content": "resources/ELSOBA_RES_060.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
