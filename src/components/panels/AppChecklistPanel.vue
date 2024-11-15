@@ -164,7 +164,7 @@ function addToFavorites() {
 <BasePanel class="relative">
   <div class="side-content pxlr-0 pxt-90 pxb-20 relative">
     
-    <BaseHeader class="header-panel mxlr-20 pxb-8 mxb-8 height-auto align-center">
+    <BaseHeader class="header-panel mxlr-20 pxb-8 mxb-8 pxr-20 height-auto align-center">
       <template v-slot:headerLeft>
         <div v-if="props?.title" class="title">{{ props?.title }}</div>
       </template>
@@ -179,7 +179,6 @@ function addToFavorites() {
       <template v-slot:listItemSlot="data">
         <BaseButton 
           :class="[`list-button-item width-100`, data.item.class, {
-            // ['subchecklist']: data.item.type === 'subchecklist',
             ['comment']: data.item.type === 'comment',
             ['no-checkbox']: !dataList?.[data.item.index].hasOwnProperty(`checked`),
           }]" 
