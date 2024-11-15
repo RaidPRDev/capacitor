@@ -155,7 +155,7 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
 
 export async function compileSearchJSONData(file: string, sourcePath: string = "", targetPath: string = "") {
   
-  console.log(`Compiling for Search [${file}] data`);
+  console.log(`Compiling for Search [${file}] data`, targetPath);
   
   // Build Version File - 
   const data = await fs.readFile(`${sourcePath}/${file}.json`, 'utf8');
