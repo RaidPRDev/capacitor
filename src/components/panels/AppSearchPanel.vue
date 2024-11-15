@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, inject, nextTick, reactive, ref, shallowRef } from 'vue';
+import { ComponentPublicInstance, computed, inject, nextTick, onMounted, reactive, ref, shallowRef } from 'vue';
 import { useRouter } from "vue-router";
 import { JSONParser } from "@streamparser/json-whatwg";
 
@@ -58,8 +58,10 @@ type ISearchFlatDataItem = ISearchDataItem & { id?:string, groupType?: "GroupHea
 const app = inject<IApp>(APP_ID) as IApp;
 const timeoutInput = shallowRef<ReturnType<typeof setTimeout>>();
 const timeoutSearch = shallowRef<ReturnType<typeof setTimeout>>();
+const timeoutMount = shallowRef<ReturnType<typeof setTimeout>>();
 const searchList = ref<Record<string, ISearchFlatDataItem>>({});
 const searchValue = reactive({ text: "" });
+const searchInputRef = ref<ComponentPublicInstance<typeof BaseInput>>()
 
 let __searchDataIsLoaded: boolean = false;
 let __internalSearchDataV2: Record<string, any> = {};
@@ -245,6 +247,17 @@ function goToSection(data:{ item: ISearchItemRender }) {
   }, 450);  
 }
 
+onMounted(() => {
+
+  if (timeoutMount.value) clearTimeout(timeoutMount.value);
+
+  if (searchInputRef?.value) {
+    timeoutMount.value = setTimeout(() => {
+      searchInputRef?.value?.inputRef()?.focus();
+    }, 650);  
+  }
+})
+
 </script>
 
 <template>
@@ -252,6 +265,7 @@ function goToSection(data:{ item: ISearchItemRender }) {
   <div class="side-content pxlr-0 pxb-20 relative">
     
     <BaseInput 
+      ref="searchInputRef"
       :modelValue="searchValue.text" 
       :icon="SearchIcon" 
       placeholder="enter keyword(s)"
