@@ -649,5 +649,33 @@
     "title": "Membrane Lung Failure Resources",
     "keywords": "membrane lung failure resources",
     "path": "resources/ELSOBA_RES_020"
+  },
+  {
+    "category": "resources",
+    "id": "ELSOBA_RES_030",
+    "title": "Adults with Cardiac Failure",
+    "keywords": "adults with cardiac failure",
+    "path": "resources/ELSOBA_RES_030"
+  },
+  {
+    "category": "resources",
+    "id": "ELSOBA_RES_040",
+    "title": "Adults with Cardiac Arrest (ECPR)",
+    "keywords": "adults with cardiac arrest (ecpr)",
+    "path": "resources/ELSOBA_RES_040"
+  },
+  {
+    "category": "resources",
+    "id": "ELSOBA_RES_050",
+    "title": "Children with Cardiac Failure",
+    "keywords": "children with cardiac failure",
+    "path": "resources/ELSOBA_RES_050"
+  },
+  {
+    "category": "resources",
+    "id": "ELSOBA_RES_060",
+    "title": "Children with Cardiac Arrest (ECPR)",
+    "keywords": "children with cardiac arrest (ecpr)",
+    "path": "resources/ELSOBA_RES_060"
   }
 ]

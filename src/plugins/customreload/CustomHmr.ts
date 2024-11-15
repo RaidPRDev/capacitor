@@ -79,20 +79,24 @@ export async function startJSONCompiler() {
     fsSync.mkdirSync(COMPILED_DATA_PATH);
   }
 
-  for (let i = 0; i < DATA.length; i++) {
-    await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
+  if (false) {
+    for (let i = 0; i < DATA.length; i++) {
+      await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
+    }
   }
+  else {
+    // TODO FIX 
+    for (let i = 0; i < DATA.length; i++) {
+      await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
+      await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
+    }
 
-  // TODO FIX 
-  // for (let i = 0; i < DATA.length; i++) {
-  //   await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
-  // }
-
-  // // write search json
-  console.log("SEARCH_JSON_DATA_FILE", SEARCH_JSON_DATA_FILE)
-  // console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
-  // await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 2), 'utf8');
-
+    // // write search json
+    console.log("SEARCH_JSON_DATA_FILE", SEARCH_JSON_DATA_FILE)
+    console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
+    await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 2), 'utf8');
+  }
+  
   console.log(`Writing completed \n`);
 
   console.log(`[END_JSON_BUILD] \n`);
@@ -416,8 +420,8 @@ export async function compileSearchJSONData(file: string, sourcePath: string = "
     })
   }
 
-  console.log(`Writing [${file}] data to ${targetPath}/${file}_compiled.json \n`);
-  await fs.writeFile(`${targetPath}/${file}_compiled.json`, JSON.stringify(parsedData, null, 0), 'utf8');
+  // console.log(`Writing [${file}] data to ${targetPath}/${file}_compiled.json \n`);
+  // await fs.writeFile(`${targetPath}/${file}_compiled.json`, JSON.stringify(parsedData, null, 0), 'utf8');
 
   return parsedData;
 }
