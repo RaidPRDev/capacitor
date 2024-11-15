@@ -90,7 +90,7 @@
       {
         "label": "Children with Cardiac Arrest (ECPR)",
         "branchTo": "ELSOBA_CAND_070",
-        "class": "disabled"
+        "class": ""
       },  
       {
         "label": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
@@ -459,21 +459,21 @@
     "items": []
   },
   {
-    "id": "ELSOBA_CAND_070__2",
+    "id": "ELSOBA_CAND_070__3",
     "showTitle": true,
     "useScroll": true,
     "title": "Patient meets failure criteria",
-    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__3.html",
     "layout": "html",
     "branchTo": "",
     "items": []
   },
   {
-    "id": "ELSOBA_CAND_070__2",
+    "id": "ELSOBA_CAND_070__4",
     "showTitle": true,
     "useScroll": true,
     "title": "Patient meets failure criteria",
-    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__4.html",
     "layout": "html",
     "branchTo": "",
     "items": []
@@ -483,7 +483,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Patient meets failure criteria",
-    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__5.html",
     "layout": "html",
     "branchTo": "",
     "items": []
