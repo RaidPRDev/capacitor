@@ -88,6 +88,7 @@ export async function startJSONCompiler() {
   // }
 
   // // write search json
+  console.log("SEARCH_JSON_DATA_FILE", SEARCH_JSON_DATA_FILE)
   // console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
   // await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 2), 'utf8');
 
