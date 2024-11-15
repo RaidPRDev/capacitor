@@ -34,6 +34,15 @@ h1, h2, h3, h4, h5, h6 {
     .side-content + .close-button {
       top: 64px;
     }
+
+    .search-panel {
+      .side-content {
+        padding-top: 120px;
+      }
+      .side-content + .close-button {
+        top: 64px;
+      }
+    }
   }
   
   // .close-button {

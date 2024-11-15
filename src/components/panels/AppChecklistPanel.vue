@@ -315,9 +315,6 @@ function addToFavorites() {
   @include use-scroller-styles();
 }
 
-.add-favorites-btn {
-}
-
 .remove-favorite-btn {
   :deep(.inner-base-button) {
     .ui-label {

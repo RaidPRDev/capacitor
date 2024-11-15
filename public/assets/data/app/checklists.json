@@ -68,23 +68,12 @@
     ]
   },
   {
-    "id": "ELSOBA_CHKLST_CAT1",
-    "title": "All Checklists (Alphabetical)",
-    "content": "",
-    "layout": "list",
-    "items": [
-      {
-        "label": "Item",
-        "branchTo": ""
-      }       
-    ]
-  },
-  {
     "id": "ELSOBA_CHKLST_CAT2",
     "title": "Anticoagulation",
     "showFavorites": true,
     "useScroll": true, 
     "content": "",
+    "class": "disabled",
     "layout": "list",
     "keywords": "DIT; Anticoagulation; Monitoring; Management",
     "items": [
@@ -109,6 +98,7 @@
     "id": "ELSOBA_CHKLST_CAT3",
     "title": "Cannulation",
     "content": "",
+    "class": "disabled",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
@@ -139,6 +129,7 @@
     "id": "ELSOBA_CHKLST_CAT4",
     "title": "ECMO Complications",
     "content": "",
+    "class": "disabled",
     "layout": "list",
     "keywords": "Diagnose; Death; Neurological; Circulatory",
     "showFavorites": true,
@@ -269,6 +260,7 @@
     "id": "ELSOBA_CHKLST_CAT8",
     "title": "Initiating ECMO",
     "content": "",
+    "class": "disabled",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
@@ -339,6 +331,7 @@
     "id": "ELSOBA_CHKLST_CAT11",
     "title": "Weaning ECMO",
     "content": "",
+    "class": "disabled",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
@@ -359,6 +352,7 @@
     "id": "ELSOBA_CHKLST_CAT12",
     "title": "Procedures on ECMO",
     "content": "",
+    "class": "disabled",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
@@ -374,6 +368,7 @@
     "id": "ELSOBA_CHKLST_010",
     "title": "Basic Patient Monitoring and Management",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Monitoring; Management; Patient; Basic",
     "showFavorites": true,
@@ -394,338 +389,7 @@
     "keywords": "Circuit; Circuit change; Elective; Emergent",
     "showFavorites": true,
     "useScroll": true, 
-    "items": [
-      {
-        "label": "Sample #1",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #2",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #3",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #4",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #5",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #6",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #7",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #8",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #9",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Sample #10",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "showFavorites": true,
-        "useScroll": true, 
-        "items": [
-          {
-            "label": "Color",
-            "checked": false
-          },
-          {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of vibrations",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector",
-            "checked": false
-          },
-          {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
-          }
-        ]
-      }
-    ]
+    "items": []
   },  
   {
     "id": "ELSOBA_CHKLST_030",
@@ -764,7 +428,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -801,7 +465,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -838,7 +502,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -871,7 +535,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -908,7 +572,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -945,7 +609,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -978,7 +642,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -1011,7 +675,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -1044,7 +708,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -1077,7 +741,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -1110,7 +774,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -1143,7 +807,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "checked": false
           }
         ]
@@ -1206,7 +870,7 @@
             ]
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "type": "comment"
           }
         ]
@@ -1239,7 +903,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "type": "comment"
           }
         ]
@@ -1272,7 +936,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "type": "comment"
           }
         ]
@@ -1305,7 +969,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "type": "comment"
           }
         ]
@@ -1334,7 +998,7 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "type": "comment"
           }
         ]
@@ -1356,7 +1020,7 @@
           { "label": "VMLO<sup>2</sup>, if available", "checked": false },
           { "label": "VMLCO<sup>2</sup>, if available", "checked": false },
           {
-            "label": "Other anomalies present?<br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
+            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
             "type": "comment",
             "checked": false
           }
@@ -1369,6 +1033,7 @@
     "title": "Coming Off ECMO Emergently",
     "content": "",
     "layout": "checklist",
+    "type": "subchecklist",
     "keywords": "ECMO; EMERGENTLY; COMING OFF",
     "doc": "https://drive.google.com/file/d/1utSsq2n_502SF2_9-zz5M0ebMtckLc6k/view?usp=sharing",
     "showFavorites": true,
@@ -1478,6 +1143,7 @@
     "id": "ELSOBA_CHKLST_060",
     "title": "DIT Anticoagulation Monitoring and Management",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "DIT; Anticoagulation; Monitoring; Management",
     "showFavorites": true,
@@ -2101,6 +1767,7 @@
     "id": "ELSOBA_CHKLST_100",
     "title": "HIT Diagnosis and Management Algorithm",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "HIT; Diagnosis; Management; Anticoagulation",
     "showFavorites": true,
@@ -2117,6 +1784,7 @@
     "id": "ELSOBA_CHKLST_110",
     "title": "Hybrid Cannulation Procedure",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Hybrid; Cannulation; Procedure",
     "showFavorites": true,
@@ -2133,6 +1801,7 @@
     "id": "ELSOBA_CHKLST_120",
     "title": "Insertion of DPC on VA ECMO Procedure",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Insert; DPC; VA ECMO; Procedure",
     "showFavorites": true,
@@ -2149,6 +1818,7 @@
     "id": "ELSOBA_CHKLST_130",
     "title": "Invasive Procedures on ECMO",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Procedure; ECMO; Invasive",
     "doc": "",
@@ -2166,6 +1836,7 @@
     "id": "ELSOBA_CHKLST_140",
     "title": "Limb Ischemia Management Algorithm",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Limb; Ischemia; Management; Algorithm",
     "doc": "",
@@ -2183,6 +1854,7 @@
     "id": "ELSOBA_CHKLST_150",
     "title": "Managing Gas Exchange on ECMO",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Gas; Exchange; Management; ECMO",
     "showFavorites": true,
@@ -2348,6 +2020,7 @@
     "id": "ELSOBA_CHKLST_170",
     "title": "Monitoring and Managing LV Distension on VA ECMO Algorithm",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Monitor; Management; LV distension; VA ECMO; Algorithm",
     "showFavorites": true,
@@ -2364,6 +2037,7 @@
     "id": "ELSOBA_CHKLST_180",
     "title": "Monitoring Limb Perfusion",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Monitor; Limb perfusion",
     "showFavorites": true,
@@ -2380,6 +2054,7 @@
     "id": "ELSOBA_CHKLST_190",
     "title": "Monitoring Native Cardiac Function on VA ECMO",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Monitor; Native; Cardiac function; VA ECMO",
     "showFavorites": true,
@@ -2396,6 +2071,7 @@
     "id": "ELSOBA_CHKLST_200",
     "title": "Neuromonitoring in ECMO Algorithm",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Monitor; Neuromonitoring; ECMO; Algorithm",
     "showFavorites": true,
@@ -2412,6 +2088,7 @@
     "id": "ELSOBA_CHKLST_210",
     "title": "Organ Function in ECMO Algorithm",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Organ function; ECMO; Algorithm",
     "showFavorites": true,
@@ -2428,6 +2105,7 @@
     "id": "ELSOBA_CHKLST_220",
     "title": "Percutaneous Cannulation Procedure",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Cannulation; Percutaneous; Procedure",
     "showFavorites": true,
@@ -2746,6 +2424,7 @@
     "id": "ELSOBA_CHKLST_260",
     "title": "Surgical Cannulation Procedure",
     "content": "",
+    "class": "disabled",
     "layout": "checklist",
     "keywords": "Surgical; Cannulation; Procedure",
     "doc": "https://docs.google.com/document/d/1llzINFw2NHGoEf25QA0KM-MRJGlXlmR854kZv7vt5cc/edit",

@@ -57,7 +57,7 @@ function onInput(event:Event | InputEvent)
   // invoke? input
   emit("input", target?.value as string);
 
-  props?.onInput && props?.onInput(props);
+  props?.onBaseInput && props?.onBaseInput(props);
 }
 
 function onKeyPress(event:KeyboardEvent)

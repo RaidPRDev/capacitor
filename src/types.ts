@@ -220,3 +220,11 @@ export interface IBranchTypeProps {
 }
 
 export type CalculatorParamType = Record<string, any>;
+
+export interface ISearchData {
+  category: string;
+  id: string;
+  title: string;
+  keywords: string;
+  path: string;
+}

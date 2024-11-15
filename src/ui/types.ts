@@ -123,7 +123,7 @@ export interface IBaseInputProps extends IBaseControl {
   pattern?: string;
   error?: IErrorFieldProps;
   onBlur?: (data?: any) => void;
-  onInput?: (data?: any) => void;
+  onBaseInput?: (data?: any) => void;
   onEnter?: (data?: any) => void;
 }
 

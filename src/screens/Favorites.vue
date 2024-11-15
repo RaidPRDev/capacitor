@@ -66,6 +66,8 @@ interface IFavoriteListItem {
   toggled?: boolean;
 }
 
+console.log("favoritesData.value", favoritesData.value)
+
 groupAndFlattenItemsByType(favoritesData.value);
 
 const getInitialItems = () => groupAndFlattenItemsByType(favoritesData.value as Record<string, IFavoriteFlatDataItem>).map((item) => {
