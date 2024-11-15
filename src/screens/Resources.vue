@@ -109,8 +109,8 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 <style scoped lang="scss">
 .screen-heading {
   .res-icon {
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: auto;
     svg { width: 100%; height: 100%; }
   }
 }
