@@ -80,12 +80,16 @@ export async function startJSONCompiler() {
 
   for (let i = 0; i < DATA.length; i++) {
     await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
-    await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
   }
 
-  // write search json
-  console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
-  await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 2), 'utf8');
+  
+  // for (let i = 0; i < DATA.length; i++) {
+  //   await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
+  // }
+
+  // // write search json
+  // console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
+  // await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 2), 'utf8');
 
   console.log(`Writing completed \n`);
 

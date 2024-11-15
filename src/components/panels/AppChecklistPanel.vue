@@ -89,8 +89,14 @@ function updateAllCheckLists() {
 
 function updateCheckData(data: CheckListItemType, toggled?: boolean) {
 
+  console.log("data", data)
+
   const itemID = data.id as string;
   checklistData.value[itemID] = !toggled!;
+
+  console.log("checklistData", checklistData)
+
+
   checklistStore.$patch({
     data: checklistData.value
   });

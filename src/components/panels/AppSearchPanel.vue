@@ -254,7 +254,7 @@ function goToSection(data:{ item: ISearchItemRender }) {
     <BaseInput 
       :modelValue="searchValue.text" 
       :icon="SearchIcon" 
-      placeholder="enter test or equip"
+      placeholder="enter keyword(s)"
       innerClass="gapx-10" 
       elementClass="pxlr-16 pxtb-10"
       containerClass="pxlr-20"
