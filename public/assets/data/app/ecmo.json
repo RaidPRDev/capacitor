@@ -85,7 +85,7 @@
       {
         "label": "Children with Cardiac Failure",
         "branchTo": "ELSOBA_CAND_060",
-        "class": "disabled"
+        "class": ""
       },    
       {
         "label": "Children with Cardiac Arrest (ECPR)",
@@ -360,6 +360,150 @@
     "useScroll": true,
     "title": "Response from patient",
     "content": "ecmo/ELSOBA_CAND_050/ELSOBA_CAND_050__8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+  {
+    "id": "ELSOBA_CAND_060",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient presents with cardiac distress",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060.html",
+    "layout": "html",
+    "branchTo": "ELSOBA_CAND_060__2",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_060__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_060__3",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Optimize patient care",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_060__4",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient presents with high illness severity and low cardiac output",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_060__5",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Contraindications",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_060__6",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Assess viability of ECMO",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_060__7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Proceed with VA ECMO",
+    "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+  {
+    "id": "ELSOBA_CAND_070",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient presents with cardiac distress",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070.html",
+    "layout": "html",
+    "branchTo": "ELSOBA_CAND_070__2",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_070__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_070__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_070__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_070__5",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_070__6",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_070__7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient meets failure criteria",
+    "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__7.html",
     "layout": "html",
     "branchTo": "",
     "items": []

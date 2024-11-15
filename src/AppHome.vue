@@ -38,6 +38,7 @@ import HomeIcon from '@/assets/icons/home-icon.svg';
 import NotesIcon from '@/assets/icons/homeMenu/notes-icon.svg';
 import PanicIcon from '@/assets/icons/panic-red-icon.svg';
 import FavoritesIcon from '@/assets/icons/favorites-star-solid.svg';
+import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppScreenProps>(), {}) 
@@ -45,7 +46,7 @@ const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const router = useRouter();
 const session = useSession();
-const { hasCompletedDisclaimer } = session;
+const { hasCompletedDisclaimer, hasRegistered } = session;
 const branchingStore = useBranchingStore();
 const { 
   getCurrentReferredView, 
@@ -59,6 +60,7 @@ const bodyRef = ref<ComponentPublicInstance<typeof VueElement>>()
 const footerRef = ref<ComponentPublicInstance<typeof BaseHeader>>()
 const footerSelectedItem = ref<IButtonGroupSelected>();
 const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
+const timeoutTrans = shallowRef<ReturnType<typeof setTimeout>>();
 
 const footerMenuGroup = [
   { label: "Home", icon: HomeIcon, route: "Home", class: "footer-home" },
@@ -240,16 +242,38 @@ function onLogo() {
   nextTick(() => { showPanicAlert(message, actions); });   
 }
 
-onMounted(() => {
-  if (hasCompletedDisclaimer) return;
+function checkRegistration() {
+  if (true) return;
+  if (hasRegistered) return;
 
   clearTimeout(timeoutCopy.value);
-  
+
   timeoutCopy.value = setTimeout(() => {
-    drawerComponents.bottom = DisclaimerPanel;
+    drawerComponents.bottom = RegistrationPanel;
     app.drawers.bottom.closeOutside = false;
     app.drawers.bottom.open = !app.drawers.bottom.open;
-  }, 950);
+  }, 750);
+}
+
+onMounted(() => {
+  if (!hasCompletedDisclaimer) {
+    clearTimeout(timeoutCopy.value);
+    clearTimeout(timeoutTrans.value);
+  
+    timeoutCopy.value = setTimeout(() => {
+      drawerComponents.bottom = DisclaimerPanel;
+      app.drawers.bottom.closeOutside = false;
+      app.drawers.bottom.open = !app.drawers.bottom.open;
+
+      timeoutTrans.value = setTimeout(() => {
+        checkRegistration();
+      }, 750)
+
+    }, 750);
+  }
+  else {
+    if (hasCompletedDisclaimer) checkRegistration();
+  } 
 })
 
 onUnmounted(() => {

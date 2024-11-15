@@ -9,6 +9,17 @@ const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const BUILD_PHASE = import.meta.env.BUILD_PHASE;
 const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
 
+interface ISessionUser {
+  name: string;  
+  email: string;  
+  phone: string;  
+  country: string;  
+  role: string;  
+  creds: string;  
+  hospital: string;
+  date?: string;
+}
+
 interface ISession {
   appVersion?: string;
   buildVersion?: string;
@@ -18,6 +29,8 @@ interface ISession {
   hasCompletedPrivacy: boolean;
   hasCompletedTerms: boolean;
   hasCompletedDisclaimer: boolean;
+  hasRegistered: boolean;
+  user?: ISessionUser | null;
 }
 
 const initialState: ISession = {
@@ -29,6 +42,8 @@ const initialState: ISession = {
   hasCompletedPrivacy: false,
   hasCompletedTerms: false,
   hasCompletedDisclaimer: false,
+  hasRegistered: false,
+  user: null
 };
 
 export const useSession = defineStore('session', {
@@ -90,15 +105,9 @@ export const useSession = defineStore('session', {
       this.currentIndex = index;
     },
 
-    /**
-     * Set incoming user date to state
-     * @returns
-     */
-    setUser(payload: ISession) {
-      if (!payload.loggedIn) {
-        this.loggedIn = true;
-      }
-      else this.loggedIn = payload.loggedIn;
+    setUser(payload: ISessionUser) {
+      this.user = payload;
+      this.user.date = new Date().toUTCString()
     },
     
     /**
@@ -106,7 +115,7 @@ export const useSession = defineStore('session', {
      * @returns
      */
     resetUser() {
-      this.loggedIn = false;
+      this.user = null;
     },
   }
 

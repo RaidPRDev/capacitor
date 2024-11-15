@@ -76,7 +76,7 @@
     "branchTo": "",
     "items": [
       {
-        "label": "MC3/Medtronic Nautilus™ ECMO Oxygenato",
+        "label": "MC3/Medtronic Nautilus™ ECMO Oxygenator",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_020_010"
       },
