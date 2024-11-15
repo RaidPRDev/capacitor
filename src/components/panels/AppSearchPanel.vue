@@ -26,14 +26,6 @@ import UpRightArrowIcon from '@/assets/icons/up-right-arrow-icon.svg';
 import { BaseListGroupType } from '@/ui/types';
 import { capitalizeFirstLetter } from '@/utils/StringTools';
 
-// interface IAppSearchBottomPanelProps {
-//   items?: any;
-// }
-
-// Component Props Setup
-// eslint-disable-next-line @typescript-eslint/no-unused-vars 
-// const props = withDefaults(defineProps<IAppSearchBottomPanelProps>(), {});
-
 // Component State Setup
 interface IState {
   isSearching: boolean;
@@ -109,7 +101,7 @@ async function searchItems(term:string) {
   timeoutSearch.value = setTimeout(() => {
     let filteredSearchData:Record<string, ISearchFlatDataItem> = {}
     for (let key in __internalSearchDataV2) {
-      if (__internalSearchDataV2[key].data.keywords.indexOf(term) > -1) {
+      if (__internalSearchDataV2[key].data.keywords.indexOf(term?.toLowerCase()) > -1) {
         filteredSearchData[key] = __internalSearchDataV2[key];
       }
     }
