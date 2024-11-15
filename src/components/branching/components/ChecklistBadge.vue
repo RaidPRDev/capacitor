@@ -9,7 +9,6 @@ export default {
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import ProgressBG from '@/assets/icons/progress/progress-circle-bg.svg';
 
 interface IChecklistBadgeProps {
   completed: number;
