@@ -109,7 +109,7 @@ function onMenuTriggered(selected: number) {
 
         </div>
 
-        <div class="scroll-fade absolute lx-0 bx-8"></div>
+        <div class="scroll-fade absolute lx-0 bx-8 pointer-none"></div>
       </div>
 
       <div class="confirm-panel absolute lx-0 bx-0 flex align-center justify-center width-100 pxlr-60 gapx-20">

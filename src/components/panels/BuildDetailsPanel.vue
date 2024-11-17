@@ -183,7 +183,7 @@ onMounted(() => {
             <div><p>Pinia Data Store: <b>{{ `2.2.2` }}</b></p></div>
         </div>
 
-        <div class="scroll-fade absolute lx-0 bx-8"></div>
+        <div class="scroll-fade absolute lx-0 bx-8 pointer-none"></div>
       </div>
 
     </div>

@@ -65,7 +65,7 @@ function onMenuTriggered(selected: number) {
           <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias.</p>
         </div>
 
-        <div class="scroll-fade absolute lx-0 bx-8"></div>
+        <div class="scroll-fade absolute lx-0 bx-8 pointer-none"></div>
       </div>
 
       <div class="confirm-panel absolute lx-0 bx-0 flex align-center justify-center width-100 pxlr-60 gapx-20">
