@@ -53,12 +53,12 @@ const computedList = computed(() => {
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
   
   <transition-group name="list-scale-fade-in" tag="div" class="flex flex-column gapx-16">
-    <div v-for="(item, index) in computedList" :key="`item-${index}` " class="blue-menu-item" :style="{ transitionDelay: 0.15 * index + 's' }">
+    <div v-for="(item, index) in computedList" :key="`item-${index}` " class="" :style="{ transitionDelay: 0.15 * index + 's' }">
       <BaseButton 
         :class="classnames(`variant-blue width-100`, item.class)" 
         :disabled="item.class?.indexOf(`disabled`) > 0"
-        innerClassName="px-20 justify-between align-start"
-        bodyClassName="text-left mxr-20"
+        innerClassName=""
+        bodyClassName=""
         accessoryIconClassName="base-control"
         :label="item.label"
         @triggered="() => {

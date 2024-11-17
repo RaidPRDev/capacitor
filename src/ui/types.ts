@@ -47,6 +47,8 @@ export interface IBaseButtonProps extends IBaseControl {
   longPressedDelay?: number;
   asSubControl?: boolean;
   hasInternalLinks?: boolean;
+  useHitArea?: boolean;
+  hitAreaPadding?: number;
   triggerCallback?: (data?: any) => void;
 }
 

@@ -5,6 +5,7 @@
 @import './components';
 @import './scroller';
 @import './content';
+@import './icons';
 
 :root {
   @include getFontSize('medium');

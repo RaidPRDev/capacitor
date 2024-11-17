@@ -20,7 +20,9 @@ const props = withDefaults(defineProps<IBaseButtonProps>(), {
   hasInternalLinks: false,
   useIconAsRaw: false,
   useAccessoryIconAsRaw: false,
-});
+  useHitArea: false,
+  hitAreaPadding: 20
+});  
 
 // Emission Event Setup
 const emit = defineEmits<{
@@ -116,6 +118,7 @@ function onUp(e:MouseEvent) {
   if (props?.useLongPressedState) stopLongPressMode();
   if (props?.asSubControl) e.stopPropagation()
   if (props?.disabled) return;
+  if (element?.value?.classList?.contains("disabled")) return;
   if (props?.usePressedState) {
     nextTick(() => {
       const speed = props.pressedTranstionDelay;
@@ -144,6 +147,7 @@ function onDown(e:MouseEvent) {
 
   if (e?.button === 2) return;
   if (props?.disabled) return;
+  if (element?.value?.classList?.contains("disabled")) return;
 
   const target = e?.target as HTMLElement;
   // console.log("target", e?.target)
@@ -174,7 +178,7 @@ function onDown(e:MouseEvent) {
 }
 
 function onMove(e:MouseEvent) {
-  console.log("onMove");
+  // console.log("onMove");
   if (_longPressIsRunning || _longPressIsActive) {
     if (LOG) console.log("x", e.movementX, "y", e.movementY);
     if ((e.movementX > 1) || (e.movementX < -1) || (e.movementY > 1) || (e.movementY < -1) ) {
@@ -246,22 +250,36 @@ onUnmounted(()=> {
 >
   <span class="inner-base-button height-100 flex align-center justify-center" :class="props?.innerClassName" >
     <span :class="`ui-background pointer-none absolute lx-0 tx-0 width-100 height-100`"></span>
+    <span 
+      v-if="useHitArea" 
+      :class="[`ui-button-hitarea pointer-all absolute lx-0 tx-0 width-100 height-100`]"
+      :style="[
+        {
+          // background: `red`,
+          top: `-${hitAreaPadding}px`,
+          left: `-${hitAreaPadding}px`,
+          width: `calc(100% + ${hitAreaPadding * 1.75}px)`, 
+          height: `calc(100% + ${hitAreaPadding * 2}px)`, 
+        }
+      ]"
+
+      ></span>
   
-    <span class="ui-icon flex relative" :class="props?.iconClassName" v-if="_iconState.icon || slots.iconSlot">
+    <span class="ui-icon flex relative pointer-none" :class="props?.iconClassName" v-if="_iconState.icon || slots.iconSlot">
       <slot name="iconSlot">
         <component ref="iconElement" v-if="typeof(_iconState.icon) === 'object'" :is="_iconState.icon" xmlns="yes" v-bind="props?.iconProps"></component>
         <img ref="iconElement" v-else-if="typeof(_iconState.icon) === 'string'" v-bind:src="_iconState.icon" /> 
       </slot>
     </span>
     
-    <span v-if="label || slots.bodySlot" class="ui-body flex relative" :class="props?.bodyClassName">
+    <span v-if="label || slots.bodySlot" class="ui-body flex relative pointer-none" :class="props?.bodyClassName">
       <slot name="bodySlot">
         <span ref="bodyRef" class="ui-label transform-z" :class="props?.labelClassName" v-html="label"></span>
         <span v-if="subLabel" class="ui-label sub-header transform-z" :class="props?.subLabelClassName" v-html="subLabel"></span>
       </slot>
     </span>
 
-    <span class="ui-accessory-icon flex relative" :class="props?.accessoryIconClassName" v-if="_accessoryIconState.icon || slots.accessorySlot">
+    <span class="ui-accessory-icon flex relative pointer-none" :class="props?.accessoryIconClassName" v-if="_accessoryIconState.icon || slots.accessorySlot">
       <slot name="accessorySlot">
         <component ref="accessoryIconElement" v-if="typeof(_accessoryIconState.icon) === 'object'" :is="_accessoryIconState.icon" v-bind="props?.accessoryIconProps"></component>
         <img ref="accessoryIconElement" v-else-if="typeof(_accessoryIconState.icon) === 'string' && !useAccessoryIconAsRaw" v-bind:src="_accessoryIconState.icon" /> 

@@ -6,7 +6,7 @@ const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, onMounted, ref, shallowRef } from "vue";
+import { ComponentPublicInstance, computed, onMounted, ref, shallowRef, watch } from "vue";
 
 import { 
   COMPILED_DATA_PATH,
@@ -27,6 +27,7 @@ import { loadViewData } from "@/components/branching/data/DataTools";
 import { getNavigationRoot } from "@/utils/BranchTools";
 
 import ChecklistIcon from '@/assets/icons/homeMenu/checklist-icon.svg';
+import { useRoute, useRouter } from "vue-router";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -35,6 +36,14 @@ const loading = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
 const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
 const showMainHeader = ref<boolean>(true);
+
+const route = useRoute();
+const router = useRouter();
+// const itemID = route?.query?.id;
+// const childID = parseInt(route?.query?.childId! as string);
+// console.log("itemID", itemID);
+// console.log("childID", childID);
+// console.log("query", route?.query);
 
 const { 
   baseHeight, 
@@ -45,6 +54,16 @@ const {
   extraHeight: 0,
   overrideHeight: 0
 })
+
+// if we have am incoming query, replace route...
+watch(route, () => {
+  
+  console.error("CHECKLIST.ROUTE CHANGED", route?.query)
+  if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
+    
+    router.replace({ path: `/home/checklists/${route?.query?.id}` });
+  }
+}, { flush: "post" })
 
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/checklists_compiled.json`, views);

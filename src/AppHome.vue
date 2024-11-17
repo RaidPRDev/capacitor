@@ -292,7 +292,8 @@ onUnmounted(() => {
       <template v-slot:headerLeft>
         <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
           drawerComponents.left = AppSideMenuPanel;
-          app.drawers.left.props = { name: `menu` }
+          app.drawers.left.props = { name: `menu`, closeOutside: true }
+          app.drawers.closeOutside = true;
           app.drawers.left.open = !app.drawers.left.open;
         }"/>
       </template>

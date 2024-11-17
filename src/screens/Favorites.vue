@@ -38,12 +38,12 @@ import { IFavoriteDataItem } from "@/store/types/StoreTypes";
 import { capitalizeFirstLetter } from "@/utils/StringTools";
 import { getBranchQueryByUID } from "@/components/branching/data/DataTools";
 import { IBaseScreenSlotProps } from "@/ui/types";
+import { sortItemsByProperty, sortObjectByKeys } from "@/utils/ObjectTools";
 
 import NoFavoritesHeadIcon from '@/assets/icons/favorites-no-heading-icon.svg';
 import FavoritesHeadStarIcon from '@/assets/icons/favorites-star-line-icon.svg';
 import UpRightArrowIcon from '@/assets/icons/up-right-arrow-icon.svg';
 import TrashIcon from '@/assets/icons/trash-icon.svg';
-import { sortItemsByProperty, sortObjectByKeys } from "@/utils/ObjectTools";
 
 const router = useRouter();
 
@@ -179,7 +179,7 @@ const listItemStyles = computed(() => {
   adjustedWidth -= (GLOBAL_PADDING + GLOBAL_PADDING);
 
   return {
-    width: `calc(${adjustedWidth}px - 0px)`,
+    // width: `calc(${adjustedWidth}px - 0px)`,
   };
 })
 
@@ -339,25 +339,31 @@ onUnmounted(() => {
             :class="[`list-button variant-blue ignore-icon width-100`, {
               ['edit-mode pointer-none transform-none sub-control-active']: state.isEdit,
             }]" 
-            :innerClassName="`px-20 justify-between gapx-10 relative`"
+            :innerClassName="`relative`"
             :bodyClassName="`text-left`"
+            :accessoryIconClassName="`pointer-all`"
             :label="data.item.label"
             
             @longPressed="() => onFavoritesAction(data)"
-            @triggered="() => goToSection(data)"
+            @triggered="() => { 
+              goToSection(data) 
+            }"
           >
             <template v-slot:accessorySlot>
               <BaseButton 
                 :asSubControl="true"
-                :class="`remove-button`" 
+                :useHitArea="true"
+                :class="`mxr-10`" 
                 :icon="TrashIcon" 
-                :innerClassName="`px-0 mxr-10 justify-between gapx-10 relative`"  
+                :iconClassName="`trash-icon`"
+                :innerClassName="`mxr-10`" 
                 :triggerCallback="() => {
+                  console.log(`PRESSED`)
                   selectedItemsRef = [handleList[data.item.index]]
                   showAlert();
                 }"
               />
-              <div class="flex"><UpRightArrowIcon /></div>
+              <div class="flex up-right-icon"><UpRightArrowIcon /></div>
             </template>
           </BaseButton>
         </template>
@@ -399,18 +405,6 @@ onUnmounted(() => {
   }
 }
 
-
-
-.remove-button {
-  :deep(.inner-base-button) {
-    background: none!important;
-
-    .ui-background {
-      background: none!important;
-    }
-  }
-}
-
 // BASE LIST
 .list-container {
   @include use-scroller-styles();
@@ -431,14 +425,10 @@ onUnmounted(() => {
         width: 100%;
         transition: clip-path 350ms ease-in-out;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        align-items: inherit;
 
         .ui-body {
           width: calc(100% - 66px);
-        }
-
-        .ui-accessory-icon {
-          width: auto!important;
-          align-items: center;
         }
       }
       
@@ -479,20 +469,20 @@ onUnmounted(() => {
 }
 
 // DELETE HEAD BUTTON
-.delete-button {
-  display: none;
+// .delete-button {
+//   display: none;
 
-  &.edit-mode {
-    display: block;
-  }
+//   &.edit-mode {
+//     display: block;
+//   }
 
-  &.disabled-mode {
-    pointer-events: none;
-    :deep(.inner-base-button) {
-      background: $fourth-color;
-    }
-  }
-}
+//   &.disabled-mode {
+//     pointer-events: none;
+//     :deep(.inner-base-button) {
+//       background: $fourth-color;
+//     }
+//   }
+// }
 
 // NO ITEMS 
 // .no-list-panel {}

@@ -53,6 +53,7 @@ body {
 .align-center { align-items: center; }
 .align-start { align-items: flex-start; }
 .align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
 .justify-start { justify-content: flex-start; }
@@ -105,6 +106,9 @@ body {
 }
 .select-text {
   user-select: text;
+}
+.transition-none {
+  transition: none!important;
 }
 .transform-none {
   transform: none;

@@ -133,11 +133,11 @@ export function parseAndReplaceCurlyBraceContent(htmlString: string): string {
         
         // label
         constructStr += `<span class="ui-body flex relative text-left mxr-20">`;
-        constructStr += `<span class="ui-label transform-z">${label}</span>`;
+        constructStr += `<span class="ui-label">${label}</span>`;
         constructStr += `</span>`;       // ui-body/label
 
         // icon 
-        constructStr += `<span class="ui-accessory-icon flex relative base-control">${constructIcon}</span>`;
+        constructStr += `<span class="ui-accessory-icon flex relative base-control up-right-icon">${constructIcon}</span>`;
         // if (nameType === "CHECKLIST") {}
 
         constructStr += `</span`;       // inner-base-button

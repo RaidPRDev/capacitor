@@ -29,7 +29,7 @@ const menuItems = [
   { label: "Equipment", icon: WrenchIcon, class: "" },
   { label: "Medication", icon: TimePillIcon, class: "" },
   { label: "Checklists", icon: ChecklistIcon, class: "" },
-  { label: "Resources", icon: ResourcesIcon, class: "res-icon" },
+  { label: "Resources", icon: ResourcesIcon, class: "res-icon" }
 ];
 
 function onMenuTriggered(index:number) {
@@ -58,7 +58,7 @@ function onMenuTriggered(index:number) {
 </script>
 
 <template>
-  <div class="width-100">
+  <div class="home-scroll width-100 overflow-v-scroll height-inherit">
     <div class="title mxl-26 mxb-18">ECMO Bedside Guide (Beta)</div>
     <div class="subtitle mxl-26 mxb-14">Select a tile that fits your needs.</div>
     <div class="grid grid-50 gapx-20 width-100 pxl-20 pxr-20 width-100"  v-bind="{ ...attrs }">
@@ -78,6 +78,16 @@ function onMenuTriggered(index:number) {
 </template>
 
 <style scoped lang="scss">
+.home-scroll {
+  html.ios &, html.android & {
+    @include use-scroller-styles();
+    padding-bottom: 50%;
+  }
+}
+</style>
+
+<style scoped lang="scss">
+
 .title {
   font-size: 24px;
   color: $primary-color;

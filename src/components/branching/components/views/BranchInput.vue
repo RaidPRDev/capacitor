@@ -243,6 +243,8 @@ onMounted(async () => {
   }
 })
 
+// // state.result < 0 || state.result > 0  ? state.result : '---' 
+
 </script>
 
 <template>
@@ -329,7 +331,7 @@ onMounted(async () => {
     <div class="result-item flex flex-column align-start mxt-30 outer">
       <div class="result-label mxb-6 inner">RESULT</div>
       <div id="result-label" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
-        {{ state.result < 0 || state.result > 0  ? state.result : '---' }}
+        {{ state.result }}
       </div>
     </div>
   </transition >

@@ -48,7 +48,7 @@ export function ConvertFeetToCentimeters(params:CalculatorParamType):number {
 }
 
 /**
- * ELSOBA_CALC_010_02
+ * ELSOBA_CALC_020_02
  * Convert Inches (in) to Centimeters (cm)
  * 
  * ft * 12in/ft * 2.54cm/in = cm
@@ -63,8 +63,8 @@ if (inches === 0) return 0;
 }
 
 /**
- * ELSOBA_CALC_010_02
- * Convert Inches (in) to Centimeters (cm)
+ * ELSOBA_CALC_020_03
+ * Convert Pounds (lbs) to Kilograms (kg)
  * 
  * ft * 12in/ft * 2.54cm/in = cm
  * 
@@ -73,12 +73,12 @@ export function ConvertPoundsToKilograms(params:CalculatorParamType):number {
   const pounds = params?.['pounds'];
   if (pounds === 0) return 0;
 
-  const group = pounds * 2.2;
+  const group = pounds / 2.2;
   return group;  
 }
 
 /**
- * ELSOBA_CALC_010_04
+ * ELSOBA_CALC_020_04
  * Convert Farenheit to Celcius
  * 
  * °C = 5/9 * (°F - 32)
@@ -93,7 +93,7 @@ export function ConvertFarenheitToCelcius(params:CalculatorParamType):number {
 }
 
 /**
- * ELSOBA_CALC_010_05
+ * ELSOBA_CALC_020_05
  * Convert French Gauge to Millimeters
  * 
  * 1 Fr = ⅓ mm
@@ -108,7 +108,7 @@ export function ConvertFrenchGaugeToMillimeters(params:CalculatorParamType):numb
 }
 
 /**
- * ELSOBA_CALC_010_06
+ * ELSOBA_CALC_020_06
  * Convert French Gauge to Millimeters
  * 
  * 1 Fr = ⅓ mm
@@ -123,7 +123,7 @@ export function ConvertMillimetersToKilopascals(params:CalculatorParamType):numb
 }
 
 /**
- * ELSOBA_CALC_010_07
+ * ELSOBA_CALC_020_07
  * Convert Milliliters to Liters
  * 
  * 1 Fr = ⅓ mm

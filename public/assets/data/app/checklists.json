@@ -154,6 +154,7 @@
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
+    "sort": "ByActive",
     "items": [
       {
         "label": "Basic Patient Monitoring and Management",
@@ -871,7 +872,7 @@
           },
           {
             "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "type": "comment"
+            "checked": false
           }
         ]
       },   
@@ -904,7 +905,7 @@
           },
           {
             "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "type": "comment"
+            "checked": false
           }
         ]
       },   
@@ -937,7 +938,7 @@
           },
           {
             "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "type": "comment"
+            "checked": false
           }
         ]
       },   
@@ -970,7 +971,7 @@
           },
           {
             "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "type": "comment"
+            "checked": false
           }
         ]
       },   
@@ -999,7 +1000,7 @@
           },
           {
             "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "type": "comment"
+            "checked": false
           }
         ]
       },   
@@ -1021,7 +1022,6 @@
           { "label": "VMLCO<sup>2</sup>, if available", "checked": false },
           {
             "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "type": "comment",
             "checked": false
           }
         ]
@@ -1882,7 +1882,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160'>Gas Supply Interruption</a> checklist. Once a gas supply interruption is ruled out, return to and complete this checklist.",
+            "label": "Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_080'>Gas Supply Interruption</a> checklist. Once a gas supply interruption is ruled out, return to and complete this checklist.",
             "class": ""
           }, 
           {
@@ -1898,7 +1898,7 @@
               { "label": "Calculate membrane lung resistances (MLR) <br><span>MLR = ΔP/EBF</span><br><span>Open Notes to record the value.</span>", "checked": false },
               { 
                 "label": "Check your values against the standard pressures for the device, listed in the Almanac [link?].", 
-                "type": "comment" 
+                "checked": false 
               },
               { "label": "Values are excessive compared to standard pressures", "checked": false },
               { "label": "There are progressive or acute increases in ΔP and MLR compared to the previous evaluation", "checked": false },
@@ -1950,7 +1950,7 @@
                 "type": "comment"
               },
               {
-                "label": "Consider performing a <a href='#'>Circuit Change</a> or <a href='#'>Coming Off ECMO</a> if it’s preferable for the patient.",
+                "label": "Consider performing a Circuit Change or <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO</a> if it’s preferable for the patient.",
                 "checked": false
               },
               {
@@ -1981,7 +1981,7 @@
                 ]
               },
               {
-                "label": "If the answer is YES to either without an alternative explanation, consider ML or <a href='#'>circuit change</a>.",
+                "label": "If the answer is YES to either without an alternative explanation, consider ML or circuit change.",
                 "type": "comment"
               },
               { 

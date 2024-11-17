@@ -134,10 +134,28 @@ export default defineComponent({
               const dataProps = dataParams?.dataProps as IHtmlParserDataProps;
               // @src/assets/icons/up-right-arrow-icon.svg
               const accessoryIcon = "<svg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.9286 2.64296C18.9286 2.05123 18.4489 1.57153 17.8572 1.57153L2.14288 1.57153C1.55114 1.57153 1.07145 2.05123 1.07145 2.64296C1.07145 3.23469 1.55114 3.71439 2.14288 3.71439L15.2705 3.71439L1.38526 17.5996C0.966841 18.0181 0.966841 18.6964 1.38526 19.1149C1.80368 19.5333 2.48207 19.5333 2.90049 19.1149L16.7857 5.22962L16.7857 18.3572C16.7857 18.949 17.2654 19.4287 17.8572 19.4287C18.4489 19.4287 18.9286 18.949 18.9286 18.3572L18.9286 2.64296Z' fill='currentColor'/></svg>";
-              return h('div', { class: dataProps?.wrapperClass}, [ h(BaseButton, {...dataProps, useAccessoryIconAsRaw: true, accessoryIcon, onTriggered: () => {
-                // Fire the 'triggered' emit with a data object
-                emit('triggered', { dataProps  });
-              }}) ]);
+              return h(
+                'div', 
+                { 
+                  class: dataProps?.wrapperClass
+                }, 
+                [ 
+                  h(BaseButton, 
+                  {
+                    ...dataProps, 
+                    useAccessoryIconAsRaw: true, 
+                    accessoryIcon, 
+                    onTriggered: (e:Event) => {
+                      const el = e?.target as HTMLButtonElement;
+                      const innerEl = el?.parentElement as HTMLElement;
+                      console.log('el', el)
+                      if (innerEl?.classList?.contains('disabled')) return;
+
+                      // Fire the 'triggered' emit with a data object
+                      emit('triggered', { dataProps  });
+                    }
+                  }) 
+                ]);
             default:
               return null;
           }

@@ -68,10 +68,10 @@ let __internalSearchDataV2: Record<string, any> = {};
 
 const router = useRouter();
 
-function onInput(value: number | string)
-{
+function onInput(value: number | string) {
   state.isTyping = true;
   state.isSearching = false;
+
   if (Array.isArray(searchList.value) && searchList.value.length > 0) {
     searchList.value = {};
   }
@@ -223,7 +223,7 @@ const IOS_PADDING = import.meta.env.IOS ? 20 : 0;
 const panelStyles = computed(() => {
   let adjustedWidth = 0;
   let adjustedHeight = 0;
-  adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING);
+  adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING) + 20;
   adjustedWidth = app.device.width;
 
   return {

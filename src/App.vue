@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, provide, reactive, shallowReactive } from "vue";
 import { useDevice } from "@/plugins/Device";
+import { App } from "@capacitor/app"
 import useSession from "@/store/session.module";
 import AppToaster from "@/ui/notifications/toaster/AppToaster.vue";
 import RedGradientSVG from '@/components/redgradient/RedGradientSVG.vue';
@@ -72,18 +73,31 @@ const isDrawerOpen = computed(() =>
   || app.drawers.bottom.open
 })
 
+function onBackButton(props: any) {
+  // const { canGoBack } = props;
+  
+  // if(!canGoBack){
+  //   App.exitApp();
+  // } else {
+  //   window.history.back();
+  // }
+  alert("Hello" + JSON.stringify(props));
+}
+
 onMounted(() => { 
   device?.init(); 
   if (!renderCount.value) renderCount.value = true;
 
   session.initSession();
+
+  App.addListener("backButton", onBackButton);
 });
 
 </script>
 
 <template>
   <div :id="`${APP_BODY_ID.toLowerCase()}`" class="relative" :style="appStyles">
-    <RedGradientSVG class="absolute tx-0 lx-0 pointer-none" />
+    <RedGradientSVG />
     
     <AppNavigator :drawerOpen="isDrawerOpen" @onTransitionEnter="onNavigationEnter" />
 

@@ -8,22 +8,26 @@ export default {
 <script setup lang="ts">
 import { computed, inject, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
-import { BranchItem, BranchViewData, IBranchTypeProps } from '@/types';
-import { IBaseListItemData } from '@/ui/types';
-import { IApp, IAppDrawerComponents } from '@/types';
 import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
+import { 
+  IApp, 
+  IAppDrawerComponents, 
+  BranchItem, 
+  BranchViewData, 
+  IBranchTypeProps 
+} from '@/types';
+import { IBaseListItemData } from '@/ui/types';
 
 import useAppStore from '@/store/app.module';
 import useChecklistStore from '@/store/checklist.module';
 
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
+import ChecklistBadge from '@/components/branching/components/ChecklistBadge.vue';
 import AppChecklistPanel from "@/components/panels/AppChecklistPanel.vue";
-
 import { ChecklistCountType, checklistItemCountCompleteCheck } from '@/utils/ObjectTools';
-import { storeToRefs } from 'pinia';
-import ChecklistBadge from '../ChecklistBadge.vue';
 
 type CheckListItemType = IBaseListItemData & Partial<BranchItem> & { toggle?: boolean };
 type CheckListDataType = IBaseListItemData & Partial<BranchViewData>;
@@ -36,8 +40,6 @@ const appStore = useAppStore();
 const route = useRoute();
 const itemID = route?.query?.id;
 const childID = parseInt(route?.query?.childId! as string);
-// console.log("itemID", itemID);
-// console.log("childID", childID);
 
 const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
@@ -60,7 +62,7 @@ const mounted = ref(false)
 onMounted(() => {
   setTimeout(() => mounted.value = true, 75);
 
-  // when running of query
+  // if we have am incoming query with a child route, replace route...
   if (itemID && !isNaN(childID)) {
     const branchData = props?.view?.items?.[childID]!;
     branchData.parentId = props.view?.id as string;
@@ -121,7 +123,6 @@ const computedList = computed(() => {
           ['is-comment']: data.item.type === 'comment'
         }]" 
         :disabled="data.item.class ? data.item.class?.indexOf(`disabled`) >= 0 : false"
-        :innerClassName="`px-20 justify-between gapx-8`"
         :bodyClassName="`text-left`"
         :label="data.item.label"
         :accessoryIcon="ChecklistBadge"

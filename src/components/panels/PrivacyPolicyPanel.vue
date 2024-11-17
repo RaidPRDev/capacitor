@@ -88,15 +88,13 @@ function onMenuTriggered(selected: number) {
           <p>THE APP CONTAINS LINKS TO OTHER WEBSITES. ELSO IS NOT RESPONSIBLE FOR THE CONTENT, TERMS OF USE, OR PRIVACY POLICIES ON ANY THIRD-PARTY WEBSITES, OR PRIVACY PRACTICES BY ANY THIRD PARTIES.</p>
 
           <p class="p-title">Children Under Thirteen</p>
-          <p>ESLO does not knowingly accept personal information from anyone under the age of 13. By using the App and/or providing personal information, you represent and warrant that you are over the age of 13.</p>
+          <p>ELSO does not knowingly accept personal information from anyone under the age of 13. By using the App and/or providing personal information, you represent and warrant that you are over the age of 13.</p>
 
           <p class="p-title">Changes to this Privacy Policy</p>
           <p>ELSO may amend this Privacy Policy from time to time by posting the amended terms on this App.</p>
 
           <p class="p-title">Contact Information</p>
           <p>If you have any questions about ELSO’s Privacy Policy, please contact us at: <a href="mailto:support@elso.org">support@elso.org</a>.</p>
-
-
 
         </div>
 

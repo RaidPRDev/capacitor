@@ -128,8 +128,8 @@
   {
     "category": "medications",
     "id": "ELSOBA_MED_110",
-    "title": "Opiods",
-    "keywords": "opiods",
+    "title": "Opioids",
+    "keywords": "opioids",
     "path": "medications/ELSOBA_MED_110"
   },
   {
@@ -527,8 +527,8 @@
   {
     "category": "equipment",
     "id": "ELSOBA_EQUIP_019",
-    "title": "Cannula Selection",
-    "keywords": "cannula selection",
+    "title": "Cannula Guidelines",
+    "keywords": "cannula guidelines",
     "path": "equipment/ELSOBA_EQUIP_019"
   },
   {

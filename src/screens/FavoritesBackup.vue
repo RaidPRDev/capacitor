@@ -320,6 +320,55 @@ onUnmounted(() => {
 </BasePanel>
 </template>
 
+<style lang="scss">
+//////////
+/// Favorites Heading Button
+.favorites-head-button {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  box-shadow: 0px 3.69px 3.69px 0px #00000040;
+  border-radius: 50%;
+  border: 1px solid $transparent-color;
+  transition: #{$base-button-transition}, 
+    border-color 350ms ease-out;
+
+  &:hover:not(.edit-button) {
+    border: 2px solid $seven-color;
+  }
+
+  &.edit-button {
+    //border: 2px solid $seven-color;
+    &:hover {
+      border: 2px solid $teniary-color;
+    }
+  }
+  
+  &.added {
+    color: $seven-color;
+
+    &:hover {
+      border: 2px solid $teniary-color;
+    }
+  }
+  
+  &.edit-mode {
+    color: $seven-color;
+    border: 2px solid $teniary-color;
+
+    &:hover, &.pressed, &.selected {
+      border: 2px solid $teniary-color;
+    }
+  }
+
+  &.disabled {
+    @include grayscale();
+    pointer-events: none;
+
+    svg { opacity: 0.75 }
+  }
+}
+</style>
 <style scoped lang="scss">
 .title {
   font-family: $secondary-font-family;
