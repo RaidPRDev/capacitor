@@ -1,8 +1,8 @@
-package com.sweetrush.staging.elso;
+package com.ecmo.bedside;
 
 import com.getcapacitor.BridgeActivity;
 
-import android.os.Bundle; // required for onCreate parameter
+import android.os.Bundle;
 import com.microsoft.clarity.Clarity;
 import com.microsoft.clarity.ClarityConfig;
 import com.microsoft.clarity.models.ApplicationFramework;
@@ -17,21 +17,19 @@ public class MainActivity extends BridgeActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Long myVariable = 123456789L;
-
         // Your custom code here
         ClarityConfig config = new ClarityConfig(
           "oztc10g5eg",
-          "", // Default user id
+          null,                                             // Default user id
           LogLevel.None,
-          false, // Disallow metered network usage
-          true, // Enable web view capturing
-          Collections.singletonList("*"), // Allowed domains
+          false,                                            // Disallow metered network usage
+          true,                                             // Enable web view capturing
+          Collections.singletonList("*"),                   // Allowed domains
           ApplicationFramework.Native,
-          Collections.emptyList(), // Allowed activities
-          Collections.emptyList(), // Disallowed activities (ignore activities)
-          false, // Disable on low-end devices,
-          null 
+          Collections.emptyList(),                          // Allowed activities
+          Collections.emptyList(),                          // Disallowed activities (ignore activities)
+          false,                                            // Disable on low-end devices
+          null
         );
 
         Clarity.initialize(getApplicationContext(), config);
