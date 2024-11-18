@@ -47,7 +47,7 @@ const slots = useSlots();
     <div 
       v-if="slots?.footerSlot" 
       :class="[
-        'screen-footer width-100 mxb-1 absolute lx-0 bx-0', 
+        'screen-footer width-100 mxb-1 absolute lx-0 tx-0', 
         props?.footerSlotProps?.class
       ]"
       :style="[props?.footerSlotProps?.styles]"

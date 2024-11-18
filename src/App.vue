@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, provide, reactive, shallowReactive } from "vue";
+import { ref, onMounted, computed, provide, reactive, shallowReactive, shallowRef } from "vue";
 import { useDevice } from "@/plugins/Device";
 import { App } from "@capacitor/app"
 import useSession from "@/store/session.module";
@@ -8,10 +8,12 @@ import RedGradientSVG from '@/components/redgradient/RedGradientSVG.vue';
 
 import { APP_BODY_ID, APP_DRAWERS_ID, APP_ID } from "@/_core/Constants";
 import { 
+  DeviceBackButtonEventName,
   IApp, 
   IAppDrawerComponents, 
   IAppProvider, 
   IAppProviderDeviceProps, 
+  IDeviceBackButtonEvent, 
   IDrawerPosition 
 } from "@/types";
 
@@ -20,6 +22,8 @@ import AppAlert from "@/_core/AppAlert.vue";
 import AppNavigator from "@/_core/AppNavigator.vue";
 import AppDev from "./_core/AppDev.vue";
 import AppStyles from "@/_core/AppStyles";
+import AppAlertPanel from "@/components/panels/AppAlertPanel.vue";
+import { useRouter } from "vue-router";
 
 // App Provider
 const app = reactive<IAppProvider>({ 
@@ -48,6 +52,7 @@ provide<IAppDrawerComponents>(APP_DRAWERS_ID, drawerComponents);
 
 // Init Session
 const session = useSession();
+const router = useRouter();
 
 // Init Device and Styles
 const renderCount = ref(false);
@@ -73,16 +78,46 @@ const isDrawerOpen = computed(() =>
   || app.drawers.bottom.open
 })
 
-function onBackButton(props: any) {
-  // const { canGoBack } = props;
-  
-  // if(!canGoBack){
-  //   App.exitApp();
-  // } else {
-  //   window.history.back();
-  // }
-  alert("Hello" + JSON.stringify(props));
+/**
+ * 
+ * @param props 
+ */
+function onDeviceBackButton(props: any) {
+  /** @ts-ignore */
+  const { canGoBack } = props;
+
+  const routeName = router?.currentRoute?.value?.name;
+
+  if (routeName === "Home") {
+    app.alert.component = shallowRef(AppAlertPanel);
+    app.alert.options.props = {
+      title: '',
+      content: `Would you want to close the app?`,
+      labels: ['No', 'Yes'],
+      action: (index:number) => {
+        if (index === 0) return;
+
+        // Yes
+        if (index === 1) {
+          App.exitApp();
+        }
+      }
+    }
+    app.alert.options.open = !app.alert.options.open;
+    return;
+  }
+
+  // Create a custom event with type safety
+  const myDeviceBackButton = new CustomEvent<IDeviceBackButtonEvent>(DeviceBackButtonEventName, {
+    detail: { canGoBack },
+    bubbles: true,
+    cancelable: true
+  } as CustomEvent & IDeviceBackButtonEvent);
+  document?.dispatchEvent(myDeviceBackButton);
+  // router.go(-1);
 }
+
+
 
 onMounted(() => { 
   device?.init(); 
@@ -90,7 +125,7 @@ onMounted(() => {
 
   session.initSession();
 
-  App.addListener("backButton", onBackButton);
+  App.addListener("backButton", onDeviceBackButton);
 });
 
 </script>

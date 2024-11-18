@@ -85,7 +85,7 @@ function triggered(dataProps: any) {
         
         // get last view and clear from store
         const lastView = removeLastReferrallView();
-        
+
         // replace route
         router.replace({ path: `${lastView?.fullPath}` });
 

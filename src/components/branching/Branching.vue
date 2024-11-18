@@ -7,14 +7,14 @@ const DEBUG = false;
 </script>
 
 <script lang="ts" setup>
-import { ref, computed, useAttrs, onMounted, watch, nextTick, shallowRef, ComponentPublicInstance } from 'vue';
+import { ref, computed, useAttrs, onMounted, watch, nextTick, shallowRef, ComponentPublicInstance, onUnmounted } from 'vue';
 import { useRoute, useRouter } from "vue-router";
 import { APP_BODY_ID, TOP_HEADER_NAV_HEIGHT } from '@/_core/Constants';
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import View from './components/BranchView.vue';
 import BranchReferralPanel from './components/BranchReferralPanel.vue';
 
-import { BranchRouteParams, BranchViewData, BranchViewParamData } from '@/types';
+import { BranchRouteParams, BranchViewData, BranchViewParamData, DeviceBackButtonEventName, IDeviceBackButtonEvent } from '@/types';
 import { findBranchParents } from '@/utils/BranchTools';
 import useAppStore from '@/store/app.module';
 import useToasterService from '@/ui/notifications/toaster/AppToastService';
@@ -47,6 +47,7 @@ const props = withDefaults(defineProps<IBranchingProps>(), {
 // Attributes and Slots Setup
 const attrs = useAttrs();
 const element = ref<InstanceType<typeof HTMLElement>>();
+const contentElement = ref<InstanceType<typeof HTMLElement>>();
 const branchReferralRef = ref<ComponentPublicInstance<typeof BranchReferralPanel>>()
 
 // Expose Definitions
@@ -76,7 +77,13 @@ const { getItem, setItem, removeItem } = favoritesStore;
 const toasterService = useToasterService();
 const { addToast } = toasterService;
 const branchingStore = useBranchingStore();
-const { addReferrallView, getCurrentReferredView, removeAllReferralViews } = branchingStore;
+const { 
+  addReferrallView, 
+  getCurrentReferredView, 
+  removeAllReferralViews,
+  addViewHistory,
+  getViewHistoryByID
+} = branchingStore;
 const appStore = useAppStore();
 
 // Computed properties
@@ -105,6 +112,10 @@ const isFavoritesShowing = ref<boolean>(false);
 const isAddedToFavorites = ref<boolean>(currentView?.value?.showFavorites!);
 
 // Navigation Methods
+function onDeviceBackButton(event: CustomEvent & IDeviceBackButtonEvent) {
+  if (event) { goBack(); }  
+}
+
 function goBack() {
   if (DEBUG) console.log("Branching.goBack");
   
@@ -159,14 +170,20 @@ function goNext() {
 }
 
 function handleNavigate(branchTo: string | null) {
-  if (DEBUG) console.log("Branching.handleNavigate()", branchTo);
-  if (DEBUG) console.log("  branchTo", branchTo);
+  console.log("Branching.handleNavigate()", branchTo);
+  console.log("  branchTo", branchTo);
+  console.log("  scrollTop", contentElement?.value?.scrollTop);
+
 
   if (branchTo !== null) {
     
+    if (currentView?.value) {
+      addViewHistory({ id: currentView.value.id!, scrollPos: contentElement?.value?.scrollTop! });
+    }
+
     // save previous view reference val
     viewHistory.value.push(currentViewIndex.value);
-    
+
     // update current view index state to start render
     currentViewIndex.value = props?.views?.findIndex(view => {
       return view.id === branchTo
@@ -197,7 +214,6 @@ function handleTriggered(dataProps: any) {
     return;
   }
   
-  
   if (!dataProps.hasOwnProperty("data-no-referral")) {
     // get root view
     const refferredRootView = getBranchRootView();
@@ -207,7 +223,7 @@ function handleTriggered(dataProps: any) {
       dataType: currentDataType,
       title: refferredRootView?.title,
       subTitle: currentView?.value?.title || currentView?.value?.heading,
-      fullPath: `${route.fullPath}`,
+      fullPath: `${route.fullPath}`
     })
   }
   
@@ -215,19 +231,14 @@ function handleTriggered(dataProps: any) {
   const baseRoutePath = props?.baseRoutePath?.length! > 0 ? `/${props?.baseRoutePath}` : ``;
   if (DEBUG) console.log("  dataType", dataType);
   switch (dataType) {
-    case "resources":
-      router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
-    break;
     case "panic":
-      router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
-    break;
-    case "ecmo":
-      router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
-    break;
     case "equipment":
-      router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
-    break;
     case "checklists":
+    case "ecmo":
+    case "resources":
+      if (currentView?.value) {
+        addViewHistory({ id: currentView.value.id!, scrollPos: contentElement?.value?.scrollTop! });
+      }
       router.push({ path: `${baseRoutePath}/${dataType}/${dataProps['data-id']}` });
     break;
   }
@@ -452,6 +463,31 @@ function onViewRendered() {
   }
 }
 
+function checkLastReferralScrollPosition() {
+  // check last view scroll position
+  if (DEBUG) console.log("getViewHistoryByID", getViewHistoryByID(currentView?.value?.id!));
+  
+  const lastScrollPos = getViewHistoryByID(currentView?.value?.id!)?.scrollPos;
+  if (lastScrollPos! > 0 && contentElement.value) {
+    setTimeout(() => {
+      if (contentElement.value) {
+        contentElement.value.scrollTo({
+          top: lastScrollPos,
+          behavior: 'smooth'
+        });
+        console.log("lastScrollPos", lastScrollPos);
+      }
+    }, 1000)
+  }
+}
+
+watch(route, () => {
+
+  // check last refferred view scroll position
+  checkLastReferralScrollPosition();
+
+}, { flush: "post" })
+
 watch(route, (to, from) => {
 
   if (DEBUG) console.log("Branching.watch", route);
@@ -461,7 +497,7 @@ watch(route, (to, from) => {
   if (DEBUG) console.log("  __routePrevPath", __routePrevPath);
   if (DEBUG) console.log("  fullPath", route.fullPath);
   if (DEBUG) console.log("  back", router.options.history.state.back);
-
+    
   if (!router.options.history.state.back) {
     if (DEBUG) console.log("  history.state.back", history.state.back);
     currentViewIndex.value = 0;
@@ -513,6 +549,7 @@ watch(route, (to, from) => {
       }
     }
   }
+  
 }, { flush: "sync" })
 
 onMounted(() => {
@@ -533,8 +570,15 @@ onMounted(() => {
     currentViewIndex.value = 0;
   }
 
-  // check refferred view
+  // check last refferred view scroll position
+  checkLastReferralScrollPosition();
+  
+  // Add an device back button event listener
+  document.addEventListener(DeviceBackButtonEventName, onDeviceBackButton as EventListener);
+})
 
+onUnmounted(() => {
+  document.removeEventListener(DeviceBackButtonEventName, onDeviceBackButton as EventListener);
 })
 
 </script>
@@ -547,6 +591,7 @@ onMounted(() => {
     :style="branchViewStyles"
   >
     <div 
+      ref="contentElement"
       class="relative height-inherit set-scroll" 
       :class="[{ ['overflow-v-scroll-show']: true }]" 
     >

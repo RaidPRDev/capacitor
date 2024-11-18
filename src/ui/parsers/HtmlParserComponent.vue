@@ -148,7 +148,6 @@ export default defineComponent({
                     onTriggered: (e:Event) => {
                       const el = e?.target as HTMLButtonElement;
                       const innerEl = el?.parentElement as HTMLElement;
-                      console.log('el', el)
                       if (innerEl?.classList?.contains('disabled')) return;
 
                       // Fire the 'triggered' emit with a data object

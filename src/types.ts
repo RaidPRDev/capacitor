@@ -49,6 +49,12 @@ export interface IAppAlert {
   component: any;
 }
 
+export const DeviceBackButtonEventName = "deviceBackButton";
+export interface IDeviceBackButtonEvent {
+  detail: {
+    canGoBack?: boolean;
+  }
+}
 
 
 /////////////////////////////////////////////////////////////////////
@@ -156,6 +162,7 @@ export interface BranchViewData {
   sort?: "ByActive" | "ByAZ" | "ByZA";
   totalCompleted?: number;
   totalChecks?: number;
+  lastScrollPos?: number;
   data?: Record<string, any>;
 }
 

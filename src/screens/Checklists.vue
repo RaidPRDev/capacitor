@@ -57,8 +57,6 @@ const {
 
 // if we have am incoming query, replace route...
 watch(route, () => {
-  
-  console.error("CHECKLIST.ROUTE CHANGED", route?.query)
   if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
     
     router.replace({ path: `/home/checklists/${route?.query?.id}` });

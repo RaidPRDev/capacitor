@@ -14,14 +14,21 @@ interface IRefferedBranchView {
   fullPath?: string;
 }
 
+interface IViewHistoryItem {
+  id?: string;
+  scrollPos: number;
+}
+
 interface IBranchingStore {
   routerFrom?: IRouterFrom | null;
   refferedViews: Array<IRefferedBranchView> | null;
+  viewHistory?: Record<string, IViewHistoryItem> | null;
 }
 
 const initialState: IBranchingStore = {
   routerFrom: null,
   refferedViews: null,
+  viewHistory: null
 };
 
 export const useBranchingStore = defineStore('branching', {
@@ -34,7 +41,21 @@ export const useBranchingStore = defineStore('branching', {
       this.refferedViews = null;
     },
 
-    addReferrallView(view: any) {
+    addViewHistory(view: IViewHistoryItem) {
+      if (!this.viewHistory) this.viewHistory = {}
+      this.viewHistory[view.id!] = { scrollPos: view.scrollPos };
+    },
+    
+    getViewHistoryByID(id: string) {
+      if (this.viewHistory && this.viewHistory.hasOwnProperty(id)) return this.viewHistory[id];
+      return null;
+    },
+
+    resetViewHistory() {
+      this.viewHistory = {}
+    },
+
+    addReferrallView(view: IRefferedBranchView) {
       if (!this.refferedViews) this.refferedViews = []
       
       this.refferedViews.push(view);
@@ -44,6 +65,7 @@ export const useBranchingStore = defineStore('branching', {
       if (!this.refferedViews) return;
       
       const view = this.refferedViews.pop();
+      // this.lastScrollPos = view?.scrollPos;
       if (this.refferedViews?.length === 0) {
         this.refferedViews = null;
       }

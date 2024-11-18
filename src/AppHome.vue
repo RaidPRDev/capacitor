@@ -51,7 +51,8 @@ const branchingStore = useBranchingStore();
 const { 
   getCurrentReferredView, 
   removeLastReferrallView, 
-  removeAllReferralViews 
+  removeAllReferralViews,
+  resetViewHistory
 } = branchingStore;
 
 // Reference Setup
@@ -191,6 +192,7 @@ function showGoPanicHomeAlert() {
       if (index === 1) {
         // clear store referrals
         removeAllReferralViews();
+        resetViewHistory();
 
         goToSection(footerSelectedItem.value!);
         let nextRoute = "", rawRoute = footerSelectedItem?.value?.data?.route as string;
@@ -285,7 +287,14 @@ onUnmounted(() => {
 <template>
 <BaseScreen 
   :className="[`home`,  props?.class, props?.drawerOpen ? `drawer-open` : ``].join(` `)"
-  :headerSlotProps="{ class: `z-index-1` }" :footerSlotProps="{ styles: { height: `${BOTTOM_HEADER_NAV_HEIGHT(app.device.isIOS ? 20 : 0)}px` } }">
+  :headerSlotProps="{ class: `z-index-1` }" 
+  :footerSlotProps="{ 
+    styles: { 
+      position: `fixed`,
+      top: `calc(${app.device.height}px - ${BOTTOM_HEADER_NAV_HEIGHT(app.device.isIOS ? 20 : 0)}px)`,
+      height: `${BOTTOM_HEADER_NAV_HEIGHT(app.device.isIOS ? 20 : 0)}px` 
+    } 
+  }">
   
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="home-header center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
@@ -325,7 +334,10 @@ onUnmounted(() => {
   </template>
   
   <template v-slot:footerSlot>
-    <BaseHeader ref="footerRef" class="home-footer center-container pxlr-20" centerClassName="width-100">
+    <BaseHeader ref="footerRef" 
+      class="home-footer center-container pxlr-20" 
+      centerClassName="width-100"
+    >
       <template v-slot:headerCenter>
         <ButtonGroup 
           :class="`footer width-100`"
@@ -358,12 +370,6 @@ onUnmounted(() => {
     .header-center {
       align-items: start;
       padding-top: 6px;
-
-      // .menu-button {
-      //   .ui-icon {
-      //     // svg { width: 80%; margin: 0 auto; }
-      //   }
-      // }
     }
   }
 }
@@ -391,13 +397,6 @@ onUnmounted(() => {
     :deep(.inner-base-header) {
       border-radius: $header-border-radius;
     }
-  }
-}
-
-.base-screen {
-  opacity: 1;
-  :deep(.screen-footer) {
-    position: fixed;
   }
 }
 

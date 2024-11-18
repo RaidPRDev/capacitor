@@ -24,7 +24,7 @@ import { BranchRouteProps } from '@/types';
 
 const DEBUG = false;
 
-const defaultTransition = { transition: "scale-slide" };
+const defaultTransition = { transition: "scale-slide", scrollPos: 0 };
 
 type AppRoute = RouteLocationGeneric;
 

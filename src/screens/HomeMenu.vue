@@ -5,8 +5,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useAttrs } from 'vue';
+import { onMounted, useAttrs } from 'vue';
 import { useRouter } from 'vue-router';
+import useBranchingStore from '@/store/branching.module';
 import classNames from 'classnames';
 
 import BaseButton from '@/ui/controls/BaseButton.vue';
@@ -22,6 +23,11 @@ import ResourcesIcon from '@/assets/icons/sideMenu/paperclip-icon.svg';
 // Component Props Setup
 const attrs = useAttrs();
 const router = useRouter();
+
+const branchingStore = useBranchingStore();
+const { 
+  resetViewHistory
+} = branchingStore;
 
 const menuItems = [
   { label: "ECMO<br>Candidacy", icon: MedicalBedIcon, class: "" },
@@ -54,6 +60,11 @@ function onMenuTriggered(index:number) {
     break;
   }
 }
+
+onMounted(() => {
+  console.log("resetViewHistory();", resetViewHistory)
+  resetViewHistory();
+})
 
 </script>
 
