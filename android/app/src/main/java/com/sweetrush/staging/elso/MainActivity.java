@@ -2,6 +2,7 @@ package com.sweetrush.staging.elso;
 
 import com.getcapacitor.BridgeActivity;
 
+import android.os.Bundle; // required for onCreate parameter
 import com.microsoft.clarity.Clarity;
 import com.microsoft.clarity.ClarityConfig;
 import com.microsoft.clarity.models.ApplicationFramework;
