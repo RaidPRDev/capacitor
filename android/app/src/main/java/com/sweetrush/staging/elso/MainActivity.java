@@ -7,6 +7,7 @@ import com.microsoft.clarity.ClarityConfig;
 import com.microsoft.clarity.models.ApplicationFramework;
 import com.microsoft.clarity.models.LogLevel;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class MainActivity extends BridgeActivity {
   @Override
