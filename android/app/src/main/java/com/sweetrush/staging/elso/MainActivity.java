@@ -18,7 +18,18 @@ public class MainActivity extends BridgeActivity {
         super.onCreate(savedInstanceState);
 
         // Your custom code here
-        ClarityConfig config = new ClarityConfig("oztc10g5eg");
+        ClarityConfig config = new ClarityConfig(
+          "oztc10g5eg",
+          "", // Default user id
+          LogLevel.None,
+          false, // Disallow metered network usage
+          true, // Enable web view capturing
+          Collections.singletonList("*"), // Allowed domains
+          ApplicationFramework.Native,
+          Collections.emptyList(), // Allowed activities
+          Collections.emptyList(), // Disallowed activities (ignore activities)
+          false // Disable on low-end devices
+        );
 
         Clarity.initialize(getApplicationContext(), config);
     }
