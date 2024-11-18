@@ -12,7 +12,7 @@ import java.util.Collections;
 
 public class MainActivity extends BridgeActivity {
   @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Your custom code here
