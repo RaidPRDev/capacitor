@@ -1,5 +1,6 @@
 import UIKit
 import Capacitor
+import Clarity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,6 +9,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        // Note: Set ".verbose" value for "logLevel" parameter while testing to debug initialization issues.
+        let clarityConfig = ClarityConfig(projectId: "oztc10g5eg")
+        ClaritySDK.initialize(config: clarityConfig)
+        
         return true
     }
 
