@@ -17,6 +17,8 @@ public class MainActivity extends BridgeActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Long myVariable = 123456789L;
+
         // Your custom code here
         ClarityConfig config = new ClarityConfig(
           "oztc10g5eg",
@@ -28,7 +30,8 @@ public class MainActivity extends BridgeActivity {
           ApplicationFramework.Native,
           Collections.emptyList(), // Allowed activities
           Collections.emptyList(), // Disallowed activities (ignore activities)
-          false // Disable on low-end devices
+          false, // Disable on low-end devices,
+          null 
         );
 
         Clarity.initialize(getApplicationContext(), config);
