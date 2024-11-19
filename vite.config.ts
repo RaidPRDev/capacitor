@@ -18,7 +18,7 @@ export default defineConfig(async ({command, mode}) => {
   const BUILD_NUMBER = parseInt(APP_BUILD_NUMBER);
   const BUILD_DATE = Date.now();
   const BUILD_PHASE = 'Beta';
-  const PLATFORM = process?.env?.PLATFORM ?? "web";
+  const PLATFORM = "android";//process?.env?.PLATFORM ?? "web";
   const ISMOBILE = !!/android|ios/.exec(PLATFORM);
   const ISIOS = !!/ios/.exec(PLATFORM);
   const ISANDROID = !!/android/.exec(PLATFORM);
@@ -43,7 +43,7 @@ export default defineConfig(async ({command, mode}) => {
       'import.meta.env.ISMOBILE': ISMOBILE,
       'import.meta.env.IOS': ISIOS,
       'import.meta.env.ANDROID': ISANDROID,
-      'import.meta.env.CLARITY_ID': CLARITY_ID,
+      'import.meta.env.CLARITY_ID': JSON.stringify(CLARITY_ID),
     },
 
     plugins: [customHmr(), vue(), svgLoader()],
