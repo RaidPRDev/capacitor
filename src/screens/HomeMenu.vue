@@ -66,9 +66,9 @@ const hapticsImpactMedium = async () => {
   await Haptics.impact({ style: ImpactStyle.Medium });
 };
 
-const hapticsImpactLight = async () => {
-  await Haptics.impact({ style: ImpactStyle.Light });
-};
+// const hapticsImpactLight = async () => {
+//   await Haptics.impact({ style: ImpactStyle.Light });
+// };
 
 const hapticsVibrate = async () => {
   await Haptics.vibrate();
