@@ -62,6 +62,7 @@ const timeoutMount = shallowRef<ReturnType<typeof setTimeout>>();
 const searchList = ref<Record<string, ISearchFlatDataItem>>({});
 const searchValue = reactive({ text: "" });
 const searchInputRef = ref<ComponentPublicInstance<typeof BaseInput>>()
+const baseListRef = ref<ComponentPublicInstance<typeof BaseList>>()
 
 let __searchDataIsLoaded: boolean = false;
 let __internalSearchDataV2: Record<string, any> = {};
@@ -223,12 +224,29 @@ const IOS_PADDING = import.meta.env.IOS ? 20 : 0;
 const panelStyles = computed(() => {
   let adjustedWidth = 0;
   let adjustedHeight = 0;
-  adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING) + 20;
+  // adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING) + 20;
+  adjustedHeight += (IOS_PADDING ? 20 : 0);
   adjustedWidth = app.device.width;
+
+  console.error("adjustedHeight", adjustedHeight)
+  
+  let heightCss = `calc(100% - ${adjustedHeight}px)`;
+
+  const listElRef = baseListRef?.value?.elementRef()?.$el as HTMLElement;
+  if (listElRef) {
+    console.info("listElRef", listElRef);
+    console.info("offsetWidth", listElRef.offsetWidth);
+    console.info("offsetHeight", listElRef.offsetHeight);
+
+    adjustedHeight = listElRef.offsetHeight - (BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING) + 20);
+    heightCss = `${adjustedHeight}px`;
+  }
+  
 
   return {
     width: `calc(${adjustedWidth}px - 0px)`,
-    height: `calc(100% - ${adjustedHeight}px)`,
+    // height: `calc(100% - ${adjustedHeight}px)`,
+    height: `${heightCss}`,
     paddingLeft: `20px`,
     paddingRight: `12px`,
     paddingBottom: `80px`,
@@ -256,6 +274,8 @@ onMounted(() => {
       searchInputRef?.value?.inputRef()?.focus();
     }, 650);  
   }
+
+  console.log("baseListRef", baseListRef.value)
 })
 
 </script>
@@ -278,6 +298,7 @@ onMounted(() => {
     <div class="status mxt-20 mxb-20 pxlr-20">{{resultLabel}}</div>
 
     <BaseList 
+      ref="baseListRef"
       :dataProvider="fetchResults" 
       :style="panelStyles"
       :class="[

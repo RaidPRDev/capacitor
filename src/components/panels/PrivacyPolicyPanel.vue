@@ -29,7 +29,7 @@ function handleScroll() {
   if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
 
   const div = divScrollerRef.value;
-  if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+  if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
     hasScrolledEnd.value = true;
   }
 }

@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, onMounted, ref } from 'vue';
+import { inject, ref } from 'vue';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
@@ -27,7 +27,7 @@ function handleScroll() {
   if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
 
   const div = divScrollerRef.value;
-  if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+  if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
     hasScrolledEnd.value = true;
   }
 }
@@ -47,12 +47,6 @@ function onMenuTriggered(selected: number) {
   app.drawers.closeOutside = false;
   app.drawers.bottom.open = !app.drawers.bottom.open;
 }
-
-
-
-onMounted(() => {
-
-})
 
 </script>
 

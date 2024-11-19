@@ -66,7 +66,7 @@ const useAppStyles = (props: IUseAppStyleProps) => {
 
     // prevent resizing when running on device.
     if (hasRendered.value) {
-      return { width: `${res.width}px`, height: `${res.height}px` }
+      return { width: `${res.width}px`, height: `${props.app.device.height}px` }
     }
 
     props.app.device.width = res.width;

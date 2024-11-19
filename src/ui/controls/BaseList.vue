@@ -23,6 +23,14 @@ const props = withDefaults(defineProps<IBaseListProps>(), {
 // Attributes and Slots Setup
 const attrs = useAttrs();
 
+const elementRef = ref<HTMLElement>();
+
+// Expose Definitions
+defineExpose({
+  elementRef: () => elementRef.value as HTMLElement
+})
+
+
 // const computedList = computed(() => {
 //   if (Array.isArray(props?.dataProvider) && props?.dataProvider?.length === 0) return [];
 
@@ -58,6 +66,7 @@ const setTransitionStyles = (index: number, isTransition?: boolean) => {
 <template>
 <transition-group 
   role="list"  
+  ref="elementRef"
   :class="['base-list flex flex-column', props?.class]"  
   :name="!hasTransitioned ? props?.transitionProps?.name : `list-delete`"
   :tag="props?.transitionProps?.tag"
