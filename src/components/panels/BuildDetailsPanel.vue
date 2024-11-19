@@ -21,7 +21,6 @@ import { capitalizeFirstLetter, copyToClipboard } from '@/utils/StringTools';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
-import { App } from '@capacitor/app';
 
 const APPLICATION_ID = import.meta.env.APPLICATION_ID;
 const APPLICATION_NAME = import.meta.env.APPLICATION_NAME;
