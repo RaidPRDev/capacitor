@@ -22,6 +22,7 @@ export default defineConfig(async ({command, mode}) => {
   const ISMOBILE = !!/android|ios/.exec(PLATFORM);
   const ISIOS = !!/ios/.exec(PLATFORM);
   const ISANDROID = !!/android/.exec(PLATFORM);
+  const CLARITY_ID = process?.env?.CLARITY_ID ?? "oztc10g5eg";
   
   console.log("[PLATFORM]", PLATFORM);
   console.log("[APP_VERSION]", APP_VERSION);
@@ -30,6 +31,7 @@ export default defineConfig(async ({command, mode}) => {
   console.log("[ISMOBILE]", ISMOBILE);
   console.log("[ISIOS]", ISIOS);
   console.log("[ISANDROID]", ISANDROID);
+  console.log("[CLARITY_ID]", CLARITY_ID);
 
   return ({
     define: {
@@ -41,6 +43,7 @@ export default defineConfig(async ({command, mode}) => {
       'import.meta.env.ISMOBILE': ISMOBILE,
       'import.meta.env.IOS': ISIOS,
       'import.meta.env.ANDROID': ISANDROID,
+      'import.meta.env.CLARITY_ID': CLARITY_ID,
     },
 
     plugins: [customHmr(), vue(), svgLoader()],

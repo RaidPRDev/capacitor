@@ -21,6 +21,7 @@ import ChecklistScreen from '@/screens/demo/checklist/ChecklistScreen.vue';
 import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
 import usePassKey from '@/store/passkey.module';
 import { BranchRouteProps } from '@/types';
+import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
 
 const DEBUG = false;
 
@@ -37,7 +38,7 @@ const routes = [
     { path: '', name: "Home", component: HomeMenu, meta: { ...defaultTransition } },
     { path: 'notes', name: "Notes", component: Notes, meta: { ...defaultTransition } },
     { path: 'circuit', name: "MyCircuit", component: MyCircuit, meta: { ...defaultTransition } },
-    { path: 'ecmo/:id(.*)?', name: "EcmoCandidacy", component: EcmoCandidacy, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
+    { path: 'ecmo/:id(.*)?', name: "ECMOCandidacy", component: EcmoCandidacy, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'panic/:id(.*)?', name: "Panic", component: Panic, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'checklists/:id(.*)?', name: "Checklists", component: Checklists, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
     { path: 'medications/:id(.*)?', name: "Medication", component: Medication, meta: { ...defaultTransition }, props: (route:AppRoute) => parseParams(route) },
@@ -81,6 +82,12 @@ router.beforeEach((to, from, next) => {
 
   // save previous route
   router.from = from;
+
+  if (to?.name === "Home") {
+    MyClarityCapacitator.setCurrentScreenName({
+      id: to?.name?.toString()!
+    });
+  }
 
   next();
 })

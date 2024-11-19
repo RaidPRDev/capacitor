@@ -25,6 +25,7 @@ import { getNavigationRoot } from "@/utils/BranchTools";
 import PulseRateLoader from '@/components/pulserateloader/PulseRateLoader.vue';
 
 import MedicalBedIcon from '@/assets/icons/homeMenu/medical-bed-icon.svg';
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -72,6 +73,13 @@ function onViewBeforeEnter(params: BranchViewParamData) {
   }
   else {
     baseHeight.value = 0;
+  }
+
+  if ((params.previousView?.dataType === 'ecmo')
+    && (params.view.heading?.length !== 0)) {
+      MyClarityCapacitator.setCurrentScreenName({
+        id: params.view.heading! || params.view.title!
+      });
   }
 }
 

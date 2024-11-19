@@ -39,6 +39,7 @@ import NotesIcon from '@/assets/icons/homeMenu/notes-icon.svg';
 import PanicIcon from '@/assets/icons/panic-red-icon.svg';
 import FavoritesIcon from '@/assets/icons/favorites-star-solid.svg';
 import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppScreenProps>(), {}) 
@@ -154,6 +155,11 @@ function onFooterMenuTriggered(selected: IButtonGroupSelected) {
 
 function goToSection(selected: IButtonGroupSelected) {
   if (sectionIndex.value === selected.index) return;
+  
+  MyClarityCapacitator.setCurrentScreenName({
+    id: selected.data.route
+  });
+  
   session.$patch({ currentIndex: selected.index })
   router.push({ name: selected.data.route });
 }

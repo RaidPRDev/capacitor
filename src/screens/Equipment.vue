@@ -27,6 +27,7 @@ import { loadViewData } from "@/components/branching/data/DataTools";
 import { getNavigationRoot } from "@/utils/BranchTools";
 
 import WrenchIcon from '@/assets/icons/homeMenu/wrench-icon.svg';
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -66,6 +67,12 @@ function onViewBeforeEnter(params: BranchViewParamData) {
   }
   else {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
+  }
+
+  if ((params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
+      MyClarityCapacitator.setCurrentScreenName({
+        id: params.view.heading! || params.view.title!
+      });
   }
 }
 

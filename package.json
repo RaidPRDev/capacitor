@@ -1,8 +1,8 @@
 {
   "name": "elso_app",
   "private": true,
-  "version": "0.8.5",
-  "build_number": "67",
+  "version": "0.8.6",
+  "build_number": "82",
   "type": "module",
   "scripts": {
     "start": "vite --host",
@@ -19,7 +19,8 @@
     "@capacitor/cli": "^6.1.0",
     "@capacitor/core": "^6.1.0",
     "@capacitor/ios": "^6.1.0",
-    "@streamparser/json-whatwg": "^0.0.21"
+    "@streamparser/json-whatwg": "^0.0.21",
+    "my-clarity-capacitator-plugin": "file:my-clarity-capacitator-plugin"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",

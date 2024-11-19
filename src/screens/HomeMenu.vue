@@ -16,7 +16,6 @@ import MedicalBedIcon from '@/assets/icons/homeMenu/medical-bed-icon.svg';
 import ChecklistIcon from '@/assets/icons/homeMenu/checklist-icon.svg';
 import TimePillIcon from '@/assets/icons/homeMenu/time-pill-icon.svg';
 import WrenchIcon from '@/assets/icons/homeMenu/wrench-icon.svg';
-// import FavoritesIcon from '@/assets/icons/favorites-star-line-icon.svg';
 import CalculatorIcon from '@/assets/icons/homeMenu/calculator-icon.svg';
 import ResourcesIcon from '@/assets/icons/sideMenu/paperclip-icon.svg';
 
@@ -39,30 +38,16 @@ const menuItems = [
 ];
 
 function onMenuTriggered(index:number) {
-  switch (index) {
-    case 0:   // Ecmo Candadacy
-      router.push({ name:"EcmoCandidacy" });
-    break;
-    case 1:   // Calculators
-      router.push({ name: "Calculators" });
-    break;
-    case 2:   // Equipment
-      router.push({ name: "Equipment" })
-    break;
-    case 3:   // Medication
-      router.push({ name: "Medication" });
-    break;
-    case 4:   // Checklists
-      router.push({ name: "Checklists" });
-    break;
-    case 5:   // Resources
-      router.push({ name: "Resources" });
-    break;
-  }
+  // get route name
+  const title = menuItems[index].label.replace(/<br\s*\/?>/gi, '');
+  router.push({ name: title });
+
+  // MyClarityCapacitator.setCurrentScreenName({
+  //   id: title
+  // });
 }
 
 onMounted(() => {
-  console.log("resetViewHistory();", resetViewHistory)
   resetViewHistory();
 })
 

@@ -2,7 +2,7 @@
 export default {
   inheritAttrs: false
 }   
-const DEBUG = false;
+const DEBUG = true;
 </script>
 
 <script setup lang="ts">
@@ -25,6 +25,7 @@ import { getNavigationRoot } from "@/utils/BranchTools";
 import PulseRateLoader from '@/components/pulserateloader/PulseRateLoader.vue';
 
 import PanicIcon from '@/assets/icons/panic-header-icon.svg';
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -73,6 +74,14 @@ function onViewBeforeEnter(params: BranchViewParamData) {
   else {
     baseHeight.value = 0;
   }
+
+  if ((params.previousView?.dataType === 'panic')
+    && (params.view.heading?.length !== 0)) {
+      MyClarityCapacitator.setCurrentScreenName({
+        id: params.view.heading! || params.view.title!
+      });
+  }
+  
 }
 
 </script>

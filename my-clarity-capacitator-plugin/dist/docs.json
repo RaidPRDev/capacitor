@@ -1,0 +1,63 @@
+{
+  "api": {
+    "name": "MyClarityCapacitatorPlugin",
+    "slug": "myclaritycapacitatorplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "initialize",
+        "signature": "(options: { id: string; }) => Promise<{ id: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id: string; }"
+          }
+        ],
+        "returns": "Promise<{ id: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "initialize"
+      },
+      {
+        "name": "setCurrentScreenName",
+        "signature": "(options: { id: string; }) => Promise<{ id: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id: string; }"
+          }
+        ],
+        "returns": "Promise<{ id: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "setcurrentscreenname"
+      },
+      {
+        "name": "echo",
+        "signature": "(options: { value: string; }) => Promise<{ value: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ value: string; }"
+          }
+        ],
+        "returns": "Promise<{ value: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "echo"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}

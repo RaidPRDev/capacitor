@@ -4,3 +4,6 @@ project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/
 
 include ':capacitor-app'
 project(':capacitor-app').projectDir = new File('../node_modules/@capacitor/app/android')
+
+include ':my-clarity-capacitator-plugin'
+project(':my-clarity-capacitator-plugin').projectDir = new File('../my-clarity-capacitator-plugin/android')

@@ -2,7 +2,7 @@
 export default {
   inheritAttrs: false
 }
-const DEBUG = false;
+const DEBUG = true;
 </script>
 
 <script setup lang="ts">
@@ -27,6 +27,7 @@ import useBranching from "@/components/branching/hooks/useBranching";
 import { getNavigationRoot } from "@/utils/BranchTools";
 
 import CalculatorIcon from '@/assets/icons/homeMenu/calculator-icon.svg';
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -66,6 +67,13 @@ function onViewBeforeEnter(params: BranchViewParamData) {
   }
   else {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
+  }
+
+  if ((params.view.layout === 'list' || params.view.layout === 'input')
+    && (params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
+      MyClarityCapacitator.setCurrentScreenName({
+        id: params.view.heading! || params.view.title!
+      });
   }
 }
 
