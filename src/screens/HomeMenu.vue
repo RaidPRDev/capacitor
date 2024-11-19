@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { onMounted, useAttrs } from 'vue';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
 
 import { useRouter } from 'vue-router';
 import useBranchingStore from '@/store/branching.module';
@@ -39,21 +39,21 @@ const menuItems = [
   { label: "Resources", icon: ResourcesIcon, class: "res-icon" }
 ];
 
-function onMenuTriggered(index:number) {
+async function onMenuTriggered(index:number) {
   
 
   switch (index) {
     case 0: 
-    hapticsImpactMedium();
+    await Haptics.impact({ style: ImpactStyle.Light });
     break;
     case 1: 
-    hapticsSelectionStart();
+    await Haptics.impact({ style: ImpactStyle.Medium });
     break;
     case 2: 
-    hapticsSelectionChanged();
+    await Haptics.impact({ style: ImpactStyle.Heavy });
     break;
     case 3: 
-    hapticsSelectionEnd();
+    await Haptics.notification({ type: NotificationType.Success  });
     break;
   }
 
@@ -62,38 +62,10 @@ function onMenuTriggered(index:number) {
   router.push({ name: title });
 }
 
-const hapticsImpactMedium = async () => {
-  await Haptics.impact({ style: ImpactStyle.Medium });
-};
-
-// const hapticsImpactLight = async () => {
-//   await Haptics.impact({ style: ImpactStyle.Light });
-// };
-
-const hapticsVibrate = async () => {
-  await Haptics.vibrate();
-};
-
-const hapticsSelectionStart = async () => {
-  await Haptics.selectionStart();
-};
-
-
-const hapticsSelectionChanged = async () => {
-  await Haptics.selectionChanged();
-};
-
-const hapticsSelectionEnd = async () => {
-  await Haptics.selectionEnd();
-};
-
 onMounted(() => {
   resetViewHistory();
-
-  setTimeout(() => {
-    hapticsVibrate();
-  }, 5000);
 })
+
 
 </script>
 
