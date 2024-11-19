@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-  <string>ECMO\U2007Bedside\U2007Guide\U2007(SR_Beta)</string>
+  <string>ECMO&#x2007Bedside&#x2007Guide&#x2007(SR_Beta)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
