@@ -6,6 +6,8 @@ export default {
 
 <script setup lang="ts">
 import { onMounted, useAttrs } from 'vue';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
+
 import { useRouter } from 'vue-router';
 import useBranchingStore from '@/store/branching.module';
 import classNames from 'classnames';
@@ -38,17 +40,59 @@ const menuItems = [
 ];
 
 function onMenuTriggered(index:number) {
+  
+
+  switch (index) {
+    case 0: 
+    hapticsImpactMedium();
+    break;
+    case 1: 
+    hapticsSelectionStart();
+    break;
+    case 2: 
+    hapticsSelectionChanged();
+    break;
+    case 3: 
+    hapticsSelectionEnd();
+    break;
+  }
+
   // get route name
   const title = menuItems[index].label.replace(/<br\s*\/?>/gi, '');
   router.push({ name: title });
-
-  // MyClarityCapacitator.setCurrentScreenName({
-  //   id: title
-  // });
 }
+
+const hapticsImpactMedium = async () => {
+  await Haptics.impact({ style: ImpactStyle.Medium });
+};
+
+const hapticsImpactLight = async () => {
+  await Haptics.impact({ style: ImpactStyle.Light });
+};
+
+const hapticsVibrate = async () => {
+  await Haptics.vibrate();
+};
+
+const hapticsSelectionStart = async () => {
+  await Haptics.selectionStart();
+};
+
+
+const hapticsSelectionChanged = async () => {
+  await Haptics.selectionChanged();
+};
+
+const hapticsSelectionEnd = async () => {
+  await Haptics.selectionEnd();
+};
 
 onMounted(() => {
   resetViewHistory();
+
+  setTimeout(() => {
+    hapticsVibrate();
+  }, 5000);
 })
 
 </script>
