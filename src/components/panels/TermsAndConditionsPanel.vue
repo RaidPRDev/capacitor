@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
@@ -22,6 +22,17 @@ import CloseIcon from '@/assets/icons/close-icon.svg';
 
 const session = useSession();
 const { hasCompletedTerms } = storeToRefs(session);
+
+const divScrollerRef = ref<HTMLElement>();
+const hasScrolledEnd = ref<boolean>(false);
+function handleScroll() {
+  if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
+
+  const div = divScrollerRef.value;
+  if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+    hasScrolledEnd.value = true;
+  }
+}
 
 const app = inject<IApp>(APP_ID) as IApp;
 
@@ -58,8 +69,8 @@ function onMenuTriggered(selected: number) {
 
       <div class="title width-100 text-center mxb-30">Terms & Conditions</div>
     
-      <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-60">
+      <div class="content-scroller relative">
+        <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" @scroll="handleScroll">
           
           <p class="p-title">TERMS OF USE</p>
           <p>Extracorporeal Life Support Organization (ELSO)’s ECMO Bedside Guide App (the “App”) is comprised of various content owned and operated by ELSO.</p>
@@ -116,6 +127,9 @@ function onMenuTriggered(selected: number) {
 
         <BaseButton 
           class="variant-red cancel" 
+          :class="[{  
+            ['disabled']: !hasScrolledEnd
+          }]"
           :elementClassName="classnames(`width-100 mxtb-10`, {})"
           :innerClassName="`px-13 justify-center`" 
           :label="`Decline`"
@@ -124,6 +138,9 @@ function onMenuTriggered(selected: number) {
         
         <BaseButton 
           class="variant-red" 
+          :class="[{  
+            ['disabled']: !hasScrolledEnd
+          }]"
           :elementClassName="classnames(`width-100 mxtb-10`, {})"
           :innerClassName="`px-13 justify-center`" 
           :label="`Accept`"
@@ -155,7 +172,6 @@ function onMenuTriggered(selected: number) {
   $header-title-padding: 30px;
   $footer-height: 90px;
   $scroller-bottom: 20px;
-  $scroll-height: $header-height + $header-padding + $header-title + $header-title-padding + $footer-height;
 
   &.accepted {
     .content-scroller {
@@ -216,9 +232,7 @@ function onMenuTriggered(selected: number) {
     background-color: white;
   }
 
-  
   :deep(.inner-panel) {
-    // background-color: rgba(white, .95);
     background-color: white;
 
     .base-header {
@@ -229,12 +243,16 @@ function onMenuTriggered(selected: number) {
     }
 
     .variant-red {
+
       box-shadow: 0px 0px 12px 0px #0B247A26;
 
-      &.cancel {
-        opacity: 1;
+      &.cancel:not(.disabled) {
         .inner-base-button {
-          background: $fourth-color;
+          background: linear-gradient(106.56deg, #0B247A 0%, #2C51CF 100%);
+
+          .ui-background {
+            background: none;
+          }
         }
       }
     }

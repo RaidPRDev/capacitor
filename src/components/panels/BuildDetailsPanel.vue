@@ -21,7 +21,10 @@ import { capitalizeFirstLetter, copyToClipboard } from '@/utils/StringTools';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
+import { App } from '@capacitor/app';
 
+const APPLICATION_ID = import.meta.env.APPLICATION_ID;
+const APPLICATION_NAME = import.meta.env.APPLICATION_NAME;
 const APP_VERSION = import.meta.env.APP_VERSION;
 const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const BUILD_DATE = import.meta.env.BUILD_DATE;
@@ -52,6 +55,8 @@ function generateCopy(): string {
   else platform = `Unknown`;
   
   const content = `
+App ID: ${APP_ID}
+App Name: ${APPLICATION_NAME}
 App Version: ${APP_VERSION}
 Build Number: ${BUILD_NUMBER}
 Build Type: ${BUILD_PHASE}
@@ -107,9 +112,8 @@ const navigatorDataIsMobile = computed(() => {
 })
 
 onMounted(() => {
-  console.log("device", device?.state)
-
-  console.log('IsOnline?', device?.state?.navigator?.onLine);
+  // console.log("device", device?.state)
+  // console.log('IsOnline?', device?.state?.navigator?.onLine);
   if (device?.state?.navigator?.onLine) {
     IsOnline.value = true;
   }
@@ -140,9 +144,11 @@ onMounted(() => {
         />
       </div>
     
-      <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-80 select-text">
+      <div class="content-scroller relative">
+        <div class="inner-scroller pxb-80 select-text pxlr-16">
 
+          <div><p>App ID: <b>{{ `${APPLICATION_ID}` }}</b></p></div>
+          <div><p>App Name: <b>{{ `${APPLICATION_NAME}` }}</b></p></div>
           <div><p>App Version: <b>{{ `${APP_VERSION}` }}</b></p></div>
           <div><p>Build Number: <b>{{ `${BUILD_NUMBER}` }}</b></p></div>
           <div><p>Build Type: <b>{{ `${BUILD_PHASE}` }}</b></p></div>
@@ -204,16 +210,13 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .base-panel {
-  $header-height: 112px;
-  $header-padding: 20px;
+  $panel-header-height: 152px;
   $header-title: 24px;
   $header-title-padding: 30px;
-  $footer-height: 90px;
   $scroller-bottom: 20px;
-  $scroll-height: $header-height + $header-padding + $header-title + $header-title-padding + $footer-height;
 
   .side-content {
-    height: calc(100% - ($header-height));
+    height: calc(100% - ($panel-header-height));
   }
 
   .title {
@@ -223,7 +226,7 @@ onMounted(() => {
   }
 
   .content-scroller {
-    height: calc(100% - ($header-title + 10px));
+    height: calc(100% - ($header-title + $header-title-padding));
     font-size: 16px;
 
     .inner-scroller {

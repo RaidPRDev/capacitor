@@ -8,6 +8,7 @@ import customHmr from "./src/plugins/customreload/CustomHmr";
 import { APP_HEADER_HEIGHT, BOTTOM_HEADER_NAV_HEIGHT } from "./constants";
 
 const { version: APP_VERSION, build_number: APP_BUILD_NUMBER } = require('./package.json');
+const { appId: APPLICATION_ID, appName: APPLICATION_NAME } = require('./capacitor.config.json');
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({command, mode}) => {
@@ -25,6 +26,8 @@ export default defineConfig(async ({command, mode}) => {
   const CLARITY_ID = process?.env?.CLARITY_ID ?? "oztc10g5eg";
   
   console.log("[PLATFORM]", PLATFORM);
+  console.log("[APPLICATION_ID]", APPLICATION_ID);
+  console.log("[APPLICATION_NAME]", APPLICATION_NAME);
   console.log("[APP_VERSION]", APP_VERSION);
   console.log("[BUILD_NUMBER]", BUILD_NUMBER);
   console.log("[BUILD_DATE]", new Date(BUILD_DATE));
@@ -35,6 +38,8 @@ export default defineConfig(async ({command, mode}) => {
 
   return ({
     define: {
+      'import.meta.env.APPLICATION_ID': JSON.stringify(APPLICATION_ID),
+      'import.meta.env.APPLICATION_NAME': JSON.stringify(APPLICATION_NAME),
       'import.meta.env.APP_VERSION': JSON.stringify(APP_VERSION),
       'import.meta.env.PLATFORM': JSON.stringify(PLATFORM),
       'import.meta.env.BUILD_DATE': JSON.stringify(new Date(BUILD_DATE)),

@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
@@ -15,15 +15,22 @@ import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import { APP_ID } from '@/_core/Constants';
 import { IApp } from '@/types';
 import useSession from '@/store/session.module';
-import { storeToRefs } from 'pinia';
 
 import Logo from '/assets/elso_logo.png';
 
-
 const session = useSession();
-const { hasCompletedDisclaimer } = storeToRefs(session);
 
 const app = inject<IApp>(APP_ID) as IApp;
+const divScrollerRef = ref<HTMLElement>();
+const hasScrolledEnd = ref<boolean>(false);
+function handleScroll() {
+  if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
+
+  const div = divScrollerRef.value;
+  if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+    hasScrolledEnd.value = true;
+  }
+}
 
 function onMenuTriggered(selected: number) {
   
@@ -41,10 +48,16 @@ function onMenuTriggered(selected: number) {
   app.drawers.bottom.open = !app.drawers.bottom.open;
 }
 
+
+
+onMounted(() => {
+
+})
+
 </script>
 
 <template>
-<BasePanel class="disclaimer-panel" :class="classnames(`relative`, { ['accepted']: hasCompletedDisclaimer })">
+<BasePanel class="disclaimer-panel" :class="classnames(`relative`)">
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container" :innerClassName="`pxlr-30 pxt-18`">
       <template v-slot:headerLeft>
@@ -56,8 +69,8 @@ function onMenuTriggered(selected: number) {
   <div class="side-content pxlr-0 pxt-20 pxb-0 relative">
     <div class="pxlr-0 height-100">
 
-      <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-60">
+      <div class="content-scroller relative">
+        <div ref="divScrollerRef"  @scroll="handleScroll" class="inner-scroller pxb-60 pxlr-16">
           
           <p><b>Disclaimer:</b> ELSO’s ECMO Bedside Guide App is intended for educational use to provide
 useful information easily accessible to clinical care professionals in assessing the conditions
@@ -84,13 +97,16 @@ Guide App.</p>
         <div class="scroll-fade absolute lx-0 bx-8 pointer-none"></div>
       </div>
 
-      <div class="confirm-panel absolute lx-0 bx-0 flex align-center justify-center width-100 pxlr-60 gapx-20">
+      <div class="confirm-panel absolute lx-0 bx-0 flex align-start justify-center width-100 pxlr-60 gapx-20">
 
         <BaseButton 
           class="variant-red" 
+          :class="[{  
+            ['disabled']: !hasScrolledEnd
+          }]"
           :elementClassName="classnames(`width-100 mxtb-10`, {})"
           :innerClassName="`px-13 justify-center`" 
-          :label="`Continue`"
+          :label="`I UNDERSTAND`"
           @triggered="() => onMenuTriggered(1)"
         />
         
@@ -112,23 +128,6 @@ Guide App.</p>
   $scroller-bottom: 20px;
   $scroll-height: $header-height + $header-padding + $header-title + $header-title-padding + $footer-height;
 
-  &.accepted {
-    .content-scroller {
-      height: calc(100% - ($header-title + 10px));
-      font-size: 16px;
-
-      .inner-scroller {
-        @include use-scroller-styles();
-
-        overflow: hidden auto;
-        height: calc(100% - ($scroller-bottom));
-      }
-    }
-    .confirm-panel {
-      display: none;
-    }
-  }
-
   .side-content {
     height: calc(100% - ($header-height));
   }
@@ -140,7 +139,7 @@ Guide App.</p>
   }
 
   .content-scroller {
-    height: calc(100% - ($header-title + 10px + $footer-height));
+    height: calc(100% - ($footer-height));
     font-size: 16px;
 
     .inner-scroller {

@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import classnames from 'classnames';
 import BasePanel from "@/ui/panels/BasePanel.vue";
@@ -22,6 +22,17 @@ import CloseIcon from '@/assets/icons/close-icon.svg';
 
 const session = useSession();
 const { hasCompletedPrivacy } = storeToRefs(session);
+
+const divScrollerRef = ref<HTMLElement>();
+const hasScrolledEnd = ref<boolean>(false);
+function handleScroll() {
+  if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
+
+  const div = divScrollerRef.value;
+  if (div.scrollTop + div.clientHeight >= div.scrollHeight) {
+    hasScrolledEnd.value = true;
+  }
+}
 
 const app = inject<IApp>(APP_ID) as IApp;
 
@@ -58,8 +69,8 @@ function onMenuTriggered(selected: number) {
 
       <div class="title width-100 text-center mxb-30">Privacy Policy</div>
     
-      <div class="content-scroller relative pxlr-16">
-        <div class="inner-scroller pxb-60">
+      <div class="content-scroller relative">
+        <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" @scroll="handleScroll">
           
           <p class="p-title">PRIVACY POLICY</p>
           <p>Extracorporeal Life Support Organization (“ELSO”) is committed to protecting your privacy and has created this Privacy Policy to describe the information we collect about you when you download and use ELSO’s ECMO Bedside Guide App (the “App”), how that information may be used and disclosed and how we protect your information. This Privacy Policy applies to the App and governs data collection and usage. By using the App, you consent to the data practices described in this Privacy Policy.</p>
@@ -105,6 +116,9 @@ function onMenuTriggered(selected: number) {
 
         <BaseButton 
           class="variant-red cancel" 
+          :class="[{  
+            ['disabled']: !hasScrolledEnd
+          }]"
           :elementClassName="classnames(`width-100 mxtb-10`, {})"
           :innerClassName="`px-13 justify-center`" 
           :label="`Decline`"
@@ -113,6 +127,9 @@ function onMenuTriggered(selected: number) {
         
         <BaseButton 
           class="variant-red" 
+          :class="[{  
+            ['disabled']: !hasScrolledEnd
+          }]"
           :elementClassName="classnames(`width-100 mxtb-10`, {})"
           :innerClassName="`px-13 justify-center`" 
           :label="`Accept`"
@@ -144,7 +161,6 @@ function onMenuTriggered(selected: number) {
   $header-title-padding: 30px;
   $footer-height: 90px;
   $scroller-bottom: 20px;
-  $scroll-height: $header-height + $header-padding + $header-title + $header-title-padding + $footer-height;
 
   &.accepted {
     .content-scroller {
@@ -217,12 +233,12 @@ function onMenuTriggered(selected: number) {
     }
 
     .variant-red {
+
       box-shadow: 0px 0px 12px 0px #0B247A26;
 
-      &.cancel {
-        opacity: 1;
+      &.cancel:not(.disabled) {
         .inner-base-button {
-          background: $fourth-color;
+          background: linear-gradient(106.56deg, #0B247A 0%, #2C51CF 100%);
         }
       }
     }

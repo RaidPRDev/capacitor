@@ -77,6 +77,7 @@ export interface IDevice {
   agent(): IAgent;
   get(): IDeviceState;
   isMobile():boolean;
+  isMobileDevice():boolean;
   getOffsetWidth():number;
   getNavigator():any;
   // getiOSVersion():any;
@@ -537,6 +538,11 @@ class Device implements IDevice
   isMobile():boolean
   {
     return this.state.type === "tablet" || this.state.type === "phone"
+  }
+  
+  isMobileDevice():boolean
+  {
+    return (!this.state.macos && !this.state.windows) && (this.state.type === "tablet" || this.state.type === "phone")
   }
 
   getOffsetWidth = () =>
