@@ -6,7 +6,6 @@ export default {
 
 <script setup lang="ts">
 import { onMounted, useAttrs } from 'vue';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 import { useRouter } from 'vue-router';
 import useBranchingStore from '@/store/branching.module';
