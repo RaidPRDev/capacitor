@@ -2,7 +2,7 @@
 export default {
   inheritAttrs: false
 }
-const DEBUG = true;
+const DEBUG = false;
 </script>
 
 <script setup lang="ts">

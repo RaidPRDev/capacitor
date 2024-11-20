@@ -7,15 +7,15 @@ var capacitorMyClarityCapacitator = (function (exports, core) {
 
     class MyClarityCapacitatorWeb extends core.WebPlugin {
         async initialize(options) {
-            console.log('[CLARITY].initialize', options);
+            // console.log('[CLARITY].initialize', options);
             return options;
         }
         async setCurrentScreenName(options) {
-            console.log('[CLARITY].setCurrentScreenName', options);
+            // console.log('[CLARITY].setCurrentScreenName', options);
             return options;
         }
         async echo(options) {
-            console.log('[CLARITY].echo', options);
+            // console.log('[CLARITY].echo', options);
             return options;
         }
     }

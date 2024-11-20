@@ -151,6 +151,7 @@ function onFocusOut() {
       :fieldClass="`height-100`"
       @input="onInput"
       @focusOut="onFocusOut"
+      @onClear="onFocusOut"
     />
   </div>  
 </template>

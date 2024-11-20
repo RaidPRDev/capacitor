@@ -11,15 +11,17 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
 <script setup lang="ts">
 
-import { ref, onMounted, useSlots, reactive, computed, useAttrs } from 'vue'
+import { ref, onMounted, useSlots, reactive, computed, useAttrs, nextTick } from 'vue'
 import { IBaseTextAreaProps } from '../types';
+import BaseButton from './BaseButton.vue';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseTextAreaProps>(), {
   rows: 8,
   cols: 20,
   spellCheck: "true",
-  wrap: "soft"
+  wrap: "soft",
+  useClear: true
 }) 
 
 // focus directive test
@@ -33,6 +35,7 @@ const emit = defineEmits<{
   (e: 'input', value: number | string): void
   (e: 'focusIn'): void
   (e: 'focusOut'): void
+  (e: 'onClear'): void
 }>();
 
 // Reference Setup
@@ -82,6 +85,19 @@ function onFocusIn()
 {
   emit("focusIn");
 }
+
+function onClear()
+{
+  // if (inputElement.value) inputElement.value.innerText = ``;
+
+  emit('update:modelValue', '');
+
+  nextTick(() => {
+    emit("onClear");
+
+    if (inputElement.value) inputElement.value.focus();
+  });  
+}
 </script>
 
 <template>
@@ -100,7 +116,7 @@ function onFocusIn()
         <span v-if="props.required">*</span>
       </label>
     </div>
-    <div v-bind:class="[`base-textarea-field`, props?.fieldClass]" v-bind:style="styleObject">
+    <div v-bind:class="[`base-textarea-field relative`, props?.fieldClass]" v-bind:style="styleObject">
         
       <div v-if="icon || slots.iconSlot" class="textarea-icon">
         <component v-if="typeof(icon) === 'object'" :is="icon"></component>
@@ -112,7 +128,15 @@ function onFocusIn()
         ref="inputElement"
         v-bind="{
           ...textAreaAttrs,
-          class: ['base-textarea-element', elementClass, { ['required']: props.required }],
+          class: [
+            'base-textarea-element', 
+            'relative', 
+            elementClass, 
+            { 
+              ['required']: props.required,
+              ['has-clear']: props.useClear
+            }
+          ],
           id: props.id,
           name: props.name,
           placeholder: props.placeholder,
@@ -135,6 +159,8 @@ function onFocusIn()
           <slot v-if="slots.accessorySlot" name="accessorySlot"></slot>
       </div>
       
+      <BaseButton :class="`clear-btn absolute tx-8 rx-8`" :inner-class-name="`px-6`" :label="`Clear`" @triggered="onClear" />
+
     </div>
   </div>
 </template>
@@ -182,6 +208,10 @@ function onFocusIn()
   height: 100%;
   resize: none;
 
+  &.has-clear {
+    padding-top: 60px;
+  }
+
   &:focus {
     outline: none;
     box-shadow: none;
@@ -205,6 +235,22 @@ function onFocusIn()
   svg {
     width: auto;
     height: auto;
+  }
+}
+
+.clear-btn {
+  :deep(.inner-base-button) {
+    background-color: darkgray;
+    border-radius: 8px;
+
+    .ui-label {
+      @include getFontSize('small');
+      text-transform: uppercase;
+      
+      color: white;
+      font-weight: 600;
+      font-size: 12px;
+    }
   }
 }
 </style>

@@ -170,10 +170,9 @@ function goNext() {
 }
 
 function handleNavigate(branchTo: string | null) {
-  console.log("Branching.handleNavigate()", branchTo);
-  console.log("  branchTo", branchTo);
-  console.log("  scrollTop", contentElement?.value?.scrollTop);
-
+  if (DEBUG) console.log("Branching.handleNavigate()", branchTo);
+  if (DEBUG) console.log("  branchTo", branchTo);
+  if (DEBUG) console.log("  scrollTop", contentElement?.value?.scrollTop);
 
   if (branchTo !== null) {
     

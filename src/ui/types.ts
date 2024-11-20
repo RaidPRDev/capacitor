@@ -200,6 +200,7 @@ export interface IBaseTextAreaProps {
   readonly?: boolean;
   disabled?: boolean;
   autocomplete?: string;
+  useClear?: boolean;
 }
 
 /**
