@@ -171,8 +171,14 @@ const currentReferralView = computed(() => {
 })
 
 watch(refferedViews, () => {
-  if (!refferedViews?.value) return null;
-  if (refferedViews.value.length! === 0) return null;
+  if (!refferedViews?.value) {
+    state.mode = Mode.Hidden;
+    return;
+  }
+  if (refferedViews.value.length! === 0) {
+    state.mode = Mode.Hidden;
+    return;
+  };
 
   clearTimers();
   

@@ -478,7 +478,7 @@ function checkLastReferralScrollPosition() {
           top: lastScrollPos,
           behavior: 'smooth'
         });
-        console.log("lastScrollPos", lastScrollPos);
+        // console.log("lastScrollPos", lastScrollPos);
       }
     }, 1000)
   }

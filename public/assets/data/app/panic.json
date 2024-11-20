@@ -449,7 +449,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Is the pump still running and providing the target blood flow? YES",
+    "title": "Pump is running and providing the target blood flow.",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__YES.html",
     "layout": "html",
     "branchTo": "",
@@ -460,7 +460,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Is the pump still running and providing the target blood flow? NO",
+    "title": "Pump is NOT running or providing the target blood flow.",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__NO.html",
     "layout": "html",
     "branchTo": "",
@@ -732,17 +732,6 @@
     ]
   },
   {
-    "id": "ELSOBA_PANIC_030__C__YES",
-    "showTitle": true,
-    "useScroll": true,
-    "showRestart": true,
-    "title": "No content. ",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": []
-  },
-  {
     "id": "ELSOBA_PANIC_030__C__NO",
     "showTitle": true,
     "useScroll": true,
@@ -825,7 +814,7 @@
     "content": "",
     "layout": "list",
     "keywords": "",
-    "branchTo": "ELSOBA_PANIC_040__STEP1__YES_NO",
+    "branchTo": "",
     "items": [
       {
         "label": "A. Indications of asystole, ventricular fibrillation (VF), or ventricular tachycardia (VT) on the electrocardiogram (ECG)",

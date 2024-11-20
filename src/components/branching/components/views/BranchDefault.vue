@@ -144,7 +144,7 @@ function updateTableColumnWidth() {
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
   htmlContent.value = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
-  console.log("htmlContent", htmlContent.value)
+  // console.log("htmlContent", htmlContent.value)
   // console.log("htmlContent", parseAndReplaceCurlyBraceContent(htmlContent.value))
   htmlContent.value = parseAndReplaceCurlyBraceContent(htmlContent.value);
 

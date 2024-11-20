@@ -128,10 +128,11 @@ function onFooterMenuTriggered(selected: IButtonGroupSelected) {
         else if (index === 2) {
           // get last view and clear from store
           const lastView = removeLastReferrallView();
+          console.log("LAST VIEW", lastView)
           
           // replace route
           // wait, then replace
-          nextTick(() => router.replace({ path: `${lastView?.fullPath}` }))
+          nextTick(() => router.push({ path: `${lastView?.fullPath}` }))
         }
       }
     }

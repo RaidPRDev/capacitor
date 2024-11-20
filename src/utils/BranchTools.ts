@@ -10,6 +10,7 @@ export function findBranchParents(data:Array<BranchViewData>, id:any) {
   const result = [] as Array<BranchViewData>;
   
   function recursiveSearch(currentId:any) {
+    // console.log("currentId", currentId)
     const node = data.find(item => item.id === currentId) as BranchViewData;
     
     if (!node) return false; // Stop if no node is found
@@ -18,11 +19,11 @@ export function findBranchParents(data:Array<BranchViewData>, id:any) {
     result.unshift(node);
     
     // Check if this node has any parent (by checking if it appears as `branchTo` elsewhere)
-    for (let item of data) {
-      if (item?.items?.some(branch => branch.branchTo === currentId)) {
-        recursiveSearch(item.id);
-      }
-    }
+    // for (let item of data) {
+    //   if (item?.items?.some(branch => branch.branchTo === currentId)) {
+    //     recursiveSearch(item.id);
+    //   }
+    // }
   }
   
   // Start the search with the given id

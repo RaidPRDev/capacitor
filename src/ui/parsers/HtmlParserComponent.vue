@@ -21,7 +21,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const parsedElementsTest = ref<IHtmlParserElementItem[]>([]);
     const divParserRef = ref<HTMLElement>();
-    console.log("divParserRef", divParserRef.value)
+    // console.log("divParserRef", divParserRef.value)
     
     // Custom components mapping
     const customComponentsTest: { [key: string]: any } = {
