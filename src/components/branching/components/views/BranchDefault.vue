@@ -70,72 +70,76 @@ function updateTableColumnWidth() {
 }
 
 // Refs for the zoomable div and scale
-const scale = ref<number>(1);
-const minScale = 0.5; // Minimum allowed scale factor
-const maxScale = 3;   // Maximum allowed scale factor
+// const scale = ref<number>(1);
+// const minScale = 0.5; // Minimum allowed scale factor
+// const maxScale = 3;   // Maximum allowed scale factor
 
-// Variables for pinch and pan tracking
-let initialDistance: number = 0;
-let initialScale: number = 1;
-let isPanning = false;
-let startX = 0;
-let startY = 0;
-let translateX = ref<number>(0);
-let translateY = ref<number>(0);
+// // Variables for pinch and pan tracking
+// let initialDistance: number = 0;
+// let initialScale: number = 1;
+// let isPanning = false;
+// let startX = 0;
+// let startY = 0;
+// let translateX = ref<number>(0);
+// let translateY = ref<number>(0);
 
-// Handle the touch start event
-const handleTouchStart = (event: TouchEvent): void => {
-  if (event.touches.length === 2) {
-    // Pinch start
-    const [touch1, touch2] = event.touches;
-    initialDistance = Math.hypot(
-      touch2.clientX - touch1.clientX,
-      touch2.clientY - touch1.clientY
-    );
-    initialScale = scale.value;
-  } else if (event.touches.length === 1) {
-    // Pan start
-    isPanning = true;
-    startX = event.touches[0].clientX - translateX.value;
-    startY = event.touches[0].clientY - translateY.value;
-  }
-};
+// // Handle the touch start event
+// const handleTouchStart = (event: TouchEvent): void => {
+//   if (event.touches.length === 2) {
+//     // Pinch start
+//     const [touch1, touch2] = event.touches;
+//     initialDistance = Math.hypot(
+//       touch2.clientX - touch1.clientX,
+//       touch2.clientY - touch1.clientY
+//     );
+//     initialScale = scale.value;
+//   } else if (event.touches.length === 1) {
+//     // Pan start
+//     isPanning = true;
+//     startX = event.touches[0].clientX - translateX.value;
+//     startY = event.touches[0].clientY - translateY.value;
+//   }
+// };
 
-// Handle the touch move event
-const handleTouchMove = (event: TouchEvent): void => {
-  if (event.touches.length === 2) {
-    // Handle pinch zoom
-    const [touch1, touch2] = event.touches;
-    const newDistance = Math.hypot(
-      touch2.clientX - touch1.clientX,
-      touch2.clientY - touch1.clientY
-    );
+// // Handle the touch move event
+// const handleTouchMove = (event: TouchEvent): void => {
+//   if (event.touches.length === 2) {
+//     // Handle pinch zoom
+//     const [touch1, touch2] = event.touches;
+//     const newDistance = Math.hypot(
+//       touch2.clientX - touch1.clientX,
+//       touch2.clientY - touch1.clientY
+//     );
 
-    // Calculate new scale and clamp it between minScale and maxScale
-    const scaleChange = newDistance / initialDistance;
-    scale.value = Math.max(minScale, Math.min(maxScale, initialScale * scaleChange));
+//     // Calculate new scale and clamp it between minScale and maxScale
+//     const scaleChange = newDistance / initialDistance;
+//     scale.value = Math.max(minScale, Math.min(maxScale, initialScale * scaleChange));
 
-    // Apply the transform to the div
-    if (content.value) {
-      content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
-    }
-  } else if (event.touches.length === 1 && isPanning) {
-    // Handle pan with reduced sensitivity when scaled in
-    const scaleAdjustment = scale.value > 1 ? 1 / scale.value : 1; // Reduce panning when zoomed in
-    translateX.value = (event.touches[0].clientX - startX) * scaleAdjustment;
-    translateY.value = (event.touches[0].clientY - startY) * scaleAdjustment;
+//     // Apply the transform to the div
+//     if (content.value) {
+//       content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
+//     }
+//   } else if (event.touches.length === 1 && isPanning) {
+//     // Handle pan with reduced sensitivity when scaled in
+//     const scaleAdjustment = scale.value > 1 ? 1 / scale.value : 1; // Reduce panning when zoomed in
+//     translateX.value = (event.touches[0].clientX - startX) * scaleAdjustment;
+//     translateY.value = (event.touches[0].clientY - startY) * scaleAdjustment;
 
-    // Apply the transform to the div
-    if (content.value) {
-      content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
-    }
-  }
-};
+//     // Apply the transform to the div
+//     if (content.value) {
+//       content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
+//     }
+//   }
+// };
 
-// Handle the touch end event to stop panning
-const handleTouchEnd = (): void => {
-  isPanning = false;
-};
+// // Handle the touch end event to stop panning
+// const handleTouchEnd = (): void => {
+//   isPanning = false;
+// };
+
+// @touchstart="handleTouchStart"
+// @touchmove="handleTouchMove"
+// @touchend="handleTouchEnd"
 
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
@@ -160,9 +164,7 @@ onUnmounted(() => {
     class="content-default transform-z" 
     :style="contentStyles" 
     v-html="htmlContent"
-    @touchstart="handleTouchStart"
-    @touchmove="handleTouchMove"
-    @touchend="handleTouchEnd"
+    
   ></div>
 </template>
 
