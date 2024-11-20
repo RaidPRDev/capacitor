@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, nextTick, onMounted, ref } from 'vue';
+import { inject, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from 'classnames';
@@ -54,14 +54,6 @@ function onMenuTriggered(selected: number) {
   app.drawers.closeOutside = false;
   app.drawers.bottom.open = !app.drawers.bottom.open;
 }
-
-onMounted(() => {
-  setTimeout(() => {
-    nextTick(() => {
-      divScrollerRef.value?.focus();
-    })
-  })
-})
 
 </script>
 
