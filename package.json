@@ -2,7 +2,7 @@
   "name": "elso_app",
   "private": true,
   "version": "0.8.7",
-  "build_number": "91",
+  "build_number": "92",
   "type": "module",
   "scripts": {
     "start": "vite --host",
@@ -27,6 +27,7 @@
     "@capacitor/assets": "^3.0.5",
     "@vitejs/plugin-vue": "^5.1.4",
     "classnames": "^2.5.1",
+    "pinch-zoom-js": "^2.3.5",
     "pinia": "^2.2.2",
     "pinia-plugin-persistedstate": "^4.0.2",
     "sass": "^1.79.3",

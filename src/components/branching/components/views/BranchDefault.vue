@@ -6,10 +6,11 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { CSSProperties, onMounted, onUnmounted, ref } from 'vue';
+import { CSSProperties, nextTick, onMounted, onUnmounted, ref } from 'vue';
 import { IBranchTypeProps } from '@/types';
 import { loadHTMLFile } from '@/utils/FileTools';
 import { parseAndReplaceCurlyBraceContent } from '@/components/branching/data/DataTools';
+import PinchZoom from "pinch-zoom-js";
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
@@ -148,7 +149,12 @@ onMounted(async () => {
   // console.log("htmlContent", parseAndReplaceCurlyBraceContent(htmlContent.value))
   htmlContent.value = parseAndReplaceCurlyBraceContent(htmlContent.value);
 
-
+  setTimeout(() => {
+    nextTick(() => {
+      new PinchZoom(content.value!, { draggableUnzoomed: false });
+    })
+  }, 2000)
+  
 })
 
 onUnmounted(() => {
