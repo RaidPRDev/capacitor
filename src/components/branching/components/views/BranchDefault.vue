@@ -69,6 +69,7 @@ function updateTableColumnWidth() {
   bodyTable.style.width = `${totalTableWidth}px`;
 }
 
+// Refs for the zoomable div and scale
 const scale = ref<number>(1);
 const minScale = 0.5; // Minimum allowed scale factor
 const maxScale = 3;   // Maximum allowed scale factor
@@ -119,8 +120,8 @@ const handleTouchMove = (event: TouchEvent): void => {
       content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
     }
   } else if (event.touches.length === 1 && isPanning) {
-    // Handle pan with reduced sensitivity when scaled out
-    const scaleAdjustment = scale.value < 1 ? scale.value : 1; // Reduce panning when zoomed out
+    // Handle pan with reduced sensitivity when scaled in
+    const scaleAdjustment = scale.value > 1 ? 1 / scale.value : 1; // Reduce panning when zoomed in
     translateX.value = (event.touches[0].clientX - startX) * scaleAdjustment;
     translateY.value = (event.touches[0].clientY - startY) * scaleAdjustment;
 
