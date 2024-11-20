@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, onMounted, ref } from 'vue';
+import { inject, nextTick, onMounted, ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from 'classnames';
@@ -56,7 +56,11 @@ function onMenuTriggered(selected: number) {
 }
 
 onMounted(() => {
-  divScrollerRef.value?.focus();
+  setTimeout(() => {
+    nextTick(() => {
+      divScrollerRef.value?.focus();
+    })
+  })
 })
 
 </script>
@@ -77,7 +81,7 @@ onMounted(() => {
       <div class="title width-100 text-center mxb-30">Privacy Policy</div>
     
       <div class="content-scroller relative">
-        <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" @scroll="handleScroll">
+        <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" tabindex="0" @scroll="handleScroll">
           
           <p class="p-title">PRIVACY POLICY</p>
           <p>Extracorporeal Life Support Organization (“ELSO”) is committed to protecting your privacy and has created this Privacy Policy to describe the information we collect about you when you download and use ELSO’s ECMO Bedside Guide App (the “App”), how that information may be used and disclosed and how we protect your information. This Privacy Policy applies to the App and governs data collection and usage. By using the App, you consent to the data practices described in this Privacy Policy.</p>

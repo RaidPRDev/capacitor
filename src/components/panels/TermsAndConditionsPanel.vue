@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, onMounted, ref } from 'vue';
+import { inject, nextTick, onMounted, ref } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
@@ -55,7 +55,11 @@ function onMenuTriggered(selected: number) {
 }
 
 onMounted(() => {
-  divScrollerRef.value?.focus();
+  setTimeout(() => {
+    nextTick(() => {
+      divScrollerRef.value?.focus();
+    })
+  })
 })
 
 </script>
@@ -76,7 +80,7 @@ onMounted(() => {
       <div class="title width-100 text-center mxb-30">Terms & Conditions</div>
     
       <div class="content-scroller relative">
-        <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" @scroll="handleScroll">
+        <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" tabindex="0" @scroll="handleScroll">
           
           <p class="p-title">TERMS OF USE</p>
           <p>Extracorporeal Life Support Organization (ELSO)’s ECMO Bedside Guide App (the “App”) is comprised of various content owned and operated by ELSO.</p>
