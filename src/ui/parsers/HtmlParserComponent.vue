@@ -20,7 +20,7 @@ export default defineComponent({
 
   setup(props, { emit }) {
     const parsedElementsTest = ref<IHtmlParserElementItem[]>([]);
-    const divParserRef = ref<HTMLElement>();
+    // const divParserRef = ref<HTMLElement>();
     // console.log("divParserRef", divParserRef.value)
     
     // Custom components mapping
@@ -193,7 +193,7 @@ export default defineComponent({
         return h('div', 'Loading...');
       }
 
-      return h('div', { class: "html-parser", ref: "divParserRef" }, renderDOMParsedElements(parsedElementsTest.value));
+      return h('div', { class: "html-parser" }, renderDOMParsedElements(parsedElementsTest.value));
     };
   }
 });
