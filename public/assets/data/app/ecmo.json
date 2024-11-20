@@ -4,16 +4,11 @@
     "dataType": "ecmo",
     "heading": "ECMO Candidacy",
     "title": "",
-    "content": "",
+    "content": "To determine ECMO candidacy, first select the age group for your patient.",
     "layout": "list",
     "useScroll": true,
     "isRootParent": true,    
     "items": [
-      {
-        "label": "Assess ECMO Candidacy",
-        "branchTo": "ELSOBA_CAND_000",
-        "class": ""
-      },
       {
         "label": "Assess ECMO Candidacy for Adults",
         "branchTo": "ELSOBA_CAND_010",
@@ -24,27 +19,6 @@
         "branchTo": "ELSOBA_CAND_020",
         "class": ""
       }
-    ]
-  },
-  {
-    "id": "ELSOBA_CAND_000",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Assess ECMO Candidacy",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": [
-      {
-        "label": "Adult",
-        "branchTo": "ELSOBA_CAND_010",
-        "class": ""
-      },     
-      {
-        "label": "Children",
-        "branchTo": "ELSOBA_CAND_020",
-        "class": ""
-      }    
     ]
   },
   {

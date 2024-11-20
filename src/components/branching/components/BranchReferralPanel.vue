@@ -80,7 +80,7 @@ function triggered(dataProps: any) {
   
   if (state.mode === Mode.Opened) {
 
-    Haptics.impact({ style: ImpactStyle.Heavy });  
+    Haptics.impact({ style: ImpactStyle.Heavy });
 
     state.mode = Mode.Removed;
 
@@ -122,7 +122,7 @@ function onTransitionEnd(e: TransitionEvent) {
     
     case Mode.Opened:
       if (!state.hasInit) {
-        Haptics.impact({ style: ImpactStyle.Light });
+        Haptics.notification({ type: NotificationType.Warning });
 
         transDelay.value = setTimeout(() => {
           if (DEBUG) console.log("  Docking...");
@@ -159,7 +159,6 @@ function onTransitionEnd(e: TransitionEvent) {
     break;
 
     default:
-      Haptics.notification({ type: NotificationType.Warning });  
       if (DEBUG) console.log(`  Transition Ended`);
   }  
 }
@@ -185,7 +184,7 @@ watch(refferedViews, () => {
     transDelay.value = setTimeout(() => {
       state.mode = Mode.Opened;
       state.showLabel = true;
-    }, 1500);
+    }, 1250);
   })
   
 }, { flush: "post" })
@@ -204,7 +203,7 @@ onMounted(() => {
   transDelay.value = setTimeout(() => {
     state.mode = Mode.Opened;
     state.showLabel = true;
-  }, 1500);
+  }, 1250);
 })
 
 onUnmounted(() => {
@@ -245,6 +244,7 @@ onUnmounted(() => {
         class="referral-button" 
         innerClassName=""
         bodyClassName=""
+        @click="() => Haptics.impact({ style: ImpactStyle.Heavy })"
         @triggered="triggered"
       >
         <div class="r-grad fixed tx-0 lx-0 width-100 height-100" :class="{ ['show']: state.mode === Mode.Docked }"></div>

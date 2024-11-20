@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { onMounted, useAttrs } from 'vue';
-import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 import { useRouter } from 'vue-router';
 import useBranchingStore from '@/store/branching.module';
@@ -39,24 +39,7 @@ const menuItems = [
   { label: "Resources", icon: ResourcesIcon, class: "res-icon" }
 ];
 
-async function onMenuTriggered(index:number) {
-  
-
-  switch (index) {
-    case 0: 
-    await Haptics.impact({ style: ImpactStyle.Light });
-    break;
-    case 1: 
-    await Haptics.impact({ style: ImpactStyle.Medium });
-    break;
-    case 2: 
-    await Haptics.impact({ style: ImpactStyle.Heavy });
-    break;
-    case 3: 
-    await Haptics.notification({ type: NotificationType.Success  });
-    break;
-  }
-
+function onMenuTriggered(index:number) {
   // get route name
   const title = menuItems[index].label.replace(/<br\s*\/?>/gi, '');
   router.push({ name: title });
@@ -65,7 +48,6 @@ async function onMenuTriggered(index:number) {
 onMounted(() => {
   resetViewHistory();
 })
-
 
 </script>
 

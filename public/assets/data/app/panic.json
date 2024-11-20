@@ -43,17 +43,17 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Accidental Decannulation",
-    "content": "Step 1. Determine cannula placement",
+    "content": "Determine cannula placement",
     "layout": "list",
     "keywords": "",
     "items": [
       {
-        "label": "A: Cannula is completely outside the vessel",
+        "label": "A. Cannula is completely outside the vessel",
         "branchTo": "ELSOBA_PANIC_010__A",
         "class": ""
       },     
       {
-        "label": "B: Cannula is partly inside the vessel",
+        "label": "B. Cannula is partly inside the vessel",
         "branchTo": "ELSOBA_PANIC_010__B",
         "class": ""
       }    
@@ -66,7 +66,8 @@
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A.html",
     "layout": "html",
     "keywords": "",
-    "branchTo": "ELSOBA_PANIC_010__A__A",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_010__A__A",
     "items": []
   },
   {
@@ -89,31 +90,25 @@
         "class": "no-action"
       },     
       {
-        "label": "C: Manage the cannula. Do NOT attempt reintroduction unless you are competent to do this. Are holes exposed?",
+        "label": "C: Manage the cannula. Do NOT attempt reintroduction unless you are competent to do this.",
         "branchTo": "ELSOBA_PANIC_010__B__C",
-        "class": ""
-      }     
-    ]
-  },
-  {
-    "id": "ELSOBA_PANIC_010__B__C",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Holes are exposed.",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": [
+        "class": "no-action"
+      },     
       {
-        "label": "YES",
+        "label": "D: Are holes exposed?",
+        "branchTo": "ELSOBA_PANIC_010__B__C",
+        "class": "no-action"
+      },   
+      {
+        "label": "Yes",
         "branchTo": "ELSOBA_PANIC_010__B__C__YES",
         "class": ""
       },     
       {
-        "label": "NO",
+        "label": "No",
         "branchTo": "ELSOBA_PANIC_010__B__C__NO",
         "class": ""
-      }   
+      }     
     ]
   },
   {
@@ -123,7 +118,8 @@
     "title": "Holes are exposed.",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__B__C__YES.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_010__A__A",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_010__A__A",
     "items": []
   },
   {
@@ -140,38 +136,43 @@
     "id": "ELSOBA_PANIC_010__A__A",
     "showTitle": true,
     "title": "Accidental Decannulation",
-    "content": "2. Manage the patient:",
+    "content": "Manage the patient:",
     "layout": "list",
     "keywords": "",
     "branchTo": "",
     "items": [
       {
         "label": "A. Provide conventional respiratory and/or circulatory support as needed. ",
-        "branchTo": "ELSOBA_PANIC_010__A__A__A",
+        "branchTo": "",
         "class": "no-action"
       },     
       {
-        "label": "B: If/as needed, order and administer packed red blood cells (PRBC).",
-        "branchTo": "ELSOBA_PANIC_010__A__A__B",
+        "label": "B. If/as needed, order and administer packed red blood cells (PRBC).",
+        "branchTo": "",
         "class": "no-action"
       },     
       {
-        "label": "C: If the patient experiences a massive hemorrhage, transfuse PRBC and plasma.",
-        "branchTo": "ELSOBA_PANIC_010__A__A__C",
+        "label": "C. If the patient experiences a massive hemorrhage, transfuse PRBC and plasma.",
+        "branchTo": "",
         "class": "no-action"
       },
       {
-        "label": "D: If PRBC are not immediately available, be careful while administering fluids to avoid excessive hemodilution.",
-        "branchTo": "ELSOBA_PANIC_010__A__A__D",
+        "label": "D. If PRBC are not immediately available, be careful while administering fluids to avoid excessive hemodilution.",
+        "branchTo": "",
         "class": "no-action"
       },
       {
-        "label": "E: Interrupt systemic anticoagulation.",
-        "branchTo": "ELSOBA_PANIC_010__A__A__E",
+        "label": "E. Interrupt systemic anticoagulation.",
+        "branchTo": "",
         "class": "no-action"
       },
       {
-        "label": "F: Is Extracorporeal Life Support (ECLS) stll required?",
+        "label": "F. Evaluate if Extracorporeal Life Support (ECLS) is still required.",
+        "branchTo": "",
+        "class": "no-action"
+      },
+      {
+        "label": "Continue to next step",
         "branchTo": "ELSOBA_PANIC_010__A__A__F",
         "class": ""
       }
@@ -181,7 +182,7 @@
     "id": "ELSOBA_PANIC_010__A__A__F",
     "showTitle": true,
     "useScroll": true,
-    "title": "Is Extracorporeal Life Support (ECLS) stll required?",
+    "title": "Is ECLS still required?",
     "content": "",
     "layout": "list",
     "keywords": "",
@@ -202,11 +203,12 @@
     "id": "ELSOBA_PANIC_010__A__A__F__STEP3",
     "showTitle": true,
     "useScroll": true,
-    "title": "3. Manage cannulation",
+    "title": "Manage cannulation",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__STEP3.html",
     "layout": "html",
     "keywords": "",
-    "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP4",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_010__A__A__F__STEP4",
     "items": []
   },
   {
@@ -216,58 +218,20 @@
     "title": "ECLS is no longer required.",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__NO.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP5",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_010__A__A__F__STEP5",
     "items": []
   },
   {
     "id": "ELSOBA_PANIC_010__A__A__F__STEP4",
     "showTitle": true,
     "useScroll": true,
-    "title": "4. Manage the circuit",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
+    "title": "To manage the circuit:",
+    "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__STEP4.html",
+    "layout": "html",
     "branchTo": "",
-    "items": [
-      {
-        "label": "A. Clamp the return cannula if not previously done.",
-        "class": "no-action"
-      },     
-      {
-        "label": "B: Stop the pump.",
-        "class": "no-action"
-      },     
-      {
-        "label": "C: Turn the gas off and disconnect the gas line.",
-        "class": "no-action"
-      },
-      {
-        "label": "D: Does decannulation involve a drainage cannula or double lumen cannula (DLC)?",
-        "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP4__D",
-        "class": ""
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_PANIC_010__A__A__F__STEP4__D",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Does decannulation involve a drainage cannula or double lumen cannula (DLC)?",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": [
-      {
-        "label": "YES",
-        "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP4__D__YES",
-        "class": ""
-      },     
-      {
-        "label": "NO",
-        "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP4__D__NO",
-        "class": ""
-      }   
-    ]
+    "__branchTo": "ELSOBA_PANIC_010__A__A__F__STEP4__D__YES || ELSOBA_PANIC_010__A__A__F__STEP4__D__NO",
+    "items": []
   },
   {
     "id": "ELSOBA_PANIC_010__A__A__F__STEP4__D__YES",
@@ -276,7 +240,8 @@
     "title": "Decannulation involves a drainage cannula or DLC",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__STEP4__D__YES.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP5",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_010__A__A__F__STEP5",
     "items": []
   },
   {
@@ -286,7 +251,8 @@
     "title": "Decannulation does NOT involve a drainage cannula or DLC.",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__STEP4__D__NO.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_010__A__A__F__STEP5",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_010__A__A__F__STEP5",
     "items": []
   },
   {
@@ -294,7 +260,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination",
+    "title": "Ongoing ECMO Management",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__STEP5.html",
     "layout": "html",
     "branchTo": "",
@@ -319,9 +285,14 @@
     "keywords": "",
     "items": [
       {
-        "label": "Call for help",
+        "label": "A. Call for help",
+        "branchTo": "",
+        "class": "no-action"
+      },
+      {
+        "label": "Continue to next step",
         "branchTo": "ELSOBA_PANIC_020__STEP1",
-        "class": ""
+        "class": "mxt-32"
       }
     ]
   },
@@ -330,7 +301,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Air in Circuit",
-    "content": "1. Determine if air is clearly visible in the circuit",
+    "content": "Determine if air is clearly visible in the circuit",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -350,7 +321,7 @@
     "id": "ELSOBA_PANIC_020__STEP2",
     "showTitle": true,
     "useScroll": true,
-    "title": "2. Locate the air in the circuit.",
+    "title": "Locate the air in the circuit.",
     "content": "If any of the following are true, select YES.",
     "layout": "list",
     "keywords": "",
@@ -426,7 +397,8 @@
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3.html",
     "layout": "html",
     "keywords": "",
-    "branchTo": "ELSOBA_PANIC_020__STEP3",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_020__STEP3",
     "items": []
   },
   {
@@ -434,7 +406,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination A",
+    "title": "Circuit de-airing is feasible",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__TERMA.html",
     "layout": "html",
     "branchTo": "",
@@ -445,7 +417,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination B",
+    "title": "Assess if ECLS is required",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__TERMB.html",
     "layout": "html",
     "branchTo": "",
@@ -455,7 +427,7 @@
     "id": "ELSOBA_PANIC_020__STEP3",
     "showTitle": true,
     "useScroll": true,
-    "title": "3. Assess the extracorporeal blood flow (EBF)",
+    "title": "Assess the extracorporeal blood flow (EBF)",
     "content": "Is the pump still running and providing the target blood flow?",
     "layout": "list",
     "branchTo": "",
@@ -498,7 +470,7 @@
     "id": "ELSOBA_PANIC_020__STEP4",
     "showTitle": true,
     "useScroll": true,
-    "title": "4. Air is not clearly visible in the circuit",
+    "title": "Air is not clearly visible in the circuit",
     "content": "Is the bubble sensor alarming?",
     "layout": "list",
     "items": [
@@ -562,7 +534,8 @@
     "title": "Servo regulation on the bubble sensor",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP6.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_020__STEP5",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_020__STEP5",
     "items": []
   },
 
@@ -582,9 +555,14 @@
     "keywords": "",
     "items": [
       {
-        "label": "Call for help",
+        "label": "A. Call for help",
+        "branchTo": "",
+        "class": "no-action"
+      },
+      {
+        "label": "Continue to next step",
         "branchTo": "ELSOBA_PANIC_030__STEP1",
-        "class": ""
+        "class": "mxt-32"
       }
     ]
   },
@@ -593,17 +571,17 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Blood Out of Circuit",
-    "content": "Step 1. Identify where the blood is coming from",
+    "content": "Identify where the blood is coming from",
     "layout": "list",
     "keywords": "",
     "items": [
       {
-        "label": "A: Identified immediately—The blood leakage is from a circuit disruption.",
+        "label": "A. Identified immediately—The blood leakage is from a circuit disruption.",
         "branchTo": "ELSOBA_PANIC_030__A",
         "class": ""
       },     
       {
-        "label": "B: Identified immediately—The blood leakage is from the patient.",
+        "label": "B. Identified immediately—The blood leakage is from the patient.",
         "branchTo": "ELSOBA_PANIC_030__B",
         "class": ""
       },     
@@ -655,7 +633,7 @@
         "class": ""
       },     
       {
-        "label": "B: From a broken or disconnected vascular access or line open to the atmosphere.",
+        "label": "B. From a broken or disconnected vascular access or line open to the atmosphere.",
         "branchTo": "ELSOBA_PANIC_030__B__TERMC",
         "class": ""
       },     
@@ -666,13 +644,12 @@
       }     
     ]
   },
-
   {
     "id": "ELSOBA_PANIC_030__A__A",
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination A",
+    "title": "Major circuit breakage or disconnection involving the pumphead or Membrane Lung (ML) tubing or connectors",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030_A/ELSOBA_PANIC_030__A__A.html",
     "layout": "html",
     "branchTo": "",
@@ -705,7 +682,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Blood Out of Circuit",
+    "title": "Blood is leaking from the cannula site",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__STEP3.html",
     "layout": "html",
     "branchTo": "",
@@ -716,7 +693,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Blood Out of Circuit",
+    "title": "Blood is leaking from a broken or disconnected vascular access or a line open to the atmosphere.",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__B__TERMC.html",
     "layout": "html",
     "branchTo": "",
@@ -727,7 +704,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Blood Out of Circuit",
+    "title": "Blood is leaking from the insertion site of an invasive device, a traumatic injury, or a surgical wound.",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__B__TERMD.html",
     "layout": "html",
     "branchTo": "",
@@ -769,7 +746,7 @@
     "id": "ELSOBA_PANIC_030__C__NO",
     "showTitle": true,
     "useScroll": true,
-    "title": "Has the bleeding source been detected? NO",
+    "title": "The bleeding source has NOT been detected coming from the circuit.",
     "content": "",
     "layout": "list",
     "keywords": "",
@@ -826,7 +803,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Step 4. Ongoing management",
+    "title": "Ongoing management",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__STEP4.html",
     "layout": "html",
     "keywords": "",
@@ -849,9 +826,14 @@
     "keywords": "",
     "items": [
       {
-        "label": "Call for help",
+        "label": "A. Call for help",
+        "branchTo": "",
+        "class": "no-action"
+      },
+      {
+        "label": "Continue to next step",
         "branchTo": "ELSOBA_PANIC_040__STEP1",
-        "class": ""
+        "class": "mxt-32"
       }
     ]
   },
@@ -859,7 +841,7 @@
     "id": "ELSOBA_PANIC_040__STEP1",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 1. Confirm cardiac arrest",
+    "title": "Confirm cardiac arrest",
     "content": "",
     "layout": "list",
     "keywords": "",
@@ -879,28 +861,22 @@
         "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (VVA) ECMO",
         "branchTo": "",
         "class": "no-action"
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_PANIC_040__STEP1__YES_NO",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Has a Do Not Resuscitate (DNR) order been signed?",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": [
+      },
       {
-        "label": "YES",
+        "label": "<b>Has a Do Not Resuscitate (DNR) order been signed?</b>",
+        "branchTo": "",
+        "class": "no-action mxt-32"
+      },
+      {
+        "label": "Yes",
         "branchTo": "ELSOBA_PANIC_040__STEP2",
         "class": ""
-      },     
+      },
       {
-        "label": "NO",
+        "label": "No",
         "branchTo": "ELSOBA_PANIC_040__STEP3",
-        "class": ""
-      } 
+        "class": "mxb-64"
+      }
     ]
   },
   {
@@ -908,7 +884,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Step 2. DNR order has been signed.",
+    "title": "DNR order has been signed.",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP2.html",
     "layout": "html",
     "keywords": "",
@@ -918,8 +894,8 @@
     "id": "ELSOBA_PANIC_040__STEP3",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 3. DNR order has NOT been signed.",
-    "content": "",
+    "title": "DNR order has NOT been signed.",
+    "content": "Select your Extracorporeal Life Support (ECLS) configuration.",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -939,40 +915,20 @@
     "id": "ELSOBA_PANIC_040__STEP4",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 4. VV or VP ECMO",
+    "title": "VV or VP ECMO",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP4.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_040__STEP4__YES_NO",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_040__TERMA || ELSOBA_PANIC_040__TERMB",
     "keywords": "",
     "items": []
-  },
-  {
-    "id": "ELSOBA_PANIC_040__STEP4__YES_NO",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Is there a return of spontaneous circulation (ROSC)?",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": [
-      {
-        "label": "YES",
-        "branchTo": "ELSOBA_PANIC_040__TERMA",
-        "class": ""
-      },     
-      {
-        "label": "NO",
-        "branchTo": "ELSOBA_PANIC_040__TERMB",
-        "class": ""
-      } 
-    ]
   },
   {
     "id": "ELSOBA_PANIC_040__TERMA",
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination A",
+    "title": "Return of Spontaneous Circulation (ROSC)",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__TERMA.html",
     "layout": "html",
     "keywords": "",
@@ -983,7 +939,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination B",
+    "title": "NO Return of Spontaneous Circulation (ROSC)",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__TERMB.html",
     "layout": "html",
     "keywords": "",
@@ -993,7 +949,7 @@
     "id": "ELSOBA_PANIC_040__STEP5",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 5. VA or VVA ECMO",
+    "title": "VA or VVA ECMO",
     "content": "Is the pump running?",
     "layout": "list",
     "keywords": "",
@@ -1035,22 +991,24 @@
     "id": "ELSOBA_PANIC_040__STEP6",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 6. EBF not achieving full=body perfusion",
+    "title": "EBF not achieving full=body perfusion",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP6.html",
     "layout": "html",
     "keywords": "",
-    "branchTo": "ELSOBA_PANIC_040__STEP7",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_040__STEP7",
     "items": []
   },
   {
     "id": "ELSOBA_PANIC_040__STEP7",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 7. Assess native heart function",
+    "title": "Assess native heart function",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP7.html",
     "layout": "html",
     "keywords": "",
-    "branchTo": "ELSOBA_PANIC_040__TERMC",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_040__TERMC",
     "items": []
   },
   {
@@ -1058,7 +1016,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination C",
+    "title": "Ongoing management",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__TERMC.html",
     "layout": "html",
     "keywords": "",
@@ -1081,9 +1039,14 @@
     "keywords": "",
     "items": [
       {
-        "label": "Call for help",
+        "label": "A. Call for help",
+        "branchTo": "",
+        "class": "no-action"
+      },
+      {
+        "label": "Continue to next step",
         "branchTo": "ELSOBA_PANIC_050__STEP1",
-        "class": ""
+        "class": "mxt-32"
       }
     ]
   },
@@ -1091,7 +1054,7 @@
     "id": "ELSOBA_PANIC_050__STEP1",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 1. Confirm a \"No blood flow\" scenario",
+    "title": "Confirm a \"No blood flow\" scenario",
     "content": "Is the driving unit screen off?",
     "layout": "list",
     "keywords": "",
@@ -1112,7 +1075,7 @@
     "id": "ELSOBA_PANIC_050__STEP2",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 2. Driving Unit (console) Failure",
+    "title": "Driving Unit (console) Failure",
     "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP2.html",
     "layout": "html",
     "branchTo": "ELSOBA_PANIC_050__STEP2__YES_NO",
@@ -1129,12 +1092,12 @@
     "keywords": "",
     "items": [
       {
-        "label": "YES, Power failure confirmed",
+        "label": "Yes",
         "branchTo": "ELSOBA_PANIC_050__TERMA",
         "class": ""
       },     
       {
-        "label": "NO, Power failure not confirmed",
+        "label": "No",
         "branchTo": "ELSOBA_PANIC_050__TERMB",
         "class": ""
       } 
@@ -1144,7 +1107,7 @@
     "id": "ELSOBA_PANIC_050__STEP3",
     "showTitle": true,
     "useScroll": true,
-    "title": "Step 3. Driving Unit Screen is on",
+    "title": "Driving Unit Screen is on",
     "content": "",
     "layout": "list",
     "keywords": "",
@@ -1220,7 +1183,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination A",
+    "title": "Power failure confirmed",
     "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__TERMA.html",
     "layout": "html",
     "keywords": "",
@@ -1231,7 +1194,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Termination B",
+    "title": "Power failure NOT confirmed",
     "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__TERMB.html",
     "layout": "html",
     "keywords": "",

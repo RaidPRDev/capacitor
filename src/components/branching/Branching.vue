@@ -231,6 +231,10 @@ function handleTriggered(dataProps: any) {
   const baseRoutePath = props?.baseRoutePath?.length! > 0 ? `/${props?.baseRoutePath}` : ``;
   if (DEBUG) console.log("  dataType", dataType);
   switch (dataType) {
+    case "branchTo":
+      viewHistory.value.push(currentViewIndex.value);
+      handleNavigate(`${dataProps['data-id']}`);
+    break;
     case "panic":
     case "equipment":
     case "checklists":

@@ -3,7 +3,7 @@
     The pump is airlocked
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">A</div>
+    <div class="">A.</div>
     <div class="">If there is a massive air visible in the pumphead or noise arising from pumphead, go to Air in Circuit
       <BaseButton 
         data-props='{
@@ -16,12 +16,12 @@
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">B</div>
+    <div class="">B.</div>
     <div class="">If there is an acute pumphead thrombosis, and there is a visible clot and/or noise arising from pumphead, with no disengagement nor air presence, determine if the patient can be weaned from ECMO. 
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">C</div>
+    <div class="">C.</div>
     <div class="">If the patient can be weaned from ECMO, go to Coming Off ECMO Emergently
       <BaseButton 
         data-props='{
@@ -34,15 +34,25 @@
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">D</div>
+    <div class="">D.</div>
     <div class="">If the patient CANNOT be weaned from ECMO, go to Whole Circuit Replacement or Circuit Component Replacement for the pumphead as indicated.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">E</div>
+    <div class="">E.</div>
     <div class="">Exclude other complications impacting on blood flow:
       <ul>
-        <li>Evidence of severe drainage failure: severely decreased PINLET [LINK to drainage insuﬃciency]</li>
+        <li>Evidence of severe drainage failure: severely decreased PINLET
+          <BaseButton 
+            data-props='{
+              "data-id": "ELSOBA_CHKLST_250", 
+              "data-type": "checklists", 
+              "label": "Drainage Insufficiency", 
+              "class": "variant-blue width-100 mxtb-10 disabled",
+              "wrapperClass": "width-100"
+            }'>
+          </BaseButton>
+        </li>
         <li>Evidence of return obstruction: severely increased PPRE-ML/PPOST-ML
           <BaseButton 
             data-props='{
@@ -69,7 +79,7 @@
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">F</div>
+    <div class="">F.</div>
     <div class="">Exclude motor failure:
       <ul>
         <li>Screen on</li>
@@ -78,5 +88,17 @@
         <li>No other potential causes, i.e., motor failure with a working driving unit.</li>
       </ul>
     </div>
+  </div>
+  <div class="mxt-32 flex gapx-10">
+    <BaseButton 
+      data-props='{
+        "data-id": "ELSOBA_PANIC_050__STEP2", 
+        "data-type": "branchTo", 
+        "data-no-referral": true, 
+        "label": "Continue to next step", 
+        "class": "variant-blue width-100 mxtb-10", 
+        "wrapperClass": "width-100"
+      }'>
+    </BaseButton>
   </div>
 </div>

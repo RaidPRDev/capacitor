@@ -1,0 +1,55 @@
+<div class="data-content">
+  <div class="mxb-20 text-content">Major circuit breakage or disconnection involving the pumphead or Membrane Lung (ML) tubing or connectors</div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">A</div>
+    <div class="">Clamp the return cannula if not previously done.
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_CHKLST_035", 
+          "data-type": "checklists", 
+          "label": "Coming off ECMO Emergently checklist", 
+          "class": "variant-blue width-100 mxtb-10",
+          "wrapperClass": "width-100"
+        }'>
+      </BaseButton>
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">B</div>
+    <div class="">Stop the pump.
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">C</div>
+    <div class="">Turn the gas oﬀ and disconnect the gas line.</div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class="">D</div>
+    <div class="">Does decannulation involve a drainage cannula or double lumen cannula (DLC)?
+      <div class="mxt-16 mxb-0 flex gapx-10">
+        <BaseButton 
+          data-props='{
+            "data-id": "ELSOBA_PANIC_010__A__A__F__STEP4__D__YES", 
+            "data-type": "branchTo", 
+            "data-no-referral": true, 
+            "label": "Yes", 
+            "class": "variant-blue width-100 mxtb-10", 
+            "wrapperClass": "width-100"
+          }'>
+        </BaseButton>
+      </div>
+      <div class="flex gapx-10">
+        <BaseButton 
+          data-props='{
+            "data-id": "ELSOBA_PANIC_010__A__A__F__STEP4__D__NO", 
+            "data-type": "branchTo", 
+            "data-no-referral": true, 
+            "label": "No", 
+            "class": "variant-blue width-100 mxtb-10", 
+            "wrapperClass": "width-100"
+          }'>
+        </BaseButton>
+      </div>
+    </div>
+  </div>
+</div>

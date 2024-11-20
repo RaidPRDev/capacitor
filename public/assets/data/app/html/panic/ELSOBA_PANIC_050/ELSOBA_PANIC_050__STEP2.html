@@ -1,46 +1,74 @@
 <div class="data-content">
   <div class="mxb-16 flex gapx-10">
-    <div class="">A</div>
+    <div class="">A.</div>
     <div class="">Clamp the return line to prevent backflow. Decrease the gas to 0 or disconnect the gas line.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">B</div>
+    <div class="">B.</div>
     <div class="">Remove the pumphead from the motor.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">C</div>
+    <div class="">C.</div>
     <div class="">If there is a magnetically levitated pump [link to almanac], insert the pumphead in the backup pump.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">D</div>
+    <div class="">D.</div>
     <div class="">If there is a partially magnetically levitated pump [link to almanac], insert the pumphead in the hand-crank.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">E</div>
+    <div class="">E.</div>
     <div class="">Start running the pump.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">F</div>
+    <div class="">F.</div>
     <div class="">At the same time with different operators, remove the clamp on the return line and restart the gas flow, and reconnect the gas line.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">G</div>
+    <div class="">G.</div>
     <div class="">Support the patient as needed
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">H</div>
+    <div class="">H.</div>
     <div class="">Assess if the power failure scenario is ongoing:
       <ul>
         <li>Are the batteries exhausted?</li>
         <li>Is there no power connection?</li>
       </ul>
     </div>
-  </div>  
+  </div>
+  <div class="mxt-32 mxb-64 flex">
+    <div class="width-100"><b>Power failure confirmed?</b>
+      <div class="mxt-16 mxb-0 flex gapx-10">
+        <BaseButton 
+          data-props='{
+            "data-id": "ELSOBA_PANIC_050__TERMA", 
+            "data-type": "branchTo", 
+            "data-no-referral": true, 
+            "label": "Yes", 
+            "class": "variant-blue width-100 mxtb-10", 
+            "wrapperClass": "width-100"
+          }'>
+        </BaseButton>
+      </div>
+      <div class="flex gapx-10">
+        <BaseButton 
+          data-props='{
+            "data-id": "ELSOBA_PANIC_050__TERMB", 
+            "data-type": "branchTo", 
+            "data-no-referral": true, 
+            "label": "No", 
+            "class": "variant-blue width-100 mxtb-10", 
+            "wrapperClass": "width-100"
+          }'>
+        </BaseButton>
+      </div>
+    </div>
+  </div>
 </div>

@@ -172,7 +172,7 @@
       },
       {
         "label": "Component Changes",
-        "class": "disabled",
+        "class": "",
         "branchTo": "ELSOBA_CHKLST_040"
       },
       {
@@ -1028,19 +1028,231 @@
       } 
     ]
   },
+
+
+  {
+    "id": "ELSOBA_CHKLST_040",
+    "title": "Component Changes",
+    "content": "Use this checklist if you need to replace a component within an ECMO circuit. This checklist should be adapted to align with institutional policies, specific patient conditions, and  available resources.",
+    "layout": "checklist",
+    "keywords": "",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "Identify the need for circuit component replacement",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "To proceed with whole circuit replacement, all three checks (A, B, and C) are required. Otherwise, do NOT proceed with whole circuit replacement. ELSO does NOT recommend non-urgent replacement of a circuit or circuit component",
+            "type": "comment"
+          },
+          {
+            "label": "A. Dysfunctional circuit component: (at least 1 check)",
+            "checked": false
+          },
+          {
+            "label": "",
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "component thrombosis (minor ML clotting not severely impacting with its function excluded (link to ML failure algorithm)",
+                "checked": false
+              },
+              {
+                "label": "broken component link to circuit disruption algorithm)",
+                "checked": false
+              }
+            ] 
+          },
+          {
+            "label": "B. No weaning potential ",
+            "checked": false
+          },
+          {
+            "label": "C. Replacement of the whole circuit is not indicated (link to whole circuit replacement checklist)",
+            "checked": false
+          },
+          {
+            "label": "OR",
+            "type": "comment"
+          },
+          {
+            "label": "Need to switch to different configurations (e.g., V-AV to VV or VA, VV-V to VV or VV to  VV-V, etc.)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Alert/activate the ECLS",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Notify the ICU teams",
+            "type": "comment"
+          },
+          {
+            "label": "1 experienced intensivist or other ECMO-trained physician",
+            "checked": false
+          },
+          {
+            "label": "1 experienced ICU nurse to support the patient if as needed",
+            "checked": false
+          },
+          {
+            "label": "1 experienced ICU nurse to support the patient if as needed",
+            "checked": false
+          },
+          {
+            "label": "1 assisting ECMO specialist/perfusionist, if possible",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Prepare the essential equipment",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Refresh the team on techniques for air-free circuit connections.",
+            "type": "comment"
+          },
+          {
+            "label": "Sterile consumables for \"sterile operator\"",
+            "checked": false
+          },
+          {
+            "label": "Sterile tubing scissors",
+            "checked": false
+          },
+          {
+            "label": "4 sterile tubing clamps",
+            "checked": false
+          },
+          { "label": "2 back-up sterile tubing clamps", "checked": false },
+          { "label": "1 sterile bowl", "checked": false },
+          { "label": "1 L of crystalloid solution", "checked": false },
+          { "label": "New component (CP, ML, tubing piece, connector)", "checked": false },
+          { "label": "2 straight connectors adapted to circuit tubing size", "checked": false },
+          { "label": "Disinfecting solution and/or applicators for tubings preparation (per institutional policy)", "checked": false },
+          {
+            "label": "Devices for air-free connection",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Large cone syringes OR", "checked": false },
+              { "label": "Pigtail/infusion bag OR", "checked": false },
+              { "label": "14G IV line", "checked": false }
+            ] 
+          }
+        ]
+      },   
+      {
+        "label": "Prepare the Patient",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Consider the following:",
+            "type": "comment"
+          },
+          { "label": "Supine the patient in same position as for initiation", "checked": false },
+          {
+            "label": "If the patient is awake:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Inform him/her and/or their surrogate about the need for replacement, the procedure and potential associated risks (consent)", "checked": false },
+              { "label": "Consider sedation, if deemed necessary", "checked": false },
+              { "label": "Increase mechanical ventilation settings as ready to interrupt extracorporeal blood flow on VV ECMO, VVA ECMO, VP ECMO", "checked": false },
+              { "label": "Increase inotropic/vasopressor support as ready to interrupt extracorporeal blood flow on VA ECMO, VVA ECMO, VP ECMO", "checked": false },
+              { "label": "Be ready for PRBC transfusion if required", "checked": false },
+              { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency", "checked": false },
+              { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency", "checked": false },
+              { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary", "checked": false }
+            ] 
+          }
+        ]
+      },   
+      {
+        "label": "Proceed with Replacement",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "Support the patient if/as needed throughout the procedure. If cardiac  arrest occurs during the procedure and EBF can be promptly restarted, carefully consider if adrenaline  administration is advisable or could be delayed.",
+            "type": "comment"
+          }
+        ]
+      },   
+      {
+        "label": "Circuit Pump (CP) Replacement",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          { "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old CP. Allow the solution to act for enough time according to the solution being used.", "checked": false },
+          { "label": "Clamp the tubing exiting CP", "checked": false },
+          { "label": "Go to 0 RPMs and notify the team of the STOP FLOW", "checked": false },
+          { "label": "Clamp the drainage tubing close to CP", "checked": false },
+          { "label": "Turn OFF the Sweep Gas Flow", "checked": false },
+          { "label": "Place two additional clamps approximately 15 cm (6 inches) apart from the previous to isolate the CP from the circuit. If needed, temporarily remove the flowmeter.", "checked": false },
+          { "label": "Cut the tubings on both sides between the two clamps", "checked": false },
+          { "label": "Remove the old centrifugal pump from the motor", "checked": false },
+          { "label": "Connect the outflow of the new pump to the circuit", "checked": false },
+          { "label": "De-air the new centrifugal pump through the inlet port", "checked": false },
+          { "label": "Connect the inlet of the CP to the drainage tubing using an air-free technique. If previously removed, reposition and 0 the flowmeter.", "checked": false },
+          { "label": "Insert the CP into the motor. Check that there are no kinks or traction in the tubings on both sides.", "checked": false },
+          { "label": "Remove clamp on the drainage tubing", "checked": false },
+          { 
+            "label": "Restart the pump.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "As minimum RPMs are reached to prevent backflow (depending from IFU insert link to almanac section), remove last clamp.", "checked": false }
+            ] 
+          },
+          { "label": "Resume the previous RPMs settings if there are no signs of a return obstruction. (link to return obstruction checklist)", "checked": false },
+          { "label": "Resume previous Sweep Gas Flow settings", "checked": false },
+          { "label": "Notify the team of replacement completion", "checked": false },
+          { "label": "If using a bubble sensor, and it is alarming for the presence of air before the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow (link to air entrance algorithm)", "checked": false }
+        ]
+      }      
+    ]
+  },
+
+
   {
     "id": "ELSOBA_CHKLST_035",
     "title": "Coming Off ECMO Emergently",
     "content": "",
     "layout": "checklist",
     "type": "subchecklist",
-    "keywords": "ECMO; EMERGENTLY; COMING OFF",
+    "keywords": "ECMO; EMERGENTLY; COMING OFF; COMING OFF ECMO EMERGENTLY; TROUBLESHOOTING",
     "doc": "https://drive.google.com/file/d/1utSsq2n_502SF2_9-zz5M0ebMtckLc6k/view?usp=sharing",
     "showFavorites": true,
     "useScroll": true, 
     "items": [
       {
-        "label": "Step 1: You suspect the need for coming off emergently",
+        "label": "You suspect the need for coming off emergently",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -1050,7 +1262,7 @@
         ]
       }, 
       {
-        "label": "Step 2: Identify the need for coming off emergently",
+        "label": "Identify the need for coming off emergently",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -1059,10 +1271,10 @@
             "label": "If at least one of the following is true:", 
             "type": "comment" 
           },
-          { "label": "Massive air entrance <br><span>Go to Air in Circuit</span>", "checked": false },
-          { "label": "Accidental decannulation <br><span>Go to: Accidental Decannulation</span>", "checked": false },
-          { "label": "Acute circuit thrombosis <br><span>Go to No Flow</span>", "checked": false },
-          { "label": "Major circuit disruption <br><span>Go to: Panic!: (link to circuit disruption algorithm)</span>", "checked": false },
+          { "label": "Massive air entrance <br><span>Go to Panic!: Air in Circuit</span>", "checked": false },
+          { "label": "Accidental decannulation <br><span>Go to Panic!: Accidental Decannulation</span>", "checked": false },
+          { "label": "Acute circuit thrombosis <br><span>Go to Panic!: No Flow</span>", "checked": false },
+          { "label": "Major circuit disruption <br><span>Go to Panic!: Air In Circuit</span>", "checked": false },
           { 
             "label": "If weaning is deemed feasible or no other management option is feasible for any reason, proceed to the next step.", 
             "type": "comment" 
@@ -1070,7 +1282,7 @@
         ]
       }, 
       {
-        "label": "Step 3: Cannula Management",
+        "label": "Cannula Management",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -1104,28 +1316,35 @@
         ]
       }, 
       {
-        "label": "Step 4: Circuit Management",
+        "label": "Coming Off ECMO—Circuit",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
         "items": [
           { 
+            "label": "If the circuit is still required:", 
+            "type": "comment" 
+          },
+          { 
+            "label": "AND/OR", 
+            "type": "comment" 
+          },
+          { 
+            "label": "If the need for coming off is due to temporary loss of vascular access as a result of accidental decannulation, rupture or thrombosis of one cannula, in a scenario of resources constraint:", 
+            "type": "comment" 
+          },
+          { "label": "Keep the circuit functional by recirculating over a bridge OR keep the circuit functional by connecting drainage and return tubing to create a loop.", "checked": false },
+          { "label": "Flush and clamp the cannula still on site.", "checked": false },
+          { 
             "label": "If the circuit is NOT functional OR no longer required:", 
             "type": "comment" 
           },
           { "label": "Dispose of the circuit and the cannulas according to hospital protocol.", "checked": false },
-          { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false },
-          { 
-            "label": "If the circuit is still required (resources constraint scenario):", 
-            "type": "comment" 
-          },
-          { "label": "Coming off due to temporary loss of vascular access due to accidental decannulation, rupture or thrombosis of one cannula, in a scenario of resources constraint", "checked": false },
-          { "label": "Keep the circuit functional by recirculating over a bridge OR keep the circuit functional by connecting drainage and return tubing to create a loop.", "checked": false },
-          { "label": "Flush and clamp the cannula still on site.", "checked": false }
+          { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false }
         ]
       }, 
       {
-        "label": "Step 5: Post-Coming Off Management",
+        "label": "Post-Coming Off Management",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
