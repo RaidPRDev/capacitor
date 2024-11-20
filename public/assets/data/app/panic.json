@@ -570,8 +570,8 @@
     "id": "ELSOBA_PANIC_030__STEP1",
     "showTitle": true,
     "useScroll": true,
-    "title": "Blood Out of Circuit",
-    "content": "Identify where the blood is coming from",
+    "title": "Identify where the blood is coming from",
+    "content": "",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -660,7 +660,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Blood Out of Circuit",
+    "title": "Minor circuit breakage or disconnection involving an accessory component",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__A__C__TERMB.html",
     "layout": "html",
     "branchTo": "",
@@ -671,7 +671,7 @@
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Blood Out of Circuit",
+    "title": "Ongoing Decannulation",
     "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030__STEP2.html",
     "layout": "html",
     "branchTo": "",
@@ -768,7 +768,7 @@
       },   
       {
         "label": "YES",
-        "branchTo": "ELSOBA_PANIC_030__C__NO__YES",
+        "branchTo": "ELSOBA_PANIC_030__STEP1",
         "class": ""
       },   
       {
@@ -778,26 +778,7 @@
       }   
     ]
   },
-  {
-    "id": "ELSOBA_PANIC_030__C__NO__YES",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Blood Out of Circuit",
-    "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030_C/ELSOBA_PANIC_030_C_010_A.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_PANIC_030__C__NO__NO",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Blood Out of Circuit",
-    "content": "panic/ELSOBA_PANIC_030/ELSOBA_PANIC_030_C/ELSOBA_PANIC_030_C_010_B.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
+  
   {
     "id": "ELSOBA_PANIC_030__STEP4",
     "showTitle": true,
@@ -809,7 +790,6 @@
     "keywords": "",
     "items": []
   },
-
   {
     "__": "==================================================================================",
     "id": "ELSOBA_PANIC_040_SEGMENT",
