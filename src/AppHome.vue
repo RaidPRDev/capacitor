@@ -40,6 +40,7 @@ import PanicIcon from '@/assets/icons/panic-red-icon.svg';
 import FavoritesIcon from '@/assets/icons/favorites-star-solid.svg';
 import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
 import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import { Haptics, ImpactStyle, NotificationType } from "@capacitor/haptics";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IAppScreenProps>(), {}) 
@@ -106,6 +107,8 @@ function onFooterMenuTriggered(selected: IButtonGroupSelected) {
   if (currentReferredView !== null) {
     footerSelectedItem.value = selected;
 
+    Haptics.notification({ type: NotificationType.Warning });
+
     let message = `You are currently in the `;
     message += `<span style="color: red">${currentReferredView?.title}</span> panic session. `;
     message += `Do you want to be taken to your current session or exit panic?`;
@@ -150,6 +153,8 @@ function onFooterMenuTriggered(selected: IButtonGroupSelected) {
     }
   }
   
+  Haptics.impact({ style: ImpactStyle.Light });
+
   goToSection(selected);
 }
 
@@ -173,6 +178,8 @@ function onAfterLeave(el:Element) {
 }
 
 function showPanicAlert(msg: string = "", actions: any = null) {
+  Haptics.notification({ type: NotificationType.Warning });
+  
   app.alert.component = shallowRef(AppAlertPanel);
   app.alert.options.props = {
     title: '',
@@ -184,6 +191,8 @@ function showPanicAlert(msg: string = "", actions: any = null) {
 }
 
 function showGoPanicHomeAlert() {
+  Haptics.notification({ type: NotificationType.Warning });
+  
   let message = `Would you want to go back to the Panic menu?`;
 
   app.alert.component = shallowRef(AppAlertPanel);

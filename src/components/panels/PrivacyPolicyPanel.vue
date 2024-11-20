@@ -8,7 +8,9 @@ export default {
 <script setup lang="ts">
 import { inject, ref } from 'vue';
 import { storeToRefs } from 'pinia';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from 'classnames';
+
 import BasePanel from "@/ui/panels/BasePanel.vue";
 import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
@@ -44,6 +46,7 @@ function onMenuTriggered(selected: number) {
     break;
 
     case 1: // Accept
+      Haptics.impact({ style: ImpactStyle.Light });
       session.$patch({ hasCompletedPrivacy: true })
     break;
   }

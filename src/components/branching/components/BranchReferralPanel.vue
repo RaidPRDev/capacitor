@@ -10,6 +10,8 @@ const DEBUG = false;
 import { ComponentPublicInstance, computed, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from 'vue';
 import { useRouter } from "vue-router";
 import { storeToRefs } from 'pinia';
+import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
+
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import useBranchingStore from '@/store/branching.module';
 import { capitalizeFirstLetter } from '@/utils/StringTools';
@@ -78,6 +80,8 @@ function triggered(dataProps: any) {
   
   if (state.mode === Mode.Opened) {
 
+    Haptics.impact({ style: ImpactStyle.Heavy });  
+
     state.mode = Mode.Removed;
 
     nextTick(() => {
@@ -118,6 +122,8 @@ function onTransitionEnd(e: TransitionEvent) {
     
     case Mode.Opened:
       if (!state.hasInit) {
+        Haptics.impact({ style: ImpactStyle.Light });
+
         transDelay.value = setTimeout(() => {
           if (DEBUG) console.log("  Docking...");
           if (DEBUG) console.log("  Starting Event...");
@@ -153,6 +159,7 @@ function onTransitionEnd(e: TransitionEvent) {
     break;
 
     default:
+      Haptics.notification({ type: NotificationType.Warning });  
       if (DEBUG) console.log(`  Transition Ended`);
   }  
 }

@@ -44,6 +44,7 @@ import NoFavoritesHeadIcon from '@/assets/icons/favorites-no-heading-icon.svg';
 import FavoritesHeadStarIcon from '@/assets/icons/favorites-star-line-icon.svg';
 import UpRightArrowIcon from '@/assets/icons/up-right-arrow-icon.svg';
 import TrashIcon from '@/assets/icons/trash-icon.svg';
+import { Haptics, ImpactStyle, NotificationType } from "@capacitor/haptics";
 
 const router = useRouter();
 
@@ -198,6 +199,8 @@ function removeSelectedItem(item: IFavoriteListItem) {
 }
 
 function onDeleteItems() {
+  Haptics.impact({ style: ImpactStyle.Medium });
+  
   if (timeoutInput.value) clearTimeout(timeoutInput.value);
   if (timeoutRemove.value) clearTimeout(timeoutRemove.value);
 
@@ -227,6 +230,8 @@ function onDeleteItems() {
 }
 
 function showAlert() {
+  
+  Haptics.notification({ type: NotificationType.Warning  });
   
   const totalSelected = selectedItemsRef.value.length;
   
