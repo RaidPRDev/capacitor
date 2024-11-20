@@ -69,12 +69,52 @@ function updateTableColumnWidth() {
   bodyTable.style.width = `${totalTableWidth}px`;
 }
 
+const scale = ref<number>(1);
+let initialDistance: number = 0;
+
+// Handle the touch start event
+const handleTouchStart = (event: TouchEvent): void => {
+    if (event.touches.length === 2) {
+        // Calculate the initial distance between two touch points
+        const [touch1, touch2] = event.touches;
+        initialDistance = Math.hypot(
+          touch2.clientX - touch1.clientX,
+          touch2.clientY - touch1.clientY
+        );
+      }
+    };
+
+// Handle the touch move event
+const handleTouchMove = (event: TouchEvent): void => {
+  console.log("event.touches.length", event.touches.length)
+  if (event.touches.length === 2) {
+    // Calculate the new distance between the two touch points
+    const [touch1, touch2] = event.touches;
+    const newDistance = Math.hypot(
+      touch2.clientX - touch1.clientX,
+      touch2.clientY - touch1.clientY
+    );
+
+    // Calculate the scale factor and apply it
+    const scaleChange = newDistance / initialDistance;
+    scale.value *= scaleChange;
+    initialDistance = newDistance;
+
+    // Apply the scale transformation to the div
+    if (content.value) {
+      content.value.style.transform = `scale(${scale.value})`;
+    }
+  }
+};
+
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
   htmlContent.value = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
-  // console.log("htmlContent", htmlContent.value)
+  console.log("htmlContent", htmlContent.value)
   // console.log("htmlContent", parseAndReplaceCurlyBraceContent(htmlContent.value))
   htmlContent.value = parseAndReplaceCurlyBraceContent(htmlContent.value);
+
+
 })
 
 onUnmounted(() => {
@@ -85,7 +125,14 @@ onUnmounted(() => {
 
 <template>
   <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="transform-z">{{ `${props?.view?.title}` }}</h2>
-  <div ref="content" class="transform-z" :style="contentStyles" v-html="htmlContent"></div>
+  <div 
+    ref="content" 
+    class="transform-z" 
+    :style="contentStyles" 
+    v-html="htmlContent"
+    @touchstart="handleTouchStart" 
+    @touchmove="handleTouchMove"
+  ></div>
 </template>
 
 <style scoped lang="scss"></style>
