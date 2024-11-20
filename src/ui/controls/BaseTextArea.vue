@@ -159,7 +159,7 @@ function onClear()
           <slot v-if="slots.accessorySlot" name="accessorySlot"></slot>
       </div>
       
-      <BaseButton :class="`clear-btn absolute tx-8 rx-8`" :inner-class-name="`px-6`" :label="`Clear`" @triggered="onClear" />
+      <BaseButton :class="`clear-btn absolute tx-8 rx-8`" :inner-class-name="`pxlr-8 pxtb-6`" :label="`Clear`" @triggered="onClear" />
 
     </div>
   </div>
@@ -241,15 +241,13 @@ function onClear()
 .clear-btn {
   :deep(.inner-base-button) {
     background-color: darkgray;
-    border-radius: 8px;
+    border-radius: 14px;
 
     .ui-label {
-      @include getFontSize('small');
+      @include getFontSize('x-small');
       text-transform: uppercase;
-      
       color: white;
       font-weight: 600;
-      font-size: 12px;
     }
   }
 }
