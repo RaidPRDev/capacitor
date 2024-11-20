@@ -199,7 +199,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-.content-default {
-  touch-action: pan-x pan-y pinch-zoom;
-}
+// .content-default {
+//   touch-action: pan-x pan-y pinch-zoom;
+// }
 </style>
