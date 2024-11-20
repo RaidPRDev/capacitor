@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, ref } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
@@ -53,6 +53,10 @@ function onMenuTriggered(selected: number) {
   app.drawers.closeOutside = false;
   app.drawers.bottom.open = !app.drawers.bottom.open;
 }
+
+onMounted(() => {
+  divScrollerRef.value?.focus();
+})
 
 </script>
 
