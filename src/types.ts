@@ -143,6 +143,7 @@ export interface BranchViewData {
   parentId?: string;
   component?: any;
   type?: string;
+  class?: string;
   dataType?: string;  // json data name
   heading?: string;
   title?: string;

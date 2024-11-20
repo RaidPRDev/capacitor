@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  inheritAttrs: false,
+  inheritAttrs: true,
   name: "BasePanel"
 }   
 </script>
@@ -28,7 +28,6 @@ defineExpose({
   <div 
     ref="element" 
     class="base-panel grid grid-single gapx-20 width-100 height-inherit" 
-    :class="props?.class" 
     :style="props?.styles"
   >
     <div class="inner-panel height-inherit relative" :class="props?.innerClass">

@@ -6,11 +6,12 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { CSSProperties, nextTick, onMounted, onUnmounted, ref } from 'vue';
-import { IBranchTypeProps } from '@/types';
+import { CSSProperties, inject, nextTick, onMounted, onUnmounted, ref } from 'vue';
+import { IApp, IAppDrawerComponents, IBranchTypeProps } from '@/types';
 import { loadHTMLFile } from '@/utils/FileTools';
 import { parseAndReplaceCurlyBraceContent } from '@/components/branching/data/DataTools';
-import PinchZoom from "pinch-zoom-js";
+import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
+import ImagePreviewPanel from '@/components/panels/ImagePreviewPanel.vue';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
@@ -22,6 +23,9 @@ const emit = defineEmits<{
   (e: 'navigate', branchTo: string | null): void;
   (e: 'triggered', dataProps?: any): void;
 }>();
+
+const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 
 const htmlContent = ref<string>("");
 const content = ref<HTMLElement>();
@@ -70,77 +74,36 @@ function updateTableColumnWidth() {
   bodyTable.style.width = `${totalTableWidth}px`;
 }
 
-// Refs for the zoomable div and scale
-// const scale = ref<number>(1);
-// const minScale = 0.5; // Minimum allowed scale factor
-// const maxScale = 3;   // Maximum allowed scale factor
 
-// // Variables for pinch and pan tracking
-// let initialDistance: number = 0;
-// let initialScale: number = 1;
-// let isPanning = false;
-// let startX = 0;
-// let startY = 0;
-// let translateX = ref<number>(0);
-// let translateY = ref<number>(0);
+/**
+ * Preview Images
+ * 
+ */
 
-// // Handle the touch start event
-// const handleTouchStart = (event: TouchEvent): void => {
-//   if (event.touches.length === 2) {
-//     // Pinch start
-//     const [touch1, touch2] = event.touches;
-//     initialDistance = Math.hypot(
-//       touch2.clientX - touch1.clientX,
-//       touch2.clientY - touch1.clientY
-//     );
-//     initialScale = scale.value;
-//   } else if (event.touches.length === 1) {
-//     // Pan start
-//     isPanning = true;
-//     startX = event.touches[0].clientX - translateX.value;
-//     startY = event.touches[0].clientY - translateY.value;
-//   }
-// };
+const previewItems = ref<HTMLElement[]>([]);
 
-// // Handle the touch move event
-// const handleTouchMove = (event: TouchEvent): void => {
-//   if (event.touches.length === 2) {
-//     // Handle pinch zoom
-//     const [touch1, touch2] = event.touches;
-//     const newDistance = Math.hypot(
-//       touch2.clientX - touch1.clientX,
-//       touch2.clientY - touch1.clientY
-//     );
+function onPreviewTriggered(e:Event) {
+  const target = e?.target as HTMLImageElement;
 
-//     // Calculate new scale and clamp it between minScale and maxScale
-//     const scaleChange = newDistance / initialDistance;
-//     scale.value = Math.max(minScale, Math.min(maxScale, initialScale * scaleChange));
+  drawerComponents.bottom = ImagePreviewPanel;
+  app.drawers.bottom.closeOutside = false;
+  app.drawers.bottom.open = !app.drawers.bottom.open;
+  app.drawers.bottom.props = { source: target.src }
+}
 
-//     // Apply the transform to the div
-//     if (content.value) {
-//       content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
-//     }
-//   } else if (event.touches.length === 1 && isPanning) {
-//     // Handle pan with reduced sensitivity when scaled in
-//     const scaleAdjustment = scale.value > 1 ? 1 / scale.value : 1; // Reduce panning when zoomed in
-//     translateX.value = (event.touches[0].clientX - startX) * scaleAdjustment;
-//     translateY.value = (event.touches[0].clientY - startY) * scaleAdjustment;
+function addPreviewEvents() {
+  previewItems.value?.forEach((item) => {
+    item.addEventListener("click", onPreviewTriggered);
+  });
+}
 
-//     // Apply the transform to the div
-//     if (content.value) {
-//       content.value.style.transform = `scale(${scale.value}) translate(${translateX.value}px, ${translateY.value}px)`;
-//     }
-//   }
-// };
+function removePreviewEvents() {
+  previewItems.value?.forEach((item) => {
+    item.removeEventListener("click", onPreviewTriggered);
+  });
 
-// // Handle the touch end event to stop panning
-// const handleTouchEnd = (): void => {
-//   isPanning = false;
-// };
-
-// @touchstart="handleTouchStart"
-// @touchmove="handleTouchMove"
-// @touchend="handleTouchEnd"
+  previewItems.value = [];
+}
 
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
@@ -149,16 +112,23 @@ onMounted(async () => {
   // console.log("htmlContent", parseAndReplaceCurlyBraceContent(htmlContent.value))
   htmlContent.value = parseAndReplaceCurlyBraceContent(htmlContent.value);
 
-  setTimeout(() => {
-    nextTick(() => {
-      new PinchZoom(content.value!, { draggableUnzoomed: false });
-    })
-  }, 2000)
-  
+  // Here we are checking if we have any interactable elements.
+  // For now we only have support for image preview via [data-preview]
+  nextTick(() => {
+    if (content.value) {
+      // collect all elements tagged by the data-preview attribute
+      // and set clickable events
+      const previewItemsElRaw = content.value.querySelectorAll(`[data-preview]`);
+      previewItems.value = [].slice.apply(previewItemsElRaw) as HTMLElement[];
+      addPreviewEvents();
+    }
+  });  
 })
 
 onUnmounted(() => {
   observer.disconnect();
+
+  removePreviewEvents();
 })
 
 </script>
@@ -170,12 +140,7 @@ onUnmounted(() => {
     class="content-default transform-z" 
     :style="contentStyles" 
     v-html="htmlContent"
-    
   ></div>
 </template>
 
-<style scoped lang="scss">
-.content-default {
-  touch-action: pan-x pan-y pinch-zoom;
-}
-</style>
+<style scoped lang="scss"></style>

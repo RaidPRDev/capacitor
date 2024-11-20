@@ -91,7 +91,6 @@ export interface IBaseScreenSlotProps {
 }
 
 export interface IBasePanelProps {
-  class?: string;
   innerClass?: string;
   height?: number;
   styles?: Record<string, any>;

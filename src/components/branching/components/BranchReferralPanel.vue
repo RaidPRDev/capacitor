@@ -222,7 +222,7 @@ onUnmounted(() => {
 
 <template>
   <div 
-    class="abs-fs z-index-5" 
+    class="abs-fs z-index-5 fixed" 
     :class="{ 
       ['disabled']: state.mode == Mode.Hidden || state.mode == Mode.Docked, 
       ['fixed']: state.isMobileDevice, 

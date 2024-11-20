@@ -612,7 +612,8 @@ onUnmounted(() => {
           @navigate="handleNavigate" 
           @triggered="handleTriggered"
           :class="[viewClassName, {
-            ['remove-top-padding']: currentView?.isRootParent
+            ['remove-top-padding']: currentView?.isRootParent,
+            [currentView?.class!]: currentView?.class
           }]" 
         />
       </transition>
