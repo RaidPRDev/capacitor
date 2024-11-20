@@ -59,6 +59,19 @@ Ref: https://capacitorjs.com/docs/guides/splash-screens-and-icons
 npm install @capacitor/assets --save-dev
 npx capacitor-assets generate
 
+# Crop SVGs
+https://svgcrop.com/
+
+# Distribution Sites
+https://www.diawi.com/
+
+# Android Development
+
+### Run Android device/emulator log
+Locate the ADB tool from the Android SDK - platform-tools folder
+Run the following
+{ANDROID_SDK_PATH}/adb.exe logcat
+
 # References
 Ionic App Flow
 https://dashboard.ionicframework.com/org/4df82aa8-703e-4243-a310-fc777fe36d7f/apps
