@@ -55,6 +55,8 @@ interface ISearchItemRender {
 }
 type ISearchFlatDataItem = ISearchDataItem & { id?:string, groupType?: "GroupHeader" | "GroupItem" }
 
+const SEARCH_CHAR_MIN = 3;
+
 const app = inject<IApp>(APP_ID) as IApp;
 const timeoutInput = shallowRef<ReturnType<typeof setTimeout>>();
 const timeoutSearch = shallowRef<ReturnType<typeof setTimeout>>();
@@ -87,20 +89,15 @@ function onInput(value: number | string) {
 }
 
 async function searchItems(term:string) {
-  // console.info("searchItems", term);
-
   if (state.isSearching) return ;
   if (timeoutSearch.value) clearTimeout(timeoutSearch.value);
 
   state.isSearching = true;
 
-  if (term?.length < 3) return;
+  if (term?.length < SEARCH_CHAR_MIN) return;
 
   if (!__searchDataIsLoaded) await loadSearchData();
  
-  // console.info("__searchData", __searchData);
-  // console.info("__internalSearchDataV2", __internalSearchDataV2);
-
   timeoutSearch.value = setTimeout(() => {
     let filteredSearchData:Record<string, ISearchFlatDataItem> = {}
     for (let key in __internalSearchDataV2) {
@@ -186,8 +183,6 @@ function loadSearchData() {
       async response => {
         const jsonParser = new JSONParser();
         const reader = response?.body?.pipeThrough(jsonParser).getReader();
-        // console.info("reader");
-        // console.info(reader);
 
         while (true) {
           const { done, value } = await reader?.read() as { done: any, value: any };
@@ -222,30 +217,18 @@ function loadSearchData() {
 const IOS_PADDING = import.meta.env.IOS ? 20 : 0;
 
 const panelStyles = computed(() => {
-  let adjustedWidth = 0;
-  let adjustedHeight = 0;
-  // adjustedHeight += BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING) + 20;
-  adjustedHeight += (IOS_PADDING ? 20 : 0);
-  adjustedWidth = app.device.width;
-
-  console.error("adjustedHeight", adjustedHeight)
-  
+  let adjustedWidth = app.device.width;
+  let adjustedHeight = (IOS_PADDING ? 20 : 0);
   let heightCss = `calc(100% - ${adjustedHeight}px)`;
 
   const listElRef = baseListRef?.value?.elementRef()?.$el as HTMLElement;
   if (listElRef) {
-    console.info("listElRef", listElRef);
-    console.info("offsetWidth", listElRef.offsetWidth);
-    console.info("offsetHeight", listElRef.offsetHeight);
-
     adjustedHeight = listElRef.offsetHeight - (BOTTOM_HEADER_NAV_HEIGHT(IOS_PADDING) + 20);
     heightCss = `${adjustedHeight}px`;
   }
   
-
   return {
     width: `calc(${adjustedWidth}px - 0px)`,
-    // height: `calc(100% - ${adjustedHeight}px)`,
     height: `${heightCss}`,
     paddingLeft: `20px`,
     paddingRight: `12px`,
@@ -274,8 +257,6 @@ onMounted(() => {
       searchInputRef?.value?.inputRef()?.focus();
     }, 650);  
   }
-
-  console.log("baseListRef", baseListRef.value)
 })
 
 </script>
@@ -288,7 +269,7 @@ onMounted(() => {
       ref="searchInputRef"
       :modelValue="searchValue.text" 
       :icon="SearchIcon" 
-      placeholder="enter keyword(s)"
+      :placeholder="`Search min ${SEARCH_CHAR_MIN} characters`"
       innerClass="gapx-10" 
       elementClass="pxlr-16 pxtb-10"
       containerClass="pxlr-20"

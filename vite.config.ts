@@ -1,5 +1,4 @@
 import { defineConfig, loadEnv } from "vite";
-import fs from "fs/promises";
 import vue from "@vitejs/plugin-vue";
 import svgLoader from 'vite-svg-loader';
 
@@ -69,7 +68,6 @@ export default defineConfig(async ({command, mode}) => {
         ` + `$is-mobile: ${ISMOBILE};`
           + `$header-height: ${APP_HEADER_HEIGHT};`
           + `$footer-height: ${BOTTOM_HEADER_NAV_HEIGHT(ISIOS ? 20 : 0)};`
-
         }
       }
     },
@@ -79,14 +77,10 @@ export default defineConfig(async ({command, mode}) => {
       alias: [{ find: '@', replacement: '/src' }],
     },
 
-    // base: "/",  
-  
     clearScreen: false,
     server: {
       port: 3005,
-      watch: {
-        // ignored: ["**/src-tauri/**"],
-      },
+      watch: {},
     },
   })
 });
