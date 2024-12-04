@@ -171,30 +171,9 @@
     "title": "The patient has experienced cardiac arrest",
     "content": "ecmo/ELSOBA_CAND_040/ELSOBA_CAND_040.html",
     "layout": "html",
-    "branchTo": "ELSOBA_CAND_040__1",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CAND_040__1",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Does the patient meet the criteria for cardiac failure?",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
     "branchTo": "",
-    "items": [
-      {
-        "label": "Yes",
-        "branchTo": "ELSOBA_CAND_040__2",
-        "class": ""
-      },     
-      {
-        "label": "No",
-        "branchTo": "ELSOBA_CAND_040__3",
-        "class": ""
-      }    
-    ]
+    "__branchTo": "ELSOBA_CAND_040__2",
+    "items": []
   },
   {
     "id": "ELSOBA_CAND_040__2",
