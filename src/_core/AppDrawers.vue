@@ -98,7 +98,6 @@ function onDrawerAfterLeave() {}
   pointer-events: all;
 }
 .app-drawer-item {
-  
   &.hidden {
     pointer-events: none;
     visibility: hidden;

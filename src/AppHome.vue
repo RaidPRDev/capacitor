@@ -14,7 +14,7 @@ import {
   SCREEN_BODY_TOP_PADDING
 } from "@/_core/Constants";
 import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted } from "vue";
-import { RouteLocationGeneric, useRouter, useRoute } from "vue-router";
+import { RouteLocationGeneric, useRouter } from "vue-router";
 import { IButtonGroupSelected } from "@/ui/types";
 import { IApp, IAppDrawerComponents, IAppScreenProps,  } from "@/types";
 
@@ -30,7 +30,6 @@ import AppSearchPanel from "@/components/panels/AppSearchPanel.vue";
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import DisclaimerPanel from "@/components/panels/DisclaimerPanel.vue";
 import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
-import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
 
 import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import { Haptics, ImpactStyle, NotificationType } from "@capacitor/haptics";
@@ -49,18 +48,6 @@ const props = withDefaults(defineProps<IAppScreenProps>(), {})
 const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const router = useRouter();
-const route = useRoute();
-
-// console.log("router", router)
-// if (route.query && route.query.hasOwnProperty("panel")) {
-//   const panelID = route.query.panel;
-//   if (panelID === "privacy") {
-//     router.replace({ query: undefined });
-    
-   
-    
-//   }
-// }
 
 const session = useSession();
 const { hasCompletedDisclaimer, hasRegistered } = session;
