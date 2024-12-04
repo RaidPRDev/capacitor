@@ -1047,30 +1047,10 @@
     "title": "Driving Unit (console) Failure",
     "content": "panic/ELSOBA_PANIC_050/ELSOBA_PANIC_050__STEP2.html",
     "layout": "html",
-    "branchTo": "ELSOBA_PANIC_050__STEP2__YES_NO",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_PANIC_050__TERMA",
     "keywords": "",
     "items": []
-  },
-  {
-    "id": "ELSOBA_PANIC_050__STEP2__YES_NO",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Confirm power failure",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "items": [
-      {
-        "label": "Yes",
-        "branchTo": "ELSOBA_PANIC_050__TERMA",
-        "class": ""
-      },     
-      {
-        "label": "No",
-        "branchTo": "ELSOBA_PANIC_050__TERMB",
-        "class": ""
-      } 
-    ]
   },
   {
     "id": "ELSOBA_PANIC_050__STEP3",
