@@ -62,10 +62,6 @@ function onLink(e:Event) {
   const el = e.target as HTMLElement;
   if (!el) return;
 
-  if (!hasCompletedTerms || !hasCompletedDisclaimer || !hasCompletedPrivacy) {
-    return;
-  }
-
   // console.log("el.dataset.id", el.dataset.id);
 
   // Close this panel and open target
