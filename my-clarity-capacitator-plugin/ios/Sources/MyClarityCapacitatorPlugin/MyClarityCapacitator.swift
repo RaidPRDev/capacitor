@@ -21,8 +21,8 @@ import Clarity
         return id
     }
     
-    @objc public func setCurrentScreenName(_ id: String) -> String {
-        ClaritySDK.setCurrentScreenName(name: id);
+    @objc public func setCurrentScreenName(_ id: String!) -> String {
+        ClaritySDK.setCurrentScreenName(id);
 
         return id
     }
