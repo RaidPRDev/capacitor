@@ -429,8 +429,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },
@@ -466,8 +466,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },
@@ -503,8 +503,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -536,8 +536,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -573,8 +573,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -610,8 +610,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -643,8 +643,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -676,8 +676,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -709,8 +709,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -742,8 +742,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -775,8 +775,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -808,8 +808,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -871,8 +871,8 @@
             ]
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -904,8 +904,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -937,8 +937,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -970,8 +970,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -999,8 +999,8 @@
             "checked": false
           },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       },   
@@ -1021,8 +1021,8 @@
           { "label": "VMLO<sup>2</sup>, if available", "checked": false },
           { "label": "VMLCO<sup>2</sup>, if available", "checked": false },
           {
-            "label": "Other anomalies present?<br><br><span class='font-small'>If checked, open <b>Notes</b> and add details of the anomalies with the date and time.</span>",
-            "checked": false
+            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "type": "comment" 
           }
         ]
       } 
@@ -1967,8 +1967,8 @@
               { "label": "Circuit monitoring checklists", "checked": false },
               { 
                 "label": "Latest monitoring completed by responsible ECMO specialist or perfusionist<br>End-of-life preferences:", 
-                "checked": false,
                 "type": "subchecklist",
+                "layout": "checklist",
                 "items": [
                   { "label": "Do not resuscitate order (DNR) if applicable in the country", "checked": false },
                   { "label": "Organ donation (OD), if applicable", "checked": false }

@@ -85,7 +85,8 @@
     "title": "Patient presents with shock.",
     "content": "ecmo/ELSOBA_CAND_030/ELSOBA_CAND_030.html",
     "layout": "html",
-    "branchTo": "ELSOBA_CAND_030__1",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_030__1",
     "items": []
   },
   {
@@ -239,7 +240,7 @@
     "id": "ELSOBA_CAND_040__6",
     "showTitle": true,
     "useScroll": true,
-    "title": "There are NO contraindications for ECPR",
+    "title": "NO ROSC after <=3 shocks",
     "content": "ecmo/ELSOBA_CAND_040/ELSOBA_CAND_040__6.html",
     "layout": "html",
     "branchTo": "",
@@ -249,13 +250,12 @@
     "id": "ELSOBA_CAND_040__7",
     "showTitle": true,
     "useScroll": true,
-    "title": "Cardiac arrest not witnessed",
+    "title": "There are NO contraindications for ECPR",
     "content": "ecmo/ELSOBA_CAND_040/ELSOBA_CAND_040__7.html",
     "layout": "html",
     "branchTo": "",
     "items": []
   },
-
 
 
   {
@@ -265,7 +265,8 @@
     "title": "Patient presents with hypoxemic respiratory distress",
     "content": "ecmo/ELSOBA_CAND_050/ELSOBA_CAND_050.html",
     "layout": "html",
-    "branchTo": "ELSOBA_CAND_050__2",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_050__2",
     "items": []
   },  
   {
@@ -347,7 +348,8 @@
     "title": "Patient presents with cardiac distress",
     "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060.html",
     "layout": "html",
-    "branchTo": "ELSOBA_CAND_060__2",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_060__2",
     "items": []
   },  
   {
@@ -416,17 +418,18 @@
     "id": "ELSOBA_CAND_070",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient presents with cardiac distress",
+    "title": "The patient has experienced cardiac arrest",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070.html",
     "layout": "html",
-    "branchTo": "ELSOBA_CAND_070__2",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_070__2",
     "items": []
   },  
   {
     "id": "ELSOBA_CAND_070__2",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Cardiac arrest witnessed",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__2.html",
     "layout": "html",
     "branchTo": "",
@@ -436,7 +439,7 @@
     "id": "ELSOBA_CAND_070__3",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Cardiac arrest not witnessed",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__3.html",
     "layout": "html",
     "branchTo": "",
@@ -446,7 +449,7 @@
     "id": "ELSOBA_CAND_070__4",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Post-cardiac arrest care",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__4.html",
     "layout": "html",
     "branchTo": "",
@@ -456,7 +459,7 @@
     "id": "ELSOBA_CAND_070__5",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Contraindications for ECPR",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__5.html",
     "layout": "html",
     "branchTo": "",
@@ -466,7 +469,7 @@
     "id": "ELSOBA_CAND_070__6",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Initiate ECPR",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__6.html",
     "layout": "html",
     "branchTo": "",
@@ -476,7 +479,7 @@
     "id": "ELSOBA_CAND_070__7",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Proceed with care on ECMO",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__7.html",
     "layout": "html",
     "branchTo": "",

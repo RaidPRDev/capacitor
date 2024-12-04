@@ -103,7 +103,7 @@ onMounted(() => {
               Please read and agree to our Terms and Conditions and Privacy Policy.
             </div>
             <div v-else-if="hasCompletedPrivacy && hasCompletedTerms" class="splash-description text-center width-100 mxt-80">
-              Tap on Start to continue
+              Tap START to continue
             </div>
           </Transition>
         </div>

@@ -93,13 +93,12 @@ function onMenuTriggered(selected: number) {
           <p>Due to the existing regulatory environment, we cannot ensure that all of your private communications and other personally identifiable information will never be disclosed in ways not otherwise described in this Privacy Policy. ELSO will disclose your personal information, without notice, only if required to do so by law or in the good faith belief that such action is necessary to: (a) conform to the law or comply with legal process served on ELSO; (b) protect and defend the rights or property of ELSO; and, (c) act under exigent circumstances to protect the personal safety of users of the App or the public.</p>
 
           <p class="p-title">Security of your Personal Information</p>
-          <p>ELSO secures your personal information from unauthorized access, use or disclosure as described in the Terms of Use on the App.</p>
+          <p>ELSO secures your personal information from unauthorized access, use or disclosure <span class="underline">as described in the Terms of Use on the App.</span></p>
 
           <p>ELSO makes every effort to protect your information. However:</p>
 
-          <p>ELSO CANNOT GUARANTEE SECURITY OR PRIVACY. ELSO ASSUMES NO RESPONSIBILITY OR LIABILITY FOR DISCLOSURE OF YOUR PERSONAL INFORMATION THAT OCCURS BY NEGLIGENCE OF ELSO, ERRORS IN TRANSMISSION, UNAUTHORIZED OR ILLEGAL ACCESS, OR ANY OTHER VEHICLE FOR DISCLOSURE.</p>
-
-          <p>THE APP CONTAINS LINKS TO OTHER WEBSITES. ELSO IS NOT RESPONSIBLE FOR THE CONTENT, TERMS OF USE, OR PRIVACY POLICIES ON ANY THIRD-PARTY WEBSITES, OR PRIVACY PRACTICES BY ANY THIRD PARTIES.</p>
+          <p class="bold-500 text-justify">ELSO CANNOT GUARANTEE SECURITY <span class="underline">OR PRIVACY</span>. ELSO ASSUMES NO RESPONSIBILITY OR LIABILITY FOR DISCLOSURE OF YOUR PERSONAL INFORMATION THAT OCCURS BY NEGLIGENCE OF ELSO, ERRORS IN TRANSMISSION, UNAUTHORIZED OR ILLEGAL ACCESS, OR ANY OTHER VEHICLE FOR DISCLOSURE.
+            THE APP CONTAINS LINKS TO OTHER WEBSITES. ELSO IS NOT RESPONSIBLE FOR THE CONTENT, TERMS OF USE, OR PRIVACY POLICIES ON ANY THIRD-PARTY WEBSITES, OR PRIVACY PRACTICES BY ANY THIRD PARTIES.</p>
 
           <p class="p-title">Children Under Thirteen</p>
           <p>ELSO does not knowingly accept personal information from anyone under the age of 13. By using the App and/or providing personal information, you represent and warrant that you are over the age of 13.</p>

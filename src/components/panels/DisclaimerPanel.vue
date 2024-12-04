@@ -85,9 +85,9 @@ care. The content provided cannot be deemed inclusive of all proper methods of c
 exclusive of other methods of care reasonably directed at obtaining the same results. The
 ultimate judgment must be made by the physician and other health professionals and the patient
 in light of all the circumstances presented by the individual patient, and the known variability and
-biological behavior of the clinical condition. In no event will ELSO be liable for any decision
+biological behavior of the clinical condition. <i>In no event will ELSO be liable for any decision
 made or action taken in reliance upon the information provided through ELSO’s ECMO Bedside
-Guide App.</p>
+Guide App.</i></p>
 
         </div>
 

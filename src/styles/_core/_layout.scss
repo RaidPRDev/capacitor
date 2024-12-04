@@ -24,6 +24,22 @@ body {
   height: 100vh;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
+.bold-400 {
+  font-weight: 500;
+}
+
+.bold-500 {
+  font-weight: 500;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
 .scroller {
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {

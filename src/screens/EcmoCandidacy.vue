@@ -96,7 +96,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
         <transition name="fade" appear mode="out-in">
           <BaseHeader v-if="showMainHeader" class="screen-heading pxlr-20 mxb-20 height-auto">
             <template v-slot:headerLeft>
-              <h1 class="screen-title">{{`ECMO Candidacy`}}</h1>
+              <h1 class="screen-title">{{`Assess ECMO Candidacy`}}</h1>
             </template>
             <template v-slot:headerRight>
               <span class="flex icon"><MedicalBedIcon /></span>

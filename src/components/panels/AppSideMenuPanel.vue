@@ -99,7 +99,7 @@ function onMenuTriggered(selected: number) {
       // drawerComponents.bottom = SendFeedbackPanel;
       // app.drawers.bottom.closeOutside = false;
       // app.drawers.bottom.open = !app.drawers.bottom.open;
-      window.open("mailto:support@elso.com?subject=Elso Support&body=This is my message")
+      window.open("mailto:support@elso.com?subject=Elso Support&body=Add your message")
     break;
   }
 }
