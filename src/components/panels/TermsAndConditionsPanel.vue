@@ -6,7 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, onMounted, ref } from 'vue';
+import { inject, ref } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
 import BasePanel from "@/ui/panels/BasePanel.vue";
@@ -22,12 +22,16 @@ import { storeToRefs } from 'pinia';
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
 
+
+const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
+
 const session = useSession();
-const { hasCompletedTerms } = storeToRefs(session);
+const { hasCompletedTerms, hasCompletedPrivacy, hasCompletedDisclaimer } = storeToRefs(session);
 
 const divScrollerRef = ref<HTMLElement>();
-const sideContentRef = ref<HTMLElement>();
 const hasScrolledEnd = ref<boolean>(false);
+
 function handleScroll() {
   if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
 
@@ -36,9 +40,6 @@ function handleScroll() {
     hasScrolledEnd.value = true;
   }
 }
-
-const app = inject<IApp>(APP_ID) as IApp;
-const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 
 function onMenuTriggered(selected: number) {
   
@@ -57,17 +58,15 @@ function onMenuTriggered(selected: number) {
   app.drawers.bottom.open = !app.drawers.bottom.open;
 }
 
-onMounted(() => {
-  console.log("sideContentRef", sideContentRef.value)
-
-  // sideContentRef.value?.addEventListener("click")
-})
-
 function onLink(e:Event) {
   const el = e.target as HTMLElement;
   if (!el) return;
 
-  console.log("el.dataset.id", el.dataset.id);
+  if (!hasCompletedTerms || !hasCompletedDisclaimer || !hasCompletedPrivacy) {
+    return;
+  }
+
+  // console.log("el.dataset.id", el.dataset.id);
 
   // Close this panel and open target
   app.drawers.closeOutside = false;
@@ -97,7 +96,7 @@ function onLink(e:Event) {
     </BaseHeader>
   </template>
 
-  <div ref="sideContentRef" class="side-content pxlr-0 pxt-20 pxb-0 relative">
+  <div class="side-content pxlr-0 pxt-20 pxb-0 relative">
     <div class="pxlr-0 height-100">
 
       <div class="title width-100 text-center mxb-30">Terms & Conditions</div>
@@ -111,7 +110,7 @@ function onLink(e:Event) {
           <p>Please read these Terms of Use carefully. Your continued use of the App constitutes your agreement to these Terms of Use; if you do not agree, do not use the App.</p>
 
           <p class="p-title">MODIFICATION OF THESE TERMS OF USE</p>
-          <p>ELSO may amend these Terms of Use and/or ELSO’s <span @click.prevent="onLink" data-id="privacy">[Privacy Policy]</span> for the App from time to time by posting the amended Terms of Use and/or Privacy Policy on the App. Any amendments to these Terms of Use and/or the Privacy Policy shall be effective immediately on posting to the App. Your continued use of the App following posting of amended Terms of Use and/or Privacy Policy constitutes your acceptance of the posted amendment.</p>
+          <p>ELSO may amend these Terms of Use and/or ELSO’s <span class="a-link" @click.prevent="onLink" data-id="privacy">[Privacy Policy]</span> for the App from time to time by posting the amended Terms of Use and/or Privacy Policy on the App. Any amendments to these Terms of Use and/or the Privacy Policy shall be effective immediately on posting to the App. Your continued use of the App following posting of amended Terms of Use and/or Privacy Policy constitutes your acceptance of the posted amendment.</p>
 
           <p class="p-title">DISCLAIMER</p>
           <p>ELSO’s ECMO Bedside Guide App is intended for educational use to provide useful information easily accessible to clinical care professionals in assessing the conditions and managing the treatment of patients undergoing ECLS/ECMO or assessing candidacy for ECLS/ECMO. Content may change from time to time as new information becomes available. ELSO is under no obligation to provide updates. The aim of ELSO’s ECMO Bedside Guide App is to help clinicians make informed decisions about their patients. However, any content provided through this app does not guarantee a successful outcome. Ultimately, healthcare professionals must make their own treatment decisions about care on a case-by-case basis, after consultation with their patients, using their clinical judgement, knowledge, and expertise. Any content included in ELSO’s ECMO Bedside Guide App does not take the place of physicians’ and other health professionals’ judgment in diagnosing and treatment of any patient. Content provided through ELSO’s ECMO Bedside Guide App does not establish a standard of care. The content provided cannot be deemed inclusive of all proper methods of care nor exclusive of other methods of care reasonably directed at obtaining the same results. The ultimate judgment must be made by the physician and other health professionals and the patient in light of all the circumstances presented by the individual patient, and the known variability and biological behavior of the clinical condition. 
@@ -132,7 +131,7 @@ function onLink(e:Event) {
 
           <p class="p-title">ELSO TRADEMARKS</p>
           <p>ELSO’s names and logos are trademarks and service marks owned and used by ELSO (the “ELSO Marks”). All other trademarks and service marks on the App are the property of their respective owners. You are not authorized to use the ELSO Marks without the prior written consent of ELSO. Requests for authorization should be made 
-            to <a href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
+            to <a class="a-link" href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
 
           <p class="p-title">SUBMISSIONS PROVIDED TO ELSO</p>
           <p>By submitting, sending or otherwise making available information or other material on or though the App (“Submission”), you grant to ELSO the royalty-free, unrestricted, world-wide, perpetual, irrevocable right and license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, perform and display such Submission (in whole or part) worldwide and/or to incorporate it in other works in any form, media, or technology now known or later developed and warrant that you own or control the rights to the Submission and that you have all necessary rights to submit, send or otherwise make available the Submission and grant such right and license to ELSO. You also warrant that any “moral rights” you have in such Submission have been waived.</p>
@@ -169,7 +168,7 @@ function onLink(e:Event) {
           
           
           <p class="p-title">DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICES</p>
-          <p>If you believe that your work has been copied in a way that constitutes copyright infringement, please send written notification to ELSO: <a href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
+          <p>If you believe that your work has been copied in a way that constitutes copyright infringement, please send written notification to ELSO: <a class="a-link" href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
           <ul>
               <li>You should only send notice of potential copyright infringement to ELSO’s Designated Agent. For all other inquiries (e.g., requests for technical assistance or customer service, reports of email abuse, and piracy reports), please contact us through ELSO’s contact page.</li>
               <li>
@@ -284,6 +283,11 @@ function onLink(e:Event) {
       color: $sixth-color;
       font-weight: 500;
       font-size: 20px;
+    }
+
+    .a-link {
+      color: $sixth-color;
+      font-weight: 500;
     }
 
     .scroll-fade {

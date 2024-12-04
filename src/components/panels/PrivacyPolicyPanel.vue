@@ -107,7 +107,7 @@ function onMenuTriggered(selected: number) {
           <p>ELSO may amend this Privacy Policy from time to time by posting the amended terms on this App.</p>
 
           <p class="p-title">Contact Information</p>
-          <p>If you have any questions about ELSO’s Privacy Policy, please contact us at: <a href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
+          <p>If you have any questions about ELSO’s Privacy Policy, please contact us at: <a class="a-link" href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
 
         </div>
 
@@ -206,6 +206,11 @@ function onMenuTriggered(selected: number) {
       color: $sixth-color;
       font-weight: 500;
       font-size: 20px;
+    }
+
+    .a-link {
+      color: $sixth-color;
+      font-weight: 500;
     }
 
     .scroll-fade {
