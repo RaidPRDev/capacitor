@@ -31,17 +31,17 @@
         "class": ""
       },
       {
-        "label": "DO2i Calculator",
+        "label": "DO₂i",
         "branchTo": "ELSOBA_CALC_050",
         "class": ""
       },
       {
-        "label": "Post Dilutional HCT",
+        "label": "Estimated Post-Dilutional HCT",
         "branchTo": "ELSOBA_CALC_060",
         "class": ""
       },
       {
-        "label": "Oxygen Index",
+        "label": "Oxygenation Index",
         "branchTo": "ELSOBA_CALC_070",
         "class": ""
       },
@@ -51,7 +51,7 @@
         "class": ""
       },      
       {
-        "label": "Recirculation",
+        "label": "Recirculation Percentage",
         "branchTo": "ELSOBA_CALC_090",
         "class": ""
       },      
