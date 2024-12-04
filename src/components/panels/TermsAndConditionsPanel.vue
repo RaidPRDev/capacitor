@@ -27,7 +27,7 @@ const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 
 const session = useSession();
-const { hasCompletedTerms, hasCompletedPrivacy, hasCompletedDisclaimer } = storeToRefs(session);
+const { hasCompletedTerms } = storeToRefs(session);
 
 const divScrollerRef = ref<HTMLElement>();
 const hasScrolledEnd = ref<boolean>(false);
