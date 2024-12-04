@@ -107,7 +107,7 @@ function onMenuTriggered(selected: number) {
           <p>ELSO may amend this Privacy Policy from time to time by posting the amended terms on this App.</p>
 
           <p class="p-title">Contact Information</p>
-          <p>If you have any questions about ELSO’s Privacy Policy, please contact us at: <a href="mailto:support@elso.org">support@elso.org</a>.</p>
+          <p>If you have any questions about ELSO’s Privacy Policy, please contact us at: <a href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
 
         </div>
 
