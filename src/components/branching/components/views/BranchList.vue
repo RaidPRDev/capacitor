@@ -14,7 +14,8 @@ import classnames from 'classnames'
 import { sortItemsByClassDisabled } from '@/utils/ObjectTools';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
-  showTitle: false
+  showTitle: false,
+  showDebug: false
 });
 
 const emit = defineEmits<{
@@ -69,6 +70,12 @@ const computedList = computed(() => {
         <template v-slot:accessorySlot v-if="UpRightArrowIcon">
           <component v-if="typeof(UpRightArrowIcon) === 'object'" :is="UpRightArrowIcon"></component>
         </template>
+
+        <template v-slot:optionalSlot v-if="showDebug">
+          <div class="debug-layer">
+            <div class="debug-label">{{item.id}}</div>
+          </div>
+        </template>
       </BaseButton>
     </div>
   </transition-group>
@@ -82,7 +89,19 @@ const computedList = computed(() => {
 .text-content {
   font-size: 16px;
 }
-
+.debug-layer {
+  display: flex;
+  position: absolute;
+  bottom: 4px;
+  left: 20px;
+  user-select: none;
+  pointer-events: none;  
+}
+.debug-label {
+  font-size: 9px;
+  color: rgb(247, 247, 247);
+  font-weight: 400;
+}
 .item {
   :deep(.base-button) {
     box-shadow: 2px 10px 40px -13px #0B247ACC;

@@ -48,6 +48,9 @@ export default defineConfig(async ({command, mode}) => {
       'import.meta.env.IOS': ISIOS,
       'import.meta.env.ANDROID': ISANDROID,
       'import.meta.env.CLARITY_ID': JSON.stringify(CLARITY_ID),
+      'import.meta.env.API_CLIENT_ID': JSON.stringify("iWtB7UWURISuhWODYJ6eljsHsQeHJPUW"),
+      'import.meta.env.API_TOKEN': JSON.stringify("https://bedsideguideapp.elso.org/api/jwt"),
+      'import.meta.env.API_REGISTER': JSON.stringify("https://bedsideguideapp.elso.org/api/BedsideGuide/register"),
     },
 
     plugins: [customHmr(), vue(), svgLoader()],

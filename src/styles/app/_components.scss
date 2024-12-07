@@ -299,3 +299,16 @@
 
   @include setInputPlaceholder($primary-font-family, rgba($primary-color, 50%));
 }
+
+
+//////////
+/// BranchList - BranchView
+/// 
+.branch-view {
+  
+  .note-style {
+    // color: red;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

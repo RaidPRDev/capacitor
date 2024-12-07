@@ -13,8 +13,10 @@ import {
   BOTTOM_HEADER_NAV_HEIGHT, 
   SCREEN_BODY_TOP_PADDING
 } from "@/_core/Constants";
-import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted } from "vue";
+import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted, watch } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
+import { storeToRefs } from 'pinia';
+
 import { IButtonGroupSelected } from "@/ui/types";
 import { IApp, IAppDrawerComponents, IAppScreenProps,  } from "@/types";
 
@@ -50,7 +52,8 @@ const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDra
 const router = useRouter();
 
 const session = useSession();
-const { hasCompletedDisclaimer, hasRegistered } = session;
+// const { hasCompletedDisclaimer, hasRegistered } = session;
+const { hasCompletedDisclaimer, hasRegistered } = storeToRefs(session);
 const branchingStore = useBranchingStore();
 const { 
   getCurrentReferredView, 
@@ -264,7 +267,7 @@ function onLogo() {
 
 function checkRegistration() {
   if (true) return;
-  if (hasRegistered) return;
+  if (hasRegistered.value) return;
 
   clearTimeout(timeoutCopy.value);
 
@@ -275,24 +278,31 @@ function checkRegistration() {
   }, 750);
 }
 
+// watch for drawers activity, check if disclaimer is confirmed.
+// show register panel if not registered
+watch(app.drawers, () => {
+  if (hasCompletedDisclaimer.value && !hasRegistered.value) {
+    if (drawerComponents.bottom === RegistrationPanel) return;
+    checkRegistration();
+  }  
+}, { flush: "sync" })
+
 onMounted(() => {
-  if (!hasCompletedDisclaimer) {
+  if (!hasCompletedDisclaimer.value) {
     clearTimeout(timeoutCopy.value);
     clearTimeout(timeoutTrans.value);
   
+    // show disclaimer
     timeoutCopy.value = setTimeout(() => {
       drawerComponents.bottom = DisclaimerPanel;
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
-
-      timeoutTrans.value = setTimeout(() => {
-        checkRegistration();
-      }, 750)
-
     }, 750);
   }
   else {
-    if (hasCompletedDisclaimer) checkRegistration();
+
+    // show registration after disclaimer has been accepted
+    if (hasCompletedDisclaimer.value) checkRegistration();
   } 
 })
 

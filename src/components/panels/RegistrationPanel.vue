@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
   inheritAttrs: false,
-  name: "TermsAndConditionsPanel"
+  name: "RegistrationPanel"
 }   
 </script>
 
@@ -16,11 +16,14 @@ import BaseInput from '@/ui/controls/BaseInput.vue';
 
 import { APP_ID } from '@/_core/Constants';
 import { IApp } from '@/types';
-import useSession from '@/store/session.module';
+import useSession, { ISessionUser } from '@/store/session.module';
 import { capitalizeFirstLetter } from '@/utils/StringTools';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
+import PulseRateLoader from '../pulserateloader/PulseRateLoader.vue';
+import { timeout, urlFetch } from '@/utils/FetchTools';
+import { isObjectEmpty } from '@/utils/ObjectTools';
 
 const session = useSession();
 const { setUser } = session;
@@ -34,31 +37,27 @@ function setItemsRef(el:any) {
 }
 
 // Component State Setup
-interface IState {
-  name: string;  
-  email: string;  
-  phone: string;  
-  country: string;  
-  role: string;  
-  creds: string;  
-  hospital: string;  
+interface IState extends ISessionUser {
   isSaving?: boolean;
   hasSaved?: boolean;
 }
 
+const DEBUG = true;
+
 const state:IState = reactive<IState>({
-  name: "",
-  email: "",
-  phone: "",
-  country: "",
-  role: "",
-  creds: "",
-  hospital: "",
+  firstName: DEBUG ? "Rafael" : "",
+  lastName: DEBUG ? "Emmanuelli" : "",
+  email: DEBUG ? "rafael.emmanuelli@sweetrush.com" : "",
+  cellPhone: DEBUG ? "787-555-5555" : "",
+  country: DEBUG ? "PR" : "",
+  title: DEBUG ? "Software Engineer" : "",
+  credentials: DEBUG ? "None" : "",
+  hospitalSystem: DEBUG ? "SweetRush" : "",
   isSaving: false,
   hasSaved: false,
 })
 
-type FieldType = "name" | "email" | "phone" | "country" | "role" | "creds" | "hospital";
+type FieldType = "firstName" | "lastName" | "email" | "cellPhone" | "country" | "title" | "credentials" | "hospitalSystem";
 interface IFields {
   id: FieldType;
   label: string;
@@ -68,13 +67,14 @@ interface IFields {
 }
 
 const fields: Array<IFields> = [
-  { id: "name", label: "Name", type: "text", placeholder: "Enter your name", required: true },
+  { id: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name", required: true },
+  { id: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name", required: true },
   { id: "email", label: "Email", type: "email", placeholder: "Enter your email", required: true },
-  { id: "phone", label: "Cell Phone", type: "text", placeholder: "Enter your phone" },
+  { id: "cellPhone", label: "Cell Phone", type: "text", placeholder: "Enter your phone" },
   { id: "country", label: "Country of Work", type: "text", placeholder: "Enter your country of work" },
-  { id: "role", label: "Role/Title", type: "text", placeholder: "Enter your role / title" },
-  { id: "creds", label: "Credentials", type: "text", placeholder: "Enter your credentials" },
-  { id: "hospital", label: "Hospital or Health System, if appropriate", type: "text", placeholder: "Enter your hospital" },
+  { id: "title", label: "Role/Title", type: "text", placeholder: "Enter your role / title" },
+  { id: "credentials", label: "Credentials", type: "text", placeholder: "Enter your credentials" },
+  { id: "hospitalSystem", label: "Hospital or Health System, if appropriate", type: "text", placeholder: "Enter your hospital" },
 ];
 
 const computedList = computed(() => {
@@ -83,25 +83,64 @@ const computedList = computed(() => {
   })
 })
 
-function formSubmit() {
-  const inputName = itemRefs.value[0].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputEmail = itemRefs.value[1].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputPhone = itemRefs.value[2].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputCountry = itemRefs.value[3].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputRole = itemRefs.value[4].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputCreds = itemRefs.value[5].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputHospital = itemRefs.value[6].buttonRef().querySelector("input") as HTMLInputElement;
+async function formSubmit() {
+  const inputFirstName = itemRefs.value[0].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputLastName = itemRefs.value[1].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputEmail = itemRefs.value[2].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputPhone = itemRefs.value[3].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputCountry = itemRefs.value[4].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputRole = itemRefs.value[5].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputCreds = itemRefs.value[6].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputHospital = itemRefs.value[7].buttonRef().querySelector("input") as HTMLInputElement;
   
   state.isSaving = true;
+  const _urlTk = `${import.meta.env.API_TOKEN}`;
+  const _reqInitTk:RequestInit = {
+    headers: new Headers({ 
+      "Content-Type": `text/plain`, 
+      "clientId": `${import.meta.env.API_CLIENT_ID}` 
+    }),
+    method: "GET"
+  }
 
+  const _fetchTk = await urlFetch(_urlTk, _reqInitTk as RequestInit) as {
+    data?: any & {
+      
+    }, error?: string
+  };
+  console.log("FETCH", _fetchTk);
+
+  if (typeof _fetchTk === "object" 
+    && _fetchTk?.error 
+    && !isObjectEmpty(_fetchTk?.error)) {
+    
+      console.error("FETCH", _fetchTk);
+      state.isSaving = false;
+      state.hasSaved = true;
+      return;
+  }
+
+
+
+  // if (!_fetchTk?.data) {
+  //   return;
+  // }
+
+
+  await timeout(2000);
+
+  state.isSaving = false;
+  state.hasSaved = true;
+  
   setUser({
-    name: inputName.value,
+    firstName: inputFirstName.value,
+    lastName: inputLastName.value,
     email: inputEmail.value,
-    phone: inputPhone.value,
+    cellPhone: inputPhone.value,
     country: inputCountry.value,
-    role: inputRole.value,
-    creds: inputCreds.value,
-    hospital: inputHospital.value,
+    title: inputRole.value,
+    credentials: inputCreds.value,
+    hospitalSystem: inputHospital.value,
   });
 
   state.isSaving = false;
@@ -178,7 +217,8 @@ function closePanel() {
 
           </div>
           <div v-else>
-            <div>Saved! Thank you!</div>
+            <div>Thank you for registering!</div>
+            <div class="mxt-20">Tap the <b>Continue</b> button to close.</div>
           </div>
 
         </div>
@@ -215,10 +255,21 @@ function closePanel() {
         />
         
       </div>
+
+      <transition :name="'fade'">
+        <div v-if="state.isSaving" class="save-modal absolute tx-0 lx-0 width-100 height-100 flex-center">
+          <div class="modal-content">
+            <div class="save-icon"><PulseRateLoader /></div>
+            <div class="save-label">Saving</div>
+          </div>
+        </div>
+      </transition>
+      
     </div>
   </div>
 
-  <BaseButton class="close-button absolute tx-20 rx-20" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
+  <BaseButton :class="[`close-button absolute tx-20 rx-20`, { ['disabled']: state.isSaving }]" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
+    if (state.isSaving) return;
     closePanel();
   }" />
   
@@ -250,6 +301,12 @@ function closePanel() {
     }
     .confirm-panel {
       display: none;
+    }
+  }
+
+  .close-button {
+    &.disabled {
+      opacity: 0.25;
     }
   }
 
@@ -328,6 +385,29 @@ function closePanel() {
           color: $teniary-color;
         }
       }
+    }
+  }
+
+  .save-modal {
+    background-color: rgba(white, 90%);
+
+    .modal-content {
+      display: block;
+      transform: translateY(-50%);
+    }
+
+    .save-icon {
+      color: white;
+      .loader {
+        display: flex;
+        transform: translateX(-26px) scale(0.75);
+      }
+    }
+
+    .save-label {
+      font-size: 20px;
+      color: $primary-color;
+      transform: translateX(31px);
     }
   }
 

@@ -161,6 +161,16 @@
     "branchTo": "",
     "items": []
   },
+  {
+    "id": "ELSOBA_CAND_030__7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Proceed with VA ECMO",
+    "content": "ecmo/ELSOBA_CAND_030/ELSOBA_CAND_030__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
 
 
 

@@ -24,6 +24,7 @@ import { capitalizeFirstLetter } from "@/utils/StringTools";
 import { storeToRefs } from "pinia";
 
 import Logo from '/assets/elso_logo.png';
+import MicIcon from '@/assets/icons/mic-icon.svg';
 
 const router = useRouter();
 const session = useSession();
@@ -93,16 +94,21 @@ onMounted(() => {
 >
   <template v-slot:bodySlot>
     <div class="relative width-inherit height-100 flex flex-column justify-start ptb-3">
-      <div class="flex justify-center mxb-80"><img :src="Logo" width="120" height="89" /></div>
+      <div class="flex justify-center mxb-26"><img :src="Logo" width="120" height="89" /></div>
       
       <div class="flex justify-center pxlr-20 width-100">
-        <div class="width-100">
-          <div class="splash-title text-center white-space width-100">Welcome!</div>
+        <div class="flex align-center flex-column width-100">
+          <div class="mxb-32">
+            <div class="splash-icon"><MicIcon /></div>
+            <div class="splash-title">Bedside<br>Assistant</div>
+          </div>
+
+          <div class="splash-welcome text-center white-space width-100">Welcome!</div>
           <Transition name="fade" :duration="750" mode="out-in">
             <div v-if="!hasCompletedPrivacy || !hasCompletedTerms" class="splash-description text-center width-100">
               Please read and agree to our Terms and Conditions and Privacy Policy.
             </div>
-            <div v-else-if="hasCompletedPrivacy && hasCompletedTerms" class="splash-description text-center width-100 mxt-80">
+            <div v-else-if="hasCompletedPrivacy && hasCompletedTerms" class="splash-description text-center width-100 mxt-10">
               Tap START to continue
             </div>
           </Transition>
@@ -182,15 +188,26 @@ onMounted(() => {
     color: white;
     font-size: 64px;
     font-weight: 200;
-    line-height: 77px;
-    margin: 0 0 2rem 0;
+    line-height: 68px;
+  }
+  
+  .splash-welcome {
+    color: white;
+    font-size: 34px;
+    font-weight: 200;
+    line-height: 34px;
+    margin: 0 0 1rem 0;
   }
   
   .splash-description {
-    color: white;
-    font-size: 22px;
+    color: rgb(240, 240, 240);
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.25;
+  }
+
+  .splash-icon {
+    color: white;
   }
 
   .version {

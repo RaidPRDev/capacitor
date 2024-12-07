@@ -9,15 +9,15 @@ const BUILD_NUMBER = import.meta.env.BUILD_NUMBER;
 const BUILD_PHASE = import.meta.env.BUILD_PHASE;
 const PLATFORM_NAME = capitalizeFirstLetter(import.meta.env.PLATFORM);
 
-interface ISessionUser {
-  name: string;  
+export interface ISessionUser {
+  firstName: string;  
+  lastName: string;  
   email: string;  
-  phone: string;  
+  cellPhone: string;  
   country: string;  
-  role: string;  
-  creds: string;  
-  hospital: string;
-  date?: string;
+  title: string;  
+  credentials: string;  
+  hospitalSystem: string;
 }
 
 interface ISession {
@@ -107,7 +107,6 @@ export const useSession = defineStore('session', {
 
     setUser(payload: ISessionUser) {
       this.user = payload;
-      this.user.date = new Date().toUTCString()
     },
     
     /**
