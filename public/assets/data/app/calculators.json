@@ -383,7 +383,7 @@
       },
       {
         "type": "heading",
-        "label": "Step 2: CaO₂ = (Hb * 1.34)(SaO₂) + (0.003 * PaO₂)"
+        "label": "Step 2: C<sub>a</sub>O₂ = (Hb * 1.34)(S<sub>a</sub>O₂) + (0.003 * P<sub>a</sub>O₂)"
       },
       {
         "id": "hemoglobin",
@@ -398,7 +398,7 @@
       {
         "id": "sao2",
         "type": "number",
-        "label": "Enter Arterial oxygen saturation (range of 0.01 – 1.0)",
+        "label": "Enter S<sub>a</sub>O<sub>2</sub> Arterial oxygen saturation (range of 0.01 – 1.0)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -411,11 +411,11 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter Arterial partial pressure of oxygen in mmHg (millimeters of mecury)"
+        "label": "Enter P<sub>a</sub>O<sub>2</sub> Arterial partial pressure of oxygen in mmHg (millimeters of mecury)"
       },
       {
         "type": "heading",
-        "label": "Step 3: DO₂i = 10 * CI * CaO₂"
+        "label": "Step 3: DO₂i = 10 * CI * C<sub>a</sub>O₂"
       },
       {
         "type": "operator",
@@ -491,12 +491,12 @@
       {
         "id": "airway_pressure",
         "type": "number",
-        "label": "Enter Mean airway pressure"
+        "label": "Enter P<sub>AW</sub> (mmHg) (mean airway pressure)"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter fraction of inspired oxygen (% decimal)",
+        "label": "Enter F<sub>i</sub>O<sub>2</sub>(%) (fraction of inspired oxygen: % as decimal)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -505,11 +505,11 @@
         "data": {
           "onBlur": "enforceRange"
         }
-      },
+      },  
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2"
+        "label": "Enter P<sub>a</sub>O<sub>2</sub> (mmHg) (arterial partial pressure of oxygen)"
       },
       {
         "type": "operator",
@@ -528,12 +528,12 @@
       {
         "id": "oxygen_pressure",
         "type": "number",
-        "label": "Enter Mean airway pressure"
+        "label": "Enter P<sub>a</sub>O<sub>2</sub> (mmHg) (arterial partial pressure of oxygen)"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter fraction of inspired oxygen (% decimal)",
+        "label": "Enter F<sub>i</sub>O<sub>2</sub>(%) (fraction of inspired oxygen: % as decimal)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -560,17 +560,17 @@
       {
         "id": "pre_oxygen",
         "type": "number",
-        "label": "Pre-oxygenator oxygen saturation"
+        "label": "Enter S<sub>pre</sub>O<sub>2</sub> (Pre-oxygenator oxygen saturation)"
       },
       {
         "id": "venous_oxygen",
         "type": "number",
-        "label": "Venous oxygen saturation"
+        "label": "Enter S<sub>v</sub>O<sub>2</sub> (Venous oxygen saturation)"
       },
       {
         "id": "post_oxygen",
         "type": "number",
-        "label": "Post-oxygenator oxygen saturation"
+        "label": "Enter S<sub>post</sub>O<sub>2</sub> (Post-oxygenator oxygen saturation)"
       },
       {
         "type": "operator",

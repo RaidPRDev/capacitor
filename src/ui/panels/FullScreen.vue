@@ -91,4 +91,5 @@ const innerStyles = computed(() => {
 .base-screen {
   transition: transform 0.65s ease, opacity 0.65s ease;
 }
+
 </style>

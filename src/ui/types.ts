@@ -82,6 +82,7 @@ export interface IBaseScreenProps extends IBaseControl {
   bodySlotProps?: IBaseScreenSlotProps;
   footerSlotProps?: IBaseScreenSlotProps;
   drawerSlotProps?: IBaseScreenSlotProps;
+  disableHeader?: boolean;
 }
 
 export interface IBaseScreenSlotProps {

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, provide, reactive, shallowReactive, shallowRef } from "vue";
 import { useDevice } from "@/plugins/Device";
+import { useRouter } from "vue-router";
 import { App } from "@capacitor/app"
 import useSession from "@/store/session.module";
 import AppToaster from "@/ui/notifications/toaster/AppToaster.vue";
@@ -23,7 +24,6 @@ import AppNavigator from "@/_core/AppNavigator.vue";
 import AppDev from "./_core/AppDev.vue";
 import AppStyles from "@/_core/AppStyles";
 import AppAlertPanel from "@/components/panels/AppAlertPanel.vue";
-import { useRouter } from "vue-router";
 
 // App Provider
 const app = reactive<IAppProvider>({ 
@@ -117,8 +117,6 @@ function onDeviceBackButton(props: any) {
   // router.go(-1);
 }
 
-
-
 onMounted(() => { 
   device?.init(); 
   if (!renderCount.value) renderCount.value = true;
@@ -152,6 +150,20 @@ onMounted(() => {
 #app {
   html.desktop:not(.ios):not(.android) & {
     @include renderPhoneTemplate();
+  }
+
+  &.page-guide {
+    background-color: rgb(239, 238, 237)!important;
+    background-image: none!important;
+    background-size: 100%!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+
+    #__app_body__ {
+      width: 100%!important;
+      height: 100vh!important;
+    }
   }
 }
 </style>

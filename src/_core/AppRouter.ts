@@ -14,16 +14,20 @@ import Equipment from '@/screens/Equipment.vue';
 import Resources from '@/screens/Resources.vue';
 import EcmoCandidacy from '@/screens/EcmoCandidacy.vue';
 
-import Template from '@/screens/demo/Template.vue';
-import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
-import BranchScreen from '@/screens/demo/branching/BranchScreen.vue';
-import ChecklistScreen from '@/screens/demo/checklist/ChecklistScreen.vue';
-import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
+import GuideTemplate from '@/screens/guide/GuideTemplate.vue';
+import AppleGuide from '@/screens/guide/AppleGuide.vue';
+import AndroidGuide from '@/screens/guide/AndroidGuide.vue';
+
+// import Template from '@/screens/demo/Template.vue';
+// import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
+// import BranchScreen from '@/screens/demo/branching/BranchScreen.vue';
+// import ChecklistScreen from '@/screens/demo/checklist/ChecklistScreen.vue';
+// import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
 import usePassKey from '@/store/passkey.module';
 import { BranchRouteProps } from '@/types';
 import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
 
-const DEBUG = false;
+const DEBUG = true;
 
 const defaultTransition = { transition: "scale-slide", scrollPos: 0 };
 
@@ -48,13 +52,20 @@ const routes = [
     { path: 'favorites', name: "Favorites", component: Favorites, meta: { ...defaultTransition } },
   ]},
 
-  // TEMPLATE
-  { path: '/template', component: Template, meta: { ...defaultTransition }, children:[
-    { path: '', name: "Template", component: TemplateNavigation, meta: { ...defaultTransition } },
-    { path: 'branching', name: "Branching", component: BranchScreen, meta: { ...defaultTransition } },
-    { path: 'checklist', name: "Checklist", component: ChecklistScreen, meta: { ...defaultTransition } },
-    { path: 'input', name: "Input", component: InputListScreen, meta: { ...defaultTransition } },
+  // GUIDE TEMPLATE
+  { path: '/guide', component: GuideTemplate, meta: { ...defaultTransition }, children:[
+    { path: '', name: "AppleGuide", component: AppleGuide, meta: { ...defaultTransition, isGuide: true } },
+    { path: 'apple', name: "AppleGuide", component: AppleGuide, meta: { ...defaultTransition, isGuide: true } },
+    { path: 'android', name: "AndroidGuide", component: AndroidGuide, meta: { ...defaultTransition, isGuide: true } },
   ]},
+
+  // // TEMPLATE
+  // { path: '/template', component: Template, meta: { ...defaultTransition }, children:[
+  //   { path: '', name: "Template", component: TemplateNavigation, meta: { ...defaultTransition } },
+  //   { path: 'branching', name: "Branching", component: BranchScreen, meta: { ...defaultTransition } },
+  //   { path: 'checklist', name: "Checklist", component: ChecklistScreen, meta: { ...defaultTransition } },
+  //   { path: 'input', name: "Input", component: InputListScreen, meta: { ...defaultTransition } },
+  // ]},
 ]
 
 const router = createRouter({
@@ -70,6 +81,12 @@ router.beforeEach((to, from, next) => {
 
   // console.log("  import.meta.env.IOS", import.meta.env.IOS);
   if (!import.meta.env.IOS && !import.meta.env.ANDROID) {
+    
+    if (to.path.indexOf("/guide/android") > -1 || to.path.indexOf("/guide/apple") > -1) {
+      next();
+      return;
+    }
+    
     const { isAuthorized } = usePassKey();
   
     if (DEBUG) console.log("  isAuthorized", isAuthorized);
