@@ -47,7 +47,7 @@ interface IState extends ISessionUser {
   hasSaved?: boolean;
 }
 
-const DEBUG = true;
+const DEBUG = false;
 
 const state:IState = reactive<IState>({
   firstName: DEBUG ? "Rafael" : "",
@@ -115,7 +115,7 @@ const fields: Array<IFields> = [
         isMultiple: true,
         placeholder: "Tap to Select"
       },
-      items: ['MD', 'RN', 'APRN', 'ABC', 'RAID', 'TEMP'], 
+      items: ['OPTION 1', 'OPTION 2', 'OPTION 3', 'OPTION 4', 'OPTION 5', 'OPTION 6'], 
     } 
   },
   { id: "hospitalSystem", label: "Hospital or Health System, if appropriate", type: "text", placeholder: "Enter your hospital", data: { type: "input" } },
@@ -157,9 +157,11 @@ async function formSubmit() {
   const _reqInitTk:RequestInit = {
     headers: new Headers({ 
       "Content-Type": `text/plain`, 
-      "clientId": `${import.meta.env.API_CLIENT_ID}` 
+      "clientId": `${import.meta.env.API_CLIENT_ID}`,
     }),
-    method: "GET"
+    method: "GET",
+    mode: "cors",
+    credentials: "include"
   }
 
   const _fetchTk = await urlFetch(_urlTk, _reqInitTk as RequestInit) as {
@@ -194,6 +196,8 @@ async function formSubmit() {
     }),
     method: "POST",
     body: JSON.stringify(formBody),
+    mode: "cors",
+    credentials: "include"
   }
 
   const _fetch = await urlFetch(_url, _reqInit as RequestInit) as {
