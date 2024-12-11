@@ -11,7 +11,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "sync": "npx cap sync",
     "android_open": "npx cap open android",
-    "android_run": "npx cap run android"
+    "android_run": "npx cap run android",
+    "icons": "npx capacitor-assets generate"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.0",
