@@ -223,11 +223,15 @@ export type IHtmlParserDataProps = HTMLAttributes & {
 export interface IBaseComboxBoxProps {
   options: string[];
   id?: string;
+  placeholder?: string;
   disabled?: boolean;
+  isMultiple?: boolean;
   isAutoSelect?: boolean;
+  selectedIndex?: number;
   disableSearch?: boolean;
   required?: boolean;
   label?: string;
   labelClass?: string;
   icon?: string | object;
+  height?: number;
 }

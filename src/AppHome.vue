@@ -266,7 +266,7 @@ function onLogo() {
 }
 
 function checkRegistration() {
-  if (true) return;
+  //if (true) return;
   if (hasRegistered.value) return;
 
   clearTimeout(timeoutCopy.value);

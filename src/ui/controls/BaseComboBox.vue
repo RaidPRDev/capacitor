@@ -8,9 +8,11 @@ const props = withDefaults(defineProps<IBaseComboxBoxProps>(), {
   disabled: false,
   disableSearch: true,
   required: false,
-  isAutoSelect: true
+  isAutoSelect: true,
+  selectedIndex: 0,
+  height: 300,
+  placeholder: `Tap to Select`
 });
-
 
 // Emission Event Setup
 const emit = defineEmits<{
@@ -22,7 +24,8 @@ const inputElement = ref<InstanceType<typeof HTMLInputElement>>();
 const dropdownOptions = ref<HTMLElement[]>([]); // Array of option elements
 
 // Reactive state
-const selectedIndex = ref<number>(props?.isAutoSelect ? 0 : -1);
+const selectedItemIndex = ref<number>(props?.isAutoSelect ? props?.selectedIndex : -1);
+const selectedItemIndices = ref<number[]>([]);
 const searchQuery = ref<string>('');
 const showDropdown = ref<boolean>(false);
 const displayText = ref<string>('');
@@ -34,13 +37,13 @@ defineExpose({
 }); 
 
 // Computed property for options, applying search filter if enabled
-const computedOptions: ComputedRef<string[]> = computed(() =>
-  props.disableSearch
+const computedOptions: ComputedRef<string[]> = computed(() => {
+  return props.disableSearch
     ? props.options
     : props.options.filter(option =>
         option.toLowerCase().includes(searchQuery.value.toLowerCase())
       )
-);
+});
 
 // Open or close dropdown based on its current state
 const toggleDropdown = (): void => {
@@ -56,10 +59,22 @@ const openDropdown = (): void => {
     showDropdown.value = true;
 
     nextTick(() => {
-      const option = dropdownOptions.value[selectedIndex.value];
-      if (option) {
-        option.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      
+      let option:HTMLElement | null = null;
+
+      if (props?.isMultiple) {
+        if (selectedItemIndices.value.length >= 1) {
+          option = dropdownOptions.value[selectedItemIndices.value[0]];
+        }
       }
+      else {
+        option = dropdownOptions.value[selectedItemIndex.value];
+      }
+
+      if (option) {
+        option.scrollIntoView({ block: 'center', inline: 'nearest' });
+      }
+
     });    
   }
 };
@@ -71,23 +86,47 @@ const closeDropdown = (): void => {
 };
 
 // Method to select an option
-const selectOption = (option: string): void => {
-  searchQuery.value = option;
-  displayText.value = option;
-  showDropdown.value = false;
-  
-  const getSelectedIndexFromData = props.options.findIndex(__option =>
-  __option.toLowerCase().includes(option.toLowerCase())
-  );
-  selectedIndex.value = getSelectedIndexFromData;
+const selectOption = (option: string, index: number): void => {
+  // if (isSelected && !props.isMultiple) return;
 
+  if (props?.isMultiple) {
+    const getArrayIndex = selectedItemIndices.value.findIndex((item) => item === index);
+    const getSelectedIndices = selectedItemIndices.value;
+
+    if (selectedItemIndices.value.includes(index)) {
+      // toggle off
+      getSelectedIndices.splice(getArrayIndex, 1);
+      selectedItemIndices.value = getSelectedIndices;
+    }
+    else {
+      selectedItemIndices.value.push(index);
+    }
+
+    const multipleLabels = getSelectedIndices.map((itemIndex) => props?.options[itemIndex]).map((option) => {
+      return option;
+    });
+
+    displayText.value = `${multipleLabels.join(", ")}`;
+    // displayText.value = `${getSelectedIndices.length} item(s)`;
+  }
+  else {
+    showDropdown.value = false;
+    searchQuery.value = option;
+    displayText.value = option;  
+
+    const getSelectedIndexFromData = props.options.findIndex(__option =>
+    __option.toLowerCase().includes(option.toLowerCase())
+    );
+    selectedItemIndex.value = getSelectedIndexFromData;
+  }
+  
   emit('select', option); // Emit selected option to parent component
 };
 
 // Handle Enter key selection when navigating with the keyboard
 const handleEnter = (): void => {
   if (showDropdown.value && focusedOptionIndex.value >= 0) {
-    selectOption(computedOptions.value[focusedOptionIndex.value]);
+    selectOption(computedOptions.value[focusedOptionIndex.value], focusedOptionIndex.value);
   } else {
     toggleDropdown();
   }
@@ -119,8 +158,9 @@ const focusPreviousOption = (): void => {
 // Scroll to the currently focused option to ensure it's visible
 const scrollToFocusedOption = (): void => {
   const option = dropdownOptions.value[focusedOptionIndex.value];
+  
   if (option) {
-    option.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    option.scrollIntoView({ block: 'center', inline: 'nearest' });
   }
 };
 
@@ -150,9 +190,9 @@ onMounted(() => {
   window.addEventListener('keydown', handleEscape);
 
   // Automatically select the first item if isAutoSelect is true
-  if (props?.isAutoSelect && props.options.length > 0) {
-    displayText.value = props.options[0];
-    selectOption(props.options[0]);
+  if (props?.isAutoSelect && props.options.length > 0 && !props?.isMultiple) {
+    displayText.value = props.options[selectedItemIndex.value];
+    selectOption(props.options[selectedItemIndex.value], selectedItemIndex.value);
     // emit('select', props.options[0]); // Automatically select the first option
   }
 });
@@ -161,10 +201,25 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('keydown', handleEscape);
 });
+
+const listItemClasses = (index: number) => computed(() => {
+  let classes: Array<string> = [];
+  if (props?.isMultiple) {
+    const isSelected = selectedItemIndices.value.includes(index);
+    if (isSelected) classes.push('dropdown-option-toggled');
+  }
+  else {
+    if (index === selectedItemIndex.value) classes.push('dropdown-option-toggled');
+  }
+
+  if (index === focusedOptionIndex.value) classes.push('dropdown-option-focused');
+  return classes
+})
+
 </script>
 
 <template>
-  <div class="base-combobox">
+  <div :class="[`base-combobox`, { [`is-multiple`]: isMultiple }]">
     
     <div v-if="props.label" :class="['ui-combo-label mxt-0 mxb-12', props?.labelClass]">
       <label v-bind:for="props.id" class="ui-label">
@@ -187,7 +242,7 @@ onBeforeUnmount(() => {
         @keydown.space.prevent="toggleDropdown"
         @keydown.down.prevent="focusNextOption"
         @keydown.up.prevent="focusPreviousOption"
-        placeholder="Tap to select"
+        :placeholder="placeholder"
       />
       <div class="ui-combo-input-icon">
         <div v-if="!icon" class="icon-default">></div>
@@ -200,16 +255,13 @@ onBeforeUnmount(() => {
 
     <Teleport to="body">
       <div v-if="showDropdown" class="ui-combo-modal" @click="closeDropdown">
-        <ul class="ui-combo-panel" role="listbox" aria-labelledby="combo-box" @click.stop>
+        <ul :class="[`ui-combo-panel`]" :style="{ maxHeight: `${height}px` }" role="listbox" aria-labelledby="combo-box" @click.stop>
           <li
             v-for="(option, index) in computedOptions"
             :key="index"
             :id="`option-${index}`"
-            :class="{ 
-              'dropdown-option-focused': index === focusedOptionIndex,
-              'dropdown-option-selected': index === selectedIndex,
-            }"
-            @click="selectOption(option)"
+            :class="listItemClasses(index).value"
+            @click="selectOption(option, index)"
             @mouseenter="focusedOptionIndex = index"
             role="option"
             :aria-selected="index === focusedOptionIndex"
@@ -242,6 +294,7 @@ onBeforeUnmount(() => {
   background: transparent;
   padding: 0;
   width: 100%;
+  text-overflow: ellipsis;
 }
 
 .ui-combo-input-icon {
@@ -264,17 +317,18 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .ui-combo-panel {
   border: 1px solid transparent;
-  max-height: 200px;
   overflow-y: auto;
   background: white;
   list-style: none;
   padding: 0;
   margin: 0;
   width: 300px;
+  max-height: 200px;
 }
 
 .ui-combo-panel li {
@@ -282,7 +336,7 @@ onBeforeUnmount(() => {
   cursor: pointer;
 }
 
-.ui-combo-panel li:hover {
+.ui-combo-panel li:hover:not(.dropdown-option-selected):not(.dropdown-option-toggled) {
   background-color: #ddd;
 }
 
@@ -294,5 +348,11 @@ onBeforeUnmount(() => {
   background-color: rgb(236, 236, 236);
   color: grey;
   cursor: not-allowed;
+}
+
+.ui-combo-panel .dropdown-option-toggled {
+  background-color: $primary-color;
+  color: white;
+  cursor: pointer;
 }
 </style>

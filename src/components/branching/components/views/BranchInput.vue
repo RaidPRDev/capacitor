@@ -41,10 +41,13 @@ import {
 } from '@/utils/ElsoMath';
 import { copyToClipboard } from '@/utils/StringTools';
 import { IHtmlParserDataProps } from '@/ui/types';
+import HtmlParserComponent from '@/ui/parsers/HtmlParserComponent.vue';
+import { loadHTMLFile } from '@/utils/FileTools';
+
 import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
 import ResetIcon from '@/assets/icons/reset-icon.svg';
-import { loadHTMLFile } from '@/utils/FileTools';
-import HtmlParserComponent from '@/ui/parsers/HtmlParserComponent.vue';
+
+
 
 const calculationFunctions:Record<string, Function> = {
   BSAByWeight,

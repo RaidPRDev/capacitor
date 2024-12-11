@@ -13,17 +13,22 @@ import BaseButton from "@/ui/controls/BaseButton.vue";
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseList from '@/ui/controls/BaseList.vue';
 import BaseInput from '@/ui/controls/BaseInput.vue';
+import BaseComboBox from '@/ui/controls/BaseComboBox.vue';
 
 import { APP_ID } from '@/_core/Constants';
 import { IApp } from '@/types';
 import useSession, { ISessionUser } from '@/store/session.module';
 import { capitalizeFirstLetter } from '@/utils/StringTools';
+import { timeout, urlFetch } from '@/utils/FetchTools';
+import { isObjectEmpty } from '@/utils/ObjectTools';
+import PulseRateLoader from '../pulserateloader/PulseRateLoader.vue';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
-import PulseRateLoader from '../pulserateloader/PulseRateLoader.vue';
-import { timeout, urlFetch } from '@/utils/FetchTools';
-import { isObjectEmpty } from '@/utils/ObjectTools';
+import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
+
+import countries from '@/assets/data/countries';
+import { IBaseComboxBoxProps, IBaseInputProps } from '@/ui/types';
 
 const session = useSession();
 const { setUser } = session;
@@ -58,23 +63,62 @@ const state:IState = reactive<IState>({
 })
 
 type FieldType = "firstName" | "lastName" | "email" | "cellPhone" | "country" | "title" | "credentials" | "hospitalSystem";
+type FieldComponentType = "dropdown" | "input";
 interface IFields {
   id: FieldType;
   label: string;
   type: string;
   placeholder: string;
   required?: boolean;
+  data?: { 
+    type: FieldComponentType, 
+    props?: Partial<IBaseInputProps> | Partial<IBaseComboxBoxProps>, 
+    style?: Record<string, any>, 
+    items?: Array<string> 
+  };
 }
 
+const countryOptions = countries?.map(({ name }) => name);
+
 const fields: Array<IFields> = [
-  { id: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name", required: true },
-  { id: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name", required: true },
-  { id: "email", label: "Email", type: "email", placeholder: "Enter your email", required: true },
-  { id: "cellPhone", label: "Cell Phone", type: "text", placeholder: "Enter your phone" },
-  { id: "country", label: "Country of Work", type: "text", placeholder: "Enter your country of work" },
-  { id: "title", label: "Role/Title", type: "text", placeholder: "Enter your role / title" },
-  { id: "credentials", label: "Credentials", type: "text", placeholder: "Enter your credentials" },
-  { id: "hospitalSystem", label: "Hospital or Health System, if appropriate", type: "text", placeholder: "Enter your hospital" },
+  { id: "firstName", label: "First Name", type: "text", placeholder: "Enter your first name", required: true, data: { type: "input" } },
+  { id: "lastName", label: "Last Name", type: "text", placeholder: "Enter your last name", required: true, data: { type: "input" } },
+  { id: "email", label: "Email", type: "email", placeholder: "Enter your email", required: true, data: { type: "input" } },
+  { id: "cellPhone", label: "Cell Phone", type: "text", placeholder: "Enter your phone", data: { type: "input" } },
+  { 
+    id: "country", 
+    label: "Country of Work", 
+    type: "text", 
+    placeholder: "Enter your country of work", 
+    data: { 
+      type: "dropdown", 
+      props: {
+        selectedIndex: 237, // default: United States
+        isAutoSelect: true, 
+      },
+      style: { 
+        height: 400 
+      },
+      items: countryOptions, 
+    }
+  },
+  { id: "title", label: "Role/Title", type: "text", placeholder: "Enter your role / title", data: { type: "input" } },
+  { 
+    id: "credentials", 
+    label: "Credentials ( Select all that apply )", 
+    type: "text", 
+    placeholder: "Enter your credentials", 
+    data: { 
+      type: "dropdown",
+      props: {
+        isAutoSelect: false,
+        isMultiple: true,
+        placeholder: "Tap to Select"
+      },
+      items: ['MD', 'RN', 'APRN', 'ABC', 'RAID', 'TEMP'], 
+    } 
+  },
+  { id: "hospitalSystem", label: "Hospital or Health System, if appropriate", type: "text", placeholder: "Enter your hospital", data: { type: "input" } },
 ];
 
 const computedList = computed(() => {
@@ -88,12 +132,27 @@ async function formSubmit() {
   const inputLastName = itemRefs.value[1].buttonRef().querySelector("input") as HTMLInputElement;
   const inputEmail = itemRefs.value[2].buttonRef().querySelector("input") as HTMLInputElement;
   const inputPhone = itemRefs.value[3].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputCountry = itemRefs.value[4].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputCountry = itemRefs.value[4].comboInputRef() as HTMLInputElement;
   const inputRole = itemRefs.value[5].buttonRef().querySelector("input") as HTMLInputElement;
-  const inputCreds = itemRefs.value[6].buttonRef().querySelector("input") as HTMLInputElement;
+  const inputCreds = itemRefs.value[6].comboInputRef() as HTMLInputElement;
   const inputHospital = itemRefs.value[7].buttonRef().querySelector("input") as HTMLInputElement;
   
+  const formBody = {
+    firstName: inputFirstName.value,
+    lastName: inputLastName.value,
+    email: inputEmail.value,
+    cellPhone: inputPhone.value,
+    country: inputCountry.value,
+    title: inputRole.value,
+    credentials: inputCreds.value,
+    hospitalSystem: inputHospital.value,
+  }
+  console.table(formBody);
+
+  // return;
+
   state.isSaving = true;
+
   const _urlTk = `${import.meta.env.API_TOKEN}`;
   const _reqInitTk:RequestInit = {
     headers: new Headers({ 
@@ -108,40 +167,59 @@ async function formSubmit() {
       
     }, error?: string
   };
-  console.log("FETCH", _fetchTk);
+  console.log("FETCH TOKEN", _fetchTk);
 
   if (typeof _fetchTk === "object" 
     && _fetchTk?.error 
     && !isObjectEmpty(_fetchTk?.error)) {
     
-      console.error("FETCH", _fetchTk);
+      console.error("FAILED FETCH TOKEN", _fetchTk);
+      alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
       state.isSaving = false;
       state.hasSaved = true;
+      session.$patch({ hasRegistered: true });
       return;
   }
 
+  const TOKEN = _fetchTk;
+  alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
+  await timeout(5000);
 
+  const _url = `${import.meta.env.API_REGISTER}`;
+  const _reqInit:RequestInit = {
+    headers: new Headers({ 
+      "Content-Type": `application/json`, 
+      "Authorization": `Bearer ${TOKEN}`,
+      "clientId": `${import.meta.env.API_CLIENT_ID}`
+    }),
+    method: "POST",
+    body: JSON.stringify(formBody),
+  }
 
-  // if (!_fetchTk?.data) {
-  //   return;
-  // }
+  const _fetch = await urlFetch(_url, _reqInit as RequestInit) as {
+    data?: any & {
+      
+    }, error?: string
+  };
+  console.log("FETCH REGISTER", _fetch);
 
+  if (typeof _fetch === "object" 
+    && _fetch?.error 
+    && !isObjectEmpty(_fetch?.error)) {
+    
+      console.error("FETCH", _fetch);
+      state.isSaving = false;
+      state.hasSaved = true;
+      session.$patch({ hasRegistered: true });
+      alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
+      return;
+  }
 
-  await timeout(2000);
+  alert(`SUCCESS REGISTER ${JSON.stringify(_fetch)}`);
 
-  state.isSaving = false;
-  state.hasSaved = true;
+  setUser(formBody);
   
-  setUser({
-    firstName: inputFirstName.value,
-    lastName: inputLastName.value,
-    email: inputEmail.value,
-    cellPhone: inputPhone.value,
-    country: inputCountry.value,
-    title: inputRole.value,
-    credentials: inputCreds.value,
-    hospitalSystem: inputHospital.value,
-  });
+  await timeout(500);
 
   state.isSaving = false;
   state.hasSaved = true;
@@ -180,20 +258,20 @@ function closePanel() {
       <div class="content-scroller relative pxl-20 pxr-6">
         <div class="inner-scroller pxb-80">
           
-          <div v-if="!state.hasSaved">
+          <div class="pxr-20" v-if="!state.hasSaved">
           
-            <div class="mxb-20">Sed nec mattis lorem, ac gravida libero. Sed scelerisque metus ullamcorper, consectetur leo nec, luctus lacus. Aenean in tortor eros. Fusce ut enim at arcu rutrum rhoncus. </div>
+            <div class="mxb-20">Please complete your registration by filling out all required fields below. Required fields are marked with an asterisk (*). This information helps us understand our users and improve the application.</div>
             <form id="rform" ref="baseFormRef" @submit.prevent="formSubmit">
               <BaseList class="items-list gapx-8" :dataProvider="computedList">
                 <template v-slot:listItemSlot="data">
                   <BaseButton 
-                    key="`asdasd`"
+                    v-if="data.item.data.type === `input`" 
+                    :key="`${computedList?.[data.item.index].id}`"
                     :ref="setItemsRef"
                     :type="`button`"
-                    :class="`width-100 pointer-none`" 
+                    :class="`input-button width-100 pointer-none`" 
                     :innerClassName="`px-0 flex-column align-start`"
                     :bodyClassName="`text-left`"
-                    
                   >
                     <template v-slot:accessorySlot>
                       <BaseInput 
@@ -210,6 +288,17 @@ function closePanel() {
                       />
                     </template>
                   </BaseButton>
+                  <BaseComboBox v-else
+                    :ref="setItemsRef"
+                    class="mxb-20"
+                    :options="data.item.data.items"
+                    :id="computedList?.[data.item.index]?.id"
+                    :label="data.item.label"
+                    :icon="ChevronRightIcon"
+                    :height="data.item.data?.style?.height"
+                    v-bind="data.item.data.props"
+                    
+                  />
                 </template>
                 
               </BaseList>
@@ -350,6 +439,18 @@ function closePanel() {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     background-color: white;
+  }
+
+  .base-control.base-button {
+    :deep(.inner-base-button) {
+      .ui-accessory-icon { width: 100%; }
+    }
+  }
+
+  .base-combobox {
+    :deep(.ui-combo-label) {
+      font-weight: 400;
+    }
   }
 
   
