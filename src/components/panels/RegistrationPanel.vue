@@ -115,7 +115,9 @@ const fields: Array<IFields> = [
         isMultiple: true,
         placeholder: "Tap to Select"
       },
-      items: ['OPTION 1', 'OPTION 2', 'OPTION 3', 'OPTION 4', 'OPTION 5', 'OPTION 6'], 
+      items: ['MD', 'RN', 'CCP', 'RRT', 'NP', 'PA', 'PhD', 'Non-Clinical Administrator', 'MBA', 'MPH', 'MHA/MHSA or Similar', 'Pharm. D', 'Other'
+        
+      ], 
     } 
   },
   { id: "hospitalSystem", label: "Hospital or Health System, if appropriate", type: "text", placeholder: "Enter your hospital", data: { type: "input" } },
