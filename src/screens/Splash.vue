@@ -98,9 +98,10 @@ onMounted(() => {
       <div class="flex justify-center pxlr-20 width-100">
         <div class="width-100">
           <div class="splash-title text-center white-space width-100">ECMO<br>Bedside Guide</div>
-          <div class="splash-welcome text-center white-space width-100">Welcome!</div>
+          
           <Transition name="fade" :duration="750" mode="out-in">
             <div v-if="!hasCompletedPrivacy || !hasCompletedTerms" class="splash-description text-center width-100">
+              <div class="splash-welcome text-center white-space width-100">Welcome!</div>
               Please read and agree to our Terms and Conditions and Privacy Policy.
             </div>
             <div v-else-if="hasCompletedPrivacy && hasCompletedTerms" class="splash-description text-center width-100 mxt-20">
