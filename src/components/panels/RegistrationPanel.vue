@@ -178,7 +178,7 @@ async function formSubmit() {
     && !isObjectEmpty(_fetchTk?.error)) {
     
       console.error("FAILED FETCH TOKEN", _fetchTk);
-      alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
+      //alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
       state.isSaving = false;
       state.hasSaved = true;
       session.$patch({ hasRegistered: true });
@@ -186,7 +186,7 @@ async function formSubmit() {
   }
 
   const TOKEN = _fetchTk;
-  alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
+  //alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
   await timeout(5000);
 
   const _url = `${import.meta.env.API_REGISTER}`;
@@ -217,11 +217,11 @@ async function formSubmit() {
       state.isSaving = false;
       state.hasSaved = true;
       session.$patch({ hasRegistered: true });
-      alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
+      //alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
       return;
   }
 
-  alert(`SUCCESS REGISTER ${JSON.stringify(_fetch)}`);
+  // alert(`SUCCESS REGISTER ${JSON.stringify(_fetch)}`);
 
   setUser(formBody);
   
