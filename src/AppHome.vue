@@ -283,8 +283,8 @@ function checkRegistration() {
 // show register panel if not registered
 watch(app.drawers, () => {
   if (hasCompletedDisclaimer.value && !hasRegistered.value) {
-    if (drawerComponents.bottom === RegistrationPanel) return;
-    checkRegistration();
+    // if (drawerComponents.bottom === RegistrationPanel) return;
+    // checkRegistration();
   }  
 }, { flush: "sync" })
 

@@ -135,11 +135,11 @@ function triggered(data: TriggerDataParams) {
 
   // listClicked.state = true;  
 
-  if (hasClicked) return;
+  // if (hasClicked) return;
 
-  hasClicked = true;
+  // hasClicked = true;
 
-  alert("Hey");
+  // alert("Hey");
 
   const listData = data.item as CheckListDataType;
 
