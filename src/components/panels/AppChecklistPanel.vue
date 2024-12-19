@@ -133,6 +133,8 @@ function triggered(data: TriggerDataParams) {
 
   listClicked.state = true;  
 
+  alert("Hey");
+
   const listData = data.item as CheckListDataType;
 
   const branchData = props?.view?.items?.[data.item.index]!;
