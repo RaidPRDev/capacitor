@@ -1,410 +1,223 @@
 <script lang="ts">
 export default {
-  inheritAttrs: false,
-  name: "AppChecklistPanel"
+  inheritAttrs: true,
+  name: "BranchChecklist"
 }   
 </script>
 
 <script setup lang="ts">
-import { computed, inject, nextTick, ref, shallowRef } from 'vue';
-import { useRouter } from 'vue-router';
+import { computed, inject, onMounted, reactive, ref } from 'vue';
+import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 
-import BasePanel from "@/ui/panels/BasePanel.vue";
-import BaseButton from "@/ui/controls/BaseButton.vue";
+import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
+import { 
+  IApp, 
+  IAppDrawerComponents, 
+  BranchItem, 
+  BranchViewData, 
+  IBranchTypeProps 
+} from '@/types';
+import { BaseListGroupType, IBaseListItemData } from '@/ui/types';
+
+import useAppStore from '@/store/app.module';
+import useChecklistStore from '@/store/checklist.module';
+
+import BaseButton from '@/ui/controls/BaseButton.vue';
 import BaseList from '@/ui/controls/BaseList.vue';
-import BaseHeader from "@/ui/panels/BaseHeader.vue";
-import BaseToggle from '@/ui/controls/BaseToggle.vue';
+import ChecklistBadge from '@/components/branching/components/ChecklistBadge.vue';
+import AppChecklistPanel from "@/components/panels/AppChecklistPanel.vue";
+import { ChecklistCountType, checklistItemCountCompleteCheck } from '@/utils/ObjectTools';
 
-import { APP_ID } from '@/_core/Constants';
-import { IBaseListItemData } from '@/ui/types';
-import { IApp } from '@/types';
-import { BranchItem, BranchViewData } from '@/types';
-import { flattenChecklist } from '@/utils/ObjectTools';
+type CheckListItemType = IBaseListItemData & Partial<BranchItem> & { toggle?: boolean };
+type CheckListDataType = IBaseListItemData & Partial<BranchViewData>;
 
-import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
-import FavoriteAddedToast from "@/components/toasts/FavoriteAddedToast.vue";
+const props = withDefaults(defineProps<IBranchTypeProps>(), {
+  showTitle: false
+});
 
-import useChecklistStore from "@/store/checklist.module";
-import useFavoritesStore from "@/store/favorites.module";
-import useToasterService from '@/ui/notifications/toaster/AppToastService';
-
-import CloseIcon from '@/assets/icons/close-icon.svg';
-import CheckboxDefaultIcon from '@/assets/icons/checkbox-default-icon.svg';
-import CheckboxActiveIcon from '@/assets/icons/checkbox-active-icon.svg';
-import FavoritesSmallIcon from '@/assets/icons/favorites-small-icon.svg';
-import RestartIcon from '@/assets/icons/restart-icon.svg';
-
-const toasterService = useToasterService();
-const { addToast } = toasterService;
-
-const router = useRouter();
-
-const checklistStore = useChecklistStore();
-// const { setChecklistItem } = checklistStore;
-const favoritesStore = useFavoritesStore();
-const { getItem, setItem, removeItem } = favoritesStore;
-const { data: checklistData } = storeToRefs(checklistStore);
-// const { data: favoritesData } = storeToRefs(favoritesStore);
-
-type CheckListItemType = IBaseListItemData & Partial<BranchItem> & { checked?: boolean };
-  
-interface IAppChecklistBottomPanelProps {
-  id?: string;
-  title?: string;
-  parentID?: string;
-  items?: Array<BranchViewData>;
-  data?: BranchViewData;
-  parentData?: BranchViewData;
-}
-
-// Component Props Setup
-const props = withDefaults(defineProps<IAppChecklistBottomPanelProps>(), {});
-  
-// Component State Setup
-// interface IState {}
-// const state:IState = reactive({})
+const appStore = useAppStore();
+const route = useRoute();
+const itemID = route?.query?.id;
+const childID = parseInt(route?.query?.childId! as string);
 
 const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 
-const dataList = computed(() => {
-  if (!props?.items) return [];
+const checklistStore = useChecklistStore();
+const { data: checklistData } = storeToRefs(checklistStore);
 
-  return updateAllCheckLists();
+const emit = defineEmits<{
+  (e: 'navigate', branchTo: string | null): void;
+  (e: 'action', data: BranchViewData): void;
+  (e: 'triggered', dataProps?: any): void;
+}>();
+
+function navigate(branchTo: string | null) {
+  emit('navigate', branchTo);
+}
+
+const mounted = ref(false);
+const listClicked = reactive({ state: false })
+
+onMounted(() => {
+  setTimeout(() => mounted.value = true, 75);
+
+  // if we have am incoming query with a child route, replace route...
+  if (itemID && !isNaN(childID)) {
+    const branchData = props?.view?.items?.[childID]!;
+    branchData.parentId = props.view?.id as string;
+    
+    // update current id
+    appStore.setCurrentID(branchData?.id!);
+
+    drawerComponents.bottom = AppChecklistPanel;
+    app.drawers.bottom.props = { 
+      id: branchData?.id, 
+      title: branchData?.label, 
+      parentID: branchData?.parentId, 
+      items: branchData?.items,
+      data: branchData,
+      parentData: props?.view,
+    };
+    app.drawers.bottom.open = !app.drawers.bottom.open;
+  }
 })
 
-function updateAllCheckLists() {
-
-  let list = [] as BranchViewData[];
-
-  list = flattenChecklist(props.items, 1, checklistData) as BranchViewData[];
-
-  // list.forEach((item) => {
-  //   console.log("item.label", item.label)
-  //   console.log("item", item)
-  // })
-
-  return list;
-}
-
-function updateCheckData(data: CheckListItemType, toggled?: boolean) {
-
-  // console.log("data", data)
-
-  const itemID = data.id as string;
-  checklistData.value[itemID] = !toggled!;
-
-  // console.log("checklistData", checklistData)
-
-
-  checklistStore.$patch({
-    data: checklistData.value
-  });
-}
-
-function resetCheckData() {
-  
-  // reset checklist items
-
-  let list = [] as BranchViewData[];
-
-  list = flattenChecklist(props.items, 1, checklistData) as BranchViewData[];
-
-  list.forEach((item) => {
-    console.log("item.label", item.label)
-    console.log("item", item)
-
-    if (checklistData.value?.hasOwnProperty(item.id!)) {
-      if (item.hasOwnProperty('checked')) {
-        item.checked = false;
-        if (!checklistData) return;
-        checklistData.value[item.id!] = false;
+const computedList = computed(() => {
+  if (mounted.value) {
+    
+    const thisData = props.view?.items?.map((item) => {
+      let counterCompletion:ChecklistCountType = {
+        completed: 0,
+        total: 0
       }
-    }
-  })
+      counterCompletion.total = 0;
+      counterCompletion.completed = 0;
+      counterCompletion= checklistItemCountCompleteCheck(item.items, counterCompletion, checklistData);
+      
+      item.data = {
+        totalChecks: counterCompletion.total,
+        totalCompleted: counterCompletion.completed,
+      }      
 
-  // update store
-  checklistStore.$patch({
-    data: checklistData.value
-  });
+      return item;
+    })
+    
+    return thisData;
+  }
+  return null;
+})
+
+type TriggerDataParams = {
+  item: {
+      index: number;
+      type?: string;
+      groupType?: BaseListGroupType;
+      label?: string;
+      class?: string;
+      icon?: any;
+      iconProps?: any;
+      accessoryIcon?: any;
+      accessoryIconProps?: any;
+      data?: any;
+  };
 }
 
-const isAdded = getItem(props?.id!);
+function triggered(data: TriggerDataParams) {
+  if (data?.item?.class?.indexOf('disabled')! >= 0) return;
 
-const isFavoritesEnabled = ref<boolean>(isAdded ? false : true);
-const isFavoritesShowing = ref<boolean>(true);
-
-function addToFavorites() {
-  
-  isFavoritesEnabled.value = false;
-
-  if (getItem(props?.id!)) {
-    removeItem(props?.id!);
-    nextTick(() => addToast({ label: `Removed from favorites.` }));
-    isFavoritesEnabled.value = true;
+  if (listClicked.state) {
     return;
   }
 
-  setItem({
-    type: 'checklists',
-    data: {
-      id: props?.data?.id!,
-      title: props?.title!,
-    },
-    parentData: {
-      id: props?.parentData?.id!,
-      title: props?.parentData?.title!,
-    },
-  });
-  nextTick(() => addToast({ 
-    component: shallowRef(FavoriteAddedToast),
-    componentProps: {
-      label: `Added to favorites.` 
-    }
-  }));
+  listClicked.state = true;  
+
+  const listData = data.item as CheckListDataType;
+
+  const branchData = props?.view?.items?.[data.item.index]!;
+  branchData.parentId = props.view?.id as string;
+  branchData.id =  listData.id!;
+  
+  drawerComponents.bottom = AppChecklistPanel;
+  app.drawers.bottom.props = { 
+    name: `checklist-panel`,
+    id: branchData?.id, 
+    title: branchData?.label, 
+    parentID: branchData?.parentId, 
+    items: branchData?.items,
+    data: branchData,
+    parentData: props?.view,
+  };
+  app.drawers.bottom.open = !app.drawers.bottom.open;
+
+  setTimeout(() => {
+    listClicked.state = false;  
+  }, 2000)
 }
 
 </script>
 
 <template>
-<BasePanel class="relative">
-  <div class="side-content pxlr-0 pxt-90 pxb-20 relative">
-    
-    <BaseHeader class="header-panel mxlr-20 pxb-8 mxb-8 pxr-20 height-auto align-center">
-      <template v-slot:headerLeft>
-        <div v-if="props?.title" class="title">{{ props?.title }}</div>
-      </template>
-    </BaseHeader>
-    
-    <BaseList 
-      :dataProvider="dataList" 
-      :class="[
-        `list-container`, 
-        `gapx-0 pxlr-20`].join(` `)"
-    >
-      <template v-slot:listItemSlot="data">
-        <BaseButton 
-          :class="[`list-button-item width-100`, data.item.class, {
-            ['comment']: data.item.type === 'comment',
-            ['no-checkbox']: !dataList?.[data.item.index].hasOwnProperty(`checked`),
-          }]" 
-          :hasInternalLinks="true"
-          :innerClassName="`pxtb-18 justify-start align-start gapx-10`"
-          :bodyClassName="`text-left`"
-          :label="data.item.label"
-          :icon="BaseToggle"
-          :iconProps="{ 
-            modelValue: (data.item as BranchViewData).checked,
-            label: ``, 
-            class: `pointer-all`, 
-            defaultIcon: CheckboxDefaultIcon,
-            activeIcon: CheckboxActiveIcon,
-            triggerCallback:(toggled:boolean) => {
-              updateCheckData(data.item, !toggled);
-            }
-          }"
-          :triggerCallback="() => {
-            const toggled = (data.item as BranchViewData).checked;
-            updateCheckData(data.item, toggled);
-          }"
-          @internalLink="(element) => {
-            if (!element?.hasAttribute('data-link')) return;
-            
-            const data = element.dataset.link;
-            const pData = data?.split?.('##') as any[];
-
-            let queryParams: { 
-              type: string,
-              id: string,
-              childId?: string,
-            } = { type: '', id: '', childId: '' };
-
-            queryParams.type = pData[0];
-            queryParams.id = pData[1];
-
-            // check for child id
-            if (pData?.length === 3) {
-              queryParams.childId = pData[2];
-            }
-
-            app.alert.component = shallowRef(AppAlertPanel);
-            app.alert.options.props = {
-              title: '',
-              content: `Are you sure you want to leave this checklist?`,
-              labels: ['No', 'Yes'],
-              action: (index:number) => {
-                if (index === 0) return;
-
-                // need to close self panel before pushing
-                app.drawers.bottom.open = !app.drawers.bottom.open;
-                switch (queryParams?.type) {
-                  case 'CHECKLIST':
-                    router.push({ name: `Checklists`, query: queryParams });
-                    break;
-                  default:
-                }
-              }
-            }
-            app.alert.options.open = !app.alert.options.open;
-          }"
-        >
-        </BaseButton>
-      </template>
-    </BaseList>
-
-    <BaseHeader class="footer-panel pxlr-20 height-auto" centerClassName="width-100">
-      <template v-slot:headerLeft>
-        <BaseButton 
-            class="reset-button variant-red small" 
-            :innerClassName="`pxlr-13 pxtb-9 justify-between gapx-6`" 
-            :label="`Reset`" 
-            :icon="RestartIcon"
-            @triggered="() => {
-              app.alert.component = shallowRef(AppAlertPanel);
-              app.alert.options.props = {
-                title: '',
-                content: 'Are you sure you want to reset this checklist?',
-                labels: ['No', 'Yes'],
-                action: (index:number) => {
-                  if (index === 0) return;
-                  resetCheckData();
-                }
-              }
-
-              // close window
-              app.alert.options.open = !app.alert.options.open;
-            }"
-          />
-      </template>
-      <template v-slot:headerRight>
-          
-          <transition 
-            name="fade" 
-            mode="out-in"
-            :appear="isFavoritesShowing"
-          >
-            <BaseButton 
-              v-if="isFavoritesEnabled"
-              class="add-favorites-btn variant-red small" 
-              innerClassName="pxlr-13 pxtb-9 justify-between gapx-6"
-              bodyClassName="text-left"
-              :label="`Add To Favorites`"
-              :icon="FavoritesSmallIcon"
-              @triggered="addToFavorites"
-            />
-            <BaseButton 
-              v-else
-              class="remove-favorite-btn variant-blue small" 
-              innerClassName="pxlr-13 pxtb-9 justify-between gapx-6"
-              bodyClassName="text-left"
-              :label="`Remove`"
-              :icon="FavoritesSmallIcon"
-              @triggered="addToFavorites"
-            />
-          </transition>
-      </template>
-    </BaseHeader>
-  </div>
-  <BaseButton class="close-button absolute tx-20 rx-20" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
-    app.drawers.bottom.open = !app.drawers.bottom.open;
-    app.drawers.bottom.props = {};
-  }" />
+  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="title transform-z">{{ `${props?.view?.title}` }}</h2>
+  <div v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
   
-</BasePanel>
+  <BaseList class="gapx-16" listItemClass="blue-menu-item" :dataProvider="computedList">
+    <template v-slot:listItemSlot="data">
+      <BaseButton 
+        :data-completed="computedList?.[data.item.index].data.totalCompleted"
+        :data-total="computedList?.[data.item.index].data.totalChecks"
+        :class="[`variant-blue ignore-icon width-100`, {
+          ['is-comment']: data.item.type === 'comment'
+        }]" 
+        :disabled="data.item.class ? data.item.class?.indexOf(`disabled`) >= 0 : false"
+        :bodyClassName="`text-left`"
+        :label="data.item.label"
+        :accessoryIcon="ChecklistBadge"
+        :accessoryIconProps="{ 
+          completed: computedList?.[data.item.index].data.totalCompleted,
+          total: computedList?.[data.item.index].data.totalChecks,
+        }"
+        :triggerCallback="() => {
+          const bView = data.item as CheckListItemType;
+          if (!bView?.branchTo) return;
+
+          navigate(bView?.branchTo!);
+        }"
+        @triggered="() => triggered(data)"
+      />
+    </template>
+  </BaseList>
 </template>
 
 <style scoped lang="scss">
-.list-container {
-  $reset-btn-height: 80;
-  overflow: hidden scroll;
-  height: calc(100% - (71px + #{$reset-btn-height}px));
-  @include use-scroller-styles();
+.hidden {
+  display: none;
 }
-
-.remove-favorite-btn {
-  :deep(.inner-base-button) {
-    .ui-label {
-      font-size: 14px;
-      line-height: 15px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-  }
-}
-
-.header {
-  border-bottom: 1px solid $fourth-color;
-}
-
 .title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
-  color: $sixth-color;
+}
+.text-content {
+  font-size: 16px;
 }
 
-.base-panel {
-  :deep(.inner-panel) {
-    // background-color: rgba(white, .95);
-    background-color: white;
-  }
-
-  // Does not work in chrome
-  // html:not(.desktop) & {
-  //   :deep(.inner-panel) {
-  //     background-color: rgba(white, .85);
-  //     backdrop-filter: blur(10px);
-  //   }
-  // }
-}
-.side-content {
-  height: calc(100% - 0px);
-}
 .base-list {
-  transition: opacity 300ms ease;
-
   :deep(.list-item) {
-    .list-button-item {
-      border-bottom: 1px solid $fourth-color;
-
-      &.sub-item {
-        padding-left: 2rem;
+    .base-button {
+      &.is-comment {
+        opacity: 1;
       }
       
-      &.sub-level-2 {
-        padding-left: 2rem;
-      }
-      
-      &.sub-level-3 {
-        padding-left: 3rem;
-      }
-
-      &.no-checkbox, &.comment {
-        pointer-events: none;
-
-        a {
-          pointer-events: all;
-        }
-
-        .ui-icon {
-          display: none;
-        }
-      }
-
+      box-shadow: 2px 10px 40px -13px #0B247ACC;
       .ui-label {
-        font-weight: 400;
+        @include getFontSize('medium');
+      }
+
+      .ui-accessory-icon {
+        width: auto;
       }
     }
-    .toggle-switch {
-      border: 0px solid;
-    }
   }
-
-  &.fade-out {
-    opacity: 0;
-  }
-}
-
-.footer-panel {
-  height: 70px;
 }
 </style>
