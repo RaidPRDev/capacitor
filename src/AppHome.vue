@@ -6,6 +6,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { EVENT_DISCLAIMER_CLOSE } from "@/events/Events";
 import { 
   APP_DRAWERS_ID, 
   APP_HEADER_HEIGHT, 
@@ -13,7 +14,7 @@ import {
   BOTTOM_HEADER_NAV_HEIGHT, 
   SCREEN_BODY_TOP_PADDING
 } from "@/_core/Constants";
-import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted, watch } from "vue";
+import { ComponentPublicInstance, computed, ref, VueElement, inject, shallowRef, nextTick, onMounted, onUnmounted } from "vue";
 import { RouteLocationGeneric, useRouter } from "vue-router";
 import { storeToRefs } from 'pinia';
 
@@ -279,14 +280,9 @@ function checkRegistration() {
   }, 750);
 }
 
-// watch for drawers activity, check if disclaimer is confirmed.
-// show register panel if not registered
-watch(app.drawers, () => {
-  if (hasCompletedDisclaimer.value && !hasRegistered.value) {
-    // if (drawerComponents.bottom === RegistrationPanel) return;
-    // checkRegistration();
-  }  
-}, { flush: "sync" })
+function disclaimerClosedEvent() {
+  checkRegistration();
+}
 
 onMounted(() => {
   if (!hasCompletedDisclaimer.value) {
@@ -295,6 +291,8 @@ onMounted(() => {
   
     // show disclaimer
     timeoutCopy.value = setTimeout(() => {
+      document.body.addEventListener(EVENT_DISCLAIMER_CLOSE, disclaimerClosedEvent);
+
       drawerComponents.bottom = DisclaimerPanel;
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
@@ -309,6 +307,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   clearTimeout(timeoutCopy.value);
+  document.body.removeEventListener(EVENT_DISCLAIMER_CLOSE, disclaimerClosedEvent);
 })
 
 </script>

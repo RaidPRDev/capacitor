@@ -3,9 +3,12 @@ export default {
   inheritAttrs: false,
   name: "DisclaimerPanel"
 }   
+
 </script>
 
 <script setup lang="ts">
+import { EVENT_DISCLAIMER_CLOSE } from '@/events/Events';
+
 import { inject, ref } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
@@ -19,6 +22,8 @@ import { IApp } from '@/types';
 import useSession from '@/store/session.module';
 
 import Logo from '/assets/elso_logo.png';
+
+const disclaimerClosedEvent = new Event(EVENT_DISCLAIMER_CLOSE);
 
 const session = useSession();
 
@@ -46,6 +51,9 @@ function onMenuTriggered(selected: number) {
       session.$patch({ hasCompletedDisclaimer: true })
     break;
   }
+
+  // fire closed event
+  document.body.dispatchEvent(disclaimerClosedEvent);
 
   app.drawers.closeOutside = false;
   app.drawers.bottom.open = !app.drawers.bottom.open;
