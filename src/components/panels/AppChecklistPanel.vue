@@ -60,6 +60,8 @@ function navigate(branchTo: string | null) {
 const mounted = ref(false);
 const listClicked = reactive({ state: false })
 
+let hasClicked = false;
+
 onMounted(() => {
   setTimeout(() => mounted.value = true, 75);
 
@@ -127,11 +129,15 @@ type TriggerDataParams = {
 function triggered(data: TriggerDataParams) {
   if (data?.item?.class?.indexOf('disabled')! >= 0) return;
 
-  if (listClicked.state) {
-    return;
-  }
+  // if (listClicked.state) {
+  //   return;
+  // }
 
-  listClicked.state = true;  
+  // listClicked.state = true;  
+
+  if (hasClicked) return;
+
+  hasClicked = true;
 
   alert("Hey");
 
@@ -154,7 +160,8 @@ function triggered(data: TriggerDataParams) {
   app.drawers.bottom.open = !app.drawers.bottom.open;
 
   setTimeout(() => {
-    listClicked.state = false;  
+    // listClicked.state = false;  
+    hasClicked = false;
   }, 2000)
 }
 
