@@ -29,6 +29,7 @@ interface ISession {
   hasCompletedPrivacy: boolean;
   hasCompletedTerms: boolean;
   hasCompletedDisclaimer: boolean;
+  hasCompletedMedDisclaimer: boolean;
   hasRegistered: boolean;
   user?: ISessionUser | null;
 }
@@ -42,6 +43,7 @@ const initialState: ISession = {
   hasCompletedPrivacy: false,
   hasCompletedTerms: false,
   hasCompletedDisclaimer: false,
+  hasCompletedMedDisclaimer: false,
   hasRegistered: false,
   user: null
 };
@@ -60,7 +62,8 @@ export const useSession = defineStore('session', {
     getBuildPhase: (state) => state.buildPhase,
     getTerms: (state) => state.hasCompletedTerms,
     getPrivacy: (state) => state.hasCompletedPrivacy,
-    getDisclaimer: (state) => state.hasCompletedDisclaimer
+    getDisclaimer: (state) => state.hasCompletedDisclaimer,
+    getMedDisclaimer: (state) => state.hasCompletedMedDisclaimer
   },
 
   actions: {
@@ -79,6 +82,7 @@ export const useSession = defineStore('session', {
         // favoritesStore.clearItems();
         checklistStore.clearItems();
         branchingStore.clearItems();
+        this.$state.hasCompletedMedDisclaimer = false;
         this.$state.hasCompletedDisclaimer = false;
         this.$state.hasCompletedTerms = false;
         this.$state.hasCompletedPrivacy = false;

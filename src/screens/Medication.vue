@@ -6,15 +6,19 @@ const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, onMounted, ref, shallowRef } from "vue";
+import { ComponentPublicInstance, computed, inject, onMounted, ref, shallowRef } from "vue";
+import { storeToRefs } from "pinia";
 
 import { 
+  APP_DRAWERS_ID,
+  APP_ID,
   BRANCH_HEADER_HEIGHT, 
   BREADCRUMB_HEIGHT, 
   COMPILED_DATA_PATH, 
   GLOBAL_PADDING 
 } from "@/_core/Constants";
 
+import { IApp, IAppDrawerComponents,  } from "@/types";
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import Branching from '@/components/branching/Branching.vue';
@@ -25,15 +29,22 @@ import { IBaseScreenSlotProps } from "@/ui/types";
 import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/types";
 import { loadViewData } from '@/components/branching/data/DataTools';
 import { getNavigationRoot } from "@/utils/BranchTools";
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import useSession from "@/store/session.module";
 
 import TimePillIcon from '@/assets/icons/homeMenu/time-pill-icon.svg';
-import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import DisclaimerMedicalPanel from "@/components/panels/DisclaimerMedicalPanel.vue";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
+const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const loading = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
 const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
+
+const session = useSession();
+const { hasCompletedMedDisclaimer } = storeToRefs(session);
 
 const { 
   baseHeight, 
@@ -46,7 +57,16 @@ const {
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/medications_compiled.json`, views);
   
-  setTimeout(() => { loading.value = false; }, 750);
+  setTimeout(() => { 
+    loading.value = false; 
+
+    if (!hasCompletedMedDisclaimer.value) {
+      drawerComponents.bottom = DisclaimerMedicalPanel;
+      app.drawers.bottom.closeOutside = false;
+      app.drawers.bottom.open = !app.drawers.bottom.open;
+    }
+    
+  }, 750);
 })
 
 const headingTitle = computed(() => {

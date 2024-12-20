@@ -156,6 +156,7 @@ export interface BranchViewData {
   useScroll?: boolean;
   showTitle?: boolean;
   showFavorites?: boolean;
+  resultLabel?: boolean;
   showRestart?: boolean;
   isRootParent?: boolean;
   parentView?: BranchViewData;

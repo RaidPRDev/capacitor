@@ -87,6 +87,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mL/min)",
     "items": [
       {
         "id": "height",
@@ -111,6 +112,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mL/min)",
     "items": [
       {
         "id": "weight",
@@ -168,6 +170,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(cm)",
     "items": [
       {
         "id": "feet",
@@ -187,6 +190,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(cm)",
     "items": [
       {
         "id": "inches",
@@ -206,6 +210,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(kg)",
     "items": [
       {
         "id": "pounds",
@@ -225,6 +230,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(°C)",
     "items": [
       {
         "id": "farenheit",
@@ -244,6 +250,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mm)",
     "items": [
       {
         "id": "frenchGauge",
@@ -263,6 +270,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(kPa)",
     "items": [
       {
         "id": "millimeters",
@@ -282,6 +290,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(L)",
     "items": [
       {
         "id": "millimeters",
@@ -301,6 +310,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mL/min)",
     "items": [
       {
         "id": "constant",
@@ -329,6 +339,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(cc/min)",
     "items": [
       {
         "id": "arterial_saturation",
@@ -379,6 +390,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(DO₂i)",
     "items": [
       {
         "type": "heading",
@@ -443,6 +455,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(DO₂i)",
     "items": [
       {
         "type": "heading",

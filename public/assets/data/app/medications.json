@@ -89,6 +89,11 @@
         "label": "Vasopressors and Inotropes",
         "branchTo": "ELSOBA_MED_CAT16",
         "class": "disabled"
+      },      
+      {
+        "label": "References",
+        "branchTo": "ELSOBA_MED_170",
+        "class": ""
       }      
     ]
   },
@@ -282,17 +287,11 @@
   {
     "id": "ELSOBA_MED_170",
     "title": "References",
-    "content": "",
+    "content": "medications/ELSOBA_MED_170/ELSOBA_MED_170.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
-    "items": [
-      {
-        "label": "Browder K, Wanek M, Wang L, Hohlfelder B",
-        "content": "Browder K, Wanek M, Wang L, Hohlfelder B",
-        "branchTo": "ELSOBA_MED_170"
-      }
-    ]
+    "items": []
   }
 ]
