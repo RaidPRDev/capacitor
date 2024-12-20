@@ -339,7 +339,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(cc/min)",
+    "resultLabel": "",
     "items": [
       {
         "id": "arterial_saturation",
@@ -390,7 +390,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(DO₂i)",
+    "resultLabel": "",
     "items": [
       {
         "type": "heading",
@@ -455,7 +455,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(DO₂i)",
+    "resultLabel": "",
     "items": [
       {
         "type": "heading",
