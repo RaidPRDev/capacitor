@@ -344,6 +344,19 @@
         }
       },
       {
+        "id": "venous_saturation",
+        "type": "number",
+        "label": "Enter Venous saturation (range of 0.01 – 1.0)",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange"
+        }
+      },
+      {
         "id": "hemoglobin",
         "type": "number",
         "label": "Enter Hemoglobin"

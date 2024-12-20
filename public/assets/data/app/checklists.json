@@ -1018,8 +1018,8 @@
           { "label": "Post-ML saturation, if available", "checked": false },
           { "label": "Condensation (sigh)", "checked": false },
           { "label": "Capnography, if present", "checked": false },
-          { "label": "VMLO<sup>2</sup>, if available", "checked": false },
-          { "label": "VMLCO<sup>2</sup>, if available", "checked": false },
+          { "label": "VMLO2, if available", "checked": false },
+          { "label": "VMLCO2, if available", "checked": false },
           {
             "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
             "type": "comment" 

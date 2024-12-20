@@ -13,7 +13,7 @@ export function BSAByWeightAndHeight(params:CalculatorParamType):number {
   if (weight === 0) return 0;
   if (height === 0) return 0;
 
-  const group = (height * weight) / 2;
+  const group = (height * weight) / 3600;
   return Math.sqrt(group);
 }
 
@@ -164,6 +164,7 @@ export function CalculateBloodFlowByWeight(params:CalculatorParamType):number {
 export function CalculateOxygenTransfer(params:CalculatorParamType):number {
   
   const arterial_saturation = params?.['arterial_saturation'];
+  const venous_saturation = params?.['venous_saturation'];
   const hemoglobin = params?.['hemoglobin'];
   const flow = params?.['flow'];
 
@@ -171,7 +172,7 @@ export function CalculateOxygenTransfer(params:CalculatorParamType):number {
   if (hemoglobin === 0) return 0;
   if (flow === 0) return 0;
   
-  const group = arterial_saturation * 1.34 * hemoglobin * flow;
+  const group = (arterial_saturation - venous_saturation) * 1.34 * hemoglobin * flow;
   return group;  
 }
 

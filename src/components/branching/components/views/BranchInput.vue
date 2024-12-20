@@ -325,7 +325,7 @@ onMounted(async () => {
 
   <transition name="nested" appear>
     <div class="calc-item width-100 flex align-center justify-between mxt-16 outer">
-      <ActionButton outlined :label="`Start Over`" :icon="ResetIcon" iconClassName="mxr-6" @triggered="reset" />
+      <ActionButton outlined :label="`Reset`" :icon="ResetIcon" iconClassName="mxr-6" @triggered="reset" />
       <ActionButton :label="`Calculate`" :accessoryIcon="ChevronRightIcon" @triggered="calculate" />
     </div>
   </transition >
