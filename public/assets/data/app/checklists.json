@@ -245,13 +245,13 @@
   {
     "id": "ELSOBA_CHKLST_CAT7",
     "title": "ECMO Cart",
-    "content": "<p><b>ECMO Cart Requirements</b></p>",
+    "content": "<p><b>ECMO Cart Requirements</b></p>An ECMO cart is used for cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.<ul><li>The items included MUST be immediately available for the cannulating team.</li><li>The cart should be kept in a dedicated location when not in use.</li><li>The items in the cart and on top of the cart MUST be maintained. This means they MUST be checked for content and expiration dates, and refilled with used items, as per center policy.</li></ul>",
     "showFavorites": true,
     "useScroll": true, 
     "layout": "list",
     "items": [
       {
-        "label": "ECMO Cart",
+        "label": "ECMO Cart ",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_070"
       }           
@@ -1378,7 +1378,7 @@
   {
     "id": "ELSOBA_CHKLST_070",
     "title": "ECMO Cart",
-    "content": "An ECMO cart is used for cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.",
+    "content": "",
     "layout": "checklist",
     "keywords": "Equipment; ECMO Cart; Emergency; Checklist; Emergency Checklist; Surgical Instruments; Instruments; Fluids and Medications; Miscellaneous; IV-Related Components; Miscellaneous IV-Related Components; Tubings and Connectors; Cannulas; Cannulation Procedure; DPC Insertion",
     "doc": "https://docs.google.com/document/d/1Oyy1yUx_sfHXuYqeF-TbeAricm1qcnd-/edit?usp=drive_link&ouid=100604119580806623236&rtpof=true&sd=true",
