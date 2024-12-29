@@ -172,7 +172,7 @@ export function CalculateOxygenTransfer(params:CalculatorParamType):number {
   if (hemoglobin === 0) return 0;
   if (flow === 0) return 0;
   
-  const group = (arterial_saturation - venous_saturation) * 1.34 * hemoglobin * flow;
+  const group = 1.34 * hemoglobin * (arterial_saturation - venous_saturation) * flow / 100;
   return group;  
 }
 
@@ -199,14 +199,19 @@ export function CalculateOxygenDelivery(params:CalculatorParamType):number {
   if (sao2 === 0) return 0;
   if (pao2 === 0) return 0;
 
+  /*
+DO2i (mL/min/m2) = 10 * pump flow index(L/min/m2) * [(hemoglobin (g/dL) * SaO2 (%) * 1.36) + (PaO2 (mmHg) * 0.003)]
+
+  */
+
   // Step 1
-  const CI = flow / bsa;
+  // const CI = flow / bsa;
 
   // Step 2
-  const CaO2 = ((hemoglobin * 1.34) * sao2) + (0.003 * pao2);
+  const CaO2 = (hemoglobin * 1.34 * sao2) + (0.003 * pao2);
 
   // Step 3
-  const DO2i = 10 * CI * CaO2;
+  const DO2i = (CaO2 * flow * 10) / bsa;
   
   return DO2i;  
 }

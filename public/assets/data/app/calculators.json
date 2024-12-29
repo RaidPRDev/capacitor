@@ -87,7 +87,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(mL/min)",
+    "resultLabel": "(m²)",
     "items": [
       {
         "id": "height",
@@ -112,7 +112,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(mL/min)",
+    "resultLabel": "(m²)",
     "items": [
       {
         "id": "weight",
@@ -339,7 +339,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "",
+    "resultLabel": "(mL O₂/min)",
     "items": [
       {
         "id": "arterial_saturation",
@@ -370,7 +370,7 @@
       {
         "id": "hemoglobin",
         "type": "number",
-        "label": "Enter Hemoglobin"
+        "label": "Enter Hemoglobin (g/dL)"
       },
       {
         "id": "flow",
@@ -390,7 +390,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "",
+    "resultLabel": "(mL/min/m²)",
     "items": [
       {
         "type": "heading",

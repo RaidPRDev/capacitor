@@ -44,7 +44,7 @@ const useAppStyles = (props: IUseAppStyleProps) => {
     
     if (!props.device?.isMobile()) {
       props.app.device.width = 375;
-      props.app.device.height = 667;// 812;
+      props.app.device.height = 812;
       props.app.device.margin = 20;
       props.app.device.mobile = props.device?.isMobile()!;
     
@@ -55,8 +55,8 @@ const useAppStyles = (props: IUseAppStyleProps) => {
       return { 
         backgroundColor: `#f5f5f5`,
         width: `375px`, 
-        height: `667px`,
-        // height: `812px`,
+        // height: `667px`,
+        height: `812px`,
         borderRadius: `47px`,
         overflow: `hidden`,
         marginTop: `-1px`
