@@ -413,7 +413,7 @@
       {
         "id": "hemoglobin",
         "type": "number",
-        "label": "Hemoglobin (% decimal)",
+        "label": "Enter Hemoglobin (g/dL)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
