@@ -92,8 +92,8 @@ onMounted(() => {
   :bodySlotProps="{ class: 'splash-body flex align-center justify-center px-20' }" 
 >
   <template v-slot:bodySlot>
-    <div class="relative width-inherit height-100 flex flex-column justify-start ptb-3">
-      <div class="flex justify-center mxb-80"><img :src="Logo" width="120" height="89" /></div>
+    <div class="splash-container relative width-inherit height-100 flex flex-column justify-start ptb-3">
+      <div class="splash-logo flex justify-center mxb-80"><img :src="Logo" width="120" height="89" /></div>
       
       <div class="flex justify-center pxlr-20 width-100">
         <div class="width-100">
@@ -214,5 +214,40 @@ onMounted(() => {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.35);
   }
+
+  @include queryheightmin('iphone-small') {
+    .splash-container {
+      padding-top: 14px;
+    }
+
+    .splash-logo {
+      width: 110px;
+      margin: 0 auto 20px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .splash-title {
+      font-size: 40px;
+      line-height: 48px;
+      margin: 0 0 2rem 0;
+    }
+  
+    .splash-welcome {
+      font-size: 30px;
+      line-height: 36px;
+      margin: 0 0 1rem 0;
+    }
+
+    .splash-description {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+  }
+
+  
 }
 </style>

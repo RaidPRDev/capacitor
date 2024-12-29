@@ -67,6 +67,22 @@
   }
 }
 
+@mixin queryheightmin($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints-height, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints-height, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints-height)}.";
+  }
+}
+
 @mixin querymax($breakpoint) {
   // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {

@@ -54,19 +54,19 @@ onMounted(() => {
   <div class="home-scroll width-100 overflow-v-scroll height-inherit">
     <div class="title mxl-26 mxb-18">ECMO Bedside Guide</div>
     <div class="subtitle mxl-26 mxb-14">Select a tile that fits your needs.</div>
-    <div class="grid grid-50 gapx-20 width-100 pxl-20 pxr-20 width-100"  v-bind="{ ...attrs }">
-    <template v-for="(item, index) in menuItems" :key="`home-menu-nav-${index}`">
-      <BaseButton 
-        :class="classNames(`menu-button variant-blue`, item.class)" 
-        :innerClassName="`flex-column`" 
-        :icon="item.icon" 
-        :label="item.label"
-        :iconClassName="`absolute tx-12 rx-12`" 
-        :bodyClassName="`absolute bx-12 lx-12 text-left`" 
-        @triggered="() => onMenuTriggered(index)"
-      />
-    </template>
-  </div>
+    <div class="section-items grid grid-50 gapx-20 width-100 pxl-20 pxr-20 pxb-20 width-100"  v-bind="{ ...attrs }">
+      <template v-for="(item, index) in menuItems" :key="`home-menu-nav-${index}`">
+        <BaseButton 
+          :class="classNames(`menu-button variant-blue`, item.class)" 
+          :innerClassName="`flex-column`" 
+          :icon="item.icon" 
+          :label="item.label"
+          :iconClassName="`absolute tx-12 rx-12`" 
+          :bodyClassName="`absolute bx-12 lx-12 text-left`" 
+          @triggered="() => onMenuTriggered(index)"
+        />
+      </template>
+    </div>
   </div>
 </template>
 
