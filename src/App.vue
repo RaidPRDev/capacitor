@@ -140,7 +140,7 @@ onMounted(() => {
     
     <AppToaster />
 
-    <AppDev v-if="false" />
+    <AppDev v-if="true" />
   </div>
 </template>
 

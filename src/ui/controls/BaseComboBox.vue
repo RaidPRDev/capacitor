@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref, computed, watch, onMounted, onBeforeUnmount, ComputedRef, nextTick } from 'vue';
-import { defineProps, defineEmits } from 'vue';
 import type { IBaseComboxBoxProps } from '@/ui/types';
 
 // Component Props Setup
