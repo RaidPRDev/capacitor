@@ -31,6 +31,11 @@
         "class": ""
       },  
       {
+        "label": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
+        "branchTo": "ELSOBA_RES_045",
+        "class": ""
+      },  
+      {
         "label": "Children with Cardiac Failure",
         "branchTo": "ELSOBA_RES_050",
         "class": ""
@@ -76,6 +81,16 @@
     "id": "ELSOBA_RES_040",
     "title": "Adults with Cardiac Arrest (ECPR)",
     "content": "resources/ELSOBA_RES_040.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_045",
+    "title": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
+    "content": "resources/ELSOBA_RES_045.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,

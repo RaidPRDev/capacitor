@@ -18,6 +18,11 @@
         "label": "Assess ECMO Candidacy for Children",
         "branchTo": "ELSOBA_CAND_020",
         "class": ""
+      },
+      {
+        "label": "Patient Referrals",
+        "branchTo": "ELSOBA_CAND_100",
+        "class": ""
       }
     ]
   },
@@ -38,6 +43,11 @@
       {
         "label": "Adults with Cardiac Arrest (ECPR)",
         "branchTo": "ELSOBA_CAND_040",
+        "class": ""
+      },    
+      {
+        "label": "Adult Respiratory ECMO for ARDS",
+        "branchTo": "ELSOBA_CAND_045",
         "class": ""
       }    
     ]
@@ -245,6 +255,132 @@
     "branchTo": "",
     "items": []
   },
+
+
+  {
+    "id": "ELSOBA_CAND_045",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Respiratory ECMO",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045.html",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_045__2",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Cardiac arrest witnessed",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__3",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "The PaO2 or FiO2 is less than (<) 150 mmHg",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__4",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "The PaO2 or FiO2 is greater than or equal to (≥) 150 mmHg",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__5",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Determine cause of respiratory failure",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__6",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Continue current management",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Contraindications",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__8",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Cause and symptoms of respiratory failure NOT confirmed",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__9",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Assess value for ECMO therapy",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__9.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__10",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Does the patient or family give their consent?",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__10.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__11",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Consider Adjunctive therapies as appropriate",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__11.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__12",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Proceed with respiratory ECMO",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__12.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+
 
 
   {
@@ -470,6 +606,101 @@
     "useScroll": true,
     "title": "Proceed with care on ECMO",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+
+
+  {
+    "id": "ELSOBA_CAND_100",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Respiratory ECMO",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100.html",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_100__2",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Cardiac arrest witnessed",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__3",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "The PaO2 or FiO2 is less than (<) 150 mmHg",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__4",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "The PaO2 or FiO2 is greater than or equal to (≥) 150 mmHg",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__5",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Determine cause of respiratory failure",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__6",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Continue current management",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Contraindications",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__8",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Cause and symptoms of respiratory failure NOT confirmed",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_100__9",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Assess value for ECMO therapy",
+    "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100__9.html",
     "layout": "html",
     "branchTo": "",
     "items": []
