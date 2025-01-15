@@ -4,6 +4,11 @@
   margin: 1rem 0 0 0;
   //touch-action: pan-x pan-y pinch-zoom;
 
+  a {
+    color: $teniary-color;
+    font-weight: 500;
+  }
+
   .table-title {
     margin: 2rem 0 1rem 0;
   }
