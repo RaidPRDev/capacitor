@@ -52,8 +52,6 @@ const app = inject<IApp>(APP_ID) as IApp;
 const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const router = useRouter();
 
-console.log("router.currentRoute.value.name", router.currentRoute.value.name)
-
 const session = useSession();
 const { hasCompletedDisclaimer, hasRegistered } = storeToRefs(session);
 const branchingStore = useBranchingStore();
@@ -460,10 +458,6 @@ onUnmounted(() => {
         height: 43px;
       }
     }
-
-    // &.footer-notes {
-      
-    // }
 
     .ui-label {
       @include getFontSize('small');

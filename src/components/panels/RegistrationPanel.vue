@@ -138,7 +138,8 @@ async function formSubmit() {
   const inputRole = itemRefs.value[5].buttonRef().querySelector("input") as HTMLInputElement;
   const inputCreds = itemRefs.value[6].comboInputRef() as HTMLInputElement;
   const inputHospital = itemRefs.value[7].buttonRef().querySelector("input") as HTMLInputElement;
-  
+  const isMobile = import.meta.env.ISMOBILE;
+
   const formBody = {
     firstName: inputFirstName.value,
     lastName: inputLastName.value,
@@ -158,12 +159,9 @@ async function formSubmit() {
   const _urlTk = `${import.meta.env.API_TOKEN}`;
   const _reqInitTk:RequestInit = {
     headers: new Headers({ 
-      "Content-Type": `text/plain`, 
       "clientId": `${import.meta.env.API_CLIENT_ID}`,
     }),
-    method: "GET",
-    mode: "cors",
-    credentials: "include"
+    method: "GET"
   }
 
   const _fetchTk = await urlFetch(_urlTk, _reqInitTk as RequestInit) as {
@@ -171,22 +169,23 @@ async function formSubmit() {
       
     }, error?: string
   };
-  console.log("FETCH TOKEN", _fetchTk);
-
+  
   if (typeof _fetchTk === "object" 
     && _fetchTk?.error 
     && !isObjectEmpty(_fetchTk?.error)) {
     
       console.error("FAILED FETCH TOKEN", _fetchTk);
-      //alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
+      if (DEBUG && isMobile) alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
       state.isSaving = false;
       state.hasSaved = true;
-      session.$patch({ hasRegistered: true });
+      session.$patch({ hasRegistered: false });
       return;
   }
 
   const TOKEN = _fetchTk;
-  //alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
+  console.log("FETCH TOKEN", TOKEN);
+  if (DEBUG && isMobile) alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
+
   await timeout(5000);
 
   const _url = `${import.meta.env.API_REGISTER}`;
@@ -197,9 +196,7 @@ async function formSubmit() {
       "clientId": `${import.meta.env.API_CLIENT_ID}`
     }),
     method: "POST",
-    body: JSON.stringify(formBody),
-    mode: "cors",
-    credentials: "include"
+    body: JSON.stringify(formBody)
   }
 
   const _fetch = await urlFetch(_url, _reqInit as RequestInit) as {
@@ -207,21 +204,22 @@ async function formSubmit() {
       
     }, error?: string
   };
-  console.log("FETCH REGISTER", _fetch);
-
+  
   if (typeof _fetch === "object" 
     && _fetch?.error 
     && !isObjectEmpty(_fetch?.error)) {
     
-      console.error("FETCH", _fetch);
+      console.error("FAILED FETCH REGISTER", _fetch);
+      if (DEBUG && isMobile) alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
+
       state.isSaving = false;
       state.hasSaved = true;
-      session.$patch({ hasRegistered: true });
-      //alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
+      session.$patch({ hasRegistered: false });
       return;
   }
 
-  // alert(`SUCCESS REGISTER ${JSON.stringify(_fetch)}`);
+  console.log("FETCH REGISTER", _fetch);
+  if (DEBUG && isMobile) alert(`FETCH REGISTER ${JSON.stringify(_fetch)}`);
 
   setUser(formBody);
   
@@ -229,7 +227,6 @@ async function formSubmit() {
 
   state.isSaving = false;
   state.hasSaved = true;
-
   session.$patch({ hasRegistered: true });
 }
 

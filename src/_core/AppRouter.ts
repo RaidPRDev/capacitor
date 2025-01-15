@@ -27,7 +27,7 @@ import usePassKey from '@/store/passkey.module';
 import { BranchRouteProps } from '@/types';
 import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
 
-const DEBUG = true;
+const DEBUG = false;
 
 const defaultTransition = { transition: "scale-slide", scrollPos: 0 };
 
