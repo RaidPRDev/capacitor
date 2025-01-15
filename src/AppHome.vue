@@ -272,11 +272,11 @@ function checkRegistration() {
 
   clearTimeout(timeoutCopy.value);
 
-  timeoutCopy.value = setTimeout(() => {
-    drawerComponents.bottom = RegistrationPanel;
-    app.drawers.bottom.closeOutside = false;
-    app.drawers.bottom.open = !app.drawers.bottom.open;
-  }, 750);
+  // timeoutCopy.value = setTimeout(() => {
+  //   drawerComponents.bottom = RegistrationPanel;
+  //   app.drawers.bottom.closeOutside = false;
+  //   app.drawers.bottom.open = !app.drawers.bottom.open;
+  // }, 750);
 }
 
 function disclaimerClosedEvent() {
