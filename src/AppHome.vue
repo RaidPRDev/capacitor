@@ -32,7 +32,7 @@ import AppSideMenuPanel from "@/components/panels/AppSideMenuPanel.vue";
 import AppSearchPanel from "@/components/panels/AppSearchPanel.vue";
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import DisclaimerPanel from "@/components/panels/DisclaimerPanel.vue";
-// import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
+import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
 
 import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import { Haptics, ImpactStyle, NotificationType } from "@capacitor/haptics";
@@ -272,11 +272,11 @@ function checkRegistration() {
 
   clearTimeout(timeoutCopy.value);
 
-  // timeoutCopy.value = setTimeout(() => {
-  //   drawerComponents.bottom = RegistrationPanel;
-  //   app.drawers.bottom.closeOutside = false;
-  //   app.drawers.bottom.open = !app.drawers.bottom.open;
-  // }, 750);
+  timeoutCopy.value = setTimeout(() => {
+    drawerComponents.bottom = RegistrationPanel;
+    app.drawers.bottom.closeOutside = false;
+    app.drawers.bottom.open = !app.drawers.bottom.open;
+  }, 750);
 }
 
 function disclaimerClosedEvent() {

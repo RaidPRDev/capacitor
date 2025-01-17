@@ -45,9 +45,11 @@ function setItemsRef(el:any) {
 interface IState extends ISessionUser {
   isSaving?: boolean;
   hasSaved?: boolean;
+  serverMessage?: string;
 }
 
 const DEBUG = false;
+const MOBILE = import.meta.env.ISMOBILE;
 
 const state:IState = reactive<IState>({
   firstName: DEBUG ? "Rafael" : "",
@@ -60,6 +62,7 @@ const state:IState = reactive<IState>({
   hospitalSystem: DEBUG ? "SweetRush" : "",
   isSaving: false,
   hasSaved: false,
+  serverMessage: ""
 })
 
 type FieldType = "firstName" | "lastName" | "email" | "cellPhone" | "country" | "title" | "credentials" | "hospitalSystem";
@@ -138,7 +141,6 @@ async function formSubmit() {
   const inputRole = itemRefs.value[5].buttonRef().querySelector("input") as HTMLInputElement;
   const inputCreds = itemRefs.value[6].comboInputRef() as HTMLInputElement;
   const inputHospital = itemRefs.value[7].buttonRef().querySelector("input") as HTMLInputElement;
-  const isMobile = import.meta.env.ISMOBILE;
 
   const formBody = {
     firstName: inputFirstName.value,
@@ -164,29 +166,30 @@ async function formSubmit() {
     method: "GET"
   }
 
-  const _fetchTk = await urlFetch(_urlTk, _reqInitTk as RequestInit) as {
+  const _fetchTk = await urlFetch(_urlTk, _reqInitTk as RequestInit, { type: "text" }) as {
     data?: any & {
       
     }, error?: string
   };
   
-  if (typeof _fetchTk === "object" 
+  if (typeof _fetchTk !== "string" 
     && _fetchTk?.error 
     && !isObjectEmpty(_fetchTk?.error)) {
     
       console.error("FAILED FETCH TOKEN", _fetchTk);
-      if (DEBUG && isMobile) alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
+      if (DEBUG && MOBILE) alert(`FAILED FETCH TOKEN ${JSON.stringify(_fetchTk)}`);
       state.isSaving = false;
       state.hasSaved = true;
+      state.serverMessage = "Registration failed.";
       session.$patch({ hasRegistered: false });
       return;
   }
 
-  const TOKEN = _fetchTk;
-  console.log("FETCH TOKEN", TOKEN);
-  if (DEBUG && isMobile) alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
+  const TOKEN = _fetchTk.data;
+  console.log("DATA", TOKEN);
+  if (DEBUG && MOBILE) alert(`FETCH TOKEN ${JSON.stringify(TOKEN)}`);
 
-  await timeout(5000);
+  await timeout(200);
 
   const _url = `${import.meta.env.API_REGISTER}`;
   const _reqInit:RequestInit = {
@@ -210,16 +213,25 @@ async function formSubmit() {
     && !isObjectEmpty(_fetch?.error)) {
     
       console.error("FAILED FETCH REGISTER", _fetch);
-      if (DEBUG && isMobile) alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
+      if (DEBUG && MOBILE) alert(`FAILED REGISTER ${JSON.stringify(_fetch)}`);
 
       state.isSaving = false;
       state.hasSaved = true;
+      state.serverMessage = "Registration failed.";
       session.$patch({ hasRegistered: false });
       return;
   }
 
   console.log("FETCH REGISTER", _fetch);
-  if (DEBUG && isMobile) alert(`FETCH REGISTER ${JSON.stringify(_fetch)}`);
+
+  const registerResponse: { successMessage: string } = _fetch.data;
+
+  if (containsDataNotSaved(registerResponse.successMessage)) {
+    state.serverMessage = registerResponse.successMessage;
+  }
+  else state.serverMessage = "Thank you for registering!";
+
+  if (DEBUG && MOBILE) alert(`FETCH REGISTER ${JSON.stringify(_fetch)}`);
 
   setUser(formBody);
   
@@ -233,6 +245,16 @@ async function formSubmit() {
 function closePanel() {
   app.drawers.bottom.open = !app.drawers.bottom.open;
   app.drawers.bottom.props = {};
+}
+
+function containsDataNotSaved(text: string) {
+  return text.includes("Data not saved");
+}
+
+function onPanelCloseButton() {
+  if (state.isSaving) return;
+  if (!MOBILE) session.$patch({ hasRegistered: true });
+  closePanel();
 }
 
 </script>
@@ -309,7 +331,7 @@ function closePanel() {
 
           </div>
           <div v-else>
-            <div>Thank you for registering!</div>
+            <div>{{ state.serverMessage }}</div>
             <div class="mxt-20">Tap the <b>Continue</b> button to close.</div>
           </div>
 
@@ -360,9 +382,10 @@ function closePanel() {
     </div>
   </div>
 
-  <BaseButton :class="[`close-button absolute tx-20 rx-20`, { ['disabled']: state.isSaving }]" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
-    if (state.isSaving) return;
-    closePanel();
+  <BaseButton 
+    v-if="!MOBILE"
+    :class="[`close-button absolute tx-20 rx-20`, { ['disabled']: state.isSaving }]" :innerClassName="`flex-column`" :icon="CloseIcon" @triggered="() => {
+    onPanelCloseButton();
   }" />
   
 </BasePanel>
