@@ -130,7 +130,7 @@
   {
     "id": "ELSOBA_RES_070",
     "title": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
-    "content": "resources/ELSOBA_RES_060.html",
+    "content": "resources/ELSOBA_RES_070.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
@@ -140,7 +140,7 @@
   {
     "id": "ELSOBA_RES_080",
     "title": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
-    "content": "resources/ELSOBA_RES_060.html",
+    "content": "resources/ELSOBA_RES_080.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
