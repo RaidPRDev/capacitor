@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, useAttrs } from 'vue';
+import { onMounted, SetupContext, useAttrs } from 'vue';
 
 import { useRouter } from 'vue-router';
 import useBranchingStore from '@/store/branching.module';
@@ -21,7 +21,7 @@ import CalculatorIcon from '@/assets/icons/homeMenu/calculator-icon.svg';
 import ResourcesIcon from '@/assets/icons/sideMenu/paperclip-icon.svg';
 
 // Component Props Setup
-const attrs = useAttrs();
+const attrs = useAttrs() as SetupContext["attrs"];
 const router = useRouter();
 
 const branchingStore = useBranchingStore();

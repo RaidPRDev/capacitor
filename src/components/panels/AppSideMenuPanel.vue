@@ -55,6 +55,7 @@ watch(props, () => {
 
 const sideMenu = [
   // { label: "ECMO Bedside<br>Guide App Help", icon: HeartIcon, route: "Home", class: "" },
+  { label: "ECMO Bedside Guide", icon: null, route: "", class: "menu-title" },
   { label: "Terms and Conditions", icon: TermsIcon, route: "Home", class: "" },
   { label: "Privacy Policy", icon: PrivacyIcon, route: "Home", class: "" },
   { label: "Resources", icon: ResourcesIcon, route: "Home", class: "res-icon" },
@@ -214,6 +215,33 @@ onMounted(() => {
 .menu-item {
   color: white;
   background-color: transparent;
+
+  &.menu-title {
+    pointer-events: none;
+
+    :deep(.inner-base-button) {
+      .ui-body {
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          border: 1px solid white;
+          width: 100%;
+        }
+
+        .ui-label {
+          font-size: 22px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    
+  }
 
   &.pressed {
     background-color: $primary-color;
