@@ -79,12 +79,12 @@
       {
         "label": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
         "branchTo": "ELSOBA_CAND_080",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
         "branchTo": "ELSOBA_CAND_090",
-        "class": "disabled"
+        "class": ""
       }    
     ]
   },
@@ -606,6 +606,164 @@
     "useScroll": true,
     "title": "Proceed with care on ECMO",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+
+  {
+    "id": "ELSOBA_CAND_080",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Neonate presents with acute respiratory and/or cardiac failure without congenital diaphragmatic hernia (CDH) or cyanotic congenital heart disease (CHD)",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080.html",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_080__2",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_080__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Contraindications",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__3",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Continue current management",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__4",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Assess etiology",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__5",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Hypoxemic Respiratory Failure",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__6",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Hypercapnic Respiratory Failure",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Cardiac Dysfunction",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__8",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Conditions for ECMO",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__9",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Contraindications",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__9.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_080__10",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Recommendations for ECMO",
+    "content": "ecmo/ELSOBA_CAND_080/ELSOBA_CAND_080__10.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+
+  {
+    "id": "ELSOBA_CAND_090",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Patient presents with CDH and Severe Cardiorespiratory Failure",
+    "content": "ecmo/ELSOBA_CAND_090/ELSOBA_CAND_090.html",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "ELSOBA_CAND_090__2",
+    "items": []
+  },  
+  {
+    "id": "ELSOBA_CAND_090__2",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Continue Medical Management",
+    "content": "ecmo/ELSOBA_CAND_090/ELSOBA_CAND_090__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_090__3",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Rule out Reversible Causes",
+    "content": "ecmo/ELSOBA_CAND_090/ELSOBA_CAND_090__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_090__4",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Contraindications",
+    "content": "ecmo/ELSOBA_CAND_090/ELSOBA_CAND_090__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_090__5",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Consider ECMO",
+    "content": "ecmo/ELSOBA_CAND_090/ELSOBA_CAND_090__5.html",
     "layout": "html",
     "branchTo": "",
     "items": []

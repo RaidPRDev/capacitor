@@ -44,6 +44,16 @@
         "label": "Children with Cardiac Arrest (ECPR)",
         "branchTo": "ELSOBA_RES_060",
         "class": ""
+      },   
+      {
+        "label": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
+        "branchTo": "ELSOBA_RES_070",
+        "class": ""
+      }, 
+      {
+        "label": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
+        "branchTo": "ELSOBA_RES_080",
+        "class": ""
       }   
     ]
   },
@@ -110,6 +120,26 @@
   {
     "id": "ELSOBA_RES_060",
     "title": "Children with Cardiac Arrest (ECPR)",
+    "content": "resources/ELSOBA_RES_060.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_070",
+    "title": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
+    "content": "resources/ELSOBA_RES_060.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_080",
+    "title": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
     "content": "resources/ELSOBA_RES_060.html",
     "layout": "default",
     "useScroll": true,
