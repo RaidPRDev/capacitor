@@ -53,7 +53,7 @@
       {
         "label": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
         "branchTo": "ELSOBA_RES_080",
-        "class": ""
+        "class": "hide"
       }   
     ]
   },
