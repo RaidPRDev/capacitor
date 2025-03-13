@@ -59,7 +59,7 @@ const sideMenu = [
   { label: "Terms and Conditions", icon: TermsIcon, route: "Home", class: "" },
   { label: "Privacy Policy", icon: PrivacyIcon, route: "Home", class: "" },
   { label: "Resources", icon: ResourcesIcon, route: "Home", class: "res-icon" },
-  { label: "Acknowledgments", icon: AcknowledgeIcon, route: "Home", class: "badge-icon" },
+  { label: "Acknowledgements", icon: AcknowledgeIcon, route: "Home", class: "badge-icon" },
   { label: "Send Feedback", icon: FeedbackIcon, route: "Home", class: "" },
 ];
 

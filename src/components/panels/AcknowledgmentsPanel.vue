@@ -70,7 +70,7 @@ function onMenuTriggered(selected: number) {
   <div class="side-content pxlr-0 pxt-20 pxb-0 relative">
     <div class="pxlr-0 height-100">
 
-      <div class="title width-100 text-center mxb-30">Acknowledgments</div>
+      <div class="title width-100 text-center mxb-30">Acknowledgements</div>
     
       <div class="content-scroller relative">
         <div class="inner-scroller pxb-60 pxlr-16" ref="divScrollerRef" tabindex="0" @scroll="handleScroll">
