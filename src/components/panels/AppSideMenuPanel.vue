@@ -16,21 +16,21 @@ import BaseList from '@/ui/controls/BaseList.vue';
 
 import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
 import { IApp, IAppDrawerComponents } from '@/types';
+import { capitalizeFirstLetter } from '@/utils/StringTools';
 import TermsAndConditionsPanel from "@/components/panels/TermsAndConditionsPanel.vue";
 import PrivacyPolicyPanel from "@/components/panels/PrivacyPolicyPanel.vue";
+import AcknowledgmentsPanel from './AcknowledgmentsPanel.vue';
+import BuildDetailsPanel from './BuildDetailsPanel.vue';
 // import SendFeedbackPanel from "@/components/panels/SendFeedbackPanel.vue";
 // import ElsoHelpPanel from "@/components/panels/ElsoHelpPanel.vue";
 
 import CloseIcon from '@/assets/icons/close-icon.svg';
 import Logo from '/assets/elso_logo.png';
-// import HeartIcon from '@/assets/icons/sideMenu/heart-icon.svg';
 import TermsIcon from '@/assets/icons/sideMenu/terms-icon.svg';
 import PrivacyIcon from '@/assets/icons/sideMenu/privacy-icon.svg';
 import FeedbackIcon from '@/assets/icons/sideMenu/feedback-icon.svg';
 import ResourcesIcon from '@/assets/icons/sideMenu/paperclip-icon.svg';
-
-import { capitalizeFirstLetter } from '@/utils/StringTools';
-import BuildDetailsPanel from './BuildDetailsPanel.vue';
+import AcknowledgeIcon from '@/assets/icons/sideMenu/badge-icon.svg';
 
 interface ILeftSidePanelProps {
   items?: any;
@@ -59,6 +59,7 @@ const sideMenu = [
   { label: "Terms and Conditions", icon: TermsIcon, route: "Home", class: "" },
   { label: "Privacy Policy", icon: PrivacyIcon, route: "Home", class: "" },
   { label: "Resources", icon: ResourcesIcon, route: "Home", class: "res-icon" },
+  { label: "Acknowledgments", icon: AcknowledgeIcon, route: "Home", class: "badge-icon" },
   { label: "Send Feedback", icon: FeedbackIcon, route: "Home", class: "" },
 ];
 
@@ -89,14 +90,17 @@ function onMenuTriggered(selected: number) {
     break;
     
     case 3: // Resources
-      // drawerComponents.bottom = ResourcesPanel;
-      // app.drawers.bottom.props = { name: "resources" }
-      // app.drawers.bottom.closeOutside = false;
-      // app.drawers.bottom.open = !app.drawers.bottom.open;
       router.push({ name: 'Resources'});
     break;
     
-    case 4: // Feedback
+    case 4: // Acknowledgments
+      drawerComponents.bottom = AcknowledgmentsPanel;
+      app.drawers.bottom.props = { name: "acknowledgments" }
+      app.drawers.bottom.closeOutside = false;
+      app.drawers.bottom.open = !app.drawers.bottom.open;
+    break;
+
+    case 5: // Feedback
       // drawerComponents.bottom = SendFeedbackPanel;
       // app.drawers.bottom.closeOutside = false;
       // app.drawers.bottom.open = !app.drawers.bottom.open;
