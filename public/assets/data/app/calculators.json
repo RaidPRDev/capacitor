@@ -150,7 +150,7 @@
         "branchTo": "ELSOBA_CALC_020__04"
       },
       {
-        "label": "Convert French Gauge to Millimeters",
+        "label": "Convert French to Millimeters",
         "branchTo": "ELSOBA_CALC_020__05"
       },
       {

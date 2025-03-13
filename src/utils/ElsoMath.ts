@@ -94,7 +94,7 @@ export function ConvertFarenheitToCelcius(params:CalculatorParamType):number {
 
 /**
  * ELSOBA_CALC_020_05
- * Convert French Gauge to Millimeters
+ * Convert French to Millimeters
  * 
  * 1 Fr = ⅓ mm
  * 

@@ -127,7 +127,7 @@ function calculate() {
 
   let items: InputListItemType[] = props?.view?.items as InputListItemType[];
 
-  state.result = items.reduce((prev, curr) => {
+  const __result = items.reduce((prev, curr) => {
     switch (curr?.type) {
       case "number":
         const numberVal = findAndReturnItemRefValueByID(curr?.id!);
@@ -144,8 +144,12 @@ function calculate() {
         return calculationFunctions[operationState as string](calculationDetails);
     }
     
+    
     return prev;
   }, 0);
+
+  // fix to 2 decimals
+  state.result = parseFloat(__result.toFixed(2));
 }
 
 function reset() {
