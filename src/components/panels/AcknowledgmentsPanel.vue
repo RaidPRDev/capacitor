@@ -8,7 +8,6 @@ export default {
 <script setup lang="ts">
 import { inject, ref } from 'vue';
 import { storeToRefs } from 'pinia';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from 'classnames';
 
 import BasePanel from "@/ui/panels/BasePanel.vue";
