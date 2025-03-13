@@ -38,23 +38,6 @@ function handleScroll() {
 
 const app = inject<IApp>(APP_ID) as IApp;
 
-function onMenuTriggered(selected: number) {
-  
-  switch (selected) {
-    case 0: // Decline
-      session.$patch({ hasCompletedPrivacy: false })
-    break;
-
-    case 1: // Accept
-      Haptics.impact({ style: ImpactStyle.Light });
-      session.$patch({ hasCompletedPrivacy: true })
-    break;
-  }
-
-  app.drawers.closeOutside = false;
-  app.drawers.bottom.open = !app.drawers.bottom.open;
-}
-
 </script>
 
 <template>
