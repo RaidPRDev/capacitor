@@ -1596,7 +1596,7 @@
           { "label": "Confirm that there is a persistent lack of color difference between the tubing entering and exiting the ML by using a flashlight", "checked": false },
           { "label": "Confirm that gas exchange though pre/post-ML blood sampling is NOT consistent with the device and gas blender settings", "checked": false },
           { 
-            "label": "<span>Membrane Lung disruption or failure is likely. Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure checklist</a>.</span>",
+            "label": "<span>Membrane Lung disruption or failure is likely. Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure checklist.</a></span>",
             "type": "comment"
           }
         ]        
