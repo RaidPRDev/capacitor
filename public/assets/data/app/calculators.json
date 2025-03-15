@@ -255,7 +255,7 @@
       {
         "id": "frenchGauge",
         "type": "number",
-        "label": "Enter French gauge"
+        "label": "Enter French"
       },
       {
         "type": "operator",
