@@ -245,7 +245,7 @@
   },
   {
     "id": "ELSOBA_CALC_020__05",
-    "title": "Convert French Gauge to Millimeters",
+    "title": "Convert French to Millimeters",
     "content": "",
     "layout": "input",
     "useScroll": true,

@@ -50,7 +50,7 @@ const computedList = computed(() => {
 </script>
 
 <template>
-  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="title transform-z mxb-16">{{ `${props?.view?.title}` }}</h2>
+  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" v-html="props?.view?.title" class="title transform-z mxb-16"></h2>
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
   
   <transition-group name="list-scale-fade-in" tag="div" class="flex flex-column gapx-16">

@@ -46,7 +46,7 @@ function handleTriggered(data: { dataProps?: IHtmlParserDataProps }) {
 </script>
 
 <template>
-  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="transform-z">{{ `${props?.view?.title}` }}</h2>
+  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" v-html="props?.view?.title" class="transform-z"></h2>
   <HtmlParserComponent :htmlString="`${htmlContent}`" @triggered="handleTriggered" />
 </template>
 
