@@ -261,7 +261,7 @@
     "id": "ELSOBA_CAND_045",
     "showTitle": true,
     "useScroll": true,
-    "title": "Respiratory ECMO",
+    "title": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045.html",
     "layout": "html",
     "branchTo": "",
