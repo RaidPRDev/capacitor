@@ -550,7 +550,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Blood Out of Circuit",
-    "content": "Blood on the floor noticed",
+    "content": "Blood noticed out of circuit (in patient's bed, on floor, or elsewhere).",
     "layout": "list",
     "keywords": "",
     "items": [
