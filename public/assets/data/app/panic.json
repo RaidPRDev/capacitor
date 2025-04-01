@@ -576,17 +576,17 @@
     "keywords": "",
     "items": [
       {
-        "label": "A. Identified immediately—The blood leakage is from a circuit disruption.",
+        "label": "A. Circuit Disruption",
         "branchTo": "ELSOBA_PANIC_030__A",
         "class": ""
       },     
       {
-        "label": "B. Identified immediately—The blood leakage is from the patient.",
+        "label": "B.  Patient Site or Cannula",
         "branchTo": "ELSOBA_PANIC_030__B",
         "class": ""
       },     
       {
-        "label": "C. The blood source is not immediately identifiable.",
+        "label": "C. Unable to identify",
         "branchTo": "ELSOBA_PANIC_030__C",
         "class": ""
       }
@@ -751,7 +751,7 @@
         "class": "no-action"
       },   
       {
-        "label": "C. Has the bleeding source been detected?",
+        "label": "Has the bleeding source been detected?",
         "branchTo": "",
         "class": "no-action"
       },   

@@ -20,7 +20,7 @@
         "class": ""
       },
       {
-        "label": "Patient Referrals",
+        "label": "Patient Referral to an ECLS Center",
         "branchTo": "ELSOBA_CAND_100",
         "class": ""
       }
@@ -481,7 +481,7 @@
     "id": "ELSOBA_CAND_060__2",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient meets failure criteria",
+    "title": "Cardiac Failure Risk Factors",
     "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__2.html",
     "layout": "html",
     "branchTo": "",
@@ -501,7 +501,7 @@
     "id": "ELSOBA_CAND_060__4",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient presents with high illness severity and low cardiac output",
+    "title": "Patient with high illness severity and low cardiac output",
     "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__4.html",
     "layout": "html",
     "branchTo": "",
@@ -521,7 +521,7 @@
     "id": "ELSOBA_CAND_060__6",
     "showTitle": true,
     "useScroll": true,
-    "title": "Assess viability of ECMO",
+    "title": "Appropriateness of ECMO",
     "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__6.html",
     "layout": "html",
     "branchTo": "",
@@ -531,7 +531,7 @@
     "id": "ELSOBA_CAND_060__7",
     "showTitle": true,
     "useScroll": true,
-    "title": "Proceed with VA ECMO",
+    "title": "Proceed with ECMO",
     "content": "ecmo/ELSOBA_CAND_060/ELSOBA_CAND_060__7.html",
     "layout": "html",
     "branchTo": "",
@@ -564,7 +564,7 @@
     "id": "ELSOBA_CAND_070__3",
     "showTitle": true,
     "useScroll": true,
-    "title": "Cardiac arrest not witnessed",
+    "title": "ECPR Not Recommended",
     "content": "ecmo/ELSOBA_CAND_070/ELSOBA_CAND_070__3.html",
     "layout": "html",
     "branchTo": "",
