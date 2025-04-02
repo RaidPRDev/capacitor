@@ -164,6 +164,53 @@ function addToFavorites() {
   }));
 }
 
+function onInternalLink(element: HTMLElement) {
+  if (!element?.hasAttribute('data-link')) return;
+            
+  const data = element.dataset.link;
+  const pData = data?.split?.('##') as any[];
+  console.log("pData", pData);
+
+  let queryParams: { 
+    type: string,
+    id: string,
+    childId?: string,
+  } = { type: '', id: '', childId: '' };
+
+  queryParams.type = pData[0];
+  queryParams.id = pData[1];
+
+  // check CHECKLIST TYPE for child id
+  if (pData?.length === 3) {
+    queryParams.childId = pData[2];
+  }
+  // check URL LINK TYPE
+  else if (pData?.length === 1 && pData[0].indexOf("http") > -1) {
+    window.open(pData[0], "_blank");
+    return;
+  }
+
+  app.alert.component = shallowRef(AppAlertPanel);
+  app.alert.options.props = {
+    title: '',
+    content: `Are you sure you want to leave this checklist?`,
+    labels: ['No', 'Yes'],
+    action: (index:number) => {
+      if (index === 0) return;
+
+      // need to close self panel before pushing
+      app.drawers.bottom.open = !app.drawers.bottom.open;
+      switch (queryParams?.type) {
+        case 'CHECKLIST':
+          router.push({ name: `Checklists`, query: queryParams });
+          break;
+        default:
+      }
+    }
+  }
+  app.alert.options.open = !app.alert.options.open;
+}
+
 </script>
 
 <template>
@@ -208,44 +255,8 @@ function addToFavorites() {
             updateCheckData(data.item, toggled);
           }"
           @internalLink="(element) => {
-            if (!element?.hasAttribute('data-link')) return;
-            
-            const data = element.dataset.link;
-            const pData = data?.split?.('##') as any[];
-
-            let queryParams: { 
-              type: string,
-              id: string,
-              childId?: string,
-            } = { type: '', id: '', childId: '' };
-
-            queryParams.type = pData[0];
-            queryParams.id = pData[1];
-
-            // check for child id
-            if (pData?.length === 3) {
-              queryParams.childId = pData[2];
-            }
-
-            app.alert.component = shallowRef(AppAlertPanel);
-            app.alert.options.props = {
-              title: '',
-              content: `Are you sure you want to leave this checklist?`,
-              labels: ['No', 'Yes'],
-              action: (index:number) => {
-                if (index === 0) return;
-
-                // need to close self panel before pushing
-                app.drawers.bottom.open = !app.drawers.bottom.open;
-                switch (queryParams?.type) {
-                  case 'CHECKLIST':
-                    router.push({ name: `Checklists`, query: queryParams });
-                    break;
-                  default:
-                }
-              }
-            }
-            app.alert.options.open = !app.alert.options.open;
+            console.log('sadsd', element)
+            onInternalLink(element);
           }"
         >
         </BaseButton>

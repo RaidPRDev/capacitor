@@ -113,7 +113,7 @@ export function parseAndReplaceCurlyBraceContent(htmlString: string): string {
   return htmlString.replace(regex, (match: string, p1: string): string => {
     // Split the content inside the curly braces by '##' and filter out any empty items
     const items: string[] = p1.split('##').filter(item => item);
-
+    
     // Check if we have at least 4 items to form a valid HTML button
     if (items.length === 4) {
       const [component, nameType, id, label] = items;

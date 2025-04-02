@@ -210,7 +210,6 @@ function trigger(e?:Event, from:string = "down") {
 }
 
 function handleInternalBodyLinks(e:Event) {
-  // console.log("handleInternalBodyLinks", e)
   e?.preventDefault();
   const target = e?.target as HTMLAnchorElement;
   emit("internalLink", target);

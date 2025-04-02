@@ -202,7 +202,7 @@
       },
       {
         "label": "Proning on ECMO",
-        "class": "disabled",
+        "class": "",
         "branchTo": "ELSOBA_CHKLST_230"
       },
       {
@@ -2342,6 +2342,163 @@
         "class": "disabled",
         "branchTo": ""
       } 
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_230",
+    "title": "Proning on ECMO",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Proning; ECMO",
+    "doc": "https://drive.google.com/file/d/11IlhV4RQGMBf_9cVe2ZYGfYZ_iYpLM4W/view?usp=drive_link",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "Patient",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Consider the risks and benefits of turning a patient on ECMO to the prone position.", "checked": false },
+          { 
+            "label": "Assess the patient for any relative or absolute contraindications to prone positioning.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "<p>Contraindications include:</p><ul><li>Pregnancy</li><li>Suspected raised intracranial pressure</li><li>Spinal instability</li><li>Recent sternotomy</li><li>Facial surgery</li><li>Severe haemodynamic instability</li><li>Open abdomen</li><li>Trauma with unstable fractures</li></ul>", "type": "comment" }
+            ]        
+          },
+          { "label": "Ensure that there is adequate sedation and full neuromuscular blockade.", "checked": false },
+          { "label": "Clear the range of motion of the cervical spine and shoulders to identify any necessary positional alternations and to avoid musculoskeletal or neurological injuries.", "checked": false },
+          { "label": "Apply protective dressings to pressure areas to prevent pressure injury.", "checked": false },
+          { "label": "Protect eyes with protective covers or eye pads.", "checked": false },
+          { "label": "Check that all tubes, lines, and drains are properly secured.", "checked": false }
+        ]
+      }, 
+      {
+        "label": "ECMO",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Perform a circuit check to ensure that all connections are tightened and cannulas are secured with sutures and securement straps and/or adhesive tapes.", "checked": false },
+          { "label": "If necessary, relocate the ECMO console and power and gas supply to facilitate the position change.", "checked": false }
+        ]
+      },
+      {
+        "label": "Equipment",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Ensure that continuous monitoring equipment (e.g., blood pressure, oxygen saturation, etc.) is set up and functioning.", "checked": false },
+          { "label": "Reposition the electrocardiogram (EKG) leads to the patient's back.", "checked": false },
+          { "label": "Position the circuit tubing, lines, and drains above the waist towards the head of the bed, and those below the waist towards the foot of the bed.", "checked": false },
+          { "label": "Ensure the availability of emergency equipment and a crash cart at the bedside.", "checked": false }
+        ]
+      },
+      {
+        "label": "Team",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Organize an adequate number of trained staff for the position change (at least <b>six</b> staff members).", "checked": false },
+          { "label": "Discuss and confirm the roles of each member.", "checked": false },
+          { "label": "Assign one staff member to take care of the ECMO console and tubing.", "checked": false },
+          { "label": "Assign another staff member to manage the airway, lines, and cannula in the neck region.", "checked": false },
+          { "label": "Establish the time frame for prone positioning and specific timing of the de-prone procedure.", "checked": false },
+          { "label": "Define clinical parameters for escalation of any concerns, including interruption of prone positioning and clinical indications of emergency de-proning.", "checked": false },
+          { "label": "<ul><li><b>These parameters should be agreed to by all team members prior to assessing and proning the patient</b> so that all staff changes have clear expectations.</li></ul>", "type": "comment" },
+          { "label": "Establish criteria to pause and reassess proning and the escalation pathway for possible adverse events and complications such as:", "checked": false },
+          { "label": "<ul><li>Hemodynamic instability and/or Desaturation</li><li>Lower ECMO flow</li><li>Accidental extubation, decannulation, or line displacement</li><li>Bleeding from ECMO cannula sites</li><li>Machine malfunction</li></ul>", "type": "comment" }
+        ]
+      },
+      {
+        "label": "Update Patients Family",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Provide an update to the patient’s family of the patient's condition and communicate the risks and benefits of prone positioning.", "checked": false }
+        ]
+      },
+      {
+        "label": "Turning an ECMO Patient (De-proning)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Complete this checklist if you are turning an ECMO patient from the supine position to a prone position.", "type": "comment" },
+          { 
+            "label": "Team members should always follow the team leader’s command.", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Closely monitor the ECMO blood flow and line pressures during a position change.", 
+                "checked": false
+              },
+              { 
+                "label": "Ensure patient safety during position change:", 
+                "checked": false, 
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { "label": "One staff member at the head end guides the procedure, and holds the artificial airway and the jugular ECMO cannula, if present.", "checked": false },
+                  { "label": "One staff member at the feet end holds the ECMO cannula and tubing while monitoring ECMO parameters.", "checked": false },
+                  { "label": "At least two staff members standing on each side of the bed to help turn the patient using the double-sheets technique.", "checked": false }
+                ]
+              },
+              { "label": "Avoid placing any tension on the ECMO tubing during turning.", "checked": false },
+              { "label": "Monitor the patient’s physiological parameters for changes and tolerance to the prone position.", "checked": false }              
+            ] 
+          }
+        ]
+      },
+      {
+        "label": "During Prone Positioning",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Complete this checklist if the ECMO patient is in a prone position.", "type": "comment" },
+          { "label": "Continuously monitor the patient’s vitals and response to prone therapy.", "checked": false },
+          { "label": "Closely monitor the ECMO blood flow and line pressures for any adjustments that may be necessary.", "checked": false },
+          { "label": "Free breasts, abdomen, and genitals from any pressure.", "checked": false },
+          { "label": "For obese patients, position the abdomen carefully to avoid an increase in intra-abdominal pressure and use a reverse Trendelenburg position, if possible.", "checked": false },
+          { "label": "Reposition the patient's head and upper limbs at regular intervals according to institutional policy.", "checked": false },
+          { "label": "Protect body areas with dedicated pillows or pressure relieving devices to prevent pressure injuries.", "checked": false }
+        ]
+      },
+      {
+        "label": "Turning a Patient Back to Supine Position",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Complete this checklist if you are turning an ECMO patient from the prone position to a supine position.", "type": "comment" },
+          { "label": "The procedure is a reversal of the prone positioning maneuver.", "checked": false },
+          { "label": "Use extreme caution to avoid accidental extubation, decannulation, and patient injuries.", "checked": false },
+          { "label": "Check the patients’ vitals to confirm stability. <b>Intervene immediately if vitals become unstable.</b>", "checked": false },
+          { "label": "Confirm that the cannula positions have remained unchanged.", "checked": false },
+          { "label": "Confirm that ECMO blood flow and line pressures are within target ranges.", "checked": false },
+          { "label": "Evaluate the patient’s response after turning them back to a supine position, and determine a plan for the next day if indicated.", "checked": false }         
+        ]
+      },
+      {
+        "label": "Suggested Readings",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "De Jong A, Wrigge H, Hedenstierna G, et al. <a href='#' data-link='https://link.springer.com/article/10.1007/s00134-020-06286-x' target='_blank'>How to ventilate obese patients in the ICU</a>. Intensive Care Med. 2020;46(12):2423-2435. doi:10.1007/s00134-020-06286-x", "type": "comment" },
+          { "label": "Bruni A, Garofalo E, Longhini F. <a href='#' data-link='https://www.sciencedirect.com/science/article/pii/S0964339721000537?via%3Dihub' target='_blank'>Avoiding complications during prone position ventilation</a>. Intensive Crit Care Nurs. 2021;66:103064. doi:10.1016/j.iccn.2021.103064", "type": "comment" },
+          { "label": "Physiotherapy and Mobilization. In: Extracorporeal Life Support - The ELSO Red Book 6th ed", "type": "comment" }         
+        ]
+      }
     ]
   },
   {
