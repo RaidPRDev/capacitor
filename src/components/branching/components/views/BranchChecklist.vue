@@ -93,6 +93,17 @@ const computedList = computed(() => {
       }
       counterCompletion.total = 0;
       counterCompletion.completed = 0;
+
+      // control if items are empty
+      if (!item.items) {
+        item.data = {
+          totalChecks: 0,
+          totalCompleted: 0,
+        }      
+
+        return item;
+      }
+
       counterCompletion= checklistItemCountCompleteCheck(item.items, counterCompletion, checklistData);
       
       item.data = {
@@ -116,6 +127,7 @@ const computedList = computed(() => {
   
   <BaseList class="gapx-16" listItemClass="blue-menu-item" :dataProvider="computedList">
     <template v-slot:listItemSlot="data">
+      
       <BaseButton 
         :data-completed="computedList?.[data.item.index].data.totalCompleted"
         :data-total="computedList?.[data.item.index].data.totalChecks"

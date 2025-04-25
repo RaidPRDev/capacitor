@@ -126,10 +126,17 @@ onMounted(() => {
   App.addListener("backButton", onDeviceBackButton);
 });
 
+const SHOW_DEBUG = import.meta.env.SHOW_DEBUG;
+if (SHOW_DEBUG) console.log("SHOW_DEBUG", import.meta.env.SHOW_DEBUG)
+
 </script>
 
 <template>
-  <div :id="`${APP_BODY_ID.toLowerCase()}`" class="relative" :style="appStyles">
+  <div :id="`${APP_BODY_ID.toLowerCase()}`" 
+    class="relative" 
+    :class="[{ ['debug-mode']: SHOW_DEBUG }]" 
+    :style="appStyles"
+  >
     <RedGradientSVG />
     
     <AppNavigator :drawerOpen="isDrawerOpen" @onTransitionEnter="onNavigationEnter" />

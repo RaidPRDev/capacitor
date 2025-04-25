@@ -127,7 +127,7 @@ function onLink(e:Event) {
 
           <p class="p-title">ELSO TRADEMARKS</p>
           <p>ELSO’s names and logos are trademarks and service marks owned and used by ELSO (the “ELSO Marks”). All other trademarks and service marks on the App are the property of their respective owners. You are not authorized to use the ELSO Marks without the prior written consent of ELSO. Requests for authorization should be made 
-            to <a class="a-link" href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
+            to <a class="a-link" href="mailto:support@elso.org?subject=Bedside Guide App&body=Add your message">support@elso.org</a>.</p>
 
           <p class="p-title">SUBMISSIONS PROVIDED TO ELSO</p>
           <p>By submitting, sending or otherwise making available information or other material on or though the App (“Submission”), you grant to ELSO the royalty-free, unrestricted, world-wide, perpetual, irrevocable right and license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, perform and display such Submission (in whole or part) worldwide and/or to incorporate it in other works in any form, media, or technology now known or later developed and warrant that you own or control the rights to the Submission and that you have all necessary rights to submit, send or otherwise make available the Submission and grant such right and license to ELSO. You also warrant that any “moral rights” you have in such Submission have been waived.</p>
@@ -164,7 +164,7 @@ function onLink(e:Event) {
           
           
           <p class="p-title">DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICES</p>
-          <p>If you believe that your work has been copied in a way that constitutes copyright infringement, please send written notification to ELSO: <a class="a-link" href="mailto:support@elso.org?subject=Elso Support&body=Add your message">support@elso.org</a>.</p>
+          <p>If you believe that your work has been copied in a way that constitutes copyright infringement, please send written notification to ELSO: <a class="a-link" href="mailto:support@elso.org?subject=Bedside Guide App&body=Add your message">support@elso.org</a>.</p>
           <ul>
               <li>You should only send notice of potential copyright infringement to ELSO’s Designated Agent. For all other inquiries (e.g., requests for technical assistance or customer service, reports of email abuse, and piracy reports), please contact us through ELSO’s contact page.</li>
               <li>

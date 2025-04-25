@@ -7,7 +7,29 @@
 @import './content';
 @import './icons';
 
+// import.meta.env.SHOW_DEBUG = true //
+@import './debug';
+
 :root {
   @include getFontSize('medium');
   color: $primary-color;
+}
+
+.bold {
+  .bold-first {
+    margin: 0 0.2rem 0 0;
+  }
+  b {
+    margin: 0 0.2rem;
+  }
+}
+
+.math-sub {
+  font-size: 10px;
+  transform: translateY(-0.4em);
+  display: inline-block;
+
+  &.pad {
+    transform: translate(-0.2em, -0.3em);
+  }
 }

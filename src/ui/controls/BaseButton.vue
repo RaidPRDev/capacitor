@@ -9,6 +9,7 @@ export default {
 import { nextTick, onMounted, onUnmounted, ref, shallowReactive, useAttrs, useSlots, watch } from 'vue';
 import type { IBaseButtonProps } from '@/ui/types';
 import { findParentByClassName } from '@/utils/HTMLTools';
+import { isImagePath } from '@/utils/StringTools';
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseButtonProps>(), {
@@ -215,6 +216,10 @@ function handleInternalBodyLinks(e:Event) {
   emit("internalLink", target);
 }
 
+// function isImageUrl(icon: string) {
+
+// }
+
 onMounted(() => {
   if (props?.hasInternalLinks) bodyRef?.value?.addEventListener("click", handleInternalBodyLinks);
   // document?.body?.addEventListener("mousemove", onMove);
@@ -267,7 +272,8 @@ onUnmounted(()=> {
     <span class="ui-icon flex relative pointer-none" :class="props?.iconClassName" v-if="_iconState.icon || slots.iconSlot">
       <slot name="iconSlot">
         <component ref="iconElement" v-if="typeof(_iconState.icon) === 'object'" :is="_iconState.icon" xmlns="yes" v-bind="props?.iconProps"></component>
-        <img ref="iconElement" v-else-if="typeof(_iconState.icon) === 'string'" v-bind:src="_iconState.icon" /> 
+        <img ref="iconElement" v-else-if="typeof(_iconState.icon) === 'string' && isImagePath(_iconState.icon)" v-bind:src="_iconState.icon" /> 
+        <span ref="iconElement" v-else-if="typeof(_iconState.icon) === 'string' && !isImagePath(_iconState.icon)" v-html="_iconState.icon"></span>
       </slot>
     </span>
     

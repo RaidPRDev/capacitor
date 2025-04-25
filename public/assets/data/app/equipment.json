@@ -110,7 +110,7 @@
   {
     "id": "ELSOBA_EQUIP_030",
     "title": "Pumps",
-    "content": "",
+    "content": "<b>Note:</b> The equipment listed below is an incomplete list based on information provided to ELSO by the respective device manufacturer. Not all ECMO devices are listed; please consult your local market for available devices.",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,

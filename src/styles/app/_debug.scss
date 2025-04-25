@@ -1,0 +1,26 @@
+// import.meta.env.SHOW_DEBUG = true //
+.debug-layer {
+  display: none;
+  position: absolute;
+  bottom: 4px;
+  right: 20px;
+  user-select: none;
+  pointer-events: none; 
+  user-select: none; 
+
+  > span {
+    @extend .debug-label;
+  }
+
+  html #__app_body__.debug-mode & {
+    display: flex;
+  }
+}
+
+.debug-label {
+  font-size: 9px;
+  color: rgba(247, 247, 247, 0.5);
+  font-weight: 400;
+  pointer-events: none; 
+  user-select: none; 
+}

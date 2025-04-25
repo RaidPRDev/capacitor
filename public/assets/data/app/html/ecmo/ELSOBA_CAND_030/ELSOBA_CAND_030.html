@@ -5,21 +5,43 @@
       <ul>
         <li>Failure to wean from cardiopulmonary bypass post cardiac surgery</li>
         <li>Refractory cardiogenic shock with inadequate tissue oxygen delivery (SCAI stage C-E)</li>
-        <li>Confirmed primary cardiogenic shock</li>
+        <li>Confirmed cardiogenic shock</li>
+        <li>Monitor patient for signs of life, e.g., respiratory activity, neurologic activity, eye movement.</li>
       </ul>
     </div>
   </div>  
 
-  <div class="mxt-32 flex gapx-10">
+  <div class="mxb-16 flex gapx-10">
+    <div class="">Does the patient meet the criteria for cardiac failure?
+    </div>
+  </div>
+
+  <div class="mxl-0 mxb-16 flex gapx-10 width-100">
     <BaseButton 
       data-props='{
-        "data-id": "ELSOBA_CAND_030__1", 
-        "data-type": "branchTo", 
+        "data-id": "ELSOBA_CAND_030__2", 
+        "data-type": "ecmo", 
         "data-no-referral": true, 
-        "label": "Continue to next step", 
-        "class": "variant-blue width-100 mxtb-10", 
+        "label": "Yes", 
+        "iconClassName": "debug-layer", 
+        "icon": "STEP 2: ELSOBA_CAND_030__2", 
+        "class": "variant-blue width-100",
         "wrapperClass": "width-100"
       }'>
     </BaseButton>
-  </div> 
+  </div>
+  <div class="mxl-0 mxb-32 flex gapx-10 width-100">
+    <BaseButton 
+      data-props='{
+        "data-id": "ELSOBA_CAND_030__3", 
+        "data-type": "ecmo", 
+        "data-no-referral": true, 
+        "label": "No", 
+        "iconClassName": "debug-layer", 
+        "icon": "STEP 3: ELSOBA_CAND_030__3", 
+        "class": "variant-blue width-100",
+        "wrapperClass": "width-100"
+      }'>
+    </BaseButton>
+  </div>
 </div>

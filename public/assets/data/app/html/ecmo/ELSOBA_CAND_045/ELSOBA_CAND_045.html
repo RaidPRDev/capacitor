@@ -1,42 +1,88 @@
 <div class="data-content">
   <div class="mxb-16 flex gapx-10">
-    <div class=""><b>Respiratory ECMO</b>
-    </div>
-  </div>
-  <div class="mxb-24 flex gapx-10">
-    <div class=""><b>The patient presents with Acute Respiratory Distress Syndrome (ADRS)</b>
+    <div class="text-content"><b>Respiratory ECMO</b>
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
-    <div class="">Begin treatment for the underlying cause of ARDS including the standard lung-protective 
-      ventilation strategy and diuresis or resuscitation as appropriate. 
+    <div class=""><b>You suspect that the patient has Acute Respiratory Distress Syndrome (ADRS).</b>
     </div>
   </div>
-  <div class="mxb-16 flex gapx-10">
-    <div class=""><b class="mxr-6">Note:</b> Respiratory ECMO can be indicated in several specific clinical conditions, 
-      but this section will only address ARDS.
+
+  <div class="table-title"><b>Criteria for ARDS</b></div>
+  <div class="table-subtitle">Berlin Definition of ARDS</div>
+  <div class="table-body">
+    <div class="table-wrapper">
+      <div id="tableBody" class="tableBody" onscroll="{ document.getElementById('tableHeaders').scrollLeft = this.scrollLeft;}">
+        <table>
+          <thead style="line-height:0px; opacity:0">
+            <tr>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="head-bold">Timing</td>
+              <td>Within one week of a known clinical insult or new or worsening respiratory symptoms.</td>
+            </tr>
+            <tr>
+              <td class="head-bold">Chest Imaging<sup>1</sup></td>
+              <td>Bilateral opacities — not fully explained by effusions, lobular/lung collapse, or nodules.</td>
+            </tr>
+            <tr>
+              <td class="head-bold">Origin of edema</td>
+              <td>
+                Respiratory failure is not fully explained by cardiac failure or fluid overload. 
+                <p>Need objective assessment (e.g., echocardiography) to exclude hydrostatic edema if no risk factors are present.</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="head-bold">Oxygenation<sup>2</sup></td>
+              <td>
+                <p><b>Mild:</b> 200 mmHg < PaO2:FiO2 < 300 mmHg with PEEP or CPAP > 5 cm H2O3</p>
+                <p><b>Moderate:</b> 100 mmHg < PaO2:FiO2 < 200 mmHg with PEEP > 5 cm H2O</p>
+                <p><b>Severe:</b> PaO2:FiO2 < 100 mmHg with PEEP > 5 cm H2O</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
-  <div class="mxb-16 flex gapx-10">
-    <div class="">Specific clinical conditions include:
-      <ul>
-        <li>Acute respiratory distress syndrome (ARDS) (e.g., viral/bacterial pneumonia and aspiration)</li>
-        <li>Diffuse alveolar hemorrhage or pulmonary hemorrhage</li>
-        <li>Severe asthma</li>
-        <li>Thoracic trauma (e.g., traumatic lung injury and severe pulmonary contusion)</li>
-        <li>Severe inhalational injury</li>
-        <li>Large bronchopleural fistula</li>
-        <li>Peri-lung transplant (e.g., primary lung graft dysfunction and bridge to transplant)</li>
-      </ul>
+  <div class="footnote">
+    <div class="mxb-6"><sup>1</sup> Chest radiograph or computed tomography scan.</div>
+    <div class="mxb-6"><sup>2</sup> If altitude is higher than 1000 m, the correct ion factor should be calculated as follows: [PaO2:FiO2 x (barometric pressure/ 760)].</div>
+    <div class="mxb-6"><sup>3</sup> This may be delivered noninvasively in the mild acute respiratory distress syndrome group.</div>
+  </div>
+
+  <div class="mxt-32 mxb-16 flex gapx-10">
+    <div class="">Does the patient meet the criteria for ARDS?
     </div>
   </div>
-  <div class="mxt-32 flex gapx-10">
+  <div class="mxt-16 flex gapx-10">
     <BaseButton 
       data-props='{
-        "data-id": "ELSOBA_CAND_045__2", 
+        "data-id": "ELSOBA_CAND_045__1", 
         "data-type": "branchTo", 
         "data-no-referral": true, 
-        "label": "Continue to next step", 
+        "label": "Yes", 
+        "iconClassName": "debug-layer", 
+        "icon": "STEP 1: ELSOBA_CAND_045__1", 
+        "class": "variant-blue width-100 mxtb-10", 
+        "wrapperClass": "width-100"
+      }'>
+    </BaseButton>
+  </div>
+  <div class="mxt-16 flex gapx-10">
+    <BaseButton 
+      data-props='{
+        "data-id": "ELSOBA_CAND_045__6", 
+        "data-type": "branchTo", 
+        "data-no-referral": true, 
+        "label": "No", 
+        "iconClassName": "debug-layer", 
+        "icon": "STEP 6: ELSOBA_CAND_045__6", 
         "class": "variant-blue width-100 mxtb-10", 
         "wrapperClass": "width-100"
       }'>

@@ -155,12 +155,12 @@ function onViewBeforeEnter(params: BranchViewParamData) {
       }
     }
 
-    ul {
-      padding-left: 20px;
-      li {
-        margin-bottom: 10px;
-      }
-    }
+    // ul {
+    //   padding-left: 20px;
+    //   li {
+    //     margin-bottom: 10px;
+    //   }
+    // }
   }
 }
 

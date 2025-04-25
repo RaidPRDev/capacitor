@@ -104,7 +104,7 @@ function onMenuTriggered(selected: number) {
       // drawerComponents.bottom = SendFeedbackPanel;
       // app.drawers.bottom.closeOutside = false;
       // app.drawers.bottom.open = !app.drawers.bottom.open;
-      window.open("mailto:support@elso.org?subject=Elso Support&body=Add your message")
+      window.open("mailto:support@elso.org?subject=Bedside Guide App&body=Add your message")
     break;
   }
 }

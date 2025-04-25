@@ -67,7 +67,7 @@
         "class": ""
       },     
       {
-        "label": "Children with Cardiac Failure",
+        "label": "Neonatal and Pediatric Critical Congenital Heart Disease and Heart Failure",
         "branchTo": "ELSOBA_CAND_060",
         "class": ""
       },    
@@ -77,12 +77,12 @@
         "class": ""
       },  
       {
-        "label": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
+        "label": "Neonates with Acute Respiratory, non-CDH or Cyanotic CHD",
         "branchTo": "ELSOBA_CAND_080",
         "class": ""
       },
       {
-        "label": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
+        "label": "Neonates with Congenital Diaphragmatic Hernia (CDH)",
         "branchTo": "ELSOBA_CAND_090",
         "class": ""
       }    
@@ -92,34 +92,12 @@
     "id": "ELSOBA_CAND_030",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient presents with shock.",
+    "title": "Consideration for Cardiac Failure",
     "content": "ecmo/ELSOBA_CAND_030/ELSOBA_CAND_030.html",
     "layout": "html",
     "branchTo": "",
-    "__branchTo": "ELSOBA_CAND_030__1",
+    "__branchTo": "",
     "items": []
-  },
-  {
-    "id": "ELSOBA_CAND_030__1",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Does the patient meet the criteria for cardiac failure?",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "branchTo": "",
-    "items": [
-      {
-        "label": "Yes",
-        "branchTo": "ELSOBA_CAND_030__2",
-        "class": ""
-      },     
-      {
-        "label": "No",
-        "branchTo": "ELSOBA_CAND_030__3",
-        "class": ""
-      }    
-    ]
   },
   {
     "id": "ELSOBA_CAND_030__2",
@@ -209,7 +187,7 @@
     "id": "ELSOBA_CAND_040__3",
     "showTitle": true,
     "useScroll": true,
-    "title": "Cardiac arrest not witnessed",
+    "title": "ECPR Generally Not Advised",
     "content": "ecmo/ELSOBA_CAND_040/ELSOBA_CAND_040__3.html",
     "layout": "html",
     "branchTo": "",
@@ -265,14 +243,24 @@
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045.html",
     "layout": "html",
     "branchTo": "",
-    "__branchTo": "ELSOBA_CAND_045__2",
+    "__branchTo": "ELSOBA_CAND_045__1",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CAND_045__1",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "The patient meets the criteria fo (RDS)",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__1.html",
+    "layout": "html",
+    "branchTo": "",
     "items": []
   },
   {
     "id": "ELSOBA_CAND_045__2",
     "showTitle": true,
     "useScroll": true,
-    "title": "Cardiac arrest witnessed",
+    "title": "Assessment of PaO2 and FiO2",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__2.html",
     "layout": "html",
     "branchTo": "",
@@ -282,7 +270,7 @@
     "id": "ELSOBA_CAND_045__3",
     "showTitle": true,
     "useScroll": true,
-    "title": "The PaO<sub>2</sub> or FiO<sub>2</sub> is less than (<) 150 mmHg",
+    "title": "PaO2:FiO2 is less than (<) 150 mmHg",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__3.html",
     "layout": "html",
     "branchTo": "",
@@ -292,18 +280,8 @@
     "id": "ELSOBA_CAND_045__4",
     "showTitle": true,
     "useScroll": true,
-    "title": "The PaO<sub>2</sub> or FiO<sub>2</sub> is greater than or equal to (≥) 150 mmHg",
+    "title": "PaO2:FiO2 is greater than or equal to (≥) 150 mmHg",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__4.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CAND_045__5",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Determine cause of respiratory failure",
-    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__5.html",
     "layout": "html",
     "branchTo": "",
     "items": []
@@ -329,31 +307,11 @@
     "items": []
   },
   {
-    "id": "ELSOBA_CAND_045__8",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Cause and symptoms of respiratory failure NOT confirmed",
-    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__8.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
     "id": "ELSOBA_CAND_045__9",
     "showTitle": true,
     "useScroll": true,
     "title": "Assess value for ECMO therapy",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__9.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CAND_045__10",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Does the patient or family give their consent?",
-    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__10.html",
     "layout": "html",
     "branchTo": "",
     "items": []
@@ -372,7 +330,7 @@
     "id": "ELSOBA_CAND_045__12",
     "showTitle": true,
     "useScroll": true,
-    "title": "Proceed with respiratory ECMO",
+    "title": "Recommend with respiratory ECMO",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__12.html",
     "layout": "html",
     "branchTo": "",
@@ -418,7 +376,7 @@
     "id": "ELSOBA_CAND_050__4",
     "showTitle": true,
     "useScroll": true,
-    "title": "Patient does not meet the criteria",
+    "title": "EC",
     "content": "ecmo/ELSOBA_CAND_050/ELSOBA_CAND_050__4.html",
     "layout": "html",
     "branchTo": "",
@@ -776,7 +734,7 @@
     "id": "ELSOBA_CAND_100",
     "showTitle": true,
     "useScroll": true,
-    "title": "Respiratory ECMO",
+    "title": "Patient Referral to an ECLS Center",
     "content": "ecmo/ELSOBA_CAND_100/ELSOBA_CAND_100.html",
     "layout": "html",
     "branchTo": "",

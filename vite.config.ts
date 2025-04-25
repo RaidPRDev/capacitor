@@ -23,6 +23,7 @@ export default defineConfig(async ({command, mode}) => {
   const ISIOS = !!/ios/.exec(PLATFORM);
   const ISANDROID = !!/android/.exec(PLATFORM);
   const CLARITY_ID = process?.env?.CLARITY_ID ?? "oztc10g5eg";
+  const SHOW_DEBUG = true;
   
   console.log("[PLATFORM]", PLATFORM);
   console.log("[APPLICATION_ID]", APPLICATION_ID);
@@ -34,6 +35,7 @@ export default defineConfig(async ({command, mode}) => {
   console.log("[ISIOS]", ISIOS);
   console.log("[ISANDROID]", ISANDROID);
   console.log("[CLARITY_ID]", CLARITY_ID);
+  console.log("[SHOW_DEBUG]", SHOW_DEBUG);
 
   return ({
     define: {
@@ -51,6 +53,7 @@ export default defineConfig(async ({command, mode}) => {
       'import.meta.env.API_CLIENT_ID': JSON.stringify("iWtB7UWURISuhWODYJ6eljsHsQeHJPUW"),
       'import.meta.env.API_TOKEN': JSON.stringify("https://bedsideguideapp.elso.org/api/jwt"),
       'import.meta.env.API_REGISTER': JSON.stringify("https://bedsideguideapp.elso.org/api/BedsideGuide/register"),
+      'import.meta.env.SHOW_DEBUG': JSON.stringify(SHOW_DEBUG),
     },
 
     plugins: [customHmr(), vue(), svgLoader()],

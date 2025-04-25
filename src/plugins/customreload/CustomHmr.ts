@@ -2,6 +2,8 @@ import { PluginOption } from "vite";
 import fsSync from "fs";
 import fs from "fs/promises";
 import { BranchViewData, ISearchData } from "@/types";
+import { parseLabelToListFormat } from "../../utils/StringTools";
+import { convertMathSymbols } from "../../utils/ElsoMath";
 
 const SOURCE_CONSTANTS_FILE = "./constants.ts";
 const TARGET_CONSTANTS_FILE = "./src/_core/Constants.ts";
@@ -79,23 +81,16 @@ export async function startJSONCompiler() {
     fsSync.mkdirSync(COMPILED_DATA_PATH);
   }
 
-  if (false) {
-    for (let i = 0; i < DATA.length; i++) {
-      await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
-    }
+  // generate compiled data
+  for (let i = 0; i < DATA.length; i++) {
+    await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
+    await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
   }
-  else {
-    // TODO FIX 
-    for (let i = 0; i < DATA.length; i++) {
-      await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
-      await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
-    }
 
-    // // write search json
-    console.log("SEARCH_JSON_DATA_FILE", SEARCH_JSON_DATA_FILE)
-    console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
-    await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 2), 'utf8');
-  }
+  // write search json
+  console.log("SEARCH_JSON_DATA_FILE", SEARCH_JSON_DATA_FILE)
+  console.log(`Writing [${SEARCH_JSON_DATA_FILE}] data to ${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE} \n`);
+  await fs.writeFile(`${COMPILED_DATA_PATH}/${SEARCH_JSON_DATA_FILE}`, JSON.stringify(searchData, null, 0), 'utf8');
   
   console.log(`Writing completed \n`);
 
@@ -142,7 +137,25 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
           if (checkIfCheckBox) count++;
         }
 
+        if (item.label) item.label = convertMathSymbols(item.label);
+
       break;
+      case "panic": 
+        if (item.label) item.label = parseLabelToListFormat(item.label);
+        // if (item.label && item.class && item.class.indexOf("list-format") > -1) {
+        //   item.label = parseLabelToListFormat(item.label);
+        // }
+      break;
+      case "ecmo": 
+        if (item.title) item.title = convertMathSymbols(item.title);
+        if (item.label) item.label = parseLabelToListFormat(item.label);
+      break;
+      case "calculators": 
+        if (item.title) item.title = convertMathSymbols(item.title);
+        if (item.content) item.content = convertMathSymbols(item.content);
+        if (item.label) item.label = convertMathSymbols(item.label);
+      break;
+
       default: 
     }
   });

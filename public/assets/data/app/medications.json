@@ -13,8 +13,8 @@
     "items": [
       {
         "label": "Anticoagulants",
-        "branchTo": "ELSOBA_MED_CAT1",
-        "class": "disabled"
+        "branchTo": "ELSOBA_MED_010",
+        "class": ""
       },
       {
         "label": "Antifungals",
@@ -97,6 +97,110 @@
       }      
     ]
   },
+  {
+    "id": "ELSOBA_MED_010",
+    "title": "Anticoagulants",
+    "content": "",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Argatroban",
+        "content": "Argatroban",
+        "branchTo": "ELSOBA_MED_010__1"
+      },
+      {
+        "label": "Bivalirudin",
+        "content": "Bivalirudin",
+        "branchTo": "ELSOBA_MED_010__2"
+      },
+      {
+        "label": "Unfractionated Heparin",
+        "content": "Lorazepam",
+        "branchTo": "ELSOBA_MED_010__3"
+      },
+      {
+        "label": "Comparison of Anticoagulants Table",
+        "content": "Comparison of Anticoagulants Table",
+        "branchTo": "ELSOBA_MED_010__TABLE__4"
+      },
+      {
+        "label": "Discrepancy between aPTT and AntiXa with UFH Table",
+        "content": "Discrepancy between aPTT and AntiXa with UFH Table",
+        "branchTo": "ELSOBA_MED_010__TABLE__5"
+      },
+      {
+        "label": "Monitoring Difficulty DTI Table",
+        "content": "Monitoring Difficulty DTI Table",
+        "class": "disabled",
+        "branchTo": "ELSOBA_MED_010__TABLE__6"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_010__1",
+    "title": "Argatroban",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__2",
+    "title": "Bivalirudin",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__3",
+    "title": "Unfractionated Heparin",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__4",
+    "title": "Comparison of Anticoagulants Table",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__5",
+    "title": "Discrepancy between aPTT and AntiXa with UFH Tabl",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__6",
+    "title": "Monitoring Difficulty DTI Table",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+
+
   {
     "id": "ELSOBA_MED_110",
     "title": "Opioids",

@@ -101,6 +101,7 @@ async function searchItems(term:string) {
   timeoutSearch.value = setTimeout(() => {
     let filteredSearchData:Record<string, ISearchFlatDataItem> = {}
     for (let key in __internalSearchDataV2) {
+      if (!__internalSearchDataV2[key].data.hasOwnProperty("keywords")) continue;
       if (__internalSearchDataV2[key].data.keywords.indexOf(term?.toLowerCase()) > -1) {
         filteredSearchData[key] = __internalSearchDataV2[key];
       }

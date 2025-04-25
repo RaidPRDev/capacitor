@@ -233,6 +233,8 @@ function onInternalLink(element: HTMLElement) {
         <BaseButton 
           :class="[`list-button-item width-100`, data.item.class, {
             ['comment']: data.item.type === 'comment',
+            ['list-heading']: data.item.type === 'list-heading',
+            ['list-comment']: data.item.type === 'list-comment',
             ['no-checkbox']: !dataList?.[data.item.index].hasOwnProperty(`checked`),
           }]" 
           :hasInternalLinks="true"
@@ -389,7 +391,7 @@ function onInternalLink(element: HTMLElement) {
         padding-left: 3rem;
       }
 
-      &.no-checkbox, &.comment {
+      &.no-checkbox, &.comment, &.list-comment {
         pointer-events: none;
 
         a {
@@ -398,6 +400,32 @@ function onInternalLink(element: HTMLElement) {
 
         .ui-icon {
           display: none;
+        }
+      }
+
+      &.list-heading {
+        border-bottom: 1px solid transparent;
+      }
+
+      &.list-comment {
+        padding-left: 1.75rem;
+        border-bottom: 1px solid transparent;
+        
+        .inner-base-button {
+          padding: 0;
+          .ui-body > .ui-label > ul {
+            margin: 0.1rem 0 0.9rem;
+          }
+        }
+
+        &.sub-level-4 {
+          .inner-base-button {
+            .ui-body > .ui-label > ul {
+              margin: 0.1rem 0 0.5rem;
+              padding: 0 0px 0 3.3rem;
+              list-style-type: circle;
+            }
+          }
         }
       }
 

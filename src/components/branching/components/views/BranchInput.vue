@@ -25,7 +25,7 @@ import {
   ConvertFarenheitToCelcius,
   ConvertFrenchGaugeToMillimeters,
   ConvertMillimetersToKilopascals,
-  ConvertMillimetersToLiters,
+  ConvertMillilitersToLiters,
   CalculateBloodFlowByWeight,
   CalculateOxygenTransfer,
   CalculateOxygenDelivery,
@@ -36,7 +36,8 @@ import {
   Calculate_1_4_Tubing,
   Calculate_3_8_Tubing,
   Calculate_1_2_Tubing,
-  enforceRange
+  enforceRange,
+  convertMathSymbols
   
 } from '@/utils/ElsoMath';
 import { copyToClipboard } from '@/utils/StringTools';
@@ -58,7 +59,7 @@ const calculationFunctions:Record<string, Function> = {
   ConvertFarenheitToCelcius,
   ConvertFrenchGaugeToMillimeters,
   ConvertMillimetersToKilopascals,
-  ConvertMillimetersToLiters,
+  ConvertMillilitersToLiters,
   CalculateBloodFlowByWeight,
   CalculateOxygenTransfer,
   CalculateOxygenDelivery,
@@ -334,8 +335,14 @@ onMounted(async () => {
     </div>
   </transition >
   
+  <transition name="nested" appear v-if="props?.view?.resultDescription">
+    <div class="description-item flex flex-column align-start mxtb-16 px-12 outer">
+      <div class="description-label mxb-6 inner" v-html="`${convertMathSymbols(props?.view?.resultDescription) ?? ''}`"></div>
+    </div>
+  </transition >
+
   <transition name="nested" appear>
-    <div class="result-item flex flex-column align-start mxt-30 outer">
+    <div class="result-item flex flex-column align-start mxt-20 outer">
       <div class="result-label mxb-6 inner" v-html="`RESULT ${props?.view?.resultLabel ?? ''}`"></div>
       <div id="result-label" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result }}
@@ -384,6 +391,17 @@ onMounted(async () => {
     }
     
   }
+}
+
+.description-item {
+  background-color: #e7e7e7;
+  border-radius: 0.428em;
+}
+
+.description-label {
+  font-weight: 400;
+  font-size: 15px;
+  user-select:all;
 }
 
 .result-label {

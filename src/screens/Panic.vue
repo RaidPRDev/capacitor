@@ -130,17 +130,17 @@ function onViewBeforeEnter(params: BranchViewParamData) {
     transition: all 450ms ease-in;
 
     // non title class elements
-    h2:not(.title) {
+    > h2:not(.title) {
       @extend .helvetica-nueue;
       font-size: 22px;
     }
 
-    .title {
+    > .title {
       @extend .helvetica-nueue;
       font-size: 22px;
     }
 
-    .text-content {
+    > .text-content {
       // SubHeading Body Text
       @extend .helvetica-nueue;
       color: $sixth-color;

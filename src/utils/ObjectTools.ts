@@ -1,3 +1,5 @@
+import { removeDuplicateWords } from "./StringTools";
+
 export function isObjectEmpty(obj:any) {
   return Object.keys(obj).length === 0 && obj.constructor === Object;
 }
@@ -9,6 +11,14 @@ export function flattenChecklist(items: any, level: number = 1, checklistData:an
     
     // Copy the item and add the class based on the current level
     const flattenedItem = { ...item, class: `sub-level-${level}` };
+
+    if (item.class) {
+      console.warn("BEFORE", flattenedItem.class)
+      flattenedItem.class = `${flattenedItem.class} ${item.class}`;
+      console.warn("AFTER", flattenedItem.class)
+      console.warn("AFTER", item.class)
+    }
+    
 
     if (checklistData) {
       if (checklistData.value?.hasOwnProperty(item.id!)) {
@@ -24,7 +34,7 @@ export function flattenChecklist(items: any, level: number = 1, checklistData:an
     if (item.type === 'subchecklist' && item.items && item.items.length > 0) {
       flattenedItem.isRootParent = true;
     }
-    
+
     result.push(flattenedItem);
 
     // If the item has a 'subchecklist' type and contains nested items, process them
@@ -60,16 +70,8 @@ export function checklistItemCountCompleteCheck(items: any, counter: ChecklistCo
 
 export function iterateArray(arr:Array<any> = [], parent: Record<string, any> | null = null, callback?:Function) {
   arr.forEach((item, index) => {
-      // console.log(`ID: ${item.id}, Type: ${item.type}, Label: ${item.label}`);
-      // console.log("parent?.type", parent?.type)
-      // console.log("**item?.type", item?.type)
-      // console.log("****item?.label", item?.label)
 
       if (item?.type === "sublevel2checklist") {
-        console.error("FUCK")
-        console.error("FUCK", Array.isArray(item.items))
-        console.error("FUCK", item.items.length);
-
         if (Array.isArray(item.items) && item.items.length > 0) {
           // Pass the current item as the parent
           iterateArray(item.items, item, callback);
@@ -77,15 +79,8 @@ export function iterateArray(arr:Array<any> = [], parent: Record<string, any> | 
         }
       }
 
-      
-      if (item?.type === "sublevel2checklist") {
-        console.error("FUCK2222")
-        console.error("FUCK2222", Array.isArray(item.items))
-        console.error("FUCK222", item.items.length)
-      }
-
       if (callback) {
-       //console.error("CALLBACK")
+        //console.error("CALLBACK")
         callback(item, index, parent);
       }
       
@@ -94,9 +89,6 @@ export function iterateArray(arr:Array<any> = [], parent: Record<string, any> | 
         iterateArray(item.items, item, callback);
         return;
       }
-
-      
-
   });
 }
 

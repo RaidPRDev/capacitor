@@ -15,7 +15,7 @@ import { sortItemsByClassDisabled } from '@/utils/ObjectTools';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false,
-  showDebug: false
+  showDebug: true
 });
 
 const emit = defineEmits<{
@@ -72,8 +72,8 @@ const computedList = computed(() => {
         </template>
 
         <template v-slot:optionalSlot v-if="showDebug">
-          <div class="debug-layer">
-            <div class="debug-label">{{item.id}}</div>
+          <div class="debug-layer" :data-id="JSON.stringify(item)">
+            <div class="debug-label">{{item.branchTo}}</div>
           </div>
         </template>
       </BaseButton>
@@ -89,19 +89,7 @@ const computedList = computed(() => {
 .text-content {
   font-size: 16px;
 }
-.debug-layer {
-  display: flex;
-  position: absolute;
-  bottom: 4px;
-  left: 20px;
-  user-select: none;
-  pointer-events: none;  
-}
-.debug-label {
-  font-size: 9px;
-  color: rgb(247, 247, 247);
-  font-weight: 400;
-}
+
 .item {
   :deep(.base-button) {
     box-shadow: 2px 10px 40px -13px #0B247ACC;

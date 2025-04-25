@@ -105,6 +105,70 @@ function removePreviewEvents() {
   previewItems.value = [];
 }
 
+/**
+ * Table Mouse Drag/Scroll Support
+ * 
+ */
+
+const tableItems = ref<HTMLElement[]>([]);
+const tableHeader = ref<HTMLTableElement>();
+const tableBody = ref<HTMLTableElement>();
+
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let scrollLeft = 0;
+let scrollTop = 0;
+
+function onTableMouseDown(e: MouseEvent) {
+  if (!tableHeader.value || !tableBody.value) return;
+
+  isDragging = true;
+  startX = e.pageX;
+  startY = e.pageY;
+  scrollLeft = tableBody.value.scrollLeft;
+  scrollTop = tableBody.value.scrollTop;
+  document.addEventListener("mousemove", onTableMouseMove);
+  document.addEventListener("mouseup", onTableMouseUp);
+}
+
+function onTableMouseMove(e: MouseEvent) {
+  if (!isDragging) return;
+  if (!tableHeader.value || !tableBody.value) return;
+
+  const dx = e.pageX - startX;
+  const dy = e.pageY - startY;
+  tableBody.value.scrollLeft = scrollLeft - dx;
+  tableBody.value.scrollTop = scrollTop - dy;
+  tableHeader.value.scrollLeft = tableBody.value.scrollLeft; // Horizontal sync
+}
+
+function onTableMouseUp() {
+  isDragging = false;
+  document.removeEventListener("mousemove", onTableMouseMove);
+  document.removeEventListener("mouseup", onTableMouseUp);
+}
+
+function addTableEvents() {
+  tableItems.value?.forEach((item) => {
+    tableHeader.value = item.querySelector("#tableHeaders") as HTMLTableElement;
+    tableBody.value = item.querySelector("#tableBody") as HTMLTableElement;
+    tableBody.value.addEventListener("mousedown", onTableMouseDown);
+  });
+}
+
+function removeTableEvents() {
+  tableItems.value?.forEach(() => {
+    if (!tableHeader.value || !tableBody.value) return;
+    
+    document.addEventListener("mousemove", onTableMouseDown);
+    document.addEventListener("mouseup", onTableMouseUp);
+    tableBody.value.addEventListener("mousedown", onTableMouseDown);
+  });
+
+  tableItems.value = [];
+}
+
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
   htmlContent.value = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
@@ -121,6 +185,15 @@ onMounted(async () => {
       const previewItemsElRaw = content.value.querySelectorAll(`[data-preview]`);
       previewItems.value = [].slice.apply(previewItemsElRaw) as HTMLElement[];
       addPreviewEvents();
+
+      // enables table mouse scroll. 
+      // only add for non touch devices
+      const isTouch = document.querySelector("html")?.classList.contains("touch");
+      if (!isTouch) {
+        const tablesElRaw = content.value.querySelectorAll(`.table-body`);
+        tableItems.value = [].slice.apply(tablesElRaw) as HTMLElement[];
+        addTableEvents();
+      }
     }
   });  
 })
@@ -129,6 +202,7 @@ onUnmounted(() => {
   observer.disconnect();
 
   removePreviewEvents();
+  removeTableEvents();
 })
 
 </script>

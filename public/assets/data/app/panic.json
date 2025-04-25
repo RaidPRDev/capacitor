@@ -819,17 +819,17 @@
       {
         "label": "A. Indications of asystole, ventricular fibrillation (VF), or ventricular tachycardia (VT) on the electrocardiogram (ECG)",
         "branchTo": "",
-        "class": "no-action"
+        "class": "no-action list-format"
       },     
       {
         "label": "B. A loss of central pulses and/or a flat pressure line in veno-venous (VV) or veno-pulmonary artery (VP) ECMO",
         "branchTo": "",
-        "class": "no-action"
+        "class": "no-action list-format"
       },   
       {
         "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (VVA) ECMO",
         "branchTo": "",
-        "class": "no-action"
+        "class": "no-action list-format"
       },
       {
         "label": "<b>Has a Do Not Resuscitate (DNR) order been signed?</b>",

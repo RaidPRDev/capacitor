@@ -88,6 +88,7 @@
     "useScroll": true,
     "showFavorites": true,
     "resultLabel": "(m²)",
+    "resultDescription": "BSA is calculated using the Mosteller formula (m^2 = sqrt((height (cm * weight (kg))/3600).",
     "items": [
       {
         "id": "height",
@@ -146,7 +147,7 @@
         "branchTo": "ELSOBA_CALC_020__03"
       },
       {
-        "label": "Convert Farenheit to Celcius",
+        "label": "Convert Fahrenheit to Celsius",
         "branchTo": "ELSOBA_CALC_020__04"
       },
       {
@@ -154,7 +155,7 @@
         "branchTo": "ELSOBA_CALC_020__05"
       },
       {
-        "label": "Convert Millimeters of Mercury to Kilopascals",
+        "label": "Convert Millimeters of Mercury (mmHg)",
         "branchTo": "ELSOBA_CALC_020__06"
       },
       {
@@ -225,7 +226,7 @@
   },
   {
     "id": "ELSOBA_CALC_020__04",
-    "title": "Convert Farenheit to Celcius",
+    "title": "Convert Fahrenheit to Celsius",
     "content": "",
     "layout": "input",
     "useScroll": true,
@@ -235,7 +236,7 @@
       {
         "id": "farenheit",
         "type": "number",
-        "label": "Enter Farenheit"
+        "label": "Enter Fahrenheit (°F)"
       },
       {
         "type": "operator",
@@ -251,6 +252,8 @@
     "useScroll": true,
     "showFavorites": true,
     "resultLabel": "(mm)",
+    "limitMin": "0",
+    "limitMax": "100",
     "items": [
       {
         "id": "frenchGauge",
@@ -265,7 +268,7 @@
   },
   {
     "id": "ELSOBA_CALC_020__06",
-    "title": "Convert Millimeters of Mercury to Kilopascals",
+    "title": "Millimeters of Mercury (mmHg)",
     "content": "",
     "layout": "input",
     "useScroll": true,
@@ -275,7 +278,7 @@
       {
         "id": "millimeters",
         "type": "number",
-        "label": "Enter Millimeters"
+        "label": "Enter Millimeters (mmHg)"
       },
       {
         "type": "operator",
@@ -293,13 +296,13 @@
     "resultLabel": "(L)",
     "items": [
       {
-        "id": "millimeters",
+        "id": "milliliters",
         "type": "number",
-        "label": "Enter Millimeters"
+        "label": "Enter Millileters"
       },
       {
         "type": "operator",
-        "operation": "ConvertMillimetersToLiters"
+        "operation": "ConvertMillilitersToLiters"
       }
     ]
   },
@@ -310,7 +313,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(mL/min)",
+    "resultLabel": "(L/min)",
     "items": [
       {
         "id": "constant",
@@ -408,7 +411,7 @@
       },
       {
         "type": "heading",
-        "label": "Step 2: C<sub>a</sub>O₂ = (Hb * 1.34)(S<sub>a</sub>O₂) + (0.003 * P<sub>a</sub>O₂)"
+        "label": "Step 2: CaO2 = (Hb * 1.34)(SaO2) + (0.003 * PaO2)"
       },
       {
         "id": "hemoglobin",
@@ -423,7 +426,7 @@
       {
         "id": "sao2",
         "type": "number",
-        "label": "Enter S<sub>a</sub>O<sub>2</sub> Arterial oxygen saturation (range of 0.01 – 1.0)",
+        "label": "Enter SaO2 Arterial oxygen saturation (range of 0.01 – 1.0)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -436,11 +439,11 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter P<sub>a</sub>O<sub>2</sub> Arterial partial pressure of oxygen in mmHg (millimeters of mecury)"
+        "label": "Enter PaO2 Arterial partial pressure of oxygen in mmHg (millimeters of mecury)"
       },
       {
         "type": "heading",
-        "label": "Step 3: DO₂i = 10 * CI * C<sub>a</sub>O₂"
+        "label": "Step 3: DO₂i = 10 * CI * CaO2"
       },
       {
         "type": "operator",
@@ -517,12 +520,12 @@
       {
         "id": "airway_pressure",
         "type": "number",
-        "label": "Enter P<sub>AW</sub> (mmHg) (mean airway pressure)"
+        "label": "Enter PAW (mmHg) (mean airway pressure)"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter F<sub>i</sub>O<sub>2</sub>(%) (fraction of inspired oxygen: % as decimal)",
+        "label": "Enter FiO2(%) (fraction of inspired oxygen: % as decimal)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -535,7 +538,7 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter P<sub>a</sub>O<sub>2</sub> (mmHg) (arterial partial pressure of oxygen)"
+        "label": "Enter PaO2 (mmHg) (arterial partial pressure of oxygen)"
       },
       {
         "type": "operator",
@@ -554,12 +557,12 @@
       {
         "id": "oxygen_pressure",
         "type": "number",
-        "label": "Enter P<sub>a</sub>O<sub>2</sub> (mmHg) (arterial partial pressure of oxygen)"
+        "label": "Enter PaO2 (mmHg) (arterial partial pressure of oxygen)"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter F<sub>i</sub>O<sub>2</sub>(%) (fraction of inspired oxygen: % as decimal)",
+        "label": "Enter FiO2(%) (fraction of inspired oxygen: % as decimal)",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -582,21 +585,22 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(%)",
     "items": [
       {
         "id": "pre_oxygen",
         "type": "number",
-        "label": "Enter S<sub>pre</sub>O<sub>2</sub> (Pre-oxygenator oxygen saturation)"
+        "label": "Enter SpreO2 (Pre-oxygenator oxygen saturation)"
       },
       {
         "id": "venous_oxygen",
         "type": "number",
-        "label": "Enter S<sub>v</sub>O<sub>2</sub> (Venous oxygen saturation)"
+        "label": "Enter SvO2 (Venous oxygen saturation)"
       },
       {
         "id": "post_oxygen",
         "type": "number",
-        "label": "Enter S<sub>post</sub>O<sub>2</sub> (Post-oxygenator oxygen saturation)"
+        "label": "Enter SpostO2 (Post-oxygenator oxygen saturation)"
       },
       {
         "type": "operator",
@@ -633,6 +637,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mL)",
     "items": [
       {
         "id": "foot",
@@ -652,6 +657,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mL)",
     "items": [
       {
         "id": "foot",
@@ -671,6 +677,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
+    "resultLabel": "(mL)",
     "items": [
       {
         "id": "foot",

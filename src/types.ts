@@ -157,6 +157,7 @@ export interface BranchViewData {
   showTitle?: boolean;
   showFavorites?: boolean;
   resultLabel?: boolean;
+  resultDescription?: string;
   showRestart?: boolean;
   isRootParent?: boolean;
   parentView?: BranchViewData;

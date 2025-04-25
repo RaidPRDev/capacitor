@@ -129,11 +129,11 @@ export function ConvertMillimetersToKilopascals(params:CalculatorParamType):numb
  * 1 Fr = ⅓ mm
  * 
  */
-export function ConvertMillimetersToLiters(params:CalculatorParamType):number {
-  const millimeters = params?.['millimeters'];
-  if (millimeters === 0) return 0;
+export function ConvertMillilitersToLiters(params:CalculatorParamType):number {
+  const milliliters = params?.['milliliters'];
+  if (milliliters === 0) return 0;
 
-  const group = millimeters / 1000;
+  const group = milliliters / 1000;
   return group;  
 }
 
@@ -150,7 +150,7 @@ export function CalculateBloodFlowByWeight(params:CalculatorParamType):number {
   const weight = params?.['weight'];
   if (weight === 0) return 0;
   
-  const group = weight * CC_KG_MIN;
+  const group = (weight * CC_KG_MIN) / 1000;
   return group;  
 }
 
@@ -398,4 +398,73 @@ export function enforceRange(input: HTMLInputElement) {
   // Check if the value is out of bounds and clamp if necessary
   if (value < 0.01) input.value = "0.01";
   else if (value > 1) input.value = "1";
+}
+
+/**
+ * Converts common mathematical notation written in plain text
+ * into their corresponding Unicode symbols for cleaner and more readable output.
+ * 
+ * Supported conversions:
+ * - "sqrt"     → "√"
+ * - "^2"       → "²"
+ * - "^3"       → "³"
+ * - "pi"       → "π"
+ * - "theta"    → "θ"
+ * - "alpha"    → "α"
+ * - "beta"     → "β"
+ * - "H2O"      → "H₂O"
+ * - "CaO2"     → "CaO₂"
+ * - "DO2"      → "DO₂"
+ * - "VO2"      → "VO₂"
+ * - "SvO2"     → "SvO₂"
+ * - "SaO2"     → "SaO₂"
+ * - "SpreO2"   → "S<sub class='math-sub'>pre</sub>O₂"
+ * - "SpostO2"  → "S<sub class='math-sub'>post</sub>O₂"
+ * - "FsO2"     → "FsO₂"
+ * - "FiO2"     → "FiO₂"
+ * - "PAW"      → "P<sub class='math-sub'>AW</sub>"
+ * - "ParO2"    → "ParO₂"
+ * - "PaO2"     → "PaO₂"
+ * - "PaCO2"    → "PaCO₂"
+ * - "PO2"      → "PO₂"
+ * - "PCO2"     → "PCO₂"
+ * - "pCO2"     → "PCO₂"
+ * - "mmH2O"    → "mmH₂O"
+ * - "mm3"      → "mm³"
+ * - "VMLO2"    → "VMLO₂"
+ * - "VMLCO2"   → "VMLCO₂"
+ * 
+ * @param input - A string that may contain plain-text mathematical expressions.
+ * @returns A new string with appropriate math symbols substituted in.
+ */
+export function convertMathSymbols(input: string | undefined): string {
+  if (input === undefined) return "";
+  return input
+    .replace(/\bsqrt\(/g, '√(')
+    .replace(/\^2\b/g, '²')
+    .replace(/\^3\b/g, '³')
+    .replace(/\bpi\b/gi, 'π')
+    .replace(/\btheta\b/gi, 'θ')
+    .replace(/\balpha\b/gi, 'α')
+    .replace(/\bbeta\b/gi, 'β')
+    .replace(/\bH2O\b/g, 'H₂O')
+    .replace(/\bCaO2\b/g, 'CaO₂')
+    .replace(/\bDO2\b/g, 'DO₂')
+    .replace(/\bVO2\b/g, 'VO₂')
+    .replace(/\bSvO2\b/g, 'SvO₂')
+    .replace(/\bSaO2\b/g, 'SaO₂')
+    .replace(/\bSpreO2\b/g, `S<sub class='math-sub'>pre</sub>O₂`)
+    .replace(/\bSpostO2\b/g, `S<sub class='math-sub'>post</sub>O₂`)
+    .replace(/\bFsO2\b/g, 'FsO₂')
+    .replace(/\bFiO2\b/g, 'FiO₂')
+    .replace(/\bPAW\b/g, `P<sub class='math-sub pad'>AW</sub>`)
+    .replace(/\bParO2\b/g, 'ParO₂')
+    .replace(/\bPaO2\b/g, 'PaO₂')
+    .replace(/\bPaCO2\b/g, 'PaCO₂')
+    .replace(/\bPO2\b/g, 'PO₂')
+    .replace(/\bPCO2\b/g, 'PCO₂')
+    .replace(/\bmmH2O\b/g, 'mmH₂O')
+    .replace(/\bmm3\b/g, 'mm³')
+    .replace(/\bVMLO2\b/g, 'VMLO₂')
+    .replace(/\bVMLCO2\b/g, 'VMLCO₂');
 }
