@@ -4,11 +4,6 @@
   margin: 0.25rem 0 0 0;
   //touch-action: pan-x pan-y pinch-zoom;
 
-  a {
-    color: $teniary-color;
-    font-weight: 500;
-  }
-
   .head-content {
     // SubHeading Body Text
     @extend .helvetica-nueue;

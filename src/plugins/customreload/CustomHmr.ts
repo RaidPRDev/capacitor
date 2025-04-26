@@ -138,6 +138,7 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
         }
 
         if (item.label) item.label = convertMathSymbols(item.label);
+        if (item.label) item.label = parseLabelToListFormat(item.label);
 
       break;
       case "panic": 

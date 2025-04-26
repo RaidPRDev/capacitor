@@ -211,6 +211,28 @@ function onInternalLink(element: HTMLElement) {
   app.alert.options.open = !app.alert.options.open;
 }
 
+function processItemLabel(item:any) {
+
+  let label = item.label;
+
+  if (item.type === "ul-list-comment") {
+    if (item.items && Array.isArray(item.items) && item.items.length > 0) {
+      label = "<div class='ul-list-comment'>";
+      if (item.hasOwnProperty("title") && item.title) {
+        label = `<div>${item.title}</div>`;  
+      }
+      label = `${label}<ul>`;
+      item.items.map((__label: string) => {
+        label = `${label}<li>${__label}</li>`;
+      })
+      label = `${label}</ul>`;
+      label = `${label}</div>`;
+    }
+  }
+  
+  return label;
+}
+
 </script>
 
 <template>
@@ -235,12 +257,13 @@ function onInternalLink(element: HTMLElement) {
             ['comment']: data.item.type === 'comment',
             ['list-heading']: data.item.type === 'list-heading',
             ['list-comment']: data.item.type === 'list-comment',
+            ['ul-list-comment']: data.item.type === 'ul-list-comment',
             ['no-checkbox']: !dataList?.[data.item.index].hasOwnProperty(`checked`),
           }]" 
           :hasInternalLinks="true"
           :innerClassName="`pxtb-18 justify-start align-start gapx-10`"
           :bodyClassName="`text-left`"
-          :label="data.item.label"
+          :label="processItemLabel(data.item)"
           :icon="BaseToggle"
           :iconProps="{ 
             modelValue: (data.item as BranchViewData).checked,
@@ -330,7 +353,9 @@ function onInternalLink(element: HTMLElement) {
 .list-container {
   $reset-btn-height: 80;
   overflow: hidden scroll;
+  // width: calc(100% - 0px);
   height: calc(100% - (71px + #{$reset-btn-height}px));
+  font-size: 16px;
   @include use-scroller-styles();
 }
 
@@ -379,6 +404,14 @@ function onInternalLink(element: HTMLElement) {
     .list-button-item {
       border-bottom: 1px solid $fourth-color;
 
+      &.list-section {
+        .ui-body {
+          .ui-label {
+            font-weight: 600;
+          }
+        }
+      }
+
       &.sub-item {
         padding-left: 2rem;
       }
@@ -407,16 +440,54 @@ function onInternalLink(element: HTMLElement) {
         border-bottom: 1px solid transparent;
       }
 
+      &.ul-list-comment {
+        &.sub-level-1 {
+          .inner-base-button {
+            padding-top: 0  ;
+          }
+          .ul-list-comment {
+            opacity: 1;
+            > ul {
+              margin-left: 2rem;
+            }
+          }
+        }
+        .inner-base-button {
+          padding-bottom: 0;
+        }
+      }
+
       &.list-comment {
         padding-left: 1.75rem;
+        margin-bottom: 0.5rem;
         border-bottom: 1px solid transparent;
-        
+
         .inner-base-button {
           padding: 0;
           .ui-body > .ui-label > ul {
             margin: 0.1rem 0 0.9rem;
           }
         }
+
+        &.bullet {
+          padding-left: 3rem;
+
+          &:after {
+            content: "•";
+            font-size: 1.35rem;
+            position: absolute;
+            left: 2rem;
+            line-height: 1;
+            top: 0;
+          }
+
+          &.hollow {
+            &:after {
+              content: "◦";
+            }
+          }
+        }
+        
 
         &.sub-level-4 {
           .inner-base-button {
@@ -427,10 +498,79 @@ function onInternalLink(element: HTMLElement) {
             }
           }
         }
+
+        &.end-list-0 {
+          border-bottom: 1px solid #BEBEBE;
+          padding-bottom: 2rem;
+          margin-left: 0;
+          .inner-base-button {
+            padding-left: 3rem;
+          }
+
+          &.bullet {
+            padding-left: 0;
+          }
+        }
+
+        &.end-list-1 {
+          border-bottom: 1px solid #BEBEBE;
+          padding-bottom: 2rem;
+          margin-left: 0;
+          .inner-base-button {
+            padding-left: 3rem;
+          }
+
+          &.bullet {
+            padding-left: 0;
+            &:after {
+              left: 3rem;
+            }
+            .inner-base-button {
+              padding-left: 4rem;
+            }
+          }           
+        }
+        
+        &.end-list-2 {
+          border-bottom: 1px solid #BEBEBE;
+          padding-bottom: 2rem;
+          margin-left: 0;
+          .inner-base-button {
+            padding-left: 3rem;
+          }
+
+          &.bullet {
+            padding-left: 0;
+            &:after {
+              left: 4rem;
+            }
+            .inner-base-button {
+              padding-left: 5rem;
+            }
+          }           
+        }
       }
 
       .ui-label {
         font-weight: 400;
+      }
+
+      &.custom-list {
+        .inner-base-button {
+          padding: 0;
+        }
+      }
+
+      ul {
+        padding-left: 20px;
+        
+        li {
+          margin-bottom: 16px;
+
+          ul {
+            margin-top: 16px;
+          }
+        }
       }
     }
     .toggle-switch {
