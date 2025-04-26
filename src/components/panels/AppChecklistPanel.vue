@@ -237,7 +237,7 @@ function processItemLabel(item:any) {
 
 <template>
 <BasePanel class="relative">
-  <div class="side-content pxlr-0 pxt-90 pxb-20 relative">
+  <div class="side-content pxlr-0 pt-6 pxb-20 relative">
     
     <BaseHeader class="header-panel mxlr-20 pxb-8 mxb-8 pxr-20 height-auto align-center">
       <template v-slot:headerLeft>
@@ -479,7 +479,7 @@ function processItemLabel(item:any) {
         border-bottom: 1px solid transparent;
 
         .inner-base-button {
-          padding: 0;
+          padding: 0 2rem 0 0;
           .ui-body > .ui-label > ul {
             margin: 0.1rem 0 0.9rem;
           }
