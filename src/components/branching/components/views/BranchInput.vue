@@ -37,6 +37,7 @@ import {
   Calculate_3_8_Tubing,
   Calculate_1_2_Tubing,
   enforceRange,
+  enforceRangeV2,
   convertMathSymbols
   
 } from '@/utils/ElsoMath';
@@ -47,8 +48,6 @@ import { loadHTMLFile } from '@/utils/FileTools';
 
 import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
 import ResetIcon from '@/assets/icons/reset-icon.svg';
-
-
 
 const calculationFunctions:Record<string, Function> = {
   BSAByWeight,
@@ -73,7 +72,8 @@ const calculationFunctions:Record<string, Function> = {
 }
 
 const mathUtilFunctions:Record<string, Function> = {
-  enforceRange
+  enforceRange,
+  enforceRangeV2
 }
 
 type InputListItemType = IBaseListItemData & Partial<BranchItem> & { 
@@ -290,7 +290,13 @@ onMounted(async () => {
             if (dataProps?.hasOwnProperty(`onBlur`)) {
               const el = findAndReturnItemRefElement(computedList?.[data.item.index]?.id!);
               const input = el?.accessoryIconRef()?.inputRef();
-              mathUtilFunctions[dataProps['onBlur'] as string](input);
+              
+              if (mathUtilFunctions.hasOwnProperty(dataProps['onBlur'])) {
+                mathUtilFunctions[dataProps['onBlur'] as string](input);
+              }
+              else {
+                console.error(`[mathUtilFunctions] missing onBlur prop '${dataProps['onBlur']}''`);
+              }          
             }
           },
 
@@ -301,7 +307,13 @@ onMounted(async () => {
             if (dataProps?.hasOwnProperty(`onInput`)) {
               const el = findAndReturnItemRefElement(computedList?.[data.item.index]?.id!);
               const input = el?.accessoryIconRef()?.inputRef();
-              mathUtilFunctions[dataProps['onInput'] as string](input);
+              
+              if (mathUtilFunctions.hasOwnProperty(dataProps['onInput'])) {
+                mathUtilFunctions[dataProps['onInput'] as string](input);
+              }
+              else {
+                console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onInput']}''`);
+              }  
             }
           },
           

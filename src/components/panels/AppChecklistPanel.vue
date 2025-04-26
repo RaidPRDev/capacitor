@@ -403,6 +403,22 @@ function processItemLabel(item:any) {
   :deep(.list-item) {
     .list-button-item {
       border-bottom: 1px solid $fourth-color;
+      transition: transform 425ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      will-change: transform;
+
+      &.note {
+        .inner-base-button {
+          background-color: aliceblue;
+          padding: 0.95em;
+          // margin: 0.75rem 0 1.1rem;
+          margin: 1rem 0 1rem;
+          border-radius: 0.428em;
+
+          .ui-body > .ui-label {
+            font-size: 16px;
+          }
+        }
+      }
 
       &.list-section {
         .ui-body {
@@ -459,7 +475,7 @@ function processItemLabel(item:any) {
 
       &.list-comment {
         padding-left: 1.75rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.7rem;
         border-bottom: 1px solid transparent;
 
         .inner-base-button {
@@ -501,8 +517,9 @@ function processItemLabel(item:any) {
 
         &.end-list-0 {
           border-bottom: 1px solid #BEBEBE;
-          padding-bottom: 2rem;
+          padding-bottom: 1.35rem;
           margin-left: 0;
+          margin-bottom: 0;
           .inner-base-button {
             padding-left: 3rem;
           }
@@ -514,8 +531,9 @@ function processItemLabel(item:any) {
 
         &.end-list-1 {
           border-bottom: 1px solid #BEBEBE;
-          padding-bottom: 2rem;
+          padding-bottom: 1.35rem;
           margin-left: 0;
+          margin-bottom: 0;
           .inner-base-button {
             padding-left: 3rem;
           }
@@ -533,8 +551,9 @@ function processItemLabel(item:any) {
         
         &.end-list-2 {
           border-bottom: 1px solid #BEBEBE;
-          padding-bottom: 2rem;
+          padding-bottom: 1.35rem;
           margin-left: 0;
+          margin-bottom: 0;
           .inner-base-button {
             padding-left: 3rem;
           }

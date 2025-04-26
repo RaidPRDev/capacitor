@@ -13,21 +13,17 @@ export function flattenChecklist(items: any, level: number = 1, checklistData:an
     const flattenedItem = { ...item, class: `sub-level-${level}` };
 
     if (item.class) {
-      console.warn("BEFORE", flattenedItem.class)
       flattenedItem.class = `${flattenedItem.class} ${item.class}`;
-      console.warn("AFTER", flattenedItem.class)
-      console.warn("AFTER", item.class)
     }
-    
 
     if (checklistData) {
       if (checklistData.value?.hasOwnProperty(item.id!)) {
         if (item.hasOwnProperty('checked')) {
           flattenedItem.checked = checklistData.value?.[item.id!];
         }
-        else if (item?.layout === "checklist" && item.hasOwnProperty('items')) {
-          //flattenedItem.checked = checklistData.value?.[item.id!];
-        }
+        // else if (item?.layout === "checklist" && item.hasOwnProperty('items')) {
+        //   flattenedItem.checked = checklistData.value?.[item.id!];
+        // }
       }
     }
 

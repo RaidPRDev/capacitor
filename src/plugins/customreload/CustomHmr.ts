@@ -137,8 +137,11 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
           if (checkIfCheckBox) count++;
         }
 
-        if (item.label) item.label = convertMathSymbols(item.label);
-        if (item.label) item.label = parseLabelToListFormat(item.label);
+        if (item.label) {
+          item.label = convertMathSymbols(parseLabelToListFormat(item.label));
+          console.log("item.label", item.label)
+        }
+        // if (item.label) item.label = parseLabelToListFormat(item.label);
 
       break;
       case "panic": 

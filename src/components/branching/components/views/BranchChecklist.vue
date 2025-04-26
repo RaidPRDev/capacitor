@@ -189,6 +189,8 @@ const computedList = computed(() => {
 .base-list {
   :deep(.list-item) {
     .base-button {
+      will-change: transform;
+      
       &.is-comment {
         opacity: 1;
       }

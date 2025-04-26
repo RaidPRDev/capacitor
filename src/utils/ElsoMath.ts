@@ -394,10 +394,25 @@ export function Calculate_1_2_Tubing(params:CalculatorParamType):number {
 export function enforceRange(input: HTMLInputElement) {
   // Parse input value as a float
   let value = parseFloat(input.value);
-  
+
   // Check if the value is out of bounds and clamp if necessary
   if (value < 0.01) input.value = "0.01";
   else if (value > 1) input.value = "1";
+}
+
+export function enforceRangeV2(input: HTMLInputElement) {
+  // Parse input value as a float
+  let value = parseFloat(input.value);
+  if (isNaN(value)) {
+    value = 0;
+  }
+
+  const min = parseFloat(input.min);
+  const max = parseFloat(input.max);
+
+  // Check if the value is out of bounds and clamp if necessary
+  if (value <= min) input.value = min.toString();
+  else if (value >= max) input.value = max.toString();
 }
 
 /**
@@ -413,6 +428,7 @@ export function enforceRange(input: HTMLInputElement) {
  * - "alpha"    → "α"
  * - "beta"     → "β"
  * - "H2O"      → "H₂O"
+ * - "CO2"      → "CO₂"
  * - "CaO2"     → "CaO₂"
  * - "DO2"      → "DO₂"
  * - "VO2"      → "VO₂"
@@ -448,6 +464,7 @@ export function convertMathSymbols(input: string | undefined): string {
     .replace(/\balpha\b/gi, 'α')
     .replace(/\bbeta\b/gi, 'β')
     .replace(/\bH2O\b/g, 'H₂O')
+    .replace(/\bCO2\b/g, 'CO₂')
     .replace(/\bCaO2\b/g, 'CaO₂')
     .replace(/\bDO2\b/g, 'DO₂')
     .replace(/\bVO2\b/g, 'VO₂')
