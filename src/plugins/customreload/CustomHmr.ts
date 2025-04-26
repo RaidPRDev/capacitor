@@ -57,6 +57,8 @@ export default function CustomHmr():PluginOption {
         console.log('[RELOADING_JSON_DATA]');
         console.log(`[FILE][${file}]\n`);
 
+        searchData = [];
+
         await startJSONCompiler()
 
         // Copy Constants
@@ -139,9 +141,7 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
 
         if (item.label) {
           item.label = convertMathSymbols(parseLabelToListFormat(item.label));
-          console.log("item.label", item.label)
         }
-        // if (item.label) item.label = parseLabelToListFormat(item.label);
 
       break;
       case "panic": 
