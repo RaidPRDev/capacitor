@@ -4,7 +4,7 @@
     "dataType": "panic",
     "heading": "Panic",
     "title": "",
-    "content": "<span>Select the option that best represents your emergency and follow the steps to help your patient. If you don’t see what you’re looking for here, go to Checklists.</span>",
+    "content": "Select the option that best represents your emergency and follow the steps to help your patient. If you don’t see what you’re looking for here, go to Checklists.",
     "layout": "list",
     "useScroll": true,
     "isRootParent": true,    
@@ -85,17 +85,17 @@
         "class": "no-action"
       },     
       {
-        "label": "B: Call for help.",
+        "label": "B. Call for help.",
         "branchTo": "ELSOBA_PANIC_010__B__B",
         "class": "no-action"
       },     
       {
-        "label": "C: Manage the cannula. Do NOT attempt reintroduction unless you are competent to do this.",
+        "label": "C. Manage the cannula. Do NOT attempt reintroduction unless you are competent to do this.",
         "branchTo": "ELSOBA_PANIC_010__B__C",
         "class": "no-action"
       },     
       {
-        "label": "D: Are holes exposed?",
+        "label": "D. Are holes exposed?",
         "branchTo": "ELSOBA_PANIC_010__B__C",
         "class": "no-action"
       },   
@@ -607,7 +607,7 @@
         "class": ""
       },     
       {
-        "label": "B: There is ongoing decannulation.",
+        "label": "B. There is ongoing decannulation.",
         "branchTo": "ELSOBA_PANIC_030__STEP2",
         "class": ""
       },     

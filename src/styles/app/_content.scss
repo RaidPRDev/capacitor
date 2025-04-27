@@ -11,6 +11,10 @@
     font-weight: 500;
     font-size: 17px;
 
+    &.large {
+      font-size: 19px;
+    }
+
     // Default Body Text
     > span {
       @extend .roboto;
@@ -20,18 +24,28 @@
     }
   }
 
-  // ul > li {
-  //   margin-bottom: 16px;
-  // }
+  %add-note {
+    background-color: white;
+    padding: 0.95em;
+    border-radius: 0.428em;
+    font-size: 16px;
+  }
+
+  .note {
+    background-color: white;
+    padding: 0.95em;
+    border-radius: 0.428em;
+    font-size: 16px;
+  }
 
   ul {
     padding-left: 20px;
     
     li {
-      margin-bottom: 16px;
+      margin-bottom: 0.75rem;
 
       ul {
-        margin-top: 16px;
+        margin-top: 0.75rem;
       }
     }
   }
@@ -41,7 +55,10 @@
   }
 
   .table-title {
-    margin: 0.75rem 0 1rem 0;
+    margin: 1.25rem 0 1rem 0;
+    color: $sixth-color;
+    font-weight: 300;
+    @extend .helvetica-nueue;
   }
   
   .table-subtitle {
@@ -64,7 +81,7 @@
 
       &.head-bold {
         font-weight: 700;
-        font-size: 14px;
+        font-size: 15px;
       }
     }
   }
@@ -72,7 +89,8 @@
   #tableBody {
     td {
       background-color: #eeecec;
-
+      font-size: 15px;
+      
       &.bg-white {
         background-color: white!important;
         color: #0B247A!important;
@@ -80,6 +98,7 @@
 
       &.head-bold {
         font-weight: 500;
+        font-size: 15px;
       }
       
       &.sub-head {
@@ -155,6 +174,8 @@
     font-size: 13px;
     font-style: italic;
     margin: 1rem 0 0 0;
+
+    @extend %add-note;
   }
 
   img {

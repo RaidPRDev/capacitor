@@ -5,6 +5,7 @@
 @import './components';
 @import './scroller';
 @import './content';
+@import './branching';
 @import './icons';
 
 // import.meta.env.SHOW_DEBUG = true //
@@ -13,15 +14,6 @@
 :root {
   @include getFontSize('medium');
   color: $primary-color;
-}
-
-.bold {
-  .bold-first {
-    margin: 0 0.2rem 0 0;
-  }
-  b {
-    margin: 0 0.2rem;
-  }
 }
 
 .math-sub {

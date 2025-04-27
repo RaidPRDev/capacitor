@@ -1979,19 +1979,25 @@
               { "label": "Motor response", "checked": false },
               { "label": "Deficits", "checked": false },
               { "label": "Pupils—size and light response", "checked": false },
+              { "label": "Ongoing sedation", "checked": false },
               { 
-                "label": "Ongoing sedation <br><span>If checked, open Notes and list the medication(s), dosage, route, and vacation duration, if any.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and list the medication(s), dosage, route, and vacation duration, if any.",
+                "type": "comment",
+                "class": "note"
               },
               { "label": "Level of sedation", "checked": false },
+              { "label": "Ongoing analgesia", "checked": false },
               { 
-                "label": "Ongoing analgesia <br><span>If checked, open Notes and add the medication(s), dosage, and route.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and add the medication(s), dosage, and route.",
+                "type": "comment",
+                "class": "note"
               },
               { "label": "Level of pain at rest/incident", "checked": false },
+              { "label": "Latest neuroimaging tests", "checked": false },
               { 
-                "label": "Latest neuroimaging tests <br><span>If checked, open Notes and add the type, date, and result.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and add the type, date, and result.", 
+                "type": "comment",
+                "class": "note"
               }
             ]                            
           },
@@ -2009,21 +2015,29 @@
               { "label": "Central venous pressure (CVP)", "checked": false },
               { "label": "Heart rate (HR)", "checked": false },
               { "label": "Rhythm", "checked": false },
+              { "label": "Need for inotrope(s)", "checked": false },
               { 
-                "label": "Need for inotrope(s) <br><span>If checked, open Notes and add the type and dosage.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and add the type and dosage.", 
+                "type": "comment",
+                "class": "note"
               },
+              { "label": "Need for vasopressor(s)", "checked": false },
               { 
-                "label": "Need for vasopressor(s) <br><span>If checked, open Notes and add the type and dosage.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and add the type and dosage.", 
+                "type": "comment",
+                "class": "note"
               },
+              { "label": "Need for vasodilator(s)", "checked": false },
               { 
-                "label": "Need for vasodilator(s) <br><span>If checked, open Notes and add the type and dosage.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and add the type and dosage.", 
+                "type": "comment",
+                "class": "note"
               },
+              { "label": "Need for pulmonary vasodilator(s)", "checked": false },
               { 
-                "label": "Need for pulmonary vasodilator(s) <br><span>If checked, open Notes and add the type, dosage, and route.</span>", 
-                "checked": false
+                "label": "If checked, open <b>Notes</b> and add the type, dosage, and route.", 
+                "type": "comment",
+                "class": "note"
               }
             ]                                 
           },
@@ -2074,9 +2088,19 @@
             "type": "subchecklist",
             "items": [
               { "label": "Nutrition including dietary restrictions", "checked": false },
-              { "label": "Enteral nutrition <br><span>If checked, open Notes and add the type, dose, route, NG/NJ/OG/OJ/PEG/PEJ.</span>", "checked": false },
+              { "label": "Enteral nutrition", "checked": false },
+              { 
+                "label": "If checked, open <b>Notes</b> and add the type, dose, route, NG/NJ/OG/OJ/PEG/PEJ.", 
+                "type": "comment",
+                "class": "note"
+              },
               { "label": "Gastric residual volume (GRV)", "checked": false },
-              { "label": "Parenteral nutrition <br><span>If checked, open Notes and add the type, dose, and route for parenteral nutrition.</span>", "checked": false }
+              { "label": "Parenteral nutrition", "checked": false },
+              { 
+                "label": "If checked, open <b>Notes</b> and add the type, dose, and route for parenteral nutrition.", 
+                "type": "comment",
+                "class": "note"
+              }
             ]
           },
           {
@@ -2087,7 +2111,12 @@
             "items": [
               { "label": "Fluids", "checked": false },
               { "label": "Antibiotics", "checked": false },
-              { "label": "Others <br><span>If checked, open Notes and list any other relevant medications.</span>", "checked": false }
+              { "label": "Others", "checked": false },
+              { 
+                "label": "If checked, open <b>Notes</b> and list any other relevant medications.", 
+                "type": "comment",
+                "class": "note"
+              }
             ]
           },
           {
@@ -2109,7 +2138,7 @@
               { "label": "Yes", "checked": false },
               { "label": "No", "checked": false },
               { 
-                "label": "<span>If Yes is checked, open <b>Notes</b> and add the type, rationale, and results from recent consults and/or exams.</span>", 
+                "label": "If <b>Yes</b> is checked, open <b>Notes</b> and add the type, rationale, and results from recent consults and/or exams.", 
                 "type": "comment",
                 "class": "note"
               }
@@ -2121,9 +2150,24 @@
             "layout": "checklist",
             "type": "subchecklist",
             "items": [
-              { "label": "Bleeding events <br><span>If checked, open Notes and enter the site, severity, and management of the bleeding.</span>", "checked": false },
-              { "label": "Thrombosis (site, severity, management) <br><span>If checked, open Notes and enter the site, severity, and management of the thrombosis.</span>", "checked": false },
-              { "label": "Pressure injuries <br><span>If checked, open Notes and enter the site, severity, and dressings of the pressure injuries.</span>", "checked": false }
+              { "label": "Bleeding events", "checked": false },
+              { 
+                "label": "If checked, open <b>Notes</b> and enter the site, severity, and management of the bleeding.", 
+                "type": "comment",
+                "class": "note"
+              },
+              { "label": "Thrombosis (site, severity, management)", "checked": false },
+              { 
+                "label": "If checked, open <b>Notes</b> and enter the site, severity, and management of the thrombosis.", 
+                "type": "comment",
+                "class": "note"
+              },
+              { "label": "Pressure injuries", "checked": false },
+              { 
+                "label": "If checked, open <b>Notes</b> and enter the site, severity, and dressings of the pressure injuries.", 
+                "type": "comment",
+                "class": "note"
+              }              
             ]                                                
           }
         ]

@@ -122,7 +122,7 @@ const computedList = computed(() => {
 </script>
 
 <template>
-  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="title transform-z">{{ `${props?.view?.title}` }}</h2>
+  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="title head-content transform-z">{{ `${props?.view?.title}` }}</h2>
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
   
   <BaseList class="gapx-16" listItemClass="blue-menu-item" :dataProvider="computedList">

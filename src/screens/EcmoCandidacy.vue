@@ -123,42 +123,35 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 
 <style scoped lang="scss">
 .branching {
-  transition: all 450ms ease-in;
+  // transition: all 450ms ease-in;
 
   :deep(.branch-view) {
-    transition: all 450ms ease-in;
+    // transition: all 450ms ease-in;
 
-    // non title class elements
-    h2:not(.title) {
-      @extend .helvetica-nueue;
-      font-size: 22px;
-    }
+    // // non title class elements
+    // h2:not(.title) {
+    //   @extend .helvetica-nueue;
+    //   font-size: 22px;
+    // }
 
-    .title {
-      @extend .helvetica-nueue;
-      font-size: 22px;
-    }
+    // .title {
+    //   @extend .helvetica-nueue;
+    //   font-size: 22px;
+    // }
 
-    .text-content {
-      // SubHeading Body Text
-      @extend .helvetica-nueue;
-      color: $sixth-color;
-      font-weight: 500;
-      font-size: 17px;
+    // .text-content {
+    //   // SubHeading Body Text
+    //   @extend .helvetica-nueue;
+    //   color: $sixth-color;
+    //   font-weight: 500;
+    //   font-size: 17px;
       
-      // Default Body Text
-      > span {
-        @extend .roboto;
-        color: $primary-color;
-        font-weight: 400;
-        font-size: 16px;
-      }
-    }
-
-    // ul {
-    //   padding-left: 20px;
-    //   li {
-    //     margin-bottom: 10px;
+    //   // Default Body Text
+    //   > span {
+    //     @extend .roboto;
+    //     color: $primary-color;
+    //     font-weight: 400;
+    //     font-size: 16px;
     //   }
     // }
   }

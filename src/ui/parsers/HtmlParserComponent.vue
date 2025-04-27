@@ -63,9 +63,21 @@ export default defineComponent({
           dataParams: {}
         };
 
+
         // For text nodes, add textContent directly to the element object
         if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
           element.textContent = node.textContent.trim();
+          if (node) {
+            const parent = node.parentNode;
+            if (node.parentNode?.nodeName === "B") {
+              console.log("parentNode", node.parentNode?.nodeName)
+              console.log("nodeName", node.nodeName)
+              console.log("nodeType", node.nodeType)
+              console.log("nodeValue", node.nodeValue)
+              element.textContent = ` ${element.textContent} `;
+            }
+            
+          }
         }
 
         // For element nodes, capture all attributes in dataParams
@@ -125,6 +137,7 @@ export default defineComponent({
      * - Otherwise, it renders native HTML elements with any attributes from `dataParams`.
      */
     function renderDOMParsedElements(elements: IHtmlParserElementItem[]): any[] {
+      
       return elements.map((element) => {
         const { tag, children, textContent, dataParams } = element;
 
@@ -165,6 +178,12 @@ export default defineComponent({
         if (tag === "#text") {
           return createTextVNode(textContent); // Render text content inside the tag
         }
+
+        // ISSUE: Parsing removes whitespace in front of word, ex:  Do notshut off
+        // if (tag === "b") {
+        //   // add extra space, TEMP FIX.  If the bold is at the end of a sentence, this will not work
+        //   element.children[0].textContent = `${element.children[0].textContent} `;
+        // }
 
         // Render html element
         return h(tag, { ...dataParams }, renderDOMParsedElements(children));

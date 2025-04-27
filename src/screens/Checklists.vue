@@ -113,7 +113,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 </script>
 
 <template>
-<BasePanel v-bind="props" class="pxl-0 pxr-0">
+<BasePanel v-bind="props" class="checklist pxl-0 pxr-0">
   <transition name="fade" appear mode="out-in">
     <div v-if="loading" class="loading flex justify-center align-center height-100">
       <PulseRateLoader />

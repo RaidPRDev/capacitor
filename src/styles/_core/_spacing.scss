@@ -1,3 +1,53 @@
+@use "sass:string";
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+
+
+$fractions: 0.25, 0.5, 0.75, 0.8, 0.85, 0.9, 0.95;
+
+@function generate-fraction($name, $idx, $format: 'rem') {
+
+  $values: ();
+
+  @each $value in $fractions {
+    $value-str: $value + $idx + "";
+    $classname: str-replace($value-str, ".", "-");
+    
+    $values: append($values, #{$name}-#{$classname});
+    $values: append($values, #{$value-str + $format});
+  }
+
+  @return $values;
+}
+
+@mixin make-class($name: '.pl', $i: 0) {
+  // Generate decimal values for rem
+  $decimals: ();
+  $decimals: generate-fraction(#{$name}, $i);
+  $total_dem: length($decimals);
+  // @debug "total_dem: " + $total_dem;
+
+  $_stepper: 1;
+  @for $index from 1 through $total_dem {
+    // @debug "_stepper: " + $_stepper;
+    @if $_stepper < $total_dem {
+      // @debug "_print: " + $_stepper;
+      #{nth($decimals, $_stepper)} { padding-left: nth($decimals, $_stepper + 1); }
+    }
+    
+    $_stepper: $_stepper + 2;
+  }
+}
+
 @for $i from 0 through 100 {
   $step: $i;
   .p-#{$step} { padding: #{$step}rem; }
@@ -7,6 +57,40 @@
   .pb-#{$step} { padding-bottom: #{$step}rem; }
   .pl-#{$step} { padding-left: #{$step}rem; }
   .pr-#{$step} { padding-right: #{$step}rem; }
+
+  // Generate decimal values for rem
+  // $decimals: ();
+  // $decimals: generate-fraction(".pl", $i);
+  // $total_dem: length($decimals);
+  // @debug "total_dem: " + $total_dem;
+
+  // $_stepper: 1;
+  // @for $index from 1 through $total_dem {
+  //   @debug "_stepper: " + $_stepper;
+  //   @if $_stepper < $total_dem {
+  //     @debug "_print: " + $_stepper;
+  //     #{nth($decimals, $_stepper)} { padding-left: nth($decimals, $_stepper + 1); }
+  //   }
+    
+  //   $_stepper: $_stepper + 2;
+  // }
+  
+  @if $i < 2 {
+    @include make-class(".pr", $i);
+    @include make-class(".pl", $i);
+    @include make-class(".pt", $i);
+    @include make-class(".pb", $i);
+    @include make-class(".ptb", $i);
+    @include make-class(".plr", $i);
+  }
+  
+  @include make-class(".mr", $i);
+  @include make-class(".ml", $i);
+  @include make-class(".mt", $i);
+  @include make-class(".mb", $i);
+  @include make-class(".mtb", $i);
+  @include make-class(".mlr", $i);
+
   
   .px-#{$step} { padding: #{$step}px; }
   .pxtb-#{$step} { padding-top: #{$step}px; padding-bottom: #{$step}px; }
