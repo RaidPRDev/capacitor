@@ -155,8 +155,13 @@ if (SHOW_DEBUG) console.log("SHOW_DEBUG", import.meta.env.SHOW_DEBUG)
 
 <style lang="scss">
 #app {
+  
   html.desktop:not(.ios):not(.android) & {
     @include renderPhoneTemplate();
+  }
+
+  #__app_body__ {
+    background-color: rgb(245, 245, 245);
   }
 
   &.page-guide {
