@@ -6,9 +6,12 @@ const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, onMounted, ref, shallowRef } from "vue";
+import { ComponentPublicInstance, computed, inject, onMounted, ref, shallowRef } from "vue";
+import { storeToRefs } from "pinia";
 
 import { 
+  APP_DRAWERS_ID,
+  APP_ID,
   BRANCH_HEADER_HEIGHT, 
   BREADCRUMB_HEIGHT, 
   COMPILED_DATA_PATH, 
@@ -22,18 +25,28 @@ import PulseRateLoader from '@/components/pulserateloader/PulseRateLoader.vue';
 import Breadcrumbs from '@/components/breadcrumbs/Breadcrumbs.vue';
 import useBranching from "@/components/branching/hooks/useBranching";
 import { IBaseScreenSlotProps } from "@/ui/types";
-import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/types";
+import { BranchRouteProps, BranchViewData, BranchViewParamData, IApp, IAppDrawerComponents } from "@/types";
 import { loadViewData } from "@/components/branching/data/DataTools";
 import { getNavigationRoot } from "@/utils/BranchTools";
+import useSession from "@/store/session.module";
 
 import WrenchIcon from '@/assets/icons/homeMenu/wrench-icon.svg';
 import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import SectionDisclaimerPanel from "@/components/panels/SectionDisclaimerPanel.vue";
+import { EVENT_REGISTRATION_CLOSE } from "@/events/Events";
 
 // Component Props Setup
-const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
+const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {});
+const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 const loading = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
 const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
+
+const session = useSession();
+const { findDisclaimer } = session;
+const { hasRegistered, hasCompletedDisclaimer } = storeToRefs(session);
+const sectionViewData = ref<BranchViewData>();
 
 const { 
   baseHeight, 
@@ -73,6 +86,39 @@ function onViewBeforeEnter(params: BranchViewParamData) {
       MyClarityCapacitator.setCurrentScreenName({
         id: params.view.heading! || params.view.title!
       });
+  }
+
+  sectionViewData.value = params.view;
+  
+  // Check if Current Section has a disclaimer
+  if (params.view.disclaimer) {
+    const canShowDisclaimer = hasRegistered.value && hasCompletedDisclaimer.value;
+    if (canShowDisclaimer) {
+      showDisclaimerByID(sectionViewData.value.id!);
+    }
+    else {
+      document.body.addEventListener(EVENT_REGISTRATION_CLOSE, onRegistrationClosedEvent);
+    }
+  }
+}
+
+function onRegistrationClosedEvent() {
+  document.body.removeEventListener(EVENT_REGISTRATION_CLOSE, onRegistrationClosedEvent);
+
+  if (!sectionViewData.value) return;
+
+  showDisclaimerByID(sectionViewData.value.id!);
+}
+
+function showDisclaimerByID(id: string) {
+  if (!findDisclaimer(id)) {
+    drawerComponents.bottom = SectionDisclaimerPanel;
+    app.drawers.bottom.closeOutside = false;
+    app.drawers.bottom.open = !app.drawers.bottom.open;
+    app.drawers.bottom.data = {
+      id: sectionViewData.value?.id,
+      html: sectionViewData.value?.disclaimer,
+    }
   }
 }
 

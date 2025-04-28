@@ -26,6 +26,7 @@ interface ISession {
   buildPhase?: string;
   currentIndex?: number;
   loggedIn: boolean;
+  disclaimers: Array<{ id?:string }>;
   hasCompletedPrivacy: boolean;
   hasCompletedTerms: boolean;
   hasCompletedDisclaimer: boolean;
@@ -40,6 +41,7 @@ const initialState: ISession = {
   buildPhase: BUILD_PHASE,
   currentIndex: 0,
   loggedIn: false,
+  disclaimers: [],
   hasCompletedPrivacy: false,
   hasCompletedTerms: false,
   hasCompletedDisclaimer: false,
@@ -63,7 +65,8 @@ export const useSession = defineStore('session', {
     getTerms: (state) => state.hasCompletedTerms,
     getPrivacy: (state) => state.hasCompletedPrivacy,
     getDisclaimer: (state) => state.hasCompletedDisclaimer,
-    getMedDisclaimer: (state) => state.hasCompletedMedDisclaimer
+    getMedDisclaimer: (state) => state.hasCompletedMedDisclaimer,
+    getDisclaimers: (state) => state.disclaimers
   },
 
   actions: {
@@ -86,11 +89,22 @@ export const useSession = defineStore('session', {
         this.$state.hasCompletedDisclaimer = false;
         this.$state.hasCompletedTerms = false;
         this.$state.hasCompletedPrivacy = false;
+        this.$state.disclaimers = [];
       }
       if (this.buildPhase !== BUILD_PHASE) {
         console.log("Build Phase update found.");
         this.$state.buildPhase = BUILD_PHASE;
       }      
+    },
+
+    findDisclaimer(id: string) {
+
+      const disclaimer = this.disclaimers.find((item) => {
+        if (item.id === id) return true;
+        return false;
+      });
+
+      return disclaimer !== undefined
     },
 
     setAppVersion(version: string) {

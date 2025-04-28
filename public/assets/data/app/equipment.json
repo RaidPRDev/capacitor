@@ -77,6 +77,7 @@
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
+    "disclaimer": "equipment/ELSOBA_EQUIP_020/ELSOBA_EQUIP_020_DISCLAIMER.html",
     "items": [
       {
         "label": "MC3/Medtronic Nautilus™ ECMO Oxygenator",
@@ -118,6 +119,7 @@
     "class": "plr-1",
     "useScroll": true,
     "showFavorites": true,
+    "disclaimer": "equipment/ELSOBA_EQUIP_030/ELSOBA_EQUIP_030_DISCLAIMER.html",
     "branchTo": "",
     "items": [
       {

@@ -81,6 +81,7 @@ export interface IAppDrawerPosition {
   open: boolean;
   closeOutside: boolean;
   props?: Record<string, any>;
+  data?: Record<string, any>;
 }
 
 export interface IDrawerPosition {
@@ -135,6 +136,7 @@ export interface BranchItem {
   class: string;
   items: BranchItem[];
   branchTo: string | null;
+  disclaimer?: string | null;
   data?: any;
 }
 
@@ -158,6 +160,7 @@ export interface BranchViewData {
   showFavorites?: boolean;
   resultLabel?: boolean;
   resultDescription?: string;
+  disclaimer?: string;
   showRestart?: boolean;
   isRootParent?: boolean;
   parentView?: BranchViewData;

@@ -68,15 +68,9 @@ export default defineComponent({
         if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
           element.textContent = node.textContent.trim();
           if (node) {
-            const parent = node.parentNode;
             if (node.parentNode?.nodeName === "B") {
-              console.log("parentNode", node.parentNode?.nodeName)
-              console.log("nodeName", node.nodeName)
-              console.log("nodeType", node.nodeType)
-              console.log("nodeValue", node.nodeValue)
               element.textContent = ` ${element.textContent} `;
             }
-            
           }
         }
 

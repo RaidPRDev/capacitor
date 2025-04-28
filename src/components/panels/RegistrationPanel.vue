@@ -22,13 +22,15 @@ import { capitalizeFirstLetter } from '@/utils/StringTools';
 import { timeout, urlFetch } from '@/utils/FetchTools';
 import { isObjectEmpty } from '@/utils/ObjectTools';
 import PulseRateLoader from '../pulserateloader/PulseRateLoader.vue';
+import { IBaseComboxBoxProps, IBaseInputProps } from '@/ui/types';
+import { EVENT_REGISTRATION_CLOSE } from '@/events/Events';
 
 import Logo from '/assets/elso_logo.png';
 import CloseIcon from '@/assets/icons/close-icon.svg';
 import ChevronRightIcon from '@/assets/icons/chevron-right-icon.svg';
-
 import countries from '@/assets/data/countries';
-import { IBaseComboxBoxProps, IBaseInputProps } from '@/ui/types';
+
+const panelClosedEvent = new Event(EVENT_REGISTRATION_CLOSE);
 
 const session = useSession();
 const { setUser } = session;
@@ -152,7 +154,7 @@ async function formSubmit() {
     credentials: inputCreds.value,
     hospitalSystem: inputHospital.value,
   }
-  console.table(formBody);
+  // console.table(formBody);
 
   // return;
 
@@ -222,7 +224,7 @@ async function formSubmit() {
       return;
   }
 
-  console.log("FETCH REGISTER", _fetch);
+  // console.log("FETCH REGISTER", _fetch);
 
   const registerResponse: { successMessage: string } = _fetch.data;
 
@@ -239,12 +241,19 @@ async function formSubmit() {
 
   state.isSaving = false;
   state.hasSaved = true;
-  session.$patch({ hasRegistered: true });
+  session.$patch({ hasRegistered: true });  
 }
 
 function closePanel() {
   app.drawers.bottom.open = !app.drawers.bottom.open;
   app.drawers.bottom.props = {};
+
+  setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      // fire closed event
+      document.body.dispatchEvent(panelClosedEvent);
+    });
+  }, 750);
 }
 
 function containsDataNotSaved(text: string) {

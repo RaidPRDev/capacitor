@@ -30,10 +30,10 @@ import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/types";
 import { loadViewData } from '@/components/branching/data/DataTools';
 import { getNavigationRoot } from "@/utils/BranchTools";
 import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import DisclaimerMedicalPanel from "@/components/panels/DisclaimerMedicalPanel.vue";
 import useSession from "@/store/session.module";
 
 import TimePillIcon from '@/assets/icons/homeMenu/time-pill-icon.svg';
-import DisclaimerMedicalPanel from "@/components/panels/DisclaimerMedicalPanel.vue";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
