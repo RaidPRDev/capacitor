@@ -1,54 +1,25 @@
-.branching {
-  .branch-view {
-    transition: all 450ms ease-in;
+// .branching {
+//   .branch-view {
+//     transition: all 450ms ease-in;
 
-    // non title class elements
-    h2:not(.title) {
-      @extend .helvetica-nueue;
-      font-size: 22px;
-      margin: 0 0 0.95rem 0;
-    }
+//     // non title class elements
+//     h2:not(.title) {
+//       font-family: $secondary-font-family;
+//       font-size: 22px;
+//       margin: 0 0 0.95rem 0;
+//     }
 
-    .title {
-      @extend .helvetica-nueue;
-      font-size: 22px;
-    }
+//     .title {
+//       font-family: $secondary-font-family;
+//       font-size: 22px;
+//     }
 
-    // .head-content {
-    //   // SubHeading Body Text
-    //   @extend .helvetica-nueue;
-    //   color: $sixth-color;
-    //   font-weight: 500;
-    //   font-size: 17px;
+//     .text-content {
+//       font-family: $primary-font-family;
+//       color: $primary-color;
+//       font-weight: 400;
+//       font-size: 16px;
       
-    //   // Default Body Text
-    //   > span {
-    //     @extend .roboto;
-    //     color: $primary-color;
-    //     font-weight: 400;
-    //     font-size: 16px;
-    //   }
-    // }
-
-    .text-content {
-      @extend .roboto;
-      color: $primary-color;
-      font-weight: 400;
-      font-size: 16px;
-      
-      // SubHeading Body Text
-      // @extend .helvetica-nueue;
-      // color: $sixth-color;
-      // font-weight: 500;
-      // font-size: 17px;
-      
-      // // Default Body Text
-      // > span {
-      //   @extend .roboto;
-      //   color: $primary-color;
-      //   font-weight: 400;
-      //   font-size: 16px;
-      // }
-    }
-  }
-}
+//     }
+//   }
+// }

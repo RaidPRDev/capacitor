@@ -259,7 +259,7 @@ onMounted(async () => {
   <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="title transform-z">{{ `${props?.view?.title}` }}</h2>
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="content mb-1 transform-z"></div>
   
-  <form ref="baseFormRef">
+  <form ref="baseFormRef" class="branch-input-container">
   <BaseList class="items-list gapx-8" :dataProvider="computedList">
     <template v-slot:listItemSlot="data">
       <BaseButton 
@@ -267,7 +267,7 @@ onMounted(async () => {
         && computedList?.[data.item.index]?.type === `number`"
         :ref="setItemsRef"
         :type="`button`"
-        :class="`width-100 pointer-none`" 
+        :class="`width-100 pointer-none disable-animation`" 
         :innerClassName="`px-0 flex-column align-start`"
         :bodyClassName="`text-left`"
         :label="data.item.label"
@@ -348,7 +348,7 @@ onMounted(async () => {
   </transition >
   
   <transition name="nested" appear v-if="props?.view?.resultDescription">
-    <div class="description-item flex flex-column align-start mxtb-16 px-12 outer">
+    <div class="description-item note flex flex-column align-start mtb-1-25 px-12 outer">
       <div class="description-label mxb-6 inner" v-html="`${convertMathSymbols(props?.view?.resultDescription) ?? ''}`"></div>
     </div>
   </transition >
@@ -370,20 +370,27 @@ onMounted(async () => {
 .content {
   
   :deep(.heading) {
-    margin-top: 1rem;
-    font-size: 14px;
+    // margin-top: 1rem;
+    // font-size: 14px;
     font-weight: 700;
     color: $sixth-color;
   }
-  :deep(ul) {
-    font-size: 14px;
-    font-weight: 500;
-  }
+  // :deep(ul) {
+  //   // font-size: 14px;
+  //   // font-weight: 500;
+  // }
 }
 
 :deep(.list-item) {
   .input-label {
+    font-size: 18px;
     font-weight: 700;
+
+    .label-desc {
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+    }
   } 
   .heading {
     font-size: 14px;
@@ -396,30 +403,35 @@ onMounted(async () => {
     }
   }
 }
-.items-list {
-  .list-item + .list-item {
-    .heading {
-      margin-top: 1rem;
+
+.branch-input-container {
+
+  :deep(.items-list) {
+    .list-item + .list-item {
+      margin-top: 0.75rem;
     }
-    
+    .list-item:last-of-type {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
 .description-item {
-  background-color: #e7e7e7;
-  border-radius: 0.428em;
-}
+  font-weight: 500;
 
-.description-label {
-  font-weight: 400;
-  font-size: 15px;
-  user-select:all;
+  :deep(.math-formula) {
+    font-weight: 400;
+    font-size: 15px;
+    user-select: all;
+    display: block;
+    margin: 0.75rem 0 0 0;
+  }
 }
 
 .result-label {
   font-weight: 700;
   font-size: 18px;
-  user-select:all;
+  user-select: all;
 }
 .result-box {
   height: 50px;

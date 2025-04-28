@@ -134,7 +134,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
       </BaseHeader>
       <Branching 
         ref="branchingRef"
-        viewClassName="pxlr-20 pxt-20 pxb-20" 
+        viewClassName="data-content pxlr-20 pxt-20 pxb-20" 
         :baseRoutePath="`home`"
         :branchRoute="props.branchRoute"
         :views="views" 
@@ -149,27 +149,8 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 </template>
 
 <style scoped lang="scss">
-.branching {
-  transition: all 450ms ease-in;
-
-  // :deep(.branch-view) {
-  //   .head-content {
-  //     // SubHeading Body Text
-  //     @extend .helvetica-nueue;
-  //     color: $sixth-color;
-  //     font-weight: 500;
-  //     font-size: 17px;
-      
-  //     // Default Body Text
-  //     > span {
-  //       @extend .roboto;
-  //       color: $primary-color;
-  //       font-weight: 400;
-  //       font-size: 16px;
-  //     }
-  //   }
-  // }
-
-}
+// .branching {
+//   transition: all 450ms ease-in;
+// }
 
 </style>

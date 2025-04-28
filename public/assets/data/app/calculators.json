@@ -88,7 +88,7 @@
     "useScroll": true,
     "showFavorites": true,
     "resultLabel": "(m²)",
-    "resultDescription": "BSA is calculated using the Mosteller formula (m^2 = sqrt((height (cm * weight (kg))/3600).",
+    "resultDescription": "BSA is calculated using the Mosteller formula:<span class='math-formula'>(m^2 = sqrt((height (cm * weight (kg))/3600)</span>",
     "items": [
       {
         "id": "height",
@@ -353,7 +353,7 @@
       {
         "id": "arterial_saturation",
         "type": "number",
-        "label": "Enter Arterial saturation (range of 0.01 - 1.0)",
+        "label": "Enter Arterial saturation <span class='label-desc'>(range of 0.01 - 1.0)</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -366,7 +366,7 @@
       {
         "id": "venous_saturation",
         "type": "number",
-        "label": "Enter Venous saturation (range of 0.01 - 1.0)",
+        "label": "Enter Venous saturation <span class='label-desc'>(range of 0.01 - 1.0)</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -403,7 +403,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "Step 1: CI = Flow/BSA"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>Step 1: CI = Flow/BSA</div></div>"
       },
       {
         "id": "flow",
@@ -417,7 +417,7 @@
       },
       {
         "type": "heading",
-        "label": "Step 2: CaO2 = (Hb * 1.34)(SaO2) + (0.003 * PaO2)"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>Step 2: CaO2 = (Hb * 1.34)(SaO2) + (0.003 * PaO2)</div></div>"
       },
       {
         "id": "hemoglobin",
@@ -432,7 +432,7 @@
       {
         "id": "sao2",
         "type": "number",
-        "label": "Enter SaO2 Arterial oxygen saturation (range of 0.01 – 1.0)",
+        "label": "Enter SaO2 <span class='label-desc'>Arterial oxygen saturation  (range of 0.01 – 1.0)</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -445,11 +445,11 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 Arterial partial pressure of oxygen in mmHg (millimeters of mecury)"
+        "label": "Enter PaO2 <span class='label-desc'>Arterial partial pressure of oxygen in mmHg (millimeters of mecury)</span>"
       },
       {
         "type": "heading",
-        "label": "Step 3: DO₂i = 10 * CI * CaO2"
+        "label": "<div class='note mt-0-5 mb-0'>Step 3: DO₂i = 10 * CI * CaO2</div></div>"
       },
       {
         "type": "operator",
@@ -468,7 +468,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "Step 1: Prime = Circuit Prime<br><span><i>Note: To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'>Step 1: Prime = Circuit Prime</div><span><i><b>Note:</b> To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
       },
       {
         "id": "constant",
@@ -494,7 +494,7 @@
       },
       {
         "type": "heading",
-        "label": "Step 2: Estimated post-dilutional Hct"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>Step 2: Estimated post-dilutional Hct</div></div>"
       },
       {
         "id": "patient_weight",
@@ -526,12 +526,12 @@
       {
         "id": "airway_pressure",
         "type": "number",
-        "label": "Enter PAW (mmHg) (mean airway pressure)"
+        "label": "Enter PAW (mmHg) <span class='label-desc'>(mean airway pressure)</span>"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) (fraction of inspired oxygen: % as decimal)",
+        "label": "Enter FiO2(%) <span class='label-desc'>(fraction of inspired oxygen: % as decimal)</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -544,7 +544,7 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) (arterial partial pressure of oxygen)"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>(arterial partial pressure of oxygen)</span>"
       },
       {
         "type": "operator",
@@ -563,12 +563,12 @@
       {
         "id": "oxygen_pressure",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) (arterial partial pressure of oxygen)"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>(arterial partial pressure of oxygen)</span>"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) (fraction of inspired oxygen: % as decimal)",
+        "label": "Enter FiO2(%) <span class='label-desc'>(fraction of inspired oxygen: % as decimal)</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -587,7 +587,7 @@
   {
     "id": "ELSOBA_CALC_090",
     "title": "Recirculation Percentage",
-    "content": "Use this calculator to determine the percentage of oxygenated blood that is being recirculated back into the ECMO circuit.<br><div class='heading'>Interpreting your results:</div><ul><li>Recirculation >20% – 30% is likely clinically significant</li><li>SvO2 of venous line <75% suggests recirculation is unlikely</li></ul>",
+    "content": "Use this calculator to determine the percentage of oxygenated blood that is being recirculated back into the ECMO circuit.<br><div class='note mt-1 mb-1-25'><div class='heading'>Interpreting your results:</div><ul><li>Recirculation >20% – 30% is likely clinically significant</li><li>SvO2 of venous line <75% suggests recirculation is unlikely</li></ul></div>",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
@@ -596,17 +596,17 @@
       {
         "id": "pre_oxygen",
         "type": "number",
-        "label": "Enter SpreO2 (Pre-oxygenator oxygen saturation)"
+        "label": "Enter SpreO2 <span class='label-desc'>(Pre-oxygenator oxygen saturation)</span>"
       },
       {
         "id": "venous_oxygen",
         "type": "number",
-        "label": "Enter SvO2 (Venous oxygen saturation)"
+        "label": "Enter SvO2 <span class='label-desc'>(Venous oxygen saturation)</span>"
       },
       {
         "id": "post_oxygen",
         "type": "number",
-        "label": "Enter SpostO2 (Post-oxygenator oxygen saturation)"
+        "label": "Enter SpostO2 <span class='label-desc'>(Post-oxygenator oxygen saturation)</span>"
       },
       {
         "type": "operator",

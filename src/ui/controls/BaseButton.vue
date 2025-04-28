@@ -120,6 +120,7 @@ function onUp(e:MouseEvent) {
   if (props?.asSubControl) e.stopPropagation()
   if (props?.disabled) return;
   if (element?.value?.classList?.contains("disabled")) return;
+  if (element?.value?.classList?.contains("disable-animation")) return;
   if (props?.usePressedState) {
     nextTick(() => {
       const speed = props.pressedTranstionDelay;

@@ -100,7 +100,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
       </BaseHeader>
       <Branching 
         ref="branchingRef"
-        viewClassName="pxlr-20 pxt-20 pxb-20" 
+        viewClassName="data-content pxlr-0 pxt-20 pxb-20" 
         :branchRoute="props.branchRoute"
         :views="views" 
         :useNavigation="true"

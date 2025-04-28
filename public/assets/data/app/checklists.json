@@ -403,7 +403,7 @@
   {
     "id": "ELSOBA_CHKLST_030",
     "title": "Circuit Monitoring",
-    "content": "Circuits should be monitored during every shift. Use these lists to check the different components of the ECMO circuit. <p class='note-style'><b>Note:</b> Items with an asterisk (*) are not included in every ECMO circuit. Only select what is applicable to your circuit.</p>",
+    "content": "Circuits should be monitored during every shift. Use these lists to check the different components of the ECMO circuit. <p class='note'><b>Note:</b> Items with an asterisk (*) are not included in every ECMO circuit. Only select what is applicable to your circuit.</p>",
     "layout": "checklist",
     "keywords": "circuit; monitoring; tubing; cannulation; cannula; distal perfusion; insertion site; display unit; bubble sensor; membrane lung; flow meter; heater unit; heater-cooler unit; driving unit; secondary; vent line",
     "showFavorites": true,

@@ -107,7 +107,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
         
         <Branching 
           ref="branchingRef"
-          viewClassName="pxlr-20 pxt-10 pxb-20" 
+          viewClassName="data-content pxlr-20 pxt-10 pxb-20" 
           :baseRoutePath="`home`"
           :branchRoute="props.branchRoute"
           :views="views" 
@@ -123,48 +123,9 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 </template>
 
 <style scoped lang="scss">
-.branching {
-  transition: all 450ms ease-in;
-
-  :deep(.branch-view) {
-    // transition: all 450ms ease-in;
-
-    // // non title class elements
-    // > h2:not(.title) {
-    //   @extend .helvetica-nueue;
-    //   font-size: 22px;
-    //   margin: 0 0 0.95rem 0;
-    // }
-
-    // > .title {
-    //   @extend .helvetica-nueue;
-    //   font-size: 22px;
-    // }
-
-    // > .text-content {
-    //   // SubHeading Body Text
-    //   @extend .helvetica-nueue;
-    //   color: $sixth-color;
-    //   font-weight: 500;
-    //   font-size: 17px;
-      
-    //   // Default Body Text
-    //   > span {
-    //     @extend .roboto;
-    //     color: $primary-color;
-    //     font-weight: 400;
-    //     font-size: 16px;
-    //   }
-    // }
-
-    ul {
-      padding-left: 20px;
-      li {
-        margin-bottom: 10px;
-      }
-    }
-  }
-}
+// .branching {
+//   transition: all 450ms ease-in;
+// }
 
 .icon {
   width: 48px;

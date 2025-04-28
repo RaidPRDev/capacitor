@@ -6,22 +6,27 @@
 
   .head-content {
     // SubHeading Body Text
-    @extend .helvetica-nueue;
+    font-family: $secondary-font-family;
     color: $sixth-color;
     font-weight: 500;
     font-size: 17px;
 
     &.large {
-      font-size: 19px;
+      font-size: 28px;
     }
 
     // Default Body Text
     > span {
-      @extend .roboto;
+      font-family: $primary-font-family;
       color: $primary-color;
       font-weight: 400;
       font-size: 16px;
     }
+  }
+
+  .subhead-content {
+    font-family: $secondary-font-family;
+    font-size: 18px;
   }
 
   %add-note {
@@ -36,13 +41,21 @@
     padding: 0.95em;
     border-radius: 0.428em;
     font-size: 16px;
+
+    > ul {
+      margin: 0.75rem 0 0 0;
+      padding-left: 1rem;
+    }
   }
 
   ul {
-    padding-left: 20px;
-    
+    // padding-left: 20px;
+    > li + li {
+      margin-top: 0.75rem;
+    }
+
     li {
-      margin-bottom: 0.75rem;
+      // margin-bottom: 0.75rem;
 
       ul {
         margin-top: 0.75rem;
@@ -56,9 +69,10 @@
 
   .table-title {
     margin: 1.25rem 0 1rem 0;
-    color: $sixth-color;
+    font-family: $secondary-font-family;
+    font-size: 18px;
     font-weight: 300;
-    @extend .helvetica-nueue;
+    color: $sixth-color;
   }
   
   .table-subtitle {
@@ -90,7 +104,7 @@
     td {
       background-color: #eeecec;
       font-size: 15px;
-      
+
       &.bg-white {
         background-color: white!important;
         color: #0B247A!important;
@@ -171,14 +185,23 @@
   }
 
   .footnote {
-    font-size: 13px;
+    font-size: 15px;
     font-style: italic;
-    margin: 1rem 0 0 0;
+    margin: 1rem 1rem 0;
 
     @extend %add-note;
   }
 
   img {
     max-width: 100%;
+  }
+
+  .bg-white {
+    background-color: white;
+  }
+
+  .border-tb {
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
   }
 }
