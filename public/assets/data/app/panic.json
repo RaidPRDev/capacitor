@@ -4,7 +4,7 @@
     "dataType": "panic",
     "heading": "Panic",
     "title": "",
-    "content": "Select the option that best represents your emergency and follow the steps to help your patient. If you don’t see what you’re looking for here, go to Checklists.",
+    "content": "<span>Select the option that best represents your emergency and follow the steps to help your patient. If you don’t see what you’re looking for here, go to <b>Checklists</b>.</span>",
     "layout": "list",
     "useScroll": true,
     "isRootParent": true,    
