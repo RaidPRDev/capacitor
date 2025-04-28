@@ -2,6 +2,16 @@ h1, h2, h3, h4, h5, h6 {
   color: $primary-color;
 }
 
+h2 {
+  font-family: $secondary-font-family;
+}
+
+h3 {
+  font-family: $secondary-font-family;
+  color: $sixth-color;
+  font-size: 17px;
+}
+
 .screen-heading {
  
   .screen-title {

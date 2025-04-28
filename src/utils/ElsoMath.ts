@@ -428,12 +428,16 @@ export function enforceRangeV2(input: HTMLInputElement) {
  * - "alpha"    → "α"
  * - "beta"     → "β"
  * - "H2O"      → "H₂O"
+ * - "O2"       → "O₂"
  * - "CO2"      → "CO₂"
  * - "CaO2"     → "CaO₂"
  * - "DO2"      → "DO₂"
+ * - "DO2i"     → "DO2i₂"
  * - "VO2"      → "VO₂"
+ * - "FDO2"     → "FDO₂"
  * - "SvO2"     → "SvO₂"
  * - "SaO2"     → "SaO₂"
+ * - "SpO2"     → "SpO₂"
  * - "SpreO2"   → "S<sub class='math-sub'>pre</sub>O₂"
  * - "SpostO2"  → "S<sub class='math-sub'>post</sub>O₂"
  * - "FsO2"     → "FsO₂"
@@ -455,33 +459,45 @@ export function enforceRangeV2(input: HTMLInputElement) {
  */
 export function convertMathSymbols(input: string | undefined): string {
   if (input === undefined) return "";
+  
+  const sup2 = `<sup class='math-sup'>2</sup>`
+  const sub2 = `<sub class='math-sub'>2</sub>`
+  const sub2wmr = `<sub class='math-sub mr-pad'>2</sub>`
+
   return input
-    .replace(/\bsqrt\(/g, '√(')
-    .replace(/\^2\b/g, '²')
-    .replace(/\^3\b/g, '³')
-    .replace(/\bpi\b/gi, 'π')
-    .replace(/\btheta\b/gi, 'θ')
-    .replace(/\balpha\b/gi, 'α')
-    .replace(/\bbeta\b/gi, 'β')
-    .replace(/\bH2O\b/g, 'H₂O')
-    .replace(/\bCO2\b/g, 'CO₂')
-    .replace(/\bCaO2\b/g, 'CaO₂')
-    .replace(/\bDO2\b/g, 'DO₂')
-    .replace(/\bVO2\b/g, 'VO₂')
-    .replace(/\bSvO2\b/g, 'SvO₂')
-    .replace(/\bSaO2\b/g, 'SaO₂')
-    .replace(/\bSpreO2\b/g, `S<sub class='math-sub'>pre</sub>O₂`)
-    .replace(/\bSpostO2\b/g, `S<sub class='math-sub'>post</sub>O₂`)
-    .replace(/\bFsO2\b/g, 'FsO₂')
-    .replace(/\bFiO2\b/g, 'FiO₂')
+    .replace(/\bsqrt\(/g, `√(`)
+    .replace(/\^2\b/g, `²`)
+    .replace(/\^3\b/g, `³`)
+    .replace(/\bpi\b/gi, `π`)
+    .replace(/\btheta\b/gi, `θ`)
+    .replace(/\balpha\b/gi, `α`)
+    .replace(/\bbeta\b/gi, `β`)
+    .replace(/\bH2O\b/g, `H${sub2}O`)
+    .replace(/\bO2\b/g, `O${sub2wmr}`)
+    .replace(/\bCO2\b/g, `CO${sub2wmr}`)
+    .replace(/\bCaO2\b/g, `CaO${sub2wmr}`)
+    .replace(/\bDO2\b/g, `DO${sub2wmr}`)
+    .replace(/\bDO2i\b/g, `DO${sub2}i`)
+    .replace(/\bVO2\b/g, `VO${sub2wmr}`)
+    .replace(/\bFDO2\b/g, `FDO${sub2wmr}`)
+    .replace(/\bSvO2\b/g, `SvO${sub2wmr}`)
+    .replace(/\bSaO2\b/g, `SaO${sub2wmr}`)
+    .replace(/\bSpO2\b/g, `SpO${sub2wmr}`)
+    .replace(/\bSpreO2\b/g, `S<sub class='math-sub'>pre</sub>O${sub2wmr}`)
+    .replace(/\bSpostO2\b/g, `S<sub class='math-sub'>post</sub>O${sub2wmr}`)
+    .replace(/\bFsO2\b/g, `FsO${sub2wmr}`)
+    .replace(/\bFiO2\b/g, `FiO${sub2wmr}`)
     .replace(/\bPAW\b/g, `P<sub class='math-sub pad'>AW</sub>`)
-    .replace(/\bParO2\b/g, 'ParO₂')
-    .replace(/\bPaO2\b/g, 'PaO₂')
-    .replace(/\bPaCO2\b/g, 'PaCO₂')
-    .replace(/\bPO2\b/g, 'PO₂')
-    .replace(/\bPCO2\b/g, 'PCO₂')
-    .replace(/\bmmH2O\b/g, 'mmH₂O')
-    .replace(/\bmm3\b/g, 'mm³')
-    .replace(/\bVMLO2\b/g, 'VMLO₂')
-    .replace(/\bVMLCO2\b/g, 'VMLCO₂');
+    .replace(/\bParO2\b/g, `ParO${sub2wmr}`)
+    .replace(/\bPaO2\b/g, `PaO${sub2wmr}`)
+    .replace(/\bPaCO2\b/g, `PaCO${sub2wmr}`)
+    .replace(/\bPO2\b/g, `PO${sub2wmr}`)
+    .replace(/\bPCO2\b/g, `PCO${sub2wmr}`)
+    .replace(/\bpCO2\b/g, `PCO${sub2wmr}`)
+    .replace(/\bmmH2O\b/g, `mmH${sub2}O`)
+    .replace(/\bmm3\b/g, `mm³`)
+    .replace(/\bmL\/min\/m2\b/g, `mL/min/m${sup2}`)
+    .replace(/\bm2\b/g, `m${sup2}`)
+    .replace(/\bVMLO2\b/g, `VMLO${sub2wmr}`)
+    .replace(/\bVMLCO2\b/g, `VMLCO${sub2wmr}`);
 }

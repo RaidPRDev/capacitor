@@ -6,7 +6,8 @@ const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, onMounted, ref, shallowRef } from "vue";
+import { ComponentPublicInstance, onMounted, ref, shallowRef, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import { 
   COMPILED_DATA_PATH,
@@ -34,7 +35,9 @@ const loading = ref<boolean>(true);
 const showMainHeader = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
 const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
-  
+const route = useRoute();
+const router = useRouter();
+
 const { 
   baseHeight, 
 } = useBranching({
@@ -42,12 +45,17 @@ const {
   extraHeight: 0,
   overrideHeight: 0
 })
+console.log("watch", route?.query)
 
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/panic_compiled.json`, views);
 
   setTimeout(() => { 
     loading.value = false; 
+
+    if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
+    router.replace({ path: `/home/panic/${route?.query?.id}` });
+  }
   }, 750);
 })
 
@@ -81,7 +89,6 @@ function onViewBeforeEnter(params: BranchViewParamData) {
         id: params.view.heading! || params.view.title!
       });
   }
-  
 }
 
 </script>
@@ -122,34 +129,4 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 
 </template>
 
-<style scoped lang="scss">
-.branching {
-  // transition: all 450ms ease-in;
-
-  :deep(.branch-view) {
-    h2 {
-      margin: 0 0 1rem 0;
-    }
-    .title, > h2 {
-      font-family: $secondary-font-family;
-      font-size: 22px;
-    }
-    .text-content {
-      > :not(span) {
-        font-family: $secondary-font-family;
-        color: $sixth-color;
-        font-weight: 500;
-        font-size: 17px;
-      }
-    }
-  }
-}
-
-.icon {
-  width: 48px;
-  svg {
-    width: 48px;
-  }
-}
-
-</style>
+<style scoped lang="scss"></style>

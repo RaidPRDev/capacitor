@@ -21,6 +21,7 @@ interface IAppAlertProps {
   title?: string;
   content?: string;
   labels?: Array<string>;
+  showClose?: boolean;
   // action?: Array<string>;
   action?: (index: number, data?: any) => void,
   data?: Record<string, any>
@@ -50,6 +51,7 @@ const labels = computed(() => {
       </template>
       <template v-slot:headerRight>
         <BaseButton 
+          v-if="showClose"
           :class="`close-button`" 
           :icon="CloseIcon"
           @triggered="() => {

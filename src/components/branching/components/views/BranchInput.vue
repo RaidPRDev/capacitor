@@ -256,7 +256,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" class="title transform-z">{{ `${props?.view?.title}` }}</h2>
+  <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" 
+    class="title transform-z" v-html="props?.view?.title"></h2>
   <div v-if="props?.view?.content" v-html="props?.view?.content" class="content mb-1 transform-z"></div>
   
   <form ref="baseFormRef" class="branch-input-container">
@@ -355,7 +356,7 @@ onMounted(async () => {
 
   <transition name="nested" appear>
     <div class="result-item flex flex-column align-start mxt-20 outer">
-      <div class="result-label mxb-6 inner" v-html="`RESULT ${props?.view?.resultLabel ?? ''}`"></div>
+      <div class="result-label mxb-6 inner" v-html="`RESULT ${convertMathSymbols(props?.view?.resultLabel?.toString()) ?? ''}`"></div>
       <div id="result-label" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result }}
       </div>

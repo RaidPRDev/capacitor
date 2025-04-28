@@ -280,7 +280,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Air in Circuit",
-    "content": "You suspect that air has entered the ECMO circuit.",
+    "content": "<h3>You suspect that air has entered the ECMO circuit.</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -301,7 +301,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Air in Circuit",
-    "content": "Determine if air is clearly visible in the circuit",
+    "content": "<h3>Determine if air is clearly visible in the circuit</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -322,7 +322,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Locate the air in the circuit.",
-    "content": "If any of the following are true, select YES.",
+    "content": "<h3>If any of the following are true, select YES.</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -428,7 +428,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Assess the extracorporeal blood flow (EBF)",
-    "content": "Is the pump still running and providing the target blood flow?",
+    "content": "<h3>Is the pump still running and providing the target blood flow?</h3>",
     "layout": "list",
     "branchTo": "",
     "items": [
@@ -471,7 +471,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Air is not clearly visible in the circuit",
-    "content": "Is the bubble sensor alarming?",
+    "content": "<h3>Is the bubble sensor alarming?</h3>",
     "layout": "list",
     "items": [
       {
@@ -491,7 +491,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "The bubble sensor is alarming.",
-    "content": "Is the pump still running and providing the target blood flow?",
+    "content": "<h3>Is the pump still running and providing the target blood flow?</h3>",
     "layout": "list",
     "items": [
       {
@@ -550,7 +550,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Blood Out of Circuit",
-    "content": "Blood noticed out of circuit (in patient's bed, on floor, or elsewhere).",
+    "content": "<h3>Blood noticed out of circuit (in patient's bed, on floor, or elsewhere).</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -715,7 +715,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Assess the circuit tip to tip, starting with the return cannula insertion site.",
-    "content": "Has the bleeding source been detected?",
+    "content": "<h3>Has the bleeding source been detected?</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -790,7 +790,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Cardiac Arrest",
-    "content": "Cardiac arrest on ECMO suspected.",
+    "content": "<h3>Cardiac arrest on ECMO suspected.</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -864,7 +864,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "DNR order has NOT been signed.",
-    "content": "Select your Extracorporeal Life Support (ECLS) configuration.",
+    "content": "<h3>Select your Extracorporeal Life Support (ECLS) configuration.</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -919,7 +919,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "VA or VVA ECMO",
-    "content": "Is the pump running?",
+    "content": "<h3>Is the pump running?</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -1003,7 +1003,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "No Flow",
-    "content": "No blood flow is suspected.",
+    "content": "<h3>No blood flow is suspected.</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -1024,7 +1024,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Confirm a \"No blood flow\" scenario",
-    "content": "Is the driving unit screen off?",
+    "content": "<h3>Is the driving unit screen off?</h3>",
     "layout": "list",
     "keywords": "",
     "items": [

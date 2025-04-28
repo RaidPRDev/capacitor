@@ -130,13 +130,16 @@ onMounted(() => {
   >
     <div class="bread-content flex align-center height-auto" ref="elementContent">
       <template v-for="(item, index) in historyList">
-        <div :class="['bread-item', 'nowrap']" role="link" @click="() => onBreadcrumbItem(index)">
-          {{ (item.title || item.heading) }}
-        </div>
+        <div 
+          :class="['bread-item', 'nowrap']" 
+          role="link" 
+          v-html="(item.title || item.heading)"
+          @click="() => onBreadcrumbItem(index)"
+        ></div>
         <div class="divider mxlr-6" v-if="historyList?.length !== index" ><DividerIcon/></div>
       </template>
     </div>
-    <div class="bread-item active">{{ activeItem }}</div>
+    <div class="bread-item active" v-html="activeItem"></div>
   </div>
 </template>
 

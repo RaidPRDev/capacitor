@@ -182,9 +182,6 @@ const computedList = computed(() => {
   font-size: 18px;
   font-weight: 500;
 }
-.text-content {
-  font-size: 16px;
-}
 
 .base-list {
   :deep(.list-item) {

@@ -139,6 +139,10 @@ export async function compileJSONData(file: string, sourcePath: string = "", tar
           if (checkIfCheckBox) count++;
         }
 
+        if (item.title) {
+          item.title = convertMathSymbols(parseLabelToListFormat(item.title));
+        }
+
         if (item.label) {
           item.label = convertMathSymbols(parseLabelToListFormat(item.label));
         }

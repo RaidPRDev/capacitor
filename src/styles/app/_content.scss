@@ -4,6 +4,11 @@
   margin: 0.25rem 0 0 0;
   //touch-action: pan-x pan-y pinch-zoom;
 
+  h2 {
+    font-size: 22px;
+    margin: 0 0 1rem 0;
+  }
+
   .head-content {
     // SubHeading Body Text
     font-family: $secondary-font-family;
@@ -49,22 +54,31 @@
   }
 
   ul {
-    // padding-left: 20px;
+    &.no-bullet {
+      padding-left: 0;
+      li { 
+        list-style-type: none; 
+        border-bottom: 1px solid #BEBEBE;
+        padding: 1rem 0;
+        margin-top: 0;
+
+        &:first-of-type {
+          padding: 0 0 1rem;
+        }
+      }
+    }
+    
+    margin-bottom: 0.25rem;
+
     > li + li {
       margin-top: 0.75rem;
     }
 
     li {
-      // margin-bottom: 0.75rem;
-
       ul {
         margin-top: 0.75rem;
       }
     }
-  }
-
-  .data-spacer {
-    margin: 0 0.25rem;
   }
 
   .table-title {
@@ -187,7 +201,7 @@
   .footnote {
     font-size: 15px;
     font-style: italic;
-    margin: 1rem 1rem 0;
+    margin: 1rem 0;
 
     @extend %add-note;
   }

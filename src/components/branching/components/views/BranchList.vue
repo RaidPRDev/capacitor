@@ -82,13 +82,13 @@ const computedList = computed(() => {
 </template>
 
 <style scoped lang="scss">
-.title {
-  font-size: 18px;
-  font-weight: 500;
-}
-.text-content {
-  font-size: 16px;
-}
+// .title {
+//   font-size: 18px;
+//   font-weight: 500;
+// }
+// .text-content {
+//   font-size: 16px;
+// }
 
 .item {
   :deep(.base-button) {

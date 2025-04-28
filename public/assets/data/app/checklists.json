@@ -258,7 +258,7 @@
   {
     "id": "ELSOBA_CHKLST_CAT8",
     "title": "ECMO Cart",
-    "content": "<p><b>ECMO Cart Requirements</b></p>An ECMO cart is used for cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.<ul><li>The items included MUST be immediately available for the cannulating team.</li><li>The cart should be kept in a dedicated location when not in use.</li><li>The items in the cart and on top of the cart MUST be maintained. This means they MUST be checked for content and expiration dates, and refilled with used items, as per center policy.</li></ul>",
+    "content": "<h2><b>ECMO Cart Requirements</b></h2>An ECMO cart is used for cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.<ul><li>The items included MUST be immediately available for the cannulating team.</li><li>The cart should be kept in a dedicated location when not in use.</li><li>The items in the cart and on top of the cart MUST be maintained. This means they MUST be checked for content and expiration dates, and refilled with used items, as per center policy.</li></ul>",
     "showFavorites": true,
     "useScroll": true, 
     "layout": "list",
@@ -1248,10 +1248,58 @@
             "label": "If at least one of the following is true:", 
             "type": "comment" 
           },
-          { "label": "Massive air entrance <br><span>Go to Panic!: Air in Circuit</span>", "checked": false },
-          { "label": "Accidental decannulation <br><span>Go to Panic!: Accidental Decannulation</span>", "checked": false },
-          { "label": "Acute circuit thrombosis <br><span>Go to Panic!: No Flow</span>", "checked": false },
-          { "label": "Major circuit disruption <br><span>Go to Panic!: Air In Circuit</span>", "checked": false },
+          { 
+            "label": "Massive air entrance", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Go to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a>", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
+          { 
+            "label": "Accidental decannulation", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Go to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_010' target='_self'>Panic!: Accidental Decannulation</a>", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
+          { 
+            "label": "Acute circuit thrombosis", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Go to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_050' target='_self'>Panic!: No Flow</a>", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
+          { 
+            "label": "Major circuit disruption", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Go to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a>", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
           { 
             "label": "If weaning is deemed feasible or no other management option is feasible for any reason, proceed to the next step.", 
             "type": "comment",
@@ -1407,7 +1455,7 @@
             "items": [
               { "label": "If needed, consider measuring plasmatic or urinary concentrations.", "checked": false },
               { "label": "If highly lipophilic/protein bound medications have been used AND circuit sequestration cannot be excluded, consider increasing the length of the therapeutic window.", "checked": false },
-              { "label": "Visit <a href='' data-link='MEDICATIONS##ELSOBA_CHKLST_035' target='_self'>Medications</a> for additional information", "type": "comment", "class": "note" }
+              { "label": "Visit <a href='#' data-link='MEDICATIONS##ELSOBA_MED_000' target='_self'>Medications</a> for additional information", "type": "comment", "class": "note" }
             ]
           }, 
           {
@@ -1715,13 +1763,13 @@
                   { "label": "Weaning test is NOT ongoing in VV/VP ECMO", "checked": false }
                 ]
               },
-              { "label": "Fraction of Oxygen in the SGF (FsO₂) is above 21 and appropriate for the specific patient/configuration", "checked": false },
-              { "label": "Blender/wall connection for O₂", "checked": false },
+              { "label": "Fraction of Oxygen in the SGF (FsO2) is above 21 and appropriate for the specific patient/configuration", "checked": false },
+              { "label": "Blender/wall connection for O2", "checked": false },
               { "label": "Blender/wall connection for air", "checked": false }
             ] 
           },
           { 
-            "label": "If the O₂ cylinder or air/O₂ cylinders are in use:",
+            "label": "If the O2 cylinder or air/O2 cylinders are in use:",
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
@@ -1730,9 +1778,9 @@
               { "label": "Gas filter is intact", "checked": false },
               { "label": "Gas line is connected to the cylinder", "checked": false },
               { "label": "Gas line is connected to the Y connector*", "checked": false },
-              { "label": "Line after the Y connector is connected to air/O₂ cylinders*", "checked": false },
-              { "label": "O₂ cylinder open", "checked": false },
-              { "label": "O₂ cylinder full", "checked": false },
+              { "label": "Line after the Y connector is connected to air/O2 cylinders*", "checked": false },
+              { "label": "O2 cylinder open", "checked": false },
+              { "label": "O2 cylinder full", "checked": false },
               { "label": "Air cylinder open*", "checked": false },
               { "label": "Air cylinder full*", "checked": false }
             ]
@@ -1781,7 +1829,7 @@
         "layout": "checklist",
         "type": "subchecklist",
         "items": [
-          { "label": "Increase FsO₂ to 100% until the issue is resolved", "checked": false },
+          { "label": "Increase FsO2 to 100% until the issue is resolved", "checked": false },
           { "label": "Confirm that there is a persistent lack of color difference between the tubing entering and exiting the ML by using a flashlight", "checked": false },
           { "label": "Confirm that gas exchange though pre/post-ML blood sampling is NOT consistent with the device and gas blender settings", "checked": false },
           { 
@@ -1869,7 +1917,7 @@
               { "label": "Target extracorporeal blood flow (EBF)", "checked": false },
               { "label": "Current mean EBF range", "checked": false },
               { "label": "Sweep gas flow (SGF)", "checked": false },
-              { "label": "Fraction of O₂ in the sweep gas flow (FsO₂)", "checked": false },
+              { "label": "Fraction of O2 in the sweep gas flow (FsO2)", "checked": false },
               { "label": "Set heater unit (HU) or heater-cooler unit (HCU) water temperature", "checked": false },
               { "label": "Blood temperature", "checked": false },
               { "label": "Alarms", "checked": false },
@@ -1904,11 +1952,11 @@
             "layout": "checklist",
             "type": "subchecklist",
             "items": [
-              { "label": "Arterial partial pressure of oxygen (PaO₂)", "checked": false },
-              { "label": "Ratio of PaO₂ and Fraction of inspired O₂ (FiO₂)", "checked": false },
-              { "label": "Arterial partial pressure of carbon dioxide (PaCO₂)", "checked": false },
+              { "label": "Arterial partial pressure of oxygen (PaO2)", "checked": false },
+              { "label": "Ratio of PaO2 and Fraction of inspired O2 (FiO2)", "checked": false },
+              { "label": "Arterial partial pressure of carbon dioxide (PaCO2)", "checked": false },
               { "label": "HCO3 (bicarbonates)", "checked": false },
-              { "label": "Arterial O₂ saturation (SaO₂)", "checked": false },
+              { "label": "Arterial O2 saturation (SaO2)", "checked": false },
               { "label": "Lactate", "checked": false }
             ]                  
           },
@@ -2052,11 +2100,11 @@
               { "label": "Neuromuscular blocking agents (NMBAs)", "checked": false },
               { "label": "Inhaled nitric oxide (iNO)", "checked": false },
               { "label": "Non-invasive mechanical ventilation (NIMV)", "checked": false },
-              { "label": "High flow nasal O₂ (HFNO)", "checked": false },
-              { "label": "Low flow O₂", "checked": false },
-              { "label": "No O₂", "checked": false },
+              { "label": "High flow nasal O2 (HFNO)", "checked": false },
+              { "label": "Low flow O2", "checked": false },
+              { "label": "No O2", "checked": false },
               { "label": "Prone positioning (include timing)", "checked": false },
-              { "label": "Peripheral O₂ saturation (SpO₂)", "checked": false }
+              { "label": "Peripheral O2 saturation (SpO2)", "checked": false }
             ]                   
           },
           {
@@ -2552,11 +2600,9 @@
             "class": "list-section"
           }, 
           {
-            "type": "subchecklist",
-            "layout": "checklist",
+            "type": "comment",
             "label": "Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_080'>Gas Supply Interruption</a> checklist. Once a gas supply interruption is ruled out, return to and complete this checklist.",
-            "class": "",
-            "checked": false 
+            "class": "note"
           }, 
           {
             "label": "Evaluate the Membrane Lung (ML) Pressures and Blood Flow",
@@ -2567,11 +2613,44 @@
               { "label": "Assess pre-membrane lung pressure (PPRE-ML)", "checked": false },
               { "label": "Assess post-membrane lung pressure (PPOST-ML)", "checked": false },
               { "label": "Assess extracorporeal blood flow (EBF)", "checked": false },
-              { "label": "Calculate pressure drop or delta P <br><span>ΔP = PPRE-ML - PPOST-ML</span><br><span>Open Notes to record the value.</span>", "checked": false },
-              { "label": "Calculate membrane lung resistances (MLR) <br><span>MLR = ΔP/EBF</span><br><span>Open Notes to record the value.</span>", "checked": false },
               { 
-                "label": "Check your values against the standard pressures for the device, listed in the Almanac [link?].", 
-                "checked": false 
+                "label": "Calculate pressure drop or delta P <span>ΔP = PPRE-ML - PPOST-ML</span>", 
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { 
+                    "label": "Open <b>Notes</b> to record the value.", 
+                    "type": "comment",
+                    "class": "note"
+                  }
+                ]
+              },
+              { 
+                "label": "Calculate membrane lung resistances (MLR) <span>MLR = ΔP/EBF</span>", 
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { 
+                    "label": "Open <b>Notes</b> to record the value.", 
+                    "type": "comment",
+                    "class": "note"
+                  }
+                ]
+              },
+              { 
+                "label": "Check your values against the standard pressures for the device, listed in the Almanac.", 
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { 
+                    "label": "Go to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'><b>Almanac</b></a>", 
+                    "type": "comment",
+                    "class": "note"
+                  }
+                ]
               },
               { "label": "Values are excessive compared to standard pressures", "checked": false },
               { "label": "There are progressive or acute increases in ΔP and MLR compared to the previous evaluation", "checked": false },
@@ -2581,8 +2660,16 @@
                 "type": "comment",
                 "class": "note"
               },
-              { "label": "Consider ML or circuit exchange [Circuit Change (Emergent and Elective)]", "checked": false },
-              { "label": "Consider coming off ECMO emergently if preferable for the patient [Coming Off ECMO Emergently]", "checked": false },
+              { 
+                "label": "Consider ML or circuit exchange <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>", 
+                "type": "comment",
+                "class": "note disabled"
+              },
+              { 
+                "label": "Consider <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>coming off ECMO emergently</a> if preferable for the patient", 
+                "type": "comment",
+                "class": "note disabled"
+              },
               { 
                 "label": "If none of the boxes are checked, continue to the next step.", 
                 "type": "comment",
@@ -2596,41 +2683,52 @@
             "layout": "checklist",
             "class": "list-section",
             "items": [
-              { "label": "Flush the gas line (Link to ML recruitment checklist)", "checked": false },
-              { "label": "Maximize sweep gas flow (SGF) and O₂ fraction in the sweep gas flow (FsO₂)", "checked": false },
+              { "label": "Flush the gas line", "checked": false },
               { 
-                "label": "Sample the blood before and after the ML to assess the O₂ uptake", 
+                "label": "<a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>ML recruitment checklist</a>", 
+                "type": "comment",
+                "class": "note disabled"
+              },
+              { "label": "Maximize sweep gas flow (SGF) and O2 fraction in the sweep gas flow (FsO2)", "checked": false },
+              { 
+                "label": "Sample the blood before and after the ML to assess the O2 uptake", 
                 "type": "subchecklist",
                 "layout": "checklist",
                 "checked": false, 
                 "items": [
-                  { "label": "Is there a decreased O₂ uptake?", "checked": false },
-                  { "label": "Is the PPOST-ML O₂ < 200 mmHg ?", "checked": false },
-                  { "label": "Is the V’O₂ < 100-150 ml/min ? (link to calculator)", "checked": false }
+                  { "label": "Is there a decreased O2 uptake?", "checked": false },
+                  { "label": "Is the PPOST-ML O2 < 200 mmHg ?", "checked": false },
+                  { "label": "Is the V’O2 < 100-150 ml/min?", "checked": false },
+                  { 
+                    "label": "<a class='' href='#' data-link='CALCULATOR##ELSOBA_CALC_040'>LINK TO CALCULATOR</a>", 
+                    "type": "comment",
+                    "class": "note"
+                  }
                 ]
               },
               { 
-                "label": "Assess CO₂ removal", 
+                "label": "Assess CO2 removal", 
                 "type": "subchecklist",
                 "layout": "checklist",
                 "checked": false,
                 "items": [
                   { "label": "Has it decreased?", "checked": false },
-                  { "label": "Is the PPOST-ML CO₂ > 40 mmHg?", "checked": false },
-                  { "label": "Is the PPRE-ML CO₂ – PPOST-ML CO₂ < 10 mmHg?", "checked": false } 
+                  { "label": "Is the PPOST-ML CO2 > 40 mmHg?", "checked": false },
+                  { "label": "Is the PPRE-ML CO2 – PPOST-ML CO2 < 10 mmHg?", "checked": false } 
                 ]
               },
               {
-                "label": "If at least one YES without an alternative explanation, excluding a gas supply interruption, ML dysfunction or failure is likely.",
+                "label": "If at least one <b>YES</b> without an alternative explanation, excluding a gas supply interruption, ML dysfunction or failure is likely.",
                 "type": "comment",
                 "class": "note"
               },
-              {
-                "label": "Consider performing a Circuit Change or <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO</a> if it’s preferable for the patient.",
-                "checked": false
+              { 
+                "label": "Consider performing a <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change</a> or <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO</a> if preferable for the patient", 
+                "type": "comment",
+                "class": "note disabled"
               },
               {
-                "label": "If NO, continue to the next step.",
+                "label": "If <b>NO</b>, continue to the next step.",
                 "type": "comment",
                 "class": "note"
               }
@@ -2658,7 +2756,7 @@
                 ]
               },
               {
-                "label": "If the answer is YES to either without an alternative explanation, consider ML or circuit change.",
+                "label": "If the answer is <b>YES</b> to either without an alternative explanation, consider ML or <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a>.",
                 "type": "comment",
                 "class": "note"
               },
@@ -2689,7 +2787,29 @@
                 ]               
               }
             ]
-          } 
+          },
+          {
+            "label": "If the answer is <b>YES</b> for more than one of the questions above without an alternative explanation, ML dysfunction or failure is likely.",
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": []
+          },
+          {
+            "label": "Consider performing a <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a> or <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_035'>coming off ECMO</a> if it’s preferable for the patient.",
+            "type": "comment",
+            "class": "note"
+          },
+          {
+            "label": "If the answer is <b>NO</b> for the above questions, ML dysfunction or failure is unlikely.",
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Closely monitor the patient and consider alternative cause(s)",
+                "checked": false
+              }
+            ]
+          }
         ]
       } 
     ]
@@ -3190,8 +3310,32 @@
           { "label": "Assess pre-membrane lung (ML) pressure (PPRE-ML)", "checked": false },
           { "label": "Assess post-ML pressure (PPOST-ML)", "checked": false },
           { "label": "Assess extracorporeal blood flow (EBF)", "checked": false },
-          { "label": "Calculate pressure drop or delta pressure (ΔP) <br><span>ΔP = PPRE-ML – PPOST-ML</span><br><span>Open Notes to record the value.</span>", "checked": false },
-          { "label": "Calculate membrane lung resistances (MLR) <br><span>MLR = ΔP – EBF (optional)</span><br><span>Open Notes to record the value.</span>", "checked": false },
+          { 
+            "label": "Calculate pressure drop or delta pressure (ΔP) <br><span>ΔP = PPRE-ML – PPOST-ML</span>", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Open <b>Notes</b> to record the value.", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
+          { 
+            "label": "Calculate membrane lung resistances (MLR) <br><span>MLR = ΔP – EBF (optional)</span>", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Open <b>Notes</b> to record the value.", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
           { 
             "label": "Is there a progressive or acute increase in PPRE-ML with significantly decreased ΔP and MLR (optional), compared to the previous evaluation?", 
             "type": "subchecklist",
@@ -3394,11 +3538,13 @@
                       },
                       { 
                         "label": "If YES, insert a new return cannula, switch the circuit to the new cannula and remove the old cannula.", 
-                        "checked": false
+                        "type": "comment",
+                        "class": "note"
                       },
                       { 
                         "label": "If NO, go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'>Coming Off ECMO Emergently</a> checklist.", 
-                        "checked": false
+                        "type": "comment",
+                        "class": "note"
                       }
                     ]
                   }

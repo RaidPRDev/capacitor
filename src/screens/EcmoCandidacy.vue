@@ -121,32 +121,4 @@ function onViewBeforeEnter(params: BranchViewParamData) {
 
 </template>
 
-<style scoped lang="scss">
-.branching {
-  // transition: all 450ms ease-in;
-
-  :deep(.branch-view) {
-    h2 {
-      margin: 0 0 1rem 0;
-    }
-    .title, > h2 {
-      font-family: $secondary-font-family;
-      font-size: 22px;
-    }
-    .text-content {
-      > :not(span) {
-        font-family: $secondary-font-family;
-        color: $sixth-color;
-        font-weight: 500;
-        font-size: 17px;
-      }
-    }
-  }
-}
-.icon {
-  width: 48px;
-  svg {
-    width: 48px;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

@@ -31,7 +31,7 @@
         "class": ""
       },
       {
-        "label": "DO₂i",
+        "label": "DO2i",
         "branchTo": "ELSOBA_CALC_050",
         "class": ""
       },
@@ -87,7 +87,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(m²)",
+    "resultLabel": "(m2)",
     "resultDescription": "BSA is calculated using the Mosteller formula:<span class='math-formula'>(m^2 = sqrt((height (cm * weight (kg))/3600)</span>",
     "items": [
       {
@@ -113,7 +113,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(m²)",
+    "resultLabel": "(m2)",
     "items": [
       {
         "id": "weight",
@@ -348,7 +348,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(mL O₂/min)",
+    "resultLabel": "(mL O2/min)",
     "items": [
       {
         "id": "arterial_saturation",
@@ -394,12 +394,12 @@
   },
   {
     "id": "ELSOBA_CALC_050",
-    "title": "DO₂i Calculator",
-    "content": "To calculate oxygen delivery, first determine the cardiac index, then the oxygen carrying capacity, and finally the oxygen delivery (DO₂i).",
+    "title": "DO2i Calculator",
+    "content": "To calculate oxygen delivery, first determine the cardiac index, then the oxygen carrying capacity, and finally the oxygen delivery (DO2i).",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(mL/min/m²)",
+    "resultLabel": "(mL/min/m2)",
     "items": [
       {
         "type": "heading",
@@ -449,7 +449,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'>Step 3: DO₂i = 10 * CI * CaO2</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'>Step 3: DO2i = 10 * CI * CaO2</div></div>"
       },
       {
         "type": "operator",

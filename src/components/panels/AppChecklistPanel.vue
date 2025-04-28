@@ -195,14 +195,24 @@ function onInternalLink(element: HTMLElement) {
     title: '',
     content: `Are you sure you want to leave this checklist?`,
     labels: ['No', 'Yes'],
+    showClose: false,
     action: (index:number) => {
       if (index === 0) return;
 
       // need to close self panel before pushing
       app.drawers.bottom.open = !app.drawers.bottom.open;
       switch (queryParams?.type) {
+        case 'PANIC':
+          router.push({ name: `Panic`, query: queryParams });
+          break;
         case 'CHECKLIST':
           router.push({ name: `Checklists`, query: queryParams });
+          break;
+        case 'MEDICATIONS':
+          router.push({ name: `Medication`, query: queryParams });
+          break;
+        case 'CALCULATORS':
+          router.push({ name: `Calculators`, query: queryParams });
           break;
         default:
       }
@@ -241,7 +251,7 @@ function processItemLabel(item:any) {
     
     <BaseHeader class="header-panel mxlr-20 pxb-8 mxb-8 pxr-20 height-auto align-center">
       <template v-slot:headerLeft>
-        <div v-if="props?.title" class="title">{{ props?.title }}</div>
+        <div v-if="props?.title" class="title" v-html="props?.title"></div>
       </template>
     </BaseHeader>
     

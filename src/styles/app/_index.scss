@@ -18,15 +18,33 @@
 
 .math-sub {
   font-size: 10px;
-  transform: translateY(-0.4em);
+  transform: translateY(-0.3em);
   display: inline-block;
+  
+  &.mr-pad {
+    margin-right: 0.31em;
+  }
 
   &.pad {
     transform: translate(-0.2em, -0.3em);
   }
 }
 
+.math-sup {
+  font-size: 10px;
+  transform: translateY(-0.01em);
+  display: inline-block;
+  
+  &.mr-pad {
+    margin-right: 0.31em;
+  }  
+}
+
 a {
   color: $teniary-color;
   font-weight: 500;
+  &.disabled {
+    color: #d3cdce;
+    pointer-events: none;
+  }
 }

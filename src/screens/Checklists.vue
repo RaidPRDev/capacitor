@@ -7,6 +7,7 @@ const DEBUG = false;
 
 <script setup lang="ts">
 import { ComponentPublicInstance, computed, onMounted, ref, shallowRef, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import { 
   COMPILED_DATA_PATH,
@@ -27,7 +28,6 @@ import { loadViewData } from "@/components/branching/data/DataTools";
 import { getNavigationRoot } from "@/utils/BranchTools";
 
 import ChecklistIcon from '@/assets/icons/homeMenu/checklist-icon.svg';
-import { useRoute, useRouter } from "vue-router";
 import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
