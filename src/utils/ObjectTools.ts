@@ -1,5 +1,3 @@
-import { removeDuplicateWords } from "./StringTools";
-
 export function isObjectEmpty(obj:any) {
   return Object.keys(obj).length === 0 && obj.constructor === Object;
 }
