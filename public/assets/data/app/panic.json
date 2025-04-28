@@ -43,7 +43,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Accidental Decannulation",
-    "content": "Determine cannula placement",
+    "content": "<h3>Determine cannula placement</h3>",
     "layout": "list",
     "keywords": "",
     "items": [
@@ -136,7 +136,7 @@
     "id": "ELSOBA_PANIC_010__A__A",
     "showTitle": true,
     "title": "Accidental Decannulation",
-    "content": "Manage the patient:",
+    "content": "<h3>Manage the patient:</h3>",
     "layout": "list",
     "keywords": "",
     "branchTo": "",
