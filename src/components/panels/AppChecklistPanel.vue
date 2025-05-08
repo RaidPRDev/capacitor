@@ -214,6 +214,9 @@ function onInternalLink(element: HTMLElement) {
         case 'CALCULATORS':
           router.push({ name: `Calculators`, query: queryParams });
           break;
+        case 'EQUIPMENT':
+          router.push({ name: `Equipment`, query: queryParams });
+          break;
         default:
       }
     }

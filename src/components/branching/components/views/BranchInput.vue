@@ -142,6 +142,9 @@ function calculate() {
 
       case "operator":
         operationState = curr?.operation;
+        console.log("operationState", curr)
+        console.log("calculationDetails", calculationDetails)
+        console.log("items", items)
         return calculationFunctions[operationState as string](calculationDetails);
     }
     

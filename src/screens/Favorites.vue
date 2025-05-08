@@ -361,7 +361,6 @@ onUnmounted(() => {
                 :iconClassName="`trash-icon`"
                 :innerClassName="`mxr-10`" 
                 :triggerCallback="() => {
-                  console.log(`PRESSED`)
                   selectedItemsRef = [handleList[data.item.index]]
                   showAlert();
                 }"

@@ -2640,13 +2640,13 @@
                 ]
               },
               { 
-                "label": "Check your values against the standard pressures for the device, listed in the Almanac.", 
+                "label": "Check your values against the standard pressures for the device, listed in the Membrane Lung equipment section.", 
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
                   { 
-                    "label": "Go to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'><b>Almanac</b></a>", 
+                    "label": "Go to <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_020' target='_self'>Membrane Lung</a>", 
                     "type": "comment",
                     "class": "note"
                   }

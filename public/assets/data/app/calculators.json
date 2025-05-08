@@ -88,7 +88,7 @@
     "useScroll": true,
     "showFavorites": true,
     "resultLabel": "(m2)",
-    "resultDescription": "BSA is calculated using the Mosteller formula:<span class='math-formula'>(m^2 = sqrt((height (cm * weight (kg))/3600)</span>",
+    "resultDescription": "BSA is calculated using the Mosteller formula:<span class='math-formula'><img src='/assets/images/ELSOBA_CALC_010__01/ELSOBA_CALC_010__01.svg'></span>",
     "items": [
       {
         "id": "height",
