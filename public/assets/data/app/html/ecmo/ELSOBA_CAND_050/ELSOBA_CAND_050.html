@@ -1,33 +1,30 @@
 <div class="data-content">
   
-  <div class="mxb-16 flex gapx-10">
+  <div class="mxb-8 flex gapx-10">
     <h3 class="">Does the patient meet ANY of the following criteria for acute hypoxemic respiratory failure?
     </h3>
   </div>  
-  
-  <div class="mxl-21 mxb-16 flex gapx-10">
-    <div class="">1.</div>
-    <div class="">Persistent hypoxemia (does not apply to cyanotic heart disease, where acute failure is defined by hypoxemia and deterioration not otherwise explained by heart disease)
-    </div>
-  </div>
-  <div class="mxl-21 mxb-16 flex gapx-10">
-    <div class="">2.</div>
-    <div class="">PaO₂ ≤ 60 mmHg
-    </div>
-  </div>
-  <div class="mxl-21 mxb-16 flex gapx-10">
-    <div class="">3.</div>
-    <div class="">FiO₂ ≥ 80%
+
+  <div class="mxb-8 flex gapx-10">
+    <div class="">
+      <ul>
+        <li class="">Persistent hypoxemia (does not apply to cyanotic heart disease, where acute failure is defined by hypoxemia and deterioration not otherwise explained by heart disease)
+        </li>
+        <li class="">PaO2 ≤ 60 mmHg
+        </li>
+        <li class="">FiO2 ≥ 80%
+        </li>
+      </ul>
     </div>
   </div>
 
-  <div class="mxt-32 flex gapx-10">
+  <div class="mxt-16 mxb-8 flex gapx-10">
     <BaseButton 
       data-props='{
         "data-id": "ELSOBA_CAND_050__2", 
         "data-type": "branchTo", 
         "data-no-referral": true, 
-        "label": "Continue to next step", 
+        "label": "YES", 
         "iconClassName": "debug-layer", 
         "icon": "STEP 2: ELSOBA_CAND_050__2", 
         "class": "variant-blue width-100 mxtb-10", 
@@ -35,5 +32,20 @@
       }'>
     </BaseButton>
   </div> 
+
+  <div class="mxl-0 mxb-16 flex gapx-10 width-100">
+    <BaseButton 
+      data-props='{
+        "data-id": "ELSOBA_CAND_050__4", 
+        "data-type": "branchTo", 
+        "data-no-referral": true, 
+        "label": "NO", 
+        "iconClassName": "debug-layer", 
+        "icon": "STEP 4: ELSOBA_CAND_050__4",
+        "class": "variant-blue width-100", 
+        "wrapperClass": "width-100"
+      }'>
+    </BaseButton>
+  </div>
 
 </div>

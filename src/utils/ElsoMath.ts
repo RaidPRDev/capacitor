@@ -218,34 +218,41 @@ DO2i (mL/min/m2) = 10 * pump flow index(L/min/m2) * [(hemoglobin (g/dL) * SaO2 (
 
 /**
  * ELSOBA_CALC_060
- * Determine the cardiac index, then the oxygen carrying capacity, 
- * and finally the oxygen delivery (DO2i)
+ * Identify how much blood you need for the patient to notify the blood bank. 
  * 
- * CI = Flow/BSA  1.5
- * CaO2 = (Hb * 1.34)(SaO2) + (0.003 * PaO2)  0.1735
- * DO2i = 10 x CI x CaO2
+ * Circuit Prime (mL)** = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))
+ * 
+ * Total Circuit Volume (cc) 
+ *    Membrane lung volume (cc) 
+ *    Tubing volume (cc) 
+ *    *Pump volume (cc)
+ * 
+ * Patient weight (kg) * constant * Hct / Circuit Prime + (patient weight (kg) * constant) = X%
+ * 
  */
 export function CalculateHct(params:CalculatorParamType):number {
   
   const constant = params?.['constant'];
-  const membrane_volume = params?.['membrane_volume'];
-  const tubing_volume = params?.['tubing_volume'];
-  const pump_volume = params?.['pump_volume'];
+  const total_circuit_volume = params?.['total_circuit_volume'];
+  // const membrane_volume = params?.['membrane_volume'];
+  // const tubing_volume = params?.['tubing_volume'];
+  // const pump_volume = params?.['pump_volume'];
   const patient_weight = params?.['patient_weight'];
   const hematocrit = params?.['hematocrit'];
 
-  if (membrane_volume === 0) return 0;
-  if (tubing_volume === 0) return 0;
+  if (total_circuit_volume === 0) return 0;
+  // if (membrane_volume === 0) return 0;
+  // if (tubing_volume === 0) return 0;
   // if (pump_volume === 0) return 0; // depends on
   if (patient_weight === 0) return 0;
   if (hematocrit === 0) return 0;
 
   // Step 1
-  const CIRCUIT_PRIME = membrane_volume + tubing_volume + pump_volume;
+  const CIRCUIT_PRIME = total_circuit_volume;
 
   // Step 2
-  const POST_HCT_P1 = patient_weight * constant * hematocrit
-  const POST_HCT_P2 = CIRCUIT_PRIME + patient_weight * constant
+  const POST_HCT_P1 = patient_weight * constant * hematocrit;
+  const POST_HCT_P2 = CIRCUIT_PRIME + (patient_weight * constant);
   const POST_HCT = POST_HCT_P1 / POST_HCT_P2;
 
   return POST_HCT;  

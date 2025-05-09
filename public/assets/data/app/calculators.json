@@ -116,6 +116,10 @@
     "resultLabel": "(m2)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>BSA(m2)</b> = ((weight(kg) * 4) + 7) / (90 + weight(kg))</div></div>"
+      },
+      {
         "id": "weight",
         "type": "number",
         "label": "Enter Weight in Kilograms (kg)"
@@ -174,6 +178,10 @@
     "resultLabel": "(cm)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>cm</b> = ft * 12in/ft * 2.54cm/in</div></div>"
+      },
+      {
         "id": "feet",
         "type": "number",
         "label": "Enter Feet (ft)"
@@ -193,6 +201,10 @@
     "showFavorites": true,
     "resultLabel": "(cm)",
     "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>cm</b> = in * 2.54cm/in</div></div>"
+      },
       {
         "id": "inches",
         "type": "number",
@@ -214,6 +226,10 @@
     "resultLabel": "(kg)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>kg</b> = lbs / 2.205kg/lbs</div></div>"
+      },
+      {
         "id": "pounds",
         "type": "number",
         "label": "Enter Pounds (lbs)"
@@ -234,6 +250,10 @@
     "resultLabel": "(°C)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>°C</b> = 5/9 * (°F - 32)</div></div>"
+      },
+      {
         "id": "farenheit",
         "type": "number",
         "label": "Enter Fahrenheit (°F)"
@@ -253,6 +273,10 @@
     "showFavorites": true,
     "resultLabel": "(mm)",
     "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 Fr = ⅓ mm</div></div>"
+      },
       {
         "id": "frenchGauge",
         "type": "number",
@@ -282,6 +306,10 @@
     "resultLabel": "(kPa)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 mmHg / 7.501 = 0.133 kPa</div></div>"
+      },
+      {
         "id": "millimeters",
         "type": "number",
         "label": "Enter Millimeters (mmHg)"
@@ -302,6 +330,10 @@
     "resultLabel": "(L)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 mL = 0.001 L</div></div>"
+      },
+      {
         "id": "milliliters",
         "type": "number",
         "label": "Enter Millileters"
@@ -321,6 +353,10 @@
     "showFavorites": true,
     "resultLabel": "(L/min)",
     "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>Flow (L/min)</b> = (L/kg/min * kg)/1000</div></div>"
+      },
       {
         "id": "constant",
         "type": "dropdown",
@@ -351,13 +387,17 @@
     "resultLabel": "(mL O2/min)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>V'O2ML</b> = ((A-V) sat % * 1.34 * Hb g/dL * flow (mL/min)) / 100</div></div>"
+      },
+      {
         "id": "arterial_saturation",
         "type": "number",
-        "label": "Enter Arterial saturation <span class='label-desc'>(range of 0.01 - 1.0)</span>",
+        "label": "Enter Arterial saturation <span class='label-desc'>(range of 1 - 100%)</span>",
         "inputProps": {
-          "min": "0.01",
-          "max": "1",
-          "step": "0.01"
+          "min": "1",
+          "max": "100",
+          "step": "1"
         },
         "data": {
           "onBlur": "enforceRangeV2"
@@ -366,11 +406,11 @@
       {
         "id": "venous_saturation",
         "type": "number",
-        "label": "Enter Venous saturation <span class='label-desc'>(range of 0.01 - 1.0)</span>",
+        "label": "Enter Venous saturation <span class='label-desc'>(range of 1 - 100%)</span>",
         "inputProps": {
-          "min": "0.01",
-          "max": "1",
-          "step": "0.01"
+          "min": "1",
+          "max": "100",
+          "step": "1"
         },
         "data": {
           "onBlur": "enforceRangeV2"
@@ -408,12 +448,12 @@
       {
         "id": "flow",
         "type": "number",
-        "label": "Enter Blood Flow"
+        "label": "Enter Blood Flow (L/min)"
       },
       {
         "id": "bsa",
         "type": "number",
-        "label": "Enter Body Surface Area"
+        "label": "Enter Body Surface Area (m2)"
       },
       {
         "type": "heading",
@@ -471,30 +511,27 @@
         "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'>Step 1: Prime = Circuit Prime</div><span><i><b>Note:</b> To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
       },
       {
+        "type": "heading",
+        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))</span></div>"
+      },
+      {
         "id": "constant",
         "type": "dropdown",
         "label": "Select cc constant",
         "data": ["70", "75", "80", "85"]
       },
       {
-        "id": "membrane_volume",
+        "id": "total_circuit_volume",
         "type": "number",
-        "label": "Enter Membrane lung volume (cc)"
-      },
-      {
-        "id": "tubing_volume",
-        "type": "number",
-        "label": "Enter Tubing volume (cc)"
-      },
-      {
-        "id": "pump_volume",
-        "type": "number",
-        "label": "Enter Pump volume (cc)",
-        "dependsOn": " centrifugal_pump"
+        "label": "Enter Total Circuit Volume (cc)"
       },
       {
         "type": "heading",
         "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>Step 2: Estimated post-dilutional Hct</div></div>"
+      },
+      {
+        "type": "heading",
+        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct / Circuit Prime + (patient weight (kg) * constant)</span></div>"
       },
       {
         "id": "patient_weight",
@@ -523,6 +560,10 @@
     "useScroll": true,
     "showFavorites": true,
     "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>OI</b> = PAW(mmHg) * FiO2(%) * 100 PaO2 (mmHg)</div></div>"
+      },
       {
         "id": "airway_pressure",
         "type": "number",
@@ -561,6 +602,10 @@
     "showFavorites": true,
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>PF ratio</b> = PaO2 (mmHg) / FiO2</div></div>"
+      },
+      {
         "id": "oxygen_pressure",
         "type": "number",
         "label": "Enter PaO2 (mmHg) <span class='label-desc'>(arterial partial pressure of oxygen)</span>"
@@ -593,6 +638,10 @@
     "showFavorites": true,
     "resultLabel": "(%)",
     "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>%</b> = ((SpreO2 – SvO2) / (SpostO2 – SvO2)) * 10</div></div>"
+      },
       {
         "id": "pre_oxygen",
         "type": "number",
@@ -646,6 +695,10 @@
     "resultLabel": "(mL)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>10 mL = 1 foot of ¼” tubing</div></div>"
+      },
+      {
         "id": "foot",
         "type": "number",
         "label": "Enter Feet (ft)"
@@ -666,6 +719,10 @@
     "resultLabel": "(mL)",
     "items": [
       {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>20 mL = 1 foot of ¼” tubing</div></div>"
+      },
+      {
         "id": "foot",
         "type": "number",
         "label": "Enter Feet (ft)"
@@ -685,6 +742,10 @@
     "showFavorites": true,
     "resultLabel": "(mL)",
     "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>40 mL = 1 foot of ¼” tubing</div></div>"
+      },
       {
         "id": "foot",
         "type": "number",

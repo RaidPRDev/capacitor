@@ -44,8 +44,8 @@
       },
       {
         "label": "Hemostatic Agents",
-        "branchTo": "ELSOBA_MED_CAT7",
-        "class": "disabled"
+        "branchTo": "ELSOBA_MED_070",
+        "class": ""
       },
       {
         "label": "Immunosuppressives",
@@ -120,24 +120,50 @@
       },
       {
         "label": "Unfractionated Heparin",
-        "content": "Lorazepam",
+        "content": "Unfractionated Heparin",
         "branchTo": "ELSOBA_MED_010__3"
+      },
+      {
+        "label": "Packed Red Blood Cells (pRBCs)",
+        "content": "Packed Red Blood Cells (pRBCs)",
+        "branchTo": "ELSOBA_MED_010__4"
+      },
+      {
+        "label": "Platelets",
+        "content": "Platelets",
+        "branchTo": "ELSOBA_MED_010__5"
+      },
+      {
+        "label": "CAVE",
+        "content": "CAVE",
+        "branchTo": "ELSOBA_MED_010__6"
+      },
+      {
+        "label": "Fresh Frozen Plasma",
+        "content": "Fresh Frozen Plasma",
+        "branchTo": "ELSOBA_MED_010__7"
       },
       {
         "label": "Comparison of Anticoagulants Table",
         "content": "Comparison of Anticoagulants Table",
-        "branchTo": "ELSOBA_MED_010__TABLE__4"
+        "branchTo": "ELSOBA_MED_010__TABLE__1"
       },
       {
         "label": "Discrepancy between aPTT and AntiXa with UFH Table",
         "content": "Discrepancy between aPTT and AntiXa with UFH Table",
-        "branchTo": "ELSOBA_MED_010__TABLE__5"
+        "branchTo": "ELSOBA_MED_010__TABLE__2"
+      },
+      {
+        "label": "Major Bleeding Classifications",
+        "content": "Major Bleeding Classifications",
+        "class": "",
+        "branchTo": "ELSOBA_MED_010__TABLE__3"
       },
       {
         "label": "Monitoring Difficulty DTI Table",
         "content": "Monitoring Difficulty DTI Table",
-        "class": "disabled",
-        "branchTo": "ELSOBA_MED_010__TABLE__6"
+        "class": "",
+        "branchTo": "ELSOBA_MED_010__TABLE__4"
       }
     ]
   },
@@ -172,8 +198,78 @@
     "items": []
   },
   {
-    "id": "ELSOBA_MED_010__TABLE__4",
+    "id": "ELSOBA_MED_010__4",
+    "title": "Packed Red Blood Cells (pRBCs)",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__5",
+    "title": "Platelets",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__6",
+    "title": "CAVE",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__7",
+    "title": "Fresh Frozen Plasma",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__7.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__1",
     "title": "Comparison of Anticoagulants Table",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__2",
+    "title": "Discrepancy between aPTT and AntiXa with UFH Table",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__3",
+    "title": "Major Bleeding Classifications",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__4",
+    "title": "Monitoring Difficulty DTI Table",
     "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__4.html",
     "layout": "default",
     "useScroll": true,
@@ -181,10 +277,73 @@
     "branchTo": "",
     "items": []
   },
+  
+  
   {
-    "id": "ELSOBA_MED_010__TABLE__5",
-    "title": "Discrepancy between aPTT and AntiXa with UFH Tabl",
-    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__5.html",
+    "id": "ELSOBA_MED_070",
+    "title": "Hemostatic agents",
+    "content": "",
+    "class": "plr-1",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Prothrombin Complex Concentrate",
+        "content": "Prothrombin Complex Concentrate",
+        "branchTo": "ELSOBA_MED_070__1"
+      },
+      {
+        "label": "Fibrinogen",
+        "content": "Fibrinogen",
+        "branchTo": "ELSOBA_MED_070__2"
+      },
+      {
+        "label": "Cryoprecipitate (Contains fibrinogen, vWF, FXIII)",
+        "content": "Cryoprecipitate (Contains fibrinogen, vWF, FXIII",
+        "branchTo": "ELSOBA_MED_070__3"
+      },
+      {
+        "label": "Desmopressin",
+        "content": "Desmopressin",
+        "branchTo": "ELSOBA_MED_070__4"
+      },
+      {
+        "label": "Tranexamic Acid",
+        "content": "Tranexamic Acid",
+        "branchTo": "ELSOBA_MED_070__5"
+      },
+      {
+        "label": "rFVIIa",
+        "content": "rFVIIa",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__6"
+      },
+      {
+        "label": "vWF concentrate",
+        "content": "vWF concentrate",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__7"
+      },
+      {
+        "label": "Antithrombin",
+        "content": "Antithrombin",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__8"
+      },
+      {
+        "label": "Vitamin K",
+        "content": "Vitamin K",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__9"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_070__1",
+    "title": "Prothrombin Complex Concentrate",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__1.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
@@ -192,15 +351,86 @@
     "items": []
   },
   {
-    "id": "ELSOBA_MED_010__TABLE__6",
-    "title": "Monitoring Difficulty DTI Table",
-    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__6.html",
+    "id": "ELSOBA_MED_070__2",
+    "title": "Fibrinogen",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__2.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
     "items": []
   },
+  {
+    "id": "ELSOBA_MED_070__3",
+    "title": "Cryoprecipitate (Contains fibrinogen, vWF, FXIII)",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__4",
+    "title": "Desmopressin",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__5",
+    "title": "Tranexamic Acid",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__6",
+    "title": "rFVIIa",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__7",
+    "title": "vWF concentrate",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__7.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__8",
+    "title": "Antithrombin",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__8.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__9",
+    "title": "Vitamin K",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__9.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  
 
 
   {

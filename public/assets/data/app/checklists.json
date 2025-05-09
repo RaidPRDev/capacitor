@@ -82,6 +82,16 @@
         "label": "UFH Anticoagulation Monitoring and Management",
         "branchTo": "ELSOBA_CHKLST_280",
         "class": ""
+      }, 
+      {
+        "label": "Anticoagulation with intravenous unfractionated heparin (UFH)",
+        "branchTo": "ELSOBA_CHKLST_005",
+        "class": ""
+      },
+      {
+        "label": "Drop in Platelet Count",
+        "branchTo": "ELSOBA_CHKLST_065",
+        "class": ""
       } 
     ]
   },
@@ -189,6 +199,11 @@
         "branchTo": "ELSOBA_CHKLST_040"
       },
       {
+        "label": "Managing Gas Exchange on ECMO",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_150"
+      },
+      {
         "label": "Monitoring and Managing LV Distension on VA ECMO Algorithm",
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_170"
@@ -224,6 +239,11 @@
         "branchTo": "ELSOBA_CHKLST_240"
       },
       {
+        "label": "Refractory Hypoxemia",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_FLOW_245"
+      },
+      {
         "label": "Switching From CPB to ECMO & VS Procedure",
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_270"
@@ -234,9 +254,9 @@
         "branchTo": "ELSOBA_CHKLST_320"
       },
       {
-        "label": "Managing Gas Exchange on ECMO",
+        "label": "Whole Circuit Replacement",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_150"
+        "branchTo": "ELSOBA_CHKLST_360"
       }
     ]
   },
@@ -371,6 +391,74 @@
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_130"
       }       
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_005",
+    "title": "Anticoagulation with intravenous unfractionated heparin (UFH)",
+    "content": "Use this checklist to guide the initiation and maintenance of intravenous unfractionated heparin (UFH) anticoagulation following ECMO cannulation.",
+    "layout": "checklist",
+    "keywords": "Anticoagulation; Heparin; Unfractionated Heparin; UFH; Anticoagulants; ECMO Cannulation; Intravenous; AntiXa; aPTT; Coagulation",
+    "doc": "https://docs.google.com/document/d/1ZsCu5iUuXFzOTeDw7W5UXXDlLjKuGegy/edit",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "ECMO Cannulation",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "UFH IV Bolus: 50-100 IU/kg", "checked": false },
+          { "label": "Consider dose according to coagulation status and bleeding risk.", "type": "list-comment", "class": "bullet mxt-20 mxb-16" }
+        ]
+      },
+      {
+        "label": "Continuous anticoagulation",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Starting dose: 10-15 IU/kg /h using actual body weight (use adjusted body weight if BMI ≥ 40 kg/m2).", "checked": false },
+          { 
+            "label": "Maintenance dose will be determined based on the anticoagulation target for (according to local protocol, if available, coagulation status and bleeding risk)*:", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "<b>Low:</b> AntiXa 0.2-0.3 IU/mL and/or aPTT: 40-55s; ratio 1.2-1.6;", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { "label": "<b>Moderate:</b> AntiXa 0.3-0.5 IU/mL and/or aPTT: 50-70s; ratio 1.5-2;", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "<b>High:</b> AntiXa 0.5-0.7 IU/mL and/or aPTT: 60-80s;  ratio 1.8-2.4.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
+            ]
+          },
+          { 
+            "label": "Monitor anticoagulation parameters at least twice daily and after four hours after any dose adjustment.", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "<b>Below target:</b> increase UFH dose 10-20%^, check anticoagulation parameter after four hours.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { "label": "<b>Above target:</b> decrease UFH dose 10-20%^, check anticoagulation parameter after four hours.", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "<b>Discrepancy between aPTT and AntiXa:</b> Refer to the Discrepancy between aPTT and AntiXa with UFH Table under <a href='#' data-link='MEDICATIONS##ELSOBA_MED_010' target='_self'>Anticoagulants.</a>", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
+            ]
+          },
+          { 
+            "label": "Daily assessment for Bleeding and Thromboembolism and HIT", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145' target='_self'>Management of bleeding</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { "label": "Clotting in circuit", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "Membrane exchange", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_065' target='_self'>Drop in platelet count</a>", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
+            ]
+          },
+          { 
+            "label": "<b>Note: *</b> target ranges of aPTT are dependent on reagent and therefore may vary between institutions; ^intensity of dose reduction will be dependent on the magnitude of AntiXa or aPTT concentration above the target range", 
+            "type": "comment", 
+            "class": "note" 
+          }
+        ]
+      }      
     ]
   },
   {
@@ -1520,7 +1608,7 @@
         "showFavorites": true,
         "useScroll": true, 
         "items": [
-          { "label": "If severe desaturation occurs during the apnea test, temporarily increase SGF/FsO2 before repeating the test.", "checked": false },
+          { "label": "Clamp drainage and return lines.", "checked": false },
           { "label": "Stop the ECMO pump and set sweep gas flow to zero.", "checked": false },
           { "label": "If the patient is a potential organ donor and normothermic regional perfusion is a possibility, consider these prior to withdrawal of life saving measures.", "checked": false },
           { "label": "Insert an A-V bridge allowing for recirculation into the ECMO circuit, allowing for the circuit to be used after determination of death.", "checked": false },
@@ -1535,8 +1623,6 @@
               { "label": "Implement a strategy to regionalize extracorporeal blood flow according to the mode of ECMO.", "checked": false },
               { "label": "If in VA configuration: restart ECLS.", "checked": false },
               { "label": "If in V-AV configuration: restart ECLS in VA configuration, keeping venous return line clamped.", "checked": false },
-              { "label": "If in VA configuration: restart ECLS.", "checked": false },
-              { "label": "If in VA configuration: restart ECLS.", "checked": false },
               { 
                 "label": "If in VV configuration:", 
                 "checked": false,
@@ -1603,6 +1689,75 @@
   },
 
 
+  {
+    "id": "ELSOBA_CHKLST_065",
+    "title": "Drop in Platelet Count",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "Platelet count; anticoagulation; UFH; Unfractionated Heparin; Thrombin Inhibitors; Heparin-Induced Thrombocytopenia; HIT; PF4 Antibodies; Bleeding; Coagulants",
+    "doc": "https://docs.google.com/document/d/1ZsCu5iUuXFzOTeDw7W5UXXDlLjKuGegy/edit?usp=sharing&ouid=100604119580806623236&rtpof=true&sd=true",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "With UFH as anticoagulant Check for HIT",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "4 T Score and/or HEP score", "checked": false },
+          { "label": "PF4 antibodies", "checked": false }
+        ]
+      },
+      {
+        "label": "Intermediate or high probability of HIT",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Check according to scores", "checked": false },
+          { "label": "Concomitant clotting (e.g., membrane), thromboembolism", "checked": false },
+          { 
+            "label": "PF4 antibodies negative", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Change anticoagulation to direct thrombin inhibitor. Refer to  argatroban, bivalirudin, and the comparison of anticoagulants table under <a href='#' data-link='MEDICATIONS##ELSOBA_MED_010' target='_self'>Anticoagulants</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { "label": "Order confirmatory functional test for HIT II to prove diagnosis, as PF4 antibodies may be falsely positive.", "type": "list-comment", "class": "bullet ml-0" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Low or probability of HIT",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Check according to scores", "checked": false },
+          { 
+            "label": "PF4 antibodies negative", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Maintain UFH, adjust dose according to bleeding status. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145' target='_self'>Management of Bleeding.</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { 
+                "label": "Search for alternative causes for thrombocytopenia", 
+                "type": "list-comment", 
+                "class": "bullet ml-0" 
+              },
+              { 
+                "label": "Drugs, consumptive coagulopathy (check for signs of membrane clotting!), virus infection (e.g., CMV), etc.", 
+                "type": "list-comment", 
+                "class": "bullet hollow ml-1 end-list-1" 
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  
+  
   {
     "id": "ELSOBA_CHKLST_070",
     "title": "ECMO Cart",
@@ -2464,7 +2619,7 @@
             "items": [
               { "label": "If ~35-45 mmH2O, continue", "checked": false },
               { "label": "If <35 mmH2O, decrease (↓) sweep flow", "checked": false },
-              { "label": "If there is native heart and lung participation, adjust the ventilatory settings to regulate partial pressure of carbon dioxide (PCO2) (within lung protection).", "checked": false },
+              { "label": "If >45 mmH2O, increase (↑) sweep flow", "checked": false },
               { 
                 "label": "<b>Note:</b> If PCO2 ≥ 80-90 mmH2O, avoid abruptly dropping the PCO2 (which is associated with neurological injury). Hypercapnia may be gradually controlled.", 
                 "type": "comment",
@@ -2921,7 +3076,7 @@
     "title": "Proning on ECMO",
     "content": "",
     "layout": "checklist",
-    "keywords": "Proning; ECMO",
+    "keywords": "Proning; ECMO; ",
     "doc": "https://drive.google.com/file/d/11IlhV4RQGMBf_9cVe2ZYGfYZ_iYpLM4W/view?usp=drive_link",
     "showFavorites": true,
     "useScroll": true, 
@@ -3108,7 +3263,7 @@
     "title": "PT/Ambulation on ECMO",
     "content": "",
     "layout": "checklist",
-    "keywords": "PT; Ambulation;  ECMO; PT AMBULATION; MOBILIZE; MOBILIZING; PHYSICAL REHABILITATION; PHYSICAL THERAPY; CARDIOPULMONARY FAILURE; TREATMENT",
+    "keywords": "PT; Ambulation; ECMO; PT AMBULATION; MOBILIZE; MOBILIZING; PHYSICAL REHABILITATION; PHYSICAL THERAPY; CARDIOPULMONARY FAILURE; TREATMENT",
     "doc": "https://drive.google.com/file/d/11IlhV4RQGMBf_9cVe2ZYGfYZ_iYpLM4W/view?usp=drive_link",
     "showFavorites": true,
     "useScroll": true, 
@@ -3166,7 +3321,7 @@
                 ]
               },
               { 
-                "label": "Go to the <a href='#' data-link='PANIC##ELSOBA_PANIC_000' target='_self'>PANIC!</a>", 
+                "label": "Visit the <a href='#' data-link='PANIC##ELSOBA_PANIC_000' target='_self'>PANIC!</a> section for additional information.", 
                 "type": "comment" 
               }
             ]        
@@ -3272,11 +3427,11 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Abrams D, Madahar P, Eckhardt CM, et al. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/34077700/' target='_blank'>Early Mobilization during Extracorporeal Membrane Oxygenation for Cardiopulmonary Failure in Adults: Factors Associated with Intensity of Treatment</a>. Ann Am Thorac Soc. 2022;19(1):90-98.",
+            "label": "Abrams D, Madahar P, Eckhardt CM, et al. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/34077700/' target='_blank'>Early Mobilization during Extracorporeal Membrane Oxygenation for Cardiopulmonary Failure in Adults: Factors Associated with Intensity of Treatment</a>. Ann Am Thorac Soc. 2022;19(1):90-98. doi:10.1513/AnnalsATS.202102-151OC",
             "type": "comment"
           },
           {
-            "label": "Haji JY, Mehra S, Doraiswamy P. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/33487891/' target='_blank'>Awake ECMO and mobilizing patients on ECMO</a>. Indian J Thorac Cardiovasc Surg. 2021;37(Suppl 2):309-318.",
+            "label": "Haji JY, Mehra S, Doraiswamy P. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/33487891/' target='_blank'>Awake ECMO and mobilizing patients on ECMO</a>. Indian J Thorac Cardiovasc Surg. 2021;37(Suppl 2):309-318. doi:10.1007/s12055-020-01075-z",
             "type": "comment"
           },
           {
@@ -3284,13 +3439,119 @@
             "type": "comment"
           },
           {
-            "label": "Salna M, Abrams D, Brodie D. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/32793679/' target='_blank'>Physical rehabilitation in the awake patient receiving extracorporeal circulatory or gas exchange support</a>. Ann Transl Med. 2020;8(13):834.",
+            "label": "Salna M, Abrams D, Brodie D. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/32793679/' target='_blank'>Physical rehabilitation in the awake patient receiving extracorporeal circulatory or gas exchange support</a>. Ann Transl Med. 2020;8(13):834. doi:10.21037/atm.2020.03.151",
             "type": "comment"
           }
         ]
       }
     ]
   },
+  
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245",
+    "showTitle": false,
+    "useScroll": true,
+    "showFavorites": true,
+    "title": "Refractory Hypoxemia",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245.html",
+    "keywords": "VV ECMO; ECMO; Weaning; Weaning VV ECMO; Respiratory support; Coming off ECMO",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Continue current support.",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Verify with an arterial blood sample",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Assess the patient",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Is there clinical impact?",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Consider sedation with or without paralysis",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__7",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Check the circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__8",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "The patient is on maximal VV ECMO support",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__9",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Does the patient still have clinically significant hypoxemia? ",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__9.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_245__10",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Consider conversion to VV-V ECMO",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__10.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
   {
     "id": "ELSOBA_CHKLST_250",
     "title": "Return Obstruction",
@@ -3437,14 +3698,6 @@
                 "checked": false
               },
               { 
-                "label": "if NO go to termination B", 
-                "type": "comment"
-              },
-              { 
-                "label": "if NO go to termination C", 
-                "type": "comment"
-              },
-              { 
                 "label": "if NO clot/thrombus detected proceed in evaluation", 
                 "type": "comment"
               }
@@ -3480,7 +3733,7 @@
             ] 
           },
           {
-            "label": "If YES, insert a new return cannula, switch the circuit to the new cannula and remove the old cannula.",
+            "label": "If YES, go to <a href='#' class='disabled' data-link='CHECKLIST##ELSOBA_CHKLST_220' target='_self'>Percutaneous Cannulation</a>, switch the circuit to the new cannula and remove the old cannula.",
             "type": "comment",
             "class": "note"
           },
@@ -3778,8 +4031,7 @@
               { "label": "Type of cannulation (surgical or arterial at increased risk)", "type": "list-comment", "class": "bullet hollow ml-1" },
               { "label": "ECMO duration", "type": "list-comment", "class": "bullet hollow ml-1" },
               { "label": "Pre-ECMO coagulation abnormalities", "type": "list-comment", "class": "bullet hollow ml-1" },
-              { "label": "on-ECMO aPTT >72 s, fibrinogen <2 g/L, and platelets count <38,000/mm3", "type": "list-comment", "class": "bullet hollow ml-1" },
-              { "label": "Postsurgical ECMO (especially postcardiotomy)", "type": "list-comment", "class": "bullet hollow ml-1 end-list-1" }
+              { "label": "on-ECMO aPTT >72 s, fibrinogen <2 g/L, and platelets count <38,000/mm3", "type": "list-comment", "class": "bullet hollow ml-1" }
             ]
           },
           {
@@ -3995,7 +4247,7 @@
             "type": "comment"
           },
           {
-            "label": "Chegondi M, Vijayakumar N, Totapally BR. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/35894028/' target='_blank'>Management of Anticoagulation during Extracorporeal Membrane Oxygenation in Children</a>. Pediatr Rep. 2022 Jul 11;14(3):320-332. doi: 10.3390/pediatric14030039.",
+            "label": "Chegondi M, Vijayakumar N, Totapally BR. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/35894028/' target='_blank'>Management of Anticoagulation during Extracorporeal Membrane Oxygenation in Children</a>. Pediatr Rep. 2022 Jul 11;14(3):320-332. doi: 10.3390/pediatric14030039. PMID: 35894028; PMCID: PMC9326610.",
             "type": "comment"
           },
           {
@@ -4007,11 +4259,11 @@
             "type": "comment"
           },
           {
-            "label": "Levy JH, Staudinger T, Steiner ME. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/35689697/' target='_blank'>How to manage anticoagulation during extracorporeal membrane oxygenation</a>. Intensive Care Med. 2022 Aug;48(8):1076-1079.",
+            "label": "Levy JH, Staudinger T, Steiner ME. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/35689697/' target='_blank'>How to manage anticoagulation during extracorporeal membrane oxygenation</a>. Intensive Care Med. 2022 Aug;48(8):1076-1079. doi: 10.1007/s00134-022-06723-z. Epub 2022 Jun 11. PMID: 35689697; PMCID: PMC9187844.",
             "type": "comment"
           },
           {
-            "label": "McMichael ABV, Ryerson LM, Ratano D, et al. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/35080509/' target='_blank'>2021 ELSO Adult and Pediatric Anticoagulation Guidelines</a>. ASAIO Journal. 2022 Mar;68(3):303-310.",
+            "label": "McMichael ABV, Ryerson LM, Ratano D, et al. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/35080509/' target='_blank'>2021 ELSO Adult and Pediatric Anticoagulation Guidelines</a>. ASAIO Journal. 2022 Mar;68(3):303-310, March 2022. | DOI: 10.1097/MAT.0000000000001652",
             "type": "comment"
           },
           {
@@ -4030,7 +4282,240 @@
       }
     ]
   },
-
+  {
+    "id": "ELSOBA_CHKLST_360",
+    "title": "Whole Circuit Replacement",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "ECMO Circuit; Circuit Change; Circuit Replacement; Equipment; ECMO;",
+    "doc": "https://drive.google.com/file/d/1Vqhr2HlCYp7d5yYcFzIMLD9kYz2QH4oC/view?usp=sharing",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "Identify the need for whole circuit replacement",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { 
+            "label": "<b>All three checks are required</b>, otherwise do <b>NOT</b> proceed with the whole circuit replacement.", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { 
+            "label": "<b>Note:</b> We do <b>NOT</b> recommend the replacement of a functioning circuit (e.g., due date as per IFU), as the risks associated with replacement outweigh the benefits.", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { 
+            "label": "A dysfunctional circuit: (at least one check)", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Circuit thrombosis (minor membrane lung (ML) clotting not severely impacting with its function excluded). Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure.</a>", "checked": false },
+              { "label": "Pump thrombosis", "checked": false },
+              { "label": "ML/pumphead rupture (if a rupture of a minor component) selectively change or isolate (link to circuit disruption algorithm) - do not have yet.", "checked": false },
+              { "label": "A positive culture from the circuit refractory to optimize treatment/sustained by MRD/EDR/PDR organisms AND/OR evidence of microorganism growth on the ML", "checked": false }              
+            ]        
+          },
+          { "label": "No weaning potential", "checked": false },
+          { "label": "Selective replacement of the involved component is not feasible for any reason (link to component replacement checklist (component changes)).", "checked": false }
+        ]
+      }, 
+      {
+        "label": "Alert/activate the ECLS and the ICU teams and assign clear roles",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "1 experienced intensivist and/or 1 experienced ICU nurse to support the patient", "checked": false },
+          { "label": "2 ECMOlogists to simultaneously work on drainage/return as sterile operators lines if elective procedure", "checked": false },
+          { "label": "At least 1 ECMOlogists to work on drainage/return lines as sterile operator if emergent procedure (2 operators are better, if feasible)", "checked": false },
+          { "label": "At least 1 ECMO specialist/perfusionist to prepare and manage the new circui", "checked": false },
+          { "label": "At least 1 supporting healthcare worker", "checked": false },
+          { 
+            "label": "If this is an elective procedure, consider a short briefing.", 
+            "type": "comment",
+            "class": "note"
+          }
+        ]
+      },
+      {
+        "label": "Prepare the Essential Equipment",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Consider also keeping an ECMO cart close to the procedure for emergencies. Refer to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_070'>ECMO Cart checklist</a> for more information.", "checked": false },
+          { "label": "Consider reading Chapters 4 and 7 of the <a href='https://www.elso.org/publications/elsostore.aspx?action=BookDetail&bookId=3' target='_blank'>ELSO Red Book, 6th edition</a> for air-free connection.", "checked": false },
+          { "label": "Sterile consumables for setting up a sterile field", "checked": false },
+          { "label": "Sterile tubing scissors", "checked": false },
+          { "label": "2 sterile tubing clamps for drainage line tubing clamps", "checked": false },
+          { "label": "1 sterile bowl", "checked": false },
+          { "label": "2 sterile tubing clamps for return line", "checked": false },
+          { "label": "2 back-up sterile clamps", "checked": false },
+          { "label": "1L of crystalloid solution and  additional crystalloid solution if required for priming (no pre-primed circuit)", "checked": false },
+          { "label": "Primed back-up circuit on a back-up machine", "checked": false },
+          { "label": "OR", "type": "comment", "class": "note" },
+          { "label": "Primed back-up circuit on a back-up pump", "checked": false },
+          { "label": "2 straight connectors adapted to circuit tubing size OR cannulas", "checked": false },
+          { "label": "Scalpel to remove the tubing from the connector.", "checked": false },
+          { "label": "Disinfecting solution and/or applicators for tubing preparation (per center institutional policy).", "checked": false }
+        ]
+      },
+      {
+        "label": "Prepare the Patient",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Consider all of the following:", "type": "comment" },
+          { "label": "Supine the patient as ready for initiation.", "checked": false },
+          { "label": "If the patient is awake, inform him/her and/or their surrogate about the need for replacement, the procedure and potential associated risks.", "checked": false },
+          { "label": "If the patient is awake, consider sedation if deemed necessary.", "checked": false },
+          { "label": "Improve mechanical ventilation settings as ready to interrupt EBF on VV ECMO, VVA ECMO, VP ECMO.", "checked": false },
+          { "label": "Improve inotropic/vasopressor support as ready to interrupt EBF on VA ECMO, VVA ECMO, VP ECMO.", "checked": false },
+          { "label": "Be ready for packed red blood cell (PRBC) transfusion if required.", "checked": false },
+          { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency.", "checked": false },
+          { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency.", "checked": false },
+          { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary.", "checked": false }
+        ]
+      },
+      {
+        "label": "Proceed with Replacement",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { 
+            "label": "If cardiac arrest occurs during the procedure and EBF can be promptly restarted, carefully consider if adrenaline administration is advisable or could be delayed.", 
+            "type": "comment",
+            "class": "note"
+          }
+        ]
+      },
+      {
+        "label": "Sterile Operators",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { 
+            "label": "Disinfect the portion of the old drainage and return tubing which is going to be clamped and cut.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Allow the disinfection solution to act for enough time according to the solution which has been used.", 
+                "checked": false
+              }
+            ] 
+          },
+          { 
+            "label": "Prepare the sterile field.", 
+            "checked": false
+          },
+          { 
+            "label": "Bring the sterile portion of the new circuit tubings on the field, then clamp and cut to the desired length.", 
+            "checked": false
+          },
+          { 
+            "label": "If using new connectors, connect these to the drainage and return tubing.", 
+            "checked": false
+          },
+          { 
+            "label": "Place two clamps approximately 15 cm (six inches) apart on both limbs of the old circuit to isolate.", 
+            "checked": false
+          },
+          { 
+            "label": "Cut drainage and return lines between the clamps.", 
+            "checked": false
+          },
+          { 
+            "label": "Make an air-free connection between the old and the new lines.", 
+            "checked": false
+          },
+          { 
+            "label": "Double check:", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Drainage with drainage line (blue markings).", 
+                "checked": false
+              },
+              { 
+                "label": "Return with return line (red markings).", 
+                "checked": false
+              }
+            ] 
+          },
+          { 
+            "label": "Remove all clamps apart from one on the return side.", 
+            "checked": false
+          },
+          { 
+            "label": "Ask the ECMO specialist/perfusionist to restart the pump", 
+            "checked": false
+          },
+          { 
+            "label": "Check all connections for tightness and integrity, and secure all connections.", 
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "ECMO Specialist/Perfusionist",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "<b>Note:</b> These steps should be performed simultaneously for both roles.", "type": "comment", "class": "note" },
+          { "label": "If ready for clamping on the field, clamp the return line.", "type": "comment" },
+          { "label": "Go to 0 RPMs.", "checked": false },
+          { "label": "Clamp the  drainage line", "checked": false },
+          { "label": "Disconnect the gas line from the old circuit", "checked": false },
+          { "label": "Connect gas line to the new circuit", "checked": false },
+          { "label": "<i>OPTIONAL</i> — If requested by sterile operators, fill the tubings after the clamps and the connectors using a line connected on the circuit.", "checked": false },
+          { "label": "Increase pump speed as requested by the team leader.", "checked": false },
+          { "label": "As the minimum RPMs are reached to prevent backflow (depending on IFUs - refer to <a href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_030'>Pumps</a>), remove the last clamp on the return line.", "checked": false },
+          { "label": "Go back to previous RPMs settings if there are no signs of a <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250'>return obstruction</a>", "checked": false },
+          { "label": "Go back to previous FsO2 settings.", "checked": false },
+          { "label": "Carefully increase sweep gas flow (SGF) considering enhanced ML function.", "checked": false },
+          { "label": "Dispose of the old circuit according to hospital protocol.", "checked": false },
+          { "label": "If a new ECMO machine was used, clean the one which was previously used according to the manufacturer's instructions.", "checked": false }
+        ]
+      },
+      {
+        "label": "Post-replacement Management",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Strictly monitor the patient for signs of complications.", "checked": false },
+          { "label": "Adapt the ECMO settings as needed, considering the improved function of the new circuit.", "checked": false },
+          { "label": "Perform a full circuit assessment before leaving the patient. <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_030'>Circuit Monitoring checklist</a>", "checked": false },
+          { 
+            "label": "Document the procedure in the patient's chart, including:", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "The reason for replacement", "checked": false },
+              { "label": "Time of the procedure", "checked": false },
+              { "label": "Circuit/connectors lot numbers", "checked": false },
+              { "label": "Complications encountered if any, operators", "checked": false }
+            ] 
+          },
+          { "label": "Report the procedure in the ELSO registry.", "checked": false }          
+        ]
+      }
+    ]
+  },
 
   {
     "id": "ELSOBA_CHKLST_FLOW_300",
