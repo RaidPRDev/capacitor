@@ -54,7 +54,12 @@ onMounted(async () => {
     loading.value = false; 
 
     if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
-      router.replace({ path: `/home/panic/${route?.query?.id}` });
+      if (route?.query?.id === "ELSOBA_PANIC_000") {
+        router.replace({ path: `/home/panic` });
+      }
+      else {
+        router.replace({ path: `/home/panic/${route?.query?.id}` });
+      }
     }
   }, 750);
 })
