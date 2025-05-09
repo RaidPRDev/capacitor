@@ -45,7 +45,6 @@ const {
   extraHeight: 0,
   overrideHeight: 0
 })
-console.log("watch", route?.query)
 
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/panic_compiled.json`, views);
