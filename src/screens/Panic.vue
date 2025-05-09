@@ -54,8 +54,8 @@ onMounted(async () => {
     loading.value = false; 
 
     if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
-    router.replace({ path: `/home/panic/${route?.query?.id}` });
-  }
+      router.replace({ path: `/home/panic/${route?.query?.id}` });
+    }
   }, 750);
 })
 

@@ -166,10 +166,12 @@ function addToFavorites() {
 
 function onInternalLink(element: HTMLElement) {
   if (!element?.hasAttribute('data-link')) return;
+  if (element.classList.contains("disabled")) return;
             
   const data = element.dataset.link;
   const pData = data?.split?.('##') as any[];
-  console.log("pData", pData);
+  // console.log("element", element);
+  // console.log("pData", pData);
 
   let queryParams: { 
     type: string,
@@ -293,7 +295,6 @@ function processItemLabel(item:any) {
             updateCheckData(data.item, toggled);
           }"
           @internalLink="(element) => {
-            console.log('sadsd', element)
             onInternalLink(element);
           }"
         >

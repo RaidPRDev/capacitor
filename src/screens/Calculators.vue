@@ -6,7 +6,8 @@ const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, onMounted, ref, shallowRef } from "vue";
+import { ComponentPublicInstance, computed, onMounted, ref, shallowRef, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 import { 
   BRANCH_HEADER_HEIGHT, 
@@ -33,7 +34,10 @@ import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
 const loading = ref<boolean>(true);
 const views = shallowRef<BranchViewData[]>([]);
-const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
+const branchingRef = ref<ComponentPublicInstance<typeof Branching>>();
+
+const route = useRoute();
+const router = useRouter();
 
 const { 
   baseHeight, 
@@ -46,7 +50,13 @@ const {
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/calculators_compiled.json`, views);
   
-  setTimeout(() => { loading.value = false; }, 750);
+  setTimeout(() => { 
+    loading.value = false; 
+
+    if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
+      router.replace({ path: `/home/calculators/${route?.query?.id}` });
+    }    
+  }, 750);
 })
 
 const headingTitle = computed(() => {

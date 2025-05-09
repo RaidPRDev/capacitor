@@ -2855,7 +2855,7 @@
                   { "label": "Is the PPOST-ML O2 < 200 mmHg ?", "checked": false },
                   { "label": "Is the V’O2 < 100-150 ml/min?", "checked": false },
                   { 
-                    "label": "<a class='' href='#' data-link='CALCULATOR##ELSOBA_CALC_040'>LINK TO CALCULATOR</a>", 
+                    "label": "Go to <a class='' href='#' data-link='CALCULATORS##ELSOBA_CALC_040'>Oxygen Transfer calculator</a>", 
                     "type": "comment",
                     "class": "note"
                   }
@@ -4348,8 +4348,24 @@
         "layout": "checklist",
         "type": "subchecklist",
         "items": [
-          { "label": "Consider also keeping an ECMO cart close to the procedure for emergencies. Refer to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_070'>ECMO Cart checklist</a> for more information.", "checked": false },
-          { "label": "Consider reading Chapters 4 and 7 of the <a href='https://www.elso.org/publications/elsostore.aspx?action=BookDetail&bookId=3' target='_blank'>ELSO Red Book, 6th edition</a> for air-free connection.", "checked": false },
+          { 
+            "label": "Consider also keeping an ECMO cart close to the procedure for emergencies.", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Refer to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_070' target='_self'>ECMO Cart checklist</a> for more information.", "type": "comment", "class": "note" }
+            ]
+          },
+          { 
+            "label": "Consider reading Chapters 4 and 7 of the <b>ELSO Red Book, 6th edition</b> for air-free connection.", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Go to <a href='https://www.elso.org/publications/elsostore.aspx?action=BookDetail&bookId=3' target='_blank'>ELSO Red Book, 6th edition</a>", "type": "comment", "class": "note" }
+            ]
+          },
           { "label": "Sterile consumables for setting up a sterile field", "checked": false },
           { "label": "Sterile tubing scissors", "checked": false },
           { "label": "2 sterile tubing clamps for drainage line tubing clamps", "checked": false },
@@ -4482,8 +4498,24 @@
           { "label": "Connect gas line to the new circuit", "checked": false },
           { "label": "<i>OPTIONAL</i> — If requested by sterile operators, fill the tubings after the clamps and the connectors using a line connected on the circuit.", "checked": false },
           { "label": "Increase pump speed as requested by the team leader.", "checked": false },
-          { "label": "As the minimum RPMs are reached to prevent backflow (depending on IFUs - refer to <a href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_030'>Pumps</a>), remove the last clamp on the return line.", "checked": false },
-          { "label": "Go back to previous RPMs settings if there are no signs of a <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250'>return obstruction</a>", "checked": false },
+          { 
+            "label": "As the minimum RPMs are reached to prevent backflow (depending on IFUs - refer to <b>Pumps</b>), remove the last clamp on the return line.", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Refer to <a href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_030'>Pumps</a> for more information.", "type": "comment", "class": "note" }
+            ]
+          },
+          { 
+            "label": "Go back to previous RPMs settings if there are no signs of a <b>return obstruction</b>", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250'>Return Obstruction</a> for more information.", "type": "comment", "class": "note" }
+            ]
+          },
           { "label": "Go back to previous FsO2 settings.", "checked": false },
           { "label": "Carefully increase sweep gas flow (SGF) considering enhanced ML function.", "checked": false },
           { "label": "Dispose of the old circuit according to hospital protocol.", "checked": false },
@@ -4498,7 +4530,15 @@
         "items": [
           { "label": "Strictly monitor the patient for signs of complications.", "checked": false },
           { "label": "Adapt the ECMO settings as needed, considering the improved function of the new circuit.", "checked": false },
-          { "label": "Perform a full circuit assessment before leaving the patient. <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_030'>Circuit Monitoring checklist</a>", "checked": false },
+          { 
+            "label": "Perform a full circuit assessment before leaving the patient.", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Refer to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_030'>Circuit Monitoring checklist</a> for more information.", "type": "comment", "class": "note" }
+            ]
+          },
           { 
             "label": "Document the procedure in the patient's chart, including:", 
             "checked": false,
