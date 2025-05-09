@@ -348,7 +348,7 @@
       {
         "id": "milliliters",
         "type": "number",
-        "label": "Enter Millileters"
+        "label": "Enter Milliliters"
       },
       {
         "type": "operator",
@@ -367,7 +367,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>Flow (L/min)</b> = (L/kg/min * kg)/1000</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>Flow (L/min)</b> = (cc/kg/min * kg)/1000</div></div>"
       },
       {
         "id": "constant",
