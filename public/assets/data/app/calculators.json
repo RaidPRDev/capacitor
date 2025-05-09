@@ -117,12 +117,24 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>BSA(m2)</b> = ((weight(kg) * 4) + 7) / (90 + weight(kg))</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>BSA by Weight is most accurate in patients less than 75cm tall. For patients taller than 75 cm and all adult patients, use the BSA by weight and height calculator</div></div>"
       },
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>BSA(m2)</b> = ((weight(kg) * 4) + 7) / (90 + weight(kg))</div></div>"
+      },      
       {
         "id": "weight",
         "type": "number",
-        "label": "Enter Weight in Kilograms (kg)"
+        "label": "Enter Weight in Kilograms (kg)",
+        "inputProps": {
+          "min": "1.5",
+          "max": "275",
+          "step": "0.1"
+        },
+        "data": {
+          "onBlur": "enforceRangeV2"
+        }
       },
       {
         "type": "operator",

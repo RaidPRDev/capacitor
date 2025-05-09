@@ -7,7 +7,7 @@ android {
         applicationId "com.sweetrush.staging.elso"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 193
+        versionCode 194
         versionName "0.9.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
