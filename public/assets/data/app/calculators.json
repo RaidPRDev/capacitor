@@ -501,18 +501,19 @@
     "id": "ELSOBA_CALC_060",
     "title": "Estimated Post-Dilutional Hematocrit (Hct)",
     "content": "Use this calculator to help you plan patient care and identify how much blood you need for the patient to notify the blood bank.",
+    "contentClass": "",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "",
+    "resultLabel": "%",
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'>Step 1: Prime = Circuit Prime</div><span><i><b>Note:</b> To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
+        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'>Step 1: Prime = Circuit Prime</div><span><i><b>Note:</b> To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))</span></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))</span></div>"
       },
       {
         "id": "constant",
@@ -531,7 +532,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct / Circuit Prime + (patient weight (kg) * constant)</span></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct / Circuit Prime + (patient weight (kg) * constant)</span></div>"
       },
       {
         "id": "patient_weight",
@@ -549,7 +550,8 @@
       }
     ],
     "data": {
-      "postHtml": "calculators/ELSOBA_CALC_060.html"
+      "preHtmlClass": "elsoba-calc-060",
+      "preHtml": "calculators/ELSOBA_CALC_060.html"
     }
   },
   {

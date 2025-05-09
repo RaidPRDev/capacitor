@@ -1,3 +1,29 @@
+.content {
+  &.pre-html {
+    .table-title {
+      margin: 0 0 1rem 0;
+    }
+    .data-content {
+      opacity: 1;
+    }
+  }
+}
+
+.data-content, .content {
+  &.remove-margin {
+    margin: 0;
+  }  
+
+  .elsoba-calc-060 {
+    aspect-ratio: 321 / 179;
+
+    .table-title {
+      margin: 0 0 0 0!important;
+      padding: 0 0 0.75rem 0;
+    }
+  }
+}
+
 .data-content {
   font-size: 16px;
   line-height: 1.25;

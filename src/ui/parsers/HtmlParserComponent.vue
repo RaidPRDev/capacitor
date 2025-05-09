@@ -10,6 +10,10 @@ export default defineComponent({
   name: 'HtmlParserComponent',
 
   props: {
+    className: {
+      type: String,
+      required: false,
+    },
     htmlString: {
       type: String,
       required: false,
@@ -206,7 +210,7 @@ export default defineComponent({
         return h('div', 'Loading...');
       }
 
-      return h('div', { class: "html-parser" }, renderDOMParsedElements(parsedElementsTest.value));
+      return h('div', { class: `html-parser${props?.className ? ' ' + props?.className : ''}` }, renderDOMParsedElements(parsedElementsTest.value));
     };
   }
 });

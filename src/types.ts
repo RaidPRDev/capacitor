@@ -151,6 +151,7 @@ export interface BranchViewData {
   title?: string;
   label?: string;
   content?: string;
+  contentClass?: string;
   layout?: string;
   items?: BranchItem[];
   branchTo?: string | null;

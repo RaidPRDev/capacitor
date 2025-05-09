@@ -113,6 +113,7 @@ const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
 const toasterService = useToasterService();
 const { addToast } = toasterService;
 
+const preHtmlContent = ref<string>("");
 const postHtmlContent = ref<string>("");
 
 const computedList = computed(() => {
@@ -241,7 +242,17 @@ onMounted(async () => {
   // check optional data
   if (props?.view?.data) {
     // check for post Html
-    if (props?.view?.data?.hasOwnProperty("postHtml")) {
+    if (props?.view?.data?.hasOwnProperty("preHtml")) {
+      if (props?.view?.data?.preHtml?.length > 0) {
+        const rawHtml = await loadHTMLFile(`/assets/data/app/html/${props?.view?.data?.preHtml}`);
+        setTimeout(() => {
+          nextTick(() => {
+            preHtmlContent.value = rawHtml!;
+          })
+        }, 750);  
+      }      
+    }
+    else if (props?.view?.data?.hasOwnProperty("postHtml")) {
       if (props?.view?.data?.postHtml?.length > 0) {
         const rawHtml = await loadHTMLFile(`/assets/data/app/html/${props?.view?.data?.postHtml}`);
         setTimeout(() => {
@@ -261,11 +272,16 @@ onMounted(async () => {
 <template>
   <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" 
     class="title transform-z" v-html="props?.view?.title"></h2>
-  <div v-if="props?.view?.content" v-html="props?.view?.content" class="content mb-1 transform-z"></div>
+  <div v-if="props?.view?.content" v-html="props?.view?.content" :class="`content mb-1 transform-z${props?.view?.contentClass ? ' ' + props?.view?.contentClass : ''}`"></div>
   
+  <div :className="`html-parser-wrapper${props?.view?.data?.preHtmlClass ? ' ' + props?.view?.data?.preHtmlClass : ''}`">
+    <HtmlParserComponent v-show="preHtmlContent" :htmlString="`${preHtmlContent}`" />
+  </div>
+
   <form ref="baseFormRef" class="branch-input-container">
   <BaseList class="items-list gapx-8" :dataProvider="computedList">
     <template v-slot:listItemSlot="data">
+      
       <BaseButton 
         v-if="!computedList?.[data.item.index]?.hidden 
         && computedList?.[data.item.index]?.type === `number`"
