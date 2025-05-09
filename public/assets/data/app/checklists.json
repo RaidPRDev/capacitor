@@ -4314,7 +4314,12 @@
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Circuit thrombosis (minor membrane lung (ML) clotting not severely impacting with its function excluded). Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure.</a>", "checked": false },
+              { "label": "Circuit thrombosis (minor membrane lung (ML) clotting not severely impacting with its function excluded).", "checked": false },
+              { 
+                "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure.</a>", 
+                "type": "comment", 
+                "class": "note" 
+              },
               { "label": "Pump thrombosis", "checked": false },
               { "label": "ML/pumphead rupture (if a rupture of a minor component) selectively change or isolate (link to circuit disruption algorithm) - do not have yet.", "checked": false },
               { "label": "A positive culture from the circuit refractory to optimize treatment/sustained by MRD/EDR/PDR organisms AND/OR evidence of microorganism growth on the ML", "checked": false }              
@@ -4363,7 +4368,11 @@
             "layout": "checklist",
             "type": "subchecklist",
             "items": [
-              { "label": "Go to <a href='https://www.elso.org/publications/elsostore.aspx?action=BookDetail&bookId=3' target='_blank'>ELSO Red Book, 6th edition</a>", "type": "comment", "class": "note" }
+              { 
+                "label": "Go to <a href='#' data-link='https://www.elso.org/publications/elsostore.aspx?action=BookDetail&bookId=3' target='_blank'>ELSO Red Book, 6th edition</a>", 
+                "type": "comment", 
+                "class": "note" 
+              }
             ]
           },
           { "label": "Sterile consumables for setting up a sterile field", "checked": false },
