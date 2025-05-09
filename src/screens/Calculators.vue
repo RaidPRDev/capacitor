@@ -6,7 +6,7 @@ const DEBUG = false;
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, onMounted, ref, shallowRef, watch } from "vue";
+import { ComponentPublicInstance, computed, onMounted, ref, shallowRef } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import { 
