@@ -202,11 +202,44 @@ function handleNavigate(branchTo: string | null) {
 
 function handleTriggered(dataProps: any) {
   if (DEBUG) {
-    console.log("Branching.handleTriggered()", dataProps);
+    console.log("Branching.handleTriggered()", dataProps);  
     console.log("  currentDataType", currentDataType);
     console.log("  currentView", currentView?.value);
   }
   
+  if (dataProps.hasOwnProperty("data-link")) {
+    const dataLink = dataProps['data-link'];
+    const pData = dataLink?.split?.('##') as any[];
+
+    let queryParams: { 
+      type: string,
+      id: string,
+      childId?: string,
+    } = { type: '', id: '', childId: '' };
+
+    queryParams.type = pData[0];
+    queryParams.id = pData[1];
+
+    // check CHECKLIST TYPE for child id
+    if (pData?.length === 3) {
+      queryParams.childId = pData[2];
+    }
+    // check URL LINK TYPE
+    else if (pData?.length === 1 && pData[0].indexOf("http") > -1) {
+      window.open(pData[0], "_blank");
+      return;
+    }
+
+    if (currentView?.value.dataType === pData[0].toLowerCase()) {
+      // viewHistory.value.push(currentViewIndex.value);
+      handleNavigate(pData[1]);
+    }
+
+    return;
+  }
+
+
+
   if (!dataProps.hasOwnProperty("data-id")
     || !dataProps.hasOwnProperty("data-type")) {
     console.error("no data id or type");
@@ -539,12 +572,16 @@ watch(route, (to, from) => {
       if (DEBUG) console.log("  route.params?.id", route.params?.id);
       const routesFromParams = (route?.params?.id as string).split("/")
       const parentRoute = routesFromParams[0] as string;
+      if (DEBUG) console.log("  routesFromParams", routesFromParams);
+      if (DEBUG) console.log("  parentRoute", parentRoute);
+
       routesFromParams.shift();
 
       let branchId = (routesFromParams.length >= 1) ? routesFromParams[routesFromParams.length - 1] : parentRoute;
       currentViewIndex.value = props?.views?.findIndex(view => {
         return view.id === branchId
       });
+      if (DEBUG) console.log("  currentViewIndex", currentViewIndex.value);
     }
     else {
       if (router.options.history.state.back) {

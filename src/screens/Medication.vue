@@ -7,6 +7,7 @@ const DEBUG = false;
 
 <script setup lang="ts">
 import { ComponentPublicInstance, computed, inject, onMounted, ref, shallowRef } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 
 import { 
@@ -46,6 +47,9 @@ const branchingRef = ref<ComponentPublicInstance<typeof Branching>>()
 const session = useSession();
 const { hasCompletedMedDisclaimer } = storeToRefs(session);
 
+const route = useRoute();
+const router = useRouter();
+
 const { 
   baseHeight, 
   breadcrumbs,
@@ -65,6 +69,10 @@ onMounted(async () => {
       app.drawers.bottom.closeOutside = false;
       app.drawers.bottom.open = !app.drawers.bottom.open;
     }
+
+    if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
+      router.replace({ path: `/home/medications/${route?.query?.id}` });
+    }   
     
   }, 750);
 })
@@ -120,7 +128,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
       </BaseHeader>
       <Branching 
         ref="branchingRef"
-        viewClassName="medications pxlr-0 pxt-20 pxb-20" 
+        viewClassName="medications data-content pxlr-0 pxt-20 pxb-20" 
         :branchRoute="props.branchRoute"
         :views="views" 
         :useNavigation="true"

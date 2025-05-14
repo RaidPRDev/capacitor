@@ -33,6 +33,15 @@ onMounted(() => {
   setTimeout(() => mounted.value = true, 75);
 })
 
+function onContentTrigger(e:MouseEvent) {
+  e.preventDefault();
+  
+  const target = e.target as HTMLElement;
+  if (target.dataset.hasOwnProperty("link")) {
+    emit("triggered", { ['data-link']: target.dataset.link });
+  }
+}
+
 const computedList = computed(() => {
   if (mounted.value) {
     let items = props?.view?.items;
@@ -51,7 +60,7 @@ const computedList = computed(() => {
 
 <template>
   <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" v-html="props?.view?.title" class="title transform-z mxb-16"></h2>
-  <div v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
+  <div @click="onContentTrigger" v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
   
   <transition-group name="list-scale-fade-in" tag="div" class="flex flex-column gapx-16">
     <div v-for="(item, index) in computedList" :key="`item-${index}` " class="" :style="{ transitionDelay: 0.15 * index + 's' }">

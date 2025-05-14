@@ -24,6 +24,18 @@
   }
 }
 
+.__note {
+  background-color: white;
+  padding: 0.95em;
+  border-radius: 0.428em;
+  font-size: 16px;
+
+  > ul {
+    margin: 0.75rem 0 0 0;
+    padding-left: 1rem;
+  }
+}
+
 .data-content {
   font-size: 16px;
   line-height: 1.25;
@@ -72,15 +84,16 @@
   }
 
   .note {
-    background-color: white;
-    padding: 0.95em;
-    border-radius: 0.428em;
-    font-size: 16px;
+    // background-color: white;
+    // padding: 0.95em;
+    // border-radius: 0.428em;
+    // font-size: 16px;
 
-    > ul {
-      margin: 0.75rem 0 0 0;
-      padding-left: 1rem;
-    }
+    // > ul {
+    //   margin: 0.75rem 0 0 0;
+    //   padding-left: 1rem;
+    // }
+    @extend .__note;
   }
 
   ul {
@@ -247,5 +260,13 @@
   .border-tb {
     border-top: 1px solid #e3e3e3;
     border-bottom: 1px solid #e3e3e3;
+  }
+}
+
+.text-content {
+  .note {
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+    @extend .__note;
   }
 }

@@ -5,7 +5,7 @@
     "heading": "Medication",
     "class": "plr-1",
     "title": "",
-    "content": "Medications are organized by class. Choose a medication class to see medications and dosing guidance included within that category.",
+    "content": "Medications are organized by class. Choose a medication class to see medications and dosing guidance included within that category. <div class='note'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
