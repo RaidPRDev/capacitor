@@ -13,8 +13,6 @@ import { IBranchTypeProps } from '@/types';
 import { loadHTMLFile } from '@/utils/FileTools';
 import HtmlParserComponent from '@/ui/parsers/HtmlParserComponent.vue';
 import { IHtmlParserDataProps } from '@/ui/types';
-import { convertMathSymbols } from '@/utils/ElsoMath';
-// import { APP_ID } from '@/_core/Constants';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
@@ -33,7 +31,6 @@ const htmlContent = ref<string>("");
 
 onMounted(async () => {
   const rawHtml = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
-  // htmlContent.value = convertMathSymbols(rawHtml);
   htmlContent.value = rawHtml;
 })
 

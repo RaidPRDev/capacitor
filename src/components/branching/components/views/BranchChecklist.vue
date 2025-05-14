@@ -94,7 +94,7 @@ onUnmounted(() => {
 
 function onChecklistRoute(e:Event) {
   const { detail } = e as CustomEvent<{ childId: string; id: string, data: any }>;
-  const { childId, id, data } = detail;
+  const { childId, id } = detail;
   // console.log('childId:', childId);
   // console.log('id:', id);
   // console.log('data:', data);
