@@ -6,8 +6,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { computed, inject, onMounted, onUnmounted, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 
 import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
@@ -38,6 +38,7 @@ const props = withDefaults(defineProps<IBranchTypeProps>(), {
 
 const appStore = useAppStore();
 const route = useRoute();
+const router = useRouter();
 const itemID = route?.query?.id;
 const childID = parseInt(route?.query?.childId! as string);
 
@@ -62,6 +63,8 @@ const mounted = ref(false)
 onMounted(() => {
   setTimeout(() => mounted.value = true, 75);
 
+  // console.warn("itemID", itemID)
+  // console.warn("childID", childID)
   // if we have am incoming query with a child route, replace route...
   if (itemID && !isNaN(childID)) {
     const branchData = props?.view?.items?.[childID]!;
@@ -81,7 +84,43 @@ onMounted(() => {
     };
     app.drawers.bottom.open = !app.drawers.bottom.open;
   }
+
+  document.addEventListener("onChecklistRoute", onChecklistRoute);
 })
+
+onUnmounted(() => {
+  document.removeEventListener("onChecklistRoute", onChecklistRoute);
+})
+
+function onChecklistRoute(e:Event) {
+  const { detail } = e as CustomEvent<{ childId: string; id: string, data: any }>;
+  const { childId, id, data } = detail;
+  // console.log('childId:', childId);
+  // console.log('id:', id);
+  // console.log('data:', data);
+
+  router.replace({ path: `/home/checklists/${id}` });
+
+  window.requestAnimationFrame(() => {
+
+      const branchData = props?.view?.items?.[parseInt(childId) - 1]!;
+      branchData.parentId = props.view?.id as string;
+      
+      // update current id
+      appStore.setCurrentID(branchData?.id!);
+
+      drawerComponents.bottom = AppChecklistPanel;
+      app.drawers.bottom.props = { 
+        id: branchData?.id, 
+        title: branchData?.label, 
+        parentID: branchData?.parentId, 
+        items: branchData?.items,
+        data: branchData,
+        parentData: props?.view,
+      };
+      app.drawers.bottom.open = !app.drawers.bottom.open;
+  });  
+}
 
 const computedList = computed(() => {
   if (mounted.value) {

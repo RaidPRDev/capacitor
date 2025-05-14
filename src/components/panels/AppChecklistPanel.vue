@@ -200,7 +200,7 @@ function onInternalLink(element: HTMLElement) {
     showClose: false,
     action: (index:number) => {
       if (index === 0) return;
-
+      console.log("queryParams", queryParams)
       // need to close self panel before pushing
       app.drawers.bottom.open = !app.drawers.bottom.open;
       switch (queryParams?.type) {
@@ -452,6 +452,10 @@ function processItemLabel(item:any) {
       
       &.sub-level-3 {
         padding-left: 3rem;
+      }
+      
+      &.sub-level-4 {
+        padding-left: 4rem;
       }
 
       &.no-checkbox, &.comment, &.list-comment {

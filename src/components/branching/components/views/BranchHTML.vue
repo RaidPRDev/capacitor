@@ -33,7 +33,8 @@ const htmlContent = ref<string>("");
 
 onMounted(async () => {
   const rawHtml = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
-  htmlContent.value = convertMathSymbols(rawHtml);
+  // htmlContent.value = convertMathSymbols(rawHtml);
+  htmlContent.value = rawHtml;
 })
 
 function handleTriggered(data: { dataProps?: IHtmlParserDataProps }) {

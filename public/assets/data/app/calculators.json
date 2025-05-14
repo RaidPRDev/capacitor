@@ -145,7 +145,7 @@
   {
     "id": "ELSOBA_CALC_020",
     "title": "Unit Conversions",
-    "content": "Use these calculators to convert imperial units to metric units.",
+    "content": "Use these calculators to convert different units.",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
@@ -171,7 +171,7 @@
         "branchTo": "ELSOBA_CALC_020__05"
       },
       {
-        "label": "Convert Millimeters of Mercury (mmHg)",
+        "label": "Convert Millimeters of Mercury to Kilopascals (mmHg)",
         "branchTo": "ELSOBA_CALC_020__06"
       },
       {
@@ -310,7 +310,7 @@
   },
   {
     "id": "ELSOBA_CALC_020__06",
-    "title": "Millimeters of Mercury (mmHg)",
+    "title": "Convert Millimeters of Mercury to Kilopascals (mmHg)",
     "content": "",
     "layout": "input",
     "useScroll": true,
@@ -359,7 +359,7 @@
   {
     "id": "ELSOBA_CALC_030",
     "title": "Flow Calculator",
-    "content": "Calculate the appropriate blood flow.",
+    "content": "To calculate the appropriate blood flow, use the drop down menu to select the appropriate cc/kg/min constant. Then enter the patient's weight in kilograms and select <b>CALCULATE</b>.",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,

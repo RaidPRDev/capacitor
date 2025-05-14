@@ -211,12 +211,14 @@ export interface IHtmlParserElementItem {
   children: IHtmlParserElementItem[];                 // Array of child IElementItem elements
   dataParams: { [key: string]: string | object };     // Object with all attributes, possibly parsed JSON
   textContent?: string;                               // The content of text nodes, if applicable
+  innerHTML?: string;                                 // The content of text nodes, if applicable
 }
 
 export type IHtmlParserDataProps = HTMLAttributes & { 
   wrapperClass?: string, 
   dataId?: string, 
   ['data-id']?: string 
+  label?: string 
 }
 
 

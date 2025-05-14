@@ -194,7 +194,7 @@
         "branchTo": "ELSOBA_CHKLST_030"
       },
       {
-        "label": "Component Changes",
+        "label": "Circuit Component Changes",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_040"
       },
@@ -278,7 +278,7 @@
   {
     "id": "ELSOBA_CHKLST_CAT8",
     "title": "ECMO Cart",
-    "content": "<h2><b>ECMO Cart Requirements</b></h2>An ECMO cart is used for cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.<ul><li>The items included MUST be immediately available for the cannulating team.</li><li>The cart should be kept in a dedicated location when not in use.</li><li>The items in the cart and on top of the cart MUST be maintained. This means they MUST be checked for content and expiration dates, and refilled with used items, as per center policy.</li></ul>",
+    "content": "<h2 class='h2-content'><b>ECMO Cart Requirements</b></h2>An ECMO cart is used for cannulation, reconfiguration, management of various complications, and decannulation in any non-operating room setting. Review the requirements then select the equipment according to your ECMO needs.<ul><li>The items included MUST be immediately available for the cannulating team.</li><li>The cart should be kept in a dedicated location when not in use.</li><li>The items in the cart and on top of the cart MUST be maintained. This means they MUST be checked for content and expiration dates, and refilled with used items, as per center policy.</li></ul>",
     "showFavorites": true,
     "useScroll": true, 
     "layout": "list",
@@ -541,6 +541,10 @@
         "showFavorites": true,
         "useScroll": true, 
         "items": [
+          {
+            "label": "LV, LA, or other unloading",
+            "checked": false
+          },
           {
             "label": "Flow",
             "checked": false
@@ -1099,7 +1103,7 @@
 
   {
     "id": "ELSOBA_CHKLST_040",
-    "title": "Component Changes",
+    "title": "Circuit Component Changes",
     "content": "Use this checklist if you need to replace a component within an ECMO circuit. This checklist should be adapted to align with institutional policies, specific patient conditions, and  available resources.",
     "layout": "checklist",
     "keywords": "",
@@ -1160,8 +1164,7 @@
         "items": [
           {
             "label": "Notify the ICU teams",
-            "type": "comment",
-            "class": "list-section"
+            "checked": false
           },
           {
             "label": "1 experienced intensivist or other ECMO-trained physician",
@@ -1178,6 +1181,11 @@
           {
             "label": "1 assisting ECMO specialist/perfusionist, if possible",
             "checked": false
+          },
+          {
+            "label": "If this is an elective procedure, consider having a short pre-procedure briefing.",
+            "type": "comment",
+            "class": "note"
           }
         ]
       },
@@ -1232,25 +1240,29 @@
         "items": [
           {
             "label": "Consider the following:",
-            "type": "comment"
-          },
-          { "label": "Supine the patient in same position as for initiation", "checked": false },
-          {
-            "label": "If the patient is awake:",
-            "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Inform him/her and/or their surrogate about the need for replacement, the procedure and potential associated risks (consent)", "checked": false },
-              { "label": "Consider sedation, if deemed necessary", "checked": false },
-              { "label": "Increase mechanical ventilation settings as ready to interrupt extracorporeal blood flow on VV ECMO, VVA ECMO, VP ECMO", "checked": false },
-              { "label": "Increase inotropic/vasopressor support as ready to interrupt extracorporeal blood flow on VA ECMO, VVA ECMO, VP ECMO", "checked": false },
-              { "label": "Be ready for PRBC transfusion if required", "checked": false },
-              { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency", "checked": false },
-              { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency", "checked": false },
-              { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary", "checked": false }
-            ] 
+              { "label": "Supine the patient in same position as for initiation", "checked": false },
+              {
+                "label": "If the patient is awake:",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { "label": "Inform him/her and/or their surrogate about the need for replacement, the procedure and potential associated risks (consent)", "checked": false },
+                  { "label": "Consider sedation, if deemed necessary", "checked": false },
+                  { "label": "Increase mechanical ventilation settings as ready to interrupt extracorporeal blood flow on VV ECMO, VVA ECMO, VP ECMO", "checked": false },
+                  { "label": "Increase inotropic/vasopressor support as ready to interrupt extracorporeal blood flow on VA ECMO, VVA ECMO, VP ECMO", "checked": false },
+                  { "label": "Be ready for PRBC transfusion if required", "checked": false },
+                  { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency", "checked": false },
+                  { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency", "checked": false },
+                  { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary", "checked": false }
+                ] 
+              }
+            ]
           }
+          
         ]
       },   
       {
@@ -1261,8 +1273,12 @@
         "useScroll": true, 
         "items": [
           {
-            "label": "Support the patient if/as needed throughout the procedure. If cardiac  arrest occurs during the procedure and EBF can be promptly restarted, carefully consider if adrenaline  administration is advisable or could be delayed.",
-            "type": "comment"
+            "label": "Support the patient if/as needed throughout the procedure.",
+            "checked": false
+          },
+          {
+            "label": "If cardiac arrest occurs during the procedure and EBF can be promptly restarted, carefully consider if adrenaline  administration is advisable or could be delayed.",
+            "checked": false
           }
         ]
       },   
@@ -1273,34 +1289,208 @@
         "showFavorites": true,
         "useScroll": true, 
         "items": [
-          { "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old CP. Allow the solution to act for enough time according to the solution being used.", "checked": false },
-          { "label": "Clamp the tubing exiting CP", "checked": false },
-          { "label": "Go to 0 RPMs and notify the team of the STOP FLOW", "checked": false },
-          { "label": "Clamp the drainage tubing close to CP", "checked": false },
-          { "label": "Turn OFF the Sweep Gas Flow", "checked": false },
+          { 
+            "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old CP.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Allow the solution to act for enough time according to the solution being used.", "checked": false }
+            ] 
+          },
+          { "label": "Clamp the tubing exiting CP.", "checked": false },
+          { "label": "Go to 0 RPMs and notify the team of the STOP FLOW.", "checked": false },
+          { "label": "Clamp the drainage tubing close to CP.", "checked": false },
+          { "label": "Turn OFF the Sweep Gas Flow (SGF).", "checked": false },
           { "label": "Place two additional clamps approximately 15 cm (6 inches) apart from the previous to isolate the CP from the circuit. If needed, temporarily remove the flowmeter.", "checked": false },
-          { "label": "Cut the tubings on both sides between the two clamps", "checked": false },
-          { "label": "Remove the old centrifugal pump from the motor", "checked": false },
-          { "label": "Connect the outflow of the new pump to the circuit", "checked": false },
-          { "label": "De-air the new centrifugal pump through the inlet port", "checked": false },
+          { "label": "Cut the tubings on both sides between the two clamps.", "checked": false },
+          { "label": "Remove the old centrifugal pump from the motor.", "checked": false },
+          { "label": "Connect the outflow of the new pump to the circuit.", "checked": false },
+          { "label": "De-air the new centrifugal pump through the inlet port.", "checked": false },
           { "label": "Connect the inlet of the CP to the drainage tubing using an air-free technique. If previously removed, reposition and 0 the flowmeter.", "checked": false },
           { "label": "Insert the CP into the motor. Check that there are no kinks or traction in the tubings on both sides.", "checked": false },
-          { "label": "Remove clamp on the drainage tubing", "checked": false },
+          { "label": "Remove clamp on the drainage tubing.", "checked": false },
           { 
             "label": "Restart the pump.", 
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "As minimum RPMs are reached to prevent backflow (depending from IFU insert link to almanac section), remove last clamp.", "checked": false }
+              { "label": "As minimum RPMs are reached to prevent backflow, remove last clamp.", "checked": false },
+              { 
+                "label": "Refer to the <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_030' target='_self'>Pump</a> specifications.", 
+                "type": "comment",
+                "class": "note"
+              }
             ] 
           },
-          { "label": "Resume the previous RPMs settings if there are no signs of a return obstruction. (link to return obstruction checklist)", "checked": false },
+          { "label": "Resume the previous RPMs settings if there are no signs of a return obstruction.", "checked": false },
+          { 
+            "label": "Go to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250' target='_self'>Return Obstruction</a> checklist.", 
+            "type": "comment",
+            "class": "note"
+          },
           { "label": "Resume previous Sweep Gas Flow settings", "checked": false },
           { "label": "Notify the team of replacement completion", "checked": false },
-          { "label": "If using a bubble sensor, and it is alarming for the presence of air before the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow (link to air entrance algorithm)", "checked": false }
+          { "label": "If using a bubble sensor, and it is alarming for the presence of air <b>before</b> the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow.", "checked": false },
+          { 
+            "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a> for additional information.", 
+            "type": "comment",
+            "class": "note"
+          }
         ]
-      }      
+      },
+      {
+        "label": "Membrane Lung Replacement",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          { "label": "Remove Heater Unit/Heater-Cooler Unit lines from the old membrane lung (ML).", "checked": false },
+          { 
+            "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old ML.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Allow the disinfection solution to act for enough time according to the solution being used.", "checked": false }
+            ] 
+          },
+          { "label": "Clamp the tubing exiting the ML.", "checked": false },
+          { "label": "Go to 0 RPMs and notify the team of the STOP FLOW.", "checked": false },
+          { "label": "Clamp tubing entering the old ML.", "checked": false },
+          { "label": "Turn OFF Sweep Gas Flow (SFG) and disconnect the gas line.", "checked": false },
+          { 
+            "label": "Place two additional clamps approximately 15 cm (six inches) apart from the previous to isolate the ML from the circuit.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "If needed, temporarily remove the flowmeter.", "checked": false }
+            ] 
+          },
+          { "label": "Cut the tubing on both sides between the two clamps.", "checked": false },
+          { "label": "Remove the old ML from the holder.", "checked": false },
+          { "label": "Connect the outflow of the new pump to the circuit.", "checked": false },
+          { "label": "De-air the new centrifugal pump through the inlet port.", "checked": false },
+          { "label": "Connect the inlet of the CP to the drainage tubing using the air free technique (if previously removed reposition and 0 the flowmeter).", "checked": false },
+          { "label": "Insert the CP into the motor. Check for no kinks or traction in the tubings on both sides.", "checked": false },
+          { "label": "Remove clamp on drainage tubing.", "checked": false },
+          { "label": "Restart the pump at minimum RPMs reached to prevent backflow.", "checked": false },
+          { 
+            "label": "Depending on IFUs - Refer to the <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_030' target='_self'>Pump</a> specifications.", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { "label": "Remove the last clamp.", "checked": false },
+          { "label": "Resume previous RPMs settings, if there are no signs of a return obstruction.", "checked": false },
+          { 
+            "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250' target='_self'>Return Obstruction</a> for more information.", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { "label": "Resume previous SGF settings.", "checked": false },
+          { "label": "Notify the team of procedure completion.", "checked": false },
+          { "label": "If using a bubble sensor, and it is alarming for the presence of air before the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow.", "checked": false },
+          { 
+            "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a> for more information.", 
+            "type": "comment", 
+            "class": "note" 
+          }
+        ]
+      },
+      {
+        "label": "Tubing/Connector Replacement",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          { 
+            "label": "Disinfect the portion of tubing which is going to be cut.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Allow the disinfection solution to act for enough time according to the solution which has been used.", "checked": false }
+            ] 
+          },
+          { "label": "Clamp the tubing exiting the ML.", "checked": false },
+          { "label": "Go to 0 RPMs notifying to the team the STOP FLOW.", "checked": false },
+          { "label": "Clamp tubing entering the old ML.", "checked": false },
+          { "label": "Turn OFF SGF.", "checked": false },
+          { "label": "Place two additional clamps to isolate the portion which is going to be cut (three clamps if Y connector  included). ", "checked": false },
+          { "label": "Cut the tubing between the two clamps. ", "checked": false },
+          { "label": "Insert a straight or Y connector as needed in one of the tubing and connect the other/s portion using a wet-wet technique.", "checked": false },
+          { "label": "If a Y connector is used, connect to the Y connector a new piece of tubing, deair using a cone syringe and connect to the new cannula once all connections are ready.", "checked": false },
+          { "label": "Remove clamp on drainage tubing.", "checked": false },
+          { "label": "Restart the pump at minimum RPMs reached to prevent backflow.", "checked": false },
+          { 
+            "label": "Depending on IFUs - Refer to the <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_030' target='_self'>Pump</a> specifications.", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { "label": "Remove the last clamp.", "checked": false },
+          { 
+            "label": "Resume previous RPMs settings if there are no signs of a <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250' target='_self'>return obstruction.</a>", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { "label": "Resume previous SGF settings.", "checked": false },
+          { "label": "Notify the team of procedure completion.", "checked": false }
+        ]
+      },
+      {
+        "label": "Post-Replacement Management",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          { "label": "Check all connections for tightness and integrity. Zip tie connections.", "checked": false },
+          { "label": "Closely monitor the patient for signs of complications. ", "checked": false },
+          { "label": "Adjust ECMO settings as needed, considering improved function of the component, particularly if the ML has been changed.", "checked": false },
+          { "label": "Perform a full circuit assessment before leaving the patient.", "checked": false },
+          { 
+            "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_030' target='_self'>Circuit Monitoring</a> for additional information.", 
+            "type": "comment", 
+            "class": "note" 
+          },
+          { "label": "If the component change was due to an unexpected/unexplained malfunction, inform the manufacturer. ", "checked": false },
+          { "label": "If the old components do not need to be returned to the manufacturer, dispose of them according to hospital protocol. Otherwise, store according to hospital protocol.", "checked": false },
+          { 
+            "label": "Document the procedure in the patient's chart, including:", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "Reason for replacement", "checked": false },
+              { "label": "Time of the procedure", "checked": false },
+              { "label": "Component/connectors lot numbers", "checked": false },
+              { "label": "Complications encountered", "checked": false },
+              { "label": "If any, operators", "checked": false }
+            ] 
+          },
+          { "label": "Report the procedure in the ELSO registry.", "checked": false }
+        ]
+      },
+      {
+        "label": "Suggested Readings",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Brogan, T. V., Lequier, L., Lorusso, R., MacLaren, G., & Peek, G. (2023). Extracorporeal life support: The  Elso Red Book (6th ed.). Chapters 4 and 7 , Extracorporeal Life Support Organization. <a href='#' data-link='https://www.elso.org/publications.aspx' target='_blank'>https://www.elso.org/publications.aspx</a>.",
+            "type": "comment"
+          },
+          {
+            "label": "Gajkowski EF, Herrera G, Hatton L, Velia Antonini M, Vercaemst L, Cooley E. <a href='#' data-link='https://journals.lww.com/asaiojournal/fulltext/2022/02000/elso_guidelines_for_adult_and_pediatric.1.aspx' target='_blank'>ELSO Guidelines for Adult and Pediatric Extracorporeal Membrane Oxygenation Circuits</a> [published correction appears in ASAIO J. 2022 Jul 1;68(7):e131. doi: 10.1097/MAT.0000000000001727.]. ASAIO J. 2022;68(2):133-152. doi:10.1097/MAT.0000000000001630",
+            "type": "comment"
+          }
+        ]
+      }
     ]
   },
 
@@ -1692,7 +1882,7 @@
   {
     "id": "ELSOBA_CHKLST_065",
     "title": "Drop in Platelet Count",
-    "content": "",
+    "content": "Use this checklist to guide the evaluation and management of a drop in platelet count, particularly in the context of unfractionated heparin (UFH) anticoagulation, to assess the likelihood of Heparin-Induced Thrombocytopenia (HIT).",
     "layout": "checklist",
     "keywords": "Platelet count; anticoagulation; UFH; Unfractionated Heparin; Thrombin Inhibitors; Heparin-Induced Thrombocytopenia; HIT; PF4 Antibodies; Bleeding; Coagulants",
     "doc": "https://docs.google.com/document/d/1ZsCu5iUuXFzOTeDw7W5UXXDlLjKuGegy/edit?usp=sharing&ouid=100604119580806623236&rtpof=true&sd=true",
@@ -1716,12 +1906,17 @@
           { "label": "Check according to scores", "checked": false },
           { "label": "Concomitant clotting (e.g., membrane), thromboembolism", "checked": false },
           { 
-            "label": "PF4 antibodies negative", 
+            "label": "PF4 antibodies positive", 
             "checked": false,
             "layout": "checklist",
             "type": "subchecklist",
             "items": [
               { "label": "Change anticoagulation to direct thrombin inhibitor. Refer to  argatroban, bivalirudin, and the comparison of anticoagulants table under <a href='#' data-link='MEDICATIONS##ELSOBA_MED_010' target='_self'>Anticoagulants</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { 
+                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145'>Management of Bleeding.</a>", 
+                "type": "comment",
+                "class": "note"
+              },
               { "label": "Order confirmatory functional test for HIT II to prove diagnosis, as PF4 antibodies may be falsely positive.", "type": "list-comment", "class": "bullet ml-0" }
             ]
           }
@@ -1739,7 +1934,12 @@
             "layout": "checklist",
             "type": "subchecklist",
             "items": [
-              { "label": "Maintain UFH, adjust dose according to bleeding status. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145' target='_self'>Management of Bleeding.</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { "label": "Maintain UFH, adjust dose according to bleeding status.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { 
+                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145'>Management of Bleeding.</a>", 
+                "type": "comment",
+                "class": "note"
+              },
               { 
                 "label": "Search for alternative causes for thrombocytopenia", 
                 "type": "list-comment", 
@@ -2511,7 +2711,7 @@
   {
     "id": "ELSOBA_CHKLST_150",
     "title": "Managing Gas Exchange on ECMO",
-    "content": "",
+    "content": "Use these checklists to manage gas exchange in patients on ECMO, with specific considerations for both VA and VV configurations.",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
@@ -2634,7 +2834,7 @@
   {
     "id": "ELSOBA_CHKLST_150-20",
     "title": "VV ECMO",
-    "content": "Use this checklist to manage gas exchange in patients on VA ECMO configurations.",
+    "content": "Use this checklist to manage gas exchange in patients on VV ECMO configurations.",
     "keywords": "Gas; Exchange; Configurations;",
     "layout": "checklist",
     "type": "subchecklist",
@@ -3174,7 +3374,7 @@
         ]
       },
       {
-        "label": "Update Patients Family",
+        "label": "Update Patient's Family",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -3190,7 +3390,7 @@
         "items": [
           { "label": "Complete this checklist if you are turning an ECMO patient from the supine position to a prone position.", "type": "comment" },
           { 
-            "label": "Team members should always follow the team leader’s command.", 
+            "label": "Team members should <b>always</b> follow the team leader’s command.", 
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
@@ -3534,7 +3734,7 @@
     "id": "ELSOBA_CHKLST_FLOW_245__9",
     "showTitle": false,
     "useScroll": true,
-    "title": "Does the patient still have clinically significant hypoxemia? ",
+    "title": "Does the patient still have clinically significant hypoxemia?",
     "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__9.html",
     "layout": "html",
     "branchTo": "",
@@ -3616,15 +3816,20 @@
             ] 
           },
           {
-            "label": "If you checked YES for either question, a return obstruction is likely. Go to Assess the Circuit.",
+            "label": "If you checked YES for either question, a return obstruction is likely.",
             "type": "comment"
+          },
+          {
+            "label": "Go to <a href='#' class='disabled' data-link='CHECKLIST##ELSOBA_CHKLST_220' target='_self'>Assess the Circuit.</a>",
+            "type": "comment",
+            "class": "note"
           },
           { 
             "label": "If you checked NO for <b>both</b> questions, a return obstruction is unlikely. ", 
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Monitor patient and ML closely", "checked": false },
+              { "label": "Monitor the patient and ML closely", "checked": false },
               { "label": "Consider alternative cause(s) for observed signs that led to the  original suspicion of a return obstruction.", "checked": false }
             ] 
           }
@@ -3677,7 +3882,11 @@
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
-                  { "label": "Go to Assess the Return Cannula.", "checked": false }
+                  {
+                    "label": "Go to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##3' target='_self'>Assess the Return Cannula.</a>",
+                    "type": "comment",
+                    "class": "note"
+                  }
                 ]
                 
               }
@@ -3689,17 +3898,21 @@
             "layout": "checklist",
             "items": [
               { "label": "Check for evidence of vibrations of the return tubing", "checked": false },
-              { "label": "Evaluate return tubing using the flashlight test for any evidence of a clot or thrombus, particularly if connector(s) are present", "checked": false },
-              
-              
-              { "label": "Has the clot or thrombus been detected?", "type": "comment" },
+              { "label": "Evaluate return tubing using the flashlight test for any evidence of a clot or thrombus, particularly if connector(s) are present", "checked": false }
+            ] 
+          },
+          { 
+            "label": "Has the clot or thrombus been detected?", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
               { 
-                "label": "Yes<br>Evaluate for return cannula involvement.", 
+                "label": "YES, Evaluate for return cannula involvement.", 
                 "checked": false
               },
               { 
-                "label": "if NO clot/thrombus detected proceed in evaluation", 
-                "type": "comment"
+                "label": "NO, Proceed in evaluation.", 
+                "checked": false
               }
             ] 
           }
@@ -3831,9 +4044,9 @@
                     "type": "subchecklist",
                     "layout": "checklist",
                     "items": [
-                      { "label": "Insert new return cannula", "checked": false },
-                      { "label": "Switch circuit to new cannula", "checked": false },
-                      { "label": "Remove old cannula", "checked": false }
+                      { "label": "Insert new return cannula", "checked": false, "class": "mxb-16" },
+                      { "label": "Switch circuit to new cannula", "checked": false, "class": "mxb-16" },
+                      { "label": "Remove old cannula", "checked": false, "class": "mxb-16 end-list-4" }
                     ]
                   },
                   { 
@@ -3843,9 +4056,9 @@
                     "layout": "checklist",
                     "items": [
                       { 
-                        "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'>Coming Off ECMO Emergently</a>", 
+                        "label": "Go to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'>Coming Off ECMO Emergently</a>", 
                         "type": "comment",
-                        "class": "note"
+                        "class": "note width-auto end-list-3"
                       }
                     ]
                   }
@@ -3855,6 +4068,11 @@
           },
           {
             "label": "No clot or thrombosis is detected involving the return cannula. Go to the next step, <i>Evaluate the Patient</i>.",
+            "type": "comment",
+            "class": "note"
+          },
+          { 
+            "label": "Go to the next step, <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'>Evaluate the Patient</a>", 
             "type": "comment",
             "class": "note"
           }
@@ -4285,7 +4503,7 @@
   {
     "id": "ELSOBA_CHKLST_360",
     "title": "Whole Circuit Replacement",
-    "content": "",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
     "layout": "checklist",
     "keywords": "ECMO Circuit; Circuit Change; Circuit Replacement; Equipment; ECMO;",
     "doc": "https://drive.google.com/file/d/1Vqhr2HlCYp7d5yYcFzIMLD9kYz2QH4oC/view?usp=sharing",
@@ -4321,12 +4539,30 @@
                 "class": "note" 
               },
               { "label": "Pump thrombosis", "checked": false },
+              { 
+                "label": "Massive air entrance", 
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { 
+                    "label": "Go to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a>", 
+                    "type": "comment",
+                    "class": "note"
+                  }
+                ]
+              },
               { "label": "ML/pumphead rupture (if a rupture of a minor component) selectively change or isolate (link to circuit disruption algorithm) - do not have yet.", "checked": false },
               { "label": "A positive culture from the circuit refractory to optimize treatment/sustained by MRD/EDR/PDR organisms AND/OR evidence of microorganism growth on the ML", "checked": false }              
             ]        
           },
           { "label": "No weaning potential", "checked": false },
-          { "label": "Selective replacement of the involved component is not feasible for any reason (link to component replacement checklist (component changes)).", "checked": false }
+          { "label": "Selective replacement of the involved component is not feasible for any reason.", "checked": false },
+          { 
+            "label": "Go to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145' target='_self'>Component Replacement checklist</a>", 
+            "type": "comment",
+            "class": "note"
+          }
         ]
       }, 
       {
@@ -4402,10 +4638,10 @@
           { "label": "If the patient is awake, consider sedation if deemed necessary.", "checked": false },
           { "label": "Improve mechanical ventilation settings as ready to interrupt EBF on VV ECMO, VVA ECMO, VP ECMO.", "checked": false },
           { "label": "Improve inotropic/vasopressor support as ready to interrupt EBF on VA ECMO, VVA ECMO, VP ECMO.", "checked": false },
-          { "label": "Be ready for packed red blood cell (PRBC) transfusion if required.", "checked": false },
+          { "label": "Be ready for packed red blood cell (PRBC) transfusion, if required.", "checked": false },
           { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency.", "checked": false },
           { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency.", "checked": false },
-          { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary.", "checked": false }
+          { "label": "Check the coagulation profile and increase anticoagulant dosing, if deemed necessary.", "checked": false }
         ]
       },
       {

@@ -4,6 +4,7 @@
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import { defineComponent, h, ref, onMounted, createTextVNode, watch } from 'vue';
 import { IHtmlParserDataProps, IHtmlParserElementItem } from '../types';
+import { convertMathSymbols } from '@/utils/ElsoMath';
 // import { defineAsyncComponent } from 'vue';
 
 export default defineComponent({
@@ -61,12 +62,15 @@ export default defineComponent({
 
       // Helper function to process each node recursively
       function processNode(node: Node): IHtmlParserElementItem {
+        // console.log("node", node)
+        
         const element: IHtmlParserElementItem = {
           tag: node.nodeType === Node.TEXT_NODE ? "#text" : (node as HTMLElement).tagName.toLowerCase(),
           children: [],
-          dataParams: {}
+          dataParams: {
+            class: (node as HTMLElement).className ?? null
+          }
         };
-
 
         // For text nodes, add textContent directly to the element object
         if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
@@ -81,6 +85,20 @@ export default defineComponent({
         // For element nodes, capture all attributes in dataParams
         if (node.nodeType === Node.ELEMENT_NODE) {
           const elementNode = node as HTMLElement;
+
+          if (elementNode.tagName === "H3") {
+            elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
+          }
+          else if (elementNode.tagName === "UL" || elementNode.tagName === "TABLE") {
+            elementNode.innerHTML = getHtmlFromChildren(elementNode.children);
+          }
+          else if (elementNode.tagName === "DIV") {
+            // only modify the last child of a div
+            if (elementNode.children.length === 0) {
+              elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
+            }            
+          }
+
           for (const attr of elementNode.attributes) {
             let value: string | object = attr.value;
 
@@ -138,6 +156,8 @@ export default defineComponent({
       
       return elements.map((element) => {
         const { tag, children, textContent, dataParams } = element;
+        // console.log("element", element)
+        // console.log("dataParams", dataParams)
 
         // Render custom component
         if (customComponentsTest[tag]) {
@@ -146,6 +166,12 @@ export default defineComponent({
               const dataProps = dataParams?.dataProps as IHtmlParserDataProps;
               // @src/assets/icons/up-right-arrow-icon.svg
               const accessoryIcon = "<svg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.9286 2.64296C18.9286 2.05123 18.4489 1.57153 17.8572 1.57153L2.14288 1.57153C1.55114 1.57153 1.07145 2.05123 1.07145 2.64296C1.07145 3.23469 1.55114 3.71439 2.14288 3.71439L15.2705 3.71439L1.38526 17.5996C0.966841 18.0181 0.966841 18.6964 1.38526 19.1149C1.80368 19.5333 2.48207 19.5333 2.90049 19.1149L16.7857 5.22962L16.7857 18.3572C16.7857 18.949 17.2654 19.4287 17.8572 19.4287C18.4489 19.4287 18.9286 18.949 18.9286 18.3572L18.9286 2.64296Z' fill='currentColor'/></svg>";
+              
+              if (dataProps.hasOwnProperty("label")) {
+                // console.warn("dataProps", dataProps)
+                dataProps.label = convertMathSymbols(dataProps.label);
+              }
+              
               return h(
                 'div', 
                 { 
@@ -178,11 +204,21 @@ export default defineComponent({
         }
 
         // ISSUE: Parsing removes whitespace in front of word, ex:  Do notshut off
-        // if (tag === "b") {
-        //   // add extra space, TEMP FIX.  If the bold is at the end of a sentence, this will not work
-        //   element.children[0].textContent = `${element.children[0].textContent} `;
-        // }
-
+        if (tag === "b") {
+          
+          // Issue with b tags adding extra space as the start and end.
+          // quick fix:
+          if (dataParams.hasOwnProperty("class")) {
+            if ((dataParams.class as string).indexOf("_trim_") > -1) {
+              // console.warn("element", element)
+              element.children.forEach((item) => {
+                if (item.tag === "#text") {
+                  item.textContent = `${item.textContent?.trim()}`;
+                }
+              });
+            }
+          }
+        }
         // Render html element
         return h(tag, { ...dataParams }, renderDOMParsedElements(children));
       });
@@ -203,6 +239,23 @@ export default defineComponent({
       
       parsedElementsTest.value = DOMParseHtml(props?.htmlString!);
     });
+
+    function getHtmlFromChildren(children: HTMLCollection | NodeList): string {
+      return Array.from(children)
+        .map(child => {
+          // If it's an element, use outerHTML to preserve structure and tags
+          if (child instanceof Element) {
+            const html = child.outerHTML;
+            return convertMathSymbols(html);
+          }
+          // If it's a text node (e.g., whitespace or raw text), keep it as-is
+          if (child.nodeType === Node.TEXT_NODE) {
+            return convertMathSymbols(child.textContent || '');
+          }
+          return '';
+        })
+        .join('');
+    }
 
     // Return the render function
     return () => {

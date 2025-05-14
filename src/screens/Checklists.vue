@@ -62,7 +62,28 @@ watch(route, () => {
     
     router.replace({ path: `/home/checklists/${route?.query?.id}` });
   }
+  else {
+    if (route?.query?.id && !isNaN(parseInt(route?.query?.childId! as string))) {
+      console.warn("getCurrentView", (branchingRef.value as unknown as any).getCurrentView())
+      console.warn("getCurrentViewIndex", (branchingRef.value as unknown as any).getCurrentViewIndex())
+      emitChecklistRoute(route?.query?.childId as string, route?.query?.id as string, views);
+    }
+  }
+
+  
 }, { flush: "post" })
+
+function emitChecklistRoute(childId: string, id: string, data: any) {
+  console.warn("emitChecklistRoute")
+  const event = new CustomEvent('onChecklistRoute', {
+    detail: { childId, id, data },
+    bubbles: true, // allows the event to bubble up the DOM
+    composed: true, // allows it to cross Shadow DOM boundary if needed
+  });
+
+  // Dispatch from a known element, e.g., document or a component root
+  document.dispatchEvent(event);
+}
 
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/checklists_compiled.json`, views);

@@ -4,7 +4,7 @@
     "dataType": "ecmo",
     "heading": "ECMO Candidacy",
     "title": "",
-    "content": "To determine ECMO candidacy, first select the age group for your patient.",
+    "content": "To determine ECMO candidacy, first select the age group for your patient. For the referral process, select Patient Referral to an ECLS Centers.",
     "layout": "list",
     "useScroll": true,
     "isRootParent": true,    
@@ -15,7 +15,7 @@
         "class": ""
       },
       {
-        "label": "Assess ECMO Candidacy for Children",
+        "label": "Assess ECMO Candidacy for Pediatrics and Neonates",
         "branchTo": "ELSOBA_CAND_020",
         "class": ""
       },
@@ -46,7 +46,7 @@
         "class": ""
       },    
       {
-        "label": "Adult Respiratory ECMO for ARDS",
+        "label": "Adults with Respiratory Failure",
         "branchTo": "ELSOBA_CAND_045",
         "class": ""
       }    
@@ -56,7 +56,7 @@
     "id": "ELSOBA_CAND_020",
     "showTitle": true,
     "useScroll": true,
-    "title": "Assess ECMO Candidacy for Children",
+    "title": "Assess ECMO Candidacy for Pediatrics and Neonates",
     "content": "",
     "layout": "list",
     "keywords": "",
@@ -250,7 +250,7 @@
     "id": "ELSOBA_CAND_045__1",
     "showTitle": true,
     "useScroll": true,
-    "title": "The patient meets the criteria for (RDS)",
+    "title": "The patient meets the criteria for ARDS",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__1.html",
     "layout": "html",
     "branchTo": "",

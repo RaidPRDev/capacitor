@@ -33,6 +33,11 @@
         "label": "No Flow",
         "branchTo": "ELSOBA_PANIC_050",
         "class": ""
+      },
+      {
+        "label": "Coming Off ECMO Emergently",
+        "branchTo": "ELSOBA_PANIC_060",
+        "class": ""
       }
     ]
   },
@@ -285,7 +290,7 @@
     "keywords": "",
     "items": [
       {
-        "label": "A. Call for help",
+        "label": "A. Call for help.",
         "branchTo": "",
         "class": "no-action"
       },
@@ -555,7 +560,7 @@
     "keywords": "",
     "items": [
       {
-        "label": "A. Call for help",
+        "label": "A. Call for help.",
         "branchTo": "",
         "class": "no-action"
       },
@@ -795,7 +800,7 @@
     "keywords": "",
     "items": [
       {
-        "label": "A. Call for help",
+        "label": "A. Call for help.",
         "branchTo": "",
         "class": "no-action"
       },
@@ -817,17 +822,17 @@
     "branchTo": "",
     "items": [
       {
-        "label": "A. Indications of asystole, ventricular fibrillation (VF), or ventricular tachycardia (VT) on the electrocardiogram (ECG)",
+        "label": "A. Indications of asystole, ventricular fibrillation (VF), or ventricular tachycardia (VT) on the electrocardiogram (ECG).",
         "branchTo": "",
         "class": "no-action list-format"
       },     
       {
-        "label": "B. A loss of central pulses and/or a flat pressure line in veno-venous (VV) or veno-pulmonary artery (VP) ECMO",
+        "label": "B. A loss of central pulses and/or a flat pressure line in veno-venous (VV) or veno-pulmonary artery (VP) ECMO.",
         "branchTo": "",
         "class": "no-action list-format"
       },   
       {
-        "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (VVA) ECMO",
+        "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (VVA) ECMO.",
         "branchTo": "",
         "class": "no-action list-format"
       },
@@ -1008,7 +1013,7 @@
     "keywords": "",
     "items": [
       {
-        "label": "A. Call for help",
+        "label": "A. Call for help.",
         "branchTo": "",
         "class": "no-action"
       },

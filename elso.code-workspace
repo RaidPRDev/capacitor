@@ -10,9 +10,9 @@
 		"javascript.updateImportsOnFileMove.enabled": "never",
 		"editor.detectIndentation": false,
 		"editor.insertSpaces": true,
-    		"editor.tabSize": 2,
+    "editor.tabSize": 2,
 		"editor.minimap.enabled": false,
-		"workbench.tree.indent": 24,
+		"workbench.tree.indent": 12,
 		"files.exclude": {},
 		"debug.javascript.terminalOptions": {},
 		"css.validate": false
