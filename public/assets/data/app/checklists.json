@@ -3734,7 +3734,7 @@
     "id": "ELSOBA_CHKLST_FLOW_245__9",
     "showTitle": false,
     "useScroll": true,
-    "title": "Does the patient still have clinically significant hypoxemia?",
+    "title": "Patient Status",
     "content": "checklists/ELSOBA_CHKLST_FLOW_245/ELSOBA_CHKLST_FLOW_245__9.html",
     "layout": "html",
     "branchTo": "",
