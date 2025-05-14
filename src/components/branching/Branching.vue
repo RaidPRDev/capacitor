@@ -230,7 +230,7 @@ function handleTriggered(dataProps: any) {
       return;
     }
 
-    if (currentView?.value.dataType === pData[0].toLowerCase()) {
+    if (currentView?.value && currentView?.value.dataType === pData[0].toLowerCase()) {
       // viewHistory.value.push(currentViewIndex.value);
       handleNavigate(pData[1]);
     }
