@@ -4,7 +4,7 @@
     "dataType": "ecmo",
     "heading": "ECMO Candidacy",
     "title": "",
-    "content": "To determine ECMO candidacy, first select the age group for your patient. For the referral process, select Patient Referral to an ECLS Centers.",
+    "content": "To determine ECMO candidacy, first select the age group for your patient. For the referral process, select Patient Referral to an ECLS Center.",
     "layout": "list",
     "useScroll": true,
     "isRootParent": true,    

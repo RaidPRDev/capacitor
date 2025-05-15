@@ -482,6 +482,7 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\balpha\b/gi, `α`],
     [/\bbeta\b/gi, `β`],
     [/\bH2O\b/g, `H${sub2}O`],
+    [/\bH2O3\b/g, `H${sub2}O<sup class='math-sup'>3</sup>`],
     [/\bO2\b/g, `O${sub2wmr}`],
     [/\bCO2\b/g, `CO${sub2wmr}`],
     [/\bCaO2\b/g, `CaO${sub2wmr}`],

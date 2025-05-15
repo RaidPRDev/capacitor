@@ -242,7 +242,7 @@
     "id": "ELSOBA_PANIC_010__A__A__F__STEP4__D__YES",
     "showTitle": true,
     "useScroll": true,
-    "title": "Decannulation involves a drainage cannula or DLC",
+    "title": "Decannulation involves a drainage cannula or DLC.",
     "content": "panic/ELSOBA_PANIC_010/ELSOBA_PANIC_010__A__A__F__STEP4__D__YES.html",
     "layout": "html",
     "branchTo": "",

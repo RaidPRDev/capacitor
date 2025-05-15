@@ -59,9 +59,9 @@
         "label": "Troubleshooting",
         "branchTo": "ELSOBA_CHKLST_CAT11",
         "class": ""
-      },      
+      },
       {
-        "label": "Weaning ECMO",
+        "label": "Procedures on ECMO",
         "branchTo": "ELSOBA_CHKLST_CAT12",
         "class": ""
       }
@@ -145,7 +145,12 @@
         "label": "Cardiac Support for VA ECMO",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_FLOW_300"
-      }    
+      },
+      {
+        "label": "Coming Off ECMO: Respiratory Support for VV ECMO",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_FLOW_350"
+      } 
     ]
   },
   {
@@ -363,33 +368,28 @@
   },
   {
     "id": "ELSOBA_CHKLST_CAT12",
-    "title": "Weaning ECMO",
+    "title": "Procedures on ECMO",
     "content": "",
     "class": "",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
-    "items": [
-      {
-        "label": "Coming Off ECMO: Respiratory Support for VV ECMO",
-        "class": "",
-        "branchTo": "ELSOBA_CHKLST_FLOW_350"
-      }      
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_CAT12",
-    "title": "Procedures on ECMO",
-    "content": "",
-    "class": "disabled",
-    "layout": "list",
-    "showFavorites": true,
-    "useScroll": true, 
+    "sort": "ByActive",
     "items": [
       {
         "label": "Invasive Procedures on ECMO",
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_130"
+      },       
+      {
+        "label": "Proning on ECMO",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_230"
+      },       
+      {
+        "label": "PT/Ambulation on ECMO",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_240"
       }       
     ]
   },
@@ -2690,6 +2690,7 @@
       } 
     ]
   },
+
   {
     "id": "ELSOBA_CHKLST_140",
     "title": "Limb Ischemia Management Algorithm",
@@ -3150,7 +3151,7 @@
             "items": []
           },
           {
-            "label": "Consider performing a <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a> or <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_035'>coming off ECMO</a> if it’s preferable for the patient.",
+            "label": "Consider performing a <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a> or <a class='' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_035'>coming off ECMO</a> if it’s preferable for the patient.",
             "type": "comment",
             "class": "note"
           },
@@ -3907,12 +3908,23 @@
             "layout": "checklist",
             "items": [
               { 
-                "label": "YES, Evaluate for return cannula involvement.", 
-                "checked": false
+                "label": "Yes", 
+                "checked": false, 
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { "label": "Evaluate for return cannula involvement.", "checked": false }                  
+                ]
               },
               { 
-                "label": "NO, Proceed in evaluation.", 
-                "checked": false
+                "label": "No", 
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  { "label": "Proceed in evaluation.", "checked": false }
+                ]
+                
               }
             ] 
           }
@@ -4113,6 +4125,8 @@
       }
     ]
   },
+
+
   {
     "id": "ELSOBA_CHKLST_260",
     "title": "Surgical Cannulation Procedure",
