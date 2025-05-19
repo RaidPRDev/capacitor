@@ -417,6 +417,18 @@ onMounted(async () => {
     font-weight: 700;
     color: $sixth-color;
 
+    .note {
+      font-weight: 500;
+    }
+
+    .dark-blue {
+      color: $primary-color;
+    }
+
+    .purple {
+      color: $sixth-color;
+    }
+
     span i { // notes
       color: $primary-color;
       font-weight: 500;

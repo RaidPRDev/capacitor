@@ -4,7 +4,7 @@
     "dataType": "equipment",
     "heading": "Equipment",
     "title": "",
-    "content": "Select the equipment that best suits your needs.",
+    "content": "Select the equipment that best suits your needs.<div class='note'><b>Important:</b> Information provided on each piece of equipment was taken directly from the manufacturer IFUs.</div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,

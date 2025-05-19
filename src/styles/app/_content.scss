@@ -247,6 +247,11 @@
     margin: 1rem 0;
 
     @extend %add-note;
+
+    &.no-bg {
+      background-color: transparent;
+      margin: 0;
+    }
   }
 
   img {

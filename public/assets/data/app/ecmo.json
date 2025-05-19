@@ -277,6 +277,16 @@
     "items": []
   },
   {
+    "id": "ELSOBA_CAND_045__3b",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Are any of the following criteria met?",
+    "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__3b.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
     "id": "ELSOBA_CAND_045__4",
     "showTitle": true,
     "useScroll": true,

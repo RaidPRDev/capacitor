@@ -117,7 +117,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>BSA by Weight is most accurate in patients less than 75cm tall. For patients taller than 75 cm and all adult patients, use the BSA by weight and height calculator</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>BSA by Weight is most accurate in patients less than 75cm tall. For patients taller than 75 cm and all adult patients, use the BSA by weight and height calculator.</div></div>"
       },
       {
         "type": "heading",
@@ -171,7 +171,7 @@
         "branchTo": "ELSOBA_CALC_020__05"
       },
       {
-        "label": "Convert Millimeters of Mercury to Kilopascals (mmHg)",
+        "label": "Convert Millimeters of Mercury to Kilopascals",
         "branchTo": "ELSOBA_CALC_020__06"
       },
       {
@@ -310,7 +310,7 @@
   },
   {
     "id": "ELSOBA_CALC_020__06",
-    "title": "Convert Millimeters of Mercury to Kilopascals (mmHg)",
+    "title": "Convert Millimeters of Mercury to Kilopascals",
     "content": "",
     "layout": "input",
     "useScroll": true,
@@ -525,12 +525,12 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))</span></div>"
+        "label": "<div class='note dark-blue mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))</span></div>"
       },
       {
         "id": "constant",
         "type": "dropdown",
-        "label": "Select cc constant",
+        "label": "Select constant",
         "data": ["70", "75", "80", "85"]
       },
       {
@@ -544,7 +544,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct / Circuit Prime + (patient weight (kg) * constant)</span></div>"
+        "label": "<div class='note dark-blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct (%) / Circuit Prime (mL) + (patient weight (kg) * constant)</span></div>"
       },
       {
         "id": "patient_weight",
