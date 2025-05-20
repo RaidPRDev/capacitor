@@ -89,6 +89,9 @@ export default defineComponent({
           if (elementNode.tagName === "H3") {
             elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
           }
+          else if (elementNode.tagName === "B") {
+            elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
+          }
           else if (elementNode.tagName === "UL" || elementNode.tagName === "TABLE") {
             elementNode.innerHTML = getHtmlFromChildren(elementNode.children);
           }
@@ -209,6 +212,7 @@ export default defineComponent({
           // Issue with b tags adding extra space as the start and end.
           // quick fix:
           if (dataParams.hasOwnProperty("class")) {
+            console.log("child.textContent", dataParams)
             if ((dataParams.class as string).indexOf("_trim_") > -1) {
               // console.warn("element", element)
               element.children.forEach((item) => {

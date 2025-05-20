@@ -267,6 +267,7 @@ function handleTriggered(dataProps: any) {
     break;
     case "panic":
     case "equipment":
+    case "calculators":
     case "medications":
     case "checklists":
     case "ecmo":

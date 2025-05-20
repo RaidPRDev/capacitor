@@ -324,7 +324,7 @@
       {
         "id": "millimeters",
         "type": "number",
-        "label": "Enter Millimeters (mmHg)"
+        "label": "Enter Millimeters of Mercury (mmHg)"
       },
       {
         "type": "operator",

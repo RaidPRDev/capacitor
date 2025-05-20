@@ -4,7 +4,7 @@ export default {
   name: "BranchHTML"
 }
 
-const DEBUG = true;
+const DEBUG = false;
 </script>
 
 <script setup lang="ts">
