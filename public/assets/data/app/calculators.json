@@ -121,7 +121,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>BSA(m2)</b> = ((weight(kg) * 4) + 7) / (90 + weight(kg))</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><span class='math-formula'><img src='/assets/images/ELSOBA_CALC_010__02/ELSOBA_CALC_010__02.svg'></span></div></div>"
       },      
       {
         "id": "weight",
