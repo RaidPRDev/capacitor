@@ -229,31 +229,9 @@ function handleTriggered(dataProps: any) {
       window.open(pData[0], "_blank");
       return;
     }
-console.log("  currentView?.value.dataType", currentView?.value.dataType);
-console.log("  pData[0].toLowerCase()", pData[0].toLowerCase());
+    
     if (currentView?.value && currentView?.value.dataType === pData[0].toLowerCase()) {
-      // viewHistory.value.push(currentViewIndex.value);
       handleNavigate(pData[1]);
-    }
-    else {
-      switch (queryParams?.type) {
-        case 'PANIC':
-          router.push({ name: `Panic`, query: queryParams });
-          break;
-        case 'CHECKLIST':
-          router.push({ name: `Checklists`, query: queryParams });
-          break;
-        case 'MEDICATIONS':
-          router.push({ name: `Medication`, query: queryParams });
-          break;
-        case 'CALCULATORS':
-          router.push({ name: `Calculators`, query: queryParams });
-          break;
-        case 'EQUIPMENT':
-          router.push({ name: `Equipment`, query: queryParams });
-          break;
-        default:
-      }
     }
 
     return;
