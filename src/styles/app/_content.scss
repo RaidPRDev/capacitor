@@ -273,5 +273,9 @@
     margin-top: 0.75rem;
     margin-bottom: 1rem;
     @extend .__note;
+
+    &.note-heading {
+      margin-top: 0;
+    }
   }
 }
