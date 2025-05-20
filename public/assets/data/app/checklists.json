@@ -147,7 +147,7 @@
         "branchTo": "ELSOBA_CHKLST_FLOW_300"
       },
       {
-        "label": "Coming Off ECMO: Respiratory Support for VV ECMO",
+        "label": "Respiratory Support for VV ECMO",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_FLOW_350"
       } 
@@ -984,7 +984,7 @@
         "useScroll": true, 
         "items": [
           {
-            "label": "Reading",
+            "label": "Reading Display ON",
             "checked": false
           },
           {
@@ -3868,8 +3868,8 @@
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
-                  { "label": "Release or remove the obstruction from the return tubing", "checked": false },
-                  { "label": "Check the EBF and PPOST-ML to verify a full return to effective ECMO support with no residual signs of impaired pump outflow", "checked": false },
+                  { "label": "Release or remove the obstruction from the return tubing.", "checked": false },
+                  { "label": "Check the EBF and PPOST-ML to verify a full return to effective ECMO support with no residual signs of impaired pump outflow.", "checked": false },
                   { 
                     "label": "The cause of the obstruction has been detected and resolved. No other steps are needed.", 
                     "type": "comment",
@@ -3898,8 +3898,8 @@
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Check for evidence of vibrations of the return tubing", "checked": false },
-              { "label": "Evaluate return tubing using the flashlight test for any evidence of a clot or thrombus, particularly if connector(s) are present", "checked": false }
+              { "label": "Check for evidence of vibrations of the return tubing.", "checked": false },
+              { "label": "Evaluate return tubing using the flashlight test for any evidence of a clot or thrombus, particularly if connector(s) are present.", "checked": false }
             ] 
           },
           { 
@@ -4886,7 +4886,7 @@
     "showTitle": false,
     "useScroll": true,
     "showFavorites": true,
-    "title": "Coming Off ECMO: Respiratory Support for VV ECMO",
+    "title": "Respiratory Support for VV ECMO",
     "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350.html",
     "keywords": "VV ECMO; ECMO; Weaning; Weaning VV ECMO; Respiratory support; Coming off ECMO",
     "layout": "html",

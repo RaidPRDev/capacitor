@@ -340,7 +340,7 @@
     "id": "ELSOBA_CAND_045__12",
     "showTitle": true,
     "useScroll": true,
-    "title": "Recommend",
+    "title": "Recommend respiratory ECMO",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045__12.html",
     "layout": "html",
     "branchTo": "",
