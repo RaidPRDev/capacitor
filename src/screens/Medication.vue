@@ -129,6 +129,7 @@ function onViewBeforeEnter(params: BranchViewParamData) {
       <Branching 
         ref="branchingRef"
         viewClassName="medications data-content pxlr-0 pxt-20 pxb-20" 
+        :baseRoutePath="`home`"
         :branchRoute="props.branchRoute"
         :views="views" 
         :useNavigation="true"

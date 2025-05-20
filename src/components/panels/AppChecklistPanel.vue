@@ -200,7 +200,8 @@ function onInternalLink(element: HTMLElement) {
     showClose: false,
     action: (index:number) => {
       if (index === 0) return;
-      console.log("queryParams", queryParams)
+      // console.log("queryParams", queryParams)
+      
       // need to close self panel before pushing
       app.drawers.bottom.open = !app.drawers.bottom.open;
       switch (queryParams?.type) {

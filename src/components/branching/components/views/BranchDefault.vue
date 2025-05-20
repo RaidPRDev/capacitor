@@ -169,11 +169,30 @@ function removeTableEvents() {
   tableItems.value = [];
 }
 
+function onContentTrigger(e:MouseEvent) {
+  e.preventDefault();
+  
+  const target = e.target as HTMLElement;
+  
+  if (target.dataset.hasOwnProperty("link")) {
+    emit("triggered", { ['data-link']: target.dataset.link });
+    return;
+  }
+
+  if (target.dataset.hasOwnProperty("id") 
+    && target.dataset.hasOwnProperty("type") 
+    && target.dataset.hasOwnProperty("noReferral")) {
+    emit("triggered", {
+      ['data-id']: target.dataset.id,
+      ['data-type']: target.dataset.type,
+      ['data-no-referral']: target.dataset.noReferral
+    });
+  }
+}
+
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
   htmlContent.value = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
-  // console.log("htmlContent", htmlContent.value)
-  // console.log("htmlContent", parseAndReplaceCurlyBraceContent(htmlContent.value))
   htmlContent.value = parseAndReplaceCurlyBraceContent(htmlContent.value);
 
   // Here we are checking if we have any interactable elements.
@@ -213,6 +232,7 @@ onUnmounted(() => {
     ref="content" 
     class="content-default transform-z" 
     :style="contentStyles" 
+    @click="onContentTrigger"
     v-html="htmlContent"
   ></div>
 </template>

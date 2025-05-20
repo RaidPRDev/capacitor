@@ -219,7 +219,7 @@ function handleTriggered(dataProps: any) {
 
     queryParams.type = pData[0];
     queryParams.id = pData[1];
-
+    
     // check CHECKLIST TYPE for child id
     if (pData?.length === 3) {
       queryParams.childId = pData[2];
@@ -229,16 +229,35 @@ function handleTriggered(dataProps: any) {
       window.open(pData[0], "_blank");
       return;
     }
-
+console.log("  currentView?.value.dataType", currentView?.value.dataType);
+console.log("  pData[0].toLowerCase()", pData[0].toLowerCase());
     if (currentView?.value && currentView?.value.dataType === pData[0].toLowerCase()) {
       // viewHistory.value.push(currentViewIndex.value);
       handleNavigate(pData[1]);
     }
+    else {
+      switch (queryParams?.type) {
+        case 'PANIC':
+          router.push({ name: `Panic`, query: queryParams });
+          break;
+        case 'CHECKLIST':
+          router.push({ name: `Checklists`, query: queryParams });
+          break;
+        case 'MEDICATIONS':
+          router.push({ name: `Medication`, query: queryParams });
+          break;
+        case 'CALCULATORS':
+          router.push({ name: `Calculators`, query: queryParams });
+          break;
+        case 'EQUIPMENT':
+          router.push({ name: `Equipment`, query: queryParams });
+          break;
+        default:
+      }
+    }
 
     return;
   }
-
-
 
   if (!dataProps.hasOwnProperty("data-id")
     || !dataProps.hasOwnProperty("data-type")) {
@@ -270,6 +289,7 @@ function handleTriggered(dataProps: any) {
     break;
     case "panic":
     case "equipment":
+    case "medications":
     case "checklists":
     case "ecmo":
     case "resources":
