@@ -521,11 +521,11 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'>Step 1: Determine Circuit Prime</div><span><i><b>Note:</b> To find the circuit prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
+        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'>Step 1: Determine Circuit Prime</div><span><i><b>Note:</b> To find the Circuit Prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
       },
       {
         "type": "heading",
-        "label": "<div class='note dark-blue mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = membrane lung volume (cc) + tubing volume (cc) + ( pump volume (if centrifugal) (cc))</span></div>"
+        "label": "<div class='note dark-blue mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = Total Circuit Volume (cc)</span></div>"
       },
       {
         "id": "total_circuit_volume",

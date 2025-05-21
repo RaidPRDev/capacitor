@@ -1265,16 +1265,16 @@
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
-                  { "label": "Inform him/her and/or their surrogate about the need for replacement, the procedure and potential associated risks (consent)", "checked": false },
-                  { "label": "Consider sedation, if deemed necessary", "checked": false },
-                  { "label": "Increase mechanical ventilation settings as ready to interrupt extracorporeal blood flow on VV ECMO, VVA ECMO, VP ECMO", "checked": false },
-                  { "label": "Increase inotropic/vasopressor support as ready to interrupt extracorporeal blood flow on VA ECMO, VVA ECMO, VP ECMO", "checked": false },
-                  { "label": "Be ready for PRBC transfusion if required", "checked": false },
-                  { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency", "checked": false },
-                  { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency", "checked": false },
-                  { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary", "checked": false }
+                  { "label": "Inform him/her and/or their surrogate about the need for replacement, the procedure and potential associated risks (consent)", "checked": false }
                 ] 
-              }
+              },
+              { "label": "Consider sedation, if deemed necessary", "checked": false },
+              { "label": "Increase mechanical ventilation settings as ready to interrupt extracorporeal blood flow on VV ECMO, VVA ECMO, VP ECMO", "checked": false },
+              { "label": "Increase inotropic/vasopressor support as ready to interrupt extracorporeal blood flow on VA ECMO, VVA ECMO, VP ECMO", "checked": false },
+              { "label": "Be ready for PRBC transfusion if required", "checked": false },
+              { "label": "Be ready to perform CPR/ACLS if/as required in case of emergency", "checked": false },
+              { "label": "If the patient isn't on mechanical ventilation, be ready to manage airways in case of emergency", "checked": false },
+              { "label": "Check the coagulation profile and increase anticoagulant dosing if deemed necessary", "checked": false }
             ]
           }
           
@@ -1305,7 +1305,7 @@
         "useScroll": true, 
         "items": [
           { 
-            "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old CP.", 
+            "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old (CP).", 
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -1345,8 +1345,8 @@
             "type": "comment",
             "class": "note"
           },
-          { "label": "Resume previous Sweep Gas Flow settings", "checked": false },
-          { "label": "Notify the team of replacement completion", "checked": false },
+          { "label": "Resume previous Sweep Gas Flow settings.", "checked": false },
+          { "label": "Notify the team of replacement completion.", "checked": false },
           { "label": "If using a bubble sensor, and it is alarming for the presence of air <b>before</b> the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow.", "checked": false },
           { 
             "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a> for additional information.", 
@@ -2965,203 +2965,199 @@
     "useScroll": true, 
     "items": [
       {
-        "label": "Membrane Lung Failure",
-        "class": "",
-        "layout": "checklist",
+        "label": "Exclude a Gas Supply Interruption",
         "type": "subchecklist",
+        "layout": "checklist",
+        "class": "list-section",
         "items": [
-          {
-            "label": "Exclude a Gas Supply Interruption",
-            "class": "list-section"
-          }, 
           {
             "type": "comment",
             "label": "Go to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_080'>Gas Supply Interruption</a> checklist. Once a gas supply interruption is ruled out, return to and complete this checklist.",
             "class": "note"
-          }, 
-          {
-            "label": "Evaluate the Membrane Lung (ML) Pressures and Blood Flow",
+          }
+        ]
+      }, 
+      {
+        "label": "Evaluate the Membrane Lung (ML) Pressures and Blood Flow",
+        "type": "subchecklist",
+        "layout": "checklist",
+        "class": "list-section",
+        "items": [
+          { "label": "Assess pre-membrane lung pressure (PPRE-ML)", "checked": false },
+          { "label": "Assess post-membrane lung pressure (PPOST-ML)", "checked": false },
+          { "label": "Assess extracorporeal blood flow (EBF)", "checked": false },
+          { 
+            "label": "Calculate pressure drop or delta P <span>ΔP = PPRE-ML - PPOST-ML</span>", 
+            "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
-            "class": "list-section",
             "items": [
-              { "label": "Assess pre-membrane lung pressure (PPRE-ML)", "checked": false },
-              { "label": "Assess post-membrane lung pressure (PPOST-ML)", "checked": false },
-              { "label": "Assess extracorporeal blood flow (EBF)", "checked": false },
               { 
-                "label": "Calculate pressure drop or delta P <span>ΔP = PPRE-ML - PPOST-ML</span>", 
-                "checked": false,
-                "type": "subchecklist",
-                "layout": "checklist",
-                "items": [
-                  { 
-                    "label": "Open <b>Notes</b> to record the value.", 
-                    "type": "comment",
-                    "class": "note"
-                  }
-                ]
-              },
-              { 
-                "label": "Calculate membrane lung resistances (MLR) <span>MLR = ΔP/EBF</span>", 
-                "checked": false,
-                "type": "subchecklist",
-                "layout": "checklist",
-                "items": [
-                  { 
-                    "label": "Open <b>Notes</b> to record the value.", 
-                    "type": "comment",
-                    "class": "note"
-                  }
-                ]
-              },
-              { 
-                "label": "Check your values against the standard pressures for the device, listed in the Membrane Lung equipment section.", 
-                "checked": false,
-                "type": "subchecklist",
-                "layout": "checklist",
-                "items": [
-                  { 
-                    "label": "Go to <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_020' target='_self'>Membrane Lung</a>", 
-                    "type": "comment",
-                    "class": "note"
-                  }
-                ]
-              },
-              { "label": "Values are excessive compared to standard pressures", "checked": false },
-              { "label": "There are progressive or acute increases in ΔP and MLR compared to the previous evaluation", "checked": false },
-              { "label": "There is a progressive increase in rotations per minute (RPMs) to maintain target EBF", "checked": false },
-              { 
-                "label": "If any boxes are checked, ML dysfunction or failure is likely.", 
-                "type": "comment",
-                "class": "note"
-              },
-              { 
-                "label": "Consider ML or circuit exchange <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>", 
-                "type": "comment",
-                "class": "note disabled"
-              },
-              { 
-                "label": "Consider <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>coming off ECMO emergently</a> if preferable for the patient", 
-                "type": "comment",
-                "class": "note disabled"
-              },
-              { 
-                "label": "If none of the boxes are checked, continue to the next step.", 
-                "type": "comment",
-                "class": "note"
-              }
-            ]
-          }, 
-          {
-            "label": "Evaluate ML Gas Transfer Effectiveness",
-            "type": "subchecklist",
-            "layout": "checklist",
-            "class": "list-section",
-            "items": [
-              { "label": "Flush the gas line", "checked": false },
-              { 
-                "label": "<a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>ML recruitment checklist</a>", 
-                "type": "comment",
-                "class": "note disabled"
-              },
-              { "label": "Maximize sweep gas flow (SGF) and O2 fraction in the sweep gas flow (FsO2)", "checked": false },
-              { 
-                "label": "Sample the blood before and after the ML to assess the O2 uptake", 
-                "type": "subchecklist",
-                "layout": "checklist",
-                "checked": false, 
-                "items": [
-                  { "label": "Is there a decreased O2 uptake?", "checked": false },
-                  { "label": "Is the PPOST-ML O2 < 200 mmHg ?", "checked": false },
-                  { "label": "Is the V’O2 < 100-150 ml/min?", "checked": false },
-                  { 
-                    "label": "Go to <a class='' href='#' data-link='CALCULATORS##ELSOBA_CALC_040'>Oxygen Transfer calculator</a>", 
-                    "type": "comment",
-                    "class": "note"
-                  }
-                ]
-              },
-              { 
-                "label": "Assess CO2 removal", 
-                "type": "subchecklist",
-                "layout": "checklist",
-                "checked": false,
-                "items": [
-                  { "label": "Has it decreased?", "checked": false },
-                  { "label": "Is the PPOST-ML CO2 > 40 mmHg?", "checked": false },
-                  { "label": "Is the PPRE-ML CO2 – PPOST-ML CO2 < 10 mmHg?", "checked": false } 
-                ]
-              },
-              {
-                "label": "If at least one <b>YES</b> without an alternative explanation, excluding a gas supply interruption, ML dysfunction or failure is likely.",
-                "type": "comment",
-                "class": "note"
-              },
-              { 
-                "label": "Consider performing a <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change</a> or <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO</a> if preferable for the patient", 
-                "type": "comment",
-                "class": "note disabled"
-              },
-              {
-                "label": "If <b>NO</b>, continue to the next step.",
+                "label": "Open <b>Notes</b> to record the value.", 
                 "type": "comment",
                 "class": "note"
               }
             ]
           },
-          {
-            "label": "Assess the Patient's Hematologic Profile",
+          { 
+            "label": "Calculate membrane lung resistances (MLR) <span>MLR = ΔP/EBF</span>", 
+            "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
-            "class": "list-section",
             "items": [
-              {
-                "label": "Evaluate hemolysis:",
-                "type": "comment"
-              },
-              { "label": "Free hemoglobin (fHb)", "checked": false },
               { 
-                "label": "LDH", 
-                "type": "subchecklist",
-                "layout": "checklist",
-                "checked": false, 
-                "items": [
-                  { "label": "Is the LDH elevated?", "checked": false },
-                  { "label": "Is the plasma fHb > 50 mg/dL?", "checked": false }
-                ]
-              },
-              {
-                "label": "If the answer is <b>YES</b> to either without an alternative explanation, consider ML or <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a>.",
+                "label": "Open <b>Notes</b> to record the value.", 
                 "type": "comment",
                 "class": "note"
-              },
+              }
+            ]
+          },
+          { 
+            "label": "Check your values against the standard pressures for the device, listed in the Membrane Lung equipment section.", 
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
               { 
-                "label": "Evaluate coagulation:", 
+                "label": "Go to <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_020' target='_self'>Membrane Lung</a>", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
+          { "label": "Values are excessive compared to standard pressures", "checked": false },
+          { "label": "There are progressive or acute increases in ΔP and MLR compared to the previous evaluation", "checked": false },
+          { "label": "There is a progressive increase in rotations per minute (RPMs) to maintain target EBF", "checked": false },
+          { 
+            "label": "If any boxes are checked, ML dysfunction or failure is likely.", 
+            "type": "comment",
+            "class": "note"
+          },
+          { 
+            "label": "Consider ML or circuit exchange <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>", 
+            "type": "comment",
+            "class": "note disabled"
+          },
+          { 
+            "label": "Consider <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>coming off ECMO emergently</a> if preferable for the patient", 
+            "type": "comment",
+            "class": "note disabled"
+          },
+          { 
+            "label": "If none of the boxes are checked, continue to the next step.", 
+            "type": "comment",
+            "class": "note"
+          }
+        ]
+      }, 
+      {
+        "label": "Evaluate ML Gas Transfer Effectiveness",
+        "type": "subchecklist",
+        "layout": "checklist",
+        "class": "list-section",
+        "items": [
+          { "label": "Flush the gas line", "checked": false },
+          { 
+            "label": "<a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>ML recruitment checklist</a>", 
+            "type": "comment",
+            "class": "note disabled"
+          },
+          { "label": "Maximize sweep gas flow (SGF) and O2 fraction in the sweep gas flow (FsO2)", "checked": false },
+          { 
+            "label": "Sample the blood before and after the ML to assess the O2 uptake", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "checked": false, 
+            "items": [
+              { "label": "Is there a decreased O2 uptake?", "checked": false },
+              { "label": "Is the PPOST-ML O2 < 200 mmHg ?", "checked": false },
+              { "label": "Is the V’O2 < 100-150 ml/min?", "checked": false },
+              { 
+                "label": "Go to <a class='' href='#' data-link='CALCULATORS##ELSOBA_CALC_040'>Oxygen Transfer calculator</a>", 
+                "type": "comment",
+                "class": "note"
+              }
+            ]
+          },
+          { 
+            "label": "Assess CO2 removal", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "checked": false,
+            "items": [
+              { "label": "Has it decreased?", "checked": false },
+              { "label": "Is the PPOST-ML CO2 > 40 mmHg?", "checked": false },
+              { "label": "Is the PPRE-ML CO2 – PPOST-ML CO2 < 10 mmHg?", "checked": false } 
+            ]
+          },
+          {
+            "label": "If at least one <b>YES</b> without an alternative explanation, excluding a gas supply interruption, ML dysfunction or failure is likely.",
+            "type": "comment",
+            "class": "note"
+          },
+          { 
+            "label": "Consider performing a <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change</a> or <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO</a> if preferable for the patient", 
+            "type": "comment",
+            "class": "note disabled"
+          },
+          {
+            "label": "If <b>NO</b>, continue to the next step.",
+            "type": "comment",
+            "class": "note"
+          }
+        ]
+      },
+      {
+        "label": "Assess the Patient's Hematologic Profile",
+        "type": "subchecklist",
+        "layout": "checklist",
+        "class": "list-section",
+        "items": [
+          {
+            "label": "Evaluate hemolysis:",
+            "type": "comment"
+          },
+          { "label": "Free hemoglobin (fHb)", "checked": false },
+          { 
+            "label": "LDH", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "checked": false, 
+            "items": [
+              { "label": "Is the LDH elevated?", "checked": false },
+              { "label": "Is the plasma fHb > 50 mg/dL?", "checked": false }
+            ]
+          },
+          {
+            "label": "If the answer is <b>YES</b> to either without an alternative explanation, consider ML or <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a>.",
+            "type": "comment",
+            "class": "note"
+          },
+          { 
+            "label": "Evaluate coagulation:", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { "label": "PLTs", "checked": false },
+              { "label": "INR", "checked": false },
+              { "label": "aPTT", "checked": false },
+              { "label": "D-dimer", "checked": false },
+              { "label": "Fibrinogen", "checked": false },
+              { 
+                "label": "Viscoelastic testing (VET)", 
+                "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
-                  { "label": "PLTs", "checked": false },
-                  { "label": "INR", "checked": false },
-                  { "label": "aPTT", "checked": false },
-                  { "label": "D-dimer", "checked": false },
-                  { "label": "Fibrinogen", "checked": false },
-                  { 
-                    "label": "Viscoelastic testing (VET)", 
-                    "checked": false,
-                    "type": "subchecklist",
-                    "layout": "checklist",
-                    "items": [
-                      { "label": "Are there signs of coagulopathy?", "checked": false },
-                      { "label": "Have INR and aPTT increased?", "checked": false },
-                      { "label": "Have the PLTs decreased?", "checked": false },
-                      { "label": "Has the D-dimer increased?", "checked": false },
-                      { "label": "Has Fibrinogen decreased?", "checked": false },
-                      { "label": "Are TEG or ROTEM suggesting signs of consumptive coagulopathy?", "checked": false }
-                    ]
-                  }
-                ]               
+                  { "label": "Are there signs of coagulopathy?", "checked": false },
+                  { "label": "Have INR and aPTT increased?", "checked": false },
+                  { "label": "Have the PLTs decreased?", "checked": false },
+                  { "label": "Has the D-dimer increased?", "checked": false },
+                  { "label": "Has Fibrinogen decreased?", "checked": false },
+                  { "label": "Are TEG or ROTEM suggesting signs of consumptive coagulopathy?", "checked": false }
+                ]
               }
-            ]
+            ]               
           },
           {
             "label": "If the answer is <b>YES</b> for more than one of the questions above without an alternative explanation, ML dysfunction or failure is likely.",
@@ -3186,7 +3182,7 @@
             ]
           }
         ]
-      } 
+      }      
     ]
   },
   {
@@ -4119,29 +4115,29 @@
           { "label": "<b>If you have a VA ECMO configuration</b>", "type": "comment" },
           { "label": "If there is a femoral return cannula, exclude the first significant improvement of left ventricular ejection fraction (LVEF)", "checked": false },
           { "label": "If YES, consider weaning.", "checked": false },
-          { "label": "If NO or if any other VA ECMO cannulation strategy, check with ultrasound and/or fluoroscopy/CT according to the technique more readily available and according to local preferences for signs of arterial dissection", "checked": false }
+          { "label": "If NO or if any other VA ECMO cannulation strategy, check with ultrasound and/or fluoroscopy/CT according to the technique more readily available and according to local preferences for signs of arterial dissection", "checked": false },
+          {
+            "label": "<b>If you have a VA-V ECMO configuration</b>",
+            "class": "",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "If YES, consider weaning.", "checked": false },
+              { "label": "If NO or if any other VA ECMO cannulation strategy, check with ultrasound and/or fluoroscopy/CT according to the technique more readily available and according to local preferences for signs of arterial dissection", "checked": false }
+            ]
+          },
+          {
+            "label": "<b>If you have a VV ECMO or VP configuration</b>",
+            "class": "",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Exclude tension pneumothorax, cardiac tamponade, or vascular thrombosis in the vessel or chamber where the return cannula is located", "checked": false },
+              { "label": "If any clinical issue is detected, try to fix it as it is likely causing the return obstruction.", "checked": false }
+            ]
+          }
         ]
-      },
-      {
-        "label": "If you have a VA-V ECMO configuration",
-        "class": "",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "If YES, consider weaning.", "checked": false },
-          { "label": "If NO or if any other VA ECMO cannulation strategy, check with ultrasound and/or fluoroscopy/CT according to the technique more readily available and according to local preferences for signs of arterial dissection", "checked": false }
-        ]
-      },
-      {
-        "label": "If you have a VV ECMO or VP configuration",
-        "class": "",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Exclude tension pneumothorax, cardiac tamponade, or vascular thrombosis in the vessel or chamber where the return cannula is located", "checked": false },
-          { "label": "If any clinical issue is detected, try to fix it as it is likely causing the return obstruction.", "checked": false }
-        ]
-      }
+      }      
     ]
   },
 
