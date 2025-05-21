@@ -1118,33 +1118,48 @@
         "useScroll": true, 
         "items": [
           {
-            "label": "To proceed with whole circuit replacement, all three checks (A, B, and C) are <b>required</b>. Otherwise, do NOT proceed with whole circuit replacement. ELSO does NOT recommend non-urgent replacement of a circuit or circuit component",
+            "label": "To proceed with whole circuit replacement, all three checks are <b>required</b>. Otherwise, do <b>NOT</b> proceed with whole circuit replacement.",
             "type": "comment"
           },
           {
-            "label": "A. Dysfunctional circuit component: (at least 1 check)",
+            "label": "<b>Note:</b> ELSO does <b>NOT</b> recommend non-urgent replacement of a circuit or circuit component.",
+            "type": "comment",
+            "class": "note" 
+          },
+          {
+            "label": "Dysfunctional circuit component: (at least 1 check)",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
               {
-                "label": "component thrombosis (minor ML clotting not severely impacting with its function excluded (link to ML failure algorithm)",
+                "label": "Component thrombosis (minor membrane lung (ML) clotting not severely impacting with its function excluded).",
                 "checked": false
               },
+              { 
+                "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure.</a>", 
+                "type": "comment", 
+                "class": "note" 
+              },
               {
-                "label": "broken component link to circuit disruption algorithm)",
+                "label": "Broken component",
                 "checked": false
               }
             ] 
           },
           {
-            "label": "B. No weaning potential ",
+            "label": "No weaning potential",
             "checked": false
           },
           {
-            "label": "C. Replacement of the whole circuit is not indicated (link to whole circuit replacement checklist)",
+            "label": "Replacement of the whole circuit is not indicated",
             "checked": false
           },
+          { 
+                "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_360' target='_self'>Whole Circuit Replacement</a> checklist.", 
+                "type": "comment", 
+                "class": "note" 
+              },
           {
             "label": "OR",
             "type": "comment"
@@ -1433,7 +1448,11 @@
           },
           { "label": "Remove the last clamp.", "checked": false },
           { 
-            "label": "Resume previous RPMs settings if there are no signs of a <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250' target='_self'>return obstruction.</a>", 
+            "label": "Resume previous RPMs settings if there are no signs of a return obstruction.", 
+            "checked": false
+          },
+          { 
+            "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250' target='_self'>Return Obstruction.</a>", 
             "type": "comment", 
             "class": "note" 
           },
@@ -3830,7 +3849,7 @@
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Monitor the patient and ML closely", "checked": false },
+              { "label": "Monitor the patient and ML closely.", "checked": false },
               { "label": "Consider alternative cause(s) for observed signs that led to the  original suspicion of a return obstruction.", "checked": false }
             ] 
           }
@@ -4104,7 +4123,7 @@
         ]
       },
       {
-        "label": "If you have a VAV ECMO configuration",
+        "label": "If you have a VA-V ECMO configuration",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",

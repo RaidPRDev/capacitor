@@ -221,9 +221,8 @@ const listItemClasses = (index: number) => computed(() => {
   <div :class="[`base-combobox`, { [`is-multiple`]: isMultiple }]">
     
     <div v-if="props.label" :class="['ui-combo-label mxt-0 mxb-12', props?.labelClass]">
-      <label v-bind:for="props.id" class="ui-label">
-        {{props.label}}
-        <span v-if="props.required">*</span>
+      <label v-bind:for="props.id" class="ui-label" v-html="`${props.label} ${props.required ? '<span>*</span>' : ''}`">
+        
       </label>
     </div>
     

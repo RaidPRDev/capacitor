@@ -226,8 +226,10 @@
   #tableBody {
     overflow-x: scroll;
 
-    th {
+    th:not(.head-bold) {
       padding: 0 16px;
+
+       
     }
     
     tbody {
