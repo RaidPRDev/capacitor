@@ -3836,7 +3836,7 @@
             "type": "comment"
           },
           {
-            "label": "Go to <a href='#' class='disabled' data-link='CHECKLIST##ELSOBA_CHKLST_220' target='_self'>Assess the Circuit.</a>",
+            "label": "Go to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##2' target='_self'>Assess the Circuit.</a>",
             "type": "comment",
             "class": "note"
           },
@@ -4094,12 +4094,12 @@
             ]
           },
           {
-            "label": "No clot or thrombosis is detected involving the return cannula. Go to the next step, <i>Evaluate the Patient</i>.",
+            "label": "No clot or thrombosis is detected involving the return cannula.",
             "type": "comment",
             "class": "note"
           },
           { 
-            "label": "Go to the next step, <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035' target='_self'>Evaluate the Patient</a>", 
+            "label": "Go to the next step, <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_250##4' target='_self'>Evaluate the Patient</a>", 
             "type": "comment",
             "class": "note"
           }
