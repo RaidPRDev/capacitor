@@ -220,6 +220,8 @@ function handleTriggered(dataProps: any) {
     queryParams.type = pData[0];
     queryParams.id = pData[1];
     
+    if (DEBUG) console.log("  pData", pData);
+
     // check CHECKLIST TYPE for child id
     if (pData?.length === 3) {
       queryParams.childId = pData[2];
@@ -230,7 +232,12 @@ function handleTriggered(dataProps: any) {
       return;
     }
     
+    if (DEBUG) console.log("  pData[0].toLowerCase()", pData[0].toLowerCase());
+
     if (currentView?.value && currentView?.value.dataType === pData[0].toLowerCase()) {
+      handleNavigate(pData[1]);
+    }
+    else if (currentDataType === pData[0].toLowerCase()) {
       handleNavigate(pData[1]);
     }
 

@@ -117,7 +117,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>BSA by Weight is most accurate in patients less than 75cm tall. For patients taller than 75 cm and all adult patients, use the BSA by weight and height calculator.</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>BSA by Weight is most accurate in patients less than 75cm tall. For patients taller than 75cm and all adult patients, use the BSA by weight and height calculator.</div></div>"
       },
       {
         "type": "heading",
@@ -133,7 +133,8 @@
           "step": "0.1"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {
@@ -299,7 +300,8 @@
           "step": "1"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {
@@ -412,7 +414,8 @@
           "step": "1"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {
@@ -425,7 +428,8 @@
           "step": "1"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {
@@ -479,6 +483,10 @@
           "min": "0.01",
           "max": "1",
           "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {
@@ -491,7 +499,8 @@
           "step": "0.01"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {
@@ -517,7 +526,7 @@
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "%",
+    "resultLabel": "(%)",
     "items": [
       {
         "type": "heading",
@@ -525,7 +534,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note dark-blue mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = Total Circuit Volume (cc)</span></div>"
+        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Circuit Prime (mL)</b> = Total Circuit Volume (cc)</span></div>"
       },
       {
         "id": "total_circuit_volume",
@@ -544,7 +553,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note dark-blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct (%) / Circuit Prime (mL) + (patient weight (kg) * constant)</span></div>"
+        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct (%) / Circuit Prime (mL) + (patient weight (kg) * constant)</span></div>"
       },
       {
         "id": "patient_weight",
@@ -593,7 +602,8 @@
           "step": "0.01"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },  
       {
@@ -634,7 +644,8 @@
           "step": "0.01"
         },
         "data": {
-          "onBlur": "enforceRangeV2"
+          "onBlur": "enforceRangeV2",
+          "onEnter": "enforceRangeV2"
         }
       },
       {

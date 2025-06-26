@@ -3,6 +3,8 @@ export default {
   inheritAttrs: true,
   name: "BranchDefault"
 }   
+
+const DEBUG = false;
 </script>
 
 <script setup lang="ts">
@@ -173,9 +175,11 @@ function onContentTrigger(e:MouseEvent) {
   e.preventDefault();
   
   const target = e.target as HTMLElement;
+  if (DEBUG) console.log('BranchDefault.target', target);
   
   if (target.dataset.hasOwnProperty("link")) {
     emit("triggered", { ['data-link']: target.dataset.link });
+
     return;
   }
 
@@ -187,6 +191,13 @@ function onContentTrigger(e:MouseEvent) {
       ['data-type']: target.dataset.type,
       ['data-no-referral']: target.dataset.noReferral
     });
+
+    return;
+  }
+
+  const anchor = target as HTMLAnchorElement;
+  if (anchor?.href && anchor.href.indexOf("http") > -1) {
+    window.open(anchor.href, "_blank");
   }
 }
 

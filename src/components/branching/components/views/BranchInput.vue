@@ -340,6 +340,21 @@ onMounted(async () => {
           onEnter: () => {
             calculate();
             setFocusToResult();
+
+            if (!computedList?.[data.item.index]?.data) return;
+
+            const dataProps = computedList?.[data.item.index]?.data!;
+            if (dataProps?.hasOwnProperty(`onEnter`)) {
+              const el = findAndReturnItemRefElement(computedList?.[data.item.index]?.id!);
+              const input = el?.accessoryIconRef()?.inputRef();
+              
+              if (mathUtilFunctions.hasOwnProperty(dataProps['onEnter'])) {
+                mathUtilFunctions[dataProps['onEnter'] as string](input);
+              }
+              else {
+                console.error(`[mathUtilFunctions] missing onEnter prop '${dataProps['onEnter']}''`);
+              }  
+            }
           }
         }"
       />

@@ -137,6 +137,11 @@
     "useScroll": true, 
     "items": [
       {
+        "label": "Coming Off ECMO Emergently",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_035"
+      },
+      {
         "label": "Determination of Death (Neurological and Circulatory Criteria)",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_050"
@@ -3071,7 +3076,7 @@
             "items": [
               { "label": "Is there a decreased O2 uptake?", "checked": false },
               { "label": "Is the PPOST-ML O2 < 200 mmHg ?", "checked": false },
-              { "label": "Is the V’O2 < 100-150 ml/min?", "checked": false },
+              { "label": "Is the V’O2 < 100-150 mL/min?", "checked": false },
               { 
                 "label": "Go to <a class='' href='#' data-link='CALCULATORS##ELSOBA_CALC_040'>Oxygen Transfer calculator</a>", 
                 "type": "comment",

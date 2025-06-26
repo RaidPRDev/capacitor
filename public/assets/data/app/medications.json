@@ -43,7 +43,7 @@
         "class": "disabled"
       },
       {
-        "label": "Hemostatic Agents",
+        "label": "Blood Products",
         "branchTo": "ELSOBA_MED_070",
         "class": ""
       },
@@ -101,7 +101,7 @@
   {
     "id": "ELSOBA_MED_010",
     "title": "Anticoagulants",
-    "content": "",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
@@ -281,8 +281,8 @@
   
   {
     "id": "ELSOBA_MED_070",
-    "title": "Hemostatic agents",
-    "content": "",
+    "title": "Blood Products",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
@@ -337,6 +337,24 @@
         "content": "Vitamin K",
         "class": "",
         "branchTo": "ELSOBA_MED_070__9"
+      },
+      {
+        "label": "Packed Red Blood Cells (pRBCs)",
+        "content": "Packed Red Blood Cells (pRBCs)",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__10"
+      },
+      {
+        "label": "Platelets",
+        "content": "Platelets",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__11"
+      },
+      {
+        "label": "Fresh Frozen Plasma",
+        "content": "Fresh Frozen Plasma",
+        "class": "",
+        "branchTo": "ELSOBA_MED_070__12"
       }
     ]
   },
@@ -424,6 +442,36 @@
     "id": "ELSOBA_MED_070__9",
     "title": "Vitamin K",
     "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__9.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__10",
+    "title": "Packed Red Blood Cells (pRBCs)",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__10.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__11",
+    "title": "Platelets",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__11.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_070__12",
+    "title": "Fresh Frozen Plasma",
+    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__12.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
