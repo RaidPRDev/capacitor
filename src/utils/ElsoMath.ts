@@ -398,28 +398,68 @@ export function Calculate_1_2_Tubing(params:CalculatorParamType):number {
  * INPUT Utils
  * 
  */
-export function enforceRange(input: HTMLInputElement) {
-  // Parse input value as a float
-  let value = parseFloat(input.value);
+// export function enforceRange(input: HTMLInputElement) {
+//   // Parse input value as a float
+//   let value = parseFloat(input.value);
 
-  // Check if the value is out of bounds and clamp if necessary
-  if (value < 0.01) input.value = "0.01";
-  else if (value > 1) input.value = "1";
+//   // Check if the value is out of bounds and clamp if necessary
+//   if (value < 0.01) input.value = "0.01";
+//   else if (value > 1) input.value = "1";
+// }
+
+// export function enforceRangeV2(input: HTMLInputElement): { error: string, min?: number, max?: number } {
+//   // Parse input value as a float
+//   let value = parseFloat(input.value);
+//   if (isNaN(value)) {
+//     value = 0;
+//   }
+
+//   const min = parseFloat(input.min);
+//   const max = parseFloat(input.max);
+
+//   let result = { error: "", min, max }
+
+//   // Check if the value is out of bounds and clamp if necessary
+//   if (value <= min) {
+//     input.value = min.toString();
+//     result.error = `Please enter a number between ${min.toString()} and ${max.toString()}.`;
+//   }
+//   else if (value >= max) {
+//     input.value = max.toString();
+//     result.error = `Please enter a number between ${min.toString()} and ${max.toString()}.`;
+//   }
+
+//   return result;
+// }
+
+export interface IMathEnforeRangeParams {
+  value: string;
+  min: string, 
+  max: string
 }
-
-export function enforceRangeV2(input: HTMLInputElement) {
+export function enforceRange(input: IMathEnforeRangeParams): { error: string, min?: number, max?: number, value?: string } {
   // Parse input value as a float
-  let value = parseFloat(input.value);
-  if (isNaN(value)) {
-    value = 0;
+  let numberValue = parseFloat(input.value);
+  if (isNaN(numberValue)) {
+    numberValue = 0;
   }
 
   const min = parseFloat(input.min);
   const max = parseFloat(input.max);
 
+  let result = { error: "", min, max, value: input.value }
+
   // Check if the value is out of bounds and clamp if necessary
-  if (value <= min) input.value = min.toString();
-  else if (value >= max) input.value = max.toString();
+  if (numberValue < min) {
+    result.value = min.toString();
+    result.error = `This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
+  }
+  else if (numberValue > max) {
+    result.value = max.toString();
+    result.error = `This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
+  }
+
+  return result;
 }
 
 /**

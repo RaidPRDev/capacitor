@@ -77,7 +77,7 @@ export default defineComponent({
           element.textContent = node.textContent.trim();
           if (node) {
             if (node.parentNode?.nodeName === "B") {
-              element.textContent = ` ${element.textContent} `;
+              element.textContent = `${element.textContent}`;
             }
           }
         }

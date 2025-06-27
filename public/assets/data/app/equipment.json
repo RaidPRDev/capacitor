@@ -45,6 +45,7 @@
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
+    "disclaimer": "equipment/ELSOBA_EQUIP_010/ELSOBA_EQUIP_010_DISCLAIMER.html",
     "items": [
       {
         "label": "Dual Lumen",

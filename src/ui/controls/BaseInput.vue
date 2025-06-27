@@ -35,7 +35,16 @@ const inputElement = ref<InstanceType<typeof HTMLInputElement>>()
 // Expose Definitions
 defineExpose({
   inputRef: () => inputElement.value as HTMLInputElement,
-  inputValue: () => inputElement.value?.value as string
+  inputValue: () => inputElement.value?.value as string,
+  // setControlledError: (val: string) => {
+  //   console.log("setControlledError", val)
+  //   utilsObject.hasControlledError = true;    
+  //   utilsObject.controlledErrorMessage = val;    
+  // },
+  // resetControlledError: () => {
+  //   utilsObject.hasControlledError = false;
+  //   utilsObject.controlledErrorMessage = "";
+  // }
 })
 
 // Attributes and Slots Setup
@@ -45,6 +54,11 @@ const slots = useSlots();
 // Computed Style Setup
 const styleObject = reactive({
   gap: ( (props.icon || props.accessoryIcon) ) ? props.gap : 0
+})
+
+const utilsObject = reactive({
+  hasControlledError: false,
+  controlledErrorMessage: ""
 })
 
 // Event Callback Setup
@@ -142,7 +156,7 @@ watch(props, (({ error }) =>
           autocomplete: props.autocomplete,
           placeholder: props.placeholder,
           required: props.required && !props.disabled,
-          value: modelValue,
+          value: props.controlledValue,
           disabled: props.disabled
         }"
         @blur="onBlur"
@@ -172,8 +186,12 @@ watch(props, (({ error }) =>
   }
 }
 .error-field {
-  font-size: 10px;
-  font-weight: 500;
+  margin: 0.25rem 0 0 0.5rem;
+  font-size: 12px;
+  font-weight: 700;
+  color: red;
+}
+.error {
   color: red;
 }
 </style>

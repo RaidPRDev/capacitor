@@ -107,6 +107,7 @@ export interface IBasePanelSlotProps {
 
 export interface IBaseInputProps extends IBaseControl {
   modelValue?: string;
+  controlledValue?: string;
   id?: string;
   type?: string;
   name?: string;

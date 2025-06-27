@@ -37,7 +37,6 @@ import {
   Calculate_3_8_Tubing,
   Calculate_1_2_Tubing,
   enforceRange,
-  enforceRangeV2,
   convertMathSymbols
   
 } from '@/utils/ElsoMath';
@@ -72,8 +71,7 @@ const calculationFunctions:Record<string, Function> = {
 }
 
 const mathUtilFunctions:Record<string, Function> = {
-  enforceRange,
-  enforceRangeV2
+  enforceRange
 }
 
 type InputListItemType = IBaseListItemData & Partial<BranchItem> & { 
@@ -107,8 +105,19 @@ const state:IState = reactive({
   isCopying: false
 })
 
+interface IUtilsObject {
+  controlledValue: string;
+  error: {
+    index: number;
+    hasError: boolean;
+    message: string;
+  } | null
+}
+const inputController = reactive<Record<string, IUtilsObject>>({});
+
 const mounted = ref(false);
 const baseFormRef = ref<InstanceType<typeof HTMLFormElement>>();
+const itemRefs = ref<any[]>([]);
 const timeoutCopy = shallowRef<ReturnType<typeof setTimeout>>();
 const toasterService = useToasterService();
 const { addToast } = toasterService;
@@ -117,9 +126,33 @@ const preHtmlContent = ref<string>("");
 const postHtmlContent = ref<string>("");
 
 const computedList = computed(() => {
-  if (mounted.value) return (props.view?.items as InputListItemType[])?.filter((item) => {
-    return (item?.type !== "operator") 
-  }) as InputListItemType[]
+  if (mounted.value) {
+    if (!props.view?.items) return null;
+    
+    const items = props.view.items as InputListItemType[];
+    
+    const filtered = [];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i]?.type !== "operator") {
+        filtered.push({ ...items[i], controlledValue: "1" });
+
+        inputController[i.toString()] = {
+          controlledValue: "",
+          error: {
+            index: -1,
+            hasError: false,
+            message: "",
+          }
+        }
+      }      
+    }
+
+    return filtered;
+  }
+  
+  // if (mounted.value) return (props.view?.items as InputListItemType[])?.filter((item) => {
+  //   return (item?.type !== "operator") 
+  // }) as InputListItemType[]
   return null;
 })
 
@@ -129,11 +162,19 @@ function calculate() {
 
   let items: InputListItemType[] = props?.view?.items as InputListItemType[];
 
-  const __result = items.reduce((prev, curr) => {
+  const __result = items.reduce((prev, curr, index) => {
     switch (curr?.type) {
       case "number":
-        const numberVal = findAndReturnItemRefValueByID(curr?.id!);
-        calculationDetails[curr?.id!] = numberVal;
+        // console.log("index", index)
+        // console.log("curr", curr)
+        // console.log("curr?.id", curr?.id)
+        // console.log("inputController", inputController)
+        // console.log("inputController", inputController[index.toString()])
+
+        const numberVal = parseFloat(inputController[index.toString()].controlledValue);
+        // const numberVal = findAndReturnItemRefValueByID(curr?.id!);
+
+        calculationDetails[curr?.id!] = isNaN(numberVal) ? 0 : numberVal;
       break;
       
       case "dropdown":
@@ -143,9 +184,9 @@ function calculate() {
 
       case "operator":
         operationState = curr?.operation;
-        console.log("operationState", curr)
-        console.log("calculationDetails", calculationDetails)
-        console.log("items", items)
+        // console.log("operationState", curr)
+        // console.log("calculationDetails", calculationDetails)
+        // console.log("items", items)
         return calculationFunctions[operationState as string](calculationDetails);
     }
     
@@ -160,9 +201,12 @@ function calculate() {
 function reset() {
   baseFormRef.value?.reset();
   state.result = 0;
-}
 
-const itemRefs = ref<any[]>([]);
+  // reset error fields if any
+  for (const key in inputController) {
+    delete inputController[key];
+  }
+}
 
 function setItemsRef(el:any) {
   if (el && el.hasOwnProperty("comboInputRef")) {
@@ -236,6 +280,108 @@ function setFocusToResult() {
   document.getElementById(`result-label`)?.focus();
 }
 
+function setInputController(data: any, result: { error: string, min?: number, max?: number, value: string }) {
+  
+  const params: IUtilsObject = {
+    controlledValue: result.value,
+    error: null
+  }
+
+  // check if we have an error
+  if (result.error) {
+    params.error = {
+      index: data.item.index,
+      hasError: true,
+      message: result.error,
+    }
+  }
+  
+  inputController[data.item.index.toString()] = params;
+}
+
+// @private
+function __onBlur(data: any) {
+  if (!data) return;
+
+  const dataProps = computedList.value?.[data.item.index]?.data!;
+
+  const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
+  const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
+
+  if (dataProps?.hasOwnProperty(`onBlur`)) {
+    
+    if (mathUtilFunctions.hasOwnProperty(dataProps['onBlur'])) {
+      const result = mathUtilFunctions[dataProps['onBlur'] as string]({
+        value: input.value,
+        min: input.min,
+        max: input.max
+      });
+      // apply error label to specific input field
+      setInputController(data, result);
+    }
+    else {
+      console.error(`[mathUtilFunctions] missing onBlur prop '${dataProps['onBlur']}''`);
+    }    
+  }
+  else {
+    setInputController(data, { value: input.value, error: "" });
+  }
+}
+
+// @private
+function __onInput(data: any) {
+  if (!data) return;
+
+  const dataProps = computedList.value?.[data.item.index]?.data!;
+
+  if (dataProps?.hasOwnProperty(`onInput`)) {
+    const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
+    const input = el?.accessoryIconRef()?.inputRef();
+
+    if (mathUtilFunctions.hasOwnProperty(dataProps['onInput'])) {
+      const result = mathUtilFunctions[dataProps['onInput'] as string](input);
+
+      // apply error label to specific input field
+      setInputController(data, result);
+    }
+    else {
+      console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onInput']}''`);
+    }          
+  }
+}
+
+// @private
+function __onEnter(data: any) {
+  if (!data) return;
+
+  calculate();
+  setFocusToResult();
+
+  const dataProps = computedList.value?.[data.item.index]?.data!;
+
+  const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
+  const input = el?.accessoryIconRef()?.inputRef();
+
+  if (dataProps?.hasOwnProperty(`onEnter`)) {
+    if (mathUtilFunctions.hasOwnProperty(dataProps['onEnter'])) {
+      const result = mathUtilFunctions[dataProps['onEnter'] as string]({
+        value: input.value,
+        min: input.min,
+        max: input.max
+      });
+
+      // apply error label to specific input field
+      setInputController(data, result);
+    }
+    else {
+      console.error(`[mathUtilFunctions] missing onEnter prop '${dataProps['onEnter']}''`);
+    }          
+  }
+  else {
+    setInputController(data, { value: input.value, error: "" });
+  }
+}
+
 onMounted(async () => {
   setTimeout(() => mounted.value = true, 75);  
 
@@ -265,8 +411,6 @@ onMounted(async () => {
   }
 })
 
-// // state.result < 0 || state.result > 0  ? state.result : '---' 
-
 </script>
 
 <template>
@@ -295,67 +439,19 @@ onMounted(async () => {
         :accessoryIcon="BaseInput"
         :accessoryIconClassName="`width-100`"
         :accessoryIconProps="{ 
+          controlledValue: inputController?.[data.item.index]?.controlledValue,
+          error: inputController?.[data.item.index]?.error,
           placeholder: `Enter value`,
-          ...computedList?.[data.item.index]?.inputProps,
+          
+          ...computedList?.[data.item.index]?.inputProps,          
           id: computedList?.[data.item.index]?.id, 
           type: computedList?.[data.item.index]?.type, 
           class: `pointer-all`, 
           containerClass: `variant-calc pointer-all width-inherit ${computedList?.[data.item.index]?.inputProps?.containerClass ?? ``}`, 
           elementClass: `base-control px-12 text-center ${computedList?.[data.item.index]?.inputProps?.elementClass ?? ``}`,
-
-          onBlur: () => {
-            if (!computedList?.[data.item.index]?.data) return;
-
-            const dataProps = computedList?.[data.item.index]?.data!;
-            if (dataProps?.hasOwnProperty(`onBlur`)) {
-              const el = findAndReturnItemRefElement(computedList?.[data.item.index]?.id!);
-              const input = el?.accessoryIconRef()?.inputRef();
-              
-              if (mathUtilFunctions.hasOwnProperty(dataProps['onBlur'])) {
-                mathUtilFunctions[dataProps['onBlur'] as string](input);
-              }
-              else {
-                console.error(`[mathUtilFunctions] missing onBlur prop '${dataProps['onBlur']}''`);
-              }          
-            }
-          },
-
-          onInput: () => {
-            if (!computedList?.[data.item.index]?.data) return;
-
-            const dataProps = computedList?.[data.item.index]?.data!;
-            if (dataProps?.hasOwnProperty(`onInput`)) {
-              const el = findAndReturnItemRefElement(computedList?.[data.item.index]?.id!);
-              const input = el?.accessoryIconRef()?.inputRef();
-              
-              if (mathUtilFunctions.hasOwnProperty(dataProps['onInput'])) {
-                mathUtilFunctions[dataProps['onInput'] as string](input);
-              }
-              else {
-                console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onInput']}''`);
-              }  
-            }
-          },
-          
-          onEnter: () => {
-            calculate();
-            setFocusToResult();
-
-            if (!computedList?.[data.item.index]?.data) return;
-
-            const dataProps = computedList?.[data.item.index]?.data!;
-            if (dataProps?.hasOwnProperty(`onEnter`)) {
-              const el = findAndReturnItemRefElement(computedList?.[data.item.index]?.id!);
-              const input = el?.accessoryIconRef()?.inputRef();
-              
-              if (mathUtilFunctions.hasOwnProperty(dataProps['onEnter'])) {
-                mathUtilFunctions[dataProps['onEnter'] as string](input);
-              }
-              else {
-                console.error(`[mathUtilFunctions] missing onEnter prop '${dataProps['onEnter']}''`);
-              }  
-            }
-          }
+          onBlur: () => __onBlur(data),
+          onInput: () => __onInput(data),
+          onEnter: () => __onEnter(data),
         }"
       />
       <BaseComboBox v-else-if="!computedList?.[data.item.index]?.hidden 
