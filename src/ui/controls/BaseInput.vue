@@ -36,15 +36,6 @@ const inputElement = ref<InstanceType<typeof HTMLInputElement>>()
 defineExpose({
   inputRef: () => inputElement.value as HTMLInputElement,
   inputValue: () => inputElement.value?.value as string,
-  // setControlledError: (val: string) => {
-  //   console.log("setControlledError", val)
-  //   utilsObject.hasControlledError = true;    
-  //   utilsObject.controlledErrorMessage = val;    
-  // },
-  // resetControlledError: () => {
-  //   utilsObject.hasControlledError = false;
-  //   utilsObject.controlledErrorMessage = "";
-  // }
 })
 
 // Attributes and Slots Setup
@@ -54,11 +45,6 @@ const slots = useSlots();
 // Computed Style Setup
 const styleObject = reactive({
   gap: ( (props.icon || props.accessoryIcon) ) ? props.gap : 0
-})
-
-const utilsObject = reactive({
-  hasControlledError: false,
-  controlledErrorMessage: ""
 })
 
 // Event Callback Setup
