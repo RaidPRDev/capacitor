@@ -295,7 +295,7 @@
         "branchTo": "ELSOBA_PANIC_020"
       },
       {
-        "label": "Blood Out of Circuitn",
+        "label": "Blood Out of Circuit",
         "class": "panic-icon",
         "branchTo": "ELSOBA_PANIC_030"
       },
