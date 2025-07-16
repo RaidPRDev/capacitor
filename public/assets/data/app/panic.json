@@ -306,7 +306,7 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Air in Circuit",
-    "content": "<h3>Determine if air is clearly visible in the circuit</h3>",
+    "content": "<h3>Determine if air is clearly visible in the circuit.</h3>",
     "layout": "list",
     "keywords": "",
     "items": [

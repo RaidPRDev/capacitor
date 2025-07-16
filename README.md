@@ -1,5 +1,9 @@
 # capacitor
 
+NOTICE:
+AppFlow Deprecation date: Decemeber 2027
+Alternative:  https://cloud.capawesome.io/#pricing
+
 Staging App ID
 com.sweetrush.staging.elso
 
