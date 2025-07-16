@@ -65,6 +65,41 @@ https://svgcrop.com/
 # Distribution Sites
 https://www.diawi.com/
 
+# iOS Development
+
+To renew an iOS distribution or development certificate, you need to generate a new Certificate Signing Request (CSR) in Keychain Access on your Mac, then upload it to your Apple Developer account to obtain a new certificate. Finally, you'll need to update your provisioning profiles and potentially your Xcode project settings to use the new certificate. 
+
+1. Generate a New Certificate Signing Request (CSR) in Keychain Access
+  - Open Keychain Access on your Mac (Applications > Utilities > Keychain Access). 
+  - Go to Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority... 
+  - Enter your information (email address, common name, etc.) and choose "Save to disk". 
+  - Save the CSR file (a .certSigningRequest file) to your computer. 
+
+2. Renew the Certificate in the Apple Developer Portal
+  - Go to the Apple Developer website (developer.apple.com) and log in with your Apple ID.
+  - Navigate to Certificates, Identifiers & Profiles.
+  - Select Certificates.
+  - Click the "+" button to add a new certificate.
+  - Choose the appropriate certificate type (e.g., iOS Distribution, iOS Development).
+  - Upload the CSR file you created earlier.
+  - Download the newly generated certificate (a .cer file). 
+
+3. Install the New Certificate
+  - Double-click the downloaded .cer file to install it in Keychain Access. 
+
+4. Update Provisioning Profiles
+  - In your Apple Developer account, navigate to Provisioning Profiles.
+  - Edit the relevant provisioning profiles (development or distribution) associated with the expired certificate.
+  - Select the newly installed certificate.
+  - Download the updated provisioning profiles. 
+
+5. Update AppFlow
+  - Go to Signing Certificates 
+  - Update both Development and Distribution
+
+6. Distribute/Update Your App
+
+
 # Android Development
 
 ### Run Android device/emulator log

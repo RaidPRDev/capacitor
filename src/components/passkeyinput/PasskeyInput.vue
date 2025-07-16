@@ -32,14 +32,20 @@ const emit = defineEmits<{
   (e: 'focusOut'): void;
 }>();
 
-watch(state, ({ inputValue }) => {
-  emit('update:inputValue', inputValue as string);
+watch(state, () => {
+  const { controlledValue } = props;
+  emit('update:inputValue', controlledValue as string);
 });
+
+function onInputElement(el: HTMLInputElement) {
+  emit('update:inputValue', el.value as string);
+}
+
 
 </script>
 
 <template>
-  <BaseInput v-bind="props" v-model:modelValue="state.inputValue"></BaseInput>
+  <BaseInput v-bind="props" :controlledValue="state.inputValue" @inputElement="onInputElement"></BaseInput>
 </template>
 
 <style scoped lang="scss">

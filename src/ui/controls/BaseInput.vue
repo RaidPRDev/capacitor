@@ -21,6 +21,7 @@ const props = withDefaults(defineProps<IBaseInputProps>(), {
 // Emission Event Setup
 const emit = defineEmits<{
   (e: 'update:modelValue', value: number | string): void;
+  (e: 'inputElement', el: HTMLInputElement): void;
   (e: 'input', value: number | string): void;
   (e: 'key', value: KeyboardEvent): void;
   (e: 'enter', value: KeyboardEvent): void;
@@ -56,6 +57,7 @@ function onInput(event:Event | InputEvent)
 
   // invoke? input
   emit("input", target?.value as string);
+  emit("inputElement", target as HTMLInputElement);
 
   props?.onBaseInput && props?.onBaseInput(props);
 }
