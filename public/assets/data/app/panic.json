@@ -296,13 +296,13 @@
       },
       {
         "label": "Continue to next step",
-        "branchTo": "ELSOBA_PANIC_020__STEP1",
+        "branchTo": "ELSOBA_PANIC_020__STEP2",
         "class": "mxt-32"
       }
     ]
   },
   {
-    "id": "ELSOBA_PANIC_020__STEP1",
+    "id": "ELSOBA_PANIC_020__STEP2",
     "showTitle": true,
     "useScroll": true,
     "title": "Air in Circuit",
@@ -312,18 +312,18 @@
     "items": [
       {
         "label": "YES",
-        "branchTo": "ELSOBA_PANIC_020__STEP2",
+        "branchTo": "ELSOBA_PANIC_020__STEP3",
         "class": ""
       },     
       {
         "label": "NO",
-        "branchTo": "ELSOBA_PANIC_020__STEP4",
+        "branchTo": "ELSOBA_PANIC_020__STEP5",
         "class": ""
       }
     ]
   },
   {
-    "id": "ELSOBA_PANIC_020__STEP2",
+    "id": "ELSOBA_PANIC_020__STEP3",
     "showTitle": true,
     "useScroll": true,
     "title": "Locate the air in the circuit.",
@@ -348,18 +348,18 @@
       },
       {
         "label": "YES",
-        "branchTo": "ELSOBA_PANIC_020__STEP2__YES",
+        "branchTo": "ELSOBA_PANIC_020__STEP3__YES",
         "class": ""
       },
       {
         "label": "NO",
-        "branchTo": "ELSOBA_PANIC_020__STEP2__NO",
+        "branchTo": "ELSOBA_PANIC_020__STEP3__NO",
         "class": ""
       }
     ]
   },
   {
-    "id": "ELSOBA_PANIC_020__STEP2__YES",
+    "id": "ELSOBA_PANIC_020__STEP3__YES",
     "showTitle": true,
     "useScroll": true,
     "title": "",
@@ -395,15 +395,15 @@
     ]
   },
   {
-    "id": "ELSOBA_PANIC_020__STEP2__NO",
+    "id": "ELSOBA_PANIC_020__STEP3__NO",
     "showTitle": true,
     "useScroll": true,
-    "title": "A small amount of air is visible before or inside the ML.",
-    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3.html",
+    "title": "",
+    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__NO.html",
     "layout": "html",
     "keywords": "",
     "branchTo": "",
-    "__branchTo": "ELSOBA_PANIC_020__STEP3",
+    "__branchTo": "ELSOBA_PANIC_020__STEP4",
     "items": []
   },
   {
@@ -429,55 +429,13 @@
     "items": []
   },
   {
-    "id": "ELSOBA_PANIC_020__STEP3",
+    "id": "ELSOBA_PANIC_020__STEP4",
     "showTitle": true,
     "useScroll": true,
     "title": "Assess the extracorporeal blood flow (EBF)",
     "content": "<h3>Is the pump still running and providing the target blood flow?</h3>",
     "layout": "list",
     "branchTo": "",
-    "items": [
-      {
-        "label": "YES",
-        "branchTo": "ELSOBA_PANIC_020__STEP3__YES",
-        "class": ""
-      },     
-      {
-        "label": "NO",
-        "branchTo": "ELSOBA_PANIC_020__STEP3__NO",
-        "class": ""
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_PANIC_020__STEP3__YES",
-    "showTitle": true,
-    "useScroll": true,
-    "showRestart": true,
-    "title": "Pump is running and providing the target blood flow.",
-    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__YES.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_PANIC_020__STEP3__NO",
-    "showTitle": true,
-    "useScroll": true,
-    "showRestart": true,
-    "title": "Pump is NOT running or providing the target blood flow.",
-    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP3__NO.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_PANIC_020__STEP4",
-    "showTitle": true,
-    "useScroll": true,
-    "title": "Air is not clearly visible in the circuit",
-    "content": "<h3>Is the bubble sensor alarming?</h3>",
-    "layout": "list",
     "items": [
       {
         "label": "YES",
@@ -495,28 +453,19 @@
     "id": "ELSOBA_PANIC_020__STEP4__YES",
     "showTitle": true,
     "useScroll": true,
-    "title": "The bubble sensor is alarming.",
-    "content": "<h3>Is the pump still running and providing the target blood flow?</h3>",
-    "layout": "list",
-    "items": [
-      {
-        "label": "YES",
-        "branchTo": "ELSOBA_PANIC_020__STEP5",
-        "class": ""
-      },     
-      {
-        "label": "NO",
-        "branchTo": "ELSOBA_PANIC_020__STEP6",
-        "class": ""
-      }
-    ]
+    "showRestart": true,
+    "title": "Pump is running and providing the target blood flow.",
+    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP4__YES.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
   },
   {
     "id": "ELSOBA_PANIC_020__STEP4__NO",
     "showTitle": true,
     "useScroll": true,
     "showRestart": true,
-    "title": "Air is not clearly visible and the bubble sensor is not alarming.",
+    "title": "Pump is NOT running or providing the target blood flow.",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP4__NO.html",
     "layout": "html",
     "branchTo": "",
@@ -526,21 +475,72 @@
     "id": "ELSOBA_PANIC_020__STEP5",
     "showTitle": true,
     "useScroll": true,
+    "title": "Air is not clearly visible in the circuit",
+    "content": "<h3>Is the bubble sensor alarming?</h3>",
+    "layout": "list",
+    "items": [
+      {
+        "label": "YES",
+        "branchTo": "ELSOBA_PANIC_020__STEP5__YES",
+        "class": ""
+      },     
+      {
+        "label": "NO",
+        "branchTo": "ELSOBA_PANIC_020__STEP5__NO",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_PANIC_020__STEP5__YES",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "The bubble sensor is alarming.",
+    "content": "<h3>Is the pump still running and providing the target blood flow?</h3>",
+    "layout": "list",
+    "items": [
+      {
+        "label": "YES",
+        "branchTo": "ELSOBA_PANIC_020__STEP6",
+        "class": ""
+      },     
+      {
+        "label": "NO",
+        "branchTo": "ELSOBA_PANIC_020__STEP7",
+        "class": ""
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_PANIC_020__STEP5__NO",
+    "showTitle": true,
+    "useScroll": true,
     "showRestart": true,
-    "title": "Microbubbles are suspected",
-    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP5.html",
+    "title": "Air is not clearly visible and the bubble sensor is not alarming.",
+    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP5_NO.html",
     "layout": "html",
+    "branchTo": "",
     "items": []
   },
   {
     "id": "ELSOBA_PANIC_020__STEP6",
     "showTitle": true,
     "useScroll": true,
-    "title": "Servo regulation on the bubble sensor",
+    "showRestart": true,
+    "title": "Microbubbles are suspected",
     "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP6.html",
     "layout": "html",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_PANIC_020__STEP7",
+    "showTitle": true,
+    "useScroll": true,
+    "title": "Servo regulation on the bubble sensor",
+    "content": "panic/ELSOBA_PANIC_020/ELSOBA_PANIC_020__STEP7.html",
+    "layout": "html",
     "branchTo": "",
-    "__branchTo": "ELSOBA_PANIC_020__STEP5",
+    "__branchTo": "ELSOBA_PANIC_020__STEP7",
     "items": []
   },
 

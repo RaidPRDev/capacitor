@@ -1,31 +1,21 @@
 <div class="data-content">
   <div class="mxb-16 flex gapx-10">
     <div class="">A.</div>
-    <div class="">If the servoregulation on the bubble sensor was activated, deactivate and restart it if no air is visible after the ML.
-    </div>
-  </div>
-  <div class="mxb-16 flex gapx-10">
-    <div class="">B.</div>
-    <div class="">Connect a large luer-lock syringe to the closest port. Try to de-air by using gravity to move the air towards the syringe.
-    </div>
-  </div>
-  <div class="mxb-16 flex gapx-10">
-    <div class="">C.</div>
-    <div class="">If de-airing is successful and the air source was detected and fixed, continue to monitor the patient closely.
-    </div>
-  </div>
-  <div class="mxb-16 flex gapx-10">
-    <div class="">D.</div>
-    <div class="">Document the event and related procedures in the patient's chart
-    </div>
-  </div>
-  <div class="mxb-16 flex gapx-10">
-    <div class="">E.</div>
-    <div class="">If applicable, report the instance in the ELSO registry.
+    <div class="">A small amount of air is visible before or inside the ML.
     </div>
   </div>
   <div class="mxt-32 flex gapx-10">
-    <div class="">This concludes Air in Circuit. 
-    </div>
+    <BaseButton 
+      data-props='{
+        "data-id": "ELSOBA_PANIC_020__STEP4", 
+        "data-type": "branchTo", 
+        "data-no-referral": true, 
+        "label": "Continue to next step", 
+        "iconClassName": "debug-layer", 
+        "icon": "ELSOBA_PANIC_020__STEP4", 
+        "class": "variant-blue width-100 mxtb-10", 
+        "wrapperClass": "width-100"
+      }'>
+    </BaseButton>
   </div>
 </div>
