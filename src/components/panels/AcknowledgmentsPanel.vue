@@ -70,6 +70,8 @@ const app = inject<IApp>(APP_ID) as IApp;
           <section class="ack-section">
             <h2 class="ack-title">Editor</h2>
             <div class="ack-name">Graeme MacLaren, MBBS, FELSO</div>
+            <div class="ack-name">Marta Velia Antonini, MSc, Perfusionist</div>
+            
           </section>
 
           <section class="ack-section">
@@ -79,6 +81,7 @@ const app = inject<IApp>(APP_ID) as IApp;
          
           <section class="ack-section">
             <h2 class="ack-title">Section Leads</h2>
+            <div class="ack-name">Marta Velia Antonini, TFCPC, MSc</div>
             <div class="ack-name">Thomas Brogan, MD</div>
             <div class="ack-name">Rodrigo Diaz, MD, FELSO</div>
             <div class="ack-name">Amy Dzierba, PharmD</div>

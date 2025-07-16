@@ -164,7 +164,7 @@
         "branchTo": "ELSOBA_CALC_020__03"
       },
       {
-        "label": "Convert Fahrenheit to Celsius",
+        "label": "Convert °Fahrenheit to °Celsius",
         "branchTo": "ELSOBA_CALC_020__04"
       },
       {
@@ -255,7 +255,7 @@
   },
   {
     "id": "ELSOBA_CALC_020__04",
-    "title": "Convert Fahrenheit to Celsius",
+    "title": "Convert °Fahrenheit to °Celsius",
     "content": "",
     "layout": "input",
     "useScroll": true,
@@ -269,7 +269,7 @@
       {
         "id": "farenheit",
         "type": "number",
-        "label": "Enter Fahrenheit (°F)"
+        "label": "Enter °Fahrenheit"
       },
       {
         "type": "operator",
@@ -350,7 +350,7 @@
       {
         "id": "milliliters",
         "type": "number",
-        "label": "Enter Milliliters"
+        "label": "Enter Milliliters (mL)"
       },
       {
         "type": "operator",
@@ -380,7 +380,7 @@
       {
         "id": "weight",
         "type": "number",
-        "label": "Enter kg (weight)"
+        "label": "Enter Weight (kg)"
       },
       {
         "type": "operator",
@@ -402,16 +402,16 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>V'O2ML</b> = ((A-V) sat % * 1.34 * Hb g/dL * flow (mL/min)) / 100</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>V'O2ML</b> = ((A-V) sat * 1.34 * Hb (g/dL) * flow (mL/min)) / 100</div></div>"
       },
       {
         "id": "arterial_saturation",
         "type": "number",
-        "label": "Enter Arterial saturation <span class='label-desc'>(range of 1 - 100%)</span>",
+        "label": "Enter Arterial Saturation <span class='label-desc'>(range of 0 - 1)</span>",
         "inputProps": {
-          "min": "1",
-          "max": "100",
-          "step": "1"
+          "min": "0",
+          "max": "1",
+          "step": "0.1"
         },
         "data": {
           "onBlur": "enforceRange",
@@ -421,11 +421,11 @@
       {
         "id": "venous_saturation",
         "type": "number",
-        "label": "Enter Venous saturation <span class='label-desc'>(range of 1 - 100%)</span>",
+        "label": "Enter Venous Saturation <span class='label-desc'>(range of 0 - 1)</span>",
         "inputProps": {
-          "min": "1",
-          "max": "100",
-          "step": "1"
+          "min": "0",
+          "max": "1",
+          "step": "0.1"
         },
         "data": {
           "onBlur": "enforceRange",
@@ -506,7 +506,7 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 <span class='label-desc'>Arterial partial pressure of oxygen in mmHg (millimeters of mecury)</span>"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>"
       },
       {
         "type": "heading",
@@ -553,17 +553,17 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient weight (kg) * constant * Hct (%) / Circuit Prime (mL) + (patient weight (kg) * constant)</span></div>"
+        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient Weight (kg) * Constant * Hct (%) / Circuit Prime (mL) + (Patient Weight (kg) * Constant)</span></div>"
       },
       {
         "id": "patient_weight",
         "type": "number",
-        "label": "Enter Patient weight (kg)"
+        "label": "Enter Patient Weight (kg)"
       },
       {
         "id": "hematocrit",
         "type": "number",
-        "label": "Enter Hematocrit (Hct)"
+        "label": "Enter Hematocrit (%)"
       },
       {
         "type": "operator",
@@ -590,12 +590,12 @@
       {
         "id": "airway_pressure",
         "type": "number",
-        "label": "Enter PAW (mmHg) <span class='label-desc'>(mean airway pressure)</span>"
+        "label": "Enter PAW (mmHg) <span class='label-desc'>Mean airway pressure</span>"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) <span class='label-desc'>(fraction of inspired oxygen: % as decimal)</span>",
+        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen written as a decimal</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -609,7 +609,7 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>(arterial partial pressure of oxygen)</span>"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>"
       },
       {
         "type": "operator",
@@ -632,12 +632,12 @@
       {
         "id": "oxygen_pressure",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>(arterial partial pressure of oxygen)</span>"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>"
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) <span class='label-desc'>(fraction of inspired oxygen: % as decimal)</span>",
+        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen written as decimal</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -657,7 +657,7 @@
   {
     "id": "ELSOBA_CALC_090",
     "title": "Recirculation Percentage",
-    "content": "Use this calculator to determine the percentage of oxygenated blood that is being recirculated back into the ECMO circuit.<br><div class='note mt-1 mb-1-25'><div class='heading'>Interpreting your results:</div><ul><li>Recirculation >20% – 30% is likely clinically significant</li><li>SvO2 of venous line <75% suggests recirculation is unlikely</li></ul></div>",
+    "content": "Use this calculator to determine the percentage of oxygenated blood that is being recirculated back into the ECMO circuit.<br><div class='note mt-1 mb-1-25'><div class='heading'>Interpreting your results:</div><ul><li>Recirculation > 20% – 30% is likely clinically significant</li><li>SvO2 of venous line < 75% suggests recirculation is unlikely</li></ul></div>",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,

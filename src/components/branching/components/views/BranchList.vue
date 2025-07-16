@@ -7,11 +7,13 @@ export default {
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import classnames from 'classnames'
 import BaseButton from '@/ui/controls/BaseButton.vue';
 import { IBranchTypeProps } from '@/types';
 import UpRightArrowIcon from '@/assets/icons/up-right-arrow-icon.svg';
-import classnames from 'classnames'
 import { sortItemsByClassDisabled } from '@/utils/ObjectTools';
+import useAppStore from '@/store/app.module';
 
 const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false,
@@ -23,7 +25,26 @@ const emit = defineEmits<{
   (e: 'triggered', dataProps?: any): void;
 }>();
 
+const appStore = useAppStore();
+const router = useRouter();
+
 function navigate(branchTo: string | null) {
+  // We need to add support for external pages
+  // from a CheckList.
+  const fromSectionID = appStore.getCurrentID!;
+  const toSectionID = branchTo!;
+
+  // console.log("fromSectionID", fromSectionID);
+  // console.log("toSectionID", toSectionID);
+
+  // Check if we are on a checklist and allow the panic branch
+  if (fromSectionID.indexOf("CHKLST") > -1) {
+    if (toSectionID.indexOf("PANIC") > -1) {
+      router.push(`/home/panic/${toSectionID}`);
+      return;
+    }
+  }
+  
   emit('navigate', branchTo);
 }
 

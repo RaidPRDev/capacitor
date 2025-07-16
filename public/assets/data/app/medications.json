@@ -124,26 +124,6 @@
         "branchTo": "ELSOBA_MED_010__3"
       },
       {
-        "label": "Packed Red Blood Cells (pRBCs)",
-        "content": "Packed Red Blood Cells (pRBCs)",
-        "branchTo": "ELSOBA_MED_010__4"
-      },
-      {
-        "label": "Platelets",
-        "content": "Platelets",
-        "branchTo": "ELSOBA_MED_010__5"
-      },
-      {
-        "label": "CAVE",
-        "content": "CAVE",
-        "branchTo": "ELSOBA_MED_010__6"
-      },
-      {
-        "label": "Fresh Frozen Plasma",
-        "content": "Fresh Frozen Plasma",
-        "branchTo": "ELSOBA_MED_010__7"
-      },
-      {
         "label": "Comparison of Anticoagulants Table",
         "content": "Comparison of Anticoagulants Table",
         "branchTo": "ELSOBA_MED_010__TABLE__1"
@@ -198,50 +178,10 @@
     "items": []
   },
   {
-    "id": "ELSOBA_MED_010__4",
-    "title": "Packed Red Blood Cells (pRBCs)",
-    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__4.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_MED_010__5",
-    "title": "Platelets",
-    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__5.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_MED_010__6",
-    "title": "CAVE",
-    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__6.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_MED_010__7",
-    "title": "Fresh Frozen Plasma",
-    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__7.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
     "id": "ELSOBA_MED_010__TABLE__1",
     "title": "Comparison of Anticoagulants Table",
     "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__1.html",
-    "layout": "default",
+    "layout": "html",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",

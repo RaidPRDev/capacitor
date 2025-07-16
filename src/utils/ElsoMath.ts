@@ -535,6 +535,7 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bSpO2\b/g, `SpO${sub2wmr}`],
     [/\bSpreO2\b/g, `S<sub class=\"math-sub\">pre</sub>O${sub2wmr}`],
     [/\bSpostO2\b/g, `S<sub class=\"math-sub\">post</sub>O${sub2wmr}`],
+    [/\bPpostO2\b/g, `P<sub class=\"math-sub\">post</sub>O${sub2wmr}`],
     [/\bFsO2\b/g, `FsO${sub2wmr}`],
     [/\bFiO2\b/g, `FiO${sub2wmr}`],
     [/\bPAW\b/g, `P<sub class=\"math-sub pad\">AW</sub>`],
