@@ -41,7 +41,6 @@ function onInputElement(el: HTMLInputElement) {
   emit('update:inputValue', el.value as string);
 }
 
-
 </script>
 
 <template>
