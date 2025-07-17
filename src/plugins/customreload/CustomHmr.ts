@@ -197,7 +197,6 @@ export async function compileSearchJSONData(file: string, sourcePath: string = "
         if (item?.class?.indexOf("disabled") > -1) return;
         
         if (item.layout === "list") {
-          // console.log("LIST.id", item.id);
           routePath = `${file}/${item.id}`;
 
           if (item?.items) {
@@ -212,28 +211,41 @@ export async function compileSearchJSONData(file: string, sourcePath: string = "
               validItems[`${innerItem.branchTo}`] = item.id;
             })
           }
+
+          let listKeywords = item.keywords?.toLowerCase() + ` ` + item.title?.toLowerCase();
   
           // save to search data
           searchData.push({
             category: file,
             id: item.id,
             title: item.title,
-            keywords: item.title?.toLowerCase(), 
+            keywords: listKeywords, 
             path: routePath
           })
         }
         else if (item.layout === "checklist") {
+          
           // check dict if we have a valid item
           if (!validItems.hasOwnProperty(`${item.id}`)) return;
-          
-          // console.log("CHECKLIST.id", item);
-          // console.log("item.label", item.label);
           
           // get parent
           routePath = validItems[`${item.id}`];
 
           // build route
           routePath = `${file}/${routePath}/${item.id}`;
+
+          // save to search data
+          searchData.push({
+            category: file,
+            id: item.id,
+            title: item.title,
+            keywords: item.keywords?.toLowerCase(), 
+            path: routePath
+          })
+        }
+        else if (item.layout === "html") {
+          // build route
+          routePath = `${file}/${item.id}`;
 
           // save to search data
           searchData.push({

@@ -92,6 +92,11 @@
         "label": "Drop in Platelet Count",
         "branchTo": "ELSOBA_CHKLST_065",
         "class": ""
+      }, 
+      {
+        "label": "Management of Bleeding",
+        "branchTo": "ELSOBA_CHKLST_FLOW_145",
+        "class": ""
       } 
     ]
   },
@@ -477,7 +482,7 @@
             "layout": "checklist",
             "type": "subchecklist",
             "items": [
-              { "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145' target='_self'>Management of bleeding</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
+              { "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_FLOW_145' target='_self'>Management of bleeding</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
               { "label": "Clotting in circuit", "type": "list-comment", "class": "bullet ml-0" },
               { "label": "Membrane exchange", "type": "list-comment", "class": "bullet ml-0" },
               { "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_065' target='_self'>Drop in platelet count</a>", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
@@ -1202,7 +1207,7 @@
             "checked": false
           },
           { 
-                "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_360' target='_self'>Whole Circuit Replacement</a> checklist.", 
+                "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_360' target='_self'>Whole Circuit Replacement</a>.", 
                 "type": "comment", 
                 "class": "note" 
               },
@@ -1251,7 +1256,7 @@
         ]
       },
       {
-        "label": "Prepare the essential equipment",
+        "label": "Prepare the Essential Equipment",
         "layout": "checklist",
         "type": "subchecklist",
         "showFavorites": true,
@@ -1344,7 +1349,7 @@
         ]
       },   
       {
-        "label": "Circuit Pump (CP) Replacement",
+        "label": "Circuit Pump Replacement",
         "layout": "checklist",
         "type": "subchecklist",
         "showFavorites": true,
@@ -1363,7 +1368,7 @@
           { "label": "Go to 0 RPMs and notify the team of the STOP FLOW.", "checked": false },
           { "label": "Clamp the drainage tubing close to CP.", "checked": false },
           { "label": "Turn OFF the Sweep Gas Flow (SGF).", "checked": false },
-          { "label": "Place two additional clamps approximately 15 cm (6 inches) apart from the previous to isolate the CP from the circuit. If needed, temporarily remove the flowmeter.", "checked": false },
+          { "label": "Place two additional clamps approximately 15cm (6 inches) apart from the previous to isolate the CP from the circuit. If needed, temporarily remove the flowmeter.", "checked": false },
           { "label": "Cut the tubings on both sides between the two clamps.", "checked": false },
           { "label": "Remove the old centrifugal pump from the motor.", "checked": false },
           { "label": "Connect the outflow of the new pump to the circuit.", "checked": false },
@@ -1395,7 +1400,7 @@
           { "label": "Notify the team of replacement completion.", "checked": false },
           { "label": "If using a bubble sensor, and it is alarming for the presence of air <b>before</b> the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow.", "checked": false },
           { 
-            "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a> for additional information.", 
+            "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Air in Circuit</a> for more information.", 
             "type": "comment",
             "class": "note"
           }
@@ -1455,7 +1460,7 @@
           { "label": "Notify the team of procedure completion.", "checked": false },
           { "label": "If using a bubble sensor, and it is alarming for the presence of air before the membrane lung, consider removing through the de-airing port of the ML, without stopping the extracorporeal blood flow.", "checked": false },
           { 
-            "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a> for more information.", 
+            "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Air in Circuit</a> for more information.", 
             "type": "comment", 
             "class": "note" 
           }
@@ -1598,7 +1603,7 @@
             "layout": "checklist",
             "items": [
               { 
-                "label": "Go to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Air in Circuit</a>", 
+                "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Air in Circuit</a>", 
                 "type": "comment",
                 "class": "note"
               }
@@ -1979,7 +1984,7 @@
             "items": [
               { "label": "Change anticoagulation to direct thrombin inhibitor. Refer to  argatroban, bivalirudin, and the comparison of anticoagulants table under <a href='#' data-link='MEDICATIONS##ELSOBA_MED_010' target='_self'>Anticoagulants</a>", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
               { 
-                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145'>Management of Bleeding.</a>", 
+                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_FLOW_145'>Management of Bleeding.</a>", 
                 "type": "comment",
                 "class": "note"
               },
@@ -2002,7 +2007,7 @@
             "items": [
               { "label": "Maintain UFH, adjust dose according to bleeding status.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
               { 
-                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145'>Management of Bleeding.</a>", 
+                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_FLOW_145'>Management of Bleeding.</a>", 
                 "type": "comment",
                 "class": "note"
               },
@@ -2158,8 +2163,8 @@
               { "label": "NO", "checked": false }
             ] 
           },
-          { "label": "If <b>YES</b> is checked, a gas supply interruption is unlikely. You do not need to complete this checklist.", "type": "comment" },
-          { "label": "If <b>NO</b> is checked, a gas supply interruption is likely. Go to <b>Assess the Gas Line</b>.", "type": "comment" }          
+          { "label": "If <b>YES</b> is checked, a gas supply interruption is unlikely. <b>You do not need to complete this checklist.</b>", "type": "comment" },
+          { "label": "If <b>NO</b> is checked, a gas supply interruption is likely. Go to <i>Assess the Gas Line</i>.", "type": "comment" }          
         ]
       },
       {
@@ -2304,7 +2309,7 @@
             ]
           },
           {
-            "label": "Isolation requirement",
+            "label": "Isolation Requirement",
             "class": "list-section",
             "layout": "checklist",
             "type": "subchecklist",
@@ -2782,6 +2787,7 @@
       } 
     ]
   },
+  
   {
     "id": "ELSOBA_CHKLST_150",
     "title": "Managing Gas Exchange on ECMO",
@@ -2789,7 +2795,7 @@
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
-    "keywords": "Gas; Exchange;",
+    "keywords": "Gas; Exchange; Management; ECMO; VA ECMO; VV ECMO; Gas exchange; Gas exchange management",
     "sort": "ByActive",
     "items": [
       {
@@ -2883,7 +2889,7 @@
             "layout": "checklist",
             "items": [
               { "label": "Positive end-expiratory pressure (PEEP) and fraction of inspired oxygen (FiO2) to achieve an adequate PaO2 in the right arm.", "checked": false },
-              { "label": "Avoid hyperoxia.", "checked": false },
+              { "label": "Avoid hyperoxemia.", "checked": false },
               { "label": "If there is heart and lung participation, adjust the ventilatory settings to regulate partial pressure of carbon dioxide (PCO2) (within lung protection).", "checked": false }
             ] 
           },
@@ -3365,7 +3371,7 @@
     "title": "Proning on ECMO",
     "content": "",
     "layout": "checklist",
-    "keywords": "Proning; ECMO; ",
+    "keywords": "Proning; ECMO;  Procedure; Prone position; Prone; Supine; Supine position; Turning patients; ECMO patients; Turning ECMO patients",
     "doc": "https://drive.google.com/file/d/11IlhV4RQGMBf_9cVe2ZYGfYZ_iYpLM4W/view?usp=drive_link",
     "showFavorites": true,
     "useScroll": true, 
@@ -3552,7 +3558,7 @@
     "title": "PT/Ambulation on ECMO",
     "content": "",
     "layout": "checklist",
-    "keywords": "PT; Ambulation; ECMO; PT AMBULATION; MOBILIZE; MOBILIZING; PHYSICAL REHABILITATION; PHYSICAL THERAPY; CARDIOPULMONARY FAILURE; TREATMENT",
+    "keywords": "PT; Ambulation; ECMO; PT AMBULATION; MOBILIZE; MOBILIZING; PHYSICAL REHABILITATION; PHYSICAL THERAPY; CARDIOPULMONARY FAILURE; TREATMENT; PROCEDURE",
     "doc": "https://drive.google.com/file/d/11IlhV4RQGMBf_9cVe2ZYGfYZ_iYpLM4W/view?usp=drive_link",
     "showFavorites": true,
     "useScroll": true, 
@@ -4570,6 +4576,7 @@
       }
     ]
   },
+
   {
     "id": "ELSOBA_CHKLST_360",
     "title": "Whole Circuit Replacement",
@@ -4616,7 +4623,7 @@
                 "layout": "checklist",
                 "items": [
                   { 
-                    "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Panic!: Air in Circuit</a>", 
+                    "label": "Refer to <a class='' href='#' data-link='PANIC##ELSOBA_PANIC_020' target='_self'>Air in Circuit</a>", 
                     "type": "comment",
                     "class": "note"
                   }
@@ -4629,7 +4636,7 @@
           { "label": "No weaning potential", "checked": false },
           { "label": "Selective replacement of the involved component is not feasible for any reason.", "checked": false },
           { 
-            "label": "Go to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_145' target='_self'>Component Replacement checklist</a>", 
+            "label": "Go to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_FLOW_145' target='_self'>Component Replacement checklist</a>", 
             "type": "comment",
             "class": "note disabled hide"
           }
@@ -4967,6 +4974,123 @@
 
 
   {
+    "id": "ELSOBA_CHKLST_FLOW_145",
+    "showTitle": false,
+    "useScroll": true,
+    "showFavorites": true,
+    "title": "Management of Bleeding",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145.html",
+    "keywords": "Management; Bleeding; Anticoagulation; Bleeding management",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Determine location of bleeding",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Patient experiencing mucosal bleeding or epistaxis",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Patient experiencing bleeding from the cannulation site",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Access the coagulation lab",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Is there ongoing bleeding?",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__6_NO",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Is there ongoing bleeding?",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__6_NO.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__7",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Which type of <b>major bleeding</b> does the patient currently have?",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__8",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Lower Anticoagulation",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__9",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Pause Anticoagulation",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__9.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_145__10",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Perform immediate anticoagulation studies and platelet count.",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_145/ELSOBA_CHKLST_FLOW_145__10.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+
+
+
+
+  {
     "id": "ELSOBA_CHKLST_FLOW_350",
     "showTitle": false,
     "useScroll": true,
@@ -4985,56 +5109,6 @@
     "useScroll": true,
     "title": "Respiratory Support for VV ECMO",
     "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__1.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__2",
-    "showTitle": false,
-    "useScroll": true,
-    "title": "Step 1: Reduce FDO",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__2.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__3",
-    "showTitle": false,
-    "useScroll": true,
-    "title": "Continue VV ECMO Management",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__3.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__4",
-    "showTitle": false,
-    "useScroll": true,
-    "title": "Step 2: Reduce Sweep Gas",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__4.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__5",
-    "showTitle": false,
-    "useScroll": true,
-    "title": "Step 3: Off-sweep Gas Challenge",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__5.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__6",
-    "showTitle": false,
-    "useScroll": true,
-    "title": "Step 4: Prepare for Decannulation",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__6.html",
     "layout": "html",
     "branchTo": "",
     "items": []
