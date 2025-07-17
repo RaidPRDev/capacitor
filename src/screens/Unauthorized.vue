@@ -29,6 +29,8 @@ const state = reactive({
 });
 
 function onSubmit() {
+  if (state.passkey.length === 0) return;
+  
   const user = {
     passkey: state.passkey,
   };
@@ -66,6 +68,9 @@ const menuGroupItems = [
               :label="`Enter your key:`"  
               :type="`password`"
               v-model:inputValue="state.passkey"
+              @enter="() => {
+                onSubmit();
+              }"
               />
             </div>
             <div>
@@ -115,6 +120,7 @@ const menuGroupItems = [
     
     .button-group {
       .action-button {
+        height: 47px;
         
         .inner-base-button {
           background: #DB0330;
@@ -128,6 +134,7 @@ const menuGroupItems = [
           font-size: 21px;
           font-weight: 700;
           line-height: 21.6px;
+          height: auto;
         }
       }
     }

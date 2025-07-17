@@ -30,6 +30,7 @@ const state:IState = reactive({
 const emit = defineEmits<{
   (e: 'update:inputValue', value: string): void;
   (e: 'focusOut'): void;
+  (e: 'enter', value: KeyboardEvent): void;
 }>();
 
 watch(state, () => {
@@ -41,10 +42,14 @@ function onInputElement(el: HTMLInputElement) {
   emit('update:inputValue', el.value as string);
 }
 
+function onEnterInput(value: KeyboardEvent) {
+  emit('enter', value);
+}
+
 </script>
 
 <template>
-  <BaseInput v-bind="props" :controlledValue="state.inputValue" @inputElement="onInputElement"></BaseInput>
+  <BaseInput v-bind="props" :controlledValue="state.inputValue" @inputElement="onInputElement" @onEnter="onEnterInput"></BaseInput>
 </template>
 
 <style scoped lang="scss">

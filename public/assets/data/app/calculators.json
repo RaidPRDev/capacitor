@@ -178,6 +178,10 @@
       {
         "label": "Convert Milliliters to Liters",
         "branchTo": "ELSOBA_CALC_020__07"
+      },
+      {
+        "label": "Convert cm H2O to mmHg",
+        "branchTo": "ELSOBA_CALC_020__08"
       }
     ]
   },
@@ -359,6 +363,35 @@
     ]
   },
   {
+    "id": "ELSOBA_CALC_020__08",
+    "title": "Convert cm H2O to mmHg",
+    "content": "",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "resultLabel": "(L)",
+    "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 mmHg = 1.36 cmH2O</div><div class='mb-0'>1 cm H2O = 0.735 mmHg</div></div>"
+      },
+      {
+        "id": "mmhg_val",
+        "type": "number",
+        "label": "Enter mmHG"
+      },
+      {
+        "id": "h2o_val",
+        "type": "number",
+        "label": "Enter cm H2O"
+      },
+      {
+        "type": "operator",
+        "operation": "ConvertMillilitersToLiters"
+      }
+    ]
+  },
+  {
     "id": "ELSOBA_CALC_030",
     "title": "Flow Calculator",
     "content": "To calculate the appropriate blood flow, use the drop down menu to select the appropriate cc/kg/min constant. Then enter the patient's weight in kilograms and select <b>CALCULATE</b>.",
@@ -369,7 +402,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>Flow (L/min)</b> = (cc/kg/min * kg)/1000</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'><b>Flow (L/min)</b> = (cc/kg/min * Weight (kg))/1000</div></div>"
       },
       {
         "id": "constant",
@@ -637,7 +670,7 @@
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen written as decimal</span>",
+        "label": "Enter FiO2 <span class='label-desc'>Fraction of inspired oxygen written as decimal</span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",

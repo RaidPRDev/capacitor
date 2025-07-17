@@ -212,7 +212,7 @@ export default defineComponent({
           // Issue with b tags adding extra space as the start and end.
           // quick fix:
           if (dataParams.hasOwnProperty("class")) {
-            console.log("child.textContent", dataParams)
+            // console.log("child.textContent", dataParams)
             if ((dataParams.class as string).indexOf("_trim_") > -1) {
               // console.warn("element", element)
               element.children.forEach((item) => {

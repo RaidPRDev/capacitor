@@ -261,8 +261,8 @@
         "branchTo": "ELSOBA_MED_070__6"
       },
       {
-        "label": "vWF concentrate",
-        "content": "vWF concentrate",
+        "label": "vWF Concentrate",
+        "content": "vWF Concentrate",
         "class": "",
         "branchTo": "ELSOBA_MED_070__7"
       },
@@ -360,7 +360,7 @@
   },
   {
     "id": "ELSOBA_MED_070__7",
-    "title": "vWF concentrate",
+    "title": "vWF Concentrate",
     "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__7.html",
     "layout": "default",
     "useScroll": true,
