@@ -402,7 +402,7 @@
     "id": "ELSOBA_MED_070__11",
     "title": "Platelets",
     "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__11.html",
-    "layout": "default",
+    "layout": "html",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
