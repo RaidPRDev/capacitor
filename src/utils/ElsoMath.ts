@@ -584,6 +584,7 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bm2\b/g, `m${sup2}`],
     [/\bVMLO2\b/g, `VMLO${sub2wmr}`],
     [/\bVMLCO2\b/g, `VMLCO${sub2wmr}`],
+    [/\bEtCO2\b/g, `EtCO${sub2}`],
   ];
 
   // Apply replacements

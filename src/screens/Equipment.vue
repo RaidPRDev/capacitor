@@ -2,12 +2,13 @@
 export default {
   inheritAttrs: false
 }
-const DEBUG = false; 
+
 </script>
 
 <script setup lang="ts">
-import { ComponentPublicInstance, computed, inject, onMounted, ref, shallowRef } from "vue";
+import { ComponentPublicInstance, computed, inject, onMounted, ref, shallowRef, watch } from "vue";
 import { storeToRefs } from "pinia";
+import { useRoute, useRouter } from "vue-router";
 
 import { 
   APP_DRAWERS_ID,
@@ -35,6 +36,8 @@ import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import SectionDisclaimerPanel from "@/components/panels/SectionDisclaimerPanel.vue";
 import { EVENT_REGISTRATION_CLOSE } from "@/events/Events";
 
+const DEBUG = false; 
+
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {});
 const app = inject<IApp>(APP_ID) as IApp;
@@ -48,6 +51,18 @@ const { findDisclaimer } = session;
 const { hasRegistered, hasCompletedDisclaimer } = storeToRefs(session);
 const sectionViewData = ref<BranchViewData>();
 
+const route = useRoute();
+const router = useRouter();
+const itemID = route?.query?.id;
+const itemType = route?.query?.type;
+if (DEBUG) console.log("itemID", itemID);
+if (DEBUG) console.log("itemType", itemType);
+if (DEBUG) console.log("query", route?.query);
+
+if (itemID) {
+  router.replace({ path: `/home/equipment/${route?.query?.id}` });
+}
+
 const { 
   baseHeight, 
   breadcrumbs,
@@ -55,6 +70,26 @@ const {
 } = useBranching({
   branchingRef: branchingRef
 })
+
+// if we have am incoming query, replace route...
+watch(route, () => {
+  
+  console.log("route", route?.query);
+  
+  if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
+    
+    router.replace({ path: `/home/equipment/${route?.query?.id}` });
+  }
+  else {
+    if (route?.query?.id && !isNaN(parseInt(route?.query?.childId! as string))) {
+      console.warn("getCurrentView", (branchingRef.value as unknown as any).getCurrentView())
+      console.warn("getCurrentViewIndex", (branchingRef.value as unknown as any).getCurrentViewIndex())
+      // emitChecklistRoute(route?.query?.childId as string, route?.query?.id as string, views);
+    }
+  }
+
+  
+}, { flush: "post" })
 
 onMounted(async () => {
   await loadViewData(`${COMPILED_DATA_PATH}/equipment_compiled.json`, views);

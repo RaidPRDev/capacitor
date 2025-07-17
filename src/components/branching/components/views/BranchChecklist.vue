@@ -189,7 +189,7 @@ const computedList = computed(() => {
         }"
         @triggered="() => {
           if (data?.item?.class?.indexOf('disabled')! >= 0) return;
-
+          
           const listData = data.item as CheckListDataType;
 
           const branchData = props?.view?.items?.[data.item.index]!;

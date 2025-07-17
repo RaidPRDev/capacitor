@@ -3,6 +3,7 @@ export default {
   inheritAttrs: false,
   name: "AppChecklistPanel"
 }   
+const DEBUG = false;
 </script>
 
 <script setup lang="ts">
@@ -170,8 +171,9 @@ function onInternalLink(element: HTMLElement) {
             
   const data = element.dataset.link;
   const pData = data?.split?.('##') as any[];
-  // console.log("element", element);
-  // console.log("pData", pData);
+  if (DEBUG) console.log("element", element);
+  if (DEBUG) console.log("pData", pData);
+  
 
   let queryParams: { 
     type: string,
@@ -200,8 +202,8 @@ function onInternalLink(element: HTMLElement) {
     showClose: false,
     action: (index:number) => {
       if (index === 0) return;
-      // console.log("queryParams", queryParams)
-      
+      if (DEBUG) console.log("queryParams", queryParams)
+     
       // need to close self panel before pushing
       app.drawers.bottom.open = !app.drawers.bottom.open;
       switch (queryParams?.type) {
