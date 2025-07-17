@@ -138,6 +138,38 @@ export function ConvertMillilitersToLiters(params:CalculatorParamType):number {
 }
 
 /**
+ * ELSOBA_CALC_020_08
+ * Convert mmHg to cmH2O
+ * 
+ * 1 mmHg = 1.36 cmH2O
+ * 1 cmH2O = 0.735 mmHg
+ * 
+ */
+export function Convert_mmHg_To_cmH2O(params:CalculatorParamType):number {
+  const mmhg_val = params?.['mmhg_val'];
+  if (mmhg_val === 0) return 0;
+  
+  const group = (mmhg_val / 0.73556);
+  return group;  
+}
+
+/**
+ * ELSOBA_CALC_020_09
+ * Convert cmH2O to mmHg
+ * 
+ * 1 mmHg = 1.36 cmH2O
+ * 1 cmH2O = 0.735 mmHg
+ * 
+ */
+export function Convert_cmH2O_To_mmHg(params:CalculatorParamType):number {
+  const cmh2o_val = params?.['cmh2o_val'];
+  if (cmh2o_val === 0) return 0;
+
+  const group = (cmh2o_val * 0.73556);
+  return group;  
+}
+
+/**
  * ELSOBA_CALC_030
  * To calculate the appropriate blood flow, cc/kg/min constant.
  * 

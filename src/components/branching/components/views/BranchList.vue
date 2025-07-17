@@ -57,14 +57,11 @@ onMounted(() => {
 function onContentTrigger(e:MouseEvent) {
   e.preventDefault();
   
-  
-
-
   const target = e.target as HTMLElement;
-  console.log("onContentTrigger", target.dataset.hasOwnProperty("link"))
+  // console.log("onContentTrigger", target.dataset.hasOwnProperty("link"))
 
   if (target.dataset.hasOwnProperty("link")) {
-    console.log("onContentTrigger", e)
+    // console.log("onContentTrigger", e)
     emit("triggered", { ['data-link']: target.dataset.link });
   }
 }

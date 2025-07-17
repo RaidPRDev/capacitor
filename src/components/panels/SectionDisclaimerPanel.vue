@@ -33,8 +33,6 @@ const app = inject<IApp>(APP_ID) as IApp;
 const divScrollerRef = ref<HTMLElement>();
 const hasScrolledEnd = ref<boolean>(false);
 
-console.log(`SectionDisclaimerPanel`, app.drawers.bottom.data);
-
 function handleScroll() {
   if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
 

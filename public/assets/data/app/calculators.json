@@ -180,8 +180,12 @@
         "branchTo": "ELSOBA_CALC_020__07"
       },
       {
-        "label": "Convert cm H2O to mmHg",
+        "label": "Convert cmH2O to mmHg",
         "branchTo": "ELSOBA_CALC_020__08"
+      },
+      {
+        "label": "Convert mmHg to cmH2O",
+        "branchTo": "ELSOBA_CALC_020__09"
       }
     ]
   },
@@ -364,30 +368,49 @@
   },
   {
     "id": "ELSOBA_CALC_020__08",
-    "title": "Convert cm H2O to mmHg",
+    "title": "Convert cmH2O to mmHg",
     "content": "",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
-    "resultLabel": "(L)",
+    "resultLabel": "(mmHg)",
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 mmHg = 1.36 cmH2O</div><div class='mb-0'>1 cm H2O = 0.735 mmHg</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 cmH2O = 0.735 mmHg</div></div>"
+      },
+      {
+        "id": "cmh2o_val",
+        "type": "number",
+        "label": "Enter cmH2O"
+      },
+      {
+        "type": "operator",
+        "operation": "Convert_cmH2O_To_mmHg"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CALC_020__09",
+    "title": "Convert mmHg to cmH2O",
+    "content": "",
+    "layout": "input",
+    "useScroll": true,
+    "showFavorites": true,
+    "resultLabel": "(cmH2O)",
+    "items": [
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>1 mmHg = 1.36 cmH2O</div></div>"
       },
       {
         "id": "mmhg_val",
         "type": "number",
-        "label": "Enter mmHG"
-      },
-      {
-        "id": "h2o_val",
-        "type": "number",
-        "label": "Enter cm H2O"
+        "label": "Enter mmHg"
       },
       {
         "type": "operator",
-        "operation": "ConvertMillilitersToLiters"
+        "operation": "Convert_mmHg_To_cmH2O"
       }
     ]
   },
