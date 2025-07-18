@@ -2,12 +2,10 @@
 
 <script lang="ts">
 import BaseButton from '@/ui/controls/BaseButton.vue';
-import BaseComboBox from '@/ui/controls/BaseComboBox.vue';
 import { defineComponent, h, ref, onMounted, createTextVNode, watch } from 'vue';
 import { IHtmlParserDataProps, IHtmlParserElementItem } from '../types';
 import { convertMathSymbols } from '@/utils/ElsoMath';
 import HtmlSpacer from '../utils/HtmlSpacer.vue';
-import BaseInput from '../controls/BaseInput.vue';
 // import { defineAsyncComponent } from 'vue';
 
 export default defineComponent({
