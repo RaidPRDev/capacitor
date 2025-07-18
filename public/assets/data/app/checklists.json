@@ -3293,7 +3293,7 @@
             ] 
           },
           { 
-            "label": "Titrate fraction of delivered oxygen FsO2, which is the fraction of O2 in the SGF.", 
+            "label": "Titrate fraction of delivered oxygen (FsO2), which is the fraction of O2 in the SGF.", 
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -3680,8 +3680,13 @@
             "items": [
               {
                 "checked": false,
-                "label": "Consider performing a coming off ECMO if it’s preferable for the patient.",
+                "label": "Consider performing a circuit change or coming off ECMO if it’s preferable for the patient.",
                 "class": ""
+              },
+              {
+                "type": "comment",
+                "label": "Refer to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_040'>Circuit Component Changes</a>",
+                "class": "note"
               },
               {
                 "type": "comment",
