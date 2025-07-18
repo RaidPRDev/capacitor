@@ -86,11 +86,6 @@
         "branchTo": "ELSOBA_EQUIP_020_010"
       },
       {
-        "label": "Quadrox-i Oxygenator",
-        "class": "",
-        "branchTo": "ELSOBA_EQUIP_020_020"
-      },
-      {
         "label": "HLS 7.0",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_020_030"

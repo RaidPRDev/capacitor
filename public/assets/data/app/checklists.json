@@ -3509,18 +3509,28 @@
           { "label": "There is a progressive increase in rotations per minute (RPMs) to maintain target EBF", "checked": false },
           { 
             "label": "If any boxes are checked, ML dysfunction or failure is likely.", 
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              { 
+                "label": "Consider ML or circuit exchange",
+                "checked": false
+              },
+              { 
+                "label": "Consider coming oﬀ ECMO emergently if preferable for the patient",
+                "checked": false
+              }
+            ]
+          },
+          { 
+            "label": "Refer to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>", 
+            "type": "comment",
+            "class": "note disabled hide"
+          },
+          { 
+            "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO Emergently</a>", 
             "type": "comment",
             "class": "note"
-          },
-          { 
-            "label": "Consider ML or circuit exchange <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>", 
-            "type": "comment",
-            "class": "note disabled hide"
-          },
-          { 
-            "label": "Consider <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>coming off ECMO emergently</a> if preferable for the patient", 
-            "type": "comment",
-            "class": "note disabled hide"
           },
           { 
             "label": "If none of the boxes are checked, continue to the next step.", 
