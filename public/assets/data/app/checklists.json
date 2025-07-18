@@ -2561,7 +2561,7 @@
           { "label": "Dress the insertion sites and adjust the tubing according to the desired configuration.", "class": "", "checked": false },
           { "label": "Once ready, move the patient to the ICU or alternative location, as required.", "class": "", "checked": false },
 
-          { "label": "At the end of the procedure, if ECMO is NOT required:", "class": "", "type": "comment" },
+          { "label": "At the end of the procedure:", "class": "", "type": "comment" },
           { "label": "Wean from CPB, gradually increasing ECMO extracorporeal blood flow and SGF to provide the required respiratory support, according to the patient's needs.", "class": "", "checked": false },
           { "label": "DO NOT reverse anticoagulation.", "class": "", "checked": false },
           { "label": "Carefully monitor ACT without administering additional dose until in range for ECMO (according to Institutional protocol).", "class": "", "checked": false },
@@ -4848,9 +4848,9 @@
             "type": "subchecklist",
             "checked": false,
             "items": [
-              { "label": "aPTT <60s, consider a hypercoagulable state.", "type": "list-comment", "class": "bullet mxt-0 mxb-16" },
-              { "label": "aPTT 60-90s, no change.", "type": "list-comment", "class": "bullet ml-0" },
-              { "label": "aPTT >90s, repeat aPTT, consider fresh frozen plasma (FFP) if still high.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
+              { "label": "aPTT <60 s, consider a hypercoagulable state.", "type": "list-comment", "class": "bullet mxt-0 mxb-16" },
+              { "label": "aPTT 60-90 s, no change.", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "aPTT >90 s, repeat aPTT, consider fresh frozen plasma (FFP) if still high.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
             ]
           },
           {
@@ -4860,9 +4860,9 @@
             "type": "subchecklist",
             "checked": false,
             "items": [
-              { "label": "aPTT <60s, increase heparin.", "type": "list-comment", "class": "bullet mxt-0 mxb-16" },
-              { "label": "aPTT 60-90s, increase heparin.", "type": "list-comment", "class": "bullet ml-0" },
-              { "label": "aPTT >90s, consider factor deficiency and repletion with FFP.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
+              { "label": "aPTT <60 s, increase heparin.", "type": "list-comment", "class": "bullet mxt-0 mxb-16" },
+              { "label": "aPTT 60-90 s, increase heparin.", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "aPTT >90 s, consider factor deficiency and repletion with FFP.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
             ]
           },
           {
@@ -4872,9 +4872,9 @@
             "type": "subchecklist",
             "checked": false,
             "items": [
-              { "label": "aPTT <60s, unlikely to occur; consider repeat labs.", "type": "list-comment", "class": "bullet mxt-0 mxb-16" },
-              { "label": "aPTT 60-90s, consider repeat labs or a hypercoagulable state.", "type": "list-comment", "class": "bullet ml-0" },
-              { "label": "aPTT >90s, decrease heparin.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
+              { "label": "aPTT <60 s, unlikely to occur; consider repeat labs.", "type": "list-comment", "class": "bullet mxt-0 mxb-16" },
+              { "label": "aPTT 60-90 s, consider repeat labs or a hypercoagulable state.", "type": "list-comment", "class": "bullet ml-0" },
+              { "label": "aPTT >90 s, decrease heparin.", "type": "list-comment", "class": "bullet ml-0 end-list-0" }
             ]
           },
           {
@@ -5247,23 +5247,23 @@
             "class": "note"
           },
           {
-            "label": "If ready for clamping on the field, clamp the return line",
+            "label": "If ready for clamping on the field, clamp the return line.",
             "checked": false
           },
           {
-            "label": "Go to 0 RPMs",
+            "label": "Go to 0 RPMs.",
             "checked": false
           },
           {
-            "label": "Clamp the drainage line",
+            "label": "Clamp the drainage line.",
             "checked": false
           },
           {
-            "label": "Disconnect the gas line from the old circuit",
+            "label": "Disconnect the gas line from the old circuit.",
             "checked": false
           },
           {
-            "label": "Connect gas line to the new circuit",
+            "label": "Connect gas line to the new circuit.",
             "checked": false
           },
           {
