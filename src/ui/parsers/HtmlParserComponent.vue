@@ -2,9 +2,12 @@
 
 <script lang="ts">
 import BaseButton from '@/ui/controls/BaseButton.vue';
+import BaseComboBox from '@/ui/controls/BaseComboBox.vue';
 import { defineComponent, h, ref, onMounted, createTextVNode, watch } from 'vue';
 import { IHtmlParserDataProps, IHtmlParserElementItem } from '../types';
 import { convertMathSymbols } from '@/utils/ElsoMath';
+import HtmlSpacer from '../utils/HtmlSpacer.vue';
+import BaseInput from '../controls/BaseInput.vue';
 // import { defineAsyncComponent } from 'vue';
 
 export default defineComponent({
@@ -30,7 +33,8 @@ export default defineComponent({
     
     // Custom components mapping
     const customComponentsTest: { [key: string]: any } = {
-      'basebutton': {}
+      'basebutton': {},
+      'htmlspacer': {},
     };
 
     /**
@@ -162,11 +166,12 @@ export default defineComponent({
         // console.log("element", element)
         // console.log("dataParams", dataParams)
 
+        const dataProps = dataParams?.dataProps as IHtmlParserDataProps;
+
         // Render custom component
         if (customComponentsTest[tag]) {
           switch (tag) {
             case "basebutton":
-              const dataProps = dataParams?.dataProps as IHtmlParserDataProps;
               // @src/assets/icons/up-right-arrow-icon.svg
               const accessoryIcon = "<svg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M18.9286 2.64296C18.9286 2.05123 18.4489 1.57153 17.8572 1.57153L2.14288 1.57153C1.55114 1.57153 1.07145 2.05123 1.07145 2.64296C1.07145 3.23469 1.55114 3.71439 2.14288 3.71439L15.2705 3.71439L1.38526 17.5996C0.966841 18.0181 0.966841 18.6964 1.38526 19.1149C1.80368 19.5333 2.48207 19.5333 2.90049 19.1149L16.7857 5.22962L16.7857 18.3572C16.7857 18.949 17.2654 19.4287 17.8572 19.4287C18.4489 19.4287 18.9286 18.949 18.9286 18.3572L18.9286 2.64296Z' fill='currentColor'/></svg>";
               
@@ -196,6 +201,19 @@ export default defineComponent({
                     }
                   }) 
                 ]);
+            case "htmlspacer":
+              return h(
+                'span', 
+                { 
+                  class: ''
+                }, 
+                [ 
+                  h(HtmlSpacer, 
+                  {
+                    ...dataProps
+                  }) 
+                ]);
+
             default:
               return null;
           }
