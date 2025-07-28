@@ -171,9 +171,9 @@ export function Convert_cmH2O_To_mmHg(params:CalculatorParamType):number {
 
 /**
  * ELSOBA_CALC_030
- * To calculate the appropriate blood flow, cc/kg/min constant.
+ * To calculate the appropriate blood flow, ml/kg/mi constant.
  * 
- * Flow (cc/min)= cc/kg/min * kg
+ * Flow (cc/min)= ml/kg/mi * kg
  * 
  */
 export function CalculateBloodFlowByWeight(params:CalculatorParamType):number {
