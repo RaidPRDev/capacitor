@@ -48,6 +48,11 @@
         "class": ""
       },
       {
+        "label": "Hemostatic Agents",
+        "branchTo": "ELSOBA_MED_075",
+        "class": ""
+      },
+      {
         "label": "Immunosuppressives",
         "branchTo": "ELSOBA_MED_CAT8",
         "class": "disabled"
@@ -245,22 +250,6 @@
         "branchTo": "ELSOBA_MED_070__3"
       },
       {
-        "label": "Desmopressin",
-        "content": "Desmopressin",
-        "branchTo": "ELSOBA_MED_070__4"
-      },
-      {
-        "label": "Tranexamic Acid",
-        "content": "Tranexamic Acid",
-        "branchTo": "ELSOBA_MED_070__5"
-      },
-      {
-        "label": "rFVIIa",
-        "content": "rFVIIa",
-        "class": "",
-        "branchTo": "ELSOBA_MED_070__6"
-      },
-      {
         "label": "vWF Concentrate",
         "content": "vWF Concentrate",
         "class": "",
@@ -271,12 +260,6 @@
         "content": "Antithrombin",
         "class": "",
         "branchTo": "ELSOBA_MED_070__8"
-      },
-      {
-        "label": "Vitamin K",
-        "content": "Vitamin K",
-        "class": "",
-        "branchTo": "ELSOBA_MED_070__9"
       },
       {
         "label": "Packed Red Blood Cells (pRBCs)",
@@ -329,36 +312,6 @@
     "items": []
   },
   {
-    "id": "ELSOBA_MED_070__4",
-    "title": "Desmopressin",
-    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__4.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_MED_070__5",
-    "title": "Tranexamic Acid",
-    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__5.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_MED_070__6",
-    "title": "rFVIIa",
-    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__6.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
     "id": "ELSOBA_MED_070__7",
     "title": "vWF Concentrate",
     "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__7.html",
@@ -372,16 +325,6 @@
     "id": "ELSOBA_MED_070__8",
     "title": "Antithrombin",
     "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__8.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_MED_070__9",
-    "title": "Vitamin K",
-    "content": "medications/ELSOBA_MED_070/ELSOBA_MED_070__9.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
@@ -419,6 +362,80 @@
     "items": []
   },
   
+
+  {
+    "id": "ELSOBA_MED_075",
+    "title": "Hemostatic Agents",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "class": "plr-1",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Desmopressin",
+        "content": "Desmopressin",
+        "branchTo": "ELSOBA_MED_075__1"
+      },
+      {
+        "label": "Tranexamic Acid",
+        "content": "Tranexamic Acid",
+        "branchTo": "ELSOBA_MED_075__2"
+      },
+      {
+        "label": "rFVIIa",
+        "content": "rFVIIa",
+        "branchTo": "ELSOBA_MED_075__3"
+      },
+      {
+        "label": "Vitamin K",
+        "content": "Vitamin K",
+        "branchTo": "ELSOBA_MED_075__4"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_075__1",
+    "title": "Desmopressin",
+    "content": "medications/ELSOBA_MED_075/ELSOBA_MED_075__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_075__2",
+    "title": "Tranexamic Acid",
+    "content": "medications/ELSOBA_MED_075/ELSOBA_MED_075__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_075__3",
+    "title": "rFVIIa",
+    "content": "medications/ELSOBA_MED_075/ELSOBA_MED_075__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_075__4",
+    "title": "Vitamin K",
+    "content": "medications/ELSOBA_MED_075/ELSOBA_MED_075__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+
 
 
   {

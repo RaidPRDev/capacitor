@@ -126,7 +126,7 @@
       {
         "id": "weight",
         "type": "number",
-        "label": "Enter Weight in Kilograms (kg)",
+        "label": "Enter Weight in Kilograms (kg) <span class='label-desc'>(range of 1.5(kg) – 275(kg))</span>",
         "inputProps": {
           "min": "1.5",
           "max": "275",
@@ -444,7 +444,7 @@
       }
     ],
     "data": {
-      "postHtml": "calculators/ELSOBA_CALC_030.html"
+      "postHtml": ""
     }
   },
   {
@@ -534,10 +534,10 @@
       {
         "id": "hemoglobin",
         "type": "number",
-        "label": "Enter Hemoglobin (g/dL) <span class='label-desc'>(range of 0.01 – 1.0)</span>",
+        "label": "Enter Hemoglobin (g/dL) <span class='label-desc'>(range of 3 – 20)</span>",
         "inputProps": {
-          "min": "0.01",
-          "max": "1",
+          "min": "3.00",
+          "max": "20.00",
           "step": "0.01"
         },
         "data": {
@@ -609,7 +609,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient Weight (kg) * Constant * Hct (%) / Circuit Prime (mL) + (Patient Weight (kg) * Constant)</span></div>"
+        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient Weight (kg) * Constant * Hct (%) / (Circuit Prime (mL) + (Patient Weight (kg) * Constant))</span></div>"
       },
       {
         "id": "patient_weight",
@@ -721,7 +721,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>%</b> = ((SpreO2 – SvO2) / (SpostO2 – SvO2)) * 10</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>%</b> = ((SpreO2 – SvO2) / (SpostO2 – SvO2)) * 100</div></div>"
       },
       {
         "id": "pre_oxygen",
@@ -801,7 +801,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>20 mL = 1 foot of ¼” tubing</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>20 mL = 1 foot of ⅜” tubing</div></div>"
       },
       {
         "id": "foot",
