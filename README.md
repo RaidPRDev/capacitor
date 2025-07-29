@@ -82,7 +82,7 @@ pnpm run build
 npx cap add ios
 ```
 
-Add the following to the iOS `.plist`:
+This is a portrait only app. To enfore ```UIInterfaceOrientationPortrait``` mode, add the following to the iOS `.plist`:
 
 ```xml
 <key>ITSAppUsesNonExemptEncryption</key>
