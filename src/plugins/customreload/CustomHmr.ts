@@ -8,7 +8,6 @@ import { convertMathSymbols } from "../../utils/ElsoMath";
 const SOURCE_CONSTANTS_FILE = "./constants.ts";
 const TARGET_CONSTANTS_FILE = "./src/_core/Constants.ts";
 
-
 const DATA_PATH = `public/assets/data/app`;
 const COMPILED_DATA_PATH = "public/assets/data/app/compiled";
 const SEARCH_JSON_DATA_FILE = "search_compiled.json";
@@ -36,7 +35,7 @@ export default function CustomHmr():PluginOption {
       console.log('[BUILD_COMMAND]', command);
     },
     async buildStart(options) {
-      console.log('[BUILD_START]', options);
+      console.log('[BUILD_START]', JSON.stringify(options).substring(0, 50) + "...");
       startJSONCompiler();
 
       // Copy Constants

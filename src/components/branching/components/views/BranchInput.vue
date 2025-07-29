@@ -91,9 +91,7 @@ const props = withDefaults(defineProps<IBranchTypeProps>(), {
   showTitle: false
 });
 
-// error TS6133: 'emit' is declared but its value is never read.
-/** @ts-ignore */
-const emit = defineEmits<{
+defineEmits<{
   (e: 'navigate', branchTo: string | null): void;
   (e: 'triggered', dataProps?: IHtmlParserDataProps): void;
 }>();

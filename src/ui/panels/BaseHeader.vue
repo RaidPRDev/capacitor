@@ -17,9 +17,7 @@ const props = withDefaults(defineProps<IBaseHeaderProps>(), {
 });
 
 // Emission Event Setup
-// error TS6133: 'emit' is declared but its value is never read.
-/** @ts-ignore */
-const emit = defineEmits<{
+defineEmits<{
   (e: 'click', event: Event): void
 }>()
 

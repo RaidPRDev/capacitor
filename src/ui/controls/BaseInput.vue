@@ -17,7 +17,6 @@ const props = withDefaults(defineProps<IBaseInputProps>(), {
   disabled: false,
 });
 
-
 // Emission Event Setup
 const emit = defineEmits<{
   (e: 'update:modelValue', value: number | string): void;
