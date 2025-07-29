@@ -35,7 +35,10 @@ This app is built using the **Ionic Framework**, **Capacitor**, and **AppFlow** 
 ## 🐳 Docker
 
 ```bash
-docker build -t elso-app .
+docker build -t elso-app --no-cache .
+# or 
+docker buildx build -t elso-app --no-cache .
+# then
 docker run -it -p 8080:8080 --rm --name elso-app-production elso-app
 # or run dev.sh script
 ```
@@ -44,7 +47,7 @@ docker run -it -p 8080:8080 --rm --name elso-app-production elso-app
 
 ## 🧪 Development Build
 
-> ⚠️ **Note:** Please use `pnpm` — **do not** use `npm`.  
+> ⚠️ **Note:** For development, please use `pnpm` — **do not** use `npm`.  
 > `npm` is acceptable in general, but `pnpm` should be used for all Ionic Capacitor-related packages and commands.
 
 ### Start Local Dev Server
