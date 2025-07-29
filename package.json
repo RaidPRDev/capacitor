@@ -26,17 +26,17 @@
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",
-    "@vitejs/plugin-vue": "^5.1.4",
+    "@vitejs/plugin-vue": "^6.0.1",
     "classnames": "^2.5.1",
     "pinch-zoom-js": "^2.3.5",
-    "pinia": "^2.2.2",
+    "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.0.2",
     "sass": "1.77.6",
-    "typescript": "5.6.2",
-    "vite": "^5.4.8",
+    "typescript": "5.8.3",
+    "vite": "^7.0.6",
     "vite-svg-loader": "^5.1.0",
-    "vue": "^3.5.7",
-    "vue-router": "^4.4.5",
-    "vue-tsc": "2.0.29"
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1",
+    "vue-tsc": "3.0.4"
   }
 }
