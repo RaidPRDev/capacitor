@@ -438,9 +438,17 @@
       },
       {
         "id": "constant",
-        "type": "dropdown",
-        "label": "Select mL/kg/min constant",
-        "data": ["300", "250", "200", "175", "150", "125", "100", "75", "65"]
+        "type": "number",
+        "label": "Enter mL/kg/min constant <span class='label-desc'>(range of 0 - 1000)</span>",
+        "inputProps": {
+          "min": "0",
+          "max": "1000",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "weight",

@@ -7,36 +7,144 @@
   </div>
   <div class="mxb-16 flex gapx-10">
     <div class="">A.</div>
-    <div class="">Check for activation of the servo regulator stopping the pump (prevention of back-flow, air-bubbles, excessively low PINLET, excessively high PPRE-ML and/or PPOST-ML).
+    <div class="">If there is a massive air visible in the pumphead or noise arising from pumphead, go to Air in Circuit.
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_PANIC_020", 
+          "data-type": "panic", 
+          "data-no-referral": true, 
+          "label": "Air in Circuit", 
+          "iconClassName": "debug-layer", 
+          "icon": "ELSOBA_PANIC_020", 
+          "class": "variant-blue width-100 mxtb-10", 
+          "wrapperClass": "width-100"
+        }'>
+      </BaseButton>
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
     <div class="">B.</div>
-    <div class="">If any of these are detected, de-activate servo regulation and carefully restart the pump.
+    <div class="">If there is an acute pumphead thrombosis, and there is a visible clot and/or noise arising from pumphead, with no disengagement nor air presence, determine if the patient can be weaned from ECMO. 
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
     <div class="">C.</div>
-    <div class="">Identify and resolve the complication that caused the alarm activation.
+    <div class="">If the patient can be weaned from ECMO, go to Coming Off ECMO Emergently.
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_CHKLST_035", 
+          "data-type": "panic", 
+          "data-no-referral": true, 
+          "label": "Coming Off ECMO Emergently", 
+          "iconClassName": "debug-layer", 
+          "icon": "ELSOBA_CHKLST_035", 
+          "class": "variant-blue width-100 mxtb-10", 
+          "wrapperClass": "width-100"
+        }'>
+      </BaseButton>
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
     <div class="">D.</div>
-    <div class="">Strictly monitor the circuit and the patient.
+    <div class="">If the patient CANNOT be weaned from ECMO, go to Whole Circuit Replacement or Circuit Component Changes for the pumphead as indicated. 
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_CHKLST_360", 
+          "data-type": "panic", 
+          "data-no-referral": true, 
+          "label": "Whole Circuit Replacement", 
+          "iconClassName": "debug-layer", 
+          "icon": "ELSOBA_CHKLST_360", 
+          "class": "variant-blue width-100 mxtb-10", 
+          "wrapperClass": "width-100"
+        }'>
+      </BaseButton>
+      <BaseButton 
+        data-props='{
+          "data-id": "ELSOBA_CHKLST_040", 
+          "data-type": "panic", 
+          "data-no-referral": true, 
+          "label": "Circuit Component Changes", 
+          "iconClassName": "debug-layer", 
+          "icon": "ELSOBA_CHKLST_040", 
+          "class": "variant-blue width-100 mxtb-10", 
+          "wrapperClass": "width-100"
+        }'>
+      </BaseButton>
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
     <div class="">E.</div>
-    <div class="">Document the event and related procedures in the patient's chart.
+    <div class="">Exclude other complications impacting on blood flow:
+      <ul>
+        <li>Evidence of severe drainage failure: severely decreased PINLET
+          <BaseButton 
+            data-props='{
+              "data-id": "ELSOBA_PANIC_050", 
+              "data-type": "panic", 
+              "label": "Drainage Insufficiency, 
+              "iconClassName": "debug-layer", 
+              "icon": "ELSOBA_PANIC_050", 
+              "class": "variant-blue width-100 mxtb-10",
+              "wrapperClass": "width-100"
+            }'>
+          </BaseButton>
+        </li>
+        <li>Evidence of return obstruction: severely increased PPRE-ML/PPOST-ML
+          <BaseButton 
+            data-props='{
+              "data-id": "ELSOBA_CHKLST_250", 
+              "data-type": "checklists", 
+              "label": "Return Obstruction", 
+              "iconClassName": "debug-layer", 
+              "icon": "ELSOBA_CHKLST_250", 
+              "class": "variant-blue width-100 mxtb-10",
+              "wrapperClass": "width-100"
+            }'>
+          </BaseButton>
+        </li>
+        <li>Evidence of acute ML failure: severely increased PPRE-ML / severely decreased ΔP
+          <BaseButton 
+            data-props='{
+              "data-id": "ELSOBA_CHKLST_160", 
+              "data-type": "checklists", 
+              "label": "Membrane Lung Failure", 
+              "iconClassName": "debug-layer", 
+              "icon": "ELSOBA_CHKLST_160", 
+              "class": "variant-blue width-100 mxtb-10",
+              "wrapperClass": "width-100"
+            }'>
+          </BaseButton>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mxb-16 flex gapx-10">
+    <div class=""></div>
+    <div class="">If any of the above scenarios are detected, treat accordingly.
     </div>
   </div>
   <div class="mxb-16 flex gapx-10">
     <div class="">F.</div>
-    <div class="">If applicable, report the issue in the ELSO registry.
+    <div class="">Exclude motor failure:
+      <ul>
+        <li>Screen on</li>
+        <li>No disengagement</li>
+        <li>No air or clot</li>
+        <li>No other potential causes, i.e., motor failure with a working driving unit.</li>
+      </ul>
     </div>
   </div>
-  <div class="mxt-32 flex">
-    <div class="">This concludes No Flow. 
-    </div>
+  <div class="mxt-32 flex gapx-10">
+    <BaseButton 
+      data-props='{
+        "data-id": "ELSOBA_PANIC_050__STEP2", 
+        "data-type": "branchTo", 
+        "data-no-referral": true, 
+        "label": "Continue to next step", 
+        "class": "variant-blue width-100 mxtb-10", 
+        "wrapperClass": "width-100"
+      }'>
+    </BaseButton>
   </div>
 </div>

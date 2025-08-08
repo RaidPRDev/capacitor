@@ -889,7 +889,7 @@
     "id": "ELSOBA_PANIC_040__STEP4",
     "showTitle": true,
     "useScroll": true,
-    "title": "VV or VP ECMO",
+    "title": "This is an emergency situation.",
     "content": "panic/ELSOBA_PANIC_040/ELSOBA_PANIC_040__STEP4.html",
     "layout": "html",
     "branchTo": "",
@@ -1072,17 +1072,17 @@
         "class": ""
       },     
       {
-        "label": "The flow is reading AVAILABLE and approaching no flow/0 LPM",
+        "label": "The flow reading is available and flow is 0 LPM or quickly dropping.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__B",
         "class": ""
       }, 
       {
-        "label": "The pumphead is disengaged or uncoupled",
+        "label": "The flow is dropping and alarms indicate the servo regulator may have stopped the pump.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__C",
         "class": ""
       }, 
       {
-        "label": "The pump is airlocked",
+        "label": "The pumphead is disengaged or uncoupled, and/or the pump is not properly seated.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__D",
         "class": ""
       } 
