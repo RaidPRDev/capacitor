@@ -266,8 +266,7 @@ export function CalculateOxygenDelivery(params:CalculatorParamType):number {
   if (pao2 === 0) return 0;
 
   /*
-DO2i (mL/min/m2) = 10 * pump flow index(L/min/m2) * [(hemoglobin (g/dL) * SaO2 (%) * 1.36) + (PaO2 (mmHg) * 0.003)]
-
+    DO2i (mL/min/m2) = 10 * pump flow index(L/min/m2) * [(hemoglobin (g/dL) * SaO2 (%) * 1.36) + (PaO2 (mmHg) * 0.003)]
   */
 
   // Step 1
