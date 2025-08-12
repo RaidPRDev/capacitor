@@ -193,7 +193,7 @@ export function CalculateBloodFlowByWeight(params:CalculatorParamType):number {
  * Flow (cc/min)= cc/kg/min * kg
  * 
  */
-export function CalculateOxygenTransfer(params:CalculatorParamType):number {
+export function CalculateOxygenTransferOLD(params:CalculatorParamType):number {
   
   const arterial_saturation = params?.['arterial_saturation'];
   const venous_saturation = params?.['venous_saturation'];
@@ -205,6 +205,40 @@ export function CalculateOxygenTransfer(params:CalculatorParamType):number {
   if (flow === 0) return 0;
   
   const group = 1.34 * hemoglobin * (arterial_saturation - venous_saturation) * flow / 100;
+  return group;  
+}
+export function CalculateOxygenTransfer(params:CalculatorParamType):number {
+  
+  const arterial_saturation = params?.['arterial_saturation'];
+  const venous_saturation = params?.['venous_saturation'];
+  const hemoglobin = params?.['hemoglobin'];
+  const flow = params?.['flow'];
+
+  if (arterial_saturation === 0) return 0;
+  if (hemoglobin === 0) return 0;
+  if (flow === 0) return 0;
+  
+  // Q*[0.134*Hb*(Post Sat- Pre Sat) + 0.031*(Post pO2-Pre pO2)] to end up with mL O2/min.
+  /*
+    The oxygen carrying capacity is 1.34 mLO2/g Hb
+    Hb is reported in g/dL
+    Q is L/min
+    Sat is whole number %
+    The solubility of O2 in water is 0.0031 mLO2/dL/mmHg
+
+    Blood Flow (Q) 0-10000
+    Hb 0 - 25  - Ex 10 
+    Art Sat - 100
+    Ven Sat - 70
+    Flow - 5000
+
+
+
+
+  */
+
+
+  const group = 1.34 * hemoglobin * ( (arterial_saturation - venous_saturation) / 100 ) * flow / 100;
   return group;  
 }
 
@@ -239,11 +273,11 @@ DO2i (mL/min/m2) = 10 * pump flow index(L/min/m2) * [(hemoglobin (g/dL) * SaO2 (
   // Step 1
   // const CI = flow / bsa;
 
-  // Step 2
-  const CaO2 = (hemoglobin * 1.34 * sao2) + (0.003 * pao2);
+  // Step 2             1,594.6                0.156
+  const CaO2 = (hemoglobin * 1.34 * (sao2 / 100)) + (0.003 * pao2);  // == 1,594.756
 
-  // Step 3
-  const DO2i = (CaO2 * flow * 10) / bsa;
+  // Step 3    
+  const DO2i = (CaO2 * flow * 10) / bsa;  // === 47,842.68
   
   return DO2i;  
 }
