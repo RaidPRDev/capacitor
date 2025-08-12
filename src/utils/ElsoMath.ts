@@ -247,9 +247,9 @@ export function CalculateOxygenTransfer(params:CalculatorParamType):number {
  * Determine the cardiac index, then the oxygen carrying capacity, 
  * and finally the oxygen delivery (DO2i)
  * 
- * CI = Flow/BSA  1.5
- * CaO2 = (Hb * 1.34)(SaO2) + (0.003 * PaO2)  0.1735
- * DO2i = 10 x CI x CaO2
+ * CI = Flow/BSA
+ * CaO2 = (Hb * 1.34)(SaO2 / 100) + (0.003 * PaO2) 
+ * DO2i = CaO2 * CI * 10
  */
 export function CalculateOxygenDelivery(params:CalculatorParamType):number {
   
@@ -272,10 +272,10 @@ export function CalculateOxygenDelivery(params:CalculatorParamType):number {
   // Step 1
   // const CI = flow / bsa;
 
-  // Step 2
+  // Step 2 (Hb * 1.34)(SaO2 / 100) + (0.003 * PaO2) 
   const CaO2 = (hemoglobin * 1.34 * (sao2 / 100)) + (0.003 * pao2);
 
-  // Step 3    
+  // Step 3 CaO2 * CI * 10
   const DO2i = (CaO2 * flow * 10) / bsa;
   
   return DO2i;  
