@@ -273,11 +273,11 @@ DO2i (mL/min/m2) = 10 * pump flow index(L/min/m2) * [(hemoglobin (g/dL) * SaO2 (
   // Step 1
   // const CI = flow / bsa;
 
-  // Step 2             1,594.6                0.156
-  const CaO2 = (hemoglobin * 1.34 * (sao2 / 100)) + (0.003 * pao2);  // == 1,594.756
+  // Step 2
+  const CaO2 = (hemoglobin * 1.34 * (sao2 / 100)) + (0.003 * pao2);
 
   // Step 3    
-  const DO2i = (CaO2 * flow * 10) / bsa;  // === 47,842.68
+  const DO2i = (CaO2 * flow * 10) / bsa;
   
   return DO2i;  
 }
