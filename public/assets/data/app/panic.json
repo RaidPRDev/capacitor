@@ -832,7 +832,7 @@
         "class": "no-action list-format"
       },   
       {
-        "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (VVA) ECMO.",
+        "label": "C. A loss of previously existing pulse pressure and/or a flat pressure line in veno-arterial (VA) or veno-venoarterial (V-VA) ECMO.",
         "branchTo": "",
         "class": "no-action list-format"
       },
@@ -1067,22 +1067,22 @@
     "keywords": "",
     "items": [
       {
-        "label": "The flow is reading NOT available but circuit pressures are consistent with ongoing forward flow",
+        "label": "A. The flow is reading NOT available but circuit pressures are consistent with ongoing forward flow",
         "branchTo": "ELSOBA_PANIC_050__STEP3__A",
         "class": ""
       },     
       {
-        "label": "The flow reading is available and flow is 0 LPM or quickly dropping.",
+        "label": "B. The flow reading is available and flow is 0 LPM or quickly dropping.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__B",
         "class": ""
       }, 
       {
-        "label": "The flow is dropping and alarms indicate the servo regulator may have stopped the pump.",
+        "label": "C. The flow is dropping and alarms indicate the servo regulator may have stopped the pump.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__C",
         "class": ""
       }, 
       {
-        "label": "The pumphead is disengaged or uncoupled, and/or the pump is not properly seated.",
+        "label": "D. The pumphead is disengaged or uncoupled, and/or the pump is not properly seated.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__D",
         "class": ""
       } 

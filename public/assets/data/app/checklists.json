@@ -335,6 +335,11 @@
     "useScroll": true, 
     "items": [
       {
+        "label": "Pre-Cannulation",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_225"
+      },  
+      {
         "label": "Switch Mode",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_270"
@@ -528,19 +533,7 @@
             "checked": false
           },
           {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of chatter",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector and Y connector",
+            "label": "Tightness of the connector(s), if any",
             "checked": false
           },
           {
@@ -602,19 +595,7 @@
             "checked": false
           },
           {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of chatter",
-            "checked": false
-          },
-          {
-            "label": "Evidence of clots or fibrin",
-            "checked": false
-          },
-          {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector and Y connector",
+            "label": "Tightness of the connector(s), if any",
             "checked": false
           },
           {
@@ -639,19 +620,11 @@
             "checked": false
           },
           {
-            "label": "Temperature (touch)",
-            "checked": false
-          },
-          {
-            "label": "Evidence of chatter",
-            "checked": false
-          },
-          {
             "label": "Evidence of clots or fibrin",
             "checked": false
           },
           {
-            "label": "Tightness of the connector(s), including the cannula-to-tubing connector and Y connector",
+            "label": "Tightness of the connector(s), if any",
             "checked": false
           },
           {
@@ -968,7 +941,7 @@
             ]
           },
           {
-            "label": "Are other anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
+            "label": "Are there any anomalies present?<br><br><span class='font-small'>If yes, open <b>Notes</b> and add details of the anomalies with the date and time. If not, no other action is needed for this step.</span>",
             "type": "comment" 
           }
         ]
@@ -1056,10 +1029,6 @@
           },
           {
             "label": "Noise",
-            "checked": false
-          },
-          {
-            "label": "Evidence of chatter",
             "checked": false
           },
           {
@@ -1195,13 +1164,13 @@
             "type": "comment"
           },
           {
-            "label": "Need to switch to different configurations (e.g., V-AV to VV or VA, VV-V to VV or VV to  VV-V, etc.)",
+            "label": "Need to switch to different configurations (e.g., VAV to VV or VA, VV-V to VV or VV to  VV-V, etc.)",
             "checked": false
           }
         ]
       },
       {
-        "label": "Alert/activate the ECLS",
+        "label": "Alert/activate the ECLS Team",
         "layout": "checklist",
         "type": "subchecklist",
         "showFavorites": true,
@@ -1328,14 +1297,14 @@
         ]
       },   
       {
-        "label": "Circuit Pump Replacement",
+        "label": "Centrifugal Pump Replacement",
         "layout": "checklist",
         "type": "subchecklist",
         "showFavorites": true,
         "useScroll": true, 
         "items": [
           { 
-            "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old (CP).", 
+            "label": "Disinfect the portion of tubing which is going to be cut on both sides of the old centrifugal pump (CP).", 
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -1535,7 +1504,7 @@
             "type": "comment"
           },
           {
-            "label": "Gajkowski EF, Herrera G, Hatton L, Velia Antonini M, Vercaemst L, Cooley E. <a href='#' data-link='https://journals.lww.com/asaiojournal/fulltext/2022/02000/elso_guidelines_for_adult_and_pediatric.1.aspx' target='_blank'>ELSO Guidelines for Adult and Pediatric Extracorporeal Membrane Oxygenation Circuits</a> [published correction appears in ASAIO J. 2022 Jul 1;68(7):e131. doi: 10.1097/MAT.0000000000001727.]. ASAIO J. 2022;68(2):133-152. doi:10.1097/MAT.0000000000001630",
+            "label": "Gajkowski EF, Herrera G, Hatton L, Velia Antonini M, Vercaemst L, Cooley E. <a href='#' data-link='https://journals.lww.com/asaiojournal/fulltext/2022/02000/elso_guidelines_for_adult_and_pediatric.1.aspx' target='_blank'>ELSO Guidelines for Adult and Pediatric Extracorporeal Membrane Oxygenation Circuits</a> ASAIO J. 2022;68(2):133-152. doi:10.1097/MAT.0000000000001630",
             "type": "comment"
           }
         ]
@@ -1628,7 +1597,7 @@
             ]
           },
           { 
-            "label": "And if weaning is deemed feasible OR no other management option is feasible for any reason, proceed to Coming Off ECMO—Cannulas.", 
+            "label": "And if weaning is deemed feasible OR no other management option is feasible for any reason, proceed to <i>Coming Off ECMO—Cannulas</i>.", 
             "type": "comment",
             "class": "note"
           }
@@ -1668,7 +1637,12 @@
           },
           { "label": "Clamp the cannula(s) that are still required", "checked": false },
           { "label": "Separate the circuit from the cannulas", "checked": false },
-          { "label": "Flush and clamp the cannulas which are still required", "checked": false }
+          { "label": "Flush and clamp the cannulas which are still required", "checked": false },
+          { 
+            "label": "Proceed to Coming Off ECMO—Circuit.", 
+            "type": "comment",
+            "class": "note"
+          }
         ]
       }, 
       {
@@ -1699,20 +1673,31 @@
             "class": "note"
           },
           { "label": "Dispose of the circuit and the cannulas according to hospital protocol.", "checked": false },
-          { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false }
+          { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false },
+          { 
+            "label": "Proceed to Post-Coming Off Management.", 
+            "type": "comment",
+            "class": "note"
+          }
         ]
       }, 
       {
-        "label": "Post-Coming Off Management",
+        "label": "Post-Coming Off and Ongoing Management",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
         "items": [
-          { "label": "Optimize conventional respiratory and/or circulatory support as needed", "checked": false },
-          { "label": "Strictly monitor the patient", "checked": false },
-          { "label": "Consider post-decannulation screening of the cannulated vessels for complications", "checked": false },
-          { "label": "Document the procedure in the patient's chart and include the reason for coming off and timing off", "checked": false },
-          { "label": "Report the procedure in the ELSO registry", "checked": false }
+          { "label": "Optimize conventional respiratory and/or circulatory support as needed.", "checked": false },
+          { "label": "Consider post-decannulation screening of the cannulated vessels for complications and treat accordingly.", "checked": false },
+          { "label": "Consider surgical repair if the arterial vessel is involved.", "checked": false },
+          { "label": "If decannulation was associated with prolonged cardiac arrest, implement post-resuscitation care and implement as per guidelines.", "checked": false },
+          { "label": "Strictly monitor the patient.", "checked": false },
+          { "label": "Document the procedure in the patient's chart and include the reason for coming off and timing off.", "checked": false },
+          { 
+            "label": "Report the procedure in the ELSO registry.", 
+            "type": "comment",
+            "class": "note"
+          }
         ]
       } 
     ]
@@ -1790,7 +1775,7 @@
             "checked": false
           }, 
           {
-            "label": "Decrease sweep gas flow using a stepwise approach titrated on end-tidal CO2 to a minimum of 500/1000 ml (for adults).",
+            "label": "Decrease sweep gas flow using a stepwise approach titrated on end-tidal CO2 to a minimum of 500/1000 mL (for adults).",
             "checked": false
           }, 
           {
@@ -2023,16 +2008,16 @@
         "layout": "checklist",
         "type": "subchecklist",
         "items": [
-          { "label": "Peripheral drainage cannulas of various sizes/lengths*", "checked": false },
-          { "label": "Peripheral return cannulas of various sizes/lengths*", "checked": false },
-          { "label": "Central return cannulas of various sizes/lengths*", "checked": false },
+          { "label": "Peripheral drainage cannulas of various sizes/lengths", "checked": false },
+          { "label": "Peripheral return cannulas of various sizes/lengths", "checked": false },
+          { "label": "Central return cannulas of various sizes/lengths", "checked": false },
           { "label": "Distal perfusion cannula supplies and micropuncture kits", "checked": false },
           { "label": "Additional stiff guidewires*", "checked": false },
-          { "label": "Hydrophilic guidewires for difficult insertions*", "checked": false },
-          { "label": "Angiographic catheters for guidewires exchange*", "checked": false },
-          { "label": "Angiographic needles various sizes*", "checked": false },
-          { "label": "Introducer sheaths of various sizes*", "checked": false },
-          { "label": "Wired introducer sheaths of various sizes*", "checked": false },
+          { "label": "Hydrophilic guidewires for difficult insertions", "checked": false },
+          { "label": "Angiographic catheters for guidewires exchange", "checked": false },
+          { "label": "Angiographic needles various sizes", "checked": false },
+          { "label": "Introducer sheaths of various sizes", "checked": false },
+          { "label": "Wired introducer sheaths of various sizes", "checked": false },
           { "label": "Progressive dilators or monodilators of various sizes", "checked": false },
           { "label": "Scalpels of various sizes", "checked": false },
           { "label": "Sterile gauzes of various sizes", "checked": false },
@@ -2075,9 +2060,9 @@
           { "label": "Male-male luer lock connectors", "checked": false },
           { "label": "One-way needle-free IV connector", "checked": false },
           { "label": "IPA disinfecting IV port caps (e.g., w/ CHG, alcohol) per center institutional policy", "checked": false },
-          { "label": "50 ml luer lock syringes", "checked": false },
-          { "label": "Luer lock syringes in various sizes (2.5 ml to 20 ml)", "checked": false },
-          { "label": "50 ml cone syringes", "checked": false },
+          { "label": "50 mL luer lock syringes", "checked": false },
+          { "label": "Luer lock syringes in various sizes (2.5 mL to 20 mL)", "checked": false },
+          { "label": "50 mL cone syringes", "checked": false },
           { "label": "Sterile non-latex gloves", "checked": false },
           { "label": "Tie straps for cannulas", "checked": false },
           { "label": "Tie gun", "checked": false },
@@ -2110,13 +2095,239 @@
         "items": [
           { "label": "Heparin or alternative anticoagulant per center institutional policy", "checked": false },
           { "label": "Sterile saline flushes", "checked": false },
-          { "label": "Four (4) 500ml/1L balanced crystalloid solution bags", "checked": false }
+          { "label": "Four (4) 500 mL/1L balanced crystalloid solution bags", "checked": false }
         ]        
       }
     ]
   },
   
   
+  {
+    "id": "ELSOBA_CHKLST_225",
+    "title": "Pre-Cannulation",
+    "content": "Reference this checklist before cannulating a patient for ECMO.",
+    "layout": "checklist",
+    "keywords": "Cannulation; Percutaneous; Procedure; Pre-cannulation; Steps; Intent; Approach; Sequence; Guidewires; Cannulas; Time Out; Intended Approach; Anticoagulation Bolus",
+    "doc": "",
+    "showFavorites": true,
+    "useScroll": true, 
+    "items": [
+      {
+        "label": "Is the patient an ECMO Candidate?",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Confirmed", "checked": false },
+          { "label": "Not confirmed", "checked": false }
+        ]
+      },
+      {
+        "label": "Absolute Contraindications",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "DNR order for ECPR", "checked": false },
+          { "label": "Severe aortic regurgitation for VA", "checked": false },
+          { "label": "Established severe multiorgan failure/Futility", "checked": false },
+          { "label": "Hopeless neurological prognosis", "checked": false }
+        ]
+      },
+      {
+        "label": "Intent",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Bridge to Recovery", "checked": false },
+          { "label": "Bridge to Decision", "checked": false },
+          { "label": "Bridge to Investigation", "checked": false },
+          { "label": "Bridge to Device", "checked": false },
+          { "label": "Bridge to Transplant", "checked": false }
+        ]
+      },   
+      {
+        "label": "Intended Mode",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "VV ECMO", "checked": false },
+          { "label": "VA ECMO", "checked": false },
+          { "label": "VP ECMO", "checked": false },
+          { "label": "Hybrid", "checked": false }
+        ]
+      },   
+      {
+        "label": "Intended Approach",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Are there any known blocked vessels?", "checked": false },
+          { "label": "Bailout plan if primary site fails.", "checked": false },
+          { "label": "Neck", "checked": false },
+          { "label": "Groin", "checked": false },
+          { "label": "Transthoracic", "checked": false }
+        ]        
+      },
+      {
+        "label": "Target Maximum Flow",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { 
+            "label": "What is the patient’s weight?",
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "80 mL/kg/min (adult)", "checked": false },
+              { "label": "120 mL/kg/min (neonate/pediatric)", "checked": false },
+              { "label": "200 mL/kg/min (shunted single ventricle or sepsis)", "checked": false }
+            ]          
+          }          
+        ]        
+      },
+      {
+        "label": "Circuit",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Venous line diameter", "checked": false },
+          { "label": "Pump maximum flow", "checked": false },
+          { "label": "Membrane lung/oxygenator size and rated flow", "checked": false },
+          { "label": "Arterial line size", "checked": false },
+          { "label": "Priming volume (Clear/Blood)", "checked": false }
+        ]        
+      },
+      {
+        "label": "Check cannulas",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Check vessel size against cannula size charts and maximum flow rate", "checked": false },
+          { "label": "Bring 2x intended cannulas, guidewires connected and one size larger and smaller", "checked": false }
+        ]        
+      },
+      {
+        "label": "Check cannulas",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Check guidewire size and length versus access to be wired out and cannula to be inserted", "checked": false },
+          { 
+            "label": "Check connectors versus circuit tubing diameter", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "0.025\" for ¼\" cannulas", "checked": false },
+              { "label": "0.035\" for 3/8\" cannulas", "checked": false }
+            ]     
+          }
+        ]        
+      },
+      {
+        "label": "Confirm consent",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Yes", "checked": false },
+          { "label": "No", "checked": false }
+        ]        
+      },
+      {
+        "label": "Anticoagulation Bolus",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Medication", "checked": false },
+          { "label": "Dose", "checked": false },
+          { "label": "Timing", "checked": false }
+        ]        
+      },
+      {
+        "label": "IV Access for procedure separate from lines to be guidewire exchanged",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Medication", "checked": false },
+          { "label": "Dose", "checked": false },
+          { "label": "Timing", "checked": false }
+        ]        
+      },
+      {
+        "label": "Position the patient",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Is the Bovie pad needed/on?", "checked": false }
+        ]        
+      },
+      {
+        "label": "Imaging",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Ultrasound", "checked": false },
+          { 
+            "label": "X-ray screening", 
+            "checked": false,
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              { "label": "Is the bed x-ray compatible?", "checked": false },
+              { "label": "Lead aprons", "checked": false },
+              { "label": "Radiation safety of surrounding area", "checked": false }
+            ]
+          }
+        ]        
+      },
+      {
+        "label": "Sequence",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Placing access then full re-prep", "checked": false },
+          { "label": "Full Prep first (makes pivoting to new site more difficult)", "checked": false }
+        ]        
+      },
+      {
+        "label": "Time out",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Patient", "checked": false },
+          { "label": "Consent", "checked": false },
+          { "label": "Mode", "checked": false },
+          { "label": "Vessels", "checked": false },
+          { "label": "Prime (Clear or Blood: what is prime potassium if blood)", "checked": false },
+          { "label": "Initial flow and sweep (CO2 bleed in plan)", "checked": false },
+          { "label": "Initial plan for ventilation", "checked": false }
+        ]        
+      },
+      {
+        "label": "Prep and Drape",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Neck", "checked": false },
+          { "label": "Groin", "checked": false },
+          { "label": "Chest", "checked": false }
+        ]        
+      },
+      {
+        "label": "Pause to ensure team readiness and agreement",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Confirmed", "checked": false },
+          { "label": "Not confirmed", "checked": false }
+        ]        
+      }
+    ]
+  },
+
+
+
+
   {
     "id": "ELSOBA_CHKLST_270",
     "title": "Switch Mode",
@@ -2306,7 +2517,7 @@
           { "label": "<b>OR</b>", "type": "comment" },
           { "label": "Use the first expiring pre-assembled/primed circuit available (according to Institution protocol).", "checked": false },
           { "label": "Connect the CPB gas blender to the gas source.", "checked": false },
-          { "label": "Connect the CPB oxygenator to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "checked": false },
+          { "label": "Connect the CPB membrane lung to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "checked": false },
           { "label": "Prepare the required straight connectors for drainage and return line, according to CPB and ECMO circuit tubing sizes.", "checked": false },
 
           { "label": "Possible configuration for the adult/small adult/older (larger) children:", "type": "comment", "class": "" },
@@ -2383,7 +2594,7 @@
             ] 
           },
           { "label": "Connect the CPB gas blender to the gas source.", "class": "", "checked": false },
-          { "label": "Connect the CPB oxygenator to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "class": "", "checked": false },
+          { "label": "Connect the CPB membrane lung to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "class": "", "checked": false },
           { "label": "Prepare the required straight connectors for drainage and return line, according to CPB and ECMO circuit tubing sizes.", "class": "", "checked": false },
 
           { "label": "Possible configuration for the adult/small adult/older (larger) children:", "type": "comment", "class": "" },
@@ -2488,7 +2699,7 @@
           { "label": "<b>OR</b>", "type": "comment" },
           { "label": "Use the first expiring pre-assembled/primed circuit available (according to Institution protocol).", "class": "", "checked": false },
           { "label": "Connect the CPB gas blender to the gas source.", "class": "", "checked": false },
-          { "label": "Connect the CPB oxygenator to the Heater Unit/Heater-Cooler Unit and normalize temperature according to the patient's temperature.", "class": "", "checked": false },
+          { "label": "Connect the CPB membrane lung to the Heater Unit/Heater-Cooler Unit and normalize temperature according to the patient's temperature.", "class": "", "checked": false },
           { "label": "Consider pre-oxygenating the patient increasing FsO2 to 100%, to compensate for the temporary pump stop.", "class": "", "checked": false },
           { "label": "Introduce the sterile portion of the CPB lines to the sterile field, keeping two clamps on the non-sterile portions.", "class": "", "checked": false },
           { "label": "Clamp the drainage/return CPB lines according to the desired tubing length and cut.", "class": "", "checked": false },
@@ -2581,7 +2792,7 @@
             ] 
           },
           { "label": "If <b>YES</b> is checked, a gas supply interruption is unlikely. <b>You do not need to complete this checklist.</b>", "type": "comment" },
-          { "label": "If <b>NO</b> is checked, a gas supply interruption is likely. Go to <i>Assess the Gas Line</i>.", "type": "comment" }          
+          { "label": "If <b>NO</b> is checked, a gas supply interruption is likely. Go to the next step: <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_080##2' target='_self'>Assess the Gas Line</a>.", "type": "comment" }
         ]
       },
       {
@@ -2640,12 +2851,12 @@
             "type": "comment"
           },
           { 
-            "label": "If any boxes are unchecked, go to <i>Cause is Detected</i>.", 
+            "label": "If any boxes are unchecked, go to the next step: <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_080##3' target='_self'>Cause is Detected</a>.", 
             "type": "comment",
             "class": "note"
           },
           { 
-            "label": "If <b>ALL</b> boxes have been checked, go to <i>Cause is NOT Detected</i>.", 
+            "label": "If <b>ALL</b> boxes have been checked, go to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_080##4' target='_self'>Cause is NOT Detected</a>.", 
             "type": "comment",
             "class": "note"
           }
@@ -3082,8 +3293,9 @@
           { "label": "Nurse(s)", "checked": false },
           { "label": "Physical therapist", "checked": false },
           { "label": "Respiratory therapist", "checked": false },
+          { "label": "Any other relevant team member", "checked": false },
           { 
-            "label": "Any other relevant team member <br><span>If any of the options are checked, open Notes and enter the individual’s name, role, and contact information.</span>", 
+            "label": "<span>If any of the options are checked, open Notes and enter the individual’s name, role, and contact information.</span>", 
             "type": "comment",
             "class": "note"
           }
@@ -3253,12 +3465,12 @@
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "If <b>NO</b>, increase blood flow and optimize hemoglobin (Hb) to 12-14 g/dl.", "checked": false },
+              { "label": "If <b>NO</b>, increase blood flow and optimize hemoglobin (Hb) to 12-14 g/dL.", "checked": false },
               { "label": "If <b>YES</b>, continue to the next step.", "checked": false }
             ] 
           },
           { 
-            "label": "Achieve pulse contour ≥10-15 mmHg.", 
+            "label": "Achieve pulse pressure ≥10-15 mmHg.", 
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -3278,7 +3490,7 @@
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Target slight hypoxemia (PaO2 ~150 mmHg) after the oxygenator.", "checked": false },
+              { "label": "Target slight hypoxemia (PaO2 ~150 mmHg) after the membrane lung.", "checked": false },
               { "label": "Arterial return saturation (SpostO2) should be close to 100%.", "checked": false },
               { "label": "PO2 in arterial return (PpostO2) should be >2-5 times the FsO2.", "checked": false }
             ] 
@@ -3353,7 +3565,7 @@
             "layout": "checklist",
             "items": [
               { "label": "If <b>YES</b>, no changes are necessary.", "checked": false },
-              { "label": "If <b>NO</b>, optimize hemoglobin (Hb) to between 12-14 g/dL%.", "checked": false },
+              { "label": "If <b>NO</b>, optimize hemoglobin (Hb) to between 12-14 g/dL.", "checked": false },
               { 
                 "label": "<b>Note:</b> There is a tradeoff of risk between transfusion and increasing circuit flow which favors transfusion of red blood cells (RBCs). Membrane lungs function optimally at a normal hematocrit.", 
                 "type": "comment",
@@ -3533,7 +3745,7 @@
             "class": "note"
           },
           { 
-            "label": "If none of the boxes are checked, continue to the next step.", 
+            "label": "If none of the boxes are checked, continue to the next step: <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_160##3' target='_self'>Evaluate ML Gas Transfer Effectiveness</a>.", 
             "type": "comment",
             "class": "note"
           }
@@ -3551,7 +3763,7 @@
             "layout": "checklist",
             "checked": false,
             "items": [
-              { "label": "Carefully increase the sweep gas flow (SGF) for 5-10'' to displace condensation while monitoring EtCO2 and the patient's hemodynamics", "checked": false }
+              { "label": "Carefully increase the sweep gas flow (SGF) for 5-10 s to displace condensation while monitoring EtCO2 and the patient's hemodynamics", "checked": false }
             ]
           },
           { 
@@ -3610,7 +3822,7 @@
             ]
           },
           {
-            "label": "If <b>NO</b>, continue to the next step.",
+            "label": "If <b>NO</b>, continue to the next step: <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_160##4' target='_self'>Assess the Patient’s Hematologic Profile</a>",
             "type": "comment",
             "class": "note"
           }
@@ -3880,7 +4092,7 @@
           { "label": "Discuss and confirm the roles of each member.", "checked": false },
           { "label": "Assign one staff member to take care of the ECMO console and tubing.", "checked": false },
           { "label": "Assign another staff member to manage the airway, lines, and cannula in the neck region.", "checked": false },
-          { "label": "Establish the time frame for prone positioning and specific timing of the de-prone procedure.", "checked": false },
+          { "label": "Establish the time frame for supine positioning and specific timing of the supining procedure.", "checked": false },
           { 
             "label": "Define clinical parameters for escalation of any concerns, including interruption of prone positioning and clinical indications of emergency de-proning.", 
             "checked": false,
@@ -4175,6 +4387,10 @@
             "type": "comment"
           },
           {
+            "label": "Ramsey S, Shehatta AL, Ramanathan K, et al. <a href='#' data-link='https://journals.lww.com/asaiojournal/fulltext/2025/03000/extracorporeal_life_support_organization_2024.1.aspx' target='_blank'>Extracorporeal Life Support Organization 2024 Guideline for Early Rehabilitation or Mobilization of Adult Patients on Extracorporeal Membrane Oxygenation.</a> ASAIO J. 2025;71(3):187-199. doi:10.1097/MAT.0000000000002375",
+            "type": "comment"
+          },
+          {
             "label": "Salna M, Abrams D, Brodie D. <a href='#' data-link='https://pubmed.ncbi.nlm.nih.gov/32793679/' target='_blank'>Physical rehabilitation in the awake patient receiving extracorporeal circulatory or gas exchange support</a>. Ann Transl Med. 2020;8(13):834. doi:10.21037/atm.2020.03.151",
             "type": "comment"
           }
@@ -4356,7 +4572,7 @@
             "type": "comment"
           },
           {
-            "label": "Go to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##2' target='_self'>Assess the Circuit.</a>",
+            "label": "Go to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##2' target='_self'>Assess the Circuit</a>.",
             "type": "comment",
             "class": "note"
           },
@@ -4457,7 +4673,7 @@
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
-                  { "label": "Proceed in evaluation.", "checked": false }
+                  { "label": "Proceed to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##2' target='_self'>Assess the Return Cannula</a>.", "checked": false }
                 ]
                 
               }
@@ -4691,6 +4907,25 @@
     "useScroll": true, 
     "items": [
       {
+        "label": "ECMO Cannulation",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "showFavorites": true,
+        "useScroll": true, 
+        "items": [
+          {
+            "label": "UFH IV Bolus: 50-100 IU/kg",
+            "class": "",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "checked": false,
+            "items": [
+              { "label": "Consider dose according to coagulation status and bleeding risk.", "type": "list-comment", "class": "bullet mxt-20 mxb-16" }
+            ]
+          }
+        ]
+      },
+      {
         "label": "UFH Monitoring",
         "layout": "checklist",
         "type": "subchecklist",
@@ -4781,6 +5016,11 @@
           }, 
           { 
             "label": "<b>Note:</b> There is no data supporting improved outcomes with supplementation in ECMO patients.", 
+            "type": "comment",
+            "class": "note"
+          },
+          { 
+            "label": "For additional information, refer to the <a href='#' data-link='MEDICATIONS##ELSOBA_MED_010__TABLE__2' target='_self'>Discrepancy between aPTT and AntiXa with UFH</a> table.", 
             "type": "comment",
             "class": "note"
           }
@@ -4954,7 +5194,7 @@
                   { "label": "If anti-Xa levels are above target, reduce.", "checked": false },
                   { "label": "If factors II, V, VII, X deficiency, replete.", "checked": false },
                   { "label": "If platelet deficiency (excluding HIT), consider platelet transfusion.", "checked": false },
-                  { "label": "If DIC and hyperfibrinolysis, treat the cause and consider oxygenator change.", "checked": false },
+                  { "label": "If DIC and hyperfibrinolysis, treat the cause and consider membrane lung change.", "checked": false },
                   { "label": "If acquired Von Willebrand syndrome, repletion and reduce ECMO pump speed if possible.", "checked": false }
                 ]
               }              
@@ -5050,7 +5290,7 @@
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
-              { "label": "Circuit thrombosis (minor membrane lung (ML) clotting not severely impacting with its function excluded).", "checked": false },
+              { "label": "Circuit thrombosis (minor membrane lung (ML) clotting not severely impacting with its function excluded) or unexplained coagulopathy.", "checked": false },
               { 
                 "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure.</a>", 
                 "type": "comment", 
@@ -5548,41 +5788,8 @@
     "id": "ELSOBA_CHKLST_FLOW_350__1",
     "showTitle": false,
     "useScroll": true,
-    "title": "Respiratory Support for VV ECMO",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__1.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350",
-    "showTitle": false,
-    "useScroll": true,
-    "showFavorites": true,
-    "title": "Respiratory Support for VV ECMO",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350.html",
-    "keywords": "VV ECMO; ECMO; Weaning; Weaning VV ECMO; Respiratory support; Coming off ECMO",
-    "layout": "html",
-    "branchTo": "",
-    "__branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__1",
-    "showTitle": false,
-    "useScroll": true,
-    "title": "Respiratory Support for VV ECMO",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__1.html",
-    "layout": "html",
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_FLOW_350__2",
-    "showTitle": false,
-    "useScroll": true,
     "title": "Step 1: Reduce FDO",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__2.html",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__1.html",
     "layout": "html",
     "branchTo": "",
     "items": []
@@ -5627,5 +5834,4 @@
     "branchTo": "",
     "items": []
   }
-
 ]

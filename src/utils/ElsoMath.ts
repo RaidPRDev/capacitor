@@ -599,6 +599,8 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bSvO2\b/g, `SvO${sub2wmr}`],
     [/\bSaO2\b/g, `SaO${sub2wmr}`],
     [/\bSpO2\b/g, `SpO${sub2wmr}`],
+    [/\bPPRE-ML\b/g, `P<sub class=\"math-sub\">PRE-ML</sub><HtmlSpacer></HtmlSpacer>`],
+    [/\bPPOST-ML\b/g, `P<sub class=\"math-sub\">POST-ML</sub><HtmlSpacer></HtmlSpacer>`],
     [/\bSpreO2\b/g, `S<sub class=\"math-sub\">pre</sub>O${sub2wmr}`],
     [/\bSpostO2\b/g, `S<sub class=\"math-sub\">post</sub>O${sub2wmr}`],
     [/\bPpostO2\b/g, `P<sub class=\"math-sub\">post</sub>O${sub2wmr}`],
@@ -618,6 +620,7 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bVMLO2\b/g, `VMLO${sub2wmr}`],
     [/\bVMLCO2\b/g, `VMLCO${sub2wmr}`],
     [/\bEtCO2\b/g, `EtCO${sub2}`],
+    [/\bPINLET\b/g, `P<sub class=\"math-sub\">INLET</sub>`],
   ];
 
   // Apply replacements
