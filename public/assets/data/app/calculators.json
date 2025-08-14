@@ -426,7 +426,7 @@
   {
     "id": "ELSOBA_CALC_030",
     "title": "Flow Calculator",
-    "content": "To calculate the appropriate blood flow, use the drop down menu to select the appropriate mL/kg/min constant. Then enter the patient's weight in kilograms and select <b>CALCULATE</b>.",
+    "content": "To calculate the appropriate blood flow, enter the mL/kg/min. Then enter the patient's weight in kilograms and select <b>CALCULATE</b>.",
     "layout": "input",
     "useScroll": true,
     "showFavorites": true,
