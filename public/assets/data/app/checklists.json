@@ -3523,7 +3523,7 @@
             ] 
           },
           { 
-            "label": "Measure partial pressure of carbon dioxide (PCO2) at the right upper limb and post-menbrane lung. If the heart is ejecting, check this box.", 
+            "label": "Measure partial pressure of carbon dioxide (PCO2) at the right upper limb and post-membrane lung. If the heart is ejecting, check this box.", 
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
