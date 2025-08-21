@@ -1597,7 +1597,7 @@
             ]
           },
           { 
-            "label": "And if weaning is deemed feasible OR no other management option is feasible for any reason, proceed to <i>Coming Off ECMO—Cannulas</i>.", 
+            "label": "And if weaning is deemed feasible OR no other management option is feasible for any reason, proceed to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035##3' target='_self'>Coming Off ECMO—Cannulas</a>.", 
             "type": "comment",
             "class": "note"
           }
@@ -1639,7 +1639,7 @@
           { "label": "Separate the circuit from the cannulas", "checked": false },
           { "label": "Flush and clamp the cannulas which are still required", "checked": false },
           { 
-            "label": "Proceed to Coming Off ECMO—Circuit.", 
+            "label": "Proceed to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035##4' target='_self'>Coming Off ECMO—Circuit</a>.", 
             "type": "comment",
             "class": "note"
           }
@@ -1675,7 +1675,7 @@
           { "label": "Dispose of the circuit and the cannulas according to hospital protocol.", "checked": false },
           { "label": "Clean the ECMO machine according to the manufacturer's instructions.", "checked": false },
           { 
-            "label": "Proceed to Post-Coming Off Management.", 
+            "label": "Proceed to <a class='' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035##5' target='_self'>Post-Coming Off Management</a>.", 
             "type": "comment",
             "class": "note"
           }
@@ -5332,7 +5332,7 @@
           { "label": "1 experienced intensivist and/or 1 experienced ICU nurse to support the patient", "checked": false },
           { "label": "2 ECMOlogists to simultaneously work on drainage/return as sterile operators lines if elective procedure", "checked": false },
           { "label": "At least 1 ECMOlogists to work on drainage/return lines as sterile operator if emergent procedure (2 operators are better, if feasible)", "checked": false },
-          { "label": "At least 1 ECMO specialist/perfusionist to prepare and manage the new circui", "checked": false },
+          { "label": "At least 1 ECMO specialist/perfusionist to prepare and manage the new circuit", "checked": false },
           { "label": "At least 1 supporting healthcare worker", "checked": false },
           { 
             "label": "If this is an elective procedure, consider a short briefing.", 
