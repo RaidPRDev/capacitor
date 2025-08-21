@@ -93,7 +93,16 @@
       {
         "id": "height",
         "type": "number",
-        "label": "Enter Height in Centimeters (cm)"
+        "label": "Enter Height in Centimeters (cm) <span class='label-desc'>(range of 1(cm) – 500(cm))</span>",
+        "inputProps": {
+          "min": "1",
+          "max": "500",
+          "step": "0.1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "weight",
@@ -480,7 +489,7 @@
       {
         "id": "arterial_saturation",
         "type": "number",
-        "label": "Enter Arterial Saturation <span class='label-desc'>(range of 0 - 1)</span>",
+        "label": "Enter Arterial Saturation (%) <span class='label-desc'>(range of 0(%) - 100(%))</span>",
         "inputProps": {
           "min": "0",
           "max": "100",
@@ -494,7 +503,7 @@
       {
         "id": "venous_saturation",
         "type": "number",
-        "label": "Enter Venous Saturation <span class='label-desc'>(range of 0 - 1)</span>",
+        "label": "Enter Venous Saturation (%) <span class='label-desc'>(range of 0(%) - 100(%))</span>",
         "inputProps": {
           "min": "0",
           "max": "100",
@@ -508,12 +517,30 @@
       {
         "id": "hemoglobin",
         "type": "number",
-        "label": "Enter Hemoglobin (g/dL)"
+        "label": "Enter Hemoglobin (g/dL) <span class='label-desc'>(range of 1(g/dL) - 25(g/dL))</span>",
+        "inputProps": {
+          "min": "1",
+          "max": "25",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "flow",
         "type": "number",
-        "label": "Enter Blood Flow (mL/min)"
+        "label": "Enter Blood Flow (mL/min) <span class='label-desc'>(range of 50(mL/min) - 10,000(mL/min))</span>",
+        "inputProps": {
+          "min": "50",
+          "max": "10000",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "type": "operator",
@@ -537,12 +564,30 @@
       {
         "id": "flow",
         "type": "number",
-        "label": "Enter Blood Flow (L/min)"
+        "label": "Enter Blood Flow (L/min) <span class='label-desc'>(range of 50(L/min) - 10,000(L/min))</span>",
+        "inputProps": {
+          "min": "50",
+          "max": "10000",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "bsa",
         "type": "number",
-        "label": "Enter Body Surface Area (m2)"
+        "label": "Enter Body Surface Area (m2) <span class='label-desc'>(range of 0.1(m2) - 6(m2))</span>",
+        "inputProps": {
+          "min": "0.1",
+          "max": "6",
+          "step": "0.1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "type": "heading",
@@ -551,10 +596,10 @@
       {
         "id": "hemoglobin",
         "type": "number",
-        "label": "Enter Hemoglobin (g/dL) <span class='label-desc'>(range of 3 – 20)</span>",
+        "label": "Enter Hemoglobin (g/dL) <span class='label-desc'>(range of 1(g/dL) - 25(g/dL))</span>",
         "inputProps": {
-          "min": "3.00",
-          "max": "20.00",
+          "min": "1",
+          "max": "25",
           "step": "0.01"
         },
         "data": {
@@ -565,7 +610,7 @@
       {
         "id": "sao2",
         "type": "number",
-        "label": "Enter SaO2 <span class='label-desc'>Arterial oxygen saturation (range of 0 – 100)</span>",
+        "label": "Enter SaO2 <span class='label-desc'>Arterial oxygen saturation (range of 0(%) - 100(%))</span>",
         "inputProps": {
           "min": "0",
           "max": "100",
@@ -579,7 +624,16 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>",
+        "inputProps": {
+          "min": "0",
+          "max": "800",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "type": "heading",
@@ -612,7 +666,16 @@
       {
         "id": "total_circuit_volume",
         "type": "number",
-        "label": "Enter Circuit Prime (mL)"
+        "label": "Enter Circuit Prime (mL) <span class='label-desc'>(range of 0(mL) - 3,000(mL))</span>",
+        "inputProps": {
+          "min": "0",
+          "max": "3000",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "constant",
@@ -636,7 +699,16 @@
       {
         "id": "hematocrit",
         "type": "number",
-        "label": "Enter Hematocrit (%)"
+        "label": "Enter Hematocrit (%) <span class='label-desc'>(range of 0(%) - 100(%))</span>",
+        "inputProps": {
+          "min": "1",
+          "max": "100",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "type": "operator",
@@ -682,7 +754,16 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>",
+        "inputProps": {
+          "min": "0",
+          "max": "800",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "type": "operator",
@@ -705,7 +786,16 @@
       {
         "id": "oxygen_pressure",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>"
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>",
+        "inputProps": {
+          "min": "0",
+          "max": "800",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "fraction",
