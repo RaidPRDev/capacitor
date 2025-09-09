@@ -11,37 +11,37 @@
     "isRootParent": true,
     "items": [
       {
-        "label": "Accidental Decannulation",
+        "label": "Accidental Decannulation Resources",
         "branchTo": "ELSOBA_RES_010",
         "class": ""
       },
       {
-        "label": "Membrane Lung Failure",
+        "label": "Membrane Lung Failure Resources",
         "branchTo": "ELSOBA_RES_020",
         "class": ""
       },
       {
-        "label": "Adults with Cardiac Failure",
+        "label": "Adults with Cardiac Failure Resources",
         "branchTo": "ELSOBA_RES_030",
         "class": ""
       },
       {
-        "label": "Adults with Cardiac Arrest (ECPR)",
+        "label": "Adults with Cardiac Arrest (ECPR) Resources",
         "branchTo": "ELSOBA_RES_040",
         "class": ""
       },  
       {
-        "label": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
+        "label": "Adults with Acute Respiratory Distress Syndrome (ARDS) Resources",
         "branchTo": "ELSOBA_RES_045",
         "class": ""
       },  
       {
-        "label": "Children with Cardiac Failure",
+        "label": "Children with Cardiac Failure Resources",
         "branchTo": "ELSOBA_RES_050",
         "class": ""
       },   
       {
-        "label": "Children with Cardiac Arrest (ECPR)",
+        "label": "Children with Cardiac Arrest (ECPR) Resources",
         "branchTo": "ELSOBA_RES_060",
         "class": ""
       },   
@@ -51,9 +51,44 @@
         "class": ""
       }, 
       {
-        "label": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
+        "label": "Anticoagulants Resources",
         "branchTo": "ELSOBA_RES_080",
         "class": "hide"
+      },   
+      {
+        "label": "Medication Resources",
+        "branchTo": "ELSOBA_RES_090",
+        "class": ""
+      },  
+      {
+        "label": "UFH Anticoagulation Monitoring and Management",
+        "branchTo": "ELSOBA_RES_100",
+        "class": ""
+      },  
+      {
+        "label": "Circuit Component Changes Resources",
+        "branchTo": "ELSOBA_RES_110",
+        "class": ""
+      },  
+      {
+        "label": "Determination of Death Resources",
+        "branchTo": "ELSOBA_RES_120",
+        "class": ""
+      },  
+      {
+        "label": "Managing Gas Exchange on ECMO Resources",
+        "branchTo": "ELSOBA_RES_130",
+        "class": ""
+      },  
+      {
+        "label": "Proning on ECMO Resources",
+        "branchTo": "ELSOBA_RES_140",
+        "class": ""
+      },  
+      {
+        "label": "PT/Ambulation on ECMO Resources",
+        "branchTo": "ELSOBA_RES_150",
+        "class": ""
       }   
     ]
   },
@@ -139,8 +174,78 @@
   },
   {
     "id": "ELSOBA_RES_080",
-    "title": "Neonates with Congenital Diaphragmatic Hernia (CDH) and Cardiorespiratory Failure",
+    "title": "Anticoagulants Resources",
     "content": "resources/ELSOBA_RES_080.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_090",
+    "title": "Medication Resources",
+    "content": "resources/ELSOBA_RES_090.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_100",
+    "title": "UFH Anticoagulation Monitoring and Management",
+    "content": "resources/ELSOBA_RES_100.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_110",
+    "title": "Circuit Component Changes Resources",
+    "content": "resources/ELSOBA_RES_110.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_120",
+    "title": "Determination of Death Resources",
+    "content": "resources/ELSOBA_RES_120.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_130",
+    "title": "Managing Gas Exchange on ECMO Resources",
+    "content": "resources/ELSOBA_RES_130.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_140",
+    "title": "Proning on ECMO Resources",
+    "content": "resources/ELSOBA_RES_140.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_150",
+    "title": "PT/Ambulation on ECMO Resources",
+    "content": "resources/ELSOBA_RES_150.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
