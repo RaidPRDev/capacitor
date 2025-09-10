@@ -46,7 +46,7 @@
         "class": ""
       },   
       {
-        "label": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
+        "label": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD Resources",
         "branchTo": "ELSOBA_RES_070",
         "class": ""
       }, 
@@ -61,7 +61,7 @@
         "class": ""
       },  
       {
-        "label": "UFH Anticoagulation Monitoring and Management",
+        "label": "UFH Anticoagulation Monitoring and Management Resources",
         "branchTo": "ELSOBA_RES_100",
         "class": ""
       },  
@@ -164,7 +164,7 @@
   },
   {
     "id": "ELSOBA_RES_070",
-    "title": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD",
+    "title": "Neonates with Acute Respiratory or Cardiac Failure, non-CDH or Cyanotic CHD Resources",
     "content": "resources/ELSOBA_RES_070.html",
     "layout": "default",
     "useScroll": true,
@@ -194,7 +194,7 @@
   },
   {
     "id": "ELSOBA_RES_100",
-    "title": "UFH Anticoagulation Monitoring and Management",
+    "title": "UFH Anticoagulation Monitoring and Management Resources",
     "content": "resources/ELSOBA_RES_100.html",
     "layout": "default",
     "useScroll": true,
