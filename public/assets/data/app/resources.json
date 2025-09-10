@@ -114,7 +114,7 @@
   },
   {
     "id": "ELSOBA_RES_030",
-    "title": "Adults with Cardiac Failure",
+    "title": "Adults with Cardiac Failure Resources",
     "content": "resources/ELSOBA_RES_030.html",
     "layout": "default",
     "useScroll": true,
@@ -124,7 +124,7 @@
   },
   {
     "id": "ELSOBA_RES_040",
-    "title": "Adults with Cardiac Arrest (ECPR)",
+    "title": "Adults with Cardiac Arrest (ECPR) Resources",
     "content": "resources/ELSOBA_RES_040.html",
     "layout": "default",
     "useScroll": true,
@@ -134,7 +134,7 @@
   },
   {
     "id": "ELSOBA_RES_045",
-    "title": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
+    "title": "Adults with Acute Respiratory Distress Syndrome (ARDS) Resources",
     "content": "resources/ELSOBA_RES_045.html",
     "layout": "default",
     "useScroll": true,
@@ -144,7 +144,7 @@
   },
   {
     "id": "ELSOBA_RES_050",
-    "title": "Children with Cardiac Failure",
+    "title": "Children with Cardiac Failure Resources",
     "content": "resources/ELSOBA_RES_050.html",
     "layout": "default",
     "useScroll": true,
@@ -154,7 +154,7 @@
   },
   {
     "id": "ELSOBA_RES_060",
-    "title": "Children with Cardiac Arrest (ECPR)",
+    "title": "Children with Cardiac Arrest (ECPR) Resources",
     "content": "resources/ELSOBA_RES_060.html",
     "layout": "default",
     "useScroll": true,

@@ -462,7 +462,7 @@
       {
         "id": "weight",
         "type": "number",
-        "label": "Enter Weight (kg)"
+        "label": "Enter Weight (kg) [1-275 kg]"
       },
       {
         "type": "operator",
@@ -484,14 +484,14 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>((A-V sat) * 1.34 * Hb (g/dL) * Flow (mL/min)) / 100</div></div>"
+        "label": "<div class='note mt-0 mb-0'><div class='mb-0'>((A-V sat) * 0.34 * Hb (g/dL) * Flow (mL/min)) / 100 = V'O2 mL</div></div>"
       },
       {
         "id": "arterial_saturation",
         "type": "number",
-        "label": "Enter Arterial Saturation (%) <span class='label-desc'>(range of 0(%) - 100(%))</span>",
+        "label": "Enter Arterial Saturation (%) <span class='label-desc'>(range of 1(%) - 100(%))</span>",
         "inputProps": {
-          "min": "0",
+          "min": "1",
           "max": "100",
           "step": "1"
         },
@@ -503,9 +503,9 @@
       {
         "id": "venous_saturation",
         "type": "number",
-        "label": "Enter Venous Saturation (%) <span class='label-desc'>(range of 0(%) - 100(%))</span>",
+        "label": "Enter Venous Saturation (%) <span class='label-desc'>(range of 1(%) - 100(%))</span>",
         "inputProps": {
-          "min": "0",
+          "min": "1",
           "max": "100",
           "step": "1"
         },
@@ -531,7 +531,7 @@
       {
         "id": "flow",
         "type": "number",
-        "label": "Enter Blood Flow (mL/min) <span class='label-desc'>(range of 50(mL/min) - 10,000(mL/min))</span>",
+        "label": "Enter (Q) Blood Flow (mL/min) <span class='label-desc'>(range of 50(mL/min) - 10,000(mL/min))</span>",
         "inputProps": {
           "min": "50",
           "max": "10000",
@@ -564,7 +564,7 @@
       {
         "id": "flow",
         "type": "number",
-        "label": "Enter Blood Flow (L/min) <span class='label-desc'>(range of 50(L/min) - 10,000(L/min))</span>",
+        "label": "Enter Blood Flow (mL/min) <span class='label-desc'>(range of 50(mL/min) - 10,000(mL/min))</span>",
         "inputProps": {
           "min": "50",
           "max": "10000",
@@ -591,7 +591,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>Step 2: CaO2 = (Hb * 1.34)(SaO2) + (0.003 * PaO2)</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'>Step 2: CaO2 (mL/min/m2)) = (Hb * 1.34)(SaO2/100) + (0.003 * PaO2)</div></div>"
       },
       {
         "id": "hemoglobin",
@@ -610,7 +610,7 @@
       {
         "id": "sao2",
         "type": "number",
-        "label": "Enter SaO2 <span class='label-desc'>Arterial oxygen saturation (range of 0(%) - 100(%))</span>",
+        "label": "Enter SaO2 <span class='label-desc'>Arterial oxygen saturation <span class='label-desc'>(range of 0(%) - 100(%))</span></span>",
         "inputProps": {
           "min": "0",
           "max": "100",
@@ -624,7 +624,7 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>",
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen <span class='label-desc'>(range of 0(mmHg) - 800(mmHg))</span></span>",
         "inputProps": {
           "min": "0",
           "max": "800",
@@ -637,7 +637,11 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'>Step 3: DO2i = 10 * CI * CaO2</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'>Step 3: DO2i = 10 * CI * CaO2</div>"
+      },
+      {
+        "type": "heading",
+        "label": "<div class='note mt-0-5 mb-0'>Note: Normal oxygen delivery (DO2) in adults typically ranges from 500 to 600 mL/min/m2.</div>"
       },
       {
         "type": "operator",
@@ -657,7 +661,7 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'>Step 1: Determine Circuit Prime</div><span><i><b>Note:</b> To find the Circuit Prime, reference the IFU to match the tubing or oxygenator.</i></span></div>"
+        "label": "<div class='note mt-1 mb-0'><div class='mb-0-5'>Step 1: Determine Circuit Prime</div><span><i><b>Note:</b> To find the Circuit Prime, reference the IFU to match the tubing or membrane lung.</i></span></div>"
       },
       {
         "type": "heading",
@@ -666,9 +670,9 @@
       {
         "id": "total_circuit_volume",
         "type": "number",
-        "label": "Enter Circuit Prime (mL) <span class='label-desc'>(range of 0(mL) - 3,000(mL))</span>",
+        "label": "Enter Circuit Prime (mL) <span class='label-desc'>(range of 50(mL) - 3,000(mL))</span>",
         "inputProps": {
-          "min": "0",
+          "min": "50",
           "max": "3000",
           "step": "1"
         },
@@ -689,12 +693,21 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient Weight (kg) * Constant * Hct (%) / (Circuit Prime (mL) + (Patient Weight (kg) * Constant))</span></div>"
+        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient Weight (kg) * Constant (mL/kg) * Hct (%) / (Circuit Prime (mL) + (Patient Weight (kg) * Constant (mL/kg)))</span></div>"
       },
       {
         "id": "patient_weight",
         "type": "number",
-        "label": "Enter Patient Weight (kg)"
+        "label": "Enter Patient Weight (kg) <span class='label-desc'>(range of 1(kg) - 275(kg))</span>",
+        "inputProps": {
+          "min": "1",
+          "max": "275",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "hematocrit",
@@ -730,17 +743,26 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>OI</b> = PAW(mmHg) * FiO2(%) * 100 PaO2 (mmHg)</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>OI</b> = PAW(mmHg) * FiO2(%) * 100 / PaO2 (mmHg)</div></div>"
       },
       {
         "id": "airway_pressure",
         "type": "number",
-        "label": "Enter PAW (mmHg) <span class='label-desc'>Mean airway pressure</span>"
+        "label": "Enter PAW (mmHg) <span class='label-desc'>Mean airway pressure <span class='label-desc'>(range of 0(cm H2O) – 100(cm H2O))</span></span>",
+        "inputProps": {
+          "min": "0.01",
+          "max": "1",
+          "step": "0.01"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen written as a decimal</span>",
+        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen written as a decimal <span class='label-desc'>(range of 0(%) – 1(%))</span></span>",
         "inputProps": {
           "min": "0.01",
           "max": "1",
@@ -754,7 +776,7 @@
       {
         "id": "pao2",
         "type": "number",
-        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen</span>",
+        "label": "Enter PaO2 (mmHg) <span class='label-desc'>Arterial partial pressure of oxygen <span class='label-desc'>(range of 0(mmHg) – 800(mmHg))</span></span>",
         "inputProps": {
           "min": "0",
           "max": "800",
@@ -833,17 +855,44 @@
       {
         "id": "pre_oxygen",
         "type": "number",
-        "label": "Enter SpreO2 <span class='label-desc'>(Pre-oxygenator oxygen saturation)</span>"
+        "label": "Enter SpreO2 <span class='label-desc'>(Pre-membrane lung oxygen saturation) <span class='label-desc'>(range of 0(%) – 100(%))</span></span>",
+        "inputProps": {
+          "min": "0",
+          "max": "100",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "venous_oxygen",
         "type": "number",
-        "label": "Enter SvO2 <span class='label-desc'>(Venous oxygen saturation)</span>"
+        "label": "Enter SvO2 <span class='label-desc'>(Venous oxygen saturation) <span class='label-desc'>(range of 0(%) – 100(%))</span></span>",
+        "inputProps": {
+          "min": "0",
+          "max": "100",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "id": "post_oxygen",
         "type": "number",
-        "label": "Enter SpostO2 <span class='label-desc'>(Post-oxygenator oxygen saturation)</span>"
+        "label": "Enter SpostO2 <span class='label-desc'>(Post-membrane lung oxygen saturation) <span class='label-desc'>(range of 0(%) – 100(%))</span></span>",
+        "inputProps": {
+          "min": "0",
+          "max": "100",
+          "step": "1"
+        },
+        "data": {
+          "onBlur": "enforceRange",
+          "onEnter": "enforceRange"
+        }
       },
       {
         "type": "operator",
