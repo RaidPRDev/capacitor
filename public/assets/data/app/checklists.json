@@ -84,11 +84,6 @@
         "class": ""
       }, 
       {
-        "label": "Anticoagulation with Intravenous Unfractionated Heparin (UFH)",
-        "branchTo": "ELSOBA_CHKLST_005",
-        "class": ""
-      },
-      {
         "label": "Drop in Platelet Count",
         "branchTo": "ELSOBA_CHKLST_065",
         "class": ""
@@ -2012,7 +2007,7 @@
           { "label": "Peripheral return cannulas of various sizes/lengths", "checked": false },
           { "label": "Central return cannulas of various sizes/lengths", "checked": false },
           { "label": "Distal perfusion cannula supplies and micropuncture kits", "checked": false },
-          { "label": "Additional stiff guidewires*", "checked": false },
+          { "label": "Additional stiff guidewires", "checked": false },
           { "label": "Hydrophilic guidewires for difficult insertions", "checked": false },
           { "label": "Angiographic catheters for guidewires exchange", "checked": false },
           { "label": "Angiographic needles various sizes", "checked": false },
@@ -2192,7 +2187,7 @@
         "items": [
           { "label": "Venous line diameter", "checked": false },
           { "label": "Pump maximum flow", "checked": false },
-          { "label": "Membrane lung/oxygenator size and rated flow", "checked": false },
+          { "label": "Membrane lung size and rated flow", "checked": false },
           { "label": "Arterial line size", "checked": false },
           { "label": "Priming volume (Clear/Blood)", "checked": false }
         ]        
@@ -4674,7 +4669,11 @@
                 "type": "subchecklist",
                 "layout": "checklist",
                 "items": [
-                  { "label": "Proceed to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##2' target='_self'>Assess the Return Cannula</a>.", "checked": false }
+                  { 
+                    "label": "Proceed to <a href='#' class='' data-link='CHECKLIST##ELSOBA_CHKLST_250##3' target='_self'>Assess the Return Cannula</a>.", 
+                    "type": "comment",
+                    "class": "note"
+                  }
                 ]
                 
               }
@@ -5786,11 +5785,11 @@
     "items": []
   },
   {
-    "id": "ELSOBA_CHKLST_FLOW_350__1",
+    "id": "ELSOBA_CHKLST_FLOW_350__2",
     "showTitle": false,
     "useScroll": true,
     "title": "Step 1: Reduce FDO",
-    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__1.html",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__2.html",
     "layout": "html",
     "branchTo": "",
     "items": []
