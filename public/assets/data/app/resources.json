@@ -51,11 +51,6 @@
         "class": ""
       }, 
       {
-        "label": "Anticoagulants Resources",
-        "branchTo": "ELSOBA_RES_080",
-        "class": "hide"
-      },   
-      {
         "label": "Medication Resources",
         "branchTo": "ELSOBA_RES_090",
         "class": ""
