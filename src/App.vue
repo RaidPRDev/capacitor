@@ -147,7 +147,7 @@ if (SHOW_DEBUG) console.log("SHOW_DEBUG", import.meta.env.SHOW_DEBUG)
     
     <AppToaster />
 
-    <AppDev v-if="true" />
+    <AppDev v-if="SHOW_DEBUG" />
   </div>
 </template>
 
