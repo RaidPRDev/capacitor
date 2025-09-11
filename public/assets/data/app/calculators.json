@@ -107,11 +107,11 @@
       {
         "id": "weight",
         "type": "number",
-        "label": "Enter Weight in Kilograms (kg) <span class='label-desc'>(range of 1.5–275 kg)</span>",
+        "label": "Enter Weight in Kilograms (kg) <span class='label-desc'>(range of 1–275 kg)</span>",
         "inputProps": {
-          "min": "1.5",
+          "min": "1",
           "max": "275",
-          "step": "0.1"
+          "step": "1"
         },
         "data": {
           "onBlur": "enforceRange",
@@ -144,11 +144,11 @@
       {
         "id": "weight",
         "type": "number",
-        "label": "Enter Weight in Kilograms (kg) <span class='label-desc'>(range of 1.5–275 kg)</span>",
+        "label": "Enter Weight in Kilograms (kg) <span class='label-desc'>(range of 1–275 kg)</span>",
         "inputProps": {
-          "min": "1.5",
+          "min": "1",
           "max": "275",
-          "step": "0.1"
+          "step": "1"
         },
         "data": {
           "onBlur": "enforceRange",
@@ -448,7 +448,7 @@
       {
         "id": "constant",
         "type": "number",
-        "label": "Enter mL/kg/min constant <span class='label-desc'>(range of 0-1000 mL/kg/min)</span>",
+        "label": "Enter mL/kg/min<span class='label-desc'>(range of 0-1000 mL/kg/min)</span>",
         "inputProps": {
           "min": "0",
           "max": "1000",
