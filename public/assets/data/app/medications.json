@@ -145,8 +145,8 @@
         "branchTo": "ELSOBA_MED_010__TABLE__3"
       },
       {
-        "label": "Monitoring Difficulty DTI Table",
-        "content": "Monitoring Difficulty DTI Table",
+        "label": "Monitoring DTI Challenges Table",
+        "content": "Monitoring DTI Challenges Table",
         "class": "",
         "branchTo": "ELSOBA_MED_010__TABLE__4"
       }
@@ -274,8 +274,8 @@
         "branchTo": "ELSOBA_MED_070__11"
       },
       {
-        "label": "Fresh Frozen Plasma",
-        "content": "Fresh Frozen Plasma",
+        "label": "Fresh Frozen Plasma°",
+        "content": "Fresh Frozen Plasma°",
         "class": "",
         "branchTo": "ELSOBA_MED_070__12"
       }
