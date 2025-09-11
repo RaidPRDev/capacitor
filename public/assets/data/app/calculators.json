@@ -702,7 +702,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hct (%)</b> = Patient Weight (kg) * Constant (mL/kg) * Hct (%) / (Circuit Prime (mL) + (Patient Weight (kg) * Constant (mL/kg)))</span></div>"
+        "label": "<div class='note blue mt-0 mb-0'><div class='mb-0-5'><b>Hctpost (%)</b> = Patient Weight (kg) * Constant (mL/kg) * Hctpre (%) / (Circuit Prime (mL) + (Patient Weight (kg) * Constant (mL/kg)))</span></div>"
       },
       {
         "id": "patient_weight",
