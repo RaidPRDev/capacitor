@@ -5055,7 +5055,7 @@
               { "label": "ELSO recommends:", "type": "list-comment", "class": "mxt-20 mxb-16" },
               { "label": "Adults 7.5–20 U/kg/hr and newborns 20–50 U/kg/hr.", "type": "list-comment", "class": "bullet ml-0" },
               { "label": "Adjust based on:", "type": "list-comment", "class": "bullet ml-0" },
-              { "label": "aPTT (goal: 1.5-2.5)", "type": "list-comment", "class": "bullet hollow ml-1" },
+              { "label": "aPTT ratio (goal of 1.5-2.5)", "type": "list-comment", "class": "bullet hollow ml-1" },
               { "label": "Anti-Xa levels (goal: 0.3-0.7 U/mL)", "type": "list-comment", "class": "bullet hollow ml-1" },
               { "label": "ACT", "type": "list-comment", "class": "bullet hollow ml-1" },
               { "label": "Viscoelastic tests", "type": "list-comment", "class": "bullet hollow ml-1 end-list-1" }
