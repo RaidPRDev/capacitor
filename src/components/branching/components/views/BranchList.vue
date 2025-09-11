@@ -44,6 +44,12 @@ function navigate(branchTo: string | null) {
       return;
     }
   }
+  else if (fromSectionID.indexOf("PANIC") > -1) {
+    if (toSectionID.indexOf("CHKLST") > -1) {
+      router.push(`/home/checklists/${toSectionID}`);
+      return;
+    }
+  }
   
   emit('navigate', branchTo);
 }

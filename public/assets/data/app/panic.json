@@ -36,8 +36,8 @@
       },
       {
         "label": "Coming Off ECMO Emergently",
-        "branchTo": "ELSOBA_PANIC_060",
-        "class": "disabled"
+        "branchTo": "ELSOBA_CHKLST_035",
+        "class": ""
       }
     ]
   },
