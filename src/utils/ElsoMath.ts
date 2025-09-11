@@ -589,7 +589,7 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bcmH2O\b/g, `cmH${sub2}O`],
     [/\bH2O\b/g, `H${sub2}O`],
     [/\bH2O3\b/g, `H${sub2}O<sup class='math-sup'>3</sup>`],
-    [/\bO2\b/g, `O${sub2wmr}<HtmlSpacer></HtmlSpacer>`],
+    [/\bO2\b/g, `O${sub2wmr}`],
     [/\bCO2\b/g, `CO${sub2wmr}`],
     [/\bCaO2\b/g, `CaO${sub2wmr}`],
     [/\bDO2i\b/g, `DO${sub2}i`],
