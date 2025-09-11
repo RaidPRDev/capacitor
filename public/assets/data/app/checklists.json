@@ -1618,7 +1618,7 @@
           },
           { "label": "Proceed to decannulation", "checked": false },
           { "label": "Consider surgical repair or hemostatic devices for arterial cannulas", "checked": false },
-          { "label": "Use mattress store in the skin for venous cannulas. Compression is not necessary unless there is formation.", "checked": false },
+          { "label": "Use mattress suture in the skin for venous cannulas. Compression is not necessary unless there is formation.", "checked": false },
           { "label": "If cutdown with ligation into the vessel, it will need surgical decannulation.", "checked": false },
           { 
             "label": "If one or more cannulas are still functional or required (also to be used as introducers for alternative cannula)", 
