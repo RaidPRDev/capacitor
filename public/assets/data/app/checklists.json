@@ -3491,9 +3491,8 @@
             ] 
           },
           { 
-            "label": "* Manage the patient based on continuous venous and arterial saturation monitoring. Calculate the variables if oxygen supply seems excessive or inadequate", 
-            "type": "comment",
-            "class": "note"
+            "label": "Manage the patient based on continuous venous and arterial saturation monitoring. Calculate the variables if oxygen supply seems excessive or inadequate.", 
+            "checked": false
           }
         ]
       }, 
@@ -3613,12 +3612,7 @@
             "layout": "checklist",
             "items": [
               { "label": "The amount of CO2 exchanged per minute is essentially the same as the amount of oxygen (120 cc/min/m2 for adults).", "checked": false },
-              { "label": "CO2 is much more soluble and diffusible in blood than O2, so CO2 clearance will exceed oxygenation in any circumstance.", "checked": false },
-              { 
-                "label": "<b>Note:</b> If CO2 clearance is the only or the major goal, much lower blood flow can be used, and hemoglobin concentration is not important.", 
-                "type": "comment",
-                "class": "note" 
-              }
+              { "label": "CO2 is much more soluble and diffusible in blood than O2, so CO2 clearance will exceed oxygenation in any circumstance.", "checked": false }
             ] 
           },
           { "label": "Sweep gas is adjusted to maintain the desired systemic partial pressure of carbon dioxide (pCO2).", "checked": false },
@@ -4383,7 +4377,7 @@
             "type": "comment"
           },
           {
-            "label": "Ramsey S, Shehatta AL, Ramanathan K, et al. <a href='#' data-link='https://journals.lww.com/asaiojournal/fulltext/2025/03000/extracorporeal_life_support_organization_2024.1.aspx' target='_blank'>Extracorporeal Life Support Organization 2024 Guideline for Early Rehabilitation or Mobilization of Adult Patients on Extracorporeal Membrane Oxygenation.</a> ASAIO J. 2025;71(3):187-199. doi:10.1097/MAT.0000000000002375",
+            "label": "Ramsey S, Shehatta AL, Ramanathan K, et al. <a href='#' data-link='https://journals.lww.com/asaiojournal/fulltext/2025/03000/extracorporeal_life_support_organization_2024.1.aspx' target='_blank'>Extracorporeal Life Support Organization 2024 Guideline for Early Rehabilitation or Mobilization of Adult Patients on Extracorporeal Membrane Oxygenation.</a> ASAIO J. 2025;71(3):187-199. doi:10.1097/MAT.0000000000002375. Epub 2025 Jan 30. PMID: 39883803.",
             "type": "comment"
           },
           {
