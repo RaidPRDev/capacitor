@@ -879,7 +879,7 @@
         "class": ""
       },     
       {
-        "label": "B. VA or VVA ECMO",
+        "label": "B. VA or V-VA ECMO",
         "branchTo": "ELSOBA_PANIC_040__STEP5",
         "class": ""
       } 
