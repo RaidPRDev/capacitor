@@ -650,7 +650,7 @@
       },
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'>Note: Normal oxygen delivery (DO2) in adults typically ranges from 500 to 600 mL/min/m2.</div>"
+        "label": "<div class='note mt-0-5 mb-0'>Note: Normal oxygen delivery (DO2i) in adults typically ranges from 500 to 600 mL/min/m2.</div>"
       },
       {
         "type": "operator",
@@ -752,15 +752,15 @@
     "items": [
       {
         "type": "heading",
-        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>OI</b> = PAW(mmHg) * FiO2(%) * 100 / PaO2 (mmHg)</div></div>"
+        "label": "<div class='note mt-0-5 mb-0'><div class='mb-0'><b>OI</b> = PAW(cm H2O) * FiO2 / PaO2 (mmHg)</div></div>"
       },
       {
         "id": "airway_pressure",
         "type": "number",
-        "label": "Enter PAW (mmHg) <span class='label-desc'>Mean airway pressure <span class='label-desc'>(range of 0–100 cm H2O)</span></span>",
+        "label": "Enter PAW (cm H2O) <span class='label-desc'>Mean airway pressure <span class='label-desc'>(range of 1–45 cm H2O)</span></span>",
         "inputProps": {
-          "min": "0",
-          "max": "100",
+          "min": "1",
+          "max": "45",
           "step": "1"
         },
         "data": {
@@ -771,11 +771,11 @@
       {
         "id": "fraction",
         "type": "number",
-        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen written as a decimal <span class='label-desc'>(range of 0–1%)</span></span>",
+        "label": "Enter FiO2(%) <span class='label-desc'>Fraction of inspired oxygen <span class='label-desc'>(range of 0–100)</span></span>",
         "inputProps": {
-          "min": "0.01",
-          "max": "1",
-          "step": "0.01"
+          "min": "0",
+          "max": "100",
+          "step": "1"
         },
         "data": {
           "onBlur": "enforceRange",

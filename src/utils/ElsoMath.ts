@@ -276,7 +276,7 @@ export function CalculateOxygenDelivery(params:CalculatorParamType):number {
   const CaO2 = (hemoglobin * 1.34 * (sao2 / 100)) + (0.003 * pao2);
 
   // Step 3 CaO2 * CI * 10
-  const DO2i = (CaO2 * flow * 10) / bsa;
+  const DO2i = (CaO2 * (flow / 1000) * 10) / bsa;
   
   return DO2i;  
 }
@@ -343,7 +343,8 @@ export function CalculateOI(params:CalculatorParamType):number {
   if (pao2 === 0) return 0;
 
   // Step 1
-  const OI_P1 = airway_pressure * fraction * 100;
+  // const OI_P1 = airway_pressure * (fraction / 100);
+  const OI_P1 = airway_pressure * fraction;
 
   // Step 2
   const OI_P2 = pao2;
