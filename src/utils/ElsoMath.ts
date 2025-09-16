@@ -1,4 +1,18 @@
 import { CalculatorParamType } from "@/types";
+import { isObjectEmpty } from "./ObjectTools";
+
+
+export interface ICalculationError {
+  value?: any;
+  error?: { 
+    message: string;
+    field: string;
+  } 
+}
+
+export type CalculationResult = number | ICalculationError;
+export type CalculationArgsData = Array<any> | null;
+
 
 /**
  * ELSOBA_CALC_010_01
@@ -7,13 +21,25 @@ import { CalculatorParamType } from "@/types";
  * BSA(m2) = √(height(cm) * weight(kg) / 3600)
  * 
  */
-export function BSAByWeightAndHeight(params:CalculatorParamType):number {
+export function BSAByWeightAndHeight(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const weight = params?.['weight'];
   const height = params?.['height'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (weight === 0) return 0;
   if (height === 0) return 0;
 
   const group = (height * weight) / 3600;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return Math.sqrt(group);
 }
 
@@ -24,11 +50,23 @@ export function BSAByWeightAndHeight(params:CalculatorParamType):number {
  * BSA(m2) = ((weight(kg) * 4) + 7) / (90 + weight(kg))
  * 
  */
-export function BSAByWeight(params:CalculatorParamType):number {
+export function BSAByWeight(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const weight = params?.['weight'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (weight === 0) return 0;
 
   const group = ((weight * 4) + 7) / (90 + weight);
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -39,11 +77,23 @@ export function BSAByWeight(params:CalculatorParamType):number {
  * ft * 12in/ft * 2.54cm/in = cm
  * 
  */
-export function ConvertFeetToCentimeters(params:CalculatorParamType):number {
+export function ConvertFeetToCentimeters(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const feet = params?.['feet'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (feet === 0) return 0;
 
   const group = feet * 12 * 2.54;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -54,11 +104,23 @@ export function ConvertFeetToCentimeters(params:CalculatorParamType):number {
  * ft * 12in/ft * 2.54cm/in = cm
  * 
  */
-export function ConvertInchesToCentimeters(params:CalculatorParamType):number {
+export function ConvertInchesToCentimeters(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const inches = params?.['inches'];
-if (inches === 0) return 0;
+  
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+  
+  if (inches === 0) return 0;
 
   const group = inches * 2.54;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -69,11 +131,23 @@ if (inches === 0) return 0;
  * ft * 12in/ft * 2.54cm/in = cm
  * 
  */
-export function ConvertPoundsToKilograms(params:CalculatorParamType):number {
+export function ConvertPoundsToKilograms(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const pounds = params?.['pounds'];
+  
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+  
   if (pounds === 0) return 0;
 
   const group = pounds / 2.2;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -84,11 +158,23 @@ export function ConvertPoundsToKilograms(params:CalculatorParamType):number {
  * °C = 5/9 * (°F - 32)
  * 
  */
-export function ConvertFarenheitToCelcius(params:CalculatorParamType):number {
+export function ConvertFarenheitToCelcius(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const farenheit = params?.['farenheit'];
+  
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+  
   if (farenheit === 0) return 0;
 
   const group = (5 / 9) * (farenheit - 32);
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -99,11 +185,23 @@ export function ConvertFarenheitToCelcius(params:CalculatorParamType):number {
  * 1 Fr = ⅓ mm
  * 
  */
-export function ConvertFrenchGaugeToMillimeters(params:CalculatorParamType):number {
+export function ConvertFrenchGaugeToMillimeters(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const frenchGauge = params?.['frenchGauge'];
+  
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+  
   if (frenchGauge === 0) return 0;
 
   const group = frenchGauge * (1 / 3);
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -114,11 +212,23 @@ export function ConvertFrenchGaugeToMillimeters(params:CalculatorParamType):numb
  * 1 Fr = ⅓ mm
  * 
  */
-export function ConvertMillimetersToKilopascals(params:CalculatorParamType):number {
+export function ConvertMillimetersToKilopascals(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const millimeters = params?.['millimeters'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (millimeters === 0) return 0;
 
   const group = millimeters / 7.501;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+  
   return group;  
 }
 
@@ -129,11 +239,23 @@ export function ConvertMillimetersToKilopascals(params:CalculatorParamType):numb
  * 1 Fr = ⅓ mm
  * 
  */
-export function ConvertMillilitersToLiters(params:CalculatorParamType):number {
+export function ConvertMillilitersToLiters(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const milliliters = params?.['milliliters'];
+  
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+  
   if (milliliters === 0) return 0;
 
   const group = milliliters / 1000;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -145,11 +267,23 @@ export function ConvertMillilitersToLiters(params:CalculatorParamType):number {
  * 1 cmH2O = 0.735 mmHg
  * 
  */
-export function Convert_mmHg_To_cmH2O(params:CalculatorParamType):number {
+export function Convert_mmHg_To_cmH2O(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   const mmhg_val = params?.['mmhg_val'];
+  
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+  
   if (mmhg_val === 0) return 0;
   
   const group = (mmhg_val / 0.73556);
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -161,11 +295,23 @@ export function Convert_mmHg_To_cmH2O(params:CalculatorParamType):number {
  * 1 cmH2O = 0.735 mmHg
  * 
  */
-export function Convert_cmH2O_To_mmHg(params:CalculatorParamType):number {
+export function Convert_cmH2O_To_mmHg(params:CalculatorParamType, data: CalculationArgsData = null):CalculationResult {
   const cmh2o_val = params?.['cmh2o_val'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (cmh2o_val === 0) return 0;
 
   const group = (cmh2o_val * 0.73556);
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -176,13 +322,25 @@ export function Convert_cmH2O_To_mmHg(params:CalculatorParamType):number {
  * Flow (cc/min)= mL/kg/min * kg
  * 
  */
-export function CalculateBloodFlowByWeight(params:CalculatorParamType):number {
+export function CalculateBloodFlowByWeight(params:CalculatorParamType, data: CalculationArgsData = null):CalculationResult {
   
   const CC_KG_MIN = params?.['constant'];
   const weight = params?.['weight'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (weight === 0) return 0;
   
   const group = (weight * CC_KG_MIN) / 1000;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -193,26 +351,44 @@ export function CalculateBloodFlowByWeight(params:CalculatorParamType):number {
  * Flow (cc/min)= cc/kg/min * kg
  * 
  */
-export function CalculateOxygenTransferOLD(params:CalculatorParamType):number {
+export function CalculateOxygenTransferOLD(params:CalculatorParamType, data: CalculationArgsData = null):CalculationResult {
   
   const arterial_saturation = params?.['arterial_saturation'];
   const venous_saturation = params?.['venous_saturation'];
   const hemoglobin = params?.['hemoglobin'];
   const flow = params?.['flow'];
 
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (arterial_saturation === 0) return 0;
   if (hemoglobin === 0) return 0;
   if (flow === 0) return 0;
   
   const group = 1.34 * hemoglobin * (arterial_saturation - venous_saturation) * flow / 100;
+  
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
-export function CalculateOxygenTransfer(params:CalculatorParamType):number {
+
+export function CalculateOxygenTransfer(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   
   const arterial_saturation = params?.['arterial_saturation'];
   const venous_saturation = params?.['venous_saturation'];
   const hemoglobin = params?.['hemoglobin'];
   const flow = params?.['flow'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // // console.error("Validation Error", params);
+    return test;
+  }
 
   if (arterial_saturation === 0) return 0;
   if (hemoglobin === 0) return 0;
@@ -231,14 +407,14 @@ export function CalculateOxygenTransfer(params:CalculatorParamType):number {
     Art Sat - 100
     Ven Sat - 70
     Flow - 5000
-
-
-
-
   */
 
-
   const group = 1.34 * hemoglobin * ( (arterial_saturation - venous_saturation) / 100 ) * flow / 100;
+
+  if (!isObjectEmpty(isResultOutOfRange(group))) {
+    return isResultOutOfRange(group);
+  }
+
   return group;  
 }
 
@@ -251,13 +427,19 @@ export function CalculateOxygenTransfer(params:CalculatorParamType):number {
  * CaO2 = (Hb * 1.34)(SaO2 / 100) + (0.003 * PaO2) 
  * DO2i = CaO2 * CI * 10
  */
-export function CalculateOxygenDelivery(params:CalculatorParamType):number {
+export function CalculateOxygenDelivery(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   
   const flow = params?.['flow'];
   const bsa = params?.['bsa'];
   const hemoglobin = params?.['hemoglobin'];
   const sao2 = params?.['sao2'];
   const pao2 = params?.['pao2'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
 
   if (flow === 0) return 0;
   if (bsa === 0) return 0;
@@ -278,6 +460,10 @@ export function CalculateOxygenDelivery(params:CalculatorParamType):number {
   // Step 3 CaO2 * CI * 10
   const DO2i = (CaO2 * (flow / 1000) * 10) / bsa;
   
+  if (!isObjectEmpty(isResultOutOfRange(DO2i))) {
+    return isResultOutOfRange(DO2i);
+  }
+
   return DO2i;  
 }
 
@@ -295,20 +481,20 @@ export function CalculateOxygenDelivery(params:CalculatorParamType):number {
  * Patient weight (kg) * constant * Hct / Circuit Prime + (patient weight (kg) * constant) = X%
  * 
  */
-export function CalculateHct(params:CalculatorParamType):number {
+export function CalculateHct(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   
   const constant = params?.['constant'];
   const total_circuit_volume = params?.['total_circuit_volume'];
-  // const membrane_volume = params?.['membrane_volume'];
-  // const tubing_volume = params?.['tubing_volume'];
-  // const pump_volume = params?.['pump_volume'];
   const patient_weight = params?.['patient_weight'];
   const hematocrit = params?.['hematocrit'];
 
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
+
   if (total_circuit_volume === 0) return 0;
-  // if (membrane_volume === 0) return 0;
-  // if (tubing_volume === 0) return 0;
-  // if (pump_volume === 0) return 0; // depends on
   if (patient_weight === 0) return 0;
   if (hematocrit === 0) return 0;
 
@@ -319,6 +505,10 @@ export function CalculateHct(params:CalculatorParamType):number {
   const POST_HCT_P1 = patient_weight * constant * hematocrit;
   const POST_HCT_P2 = CIRCUIT_PRIME + (patient_weight * constant);
   const POST_HCT = POST_HCT_P1 / POST_HCT_P2;
+
+  if (!isObjectEmpty(isResultOutOfRange(POST_HCT))) {
+    return isResultOutOfRange(POST_HCT);
+  }
 
   return POST_HCT;  
 }
@@ -332,24 +522,35 @@ export function CalculateHct(params:CalculatorParamType):number {
  * PaO2 = 
  * 
  */
-export function CalculateOI(params:CalculatorParamType):number {
-  
+export function CalculateOI(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
+  // console.log("CalculateOI.params", params)
+  // console.log("CalculateOI.data", data)
+
   const airway_pressure = params?.['airway_pressure'];
   const fraction = params?.['fraction'];
   const pao2 = params?.['pao2'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
 
   if (airway_pressure === 0) return 0;
   if (fraction === 0) return 0;
   if (pao2 === 0) return 0;
 
   // Step 1
-  // const OI_P1 = airway_pressure * (fraction / 100);
   const OI_P1 = airway_pressure * fraction;
 
   // Step 2
   const OI_P2 = pao2;
 
   const POST_OI = OI_P1 / OI_P2;
+
+  if (!isObjectEmpty(isResultOutOfRange(POST_OI))) {
+    return isResultOutOfRange(POST_OI);
+  }
 
   return POST_OI;  
 }
@@ -362,15 +563,27 @@ export function CalculateOI(params:CalculatorParamType):number {
  * FiO2(%) = fraction of inspired oxygen, as a decimal
  * 
  */
-export function CalculatePF(params:CalculatorParamType):number {
-  
+export function CalculatePF(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
+  // console.log("CalculatePF.params", params)
+  // console.log("CalculatePF.data", data)
+
   const airway_pressure = params?.['oxygen_pressure'];
   const fraction = params?.['fraction'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
 
   if (airway_pressure === 0) return 0;
   if (fraction === 0) return 0;
 
   const POST_PF = airway_pressure / fraction;
+
+  if (!isObjectEmpty(isResultOutOfRange(POST_PF))) {
+    return isResultOutOfRange(POST_PF);
+  }
 
   return POST_PF;  
 }
@@ -384,11 +597,17 @@ export function CalculatePF(params:CalculatorParamType):number {
  * SpostO2 — post-oxygenator oxygen saturation
  * 
  */
-export function CalculateRP(params:CalculatorParamType):number {
+export function CalculateRP(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
   
   const pre_oxygen = params?.['pre_oxygen'];
   const venous_oxygen = params?.['venous_oxygen'];
   const post_oxygen = params?.['post_oxygen'];
+
+  const test = validateInputParams(params, data);
+  if (isNaN(test as number)) {
+    // console.error("Validation Error", params);
+    return test;
+  }
 
   if (pre_oxygen === 0) return 0;
   if (venous_oxygen === 0) return 0;
@@ -398,6 +617,11 @@ export function CalculateRP(params:CalculatorParamType):number {
   const RP_P2 = ( post_oxygen - venous_oxygen );
 
   const POST_RP = (RP_P1 / RP_P2) * 100;
+  
+  if (!isObjectEmpty(isResultOutOfRange(POST_RP))) {
+    return isResultOutOfRange(POST_RP);
+  }
+
   return POST_RP;
 }
 
@@ -464,46 +688,30 @@ export function Calculate_1_2_Tubing(params:CalculatorParamType):number {
  * INPUT Utils
  * 
  */
-// export function enforceRange(input: HTMLInputElement) {
-//   // Parse input value as a float
-//   let value = parseFloat(input.value);
 
-//   // Check if the value is out of bounds and clamp if necessary
-//   if (value < 0.01) input.value = "0.01";
-//   else if (value > 1) input.value = "1";
-// }
+function validateInputParams(params: any, data: any) {
+  // console.log("validateInputParams", params, data);  
+  
+  for (let key in params) {
+    const validationResult = validateInputs(key, params[key], data);
+    if (validationResult?.hasOwnProperty("error")) {
+      return validationResult;
+    }
+  }
 
-// export function enforceRangeV2(input: HTMLInputElement): { error: string, min?: number, max?: number } {
-//   // Parse input value as a float
-//   let value = parseFloat(input.value);
-//   if (isNaN(value)) {
-//     value = 0;
-//   }
-
-//   const min = parseFloat(input.min);
-//   const max = parseFloat(input.max);
-
-//   let result = { error: "", min, max }
-
-//   // Check if the value is out of bounds and clamp if necessary
-//   if (value <= min) {
-//     input.value = min.toString();
-//     result.error = `Please enter a number between ${min.toString()} and ${max.toString()}.`;
-//   }
-//   else if (value >= max) {
-//     input.value = max.toString();
-//     result.error = `Please enter a number between ${min.toString()} and ${max.toString()}.`;
-//   }
-
-//   return result;
-// }
+  return 0;
+}
 
 export interface IMathEnforeRangeParams {
+  id?: string;
   value: string;
-  min: string, 
-  max: string
+  min: string; 
+  max: string;
 }
+
 export function enforceRange(input: IMathEnforeRangeParams): { error: string, min?: number, max?: number, value?: string } {
+  // console.log("enforceRange", input)
+  
   // Parse input value as a float
   let numberValue = parseFloat(input.value);
   if (isNaN(numberValue)) {
@@ -515,14 +723,20 @@ export function enforceRange(input: IMathEnforeRangeParams): { error: string, mi
 
   let result = { error: "", min, max, value: input.value }
 
+  if (input.value.length === 0) {
+    // console.log("EMPTY INPUT", input.value);
+    result.error = `[${input.id}] This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
+    return result;
+  }
+
   // Check if the value is out of bounds and clamp if necessary
   if (numberValue < min) {
-    result.value = min.toString();
-    result.error = `This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
+    // result.value = min.toString();
+    result.error = `[${input.id}] This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
   }
   else if (numberValue > max) {
-    result.value = max.toString();
-    result.error = `This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
+    // result.value = max.toString();
+    result.error = `[${input.id}] This is outside the range of ${min.toString()} and ${max.toString()}. Please adjust your value(s).`;
   }
 
   return result;
@@ -633,47 +847,75 @@ export function convertMathSymbols(input: string | undefined): string {
 
   return input;
 }
-// export function convertMathSymbols(input: string | undefined): string {
-//   if (input === undefined) return "";
-  
-//   const sup2 = `<sup class='math-sup'>2</sup>`
-//   const sub2 = `<sub class='math-sub'>2</sub>`
-//   const sub2wmr = `<sub class='math-sub mr-pad'>2</sub>`
 
-//   return input
-//     .replace(/\bsqrt\(/g, `√(`)
-//     .replace(/\^2\b/g, `²`)
-//     .replace(/\^3\b/g, `³`)
-//     .replace(/\bpi\b/gi, `π`)
-//     .replace(/\btheta\b/gi, `θ`)
-//     .replace(/\balpha\b/gi, `α`)
-//     .replace(/\bbeta\b/gi, `β`)
-//     .replace(/\bH2O\b/g, `H${sub2}O`)
-//     .replace(/\bO2\b/g, `O${sub2wmr}`)
-//     .replace(/\bCO2\b/g, `CO${sub2wmr}`)
-//     .replace(/\bCaO2\b/g, `CaO${sub2wmr}`)
-//     .replace(/\bDO2\b/g, `DO${sub2wmr}`)
-//     .replace(/\bDO2i\b/g, `DO${sub2}i`)
-//     .replace(/\bVO2\b/g, `VO${sub2wmr}`)
-//     .replace(/\bFDO2\b/g, `FDO${sub2wmr}`)
-//     .replace(/\bSvO2\b/g, `SvO${sub2wmr}`)
-//     .replace(/\bSaO2\b/g, `SaO${sub2wmr}`)
-//     .replace(/\bSpO2\b/g, `SpO${sub2wmr}`)
-//     .replace(/\bSpreO2\b/g, `S<sub class='math-sub'>pre</sub>O${sub2wmr}`)
-//     .replace(/\bSpostO2\b/g, `S<sub class='math-sub'>post</sub>O${sub2wmr}`)
-//     .replace(/\bFsO2\b/g, `FsO${sub2wmr}`)
-//     .replace(/\bFiO2\b/g, `FiO${sub2wmr}`)
-//     .replace(/\bPAW\b/g, `P<sub class='math-sub pad'>AW</sub>`)
-//     .replace(/\bParO2\b/g, `ParO${sub2wmr}`)
-//     .replace(/\bPaO2\b/g, `PaO${sub2wmr}`)
-//     .replace(/\bPaCO2\b/g, `PaCO${sub2wmr}`)
-//     .replace(/\bPO2\b/g, `PO${sub2wmr}`)
-//     .replace(/\bPCO2\b/g, `PCO${sub2wmr}`)
-//     .replace(/\bpCO2\b/g, `PCO${sub2wmr}`)
-//     .replace(/\bmmH2O\b/g, `mmH${sub2}O`)
-//     .replace(/\bmm3\b/g, `mm³`)
-//     .replace(/\bmL\/min\/m2\b/g, `mL/min/m${sup2}`)
-//     .replace(/\bm2\b/g, `m${sup2}`)
-//     .replace(/\bVMLO2\b/g, `VMLO${sub2wmr}`)
-//     .replace(/\bVMLCO2\b/g, `VMLCO${sub2wmr}`);
-// }
+export function validateInputs(id: string, value: number, data:any): CalculationResult {
+  // console.log(`validateInputs[${id}]`, value);
+
+  let searchID: string = "", searchParam: any = null, searchIndex: number = -1;
+  if (data && Array.isArray(data)) {
+    searchID = id;
+    searchIndex = data.findIndex((item) => item.id === searchID);
+    if (searchIndex > -1) {
+      searchParam = data[searchIndex];
+    }
+
+    // console.log(`CalculateOI.searchParam[${searchID}]`, searchParam);
+    if (searchParam) {
+      if (searchParam?.inputProps) {
+        // let _min = -1, _max = -1, _step = -1;
+        const _min = parseFloat(searchParam.inputProps?.['min']) ?? -1;
+        const _max = parseFloat(searchParam.inputProps?.['max']) ?? -1;
+
+        if (isNaN(value) || value === 0) {
+          // return value if min is zero
+          if (_min === 0 && value === 0) {
+            return value;
+          }
+          
+          return {
+            value: value ?? "",
+            error: {
+              message: `[${id}] is outside the range of ${_min} and ${_max}. Please adjust your value(s).`,
+              field: searchID
+            }
+          };
+        }
+
+        if (value < _min) {
+          console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
+          return {
+            value: value,
+            error: {
+              message: `[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s).`,
+              field: searchID
+            }
+          };
+        }
+        else if (value > _max) {
+          console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
+          return {
+            value: value,
+            error: {
+              message: `[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s).`,
+              field: searchID
+            }
+          };
+        }
+      }
+    }
+  }
+
+  return value;
+}
+
+export function isResultOutOfRange(value: any): CalculationResult {
+  // confirm result value is not out of range
+  if (value === Infinity || value === -Infinity) {
+    return {
+      error: { message: `Result is out of range [${value}]`, field: "" },
+      value: 0
+    };
+  }
+
+  return {};
+}

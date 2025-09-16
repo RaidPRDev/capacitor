@@ -39,7 +39,10 @@ import {
   Calculate_3_8_Tubing,
   Calculate_1_2_Tubing,
   enforceRange,
-  convertMathSymbols
+  convertMathSymbols,
+  CalculationResult,
+  ICalculationError,
+  IMathEnforeRangeParams
   
 } from '@/utils/ElsoMath';
 import { copyToClipboard } from '@/utils/StringTools';
@@ -99,11 +102,13 @@ defineEmits<{
 // Component State Setup
 interface IState {
   result: number;
+  resultError: ICalculationError | null,
   isCopying: boolean;
 }
 
 const state:IState = reactive({
   result: 0,
+  resultError: null,
   isCopying: false
 })
 
@@ -152,9 +157,6 @@ const computedList = computed(() => {
     return filtered;
   }
   
-  // if (mounted.value) return (props.view?.items as InputListItemType[])?.filter((item) => {
-  //   return (item?.type !== "operator") 
-  // }) as InputListItemType[]
   return null;
 })
 
@@ -173,10 +175,50 @@ function calculate() {
         // console.log("inputController", inputController)
         // console.log("inputController", inputController[index.toString()])
 
-        const numberVal = parseFloat(inputController[index.toString()].controlledValue);
-        // const numberVal = findAndReturnItemRefValueByID(curr?.id!);
+        if (inputController[index.toString()]) {
+          
+          if (inputController[index.toString()].hasOwnProperty("controlledValue")) {
+            const controlled = inputController[index.toString()].controlledValue;
+            if (controlled.length === 0) {
+              const fieldErrorIndex = computedList.value?.findIndex((cItem) => cItem?.id === curr?.id);
+              if (fieldErrorIndex && fieldErrorIndex > -1) {
+                const el = findAndReturnItemRefElement(computedList.value?.[fieldErrorIndex]?.id!);
+                const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
+                const inputProps = curr.inputProps as IMathEnforeRangeParams;
+                
+                let inputResult: any = {};
+                if (inputProps) {
+                  inputResult = enforceRange({ ...inputProps, value: "", id: curr?.id! });
 
-        calculationDetails[curr?.id!] = isNaN(numberVal) ? 0 : numberVal;
+                  setInputController({
+                    item: {
+                      ...computedList.value?.[fieldErrorIndex],
+                      index: parseInt(input.dataset.index!)
+                    }
+                  }, {
+                    ...items[fieldErrorIndex]?.inputProps,
+                    error: inputResult.error,
+                    value: controlled
+                  });
+
+                  window.requestAnimationFrame(async () => {
+                    state.resultError = { 
+                      error: { message: `${inputResult.error}`, field: `${curr?.id}` },
+                      value: ""
+                    }
+
+                    await nextTick();
+
+                    scrollToBottom();
+                  })
+                }
+              }
+            }
+          }
+          
+          const numberVal = parseFloat(inputController[index.toString()].controlledValue);
+          calculationDetails[curr?.id!] = isNaN(numberVal) ? 0 : numberVal;
+        }
       break;
       
       case "dropdown":
@@ -189,7 +231,31 @@ function calculate() {
         // console.log("operationState", curr)
         // console.log("calculationDetails", calculationDetails)
         // console.log("items", items)
-        return calculationFunctions[operationState as string](calculationDetails);
+        
+        let result = calculationFunctions[operationState as string](calculationDetails, items);
+
+        if (result?.hasOwnProperty("error")) {
+          const fieldErrorIndex = computedList.value?.findIndex((cItem) => cItem?.id === result?.error?.field);
+          if (fieldErrorIndex && fieldErrorIndex > -1) {
+            const el = findAndReturnItemRefElement(computedList.value?.[fieldErrorIndex]?.id!);
+            const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
+
+            if (result.value !== undefined) {
+              setInputController({
+                item: {
+                  ...computedList.value?.[fieldErrorIndex],
+                  index: parseInt(input.dataset.index!)
+                }
+              }, {
+                ...items[fieldErrorIndex]?.inputProps,
+                error: result.error.message,
+                value: result.value
+              });
+            }
+          }
+        }
+
+        return result;
     }
     
     
@@ -197,16 +263,28 @@ function calculate() {
   }, 0);
 
   // fix to 2 decimals
-  state.result = parseFloat(__result.toFixed(2));
+  if (!isNaN(__result)) {
+    state.result = parseFloat(__result.toFixed(2));
+    state.resultError = null;    
+  }
+  else {
+    // console.error("result.error", __result);
+    state.result = 0;
+    state.resultError = (__result as ICalculationError);
+    scrollToBottom();
+  }
 }
 
 function reset() {
   baseFormRef.value?.reset();
   state.result = 0;
+  state.resultError = null;
 
   // reset error fields if any
   for (const key in inputController) {
-    delete inputController[key];
+    inputController[key].controlledValue = "";
+    inputController[key].error = null;
+    // delete inputController[key];
   }
 }
 
@@ -282,10 +360,19 @@ function setFocusToResult() {
   document.getElementById(`result-label`)?.focus();
 }
 
-function setInputController(data: any, result: { error: string, min?: number, max?: number, value: string }) {
-  
+interface IMathInputResult {
+  error: string;
+  min?: number;
+  max?: number; 
+  value: string;
+}
+
+function setInputController(data: any, result: IMathInputResult) {
+  // console.log("setInputController", data, result)
+  // console.log("setInputController.data.item.index", data.item.index)
+
   const params: IUtilsObject = {
-    controlledValue: result.value,
+    controlledValue: result.value.toString(),
     error: null
   }
 
@@ -297,15 +384,19 @@ function setInputController(data: any, result: { error: string, min?: number, ma
       message: result.error,
     }
   }
-  
+
   inputController[data.item.index.toString()] = params;
 }
 
 // @private
 function __onBlur(data: any) {
   if (!data) return;
+  // console.warn("__onBlur", data);
 
+  const id = computedList.value?.[data.item.index]?.id!;
   const dataProps = computedList.value?.[data.item.index]?.data!;
+  // console.log("__onBlur.dataProps", dataProps);
+  // console.log("__onBlur.computedList", computedList.value?.[data.item.index]);
 
   const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
   const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
@@ -316,7 +407,8 @@ function __onBlur(data: any) {
       const result = mathUtilFunctions[dataProps['onBlur'] as string]({
         value: input.value,
         min: input.min,
-        max: input.max
+        max: input.max,
+        id: id
       });
       // apply error label to specific input field
       setInputController(data, result);
@@ -334,32 +426,35 @@ function __onBlur(data: any) {
 function __onInput(data: any) {
   if (!data) return;
 
-  const dataProps = computedList.value?.[data.item.index]?.data!;
+  // const dataProps = computedList.value?.[data.item.index]?.data!;
 
-  if (dataProps?.hasOwnProperty(`onInput`)) {
-    const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
-    const input = el?.accessoryIconRef()?.inputRef();
+  // if (dataProps?.hasOwnProperty(`onInput`)) {
+  //   const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
+  //   const input = el?.accessoryIconRef()?.inputRef();
 
-    if (mathUtilFunctions.hasOwnProperty(dataProps['onInput'])) {
-      const result = mathUtilFunctions[dataProps['onInput'] as string](input);
+  //   if (mathUtilFunctions.hasOwnProperty(dataProps['onInput'])) {
+  //     const result = mathUtilFunctions[dataProps['onInput'] as string](input);
 
-      // apply error label to specific input field
-      setInputController(data, result);
-    }
-    else {
-      console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onInput']}''`);
-    }          
-  }
+  //     // apply error label to specific input field
+  //     setInputController(data, result);
+  //   }
+  //   else {
+  //     console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onInput']}''`);
+  //   }          
+  // }
 }
 
 // @private
 function __onEnter(data: any) {
   if (!data) return;
 
-  calculate();
-  setFocusToResult();
+  console.warn("__onEnter", data);
+
+  // calculate();
+  // setFocusToResult();
 
   const dataProps = computedList.value?.[data.item.index]?.data!;
+  const id = computedList.value?.[data.item.index]?.id!;
 
   const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
   const input = el?.accessoryIconRef()?.inputRef();
@@ -369,7 +464,8 @@ function __onEnter(data: any) {
       const result = mathUtilFunctions[dataProps['onEnter'] as string]({
         value: input.value,
         min: input.min,
-        max: input.max
+        max: input.max,
+        id: id
       });
 
       // apply error label to specific input field
@@ -383,6 +479,21 @@ function __onEnter(data: any) {
     setInputController(data, { value: input.value, error: "" });
   }
 }
+
+async function scrollToBottom() {
+  
+  const view = document.querySelector(".branch-view");
+
+  await nextTick();
+
+  if (view && view.parentElement) {
+    // view.parentElement.scrollTop = view.parentElement.scrollHeight;
+    view.parentElement.scrollTo({
+      top: view.parentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  }
+};
 
 onMounted(async () => {
   setTimeout(() => mounted.value = true, 75);  
@@ -425,52 +536,53 @@ onMounted(async () => {
   </div>
 
   <form ref="baseFormRef" class="branch-input-container">
-  <BaseList class="items-list gapx-8" :dataProvider="computedList">
-    <template v-slot:listItemSlot="data">
-      
-      <BaseButton 
-        v-if="!computedList?.[data.item.index]?.hidden 
-        && computedList?.[data.item.index]?.type === `number`"
-        :ref="setItemsRef"
-        :type="`button`"
-        :class="`width-100 pointer-none disable-animation`" 
-        :innerClassName="`px-0 flex-column align-start`"
-        :bodyClassName="`text-left`"
-        :label="data.item.label"
-        :labelClassName="`input-label mxb-12`"
-        :accessoryIcon="BaseInput"
-        :accessoryIconClassName="`width-100`"
-        :accessoryIconProps="{ 
-          controlledValue: inputController?.[data.item.index]?.controlledValue,
-          error: inputController?.[data.item.index]?.error,
-          placeholder: `Enter value`,
-          
-          ...computedList?.[data.item.index]?.inputProps,          
-          id: computedList?.[data.item.index]?.id, 
-          type: computedList?.[data.item.index]?.type, 
-          class: `pointer-all`, 
-          containerClass: `variant-calc pointer-all width-inherit ${computedList?.[data.item.index]?.inputProps?.containerClass ?? ``}`, 
-          elementClass: `base-control px-12 text-center ${computedList?.[data.item.index]?.inputProps?.elementClass ?? ``}`,
-          onBlur: () => __onBlur(data),
-          onInput: () => __onInput(data),
-          onEnter: () => __onEnter(data),
-        }"
-      />
-      <BaseComboBox v-else-if="!computedList?.[data.item.index]?.hidden 
-        && computedList?.[data.item.index]?.type === `dropdown`"
-        :ref="setItemsRef"
-        :options="data.item.data"
-        :id="computedList?.[data.item.index]?.id"
-        :label="data.item.label"
-        :icon="ChevronRightIcon"
-      />
-      <div v-else-if="!computedList?.[data.item.index]?.hidden 
-        && computedList?.[data.item.index]?.type === `heading`" 
-        v-html="computedList?.[data.item.index]?.label"
-        :class="[`heading`, computedList?.[data.item.index]?.class]">
-      </div>
-    </template>
-  </BaseList>
+    <BaseList class="items-list gapx-8" :dataProvider="computedList">
+      <template v-slot:listItemSlot="data">
+        
+        <BaseButton 
+          v-if="!computedList?.[data.item.index]?.hidden 
+          && computedList?.[data.item.index]?.type === `number`"
+          :ref="setItemsRef"
+          :type="`button`"
+          :class="`width-100 pointer-none disable-animation`" 
+          :innerClassName="`px-0 flex-column align-start`"
+          :bodyClassName="`text-left`"
+          :label="data.item.label"
+          :labelClassName="`input-label mxb-12`"
+          :accessoryIcon="BaseInput"
+          :accessoryIconClassName="`width-100`"
+          :accessoryIconProps="{ 
+            controlledValue: inputController?.[data.item.index]?.controlledValue,
+            error: inputController?.[data.item.index]?.error,
+            placeholder: `Enter value`,
+            
+            ...computedList?.[data.item.index]?.inputProps,          
+            id: computedList?.[data.item.index]?.id, 
+            type: computedList?.[data.item.index]?.type, 
+            index: data.item.index,
+            class: `pointer-all`, 
+            containerClass: `variant-calc pointer-all width-inherit ${computedList?.[data.item.index]?.inputProps?.containerClass ?? ``}`, 
+            elementClass: `base-control px-12 text-center ${computedList?.[data.item.index]?.inputProps?.elementClass ?? ``}`,
+            onBlur: () => __onBlur(data),
+            onInput: () => __onInput(data),
+            onEnter: () => __onEnter(data),
+          }"
+        />
+        <BaseComboBox v-else-if="!computedList?.[data.item.index]?.hidden 
+          && computedList?.[data.item.index]?.type === `dropdown`"
+          :ref="setItemsRef"
+          :options="data.item.data"
+          :id="computedList?.[data.item.index]?.id"
+          :label="data.item.label"
+          :icon="ChevronRightIcon"
+        />
+        <div v-else-if="!computedList?.[data.item.index]?.hidden 
+          && computedList?.[data.item.index]?.type === `heading`" 
+          v-html="computedList?.[data.item.index]?.label"
+          :class="[`heading`, computedList?.[data.item.index]?.class]">
+        </div>
+      </template>
+    </BaseList>
   </form>
 
   <transition name="nested" appear>
@@ -492,6 +604,10 @@ onMounted(async () => {
       <div id="result-label" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result }}
       </div>
+      <div v-if="state.resultError" id="result-error" class="result-error width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
+        {{ state.resultError.error?.message }}
+      </div>
+
     </div>
   </transition >
   
@@ -589,6 +705,13 @@ onMounted(async () => {
   font-size: 20px;
 
   @include makeTextSelectable();
+}
+
+.result-error {
+  margin: 0.25rem 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: red;
 }
 
 </style>

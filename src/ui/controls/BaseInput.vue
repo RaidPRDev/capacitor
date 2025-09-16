@@ -137,6 +137,7 @@ watch(props, (({ error }) =>
               ['required']: props.required && !props.disabled }
             ],
           id: props.id,
+          'data-index': props?.index ?? ``,
           type: props.type,
           pattern: props.pattern,
           name: props.name,

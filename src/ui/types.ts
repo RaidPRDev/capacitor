@@ -109,6 +109,7 @@ export interface IBaseInputProps extends IBaseControl {
   modelValue?: string;
   controlledValue?: string;
   id?: string;
+  index?: number;
   type?: string;
   name?: string;
   placeholder?: string;
