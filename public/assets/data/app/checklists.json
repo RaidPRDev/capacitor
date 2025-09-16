@@ -1495,7 +1495,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Brogan, T. V., Lequier, L., Lorusso, R., MacLaren, G., & Peek, G. (2023). Extracorporeal life support: The ELSO Red Book (6th ed.). Chapters 4 and 7 , Extracorporeal Life Support Organization. <a href='#' data-link='https://www.elso.org/publications.aspx' target='_blank'>https://www.elso.org/publications.aspx</a>.",
+            "label": "MacLaren G, Brodie D, et al, eds. <a href='#' data-link='https://www.elso.org/publications.aspx' target='_blank'>Extracorporeal Life Support: The ELSO Red Book</a>, 6th ed. Chapters 4 and 7, ELSO; 2022.",
             "type": "comment"
           },
           {
@@ -4191,7 +4191,7 @@
         "items": [
           { "label": "De Jong A, Wrigge H, Hedenstierna G, et al. <a href='#' data-link='https://link.springer.com/article/10.1007/s00134-020-06286-x' target='_blank'>How to ventilate obese patients in the ICU</a>. Intensive Care Med. 2020;46(12):2423-2435. doi:10.1007/s00134-020-06286-x", "type": "comment" },
           { "label": "Bruni A, Garofalo E, Longhini F. <a href='#' data-link='https://www.sciencedirect.com/science/article/pii/S0964339721000537?via%3Dihub' target='_blank'>Avoiding complications during prone position ventilation</a>. Intensive Crit Care Nurs. 2021;66:103064. doi:10.1016/j.iccn.2021.103064", "type": "comment" },
-          { "label": "Physiotherapy and Mobilization. In: Extracorporeal Life Support - The ELSO Red Book 6th ed", "type": "comment" }         
+          { "label": "MacLaren G, Brodie D, et al, eds. Extracorporeal Life Support: The ELSO Red Book, 6th ed. Physiotherapy and Mobilization, ELSO; 2022.", "type": "comment" }         
         ]
       }
     ]
