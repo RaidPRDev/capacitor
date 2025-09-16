@@ -174,7 +174,7 @@ watch(props, (({ error }) =>
   }
 }
 .error-field {
-  margin: 0.25rem 0 0 0.5rem;
+  margin: 0.25rem 0.5rem 0;
   font-size: 12px;
   font-weight: 700;
   color: red;

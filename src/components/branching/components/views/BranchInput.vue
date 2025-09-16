@@ -160,6 +160,8 @@ const computedList = computed(() => {
 })
 
 function calculate(isScrollToBottom = true) {
+  const _log = false;
+  
   let operationState: string | undefined = "";
   let calculationDetails:CalculatorParamType = {};
 
@@ -168,21 +170,25 @@ function calculate(isScrollToBottom = true) {
   const __result = items.reduce((prev, curr, index) => {
     switch (curr?.type) {
       case "number":
-        // console.log("index", index)
-        // console.log("curr", curr)
-        // console.log("curr?.id", curr?.id)
-        // console.log("inputController", inputController)
-        // console.log("inputController", inputController[index.toString()])
+        if (_log) {
+          console.log("index", index);
+          console.log("curr", curr);
+          console.log("curr?.id", curr?.id);
+          console.log("inputController", inputController);
+        }
 
         if (inputController[index.toString()]) {
-          
+          if (_log) console.log("Found Input Controller data");
+
           if (inputController[index.toString()].hasOwnProperty("controlledValue")) {
             const controlled = inputController[index.toString()].controlledValue;
-            
-            if (controlled.length === 0) {
+            if (_log) console.log("controlled", controlled);
+
+            if (controlled.length === 0 && computedList.value) {
               const fieldErrorIndex = computedList.value?.findIndex((cItem) => cItem?.id === curr?.id);
+              if (_log) console.log("Input Index", fieldErrorIndex);
               
-              if (fieldErrorIndex && fieldErrorIndex > -1) {
+              if (fieldErrorIndex > -1) {
                 const el = findAndReturnItemRefElement(computedList.value?.[fieldErrorIndex]?.id!);
                 const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
                 const inputProps = curr.inputProps as IMathEnforeRangeParams;
@@ -229,11 +235,12 @@ function calculate(isScrollToBottom = true) {
 
       case "operator":
         operationState = curr?.operation;
-        // console.log("operationState", curr)
-        // console.log("calculationDetails", calculationDetails)
-        // console.log("items", items)
+        if (_log) console.log("operationState", curr)
+        if (_log) console.log("calculationDetails", calculationDetails)
+        if (_log) console.log("items", items)
         
         let result = calculationFunctions[operationState as string](calculationDetails, items);
+        if (_log) console.log("result", result)
 
         if (result?.hasOwnProperty("error") && isScrollToBottom) {
           const fieldErrorIndex = computedList.value?.findIndex((cItem) => cItem?.id === result?.error?.field);
@@ -266,7 +273,8 @@ function calculate(isScrollToBottom = true) {
   // fix to 2 decimals
   if (!isNaN(__result)) {
     state.result = parseFloat(__result.toFixed(2));
-    state.resultError = null;    
+    state.resultError = null;
+    if (isScrollToBottom) scrollToBottom();
   }
   else {
     // console.error("result.error", __result);

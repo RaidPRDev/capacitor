@@ -22,6 +22,8 @@ export type CalculationArgsData = Array<any> | null;
  * 
  */
 export function BSAByWeightAndHeight(params:CalculatorParamType, data:CalculationArgsData = null):CalculationResult {
+  // console.warn("BSAByWeightAndHeight", params, data);
+
   const weight = params?.['weight'];
   const height = params?.['height'];
 
@@ -690,7 +692,7 @@ export function Calculate_1_2_Tubing(params:CalculatorParamType):number {
  */
 
 function validateInputParams(params: any, data: any) {
-  // console.log("validateInputParams", params, data);  
+  console.log("validateInputParams", params, data);  
   
   for (let key in params) {
     const validationResult = validateInputs(key, params[key], data);
@@ -849,20 +851,25 @@ export function convertMathSymbols(input: string | undefined): string {
 }
 
 export function validateInputs(id: string, value: number, data:any): CalculationResult {
-  // console.log(`validateInputs[${id}]`, value);
+  const _log = false;
+  
+  if (_log) console.log(`validateInputs[${id}]`, value);
 
   let searchID: string = "", searchParam: any = null, searchIndex: number = -1;
+  if (_log) console.log(`data`, data);
+
   if (data && Array.isArray(data)) {
     searchID = id;
     searchIndex = data.findIndex((item) => item.id === searchID);
+    if (_log) console.log(`searchIndex`, searchIndex);
+
     if (searchIndex > -1) {
       searchParam = data[searchIndex];
+      if (_log) console.log(`searchParam[${searchID}]`, searchParam);
     }
-
-    // console.log(`CalculateOI.searchParam[${searchID}]`, searchParam);
+    
     if (searchParam) {
       if (searchParam?.inputProps) {
-        // let _min = -1, _max = -1, _step = -1;
         const _min = parseFloat(searchParam.inputProps?.['min']) ?? -1;
         const _max = parseFloat(searchParam.inputProps?.['max']) ?? -1;
 
@@ -882,7 +889,7 @@ export function validateInputs(id: string, value: number, data:any): Calculation
         }
 
         if (value < _min) {
-          // console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
+          if (_log) console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
           return {
             value: value,
             error: {
@@ -892,7 +899,7 @@ export function validateInputs(id: string, value: number, data:any): Calculation
           };
         }
         else if (value > _max) {
-          // console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
+          if (_log) console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
           return {
             value: value,
             error: {
