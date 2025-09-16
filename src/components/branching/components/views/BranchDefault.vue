@@ -173,8 +173,9 @@ function removeTableEvents() {
 
 function onContentTrigger(e:MouseEvent) {
   e.preventDefault();
-  
+
   const target = e.target as HTMLElement;
+
   if (DEBUG) console.log('BranchDefault.target', target);
   
   if (target.dataset.hasOwnProperty("link")) {

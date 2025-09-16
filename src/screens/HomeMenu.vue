@@ -52,8 +52,8 @@ onMounted(() => {
 
 <template>
   <div class="home-scroll width-100 overflow-v-scroll height-inherit">
-    <div class="title mxl-26 mxb-18">ECMO Bedside Guide</div>
-    <div class="subtitle mxl-26 mxb-14">Select a tile that fits your needs.</div>
+    <div class="title mxl-26 mb-1-5">ECMO Bedside Guide</div>
+    <!-- <div class="subtitle mxl-26 mxb-14">Select a tile that fits your needs.</div> -->
     <div class="section-items grid grid-50 gapx-20 width-100 pxl-20 pxr-20 pxb-20 width-100"  v-bind="{ ...attrs }">
       <template v-for="(item, index) in menuItems" :key="`home-menu-nav-${index}`">
         <BaseButton 

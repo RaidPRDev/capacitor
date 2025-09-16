@@ -92,7 +92,10 @@ export default defineComponent({
             elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
           }
           else if (elementNode.tagName === "B") {
-            elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
+            elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${convertMathSymbols(elementNode.textContent!)}<HtmlSpacer></HtmlSpacer>`;
+          }
+          else if (elementNode.tagName === "A") {
+            elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${elementNode.innerHTML}<HtmlSpacer></HtmlSpacer>`;
           }
           else if (elementNode.tagName === "UL" || elementNode.tagName === "TABLE") {
             elementNode.innerHTML = getHtmlFromChildren(elementNode.children);

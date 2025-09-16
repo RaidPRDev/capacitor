@@ -48,9 +48,30 @@
     "showTitle": true,
     "useScroll": true,
     "title": "Accidental Decannulation",
+    "content": "<h3>You suspect that there has been accidental decannulation.</h3>",
+    "layout": "list",
+    "keywords": "",
+    "items": [
+      {
+        "label": "A. Call for help.",
+        "branchTo": "",
+        "class": "no-action"
+      },     
+      {
+        "label": "Continue to next step",
+        "branchTo": "ELSOBA_PANIC_010__0",
+        "class": "mt-2"
+      }    
+    ]
+  },  
+  {
+    "id": "ELSOBA_PANIC_010__0",
+    "showTitle": true,
+    "title": "Cannula is completely outside the vessel",
     "content": "<h3>Determine cannula placement</h3>",
     "layout": "list",
     "keywords": "",
+    "branchTo": "",
     "items": [
       {
         "label": "A. Cannula is completely outside the vessel",
@@ -64,6 +85,9 @@
       }    
     ]
   },
+  
+  
+  
   {
     "id": "ELSOBA_PANIC_010__A",
     "showTitle": true,

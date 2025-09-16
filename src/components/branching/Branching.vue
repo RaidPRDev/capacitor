@@ -206,7 +206,12 @@ function handleTriggered(dataProps: any) {
     console.log("  currentDataType", currentDataType);
     console.log("  currentView", currentView?.value);
   }
-  
+
+  if (dataProps.hasOwnProperty("data-url")) {
+    window.open(dataProps['data-url'], "_blank");
+    return;
+  }
+
   if (dataProps.hasOwnProperty("data-link")) {
     const dataLink = dataProps['data-link'];
     const pData = dataLink?.split?.('##') as any[];

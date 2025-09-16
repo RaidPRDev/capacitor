@@ -84,6 +84,11 @@
         "label": "PT/Ambulation on ECMO Resources",
         "branchTo": "ELSOBA_RES_150",
         "class": ""
+      },   
+      {
+        "label": "ELSO Resources",
+        "branchTo": "ELSOBA_RES_160",
+        "class": ""
       }   
     ]
   },
@@ -231,7 +236,7 @@
     "id": "ELSOBA_RES_140",
     "title": "Proning on ECMO Resources",
     "content": "resources/ELSOBA_RES_140.html",
-    "layout": "default",
+    "layout": "html",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
@@ -242,6 +247,16 @@
     "title": "PT/Ambulation on ECMO Resources",
     "content": "resources/ELSOBA_RES_150.html",
     "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_RES_160",
+    "title": "ELSO Resources",
+    "content": "resources/ELSOBA_RES_160.html",
+    "layout": "html",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
