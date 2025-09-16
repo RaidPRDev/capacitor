@@ -180,7 +180,7 @@ function onLink(e:Event) {
               </li>
           </ul>
           
-          <p>November 10, 2024</p>
+          <p>September 15, 2025</p>
 
         </div>
 
