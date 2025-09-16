@@ -160,7 +160,7 @@ const computedList = computed(() => {
   return null;
 })
 
-function calculate() {
+function calculate(isScrollToBottom = true) {
   let operationState: string | undefined = "";
   let calculationDetails:CalculatorParamType = {};
 
@@ -179,15 +179,17 @@ function calculate() {
           
           if (inputController[index.toString()].hasOwnProperty("controlledValue")) {
             const controlled = inputController[index.toString()].controlledValue;
+            
             if (controlled.length === 0) {
               const fieldErrorIndex = computedList.value?.findIndex((cItem) => cItem?.id === curr?.id);
+              
               if (fieldErrorIndex && fieldErrorIndex > -1) {
                 const el = findAndReturnItemRefElement(computedList.value?.[fieldErrorIndex]?.id!);
                 const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
                 const inputProps = curr.inputProps as IMathEnforeRangeParams;
                 
                 let inputResult: any = {};
-                if (inputProps) {
+                if (inputProps && isScrollToBottom) {
                   inputResult = enforceRange({ ...inputProps, value: "", id: curr?.id! });
 
                   setInputController({
@@ -209,7 +211,7 @@ function calculate() {
 
                     await nextTick();
 
-                    scrollToBottom();
+                    if (isScrollToBottom) scrollToBottom();
                   })
                 }
               }
@@ -234,7 +236,7 @@ function calculate() {
         
         let result = calculationFunctions[operationState as string](calculationDetails, items);
 
-        if (result?.hasOwnProperty("error")) {
+        if (result?.hasOwnProperty("error") && isScrollToBottom) {
           const fieldErrorIndex = computedList.value?.findIndex((cItem) => cItem?.id === result?.error?.field);
           if (fieldErrorIndex && fieldErrorIndex > -1) {
             const el = findAndReturnItemRefElement(computedList.value?.[fieldErrorIndex]?.id!);
@@ -271,7 +273,7 @@ function calculate() {
     // console.error("result.error", __result);
     state.result = 0;
     state.resultError = (__result as ICalculationError);
-    scrollToBottom();
+    if (isScrollToBottom) scrollToBottom();
   }
 }
 
@@ -425,41 +427,55 @@ function __onBlur(data: any) {
 // @private
 function __onInput(data: any) {
   if (!data) return;
+  // console.warn("__onInput", data);
 
-  // const dataProps = computedList.value?.[data.item.index]?.data!;
+  const id = computedList.value?.[data.item.index]?.id!;
+  const dataProps = computedList.value?.[data.item.index]?.data!;
+  // console.log("__onInput.dataProps", dataProps);
+  // console.log("__onInput.computedList", computedList.value?.[data.item.index]);
+  
+  if (dataProps?.hasOwnProperty(`onBlur`)) {
+    const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
+    const input = el?.accessoryIconRef()?.inputRef() as HTMLInputElement;
 
-  // if (dataProps?.hasOwnProperty(`onInput`)) {
-  //   const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
-  //   const input = el?.accessoryIconRef()?.inputRef();
+    if (mathUtilFunctions.hasOwnProperty(dataProps['onBlur'])) {
+      const result = mathUtilFunctions[dataProps['onBlur'] as string]({
+        value: input.value,
+        min: input.min,
+        max: input.max,
+        id: id
+      });
+      // console.log("__onInput.result", result);
 
-  //   if (mathUtilFunctions.hasOwnProperty(dataProps['onInput'])) {
-  //     const result = mathUtilFunctions[dataProps['onInput'] as string](input);
+      // apply error label to specific input field
+      setInputController(data, result);
 
-  //     // apply error label to specific input field
-  //     setInputController(data, result);
-  //   }
-  //   else {
-  //     console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onInput']}''`);
-  //   }          
-  // }
+      calculate(false);
+    }
+    else {
+      console.error(`[mathUtilFunctions] missing onInput prop '${dataProps['onBlur']}''`);
+    }          
+  }
 }
 
 // @private
 function __onEnter(data: any) {
   if (!data) return;
 
-  console.warn("__onEnter", data);
+  // console.warn("__onEnter", data);
 
   // calculate();
   // setFocusToResult();
 
   const dataProps = computedList.value?.[data.item.index]?.data!;
   const id = computedList.value?.[data.item.index]?.id!;
-
-  const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
-  const input = el?.accessoryIconRef()?.inputRef();
+  // console.log("__onEnter.dataProps", dataProps);
+  // console.log("__onEnter.computedList", computedList.value?.[data.item.index]);
 
   if (dataProps?.hasOwnProperty(`onEnter`)) {
+    const el = findAndReturnItemRefElement(computedList.value?.[data.item.index]?.id!);
+    const input = el?.accessoryIconRef()?.inputRef();
+
     if (mathUtilFunctions.hasOwnProperty(dataProps['onEnter'])) {
       const result = mathUtilFunctions[dataProps['onEnter'] as string]({
         value: input.value,
@@ -470,14 +486,16 @@ function __onEnter(data: any) {
 
       // apply error label to specific input field
       setInputController(data, result);
+
+      calculate(false);
     }
     else {
       console.error(`[mathUtilFunctions] missing onEnter prop '${dataProps['onEnter']}''`);
-    }          
+    }     
   }
-  else {
-    setInputController(data, { value: input.value, error: "" });
-  }
+  // else {
+  //   setInputController(data, { value: input.value, error: "" });
+  // }
 }
 
 async function scrollToBottom() {
@@ -588,7 +606,7 @@ onMounted(async () => {
   <transition name="nested" appear>
     <div class="calc-item width-100 flex align-center justify-between mxt-16 outer">
       <ActionButton outlined :label="`Reset`" :icon="ResetIcon" iconClassName="mxr-6" @triggered="reset" />
-      <ActionButton :label="`Calculate`" :accessoryIcon="ChevronRightIcon" @triggered="calculate" />
+      <ActionButton :label="`Calculate`" :accessoryIcon="ChevronRightIcon" @triggered="() => calculate()" />
     </div>
   </transition >
   
@@ -619,15 +637,9 @@ onMounted(async () => {
 .content {
   
   :deep(.heading) {
-    // margin-top: 1rem;
-    // font-size: 14px;
     font-weight: 700;
     color: $sixth-color;
   }
-  // :deep(ul) {
-  //   // font-size: 14px;
-  //   // font-weight: 500;
-  // }
 }
 
 :deep(.list-item) {

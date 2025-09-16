@@ -882,7 +882,7 @@ export function validateInputs(id: string, value: number, data:any): Calculation
         }
 
         if (value < _min) {
-          console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
+          // console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
           return {
             value: value,
             error: {
@@ -892,7 +892,7 @@ export function validateInputs(id: string, value: number, data:any): Calculation
           };
         }
         else if (value > _max) {
-          console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
+          // console.error(`[${searchID}] is outside the range of ${_min} and ${_max}. Please adjust your value(s). `);
           return {
             value: value,
             error: {

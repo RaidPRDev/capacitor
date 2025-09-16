@@ -505,6 +505,7 @@
           "step": "1"
         },
         "data": {
+          "onInput": "enforceRange",
           "onBlur": "enforceRange",
           "onEnter": "enforceRange"
         }
@@ -721,7 +722,7 @@
       {
         "id": "hematocrit",
         "type": "number",
-        "label": "Enter Hematocrit (%) <span class='label-desc'>(range of 0-100%)</span>",
+        "label": "Enter Hematocrit (%) <span class='label-desc'>(range of 1-100%)</span>",
         "inputProps": {
           "min": "1",
           "max": "100",
