@@ -692,7 +692,7 @@ export function Calculate_1_2_Tubing(params:CalculatorParamType):number {
  */
 
 function validateInputParams(params: any, data: any) {
-  console.log("validateInputParams", params, data);  
+  // console.log("validateInputParams", params, data);  
   
   for (let key in params) {
     const validationResult = validateInputs(key, params[key], data);
