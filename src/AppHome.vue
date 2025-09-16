@@ -326,7 +326,7 @@ onUnmounted(() => {
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="home-header center-container pxlr-20" :innerClassName="`pxl-20 pxr-20`">
       <template v-slot:headerLeft>
-        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
+        <BaseButton class="menu-button" aria-label="Menu" :innerClassName="`flex-column`" :icon="MenuIcon" @triggered="() => {
           drawerComponents.left = AppSideMenuPanel;
           app.drawers.left.props = { name: `menu`, closeOutside: true }
           app.drawers.closeOutside = true;
@@ -334,14 +334,14 @@ onUnmounted(() => {
         }"/>
       </template>
       <template v-slot:headerCenter>
-        <BaseButton class="absolute bx--20" @triggered="onLogo">
+        <BaseButton class="absolute bx--20" aria-label="ECMO Bedside Guide" @triggered="onLogo">
           <template v-slot:bodySlot>
             <img :src="Logo" width="81" height="60" class="" />
           </template>
         </BaseButton>
       </template>
       <template v-slot:headerRight>
-        <BaseButton class="menu-button" :innerClassName="`flex-column`" :icon="SearchIcon" @triggered="() => {
+        <BaseButton class="menu-button" aria-label="Search" :innerClassName="`flex-column`" :icon="SearchIcon" @triggered="() => {
           drawerComponents.bottom = AppSearchPanel;
           app.drawers.bottom.props = { name: `search` }
           app.drawers.bottom.open = !app.drawers.bottom.open;

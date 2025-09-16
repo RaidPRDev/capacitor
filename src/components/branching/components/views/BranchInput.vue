@@ -549,6 +549,21 @@ onMounted(async () => {
   }
 })
 
+function getAriaResultLabel(view: any) {
+  if (!view) return '';
+  
+  // const label = view.resultLabel?.toString();
+  const result = state.result;
+  const resultError = state.resultError;
+
+  let errorLabel = "";
+  if (resultError) {
+    errorLabel = resultError.error?.message!;
+  }
+
+  return `The result is ${result}. ${errorLabel}`;
+}
+
 </script>
 
 <template>
@@ -624,7 +639,12 @@ onMounted(async () => {
   </transition >
 
   <transition name="nested" appear>
-    <div class="result-item flex flex-column align-start mxt-20 outer">
+    <div 
+      role="presentation"
+      class="result-item flex flex-column align-start mxt-20 outer" 
+      tabindex="0" 
+      v-bind="{ 'aria-label': getAriaResultLabel(props?.view) }"
+    >
       <div class="result-label mxb-6 inner" v-html="`RESULT ${convertMathSymbols(props?.view?.resultLabel?.toString()) ?? ''}`"></div>
       <div id="result-label" class="result-box width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.result }}
@@ -632,7 +652,7 @@ onMounted(async () => {
       <div v-if="state.resultError" id="result-error" class="result-error width-100 text-center px-7" @click="() => state.result > 0 && onCopy(state.result)">
         {{ state.resultError.error?.message }}
       </div>
-
+      
     </div>
   </transition >
   
@@ -647,6 +667,17 @@ onMounted(async () => {
     font-weight: 700;
     color: $sixth-color;
   }
+}
+
+.result-item {
+  &:focus-visible {
+    outline-style: dashed;
+    outline-offset: 0.2rem;
+    outline-width: 0.15rem;
+    outline-color: cornflowerblue;
+    border-radius: 10px;
+  }
+  
 }
 
 :deep(.list-item) {
