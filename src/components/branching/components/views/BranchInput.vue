@@ -40,7 +40,6 @@ import {
   Calculate_1_2_Tubing,
   enforceRange,
   convertMathSymbols,
-  CalculationResult,
   ICalculationError,
   IMathEnforeRangeParams
   
@@ -358,9 +357,9 @@ async function onCopy(value: any) {
   nextTick(() => addToast({ label: `Copied to clipboard.` })); 
 }
 
-function setFocusToResult() {
-  document.getElementById(`result-label`)?.focus();
-}
+// function setFocusToResult() {
+//   document.getElementById(`result-label`)?.focus();
+// }
 
 interface IMathInputResult {
   error: string;
