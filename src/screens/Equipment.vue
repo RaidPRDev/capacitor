@@ -19,6 +19,9 @@ import {
   GLOBAL_PADDING 
 } from "@/_core/Constants";
 
+// import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import SectionDisclaimerPanel from "@/components/panels/SectionDisclaimerPanel.vue";
+import { EVENT_REGISTRATION_CLOSE } from "@/events/Events";
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import Branching from '@/components/branching/Branching.vue';
@@ -32,9 +35,6 @@ import { getNavigationRoot } from "@/utils/BranchTools";
 import useSession from "@/store/session.module";
 
 import WrenchIcon from '@/assets/icons/homeMenu/wrench-icon.svg';
-import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
-import SectionDisclaimerPanel from "@/components/panels/SectionDisclaimerPanel.vue";
-import { EVENT_REGISTRATION_CLOSE } from "@/events/Events";
 
 const DEBUG = false; 
 
@@ -117,11 +117,11 @@ function onViewBeforeEnter(params: BranchViewParamData) {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
   }
 
-  if ((params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
-      MyClarityCapacitator.setCurrentScreenName({
-        id: params.view.heading! || params.view.title!
-      });
-  }
+  // if ((params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
+  //     MyClarityCapacitator.setCurrentScreenName({
+  //       id: params.view.heading! || params.view.title!
+  //     });
+  // }
 
   sectionViewData.value = params.view;
   

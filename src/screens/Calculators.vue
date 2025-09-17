@@ -16,6 +16,7 @@ import {
   GLOBAL_PADDING 
 } from "@/_core/Constants";
 
+// import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import { IBaseScreenSlotProps } from "@/ui/types";
 import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/types";
 import { loadViewData } from "@/components/branching/data/DataTools";
@@ -28,7 +29,6 @@ import useBranching from "@/components/branching/hooks/useBranching";
 import { getNavigationRoot } from "@/utils/BranchTools";
 
 import CalculatorIcon from '@/assets/icons/homeMenu/calculator-icon.svg';
-import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 
 // Component Props Setup
 const props = withDefaults(defineProps<IBaseScreenSlotProps & BranchRouteProps>(), {}) 
@@ -79,12 +79,12 @@ function onViewBeforeEnter(params: BranchViewParamData) {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
   }
 
-  if ((params.view.layout === 'list' || params.view.layout === 'input')
-    && (params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
-      MyClarityCapacitator.setCurrentScreenName({
-        id: params.view.heading! || params.view.title!
-      });
-  }
+  // if ((params.view.layout === 'list' || params.view.layout === 'input')
+  //   && (params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
+  //     MyClarityCapacitator.setCurrentScreenName({
+  //       id: params.view.heading! || params.view.title!
+  //     });
+  // }
 }
 
 </script>

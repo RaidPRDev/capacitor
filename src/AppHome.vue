@@ -34,7 +34,7 @@ import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
 import DisclaimerPanel from "@/components/panels/DisclaimerPanel.vue";
 import RegistrationPanel from "./components/panels/RegistrationPanel.vue";
 
-import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+// import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import { Haptics, ImpactStyle, NotificationType } from "@capacitor/haptics";
 
 import Logo from '/assets/elso_logo.png';
@@ -167,9 +167,9 @@ function onFooterMenuTriggered(selected: IButtonGroupSelected) {
 function goToSection(selected: IButtonGroupSelected) {
   if (sectionIndex.value === selected.index) return;
   
-  MyClarityCapacitator.setCurrentScreenName({
-    id: selected.data.route
-  });
+  // MyClarityCapacitator.setCurrentScreenName({
+  //   id: selected.data.route
+  // });
   
   session.$patch({ currentIndex: selected.index })
   router.push({ name: selected.data.route });

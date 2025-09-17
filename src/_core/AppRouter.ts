@@ -18,14 +18,9 @@ import GuideTemplate from '@/screens/guide/GuideTemplate.vue';
 import AppleGuide from '@/screens/guide/AppleGuide.vue';
 import AndroidGuide from '@/screens/guide/AndroidGuide.vue';
 
-// import Template from '@/screens/demo/Template.vue';
-// import TemplateNavigation from '@/screens/demo/TemplateNavigation.vue';
-// import BranchScreen from '@/screens/demo/branching/BranchScreen.vue';
-// import ChecklistScreen from '@/screens/demo/checklist/ChecklistScreen.vue';
-// import InputListScreen from '@/screens/demo/inputs/InputListScreen.vue';
 import usePassKey from '@/store/passkey.module';
 import { BranchRouteProps } from '@/types';
-import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
+// import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
 
 const DEBUG = false;
 
@@ -100,11 +95,11 @@ router.beforeEach((to, from, next) => {
   // save previous route
   router.from = from;
 
-  if (to?.name === "Home") {
-    MyClarityCapacitator.setCurrentScreenName({
-      id: to?.name?.toString()!
-    });
-  }
+  // if (to?.name === "Home") {
+  //   MyClarityCapacitator.setCurrentScreenName({
+  //     id: to?.name?.toString()!
+  //   });
+  // }
 
   next();
 })

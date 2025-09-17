@@ -30,7 +30,7 @@ import { IBaseScreenSlotProps } from "@/ui/types";
 import { BranchRouteProps, BranchViewData, BranchViewParamData } from "@/types";
 import { loadViewData } from '@/components/branching/data/DataTools';
 import { getNavigationRoot } from "@/utils/BranchTools";
-import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+// import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import DisclaimerMedicalPanel from "@/components/panels/DisclaimerMedicalPanel.vue";
 import useSession from "@/store/session.module";
 
@@ -97,11 +97,11 @@ function onViewBeforeEnter(params: BranchViewParamData) {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
   }
 
-  if ((params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
-      MyClarityCapacitator.setCurrentScreenName({
-        id: params.view.heading! || params.view.title!
-      });
-  }
+  // if ((params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
+  //   MyClarityCapacitator.setCurrentScreenName({
+  //     id: params.view.heading! || params.view.title!
+  //   });
+  // }
 }
 
 </script>
