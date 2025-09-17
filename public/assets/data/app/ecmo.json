@@ -46,7 +46,7 @@
         "class": ""
       },    
       {
-        "label": "Adults with Respiratory Failure",
+        "label": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
         "branchTo": "ELSOBA_CAND_045",
         "class": ""
       }    
@@ -103,7 +103,7 @@
     "id": "ELSOBA_CAND_030__2",
     "showTitle": true,
     "useScroll": true,
-    "title": "The patient meets the criteria for cardiac failure",
+    "title": "Assessment of cardiogenic shock or cardiac failure",
     "content": "ecmo/ELSOBA_CAND_030/ELSOBA_CAND_030__2.html",
     "layout": "html",
     "branchTo": "",
@@ -239,7 +239,7 @@
     "id": "ELSOBA_CAND_045",
     "showTitle": true,
     "useScroll": true,
-    "title": "Adults with Respiratory Failure",
+    "title": "Adults with Acute Respiratory Distress Syndrome (ARDS)",
     "content": "ecmo/ELSOBA_CAND_045/ELSOBA_CAND_045.html",
     "layout": "html",
     "branchTo": "",

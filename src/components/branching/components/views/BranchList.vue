@@ -10,7 +10,7 @@ import { computed, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import classnames from 'classnames'
 import BaseButton from '@/ui/controls/BaseButton.vue';
-import { IBranchTypeProps } from '@/types';
+import { BranchItem, IBranchTypeProps } from '@/types';
 import UpRightArrowIcon from '@/assets/icons/up-right-arrow-icon.svg';
 import { sortItemsByClassDisabled } from '@/utils/ObjectTools';
 import useAppStore from '@/store/app.module';
@@ -86,6 +86,16 @@ const computedList = computed(() => {
   }
   return null;
 })
+
+function onButtonClick(item: BranchItem) {
+  if (item.class?.indexOf(`disabled`) >= 0) return;
+  if (item?.link) {
+    window.open(item?.link, "_blank");
+    return;
+  }
+  navigate(item.branchTo);
+}
+
 </script>
 
 <template>
@@ -101,10 +111,7 @@ const computedList = computed(() => {
         bodyClassName=""
         accessoryIconClassName="base-control"
         :label="item.label"
-        @triggered="() => {
-          if (item.class?.indexOf(`disabled`) >= 0) return;
-          navigate(item.branchTo);
-        }"
+        @triggered="() => onButtonClick(item)"
       >
         <template v-slot:accessorySlot v-if="UpRightArrowIcon">
           <component v-if="typeof(UpRightArrowIcon) === 'object'" :is="UpRightArrowIcon"></component>

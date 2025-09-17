@@ -136,6 +136,7 @@ export interface BranchItem {
   class: string;
   items: BranchItem[];
   branchTo: string | null;
+  link: string | null;
   disclaimer?: string | null;
   data?: any;
 }

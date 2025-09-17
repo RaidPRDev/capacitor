@@ -86,8 +86,9 @@
         "class": ""
       },   
       {
-        "label": "ELSO Resources",
+        "label": "ELSO Guidelines",
         "branchTo": "ELSOBA_RES_160",
+        "link": "https://www.elso.org/ecmo-resources/elso-ecmo-guidelines.aspx",
         "class": ""
       }   
     ]
@@ -247,16 +248,6 @@
     "title": "PT/Ambulation on ECMO Resources",
     "content": "resources/ELSOBA_RES_150.html",
     "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_RES_160",
-    "title": "ELSO Resources",
-    "content": "resources/ELSOBA_RES_160.html",
-    "layout": "html",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
