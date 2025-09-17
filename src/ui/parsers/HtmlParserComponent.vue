@@ -76,7 +76,9 @@ export default defineComponent({
 
         // For text nodes, add textContent directly to the element object
         if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-          element.textContent = node.textContent.trim();
+          // element.textContent = node.textContent.trim();
+          element.textContent = node.textContent;
+
           if (node) {
             if (node.parentNode?.nodeName === "B") {
               element.textContent = `${element.textContent}`;
@@ -89,18 +91,16 @@ export default defineComponent({
           const elementNode = node as HTMLElement;
 
           if (elementNode.tagName === "H3") {
-            console.log("elementNode.tagName", elementNode.tagName)
-            console.log("elementNode", elementNode)
-            elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${convertMathSymbols(elementNode.textContent!)}<HtmlSpacer></HtmlSpacer>`;
+            elementNode.innerHTML = `${convertMathSymbols(elementNode.textContent!)}`;
           }
           else if (elementNode.tagName === "SUB") {
-            elementNode.innerHTML = `${elementNode.textContent}<HtmlSpacer></HtmlSpacer>`;
+            elementNode.innerHTML = `${elementNode.textContent}`;
           }
           else if (elementNode.tagName === "B") {
-            elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${convertMathSymbols(elementNode.textContent!)}<HtmlSpacer></HtmlSpacer>`;
+            elementNode.innerHTML = `${convertMathSymbols(elementNode.textContent!)}`;
           }
           else if (elementNode.tagName === "A") {
-            elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${elementNode.innerHTML}<HtmlSpacer></HtmlSpacer>`;
+            elementNode.innerHTML = `${elementNode.innerHTML}`;
           }
           else if (elementNode.tagName === "UL" || elementNode.tagName === "TABLE") {
             elementNode.innerHTML = getHtmlFromChildren(elementNode.children);
