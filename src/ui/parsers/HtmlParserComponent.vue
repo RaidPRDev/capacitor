@@ -76,11 +76,16 @@ export default defineComponent({
 
         // For text nodes, add textContent directly to the element object
         if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-          // element.textContent = node.textContent.trim();
           element.textContent = node.textContent;
 
           if (node) {
             if (node.parentNode?.nodeName === "B") {
+              element.textContent = `${element.textContent}`;
+            }
+            else if (node.parentNode?.nodeName === "A") {
+              // console.log("node.textContent", node.textContent)
+              // element.textContent = node.textContent.trim();
+              // console.log("element.textContent", element.textContent)
               element.textContent = `${element.textContent}`;
             }
           }
@@ -100,6 +105,7 @@ export default defineComponent({
             elementNode.innerHTML = `${convertMathSymbols(elementNode.textContent!)}`;
           }
           else if (elementNode.tagName === "A") {
+            
             elementNode.innerHTML = `${elementNode.innerHTML}`;
           }
           else if (elementNode.tagName === "UL" || elementNode.tagName === "TABLE") {

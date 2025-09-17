@@ -204,8 +204,16 @@ function onContentTrigger(e:MouseEvent) {
 
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
-  htmlContent.value = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
-  htmlContent.value = parseAndReplaceCurlyBraceContent(htmlContent.value);
+  
+  let _html = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
+  
+  // Remove spaces/newlines between tags, etc...
+  _html = _html
+    .replace(/>\s+</g, '><')
+    .replace(/<a\b([^>]*)>\s*/g, '<a$1>')
+    .replace(/\s*<\/a>/g, '</a>');
+
+  htmlContent.value = parseAndReplaceCurlyBraceContent(_html);
 
   // Here we are checking if we have any interactable elements.
   // For now we only have support for image preview via [data-preview]

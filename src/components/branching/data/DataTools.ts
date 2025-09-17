@@ -126,6 +126,8 @@ export function parseAndReplaceCurlyBraceContent(htmlString: string): string {
         constructStr += `<button type='button' data-link='${nameType}##${id}' `;
         constructStr += `class="base-control base-button relative bg-transparent font-inherit color-inherit select-none mx-0 variant-blue width-100"`;
         constructStr += `>`;
+
+        // inner-base-button
         constructStr += `<span class="inner-base-button height-100 flex align-center justify-center px-20 justify-between align-start">`;
         
         // background
@@ -134,11 +136,10 @@ export function parseAndReplaceCurlyBraceContent(htmlString: string): string {
         // label
         constructStr += `<span class="ui-body flex relative text-left mxr-20">`;
         constructStr += `<span class="ui-label">${label}</span>`;
-        constructStr += `</span>`;       // ui-body/label
+        constructStr += `</span>`;
 
         // icon 
         constructStr += `<span class="ui-accessory-icon flex relative base-control up-right-icon">${constructIcon}</span>`;
-        // if (nameType === "CHECKLIST") {}
 
         constructStr += `</span`;       // inner-base-button
         constructStr += `</button>`;
