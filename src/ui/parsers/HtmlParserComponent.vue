@@ -89,7 +89,12 @@ export default defineComponent({
           const elementNode = node as HTMLElement;
 
           if (elementNode.tagName === "H3") {
-            elementNode.innerHTML = convertMathSymbols(elementNode.textContent!);
+            console.log("elementNode.tagName", elementNode.tagName)
+            console.log("elementNode", elementNode)
+            elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${convertMathSymbols(elementNode.textContent!)}<HtmlSpacer></HtmlSpacer>`;
+          }
+          else if (elementNode.tagName === "SUB") {
+            elementNode.innerHTML = `${elementNode.textContent}<HtmlSpacer></HtmlSpacer>`;
           }
           else if (elementNode.tagName === "B") {
             elementNode.innerHTML = `<HtmlSpacer></HtmlSpacer>${convertMathSymbols(elementNode.textContent!)}<HtmlSpacer></HtmlSpacer>`;
