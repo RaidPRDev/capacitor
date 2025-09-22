@@ -15,7 +15,7 @@ import {
   GLOBAL_PADDING, 
 } from "@/_core/Constants";
 
-// import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
+import { MyClarityCapacitator } from "my-clarity-capacitator-plugin";
 import BasePanel from '@/ui/panels/BasePanel.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import Branching from '@/components/branching/Branching.vue';
@@ -69,12 +69,12 @@ function onViewBeforeEnter(params: BranchViewParamData) {
     baseHeight.value = BRANCH_HEADER_HEIGHT + GLOBAL_PADDING + BREADCRUMB_HEIGHT;
   }
 
-  // if ((params.selectedIndex === 0 || params.selectedIndex === 1 )
-  //   && (params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
-  //     MyClarityCapacitator.setCurrentScreenName({
-  //       id: params.view.heading! || params.view.title!
-  //     });
-  // }
+  if ((params.selectedIndex === 0 || params.selectedIndex === 1 )
+    && (params.view.heading?.length !== 0 || params.view.title?.length !== 0)) {
+      MyClarityCapacitator.setCurrentScreenName({
+        id: params.view.heading! || params.view.title!
+      });
+  }
 }
 
 </script>

@@ -20,7 +20,7 @@ import AndroidGuide from '@/screens/guide/AndroidGuide.vue';
 
 import usePassKey from '@/store/passkey.module';
 import { BranchRouteProps } from '@/types';
-// import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
+import { MyClarityCapacitator } from 'my-clarity-capacitator-plugin';
 
 const DEBUG = false;
 
@@ -95,11 +95,11 @@ router.beforeEach((to, from, next) => {
   // save previous route
   router.from = from;
 
-  // if (to?.name === "Home") {
-  //   MyClarityCapacitator.setCurrentScreenName({
-  //     id: to?.name?.toString()!
-  //   });
-  // }
+  if (to?.name === "Home") {
+    MyClarityCapacitator.setCurrentScreenName({
+      id: to?.name?.toString()!
+    });
+  }
 
   next();
 })
