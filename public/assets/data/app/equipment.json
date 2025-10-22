@@ -142,6 +142,11 @@
         "label": "Rotaflow",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_030_050"
+      },
+      {
+        "label": "VitalFlow™",
+        "class": "",
+        "branchTo": "ELSOBA_EQUIP_030_060"
       }
     ]
   },
@@ -639,6 +644,16 @@
     "id": "ELSOBA_EQUIP_030_050",
     "title": "Rotaflow",
     "content": "equipment/ELSOBA_EQUIP_030/ELSOBA_EQUIP_030_050.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_EQUIP_030_060",
+    "title": "VitalFlow™",
+    "content": "equipment/ELSOBA_EQUIP_030/ELSOBA_EQUIP_030_060.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,

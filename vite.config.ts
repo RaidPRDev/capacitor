@@ -23,7 +23,7 @@ export default defineConfig(async ({command, mode}) => {
   const ISIOS = !!/ios/.exec(PLATFORM);
   const ISANDROID = !!/android/.exec(PLATFORM);
   const CLARITY_ID = process?.env?.CLARITY_ID ?? "oztc10g5eg";
-  const SHOW_DEBUG = false;
+  const SHOW_DEBUG = true;
   
   console.log("[PLATFORM]", PLATFORM);
   console.log("[APPLICATION_ID]", APPLICATION_ID);
