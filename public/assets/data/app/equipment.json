@@ -278,6 +278,11 @@
     "branchTo": "",
     "items": [
       {
+        "label": "Bio-Medicus (Adult, Single Lumen)",
+        "class": "",
+        "branchTo": "ELSOBA_EQUIP_017_005"
+      },
+      {
         "label": "Edwards (Adult, Single Lumen)",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_017_010"
@@ -423,6 +428,16 @@
   },
 
 
+  {
+    "id": "ELSOBA_EQUIP_017_005",
+    "title": "Bio-Medicus (Adult, Single Lumen)",
+    "content": "equipment/ELSOBA_EQUIP_010/ELSOBA_EQUIP_017_005.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
   {
     "id": "ELSOBA_EQUIP_017_010",
     "title": "Edwards (Adult, Single Lumen)",
