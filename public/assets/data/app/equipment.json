@@ -104,6 +104,11 @@
         "label": "AMG PMP Infant Oxygenator",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_020_060"
+      },
+      {
+        "label": "X-Lung™ Kit",
+        "class": "",
+        "branchTo": "ELSOBA_EQUIP_020_070"
       }
     ]
   },
@@ -147,6 +152,11 @@
         "label": "VitalFlow™",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_030_060"
+      },
+      {
+        "label": "Novalung Console",
+        "class": "",
+        "branchTo": "ELSOBA_EQUIP_030_070"
       }
     ]
   },
@@ -613,6 +623,16 @@
     "branchTo": "",
     "items": []
   },
+  {
+    "id": "ELSOBA_EQUIP_020_070",
+    "title": "X-Lung™ Kit",
+    "content": "equipment/ELSOBA_EQUIP_020/ELSOBA_EQUIP_020_070.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
 
 
   {
@@ -669,6 +689,16 @@
     "id": "ELSOBA_EQUIP_030_060",
     "title": "VitalFlow™",
     "content": "equipment/ELSOBA_EQUIP_030/ELSOBA_EQUIP_030_060.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_EQUIP_030_070",
+    "title": "Novalung Console",
+    "content": "equipment/ELSOBA_EQUIP_030/ELSOBA_EQUIP_030_070.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
