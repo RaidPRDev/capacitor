@@ -288,7 +288,7 @@
     "branchTo": "",
     "items": [
       {
-        "label": "Bio-Medicus (Adult, Single Lumen)",
+        "label": "Medtronic Bio-Medicus (Adult, Single Lumen)",
         "class": "",
         "branchTo": "ELSOBA_EQUIP_017_005"
       },
@@ -440,7 +440,7 @@
 
   {
     "id": "ELSOBA_EQUIP_017_005",
-    "title": "Bio-Medicus (Adult, Single Lumen)",
+    "title": "Medtronic Bio-Medicus (Adult, Single Lumen)",
     "content": "equipment/ELSOBA_EQUIP_010/ELSOBA_EQUIP_017_005.html",
     "layout": "default",
     "useScroll": true,
