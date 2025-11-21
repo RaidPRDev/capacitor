@@ -1,15 +1,7 @@
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-  name: "DisclaimerPanel"
-}   
-
-</script>
-
 <script setup lang="ts">
 import { EVENT_DISCLAIMER_CLOSE } from '@/events/Events';
-
-import { inject, ref } from 'vue';
+// 1. Import onMounted and onUnmounted
+import { inject, ref, onMounted, onUnmounted } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
 
@@ -24,23 +16,61 @@ import useSession from '@/store/session.module';
 import Logo from '/assets/elso_logo.png';
 
 const disclaimerClosedEvent = new Event(EVENT_DISCLAIMER_CLOSE);
-
 const session = useSession();
-
 const app = inject<IApp>(APP_ID) as IApp;
 const divScrollerRef = ref<HTMLElement>();
 const hasScrolledEnd = ref<boolean>(false);
-function handleScroll() {
-  if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
+
+// 2. Refactored logic into a reusable function
+function checkScrollPosition() {
+  // If already accepted, stop checking
+  if (!divScrollerRef.value || hasScrolledEnd.value) return;
 
   const div = divScrollerRef.value;
-  if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
+  
+  // LOGIC: 
+  // 1. (div.scrollTop + div.clientHeight) calculation determines current bottom position
+  // 2. div.scrollHeight is the total height of text
+  // 3. We verify if the View Height is >= Total Text Height (Short content) OR if user scrolled to bottom
+  
+  const isShortContent = div.clientHeight >= div.scrollHeight; 
+  const hasReachedBottom = div.scrollTop + div.clientHeight >= div.scrollHeight - 20;
+
+  if (isShortContent || hasReachedBottom) {
     hasScrolledEnd.value = true;
   }
 }
 
+// 3. Run the check on scroll events
+function handleScroll() {
+  checkScrollPosition();
+}
+
+// 4. Initialize ResizeObserver to handle screen rotation or dynamic layout changes
+let resizeObserver: ResizeObserver | null = null;
+
+onMounted(() => {
+  // Slight delay to ensure DOM and animations (Ionic transitions) are finished
+  setTimeout(() => {
+    checkScrollPosition();
+
+    // Setup Observer: If the div size changes (e.g. rotation), re-check logic
+    if (divScrollerRef.value) {
+      resizeObserver = new ResizeObserver(() => {
+        checkScrollPosition();
+      });
+      resizeObserver.observe(divScrollerRef.value);
+    }
+  }, 300); 
+});
+
+onUnmounted(() => {
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+  }
+});
+
 function onMenuTriggered(selected: number) {
-  
   switch (selected) {
     case 0: // Decline
       session.$patch({ hasCompletedDisclaimer: false })
@@ -58,7 +88,6 @@ function onMenuTriggered(selected: number) {
   app.drawers.closeOutside = false;
   app.drawers.bottom.open = !app.drawers.bottom.open;
 }
-
 </script>
 
 <template>
@@ -81,7 +110,9 @@ function onMenuTriggered(selected: number) {
 useful information easily accessible to clinical care professionals in assessing the conditions
 and managing the treatment of patients undergoing ECLS/ECMO or assessing candidacy for
 ECLS/ECMO. Content may change from time to time as new information becomes available.
-ELSO is under no obligation to provide updates. The aim of ELSO’s ECMO Bedside Guide App
+ELSO is under no obligation to provide updates. 
+
+The aim of ELSO’s ECMO Bedside Guide App
 is to help clinicians make informed decisions about their patients. However, any content
 provided through this app does not guarantee a successful outcome. Ultimately, healthcare
 professionals must make their own treatment decisions about care on a case-by-case basis,
@@ -95,7 +126,9 @@ ultimate judgment must be made by the physician and other health professionals a
 in light of all the circumstances presented by the individual patient, and the known variability and
 biological behavior of the clinical condition. <i>In no event will ELSO be liable for any decision
 made or action taken in reliance upon the information provided through ELSO’s ECMO Bedside
-Guide App.</i></p>
+Guide App.</i>
+
+</p>
 
         </div>
 
