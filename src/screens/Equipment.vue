@@ -74,20 +74,17 @@ const {
 // if we have am incoming query, replace route...
 watch(route, () => {
   
-  console.log("route", route?.query);
-  
   if (route?.query?.id && isNaN(parseInt(route?.query?.childId! as string))) {
     
     router.replace({ path: `/home/equipment/${route?.query?.id}` });
   }
-  else {
-    if (route?.query?.id && !isNaN(parseInt(route?.query?.childId! as string))) {
-      console.warn("getCurrentView", (branchingRef.value as unknown as any).getCurrentView())
-      console.warn("getCurrentViewIndex", (branchingRef.value as unknown as any).getCurrentViewIndex())
-      // emitChecklistRoute(route?.query?.childId as string, route?.query?.id as string, views);
-    }
-  }
-
+  // else {
+  //   if (route?.query?.id && !isNaN(parseInt(route?.query?.childId! as string))) {
+  //     console.warn("getCurrentView", (branchingRef.value as unknown as any).getCurrentView())
+  //     console.warn("getCurrentViewIndex", (branchingRef.value as unknown as any).getCurrentViewIndex())
+  //     // emitChecklistRoute(route?.query?.childId as string, route?.query?.id as string, views);
+  //   }
+  // }
   
 }, { flush: "post" })
 

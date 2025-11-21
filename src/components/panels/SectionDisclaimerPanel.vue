@@ -9,7 +9,7 @@ export default {
 <script setup lang="ts">
 import { EVENT_SECTION_DISCLAIMER_CLOSE } from '@/events/Events';
 
-import { inject, onMounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted, ref } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
 
@@ -26,21 +26,51 @@ import { loadHTMLFile } from '@/utils/FileTools';
 import HtmlParserComponent from '@/ui/parsers/HtmlParserComponent.vue';
 
 const disclaimerClosedEvent = new Event(EVENT_SECTION_DISCLAIMER_CLOSE);
-
 const session = useSession();
-
 const app = inject<IApp>(APP_ID) as IApp;
 const divScrollerRef = ref<HTMLElement>();
 const hasScrolledEnd = ref<boolean>(false);
 
-function handleScroll() {
-  if (!divScrollerRef?.value || hasScrolledEnd?.value) return;
+function checkScrollPosition() {
+  // If already accepted, stop checking
+  if (!divScrollerRef.value || hasScrolledEnd.value) return;
 
   const div = divScrollerRef.value;
-  if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
+  
+  const isShortContent = div.clientHeight >= div.scrollHeight; 
+  const hasReachedBottom = div.scrollTop + div.clientHeight >= div.scrollHeight - 20;
+
+  if (isShortContent || hasReachedBottom) {
     hasScrolledEnd.value = true;
   }
 }
+
+function handleScroll() {
+  checkScrollPosition();
+}
+
+let resizeObserver: ResizeObserver | null = null;
+
+onMounted(() => {
+  // Slight delay to ensure DOM and animations are rendered
+  setTimeout(() => {
+    checkScrollPosition();
+
+    // Setup Observer: If the div size changes (e.g. rotation), re-check logic
+    if (divScrollerRef.value) {
+      resizeObserver = new ResizeObserver(() => {
+        checkScrollPosition();
+      });
+      resizeObserver.observe(divScrollerRef.value);
+    }
+  }, 300); 
+});
+
+onUnmounted(() => {
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+  }
+});
 
 function onMenuTriggered(selected: number) {
   

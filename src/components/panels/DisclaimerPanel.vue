@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { EVENT_DISCLAIMER_CLOSE } from '@/events/Events';
-// 1. Import onMounted and onUnmounted
 import { inject, ref, onMounted, onUnmounted } from 'vue';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import classnames from "classnames";
@@ -21,17 +20,11 @@ const app = inject<IApp>(APP_ID) as IApp;
 const divScrollerRef = ref<HTMLElement>();
 const hasScrolledEnd = ref<boolean>(false);
 
-// 2. Refactored logic into a reusable function
 function checkScrollPosition() {
   // If already accepted, stop checking
   if (!divScrollerRef.value || hasScrolledEnd.value) return;
 
   const div = divScrollerRef.value;
-  
-  // LOGIC: 
-  // 1. (div.scrollTop + div.clientHeight) calculation determines current bottom position
-  // 2. div.scrollHeight is the total height of text
-  // 3. We verify if the View Height is >= Total Text Height (Short content) OR if user scrolled to bottom
   
   const isShortContent = div.clientHeight >= div.scrollHeight; 
   const hasReachedBottom = div.scrollTop + div.clientHeight >= div.scrollHeight - 20;
@@ -41,16 +34,14 @@ function checkScrollPosition() {
   }
 }
 
-// 3. Run the check on scroll events
 function handleScroll() {
   checkScrollPosition();
 }
 
-// 4. Initialize ResizeObserver to handle screen rotation or dynamic layout changes
 let resizeObserver: ResizeObserver | null = null;
 
 onMounted(() => {
-  // Slight delay to ensure DOM and animations (Ionic transitions) are finished
+  // Slight delay to ensure DOM and animations are rendered
   setTimeout(() => {
     checkScrollPosition();
 
