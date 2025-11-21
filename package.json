@@ -2,7 +2,7 @@
   "name": "elso_app",
   "private": true,
   "version": "0.9.8",
-  "build_number": "311",
+  "build_number": "312",
   "type": "module",
   "scripts": {
     "start": "vite --host",
