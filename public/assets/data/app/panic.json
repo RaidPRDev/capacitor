@@ -1091,7 +1091,7 @@
     "keywords": "",
     "items": [
       {
-        "label": "A. The flow reading is NOT available but circuit pressures are consistent with ongoing forward flow",
+        "label": "A. The flow reading is NOT available but circuit pressures are consistent with ongoing forward flow.",
         "branchTo": "ELSOBA_PANIC_050__STEP3__A",
         "class": ""
       },     
