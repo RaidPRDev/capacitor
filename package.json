@@ -15,14 +15,21 @@
     "icons": "npx capacitor-assets generate"
   },
   "dependencies": {
-    "@capacitor/android": "^6.1.0",
-    "@capacitor/app": "^6.0.1",
-    "@capacitor/cli": "^6.1.0",
-    "@capacitor/core": "^6.1.0",
-    "@capacitor/haptics": "^6.0.2",
-    "@capacitor/ios": "^6.1.0",
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/app": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/haptics": "^7.0.0",
+    "@capacitor/ios": "^7.0.0",
     "@streamparser/json-whatwg": "^0.0.21",
     "my-clarity-capacitator-plugin": "file:my-clarity-capacitator-plugin"
+  },
+  "overrides": {
+    "@capacitor/assets": {
+      "@capacitor/cli": "$@capacitor/cli"
+    },
+    "minimatch": "^9.0.5",
+    "tar": "^7.4.3"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",
