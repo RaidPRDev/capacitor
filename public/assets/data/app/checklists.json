@@ -262,6 +262,11 @@
         "label": "VP ECMO Management",
         "class": "disabled",
         "branchTo": "ELSOBA_CHKLST_320"
+      },
+      {
+        "label": "Venopulmonary (VP) ECMO Weaning",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_330"
       }
     ]
   },
@@ -5963,56 +5968,528 @@
     "id": "ELSOBA_CHKLST_200",
     "title": "Neuromonitoring on ECMO",
     "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
-    "layout": "list",
+    "layout": "checklist",
+    "keywords": "NEUROMONITORING; ECMO MANAGEMENT; TRANSCRANIAL DOPPLER; CONTINUOUS EEG; NIRS; CEREBRAL OXIMETRY; HEAD CT; CRANIAL ULTRASOUND; CUS; NEUROLOGIC INJURY",
     "showFavorites": true,
     "useScroll": true,
-    "keywords": "NEUROMONITORING; ECMO MANAGEMENT; TRANSCRANIAL DOPPLER; CONTINUOUS EEG; NIRS; CEREBRAL OXIMETRY; HEAD CT; CRANIAL ULTRASOUND; CUS; NEUROLOGIC INJURY",
-    "sort": "ByActive",
     "items": [
       {
         "label": "Background",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_010"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Wide range of short and long-term disabilities including motor impairment and cognitive delays, behavioral abnormalities, and lower quality of life scores compared to healthy and non-ECMO patients.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "There is currently no consensus about the most reliable and effective way to provide neuromonitoring care for patients on ECMO.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Not all modalities are widely available.",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Many studies looking at neuromonitoring are largely based on single center experience.",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Many of these modalities determine injury after it has already occurred and do not in and of themselves predict neurologic risk.",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "ELSO has put out a neuromonitoring guideline for pediatric and neonatal patients based on expert consensus.",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1 end-list-1"
+          },
+          {
+            "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_200_010' target='_self'>View the ELSO neuromonitoring figure</a>",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
       },
       {
         "label": "High-risk groups for neurologic injury",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_020"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patient risk factors",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Prematurity",
+                "checked": false
+              },
+              {
+                "label": "Low body weight",
+                "checked": false
+              },
+              {
+                "label": "Cardiac failure",
+                "checked": false
+              },
+              {
+                "label": "Pre-ECMO cardiac arrest",
+                "checked": false
+              },
+              {
+                "label": "Impairment of cerebral autoregulation",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "High risk patient groups",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Premature infants",
+                "checked": false
+              },
+              {
+                "label": "ECPR",
+                "checked": false
+              },
+              {
+                "label": "Congenital heart disease",
+                "checked": false
+              },
+              {
+                "label": "Recent CPB",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Mechanical risk factors",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Anti-coagulation",
+                "checked": false
+              },
+              {
+                "label": "Alteration in blood flow",
+                "checked": false
+              },
+              {
+                "label": "Blood exposure to artificial surface",
+                "checked": false
+              },
+              {
+                "label": "Systemic inflammatory response",
+                "checked": false
+              },
+              {
+                "label": "Cannulation type/strategy",
+                "checked": false
+              }
+            ]
+          }
+        ]
       },
       {
         "label": "Cranial Ultrasound (CUS)",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_030"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Population:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Patients with open fontanelle",
+                "checked": false
+              },
+              {
+                "label": "Obtained prior to ECMO (when feasible)",
+                "checked": false
+              },
+              {
+                "label": "Obtained after ECMO initiation everyday x 3–5 days in infants with abnormal CUS and high-risk infants with open fontanelle.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Benefits:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Easy to do at bedside/portable",
+                "checked": false
+              },
+              {
+                "label": "No radiation",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Caveats:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Utility based on skill of ultrasonographer",
+                "checked": false
+              },
+              {
+                "label": "If abnormal CUS consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
+                "checked": false
+              }
+            ]
+          }
+        ]
       },
       {
         "label": "Head CT",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_040"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Population:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Patients with cardiac arrest or ECPR (obtain within 24 hours if clinically feasible)",
+                "checked": false
+              },
+              {
+                "label": "Acute change in neurologic status, mental status, pupillary changes, seizures, focal neurologic deficit, or weakness",
+                "checked": false
+              },
+              {
+                "label": "Change from baseline in other monitoring (i.e. change in NIRS, change on CUS, seizures on EEG)",
+                "checked": false
+              },
+              {
+                "label": "Portable head CT when possible—sufficient sensitivity to detect many neurologic insults",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Large body habitus may limit the ability to perform (check with radiology tech for measurements if concerned)",
+                    "checked": false
+                  },
+                  {
+                    "label": "If unable to obtain portable and patient is stable on ECMO, see transport section",
+                    "checked": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Benefits:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "23–32% of patients getting head CT will require intervention (change in management, neurosurgical intervention, withdrawal of care)",
+                "checked": false
+              }
+            ]
+          }
+        ]
       },
       {
         "label": "Continuous EEG",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_050"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Population:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Seizures noted in between 18-23% of neonatal and pediatric ECMO patients with ~50-80% of those seizures being subclinical",
+                "checked": false
+              },
+              {
+                "label": "Consider EEG in all ECMO patients for the first 48 hours with initiation 12–24 hours post cannulation.",
+                "checked": false
+              },
+              {
+                "label": "Can consider early discontinuation in patients who are awake and neurologically appropriate",
+                "checked": false
+              },
+              {
+                "label": "Most seizures are detected in the first 24 hours of EEG monitoring with ¾ of seizures detected within first 72 hours in one study",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "If seizures present continue EEG for at least 24 hours post seizure control",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Poor background reactivity and lack of variation have been associated with poor prognosis of ECMO patients",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Limitations:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "May be limited by epileptologist availability to read 24 hours, machine/technology availability",
+                "checked": false
+              }
+            ]
+          }
+        ]
       },
       {
         "label": "Cerebral Oximetry (NIRS- near-infrared spectroscopy)",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_060"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Utilized to follow TRENDS in cerebral tissue oxygenation",
+            "checked": false
+          },
+          {
+            "label": "A 20% decrease from baseline has been associated with neurologic injury and may warrant additional work-up",
+            "checked": false
+          },
+          {
+            "label": "Population:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "All ECMO patients",
+                "checked": false
+              },
+              {
+                "label": "Okay to defer utilization while the EEG is in place, if it’s not feasible to place both due to available real estate",
+                "checked": false
+              },
+              {
+                "label": "Okay to consider intermittent monitoring in awake, neurologically appropriate patients",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Limitations:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Few studies with ECMO patients",
+                "checked": false
+              },
+              {
+                "label": "May have changes in NIRS during variations in ECMO flow but not necessarily correlation with clinical change or neurologic injury",
+                "checked": false
+              }
+            ]
+          }
+        ]
       },
       {
         "label": "Transcranial Doppler",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_070"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Measure of cerebral blood flow velocities and pulsatility index can detect neurologic injury",
+            "checked": false
+          },
+          {
+            "label": "Can measure CBF velocity in anterior, middle and posterior cerebral circulation as well as internal carotid",
+            "checked": false
+          },
+          {
+            "label": "CBF seems to be decreased in ECMO patients compared to controls (sick and healthy) and higher after decannulation",
+            "checked": false
+          },
+          {
+            "label": "May be able to predict risk before it happens",
+            "checked": false
+          },
+          {
+            "label": "Current Evidence",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Limited to small studies",
+                "checked": false
+              },
+              {
+                "label": "Focal elevations/asymmetries also associated with neurologic injuries 1–4 days prior to notation of injury",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Benefits",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Non-invasive, portable",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Limitations",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Operator dependent—must account for user variation during interpretation",
+                "checked": false
+              },
+              {
+                "label": "May have limited center availability and experience for machine availability and radiologist interpretation",
+                "checked": false
+              },
+              {
+                "label": "May have decreased ability to utilize this technology based on decreased cardiac function as there may be reduced cerebral pulsatility",
+                "checked": false
+              }
+            ]
+          }
+        ]
       },
       {
         "label": "Adjunct Technology—More Data Emerging",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_080"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Pupillometry",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "Population: Adjunct technology; data supporting use of pupilometry in ECMO populations is currently limited",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Consider utilization in populations where there is difficulty in determining pupil reactivity or asymmetry",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "May be a good prognosticator of mortality in certain ECMO populations however, more data is needed",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "MRI",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "Low-field portable MRI has been shown to be safe and feasible on patients on ECMO. However, this technology is currently not widely available.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Population: All patients prior to discharge",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Ideally obtained 7–10 days post-insult leading to ECMO or neurologic insult on ECMO.",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1 end-list-1"
+          }
+        ]
       },
       {
         "label": "References",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_200_090"
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Farhat A, Li X, Huet B, Tweed J, Morriss MC, Raman L. Routine Neuroimaging: Understanding Brain Injury in Pediatric Extracorporeal Membrane Oxygenation. Crit Care Med. 2022;50(3):480-490. doi:10.1097/CCM.0000000000005308",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Miroz JP, Ben-Hamouda N, Bernini A, et al. Neurological Pupil index for Early Prognostication After Venoarterial Extracorporeal Membrane Oxygenation. Chest. 2020;157(5):1167-1174. doi:10.1016/j.chest.2019.11.037",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Okochi S, Shakoor A, Barton S, et al. Prevalence of Seizures in Pediatric Extracorporeal Membrane Oxygenation Patients as Measured by Continuous Electroencephalography. Pediatr Crit Care Med. 2018;19(12):1162-1167. doi:10.1097/PCC.0000000000001730",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Pandiyan P, Cvetkovic M, Antonini MV, Shappley RKH, Karmakar SA, Raman L. Clinical Guidelines for Routine Neuromonitoring in Neonatal and Pediatric Patients Supported on Extracorporeal Membrane Oxygenation. ASAIO J. 2023;69(10):895-900. doi:10.1097/MAT.0000000000001896",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Riker RR, Sawyer ME, Fischman VG, et al. Neurological Pupil Index and Pupillary Light Reflex by Pupillometry Predict Outcome Early After Cardiac Arrest. Neurocrit Care. 2020;32(1):152-161. doi:10.1007/s12028-019-00717-4",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Sabir H, Kipfmueller F, Bagci S, et al. Feasibility of bedside portable MRI in neonates and children during ECLS. Crit Care. 2023;27(1):134. Published 2023 Apr 4. doi:10.1186/s13054-023-04416-7",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Tsou PY, Garcia AV, Yiu A, Vaidya DM, Bembea MM. Association of Cerebral Oximetry with Outcomes after Extracorporeal Membrane Oxygenation. Neurocrit Care. 2020;33(2):429-437. doi:10.1007/s12028-019-00892-4",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
       }
     ]
   },
@@ -6020,462 +6497,6 @@
     "id": "ELSOBA_CHKLST_200_010",
     "title": "Background",
     "content": "checklists/ELSOBA_CHKLST_200/ELSOBA_CHKLST_200_010.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_020",
-    "title": "High-risk groups for neurologic injury",
-    "content": "",
-    "keywords": "High-risk groups for neurologic injury; NEUROLOGIC INJURY",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Patient risk factors",
-        "checked": false,
-        "type": "subchecklist",
-        "layout": "checklist",
-        "items": [
-          {
-            "label": "Prematurity",
-            "checked": false
-          },
-          {
-            "label": "Low body weight",
-            "checked": false
-          },
-          {
-            "label": "Cardiac failure",
-            "checked": false
-          },
-          {
-            "label": "Pre-ECMO cardiac arrest",
-            "checked": false
-          },
-          {
-            "label": "Impairment of cerebral autoregulation",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "High risk patient groups",
-        "checked": false,
-        "type": "subchecklist",
-        "layout": "checklist",
-        "items": [
-          {
-            "label": "Premature infants",
-            "checked": false
-          },
-          {
-            "label": "ECPR",
-            "checked": false
-          },
-          {
-            "label": "Congenital heart disease",
-            "checked": false
-          },
-          {
-            "label": "Recent CPB",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Mechanical risk factors",
-        "checked": false,
-        "type": "subchecklist",
-        "layout": "checklist",
-        "items": [
-          {
-            "label": "Anti-coagulation",
-            "checked": false
-          },
-          {
-            "label": "Alteration in blood flow",
-            "checked": false
-          },
-          {
-            "label": "Blood exposure to artificial surface",
-            "checked": false
-          },
-          {
-            "label": "Systemic inflammatory response",
-            "checked": false
-          },
-          {
-            "label": "Cannulation type/strategy",
-            "checked": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_030",
-    "title": "Cranial Ultrasound (CUS)",
-    "content": "",
-    "keywords": "Cranial Ultrasound (CUS); HEAD CT; CRANIAL ULTRASOUND; CUS",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Population:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Patients with open fontanelle",
-            "checked": false
-          },
-          {
-            "label": "Obtained prior to ECMO (when feasible)",
-            "checked": false
-          },
-          {
-            "label": "Obtained after ECMO initiation everyday x 3–5 days in infants with abnormal CUS and high-risk infants with open fontanelle.",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Benefits:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Easy to do at bedside/portable",
-            "checked": false
-          },
-          {
-            "label": "No radiation",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Caveats:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Utility based on skill of ultrasonographer",
-            "checked": false
-          },
-          {
-            "label": "If abnormal CUS consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
-            "checked": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_040",
-    "title": "Head CT",
-    "content": "",
-    "keywords": "Head CT; NIRS; CUS",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Population:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Patients with cardiac arrest or ECPR (obtain within 24 hours if clinically feasible)",
-            "checked": false
-          },
-          {
-            "label": "Acute change in neurologic status, mental status, pupillary changes, seizures, focal neurologic deficit, or weakness",
-            "checked": false
-          },
-          {
-            "label": "Change from baseline in other monitoring (i.e. change in NIRS, change on CUS, seizures on EEG)",
-            "checked": false
-          },
-          {
-            "label": "Portable head CT when possible—sufficient sensitivity to detect many neurologic insults",
-            "checked": false,
-            "type": "subchecklist",
-            "layout": "checklist",
-            "items": [
-              {
-                "label": "Large body habitus may limit the ability to perform (check with radiology tech for measurements if concerned)",
-                "checked": false
-              },
-              {
-                "label": "If unable to obtain portable and patient is stable on ECMO, see transport section",
-                "checked": false
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "Benefits:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "23–32% of patients getting head CT will require intervention (change in management, neurosurgical intervention, withdrawal of care)",
-            "checked": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_050",
-    "title": "Continuous EEG",
-    "content": "",
-    "keywords": "Continuous EEG",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Population:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Seizures noted in between 18-23% of neonatal and pediatric ECMO patients with ~50-80% of those seizures being subclinical",
-            "checked": false
-          },
-          {
-            "label": "Consider EEG in all ECMO patients for the first 48 hours with initiation 12–24 hours post cannulation.",
-            "checked": false
-          },
-          {
-            "label": "Can consider early discontinuation in patients who are awake and neurologically appropriate",
-            "checked": false
-          },
-          {
-            "label": "Most seizures are detected in the first 24 hours of EEG monitoring with ¾ of seizures detected within first 72 hours in one study",
-            "checked": false,
-            "type": "subchecklist",
-            "layout": "checklist",
-            "items": [
-              {
-                "label": "If seizures present continue EEG for at least 24 hours post seizure control",
-                "checked": false
-              }
-            ]
-          },
-          {
-            "label": "Poor background reactivity and lack of variation have been associated with poor prognosis of ECMO patients",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Limitations:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "May be limited by epileptologist availability to read 24 hours, machine/technology availability",
-            "checked": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_060",
-    "title": "Cerebral Oximetry (NIRS- near-infrared spectroscopy)",
-    "content": "",
-    "keywords": "Cerebral Oximetry (NIRS- near-infrared spectroscopy); NIRS; CEREBRAL OXIMETRY; NEUROLOGIC INJURY",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Utilized to follow TRENDS in cerebral tissue oxygenation",
-        "checked": false
-      },
-      {
-        "label": "A 20% decrease from baseline has been associated with neurologic injury and may warrant additional work-up",
-        "checked": false
-      },
-      {
-        "label": "Population:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "All ECMO patients",
-            "checked": false
-          },
-          {
-            "label": "Okay to defer utilization while the EEG is in place, if it’s not feasible to place both due to available real estate",
-            "checked": false
-          },
-          {
-            "label": "Okay to consider intermittent monitoring in awake, neurologically appropriate patients",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Limitations:",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Few studies with ECMO patients",
-            "checked": false
-          },
-          {
-            "label": "May have changes in NIRS during variations in ECMO flow but not necessarily correlation with clinical change or neurologic injury",
-            "checked": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_070",
-    "title": "Transcranial Doppler",
-    "content": "",
-    "keywords": "Transcranial Doppler; NEUROLOGIC INJURY",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Measure of cerebral blood flow velocities and pulsatility index can detect neurologic injury",
-        "checked": false
-      },
-      {
-        "label": "Can measure CBF velocity in anterior, middle and posterior cerebral circulation as well as internal carotid",
-        "checked": false
-      },
-      {
-        "label": "CBF seems to be decreased in ECMO patients compared to controls (sick and healthy) and higher after decannulation",
-        "checked": false
-      },
-      {
-        "label": "May be able to predict risk before it happens",
-        "checked": false
-      },
-      {
-        "label": "Current Evidence",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Limited to small studies",
-            "checked": false
-          },
-          {
-            "label": "Focal elevations/asymmetries also associated with neurologic injuries 1–4 days prior to notation of injury",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Benefits",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Non-invasive, portable",
-            "checked": false
-          }
-        ]
-      },
-      {
-        "label": "Limitations",
-        "class": "list-section",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Operator dependent—must account for user variation during interpretation",
-            "checked": false
-          },
-          {
-            "label": "May have limited center availability and experience for machine availability and radiologist interpretation",
-            "checked": false
-          },
-          {
-            "label": "May have decreased ability to utilize this technology based on decreased cardiac function as there may be reduced cerebral pulsatility",
-            "checked": false
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_080",
-    "title": "Adjunct Technology—More Data Emerging",
-    "content": "",
-    "keywords": "Adjunct Technology—More Data Emerging",
-    "layout": "checklist",
-    "type": "subchecklist",
-    "items": [
-      {
-        "label": "Pupillometry",
-        "type": "list-comment",
-        "class": "mxt-20 mxb-16"
-      },
-      {
-        "label": "Population: Adjunct technology; data supporting use of pupilometry in ECMO populations is currently limited",
-        "type": "list-comment",
-        "class": "bullet ml-0"
-      },
-      {
-        "label": "Consider utilization in populations where there is difficulty in determining pupil reactivity or asymmetry",
-        "type": "list-comment",
-        "class": "bullet ml-0"
-      },
-      {
-        "label": "May be a good prognosticator of mortality in certain ECMO populations however, more data is needed",
-        "type": "list-comment",
-        "class": "bullet ml-0"
-      },
-      {
-        "label": "MRI",
-        "type": "list-comment",
-        "class": "mxt-20 mxb-16"
-      },
-      {
-        "label": "Low-field portable MRI has been shown to be safe and feasible on patients on ECMO. However, this technology is currently not widely available.",
-        "type": "list-comment",
-        "class": "bullet ml-0"
-      },
-      {
-        "label": "Population: All patients prior to discharge",
-        "type": "list-comment",
-        "class": "bullet ml-0"
-      },
-      {
-        "label": "Ideally obtained 7–10 days post-insult leading to ECMO or neurologic insult on ECMO.",
-        "type": "list-comment",
-        "class": "bullet hollow ml-1 end-list-1"
-      }
-    ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_090",
-    "title": "References",
-    "content": "checklists/ELSOBA_CHKLST_200/ELSOBA_CHKLST_200_090.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
@@ -8332,6 +8353,438 @@
     "title": "Step 4: Prepare for Decannulation",
     "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__6.html",
     "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_330",
+    "title": "Venopulmonary (VP) ECMO Weaning",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "VP ECMO; VP MANAGEMENT; ECMO; ECMO MANAGEMENT; VENOPULMONARY; WEANING; VP WEANING; ECMO WEANING",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Background",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Venopulmonary (VP) extracorporeal membrane oxygenation (ECMO) supports both pulmonary and right ventricular (RV) functions",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Utilization of this mode has been associated with improved outcomes",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "The peripheral VP ECMO mode has a variety of cannulation configurations",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "A single specialized dual-lumen cannula (ProtekDuo, Spectrum Medical)",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Multiple single-lumen cannulas, or a combination of both dual- and single-lumen cannulas",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "The flexibility of VP ECMO allows for independent support of each organ system without needing to reconfigure cannulas",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Weaning patients from VP ECMO requires careful assessment of both RV and lung recovery, which may occur at different rates.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Weaning methods are often poorly described or omitted in scientific manuscripts",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "The following is a detailed strategy for weaning patients with concomitant respiratory and RV failure from VP ECMO support",
+            "type": "list-comment",
+            "class": "bullet ml-0 end-list-0"
+          }
+        ]
+      },
+      {
+        "label": "Weaning of VP ECMO",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Assessing a patient’s readiness for ECMO weaning is conducted daily",
+            "checked": false
+          },
+          {
+            "label": "VP ECMO weaning approach treats respiratory and RV support as separate entities",
+            "checked": false
+          },
+          {
+            "label": "Before ECMO weaning, efforts are made to extubate patients",
+            "checked": false
+          },
+          {
+            "label": "If extubation is impracticable, maintain recommended lung-protective mechanical ventilation settings",
+            "checked": false
+          },
+          {
+            "label": "Start 2 phased weaning process",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "1st wean respiratory support",
+                "checked": false
+              },
+              {
+                "label": "2nd wean RV support",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Phase 1: Respiratory Support Weaning",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patients with concurrent RV and respiratory failure are first weaned from respiratory support, since respiratory failure may precipitate or exacerbate RV failure",
+            "checked": false
+          },
+          {
+            "label": "Throughout the weaning of respiratory support, the ECMO pump flow is maintained at a rate that is adequate for providing full RV support",
+            "checked": false
+          },
+          {
+            "label": "Arterial blood gases (ABGs) are monitored every 6 hours, or more frequently as clinically indicated",
+            "checked": false
+          },
+          {
+            "label": "Guided by ABG values, employ stepwise reduction in sweep gas flow (SGF) by 1 L/min to maintain desired PH",
+            "checked": false
+          },
+          {
+            "label": "Decrease sweep gas oxygen inlet oxygen fraction (FSO<sub>2</sub>) by 0.10 increments approximately every six hours.",
+            "checked": false
+          },
+          {
+            "label": "Arterial blood gases are reassessed 30–45 min after each adjustment",
+            "checked": false
+          },
+          {
+            "label": "With each reduction, ensure the patient sustains target respiratory parameters",
+            "checked": false
+          },
+          {
+            "label": "Maintain acceptable pH and PaCO<sub>2 </sub>based on the patient’s clinical condition and work-of-breathing",
+            "checked": false
+          },
+          {
+            "label": "Maintain an SpO<sub>2</sub> ≥92% or PaO<sub>2</sub> ≥70 mmHg",
+            "checked": false
+          },
+          {
+            "label": "Once the SGF is 1 L/min and the FSO2 is 0.21, and the patient has maintained targetrespiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
+            "checked": false
+          },
+          {
+            "label": "The patient can remain “off blender” as long as target respiratory parameters are maintained",
+            "checked": false
+          },
+          {
+            "label": "If the patient cannot sustain these targets, respiratory ECMO support is resumed",
+            "checked": false
+          },
+          {
+            "label": "If patient remains free from respiratory ECMO support for a continuous 24 hours the membrane lung (ML) may be removed from the circuit",
+            "checked": false
+          },
+          {
+            "label": "Continuing RV support alone in a (dl)VxP or VxP configuration",
+            "checked": false
+          },
+          {
+            "label": "Supplemental oxygen, mobilization, and clearing of respiratory secretions are employed to avoid the need for increased respiratory support",
+            "checked": false
+          },
+          {
+            "label": "If escalation of respiratory support becomes necessary, a ML can be reintegrated into the extracorporeal circuit, or the patient may be reintubated if airway protection is required",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Phase 2: Right Ventricular Support Weaning",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Weaning from RV support is guided by improvements in cardiac function, especially RV performance.",
+            "checked": false
+          },
+          {
+            "label": "All vasopressors should be off at this point",
+            "checked": false
+          },
+          {
+            "label": "Maintain inotropic support depending on blood pressure (BP)",
+            "checked": false
+          },
+          {
+            "label": "If mean arterial pressure (MAP) > 75 mmHg, start milrinone (0.125–0.5 mcg/kg/min)",
+            "checked": false
+          },
+          {
+            "label": "If mean arterial pressure (MAP) < 65 mmHg, start epinephrine (0.01–0.05 mcg/kg/min)",
+            "checked": false
+          },
+          {
+            "label": "Gradually wean in pump flow by 0.25–0.5 L/min each day until a constant flow rate of 2 L/min is reached and tolerated for approximately 24 hours",
+            "checked": false
+          },
+          {
+            "label": "Indicators are improved hemodynamics and organ function parameters",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Central venous pressure (CVP) of less than 15 mmHg",
+                "checked": false
+              },
+              {
+                "label": "MAP greater than or equal to 65 mmHg",
+                "checked": false
+              },
+              {
+                "label": "Cardiac index (CI) greater than or equal to 2.2 L/min/m<sup>2</sup>",
+                "checked": false
+              },
+              {
+                "label": "Normal lactate",
+                "checked": false
+              },
+              {
+                "label": "Normalization or continued improvement in laboratory markers of organ function",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Assess RV function by echocardiography (RV and LV dimension and interaction during flow weaning)",
+            "checked": false
+          },
+          {
+            "label": "Maintain awareness of the strengths and limitations of assessed parameters based on image quality",
+            "checked": false
+          },
+          {
+            "label": "When hemodynamic criteria are met, conduct a bedside “turn-down” test",
+            "checked": false
+          },
+          {
+            "label": "During the bedside turn-down test, we methodically reduce pump flow over shorter time intervals while carefully monitoring the patient’s hemodynamic parameters after each reduction.",
+            "checked": false
+          },
+          {
+            "label": "This practice typically involves the use of a Swan–Ganz or pulmonary wedge pressure catheter, for direct measurement of:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Mixed venous oxygen saturation (SvO<sub>2</sub>)",
+                "checked": false
+              },
+              {
+                "label": "Assessment of RV hemodynamics, including the PA pulsatility index (PAPi).",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "In instances where the patient has recently undergone cardiothoracic surgery, the final decision regarding placement of an additional catheter in the PA is left to the surgeon’s discretion, particularly if there are concerns regarding the integrity of suture lines around the PA.",
+            "checked": false
+          },
+          {
+            "label": "Before reducing pump flow to less than 2 L/min, it is imperative to ensure an activated clotting time (ACT) of at least 250 seconds to mitigate the risk of thrombosis within the circuit.",
+            "checked": false
+          },
+          {
+            "label": "If anticoagulation is contraindicated or an adequate ACT level unattainable, further reductions in pump flow are not pursued",
+            "checked": false
+          },
+          {
+            "label": "The authors practice is to document baseline hemodynamic values when pump flow is at 2 L/min, then reduce the flow incrementally to 1.5, 1, and 0.5 L/min, before completely stopping flow by applying a clamp to the circuit tubing on both the drainage and return limbs. Pump flow is not stopped for longer than two minutes.",
+            "checked": false
+          },
+          {
+            "label": "At each flow level, RV function and dimension by echocardiogram, hemodynamic parameters including CVP, MAP, CI, and PAPi are assessed",
+            "checked": false
+          },
+          {
+            "label": "In the absence of a Swan–Ganz or pulmonary wedge pressure catheter, CVP and MAP are measured and integrated with echocardiographic findings. CI may be calculated obtaining LVOT dimension and velocity, since the LV can only eject what the RV is pumping forward",
+            "checked": false
+          },
+          {
+            "label": "If RV function remains acceptable during the bedside turn down test without a need for more than minimal inotropic or vasopressor support, RV support is terminated, and the patient is decannulated at the bedside.",
+            "checked": false
+          },
+          {
+            "label": "Should weaning not be tolerated, multidisciplinary evaluation for durable support or heart transplantation is initiated.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Figures",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Figures 1 and 2. From Brewer JM, Maybauer MO. Technique for Weaning From Peripheral Venopulmonary Extracorporeal Membrane Oxygenation in Combined Cardiopulmonary Failure. ASAIO J. 2025;71(2):e23-e27. doi:10.1097/MAT.0000000000002251. CI, cardiac index; CVP, central venous pressure; FAC, fractional area change; F<sub>S</sub>O<sub>2</sub>, sweep gas oxygen inlet oxygen fraction; h, hour; MAP, mean arterial pressure; ML, membrane lung; MPI, myocardial performance index; PAPi, pulmonary artery pulsatility index; RV, right ventricle; SGF, sweep gas flow.",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "<sup>a</sup> Minimal pharmacological support is considered no more than two drugs at doses of dobutamine <5mcg/kg/min (or equivalent), norepinephrine or epinephrine <0.05mcg/kg/min (or equivalent), or milrinone <0.25mcg/kg/min",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "<sup>b</sup> No echocardiographic parameters have been validated in patients on VP ECMO. Our practice is to use a combination of parameters to assess RV systolic function. Clinicians must consider important factors that may affect the accuracy of each parameter including image quality, load-dependence including ECMO flow and valvular dysfunction, and the presence or absence of an opened pericardium.",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_330_050' target='_self'>View Figures 1 and 2</a>",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Special Considerations",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Right ventricular recovery before respiratory recovery:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "When RV function improves rapidly and significantly before respiratory function, clinicians might consider transitioning from VP to VV ECMO. However, the authors usual practice is to continue using VP ECMO, as this strategy has proven effective",
+                "checked": false
+              },
+              {
+                "label": "First, the pathophysiological mechanisms contributing to RV failure often persist in patients with respiratory failure, even when using VV ECMO",
+                "checked": false
+              },
+              {
+                "label": "Second, there is no evidence that switching from VP to VV ECMO is superior, and some studies suggest VP ECMO may provide benefits over VV ECMO, particularly in patients with respiratory failure due to COVID-19",
+                "checked": false
+              },
+              {
+                "label": "Maintaining VP ECMO avoids additional procedures that increase both risk and cost",
+                "checked": false
+              },
+              {
+                "label": "Clinicians may choose to switch from VP to VV ECMO if a cannula in the PA causes adverse effects that can best be addressed by reconfiguration to VV ECMO",
+                "checked": false
+              },
+              {
+                "label": "If clinicians decide to remove RV support by switching from VP to VV ECMO first, they must closely monitor RV function",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Concomitant Transvalvular Left Ventricular Support Device",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Using VP ECMO in conjunction with a transvalvular left ventricular support (TVLS) device is a viable option for combined respiratory and biventricular support",
+            "checked": false
+          },
+          {
+            "label": "In cases where patients are supported by both VP ECMO and a TVLS device, the approach to weaning from VP ECMO remains consistent:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Start by weaning from respiratory support, followed by RV support",
+                "checked": false
+              },
+              {
+                "label": "This can occur independently of weaning from the TVLS device",
+                "checked": false
+              },
+              {
+                "label": "If a patient is first liberated from VP ECMO while continuing support with the TVLS device, close monitoring of RV function is essential",
+                "checked": false
+              },
+              {
+                "label": "Maintain a low threshold for employing interventions to support RV function",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "References",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Brewer JM, Maybauer MO. Technique for Weaning From Peripheral Venopulmonary Extracorporeal Membrane Oxygenation in Combined Cardiopulmonary Failure. ASAIO J. 2025;71(2):e23-e27. doi:10.1097/MAT.0000000000002251",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Tonna JE, Abrams D, Brodie D, et al. Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO). ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_330_050",
+    "title": "Figures",
+    "content": "checklists/ELSOBA_CHKLST_330/ELSOBA_CHKLST_330_050.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
     "branchTo": "",
     "items": []
   }
