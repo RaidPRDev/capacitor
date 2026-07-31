@@ -19,7 +19,7 @@
       {
         "label": "Cannulation",
         "branchTo": "ELSOBA_CHKLST_CAT3",
-        "class": "disabled"
+        "class": ""
       },
       {
         "label": "Coming Off ECMO",
@@ -51,10 +51,15 @@
         "class": ""
       },      
       {
+        "label": "Mobile ECMO",
+        "branchTo": "ELSOBA_CHKLST_CAT13",
+        "class": ""
+      },
+      {
         "label": "Team Dynamics",
         "branchTo": "ELSOBA_CHKLST_CAT10",
         "class": ""
-      },      
+      },
       {
         "label": "Troubleshooting",
         "branchTo": "ELSOBA_CHKLST_CAT11",
@@ -99,11 +104,16 @@
     "id": "ELSOBA_CHKLST_CAT3",
     "title": "Cannulation",
     "content": "",
-    "class": "disabled",
+    "class": "",
     "layout": "list",
     "showFavorites": true,
     "useScroll": true, 
     "items": [
+      {
+        "label": "Cannula Exit Sites and Tubings Management",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_015"
+      },
       {
         "label": "Hybrid Cannulation Procedure",
         "branchTo": "ELSOBA_CHKLST_110",
@@ -267,6 +277,26 @@
         "label": "Venopulmonary (VP) ECMO Weaning",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_330"
+      },
+      {
+        "label": "How to Salvage Blood in the ECMO Circuit",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_012"
+      },
+      {
+        "label": "Conversion of ECMO to CPB and Back Again",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_045"
+      },
+      {
+        "label": "Intra-Hospital Transportation",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_125"
+      },
+      {
+        "label": "Manage Drainage Insufficiency on ECMO",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_147"
       }
     ]
   },
@@ -415,7 +445,24 @@
         "label": "PT/Ambulation on ECMO",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_240"
-      }       
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_CAT13",
+    "title": "Mobile ECMO",
+    "content": "",
+    "class": "",
+    "layout": "list",
+    "showFavorites": true,
+    "useScroll": true,
+    "sort": "ByActive",
+    "items": [
+      {
+        "label": "Mobile ECMO",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_165"
+      }
     ]
   },
   {
@@ -503,6 +550,309 @@
       }
     ]
   },  
+  {
+    "id": "ELSOBA_CHKLST_012",
+    "title": "How to Salvage Blood in the ECMO Circuit",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "ECMO MANAGEMENT; BLOOD; CIRCUIT; SALVAGE; SUSPENSION TECHNIQUE; BUCKET TECHNIQUE; BLOOD SALVAGE; ECMO CIRCUIT",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Bucket Technique (most effective)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "In the surgical sterile field fill a large bowl with balanced electrolyte solution.",
+            "checked": false
+          },
+          {
+            "label": "Submerge the ECMO venous drainage cannula in the bowl (make sure it stays submerged)",
+            "checked": false
+          },
+          {
+            "label": "Direct the return ECMO cannula into an empty bowl, place the cell saver in the empty bowl (take the Yankauer tip off)",
+            "checked": false
+          },
+          {
+            "label": "Remove the clamps and increase RPM slowly until blood flows into the cell saver bowl (typically 1000-1500 RPM is enough as there is very little resistance)",
+            "checked": false
+          },
+          {
+            "label": "Stop once the blood is displaced from the circuit",
+            "checked": false
+          },
+          {
+            "label": "This circuit may be kept on standby for a few hours and reused for the same patient if it is kept circulating and is otherwise useable",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Suspension Technique",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Attach a large-bore quick-prime line with fluids to a pre-pump pigtail; insert one if necessary.",
+            "checked": false
+          },
+          {
+            "label": "Remove the venous cannula from the patient",
+            "checked": false
+          },
+          {
+            "label": "Hold the cannula up in the air, remove the clamp",
+            "checked": false
+          },
+          {
+            "label": "Slowly increase RPM until blood flows into the patient via the return cannula",
+            "checked": false
+          },
+          {
+            "label": "Carefully watch the meniscus in the venous line, clamp below the fluid level just before it gets to pigtail",
+            "checked": false
+          },
+          {
+            "label": "Open the fluid line and continue administering circuit blood to the patient",
+            "checked": false
+          },
+          {
+            "label": "Stop if indicated hemodynamically or if the blood has all been displaced",
+            "checked": false
+          },
+          {
+            "label": "A cell saver can be attached to a return line pigtail instead of directly transfusing it via the return cannula, if desired.",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_015",
+    "title": "Cannula Exit Sites and Tubings Management",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "CANNULA; EXIT SITE; TUBING MANAGEMENT; CANNULA MANAGEMENT; ACCIDENTAL DECANNULATION",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "General Care",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Well-secure the cannulas with stitches or sutures devices according to the institutional protocol.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Use a 2 to 3-point securing strategy to stabilize tubings using available devices (tubing holders, catheter holders, self-adhering bandage, tape, etc.) adapted to the insertion site.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Avoid unnecessary manipulation.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Carefully avoid any traction on tubings/cannula during mobilization, transports, and physical therapy. Consider having a dedicated person for lines and tubing through patient movement, e.g., pressure area care and transportation of the patient.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "At least once per shift, measure the length of the exposed portion of the cannula from the insertion site to a point clearly and univocally discussed/shared with the whole team (e.g., end of wire-reinforced portion, holding ring, PC connector, etc.). If there is any major mobilization or any doubt of a potential displacement, repeat the measurement.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Compare the exposed portion measurement with the previous one. If there is greater than a 5 mm difference for adults, 3mm for children or 2mm in neonates patients, discuss the need for diagnostic exams (ultrasonography and/or radiography) with the ECMOlogist. A minimal difference could be related to an evolving edema.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "At least once per shift, observe exit sites or bleeding through the dressing if transparent OR",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Observe exit sites during dressing replacement. If complications are detected, increase monitoring frequency. Carefully look for:",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Integrity of the perilesional skin",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Integrity of the anchoring sutures, if any OR integrity of sutureless devices",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Signs of bleeding",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Signs of non hemorrhagic oozing",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Signs of infection/inflammation: report to the ECMOlogist and discuss the need to perform a wound swab",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Perform routine dressing replacement for central venous access device (CVAD) dressings based on the dressing type, institutional policies, and current clinical guidelines",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Perform unscheduled dressing changes immediately if the current dressing becomes compromised, loose, or soiled",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Use an aseptic technique when replacing cannula dressing",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Select the antiseptic solution for the cannula exit sites according to the most recent guidelines for CVADs management and to institutional policies when replacing the cannula dressing",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Avoid direct and prolonged contact between PC connectors and alcohol-based antiseptic solutions",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "When replacing dressings or holders/tapes, stabilize the cannula or the tubing with on-hand",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Remove the dressing toward the exit site—NOT toward the tubing",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "If there are any inexperienced staff at the bedside (e.g., students, new nurses or residents, etc.), quickly review the <a href='#' data-link='PANIC##ELSOBA_PANIC_010' target='_self'>Accidental Decannulation</a> protocol before leaving them alone for any reason or time",
+            "type": "list-comment",
+            "class": "bullet ml-0 end-list-0"
+          }
+        ]
+      },
+      {
+        "label": "Care for Non-Oozing Exit Sites",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Prefer transparent dressings",
+            "checked": false
+          },
+          {
+            "label": "Consider impregnated transparent dressings as per institutional protocol",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Care for Oozing Exit Sites",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "If bleeding is detected, consider hemostatic dressings as per institutional protocol",
+            "checked": false
+          },
+          {
+            "label": "If there is persistent or major bleeding, apply pressure and discuss the need for a surgical consult/wound revision and adapting the anticoagulation strategy/assess coagulopathic state with the ECMOlogist",
+            "checked": false
+          },
+          {
+            "label": "If fresh clots form over a previously bleeding exit site, avoid removal to restart the bleeding",
+            "checked": false
+          },
+          {
+            "label": "If there are old clots over a previously bleeding exit site, carefully remove them through rinsing to avoid restarting the bleeding",
+            "checked": false
+          },
+          {
+            "label": "If there is no hemorrhagic oozing detected, consider an absorbent dressing as per institutional protocol",
+            "checked": false
+          },
+          {
+            "label": "If there is a purulent discharge, consider need",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Signs of Accidental Decannulation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "If there are ANY signs of accidental decannulation, this is an emergency. Refer to <a href='#' data-link='PANIC##ELSOBA_PANIC_010' target='_self'>Accidental Decannulation</a>",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Documentation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Report on the exit site appearance",
+            "checked": false
+          },
+          {
+            "label": "Report exposed portion measurements",
+            "checked": false
+          },
+          {
+            "label": "Record any anomaly/complication",
+            "checked": false
+          },
+          {
+            "label": "Report any dressing replacement if performed by specifying the type",
+            "checked": false
+          },
+          {
+            "label": "Report any other procedure as cannula position monitoring, sampling for cultures",
+            "checked": false
+          },
+          {
+            "label": "Latest monitoring completed/responsible ECMO specialist/perfusionist",
+            "checked": false
+          },
+          {
+            "label": "If this is the case, update the ELSO registry",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
   {
     "id": "ELSOBA_CHKLST_020",
     "title": "Circuit Change (Emergent and Elective)",
@@ -1709,6 +2059,113 @@
   },
 
 
+{
+  "id": "ELSOBA_CHKLST_045",
+  "title": "Conversion of ECMO to CPB and Back Again",
+  "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+  "layout": "checklist",
+  "keywords": "CONVERSION; CPB; ECMO; PROCEDURE",
+  "showFavorites": true,
+  "useScroll": true,
+  "items": [
+    {
+      "label": "Conversion of ECMO to CPB and Back Again",
+      "class": "",
+      "layout": "checklist",
+      "type": "subchecklist",
+      "items": [
+        {
+          "label": "Cool patient to 32℃ while opening the chest on ECMO.",
+          "checked": false
+        },
+        {
+          "label": "Give 3mg/kg Heparin and allow it to circulate.",
+          "checked": false,
+          "type": "subchecklist",
+          "layout": "checklist",
+          "items": [
+            {
+              "label": "Check ACT >500 sec.",
+              "checked": false
+            }
+          ]
+        },
+        {
+          "label": "Clamp the ECMO circuit and connect the CPB circuit to the ECMO cannulas, or additional cannulas if necessary.",
+          "checked": false,
+          "type": "subchecklist",
+          "layout": "checklist",
+          "items": [
+            {
+              "label": "Go on CPB.",
+              "checked": false
+            }
+          ]
+        },
+        {
+          "label": "Connect the ends of the ECMO circuit together and recirculate.",
+          "checked": false,
+          "type": "subchecklist",
+          "layout": "checklist",
+          "items": [
+            {
+              "label": "Turn the sweep off.",
+              "checked": false
+            },
+            {
+              "label": "Flash sweep for a few seconds if blood becomes deoxygenated.",
+              "checked": false
+            },
+            {
+              "label": "Check ACT and blood gas periodically.",
+              "checked": false
+            },
+            {
+              "label": "Give additional heparin if ACT drops below 500 seconds.",
+              "checked": false
+            }
+          ]
+        },
+        {
+          "label": "Perform the surgery.",
+          "checked": false
+        },
+        {
+          "label": "If the patient will not come off CPB, reconnect to the same ECMO circuit if it’s clean.",
+          "checked": false,
+          "type": "subchecklist",
+          "layout": "checklist",
+          "items": [
+            {
+              "label": "If it was due to be changed, prime a new one.",
+              "checked": false
+            },
+            {
+              "label": "Partially reverse heparin using ⅓ doses of Protamine (typically 1mg/kg).",
+              "checked": false
+            },
+            {
+              "label": "Draw an ACT. Two to three minutes after each protamine dose, give an additional dose every time ACT exceeds 250 seconds.",
+              "checked": false
+            },
+            {
+              "label": "Once ACT is less than 250 seconds, stop giving protamine. Give Platelets, FFP, Cryoprecipitate and PCC concurrently.",
+              "checked": false
+            },
+            {
+              "label": "Red Cell salvage the CPB circuit.",
+              "checked": false
+            }
+          ]
+        },
+        {
+          "label": "If the patient does come off CPB, their passivated ECMO circuit can be kept on standby for 4–6 hours.",
+          "checked": false
+        }
+      ]
+    }
+  ]
+},
   {
     "id": "ELSOBA_CHKLST_050",
     "title": "Coming Off ECMO",
@@ -3996,11 +4453,11 @@
             "checked": false
           },
           {
-            "label": "Cannula malposition? Image and reposition. Refer to Cannula Exit Sites and Tubings Management.",
+            "label": "Cannula malposition? Image and reposition. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_015' target='_self'>Cannula Exit Sites and Tubings Management</a>.",
             "checked": false
           },
           {
-            "label": "Insufficient drainage/excessive negative drainage pressure? Check volume, position, and additional drainage. Refer to Manage Drainage Insufficiency on ECMO.",
+            "label": "Insufficient drainage/excessive negative drainage pressure? Check volume, position, and additional drainage. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_147' target='_self'>Manage Drainage Insufficiency on ECMO</a>.",
             "checked": false
           },
           {
@@ -4131,7 +4588,7 @@
             "checked": false
           },
           {
-            "label": "Out of scope: same-mode flow limitation alone is not a hybrid indication—Refer to Manage Drainage Insufficiency on ECMO",
+            "label": "Out of scope: same-mode flow limitation alone is not a hybrid indication—Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_147' target='_self'>Manage Drainage Insufficiency on ECMO</a>",
             "checked": false
           }
         ]
@@ -4292,7 +4749,7 @@
             "checked": false
           },
           {
-            "label": "Same-mode flow limitation = not a hybrid indication. Refer to Manage Drainage Insufficiency on ECMO",
+            "label": "Same-mode flow limitation = not a hybrid indication. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_147' target='_self'>Manage Drainage Insufficiency on ECMO</a>",
             "checked": false
           }
         ]
@@ -4941,11 +5398,11 @@
             "checked": false
           },
           {
-            "label": "Cannula malposition? Image and reposition. Refer to Cannula Exit Sites and Tubings Management.",
+            "label": "Cannula malposition? Image and reposition. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_015' target='_self'>Cannula Exit Sites and Tubings Management</a>.",
             "checked": false
           },
           {
-            "label": "Insufficient drainage or excessive negative drainage pressure? Check volume, position, and additional drainage. Refer to Manage Drainage Insufficiency on ECMO.",
+            "label": "Insufficient drainage or excessive negative drainage pressure? Check volume, position, and additional drainage. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_147' target='_self'>Manage Drainage Insufficiency on ECMO</a>.",
             "checked": false
           },
           {
@@ -5048,7 +5505,7 @@
             "checked": false
           },
           {
-            "label": "Same-mode flow limitation = not a hybrid indication. Refer to Manage Drainage Insufficiency on ECMO.",
+            "label": "Same-mode flow limitation = not a hybrid indication. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_147' target='_self'>Manage Drainage Insufficiency on ECMO</a>.",
             "checked": false
           }
         ]
@@ -5244,6 +5701,773 @@
     ]
   },
   {
+    "id": "ELSOBA_CHKLST_125",
+    "title": "Intra-Hospital Transportation",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "POST TRANSPORTATION; PRE TRANSPORTATION; PLANNING; MOVING PATIENTS; TRANSPORTATION; INTRAHOSPITAL; INTRA-HOSPITAL; TRANSPORT; ECMO; CHECKLIST; MOBILE; MOBILE ECMO",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Prior to Transport",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Identify the need for transport",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Is the patient appropriate to transport?",
+                "checked": false
+              },
+              {
+                "label": "Is it the right time for transport?",
+                "checked": false
+              },
+              {
+                "label": "Is the appropriate transport team available?",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Assign a transport team leader.",
+            "checked": false
+          },
+          {
+            "label": "Allocate roles to staff members on transport team according to appropriate skill set:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Composition of the team would depend on individual country/ institution requirements and case complexity. The team should be capable of managing ECMO emergencies and providing resuscitation.",
+                "checked": false
+              },
+              {
+                "label": "Common members on a transport team include ECMO surgeon or physician, ECMO specialist, perfusionist, critical care nurse and respiratory therapist.",
+                "checked": false
+              },
+              {
+                "label": "All members should be familiar with the patient, equipment and medications used during transport.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Communication:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Team leader(s) should inform transport team members about the details of the transport arrangements, including location, any infectious disease status and precautionary measures.",
+                "checked": false
+              },
+              {
+                "label": "Notify the receiving destination team and provide them with adequate information, including the estimated arrival time.",
+                "checked": false
+              },
+              {
+                "label": "Plan the best route, secure the lift and clear the passageway beforehand.",
+                "checked": false
+              },
+              {
+                "label": "Do not initiate the transport until the destination site has made all necessary preparations to receive the patient.",
+                "checked": false
+              },
+              {
+                "label": "Inform the patient and the family.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Prepare the equipment used for transport:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Transport stretcher",
+                "checked": false
+              },
+              {
+                "label": "Emergency transport equipment",
+                "checked": false
+              },
+              {
+                "label": "Non-emergency transport equipment",
+                "checked": false
+              },
+              {
+                "label": "Intra-hospital transportation bag (See Appendix B)",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Prepare ECMO for transport:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Check battery status of the ECMO console.",
+                "checked": false
+              },
+              {
+                "label": "Check the settings and alarm limits in the pump console in use.",
+                "checked": false
+              },
+              {
+                "label": "Secure all cannulas and circuit tubing.",
+                "checked": false
+              },
+              {
+                "label": "Check that all connections are tightened.",
+                "checked": false
+              },
+              {
+                "label": "Assess the risk, benefit and feasibility of transporting the patient with the ECMO console alone or with the ECMO cart.",
+                "checked": false
+              },
+              {
+                "label": "Assess whether water lines and circuit pressure monitoring lines can be temporarily disconnected during transport.",
+                "checked": false
+              },
+              {
+                "label": "Bring strong ECMO clamps, hand crank or spare ECMO console (depending on machine used).",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Immediately before transport:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "The team leader should optimally stabilize and re-assess the patient.",
+                "checked": false
+              },
+              {
+                "label": "Check ECMO settings and ECMO parameters.",
+                "checked": false
+              },
+              {
+                "label": "Connect the ECMO console to UPS, if appropriate.",
+                "checked": false
+              },
+              {
+                "label": "Bring an adequate gas cylinder (oxygen cylinder of adequate volume for the journey, with or without a compressed air cylinder depending on the transport set-up).",
+                "checked": false
+              },
+              {
+                "label": "Check non-ECMO transport equipment and ECMO equipment including ECMO circuit after disconnection of power supplies and connection of gas supply to transport gas cylinder(s) / compressor. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_165' target='_self'>Mobile ECMO</a>.",
+                "checked": false
+              },
+              {
+                "label": "Set appropriate alarm settings for non-ECMO and ECMO equipment.",
+                "checked": false
+              },
+              {
+                "label": "Securely mount or strap all ECMO and non-ECMO equipment on the appropriate platform against vibration and potential impact.",
+                "checked": false
+              },
+              {
+                "label": "Allow for ready access to hand crank or backup pump, so that flow can be re-established promptly in the event of in transit console failure.",
+                "checked": false
+              },
+              {
+                "label": "Secure the oxygenator at a level below the patient during ECMO support.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "During Transport or After Arrival to Destination",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Continuously monitor and regularly document the patient's condition and ECMO parameters.",
+            "checked": false
+          },
+          {
+            "label": "After arrival to the destination and re-establishing power and gas supplies, check non-ECMO transport equipment and ECMO equipment including ECMO circuit. (See Appendix A)",
+            "checked": false
+          },
+          {
+            "label": "Check ECMO settings and ECMO parameters.",
+            "checked": false
+          },
+          {
+            "label": "If the ECMO transport team needs to leave the patient, the team leader must re-assess the patient's condition and properly hand over the patient to the appropriate receiving team.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Before Leaving the Destination",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Secure patient and all equipment on the transport stretcher.",
+            "checked": false
+          },
+          {
+            "label": "Check ECMO settings and ECMO parameters.",
+            "checked": false
+          },
+          {
+            "label": "Check non-ECMO transport equipment and ECMO equipment including ECMO circuit after disconnection of power supplies and connection of gas supply to transport gas cylinder(s)/ compressor. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_165' target='_self'>Mobile ECMO</a>.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "After Transport",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "After returning to the parent unit and re-establishing power and gas supplies, check non-ECMO transport equipment and ECMO equipment including ECMO circuit. (See Appendix A)",
+            "checked": false
+          },
+          {
+            "label": "Check ECMO settings and ECMO parameters.",
+            "checked": false
+          },
+          {
+            "label": "Team leader should re-assess the patient and declare completion of the transport mission when all therapies are resumed.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Check Items Specific to ECMO",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Power supply/Battery status of ECMO console (may include uninterrupted power supply (UPS), if appropriate).",
+            "checked": false
+          },
+          {
+            "label": "Heater-cooler device, if in use.",
+            "checked": false
+          },
+          {
+            "label": "Gas supply (including proper connection of the gas lines, proper functioning of all gas supply equipment (e.g., air-oxygen blender) and adequacy of gas supply for the journey).",
+            "checked": false
+          },
+          {
+            "label": "Circuit (including tight connections, and properly secured cannulas and circuit without kinking or pulling of the tubing).",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Appendix A",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patient Transfer Checklist",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "ON DEPARTURE:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Power Sources (DISCONNECTED)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "For ECMO console",
+                    "checked": false
+                  },
+                  {
+                    "label": "For heater",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Oxygen Tank (FULL TANK)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Check adequate gas pressure and volume",
+                    "checked": false
+                  },
+                  {
+                    "label": "Connect 3/16 – ¼ adapter short piece (Optional)",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Green Gas Line (TRANSFERRED to O<sub>2</sub> tank)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Move from gas flowmeter to oxygen tank",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Gas Supply Hoses (DISCONNECTED)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Unplugged from wall sources",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Heater Cooler (SWITCHED OFF)",
+                "checked": false
+              },
+              {
+                "label": "Circuit (Pump drive, pump head, 3-ways, caps)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Secure in place",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Verified by Perfusionists",
+                "checked": false
+              },
+              {
+                "label": "Verified by staff present",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "ON ARRIVAL:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Power Sources (RECONNECTED to UPS)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "For both ECMO console and heater",
+                    "checked": false
+                  },
+                  {
+                    "label": "Verify viable power source",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Gas Supply Hoses (RECONNECTED)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "To wall source",
+                    "checked": false
+                  },
+                  {
+                    "label": "Adjust appropriate gas flow required",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Green Gas Line (TRANSFERRED)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "From O2 tank to gas blender/flowmeter",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Oxygen Tank (REMOVED)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "O2 tank removed from ECMO cart",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Heater Cooler (SWITCHED ON)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Desired temperature set",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Circuit (Pump drive, pump head, 3-ways, caps)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Secure in place",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Verified by Perfusionists",
+                "checked": false
+              },
+              {
+                "label": "Verified by staff present",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Appendix B",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "ECMO Intra-Hospital Transport Bag",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "Fluids",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "(2L) Plasmalite",
+                "checked": false
+              },
+              {
+                "label": "(1L) 0.9% NS",
+                "checked": false
+              },
+              {
+                "label": "Primary Tubing",
+                "checked": false
+              },
+              {
+                "label": "Tape",
+                "checked": false
+              },
+              {
+                "label": "Coban",
+                "checked": false
+              },
+              {
+                "label": "0.9% NS Flushes",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Drawing Sample",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "ACT Cartridges",
+                "checked": false
+              },
+              {
+                "label": "EPOC Cartridges",
+                "checked": false
+              },
+              {
+                "label": "Dispensing Pins",
+                "checked": false
+              },
+              {
+                "label": "Smart-Site Caps",
+                "checked": false
+              },
+              {
+                "label": "Leur-Lock Caps",
+                "checked": false
+              },
+              {
+                "label": "Lab Bags",
+                "checked": false
+              },
+              {
+                "label": "5cc Syringes",
+                "checked": false
+              },
+              {
+                "label": "50cc Syringes",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Sterile/ Preparations",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Gauze Boat",
+                "checked": false
+              },
+              {
+                "label": "2x2\" Gauze",
+                "checked": false
+              },
+              {
+                "label": "4x4\" Gauze",
+                "checked": false
+              },
+              {
+                "label": "Betadine Bottle",
+                "checked": false
+              },
+              {
+                "label": "CHG Swabsticks",
+                "checked": false
+              },
+              {
+                "label": "Sterile Drape",
+                "checked": false
+              },
+              {
+                "label": "Sterile Scissors",
+                "checked": false
+              },
+              {
+                "label": "Sterile Guarded Tubing Clamps",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "PPE/Bulky Items",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Transport Checklist",
+                "checked": false
+              },
+              {
+                "label": "Transport Documentation",
+                "checked": false
+              },
+              {
+                "label": "3/8\" Tubing",
+                "checked": false
+              },
+              {
+                "label": "Small Gloves",
+                "checked": false
+              },
+              {
+                "label": "Medium Gloves",
+                "checked": false
+              },
+              {
+                "label": "Large Gloves",
+                "checked": false
+              },
+              {
+                "label": "Masks; N-95 Masks",
+                "checked": false
+              },
+              {
+                "label": "Shoe Covers, Gown",
+                "checked": false
+              },
+              {
+                "label": "Gas Tubing",
+                "checked": false
+              },
+              {
+                "label": "I-STAT",
+                "checked": false
+              },
+              {
+                "label": "Securement pads",
+                "checked": false
+              },
+              {
+                "label": "Blood Prime Kits",
+                "checked": false
+              },
+              {
+                "label": "Sterile Gloves",
+                "checked": false
+              },
+              {
+                "label": "Bouffant",
+                "checked": false
+              },
+              {
+                "label": "Pen Bag",
+                "checked": false
+              },
+              {
+                "label": "Phone Charger",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Accessories",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Guarded Tubing Clamps (6)",
+                "checked": false
+              },
+              {
+                "label": "Non-Sterile Scissors",
+                "checked": false
+              },
+              {
+                "label": "Towel Clamps",
+                "checked": false
+              },
+              {
+                "label": "Tie Bands",
+                "checked": false
+              },
+              {
+                "label": "Tie Band Gun",
+                "checked": false
+              },
+              {
+                "label": "1/4\" x 3/8\" Reducer",
+                "checked": false
+              },
+              {
+                "label": "3/8\" x1/2\" Reducer",
+                "checked": false
+              },
+              {
+                "label": "Hi-flo Stopcock",
+                "checked": false
+              },
+              {
+                "label": "3-way Stopcock",
+                "checked": false
+              },
+              {
+                "label": "One-way Stopcock",
+                "checked": false
+              },
+              {
+                "label": "Pigtails",
+                "checked": false
+              },
+              {
+                "label": "3/8\" Straight Connectors (2)",
+                "checked": false
+              },
+              {
+                "label": "3/8 \" Connector w/ Leur (2)",
+                "checked": false
+              },
+              {
+                "label": "Male-Male",
+                "checked": false
+              },
+              {
+                "label": "Female-Female",
+                "checked": false
+              },
+              {
+                "label": "DLP Adapter",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Suggested Readings",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Labib A, August E, Agerstrand C, et al. Extracorporeal Life Support Organization Guideline for Transport and Retrieval of Adult and Pediatric Patients with ECMO Support. ASAIO J. 2022;68(4):447-455. doi:10.1097/MAT.0000000000001653",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Chapter 46. Transport. In: Extracorporeal Life Support – The ELSO Red Book 6th ed. Special Acknowledgment to Monika Colins, MSN, CES-P ECMO Manager, Wake Forest Baptist, Atrium Health and Goh Si Guim, Head Perfusion Department of Cardiac, Thoracic and Vascular Surgery, National University Heart Centre, Singapore",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "ELSOBA_CHKLST_130",
     "title": "Invasive Procedures on ECMO",
     "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
@@ -5418,6 +6642,781 @@
     ]
   },
   
+  {
+    "id": "ELSOBA_CHKLST_147",
+    "title": "Manage Drainage Insufficiency on ECMO",
+    "content": "Pre-pump failure to deliver venous blood at the required rate. Signs: Chatter/chugging, swings in Pven, flow that won't rise with RPM. Trigger intervention on circuit signs: By the time hypoxia (VV) or hypotension (VA) appears, hemolysis and microemboli have already occurred. Approach is similar for VA and VV; specifics noted below. This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "VV ECMO; VA ECMO; DRAINAGE INSUFFICIENCY; MANAGEMENT; ECMO",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Recognition: Identify the event",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Any one of the following options:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "chatter/chugging",
+                "checked": false
+              },
+              {
+                "label": "flow below target",
+                "checked": false
+              },
+              {
+                "label": "flow that won't rise with RPM",
+                "checked": false
+              },
+              {
+                "label": "sustained or swinging Pven,",
+                "checked": false
+              },
+              {
+                "label": "drainage line color change.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Confirm pre-pump (not post-pump, not pump-related).",
+            "checked": false
+          },
+          {
+            "label": "Consider iatrogenic over-speed first:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Is oxygen delivery adequate (capillary refill, mentation, urine output, lactate)?",
+                "checked": false
+              },
+              {
+                "label": "Was RPM recently increased?",
+                "checked": false
+              },
+              {
+                "label": "Was the patient recently diurested, repositioned, or extubated?",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Stabilize: Reduce pump speed until flow is stable and chatter resolves",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Step down by 5–10% of set RPM (~100–200 RPM in adults) until chatter resolves and flow stabilizes.",
+            "checked": false
+          },
+          {
+            "label": "Do not chase flow with RPM. If a higher RPM no longer produces higher flow, you are above drainage capacity.",
+            "checked": false
+          },
+          {
+            "label": "Hold at the lowest stable speed that supports the patient.",
+            "checked": false
+          },
+          {
+            "label": "Note: Excessively negative drainage pressure causes vessel collapse, cavitation, hemolysis, and microemboli. Operator-set over-speed is the single most common cause.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Triage: Characterize the drainage signal",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Chatter resolves with speed reduction",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Preload supply problem",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Persistent chatter or sustained high negative Pven",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Partial cannula obstruction ± preload supply",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Low flutter, no chatter, flat Pven",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Fixed mechanical obstruction OR profound hypovolemia.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "VV stable flow and Pven but falling SpO<sub>2</sub>",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Demand problem, not drainage",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Note: Mixed pictures are common. When in doubt, run pathways in parallel.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Preload-Supply Pathway: Address reversible causes",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Position",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Mild head-down tilt (5–10°) as a free diagnostic-therapeutic test; resolution within seconds suggests volume responsiveness.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Warning: Avoid head-down tilt in raised ICP, recent neurosurgery, severe pulmonary edema, or severe ARDS.",
+            "checked": false
+          },
+          {
+            "label": "Agitation/Valsalva",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Confirm adequate sedation first; add NMB only if dyssynchrony persists.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Intrathoracic/intra-abdominal pressure",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Rule out tension PTX, tamponade, auto-PEEP, IAH (POCUS, bladder pressure).",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Cannula position",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Femoral tip in mid-to-high IVC at/just below cavoatrial junction (avoid deep RA).",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Confirm by POCUS/echo",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Reposition only under imaging.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Bleeding",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Treat source.",
+                "checked": false
+              },
+              {
+                "label": "Consider anticoagulation reversal effects on low transmembrane blood flow.",
+                "checked": false
+              },
+              {
+                "label": "Transfuse to physiologic Hb target—this is replacement, distinct from crystalloid loading.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Vasodilation",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Vasopressor to venoconstrict and maintain MAP target",
+                "checked": false
+              },
+              {
+                "label": "Crystalloid only if step 4 confirms response.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Preload-Supply Pathway: Test Crystalloid Responsiveness",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Addressing the reversible causes is insufficient.",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "250 mL crystalloid challenge while monitoring flow, Pven, MAP, chatter.",
+                "checked": false
+              },
+              {
+                "label": "If responsive—e.g., flow rises, Pven normalizes, chatter resolves—resuscitate to euvolemia (adequate oxygen delivery – capillary refill, mentation, urine output, lactate), then STOP.",
+                "checked": false
+              },
+              {
+                "label": "If non-responsive, no further crystalloid.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Note: Positive crystalloid balance is associated with prolonged ECMO duration and higher mortality.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Mechanical Pathway: Inspect and Image (Bedside, immediate)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Trace the circuit patient-to-pump. Look for kinks, clamps, dressing compression, line tangle, visible clot, and/or color changes at hub/line/inlet.",
+            "checked": false
+          },
+          {
+            "label": "Compare the flow at two RPM settings. A minimal rise with disproportionate Pven fall is a fixed obstruction.",
+            "checked": false
+          },
+          {
+            "label": "Ultrasound the accessible cannula course for intraluminal echogenic material; echo/TEE for tip patency.",
+            "checked": false
+          },
+          {
+            "label": "Send free Hb, LDH, fibrinogen, D-dimer, platelets for trend. Do not wait for results to act.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Reassess and Escalate: Interventions",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "If two interventions don't help, return to Recognition: Identify the event",
+            "checked": false
+          },
+          {
+            "label": "The working diagnosis may be wrong (demand-driven, return-side, tamponade missed)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Reassess and Escalate: Escalation Triggers",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Inadequate flow with compromise persisting >5–10 min despite steps 1–5.",
+            "checked": false
+          },
+          {
+            "label": "Rising free Hb (commonly >50 mg/dL or doubling from baseline).",
+            "checked": false
+          },
+          {
+            "label": "Visible/audible cavitation or microemboli",
+            "checked": false
+          },
+          {
+            "label": "Oxygen delivery, SpO₂ or MAP drop below local threshold attributable to the event.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Reassess and Escalate: Escalation Options",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Add second drainage cannula (contralateral femoral or jugular)—often lowest-risk; existing cannula remains as fallback.",
+            "checked": false
+          },
+          {
+            "label": "Reposition existing cannula under imaging—only if malposition is clearly identified.",
+            "checked": false
+          },
+          {
+            "label": "Exchange cannula/circuit—for confirmed thrombosis.",
+            "checked": false
+          },
+          {
+            "label": "Reconfigure (VV → VVA)—only for mixed cardiac/respiratory failure.",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "This is a major undertaking, not routine.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Reassess and Escalate: If Resources Exceeded",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Call regional ECMO center early; maintain lowest stable RPM",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "VA ECMO Additions: Native Cardiac Recovery Competing for Preload",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Recovering heart captures venous return — sign of recovery, not a problem to solve with RPM.",
+            "checked": false
+          },
+          {
+            "label": "Titrate the flow down to match if anticoagulation adequate; plan trial-off when hemodynamics, lactate, and echo support.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "VV ECMO Additions: Demand-driven vs. Supply-limited",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Stable circuit but falling SpO<sub>2</sub> is a demand problem. Do not give fluid.",
+            "checked": false
+          },
+          {
+            "label": "Treat fever, deepen sedation, treat sepsis, reduce work of breathing.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "VV ECMO Additions: Recirculation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Clues:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Bright drainage blood",
+                "checked": false
+              },
+              {
+                "label": "Disproportionately high pre-membrane SvO₂",
+                "checked": false
+              },
+              {
+                "label": "Paradoxical desaturation at higher RPM",
+                "checked": false
+              },
+              {
+                "label": "Narrow AV gap.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "SvO₂ alone is unreliable (septic high-output patients can have genuinely high SvO₂). Use calculation methods (Walker, Lindholm) where available.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "Causes:",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "Tip migration",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Small RA",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Low CO",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Excessive ECMO flow.",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Address cause",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Reposition or reduce flow as indicated",
+            "type": "list-comment",
+            "class": "bullet ml-0 end-list-0"
+          }
+        ]
+      },
+      {
+        "label": "Prevention",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Large-bore drainage cannulae (25–29 Fr adult, vessel permitting); multistage where available.",
+            "checked": false
+          },
+          {
+            "label": "Femoral tip high IVC; proximal holes above iliac bifurcation.",
+            "checked": false
+          },
+          {
+            "label": "Titrate to patient need, not maximum flow. Lowest speed that meets demand.",
+            "checked": false
+          },
+          {
+            "label": "Maintain minimum flow to avoid clotting during recovery.",
+            "checked": false
+          },
+          {
+            "label": "Document per-patient baseline (Pven at set RPM, flow, line behavior) at initiation.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Resource-Limited Settings",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "No transducers",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "rely on flow, chatter, line inspection",
+                "checked": false
+              },
+              {
+                "label": "Document baseline.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "No POCUS",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "CXR for cannula position",
+                "checked": false
+              },
+              {
+                "label": "Clinical exam for tamponade/PTX/IAH",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Slow labs",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Treat clinical hemolysis (pink plasma, rising bilirubin, Hb drop without bleeding) as the threshold",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "No backup",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Call referral center early; do not manipulate cannulae without backup.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Roles During the Event",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Leader:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Runs algorithm",
+                "checked": false
+              },
+              {
+                "label": "Prioritizes sequence of examination and interventions",
+                "checked": false
+              },
+              {
+                "label": "Calls for help",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Bedside RN:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Vitals",
+                "checked": false
+              },
+              {
+                "label": "Medications",
+                "checked": false
+              },
+              {
+                "label": "Fluid/transfusion",
+                "checked": false
+              },
+              {
+                "label": "Patient-side changes",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Perfusionist/ECMO specialist",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Circuit management and inspection.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Sonographer/Second Operator:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "POCUS/echo on request",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Respiratory therapist/Physician:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Mechanical ventilator changes.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Closed-loop communication on every RPM change and drug.",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "If two interventions worsen the situation, stop and reassess from Recognition: Identify the Event.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "References",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Besnier E, Boubèche S, Clavier T, et al. Early Positive Fluid Balance is Associated with Mortality in Patients Treated with Veno-Arterial Extra Corporeal Membrane Oxygenation For Cardiogenic Shock: a Retrospective Cohort Study. Shock. 2020;53(4):426-433. doi:10.1097/SHK.0000000000001381",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Brodie D, Slutsky AS, Combes A. Extracorporeal Life Support for Adults With Respiratory Failure and Related Indications: A Review. JAMA. 2019;322(6):557-568. doi:10.1001/jama.2019.9302",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Lindholm JA. Cannulation for veno-venous extracorporeal membrane oxygenation. J Thorac Dis. 2018;10(Suppl 5):S606-S612. doi:10.21037/jtd.2018.03.101",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Lorusso R, Shekar K, MacLaren G, et al. ELSO Interim Guidelines for Venoarterial Extracorporeal Membrane Oxygenation in Adult Cardiac Patients. ASAIO J. 2021;67(8):827-844. doi:10.1097/MAT.0000000000001510",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Monnet X, Marik P, Teboul JL. Passive leg raising for predicting fluid responsiveness: a systematic review and meta-analysis. Intensive Care Med. 2016;42(12):1935-1947. doi:10.1007/s00134-015-4134-1",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Pohlmann JR, Toomasian JM, Hampton CE, Cook KE, Annich GM, Bartlett RH. The relationships between air exposure, negative pressure, and hemolysis. ASAIO J. 2009;55(5):469-473. doi:10.1097/MAT.0b013e3181b28a5a",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Schmidt M, Bailey M, Kelly J, et al. Impact of fluid balance on outcome of adult patients treated with extracorporeal membrane oxygenation. Intensive Care Med. 2014;40(9):1256-1266. doi:10.1007/s00134-014-3360-2",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Sidebotham D. Troubleshooting adult ECMO. J Extra Corpor Technol. 2011;43(1):P27-P32.",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Tonna JE, Abrams D, Brodie D, et al. Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO). ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Walker JL, Gelfond J, Zarzabal LA, Darling E. Calculating mixed venous saturation during veno-venous extracorporeal membrane oxygenation. Perfusion. 2009;24(5):333-339. doi:10.1177/0267659109354790",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Walter JM, Kurihara C, Corbridge TC, Bharat A. Chugging in patients on veno-venous extracorporeal membrane oxygenation: An under-recognized driver of intravenous fluid administration in patients with acute respiratory distress syndrome?. Heart Lung. 2018;47(4):398-400. doi:10.1016/j.hrtlng.2018.03.011",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Wang S, Chin BJ, Gentile F, Kunselman AR, Palanzo D, Ündar A. Potential Danger of Pre-Pump Clamping on Negative Pressure-Associated Gaseous Microemboli Generation During Extracorporeal Life Support--An In Vitro Study. Artif Organs. 2016;40(1):89-94. doi:10.1111/aor.12540",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Zakhary B, Vercaemst L, Mason P, Lorusso R, Brodie D. How I manage drainage insufficiency on extracorporeal membrane oxygenation. Crit Care. 2020;24(1):151. Published 2020 Apr 15. doi:10.1186/s13054-020-02870-1",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      }
+    ]
+  },
   {
     "id": "ELSOBA_CHKLST_150",
     "title": "Managing Gas Exchange on ECMO",
@@ -5911,6 +7910,377 @@
           }
         ]
       }      
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_165",
+    "title": "Mobile ECMO",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "MOBILE; ECMO; MOBILE ECMO; POST-TRANSPORT; PRE-TRANSPORT; EQUIPMENT; TRANSPORTATION; TRANSPORT",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Overview",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "List type of ECMO referral",
+            "checked": false
+          },
+          {
+            "label": "Log time of decision",
+            "checked": false
+          },
+          {
+            "label": "Determine mode of transport",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Communication",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Mobile ECMO consultant (team leader)",
+            "checked": false
+          },
+          {
+            "label": "Mobile ECMO team",
+            "checked": false
+          },
+          {
+            "label": "Other team members",
+            "checked": false
+          },
+          {
+            "label": "Emergency Medical Service/Ambulance service informed",
+            "checked": false
+          },
+          {
+            "label": "Transport back to referral facility confirmed",
+            "checked": false
+          },
+          {
+            "label": "Emergency credentialing for outside cannulation",
+            "checked": false
+          },
+          {
+            "label": "Bed arrangements",
+            "checked": false
+          },
+          {
+            "label": "Necessary permission/clearance/visas for team and patient?",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Referring Facility Patient Preparation for Cannulation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Have right radial arterial line (preferred; avoid groin if able)",
+            "checked": false
+          },
+          {
+            "label": "Have central line (avoid groin if able)",
+            "checked": false
+          },
+          {
+            "label": "Latest laboratory results sent and reviewed by the transport team",
+            "checked": false
+          },
+          {
+            "label": "Perform pregnancy test if not completed this admission",
+            "checked": false
+          },
+          {
+            "label": "Have sedatives and paralytics available at bedside",
+            "checked": false
+          },
+          {
+            "label": "Cross-match RBCs/platelets/FFP (as needed)",
+            "checked": false
+          },
+          {
+            "label": "Operation Room available (if needed)",
+            "checked": false
+          },
+          {
+            "label": "Imaging available:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "C-arm",
+                "checked": false
+              },
+              {
+                "label": "X-ray",
+                "checked": false
+              },
+              {
+                "label": "CT",
+                "checked": false
+              },
+              {
+                "label": "Ultrasound",
+                "checked": false
+              },
+              {
+                "label": "ECHO",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Chart copied and ready for patient discharge",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "CDs",
+                "checked": false
+              },
+              {
+                "label": "Images",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Mobile ECMO Equipment",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Transport trolley/cart and power cords",
+            "checked": false
+          },
+          {
+            "label": "ECMO console/motor/power cord and bridge",
+            "checked": false
+          },
+          {
+            "label": "Back up console or hand crank",
+            "checked": false
+          },
+          {
+            "label": "Cannulation bag,",
+            "checked": false
+          },
+          {
+            "label": "Connectors",
+            "checked": false
+          },
+          {
+            "label": "Tubing",
+            "checked": false
+          },
+          {
+            "label": "Clamps",
+            "checked": false
+          },
+          {
+            "label": "Spare oxygenator/circuit",
+            "checked": false
+          },
+          {
+            "label": "Point-of-care blood gas/coagulation monitor (if needed)",
+            "checked": false
+          },
+          {
+            "label": "ELSO Mobile",
+            "checked": false
+          },
+          {
+            "label": "Suction unit/canister/tubing/yanker",
+            "checked": false
+          },
+          {
+            "label": "Transport Ventilator (performed function check)",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Tubing",
+                "checked": false
+              },
+              {
+                "label": "Spare batteries",
+                "checked": false
+              },
+              {
+                "label": "Power cord",
+                "checked": false
+              },
+              {
+                "label": "Self-inflating bag",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Vital Signs Monitor (performed function check)",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Cables",
+                "checked": false
+              },
+              {
+                "label": "Spare batteries",
+                "checked": false
+              },
+              {
+                "label": "Power cord",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Adequate infusion or syringe pumps (performed function check)",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Power cords",
+                "checked": false
+              },
+              {
+                "label": "Tubing and Connectors",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Portable ultrasound (if able)",
+            "checked": false
+          },
+          {
+            "label": "Heater-cooler device (if needed)",
+            "checked": false
+          },
+          {
+            "label": "Electrical transformers for international transfers",
+            "checked": false
+          },
+          {
+            "label": "Check electrical supply (110/220 volts) in transport platform",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Before Departure From the Referring Facility (Pre-Transport)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Copy of medical records/imaging",
+            "checked": false
+          },
+          {
+            "label": "Emergency drugs available",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Blood Products (if needed)",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Adequate oxygen supply confirmed",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Check PSI",
+                "checked": false
+              },
+              {
+                "label": "Check number of tanks available",
+                "checked": false
+              },
+              {
+                "label": "Plan surplus in case of delay",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "ECMO center informed of expected time of arrival",
+            "checked": false
+          },
+          {
+            "label": "Family contact details obtained",
+            "checked": false
+          },
+          {
+            "label": "All equipment collected",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "After Arrival at the ECMO Center (Post-Transport)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Endorsement to in-house team",
+            "checked": false
+          },
+          {
+            "label": "Transfer notes completed",
+            "checked": false
+          },
+          {
+            "label": "Family contacted and informed of arrival and patient location",
+            "checked": false
+          },
+          {
+            "label": "New back up circuit built/primed for next case?",
+            "checked": false
+          },
+          {
+            "label": "Boxes/medications restocked",
+            "checked": false
+          },
+          {
+            "label": "Equipment cleaned, checked and power cord plugged in",
+            "checked": false
+          },
+          {
+            "label": "Team debrief planned",
+            "checked": false
+          }
+        ]
+      }
     ]
   },
   {
