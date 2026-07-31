@@ -64,8 +64,8 @@
       },      
       {
         "label": "Neuromuscular Blocking Agents",
-        "branchTo": "ELSOBA_MED_CAT10",
-        "class": "disabled"
+        "branchTo": "ELSOBA_MED_100",
+        "class": ""
       },      
       {
         "label": "Opioids",
@@ -1319,6 +1319,125 @@
     "items": []
   },
 
+
+
+  {
+    "id": "ELSOBA_MED_100",
+    "title": "Neuromuscular Blocking Agents",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "class": "plr-1",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Atracurium",
+        "content": "Atracurium",
+        "branchTo": "ELSOBA_MED_100__1"
+      },
+      {
+        "label": "Cisatracurium",
+        "content": "Cisatracurium",
+        "branchTo": "ELSOBA_MED_100__2"
+      },
+      {
+        "label": "Mivacurium",
+        "content": "Mivacurium",
+        "branchTo": "ELSOBA_MED_100__3"
+      },
+      {
+        "label": "Pancuronium",
+        "content": "Pancuronium",
+        "branchTo": "ELSOBA_MED_100__4"
+      },
+      {
+        "label": "Rocuronium",
+        "content": "Rocuronium",
+        "branchTo": "ELSOBA_MED_100__5"
+      },
+      {
+        "label": "Vecuronium",
+        "content": "Vecuronium",
+        "branchTo": "ELSOBA_MED_100__6"
+      },
+      {
+        "label": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
+        "content": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
+        "branchTo": "ELSOBA_MED_100__TABLE__1"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_100__1",
+    "title": "Atracurium",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_100__2",
+    "title": "Cisatracurium",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_100__3",
+    "title": "Mivacurium",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_100__4",
+    "title": "Pancuronium",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_100__5",
+    "title": "Rocuronium",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_100__6",
+    "title": "Vecuronium",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_100__TABLE__1",
+    "title": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
+    "content": "medications/ELSOBA_MED_100/ELSOBA_MED_100__TABLE__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
 
 
   {
