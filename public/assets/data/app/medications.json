@@ -74,8 +74,8 @@
       },     
       {
         "label": "Pulmonary Vasodilators",
-        "branchTo": "ELSOBA_MED_CAT12",
-        "class": "disabled"
+        "branchTo": "ELSOBA_MED_120",
+        "class": ""
       },     
       {
         "label": "Sedatives",
@@ -1542,6 +1542,95 @@
     "branchTo": "",
     "items": []
   },
+  {
+    "id": "ELSOBA_MED_120",
+    "title": "Pulmonary Vasodilators, Parenteral",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "class": "plr-1",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Alprostadil",
+        "content": "Alprostadil",
+        "branchTo": "ELSOBA_MED_120__1"
+      },
+      {
+        "label": "Epoprostenol",
+        "content": "Epoprostenol",
+        "branchTo": "ELSOBA_MED_120__2"
+      },
+      {
+        "label": "Sildenafil",
+        "content": "Sildenafil",
+        "branchTo": "ELSOBA_MED_120__3"
+      },
+      {
+        "label": "Treprostinil",
+        "content": "Treprostinil",
+        "branchTo": "ELSOBA_MED_120__4"
+      },
+      {
+        "label": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
+        "content": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
+        "branchTo": "ELSOBA_MED_120__TABLE__1"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_120__1",
+    "title": "Alprostadil",
+    "content": "medications/ELSOBA_MED_120/ELSOBA_MED_120__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_120__2",
+    "title": "Epoprostenol",
+    "content": "medications/ELSOBA_MED_120/ELSOBA_MED_120__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_120__3",
+    "title": "Sildenafil",
+    "content": "medications/ELSOBA_MED_120/ELSOBA_MED_120__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_120__4",
+    "title": "Treprostinil",
+    "content": "medications/ELSOBA_MED_120/ELSOBA_MED_120__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_120__TABLE__1",
+    "title": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
+    "content": "medications/ELSOBA_MED_120/ELSOBA_MED_120__TABLE__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+
+
   {
     "id": "ELSOBA_MED_130",
     "title": "Sedatives",
