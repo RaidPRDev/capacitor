@@ -107,7 +107,7 @@
       {
         "label": "Hybrid Cannulation Procedure",
         "branchTo": "ELSOBA_CHKLST_110",
-        "class": "disabled"
+        "class": ""
       },       
       {
         "label": "Insertion of DPC on VA ECMO Procedure",
@@ -392,8 +392,13 @@
     "sort": "ByActive",
     "items": [
       {
+        "label": "Hybrid Cannulation Procedure",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_110"
+      },
+      {
         "label": "Invasive Procedures on ECMO",
-        "class": "disabled",
+        "class": "",
         "branchTo": "ELSOBA_CHKLST_130"
       },       
       {
@@ -3343,18 +3348,1877 @@
   {
     "id": "ELSOBA_CHKLST_110",
     "title": "Hybrid Cannulation Procedure",
-    "content": "",
-    "class": "disabled",
-    "layout": "checklist",
-    "keywords": "Hybrid; Cannulation; Procedure",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "list",
     "showFavorites": true,
-    "useScroll": true, 
+    "useScroll": true,
+    "keywords": "CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE",
+    "sort": "ByActive",
     "items": [
       {
-        "label": "No content found.",
-        "class": "disabled",
-        "branchTo": ""
-      } 
+        "label": "Pre-Cannulation (Primary Hybrid)",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_110-1"
+      },
+      {
+        "label": "Switch Mode (Conversion to Hybrid)",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_110-2"
+      },
+      {
+        "label": "References",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_110-3"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_110-1",
+    "title": "Pre-Cannulation (Primary Hybrid)",
+    "content": "Use this checklist when planning hybrid ECMO cannulation before ECMO initiation. Hybrid is an ECMO configuration combining drainage and/or return across more than one mode (VVA, VP/OxyRVAD, VA + LV unloading) to match physiology a single mode cannot meet.",
+    "layout": "checklist",
+    "keywords": "Pre-Cannulation (Primary Hybrid); CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Is the patient a hybrid ECMO candidate?",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Yes",
+            "checked": false
+          },
+          {
+            "label": "No",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Absolute Contraindications",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "DNR/treatment-limitation order inconsistent with ECMO support",
+            "checked": false
+          },
+          {
+            "label": "Established severe multiorgan failure",
+            "checked": false
+          },
+          {
+            "label": "Severe irreversible neurological injury",
+            "checked": false
+          },
+          {
+            "label": "Severe aortic regurgitation if VA component planned",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Confirm Hybrid Indication",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Combined circulatory and respiratory failure anticipated.",
+            "checked": false
+          },
+          {
+            "label": "Predominant RV failure with hypoxemia (consider VP/OxyRVAD).",
+            "checked": false
+          },
+          {
+            "label": "High risk of differential oxygenation with peripheral VA ECMO.",
+            "checked": false
+          },
+          {
+            "label": "Planned VA ECMO with LV unloading.",
+            "checked": false
+          },
+          {
+            "label": "Single-mode configuration cannot meet the target support goal.",
+            "checked": false
+          },
+          {
+            "label": "If the indication is unclear, pause and reassess. Same-mode optimization is not a hybrid indication.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Intent",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Bridge to Recovery",
+            "checked": false
+          },
+          {
+            "label": "Bridge to Decision",
+            "checked": false
+          },
+          {
+            "label": "Bridge to Device",
+            "checked": false
+          },
+          {
+            "label": "Bridge to Transplant",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Intended Hybrid Configuration",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "VVA ECMO",
+            "checked": false
+          },
+          {
+            "label": "VP ECMO",
+            "checked": false
+          },
+          {
+            "label": "OxyRVAD",
+            "checked": false
+          },
+          {
+            "label": "VA ECMO + LV Unloading",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Intended Approach",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Known vascular occlusion, severe stenosis, or prior access limitation reviewed?",
+            "checked": false
+          },
+          {
+            "label": "Backup access/conversion plan confirmed.",
+            "checked": false
+          },
+          {
+            "label": "Drainage site:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Neck",
+                "checked": false
+              },
+              {
+                "label": "Groin",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Return site(s):",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Neck",
+                "checked": false
+              },
+              {
+                "label": "Groin",
+                "checked": false
+              },
+              {
+                "label": "Pulmonary artery (if VP/OxyRVAD)",
+                "checked": false
+              },
+              {
+                "label": "Transthoracic (if surgical)",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Target Maximum Flow",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patient weight confirmed.",
+            "checked": false
+          },
+          {
+            "label": "Target EBF defined according to support goal and patient physiology.",
+            "checked": false
+          },
+          {
+            "label": "Adult reference: approximately 60–80 mL/kg/min when full support is required (according to institutional protocol).",
+            "checked": false
+          },
+          {
+            "label": "Circuit and cannula capacity compatible with target EBF.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "VVA flow split (only if VVA)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Arterial limb target ≥ 2–3 L/min (adult) for systemic perfusion.",
+            "checked": false
+          },
+          {
+            "label": "Right-radial SpO₂ target ≥ 90%.",
+            "checked": false
+          },
+          {
+            "label": "Plan to rebalance flows after ABG and hemodynamic response.",
+            "checked": false
+          },
+          {
+            "label": "Recirculation risk assessed.",
+            "checked": false
+          },
+          {
+            "label": "Both arterial and venous return limbs have adequate forward flow.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Circuit",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Circuit capacity compatible with target EBF.",
+            "checked": false
+          },
+          {
+            "label": "Pump and membrane lung rated flow confirmed.",
+            "checked": false
+          },
+          {
+            "label": "Drainage and return line sizes compatible with target configuration.",
+            "checked": false
+          },
+          {
+            "label": "Priming strategy confirmed (according to institutional protocol).",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Check Cannulas",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Vessel size compatible with cannula size and target flow.",
+            "checked": false
+          },
+          {
+            "label": "Intended cannulas available with appropriate backup size(s).",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Check Guidewires and Connectors",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Guidewire length and diameter compatible with access route and cannula.",
+            "checked": false
+          },
+          {
+            "label": "Connectors compatible with circuit tubing and new limb.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Distal Perfusion Catheter (DPC)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Required for any new femoral arterial limb.",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "DPC plan defined.",
+                "checked": false
+              },
+              {
+                "label": "Placement timing identified.",
+                "checked": false
+              },
+              {
+                "label": "Distal limb perfusion monitoring plan in place.",
+                "checked": false
+              },
+              {
+                "label": "Threshold for intervention defined (according to institutional protocol).",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Confirm Consent",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Yes",
+            "checked": false
+          },
+          {
+            "label": "No",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Anticoagulation Bolus",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Medication",
+            "checked": false
+          },
+          {
+            "label": "Dose",
+            "checked": false
+          },
+          {
+            "label": "Timing",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "IV Access for Procedure Separate From Lines to be Guidewire Exchanged",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Confirmed",
+            "checked": false
+          },
+          {
+            "label": "Not confirmed",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Position the Patient",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patient positioned per intended access site(s).",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Imaging",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Ultrasound",
+            "checked": false
+          },
+          {
+            "label": "Echocardiography (TTE/TEE) available",
+            "checked": false
+          },
+          {
+            "label": "X-ray screening",
+            "checked": false
+          },
+          {
+            "label": "Fluoroscopy available (if PA cannulation)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Intracardiac Shunt Screen (Before PA Cannulation)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "TTE or TEE performed before PA cannulation.",
+            "checked": false
+          },
+          {
+            "label": "PFO/ASD documented or excluded.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sequence",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Place all access sites then full re-prep",
+            "checked": false
+          },
+          {
+            "label": "Full prep first (makes pivoting to new site more difficult)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Cannulation/Connection (Primary Hybrid)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Time-out completed.",
+            "checked": false
+          },
+          {
+            "label": "Identify the roles and responsibilities with ECMO team members.",
+            "checked": false
+          },
+          {
+            "label": "Bring the ECMO system and circuit of choice to the bedside.",
+            "checked": false
+          },
+          {
+            "label": "Assemble and prime the ECMO system of choice.",
+            "checked": false
+          },
+          {
+            "label": "Connect the ECMO gas blender to the gas source.",
+            "checked": false
+          },
+          {
+            "label": "Connect the ECMO membrane lung (ML) to the Heater unit/Heater-Cooler unit and normalize the temperature according to the patient's needs.",
+            "checked": false
+          },
+          {
+            "label": "Place the sterile portion of the ECMO lines in the sterile field, keeping two clamps on the non-sterile portions.",
+            "checked": false
+          },
+          {
+            "label": "Obtain access under imaging guidance where available.",
+            "checked": false
+          },
+          {
+            "label": "Confirm guidewire position before dilation.",
+            "checked": false
+          },
+          {
+            "label": "Advance cannula to target depth, confirm position, and secure.",
+            "checked": false
+          },
+          {
+            "label": "Connect the drainage and return lines using an air-free technique.",
+            "checked": false
+          },
+          {
+            "label": "Verify that no air is present.",
+            "checked": false
+          },
+          {
+            "label": "Start ECMO pump and confirm ECMO ON.",
+            "checked": false
+          },
+          {
+            "label": "Start/restart sweep gas flow.",
+            "checked": false
+          },
+          {
+            "label": "Verify that the target extracorporeal blood flow (EBF) is achieved.",
+            "checked": false
+          },
+          {
+            "label": "For VVA: rebalance flows to target split, verify right-radial SpO₂, and confirm adequate forward flow through both return limbs.",
+            "checked": false
+          },
+          {
+            "label": "For VP/OxyRVAD: confirm PA cannula tip position; PA pressure and RV loading monitoring established.",
+            "checked": false
+          },
+          {
+            "label": "For VA + LV unloading: deploy unloading option per plan; reassess LV size and aortic valve opening.",
+            "checked": false
+          },
+          {
+            "label": "DO NOT increase flow before the new limb is fully de-aired.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Reassess Immediately After Cannulation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Target EBF achieved.",
+            "checked": false
+          },
+          {
+            "label": "Flow distribution at planned split if VVA.",
+            "checked": false
+          },
+          {
+            "label": "MAP and systemic perfusion at patient target.",
+            "checked": false
+          },
+          {
+            "label": "Oxygenation at patient target (right-radial SpO₂ if VA or VVA).",
+            "checked": false
+          },
+          {
+            "label": "CO₂ clearance at target.",
+            "checked": false
+          },
+          {
+            "label": "Lactate, CVP, PA pressure (if PA cannula), LV loading (if VA component) reassessed.",
+            "checked": false
+          },
+          {
+            "label": "Distal limb perfusion intact if femoral arterial return.",
+            "checked": false
+          },
+          {
+            "label": "Final cannula position reconfirmed.",
+            "checked": false
+          },
+          {
+            "label": "Target configuration achieved? Go to Termination Achieved.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          },
+          {
+            "label": "Target configuration not achieved? Go to Termination NOT achieved.",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Termination: Target Configuration Achieved",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Maintain target EBF and flow distribution.",
+            "checked": false
+          },
+          {
+            "label": "Label all drainage and return limbs.",
+            "checked": false
+          },
+          {
+            "label": "Document final configuration, cannula type / size / depth / access site, and flow split if VVA.",
+            "checked": false
+          },
+          {
+            "label": "Define monitoring priorities by configuration and reassessment time.",
+            "checked": false
+          },
+          {
+            "label": "Communicate plan to ICU, procedural, perfusion, and bedside teams.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Termination: Target Configuration NOT Achieved",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Wrong target configuration? Reassess physiology matrix.",
+            "checked": false
+          },
+          {
+            "label": "Cannula malposition? Image and reposition. Refer to Cannula Exit Sites and Tubings Management.",
+            "checked": false
+          },
+          {
+            "label": "Insufficient drainage/excessive negative drainage pressure? Check volume, position, and additional drainage. Refer to Manage Drainage Insufficiency on ECMO.",
+            "checked": false
+          },
+          {
+            "label": "High return pressure? Check cannula size, oxygenator, and for kinks. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure</a>.",
+            "checked": false
+          },
+          {
+            "label": "If there is pump or oxygenator flow limitation, assess circuit and consider component change. Refer to <a href='#' data-link='PANIC##ELSOBA_PANIC_050' target='_self'>No Flow</a> and <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure</a>.",
+            "checked": false
+          },
+          {
+            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to Identification and management of recirculation in venovenous ECMO for more information..",
+            "checked": false
+          },
+          {
+            "label": "Persistent differential oxygenation? Revisit flow split or upper-body return.",
+            "checked": false
+          },
+          {
+            "label": "LV overload? Escalate LV unloading pathway. Refer to Monitoring and Managing LV Distension on VA ECMO Algorithm.",
+            "checked": false
+          },
+          {
+            "label": "PA/RV injury (rupture, hemorrhage, valve injury, arrhythmia, effusion)? Echo and surgical consult.",
+            "checked": false
+          },
+          {
+            "label": "Bleeding/hypovolemia? Perform product replacement and surgical control as required.",
+            "checked": false
+          },
+          {
+            "label": "Hemolysis? Assess the pump and oxygenator. Consider component change.",
+            "checked": false
+          },
+          {
+            "label": "Low-flow limb thrombosis? Perform DPC review and anticoagulation review.",
+            "checked": false
+          },
+          {
+            "label": "DO NOT persist with a failed configuration without senior review.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "With Any Termination",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Inform family/surrogates.",
+            "checked": false
+          },
+          {
+            "label": "Report event in detail.",
+            "checked": false
+          },
+          {
+            "label": "Update local and ELSO Registry documentation.",
+            "checked": false
+          },
+          {
+            "label": "Update cannula and circuit labels.",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_110-2",
+    "title": "Switch Mode (Conversion to Hybrid)",
+    "content": "Use this checklist when converting an existing ECMO configuration to hybrid support during ongoing ECMO. This is designed to add or change drainage/return limbs to match physiology that the current single-mode configuration cannot meet. Out of scope: isolated access or cannula-site complications.",
+    "layout": "checklist",
+    "keywords": "Switch Mode (Conversion to Hybrid); CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Is Conversion to Hybrid Indicated?",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Yes",
+            "checked": false
+          },
+          {
+            "label": "No",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Confirm Conversion Indication",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Persistent hypoxemia on current configuration AND simple causes excluded (cannula malposition, recirculation, sweep, oxygenator, native lung).",
+            "checked": false
+          },
+          {
+            "label": "Persistent shock or inadequate systemic perfusion AND target is to add arterial or PA-directed support (not switch modes).",
+            "checked": false
+          },
+          {
+            "label": "Inadequate flow for support goal AND same-mode optimization not feasible (cannula upsize, repositioning, additional same-mode drainage already addressed or contraindicated).",
+            "checked": false
+          },
+          {
+            "label": "Inadequate RV support or persistent venous congestion requiring PA-directed support.",
+            "checked": false
+          },
+          {
+            "label": "LV distension on VA-containing support requiring an LV unloading strategy.",
+            "checked": false
+          },
+          {
+            "label": "Differential oxygenation confirmed on right-radial ABG or oximetry.",
+            "checked": false
+          },
+          {
+            "label": "Out of scope: isolated vascular access or cannula-site complications follow a separate access / cannula troubleshooting pathway.",
+            "checked": false
+          },
+          {
+            "label": "Out of scope: same-mode flow limitation alone is not a hybrid indication—Refer to Manage Drainage Insufficiency on ECMO",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Identify Current Configuration",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "VV ECMO",
+            "checked": false
+          },
+          {
+            "label": "Proceed to Currently on VV — Pre-Conversion Screen",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "VA ECMO",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Proceed to Currently on VA — Pre-Conversion Screen",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "VP/OxyRVAD",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Proceed to Currently on VA — Pre-Conversion Screen",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "VA + temporary unloading",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Proceed to Currently on VA — Pre-Conversion Screen",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "Currently on VV — Pre-Conversion Screen",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Confirm shock, inadequate DO₂, or need for non-VV support.",
+            "checked": false
+          },
+          {
+            "label": "Exclude simple causes:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Cannula malposition",
+                "checked": false
+              },
+              {
+                "label": "Recirculation",
+                "checked": false
+              },
+              {
+                "label": "Inadequate sweep",
+                "checked": false
+              },
+              {
+                "label": "Oxygenator limitation",
+                "checked": false
+              },
+              {
+                "label": "Hypovolemia",
+                "checked": false
+              },
+              {
+                "label": "Establish right-radial SpO₂/ABG monitoring if VA or VVA physiology will be created.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Currently on VA — Pre-Conversion Screen",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Pump running and delivering expected EBF.",
+            "checked": false
+          },
+          {
+            "label": "EBF adequate for systemic perfusion.",
+            "checked": false
+          },
+          {
+            "label": "Native heart function and pulse pressure assessed.",
+            "checked": false
+          },
+          {
+            "label": "LV overload or aortic valve non-opening assessed.",
+            "checked": false
+          },
+          {
+            "label": "Differential oxygenation assessed with right-radial SpO₂/ABG.",
+            "checked": false
+          },
+          {
+            "label": "Excessive venous drainage or lack of preload assessed.",
+            "checked": false
+          },
+          {
+            "label": "Distal limb perfusion assessed if femoral arterial return is present.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Match Physiology to Strategy",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Shock + hypoxemia = VVA",
+            "checked": false
+          },
+          {
+            "label": "RV failure + hypoxemia = VP/OxyRVAD",
+            "checked": false
+          },
+          {
+            "label": "VA + differential oxygenation = VVA or upper-body return strategy",
+            "checked": false
+          },
+          {
+            "label": "VA + LV distension = LV unloading",
+            "checked": false
+          },
+          {
+            "label": "Same-mode flow limitation = not a hybrid indication. Refer to Manage Drainage Insufficiency on ECMO",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Conversion Strategy",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Add new limb to existing circuit (with stop/clamp/connect/de-air/unclamp sequence)",
+            "checked": false
+          },
+          {
+            "label": "OR",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Establish independent new pump-circuit",
+                "checked": false
+              },
+              {
+                "label": "Emergency return to previous circuit path planned.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Target Hybrid Configuration",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "VVA ECMO",
+            "checked": false
+          },
+          {
+            "label": "VP ECMO",
+            "checked": false
+          },
+          {
+            "label": "OxyRVAD",
+            "checked": false
+          },
+          {
+            "label": "VA ECMO + LV unloading",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Intended Approach (New Limb)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Known vascular occlusion, severe stenosis, or prior access limitation reviewed?",
+            "checked": false
+          },
+          {
+            "label": "Backup access / conversion plan confirmed.",
+            "checked": false
+          },
+          {
+            "label": "New limb access site:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Neck",
+                "checked": false
+              },
+              {
+                "label": "Groin",
+                "checked": false
+              },
+              {
+                "label": "Pulmonary artery (if VP/OxyRVAD)",
+                "checked": false
+              },
+              {
+                "label": "Transthoracic (if surgical)",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Circuit",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Existing circuit reviewed: drainage, pump, membrane lung, return.",
+            "checked": false
+          },
+          {
+            "label": "New limb size, connector compatibility, and target-flow capacity confirmed.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Check Cannulas",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Vessel size compatible with cannula size and target flow.",
+            "checked": false
+          },
+          {
+            "label": "Intended cannulas available with appropriate backup size(s).",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Check Guidewires and Connectors",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Guidewire length and diameter compatible with access route and cannula.",
+            "checked": false
+          },
+          {
+            "label": "Connectors compatible with circuit tubing and new limb.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Distal Perfusion Catheter (DPC)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Required for any new femoral arterial limb.",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "DPC plan defined.",
+                "checked": false
+              },
+              {
+                "label": "Placement timing identified.",
+                "checked": false
+              },
+              {
+                "label": "Distal limb perfusion monitoring plan in place.",
+                "checked": false
+              },
+              {
+                "label": "Threshold for intervention defined (according to institutional protocol).",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Anticoagulation Bolus (Review On Running ECMO)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Often unnecessary on running ECMO. Review the need against current anticoagulation status.",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Medication",
+                "checked": false
+              },
+              {
+                "label": "Dose",
+                "checked": false
+              },
+              {
+                "label": "Timing",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "(according to institutional protocol)",
+            "type": "list-comment",
+            "class": "mxt-20 mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "IV Access For Procedure Separate From Lines to be Guidewire Exchanged",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Confirmed",
+            "checked": false
+          },
+          {
+            "label": "Not confirmed",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Position the Patient",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patient positioned per intended new access site(s).",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Imaging",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Ultrasound",
+            "checked": false
+          },
+          {
+            "label": "Echocardiography (TTE / TEE) available",
+            "checked": false
+          },
+          {
+            "label": "X-ray screening",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Is the bed x-ray compatible?",
+                "checked": false
+              },
+              {
+                "label": "Radiation safety of surrounding area",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Fluoroscopy available (if PA cannulation)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Intracardiac Shunt Screen (Before PA Cannulation)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "TTE or TEE performed before PA cannulation.",
+            "checked": false
+          },
+          {
+            "label": "PFO/ASD documented or excluded.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Sequence",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Place new access then full re-prep",
+            "checked": false
+          },
+          {
+            "label": "Full prep first (makes pivoting to new site more difficult)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Switch to VVA — Workflow",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Identify the roles and responsibilities with ECMO team members.",
+            "checked": false
+          },
+          {
+            "label": "Bring the additional cannula(s), guidewire(s), connectors, and circuit components to the bedside.",
+            "checked": false
+          },
+          {
+            "label": "Prepare new arterial limb: prime and de-air.",
+            "checked": false
+          },
+          {
+            "label": "Place the sterile portion of the new ECMO line in the sterile field, keeping two clamps on the non-sterile portion.",
+            "checked": false
+          },
+          {
+            "label": "Stop/clamp/connect/de-air/unclamp sequence (when adding to existing circuit):",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "The lead operator asks the perfusionist for a pump STOP if required.",
+                "checked": false
+              },
+              {
+                "label": "The perfusionist stops the pump and verbally confirms.",
+                "checked": false
+              },
+              {
+                "label": "Clamp the existing line where required; place a second clamp at 10–15 cm and cut between the two clamps.",
+                "checked": false
+              },
+              {
+                "label": "Insert the required straight connectors on the existing line.",
+                "checked": false
+              },
+              {
+                "label": "Connect the new limb using an air-free technique.",
+                "checked": false
+              },
+              {
+                "label": "Verify that no air is present.",
+                "checked": false
+              },
+              {
+                "label": "Unclamp the lines and ask the perfusionist to START the ECMO pump.",
+                "checked": false
+              },
+              {
+                "label": "Confirm ECMO ON.",
+                "checked": false
+              },
+              {
+                "label": "Establish target flow split between drainage and return limbs.",
+                "checked": false
+              },
+              {
+                "label": "Confirm adequate forward flow through both arterial and venous return limbs.",
+                "checked": false
+              },
+              {
+                "label": "Verify that the target EBF is achieved.",
+                "checked": false
+              },
+              {
+                "label": "Verify right-radial SpO₂ ≥ 90%.",
+                "checked": false
+              },
+              {
+                "label": "DO NOT increase flow before the new limb is fully de-aired.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Switch to VP/OxyRVAD — Workflow",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Identify the roles and responsibilities with ECMO team members.",
+            "checked": false
+          },
+          {
+            "label": "Confirm the intracardiac shunt screen has been performed.",
+            "checked": false
+          },
+          {
+            "label": "Have TEE/TTE/fluoroscopy available.",
+            "checked": false
+          },
+          {
+            "label": "Define PA cannula target position.",
+            "checked": false
+          },
+          {
+            "label": "Confirm PA pressure and RV loading monitoring plan.",
+            "checked": false
+          },
+          {
+            "label": "Bring the additional cannula(s), guidewire(s), connectors, and circuit components to the bedside.",
+            "checked": false
+          },
+          {
+            "label": "Prepare new PA limb: prime and de-air.",
+            "checked": false
+          },
+          {
+            "label": "Obtain access under imaging guidance.",
+            "checked": false
+          },
+          {
+            "label": "Advance the PA cannula to target position; confirm position and secure.",
+            "checked": false
+          },
+          {
+            "label": "Stop/clamp/connect/de-air/unclamp sequence (when adding to existing circuit):",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Stop the pump if required.",
+                "checked": false
+              },
+              {
+                "label": "Clamp, connect, and de-air the new limb.",
+                "checked": false
+              },
+              {
+                "label": "Verify that no air is present.",
+                "checked": false
+              },
+              {
+                "label": "Unclamp and restart the pump.",
+                "checked": false
+              },
+              {
+                "label": "Confirm ECMO ON and confirm flow.",
+                "checked": false
+              },
+              {
+                "label": "Confirm no excessive PA pressure rise after flow initiation.",
+                "checked": false
+              },
+              {
+                "label": "Confirm final PA cannula position.",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Exclude PA injury hazards after placement:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "PA rupture / pulmonary hemorrhage",
+                "checked": false
+              },
+              {
+                "label": "Tricuspid or pulmonary valve injury",
+                "checked": false
+              },
+              {
+                "label": "New arrhythmia",
+                "checked": false
+              },
+              {
+                "label": "New pericardial effusion",
+                "checked": false
+              },
+              {
+                "label": "Acute hemodynamic deterioration",
+                "checked": false
+              },
+              {
+                "label": "DO NOT advance the cannula against resistance.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Switch to VA + LV Unloading — Workflow",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Identify the roles and responsibilities with ECMO team members.",
+            "checked": false
+          },
+          {
+            "label": "Assess aortic valve opening, LV size/distension on echo, pulmonary edema, pulse pressure, PCWP/LA pressure if available.",
+            "checked": false
+          },
+          {
+            "label": "Select unloading option:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Mechanical unloading",
+                "checked": false
+              },
+              {
+                "label": "Atrial-level unloading",
+                "checked": false
+              },
+              {
+                "label": "Surgical vent",
+                "checked": false
+              },
+              {
+                "label": "Confirm compatibility with current configuration.",
+                "checked": false
+              },
+              {
+                "label": "Confirm escalation pathway if first option fails (according to institutional protocol).",
+                "checked": false
+              },
+              {
+                "label": "Bring required equipment to the bedside.",
+                "checked": false
+              },
+              {
+                "label": "Deploy unloading option per plan.",
+                "checked": false
+              },
+              {
+                "label": "Reassess LV size and aortic valve opening after deployment.",
+                "checked": false
+              },
+              {
+                "label": "Reassess pulmonary edema and pulse pressure.",
+                "checked": false
+              },
+              {
+                "label": "Escalate immediately if LV overload is severe or worsening.",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Reassess Immediately After Switch",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Target EBF achieved.",
+            "checked": false
+          },
+          {
+            "label": "Flow distribution at planned split if VVA.",
+            "checked": false
+          },
+          {
+            "label": "MAP and systemic perfusion at patient target.",
+            "checked": false
+          },
+          {
+            "label": "Oxygenation at patient target (right-radial SpO₂ if VA or VVA).",
+            "checked": false
+          },
+          {
+            "label": "CO₂ clearance at target.",
+            "checked": false
+          },
+          {
+            "label": "Lactate, CVP, PA pressure (if PA cannula), LV loading (if VA component) reassessed.",
+            "checked": false
+          },
+          {
+            "label": "Distal limb perfusion intact if femoral arterial return.",
+            "checked": false
+          },
+          {
+            "label": "Final cannula position reconfirmed.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Termination: Target Configuration Achieved",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Maintain target EBF and flow distribution.",
+            "checked": false
+          },
+          {
+            "label": "Label all drainage and return limbs.",
+            "checked": false
+          },
+          {
+            "label": "Document final configuration, cannula type / size / depth / access site, and flow split if VVA.",
+            "checked": false
+          },
+          {
+            "label": "Define monitoring priorities by configuration and reassessment time.",
+            "checked": false
+          },
+          {
+            "label": "Communicate plan to ICU, procedural, perfusion, and bedside teams.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Termination: Target Configuration NOT Achieved",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Call senior ECMO, procedural, surgical, and perfusion support if unsafe or ineffective.",
+            "checked": false
+          },
+          {
+            "label": "Wrong target configuration? Reassess physiology matrix.",
+            "checked": false
+          },
+          {
+            "label": "Cannula malposition? Image and reposition. Refer to Cannula Exit Sites and Tubings Management.",
+            "checked": false
+          },
+          {
+            "label": "Insufficient drainage or excessive negative drainage pressure? Check volume, position, and additional drainage. Refer to Manage Drainage Insufficiency on ECMO.",
+            "checked": false
+          },
+          {
+            "label": "High return pressure? Check cannula size, oxygenator, and for kinks. Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_160' target='_self'>Membrane Lung Failure</a>",
+            "checked": false
+          },
+          {
+            "label": "Pump or oxygenator flow limitation? Assess the circuit and consider component change.",
+            "checked": false
+          },
+          {
+            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to Identification and management of recirculation in venovenous ECMO for more information.",
+            "checked": false
+          },
+          {
+            "label": "Persistent differential oxygenation? Revisit flow split or upper-body return.",
+            "checked": false
+          },
+          {
+            "label": "LV overload? Escalate LV unloading pathway.",
+            "checked": false
+          },
+          {
+            "label": "PA/RV injury (rupture, hemorrhage, valve injury, arrhythmia, effusion)? Echo and surgical consult.",
+            "checked": false
+          },
+          {
+            "label": "Bleeding/hypovolemia? Perform product replacement and surgical control as required.",
+            "checked": false
+          },
+          {
+            "label": "Hemolysis?vAssess pump and oxygenator. Consider component change.",
+            "checked": false
+          },
+          {
+            "label": "Low-flow limb thrombosis? Perform DPC review and anticoagulation review.",
+            "checked": false
+          },
+          {
+            "label": "DO NOT persist with a failed configuration without senior review.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "With Any Termination",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Inform family/surrogates.",
+            "checked": false
+          },
+          {
+            "label": "Report event in detail.",
+            "checked": false
+          },
+          {
+            "label": "Update local and ELSO Registry documentation.",
+            "checked": false
+          },
+          {
+            "label": "Update cannula and circuit labels.",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_110-3",
+    "title": "References",
+    "content": "",
+    "layout": "checklist",
+    "keywords": "References; CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE; CONVERSION",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Match physiology to strategy",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Shock + hypoxemia = VVA",
+            "checked": false
+          },
+          {
+            "label": "RV failure + hypoxemia = VP / OxyRVAD",
+            "checked": false
+          },
+          {
+            "label": "VA + differential oxygenation = VVA or upper-body return strategy",
+            "checked": false
+          },
+          {
+            "label": "VA + LV distension = LV unloading",
+            "checked": false
+          },
+          {
+            "label": "Same-mode flow limitation = not a hybrid indication. Refer to Manage Drainage Insufficiency on ECMO.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "PA Injury Hazards (Review After PA Cannulation)",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "PA rupture/pulmonary hemorrhage",
+            "checked": false
+          },
+          {
+            "label": "Tricuspid or pulmonary valve injury",
+            "checked": false
+          },
+          {
+            "label": "New arrhythmia",
+            "checked": false
+          },
+          {
+            "label": "New pericardial effusion",
+            "checked": false
+          },
+          {
+            "label": "Acute hemodynamic deterioration",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Legend",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "ABG = arterial blood gas",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "CO₂ = carbon dioxide",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "CVP = central venous pressure",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "DO₂ = oxygen delivery",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "DPC = distal perfusion catheter",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "EBF = extracorporeal blood flow",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "ECMO = extracorporeal membrane oxygenation",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "ICU = intensive care unit",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "LA = left atrium",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "LV = left ventricle / left ventricular",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "MAP = mean arterial pressure",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "ML = membrane lung",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "OxyRVAD = paracorporeal RVAD with in-series oxygenator",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "PA = pulmonary artery",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "PAD = peripheral arterial disease",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "PCWP = pulmonary capillary wedge pressure",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "PFO / ASD = patent foramen ovale / atrial septal defect",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "RA = right atrium",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "RV = right ventricle / right ventricular",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "SpO₂ = peripheral oxygen saturation",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "TEE = transesophageal echocardiography",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "TTE = transthoracic echocardiography",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "VA ECMO = veno-arterial ECMO",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "VP ECMO = veno-pulmonary artery ECMO",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "VV ECMO = veno-venous ECMO",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "VVA ECMO = veno-venoarterial ECMO",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "ELSO = Extracorporeal Life Support Organization",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      }
     ]
   },
   {
@@ -3377,19 +5241,156 @@
   {
     "id": "ELSOBA_CHKLST_130",
     "title": "Invasive Procedures on ECMO",
-    "content": "",
-    "class": "disabled",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
     "layout": "checklist",
-    "keywords": "Procedure; ECMO; Invasive",
-    "doc": "",
+    "keywords": "INVASIVE; INVASIVE PROCEDURE; PROCEDURE ON ECMO; POST PROCEDURE; PRE PROCEDURE; PROCEDURE; PLANNING",
     "showFavorites": true,
-    "useScroll": true, 
+    "useScroll": true,
     "items": [
       {
-        "label": "No content found.",
-        "class": "disabled",
-        "branchTo": ""
-      } 
+        "label": "Planning",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Is the procedure necessary/avoidable? What will happen without the procedure?",
+            "checked": false
+          },
+          {
+            "label": "Is further imaging/investigation required?",
+            "checked": false
+          },
+          {
+            "label": "Team(s) who will undertake the procedure?",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Operator",
+                "checked": false
+              },
+              {
+                "label": "Anesthesia",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Where is the best place for the procedure?",
+            "checked": false
+          },
+          {
+            "label": "What facilities are available in the location? What needs to be brought down?",
+            "checked": false
+          },
+          {
+            "label": "What blood/blood products need to be ordered?",
+            "checked": false
+          },
+          {
+            "label": "Consent",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Pre-Procedure Optimization",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "NPO necessary? Duration?",
+            "checked": false
+          },
+          {
+            "label": "Target hematologic parameters",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Hb",
+                "checked": false
+              },
+              {
+                "label": "Platelets",
+                "checked": false
+              },
+              {
+                "label": "INR",
+                "checked": false
+              },
+              {
+                "label": "Fibrinogen",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Anticoagulation",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Continue",
+                "checked": false
+              },
+              {
+                "label": "Hold (heparin 3 hours/Bival 1 hour)",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "During Procedure",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Spare Circuit, where?",
+            "checked": false
+          },
+          {
+            "label": "Planning cardiopulmonary bypass with circuit preservation or cell salvage (see separate checklist)",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Post-Procedure",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Specific post-op instructions related to the procedure",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Who will follow up?",
+                "checked": false
+              },
+              {
+                "label": "Who will take back for bleeding?",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Anticoagulation plan (see separate checklist)",
+            "checked": false
+          }
+        ]
+      }
     ]
   },
 
