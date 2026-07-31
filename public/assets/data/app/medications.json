@@ -24,8 +24,8 @@
       },
       {
         "label": "Antimicrobials",
-        "branchTo": "ELSOBA_MED_CAT3",
-        "class": "disabled"
+        "branchTo": "ELSOBA_MED_030",
+        "class": ""
       },
       {
         "label": "Antivirals",
@@ -34,8 +34,8 @@
       },
       {
         "label": "Anti-seizure",
-        "branchTo": "ELSOBA_MED_CAT5",
-        "class": "disabled"
+        "branchTo": "ELSOBA_MED_050",
+        "class": ""
       },
       {
         "label": "Corticosteroids",
@@ -196,7 +196,7 @@
     "id": "ELSOBA_MED_010__TABLE__2",
     "title": "Discrepancy between aPTT and AntiXa with UFH Table",
     "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__2.html",
-    "layout": "default",
+    "layout": "html",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
@@ -216,6 +216,889 @@
     "id": "ELSOBA_MED_010__TABLE__4",
     "title": "Monitoring DTI Challenges Table",
     "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+
+
+  {
+    "id": "ELSOBA_MED_030",
+    "title": "Antimicrobials",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "class": "plr-1",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Amikacin",
+        "content": "Amikacin",
+        "branchTo": "ELSOBA_MED_030__1"
+      },
+      {
+        "label": "Ampicillin",
+        "content": "Ampicillin",
+        "branchTo": "ELSOBA_MED_030__2"
+      },
+      {
+        "label": "Ampicillin/sulbactam",
+        "content": "Ampicillin/sulbactam",
+        "branchTo": "ELSOBA_MED_030__3"
+      },
+      {
+        "label": "Azithromycin",
+        "content": "Azithromycin",
+        "branchTo": "ELSOBA_MED_030__4"
+      },
+      {
+        "label": "Aztreonam",
+        "content": "Aztreonam",
+        "branchTo": "ELSOBA_MED_030__5"
+      },
+      {
+        "label": "Cefazolin",
+        "content": "Cefazolin",
+        "branchTo": "ELSOBA_MED_030__6"
+      },
+      {
+        "label": "Cefepime",
+        "content": "Cefepime",
+        "branchTo": "ELSOBA_MED_030__7"
+      },
+      {
+        "label": "Cefiderocol",
+        "content": "Cefiderocol",
+        "branchTo": "ELSOBA_MED_030__8"
+      },
+      {
+        "label": "Cefotetan",
+        "content": "Cefotetan",
+        "branchTo": "ELSOBA_MED_030__9"
+      },
+      {
+        "label": "Cefoxitin",
+        "content": "Cefoxitin",
+        "branchTo": "ELSOBA_MED_030__10"
+      },
+      {
+        "label": "Ceftaroline",
+        "content": "Ceftaroline",
+        "branchTo": "ELSOBA_MED_030__11"
+      },
+      {
+        "label": "Ceftazidime",
+        "content": "Ceftazidime",
+        "branchTo": "ELSOBA_MED_030__12"
+      },
+      {
+        "label": "Ceftazidime/avibactam",
+        "content": "Ceftazidime/avibactam",
+        "branchTo": "ELSOBA_MED_030__13"
+      },
+      {
+        "label": "Ceftobiprole",
+        "content": "Ceftobiprole",
+        "branchTo": "ELSOBA_MED_030__14"
+      },
+      {
+        "label": "Ceftolozane/tazobactam",
+        "content": "Ceftolozane/tazobactam",
+        "branchTo": "ELSOBA_MED_030__15"
+      },
+      {
+        "label": "Ceftriaxone",
+        "content": "Ceftriaxone",
+        "branchTo": "ELSOBA_MED_030__16"
+      },
+      {
+        "label": "Cefuroxime",
+        "content": "Cefuroxime",
+        "branchTo": "ELSOBA_MED_030__17"
+      },
+      {
+        "label": "Ciprofloxacin",
+        "content": "Ciprofloxacin",
+        "branchTo": "ELSOBA_MED_030__18"
+      },
+      {
+        "label": "Clindamycin",
+        "content": "Clindamycin",
+        "branchTo": "ELSOBA_MED_030__19"
+      },
+      {
+        "label": "Daptomycin",
+        "content": "Daptomycin",
+        "branchTo": "ELSOBA_MED_030__20"
+      },
+      {
+        "label": "Doxycycline",
+        "content": "Doxycycline",
+        "branchTo": "ELSOBA_MED_030__21"
+      },
+      {
+        "label": "Eravacycline",
+        "content": "Eravacycline",
+        "branchTo": "ELSOBA_MED_030__22"
+      },
+      {
+        "label": "Ertapenem",
+        "content": "Ertapenem",
+        "branchTo": "ELSOBA_MED_030__23"
+      },
+      {
+        "label": "Gentamicin",
+        "content": "Gentamicin",
+        "branchTo": "ELSOBA_MED_030__24"
+      },
+      {
+        "label": "Imipenem/cilastatin",
+        "content": "Imipenem/cilastatin",
+        "branchTo": "ELSOBA_MED_030__25"
+      },
+      {
+        "label": "Imipenem/cilastatin/relebactam",
+        "content": "Imipenem/cilastatin/relebactam",
+        "branchTo": "ELSOBA_MED_030__26"
+      },
+      {
+        "label": "Levofloxacin",
+        "content": "Levofloxacin",
+        "branchTo": "ELSOBA_MED_030__27"
+      },
+      {
+        "label": "Linezolid",
+        "content": "Linezolid",
+        "branchTo": "ELSOBA_MED_030__28"
+      },
+      {
+        "label": "Meropenem",
+        "content": "Meropenem",
+        "branchTo": "ELSOBA_MED_030__29"
+      },
+      {
+        "label": "Meropenem/vaborbactam",
+        "content": "Meropenem/vaborbactam",
+        "branchTo": "ELSOBA_MED_030__30"
+      },
+      {
+        "label": "Metronidazole",
+        "content": "Metronidazole",
+        "branchTo": "ELSOBA_MED_030__31"
+      },
+      {
+        "label": "Minocycline",
+        "content": "Minocycline",
+        "branchTo": "ELSOBA_MED_030__32"
+      },
+      {
+        "label": "Moxifloxacin",
+        "content": "Moxifloxacin",
+        "branchTo": "ELSOBA_MED_030__33"
+      },
+      {
+        "label": "Oxacillin",
+        "content": "Oxacillin",
+        "branchTo": "ELSOBA_MED_030__34"
+      },
+      {
+        "label": "Penicillin G",
+        "content": "Penicillin G",
+        "branchTo": "ELSOBA_MED_030__35"
+      },
+      {
+        "label": "Piperacillin/tazobactam",
+        "content": "Piperacillin/tazobactam",
+        "branchTo": "ELSOBA_MED_030__36"
+      },
+      {
+        "label": "Plazomicin",
+        "content": "Plazomicin",
+        "branchTo": "ELSOBA_MED_030__37"
+      },
+      {
+        "label": "Polymyxin B",
+        "content": "Polymyxin B",
+        "branchTo": "ELSOBA_MED_030__38"
+      },
+      {
+        "label": "Polymyxin E (colistin)",
+        "content": "Polymyxin E (colistin)",
+        "branchTo": "ELSOBA_MED_030__39"
+      },
+      {
+        "label": "Telavancin",
+        "content": "Telavancin",
+        "branchTo": "ELSOBA_MED_030__40"
+      },
+      {
+        "label": "Tigecycline",
+        "content": "Tigecycline",
+        "branchTo": "ELSOBA_MED_030__41"
+      },
+      {
+        "label": "Tobramycin",
+        "content": "Tobramycin",
+        "branchTo": "ELSOBA_MED_030__42"
+      },
+      {
+        "label": "Trimethoprim/sulfamethoxazole",
+        "content": "Trimethoprim/sulfamethoxazole",
+        "branchTo": "ELSOBA_MED_030__43"
+      },
+      {
+        "label": "Vancomycin",
+        "content": "Vancomycin",
+        "branchTo": "ELSOBA_MED_030__44"
+      },
+      {
+        "label": "Antimicrobial physicochemical and pharmacokinetic characteristics",
+        "content": "Antimicrobial physicochemical and pharmacokinetic characteristics",
+        "branchTo": "ELSOBA_MED_030__TABLE__1"
+      },
+      {
+        "label": "Resources",
+        "content": "Resources",
+        "branchTo": "ELSOBA_MED_030__RESOURCES"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_030__1",
+    "title": "Amikacin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__2",
+    "title": "Ampicillin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__3",
+    "title": "Ampicillin/sulbactam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__4",
+    "title": "Azithromycin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__5",
+    "title": "Aztreonam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__6",
+    "title": "Cefazolin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__7",
+    "title": "Cefepime",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__7.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__8",
+    "title": "Cefiderocol",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__8.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__9",
+    "title": "Cefotetan",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__9.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__10",
+    "title": "Cefoxitin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__10.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__11",
+    "title": "Ceftaroline",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__11.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__12",
+    "title": "Ceftazidime",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__12.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__13",
+    "title": "Ceftazidime/avibactam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__13.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__14",
+    "title": "Ceftobiprole",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__14.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__15",
+    "title": "Ceftolozane/tazobactam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__15.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__16",
+    "title": "Ceftriaxone",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__16.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__17",
+    "title": "Cefuroxime",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__17.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__18",
+    "title": "Ciprofloxacin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__18.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__19",
+    "title": "Clindamycin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__19.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__20",
+    "title": "Daptomycin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__20.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__21",
+    "title": "Doxycycline",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__21.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__22",
+    "title": "Eravacycline",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__22.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__23",
+    "title": "Ertapenem",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__23.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__24",
+    "title": "Gentamicin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__24.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__25",
+    "title": "Imipenem/cilastatin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__25.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__26",
+    "title": "Imipenem/cilastatin/relebactam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__26.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__27",
+    "title": "Levofloxacin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__27.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__28",
+    "title": "Linezolid",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__28.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__29",
+    "title": "Meropenem",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__29.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__30",
+    "title": "Meropenem/vaborbactam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__30.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__31",
+    "title": "Metronidazole",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__31.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__32",
+    "title": "Minocycline",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__32.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__33",
+    "title": "Moxifloxacin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__33.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__34",
+    "title": "Oxacillin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__34.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__35",
+    "title": "Penicillin G",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__35.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__36",
+    "title": "Piperacillin/tazobactam",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__36.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__37",
+    "title": "Plazomicin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__37.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__38",
+    "title": "Polymyxin B",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__38.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__39",
+    "title": "Polymyxin E (colistin)",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__39.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__40",
+    "title": "Telavancin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__40.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__41",
+    "title": "Tigecycline",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__41.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__42",
+    "title": "Tobramycin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__42.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__43",
+    "title": "Trimethoprim/sulfamethoxazole",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__43.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__44",
+    "title": "Vancomycin",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__44.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__TABLE__1",
+    "title": "Antimicrobial physicochemical and pharmacokinetic characteristics",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__TABLE__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_030__RESOURCES",
+    "title": "Resources",
+    "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__RESOURCES.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+
+
+  {
+    "id": "ELSOBA_MED_050",
+    "title": "Anti-seizure",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "class": "plr-1",
+    "layout": "list",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": [
+      {
+        "label": "Brivaracetam",
+        "content": "Brivaracetam",
+        "branchTo": "ELSOBA_MED_050__1"
+      },
+      {
+        "label": "Fosphenytoin",
+        "content": "Fosphenytoin",
+        "branchTo": "ELSOBA_MED_050__2"
+      },
+      {
+        "label": "Ketamine",
+        "content": "Ketamine",
+        "branchTo": "ELSOBA_MED_050__3"
+      },
+      {
+        "label": "Lacosamide",
+        "content": "Lacosamide",
+        "branchTo": "ELSOBA_MED_050__4"
+      },
+      {
+        "label": "Levetiracetam",
+        "content": "Levetiracetam",
+        "branchTo": "ELSOBA_MED_050__5"
+      },
+      {
+        "label": "Lorazepam",
+        "content": "Lorazepam",
+        "branchTo": "ELSOBA_MED_050__6"
+      },
+      {
+        "label": "Midazolam",
+        "content": "Midazolam",
+        "branchTo": "ELSOBA_MED_050__7"
+      },
+      {
+        "label": "Phenobarbital",
+        "content": "Phenobarbital",
+        "branchTo": "ELSOBA_MED_050__8"
+      },
+      {
+        "label": "Phenytoin",
+        "content": "Phenytoin",
+        "branchTo": "ELSOBA_MED_050__9"
+      },
+      {
+        "label": "Valproate",
+        "content": "Valproate",
+        "branchTo": "ELSOBA_MED_050__10"
+      },
+      {
+        "label": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
+        "content": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
+        "branchTo": "ELSOBA_MED_050__TABLE__1"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_MED_050__1",
+    "title": "Brivaracetam",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__1.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__2",
+    "title": "Fosphenytoin",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__2.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__3",
+    "title": "Ketamine",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__4",
+    "title": "Lacosamide",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__5",
+    "title": "Levetiracetam",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__5.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__6",
+    "title": "Lorazepam",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__6.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__7",
+    "title": "Midazolam",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__7.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__8",
+    "title": "Phenobarbital",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__8.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__9",
+    "title": "Phenytoin",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__9.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__10",
+    "title": "Valproate",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__10.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_050__TABLE__1",
+    "title": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
+    "content": "medications/ELSOBA_MED_050/ELSOBA_MED_050__TABLE__1.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,
