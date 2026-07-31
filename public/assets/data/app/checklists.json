@@ -249,8 +249,8 @@
         "branchTo": "ELSOBA_CHKLST_190"
       },
       {
-        "label": "Neuromonitoring in ECMO Algorithm",
-        "class": "disabled",
+        "label": "Neuromonitoring on ECMO",
+        "class": "",
         "branchTo": "ELSOBA_CHKLST_200"
       },
       {
@@ -3960,20 +3960,526 @@
   },
   {
     "id": "ELSOBA_CHKLST_200",
-    "title": "Neuromonitoring in ECMO Algorithm",
-    "content": "",
-    "class": "disabled",
-    "layout": "checklist",
-    "keywords": "Monitor; Neuromonitoring; ECMO; Algorithm",
+    "title": "Neuromonitoring on ECMO",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "list",
     "showFavorites": true,
-    "useScroll": true, 
+    "useScroll": true,
+    "keywords": "NEUROMONITORING; ECMO MANAGEMENT; TRANSCRANIAL DOPPLER; CONTINUOUS EEG; NIRS; CEREBRAL OXIMETRY; HEAD CT; CRANIAL ULTRASOUND; CUS; NEUROLOGIC INJURY",
+    "sort": "ByActive",
     "items": [
       {
-        "label": "No content found.",
-        "class": "disabled",
-        "branchTo": ""
-      } 
+        "label": "Background",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_010"
+      },
+      {
+        "label": "High-risk groups for neurologic injury",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_020"
+      },
+      {
+        "label": "Cranial Ultrasound (CUS)",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_030"
+      },
+      {
+        "label": "Head CT",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_040"
+      },
+      {
+        "label": "Continuous EEG",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_050"
+      },
+      {
+        "label": "Cerebral Oximetry (NIRS- near-infrared spectroscopy)",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_060"
+      },
+      {
+        "label": "Transcranial Doppler",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_070"
+      },
+      {
+        "label": "Adjunct Technology—More Data Emerging",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_080"
+      },
+      {
+        "label": "References",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_200_090"
+      }
     ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_010",
+    "title": "Background",
+    "content": "checklists/ELSOBA_CHKLST_200/ELSOBA_CHKLST_200_010.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_020",
+    "title": "High-risk groups for neurologic injury",
+    "content": "",
+    "keywords": "High-risk groups for neurologic injury; NEUROLOGIC INJURY",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Patient risk factors",
+        "checked": false,
+        "type": "subchecklist",
+        "layout": "checklist",
+        "items": [
+          {
+            "label": "Prematurity",
+            "checked": false
+          },
+          {
+            "label": "Low body weight",
+            "checked": false
+          },
+          {
+            "label": "Cardiac failure",
+            "checked": false
+          },
+          {
+            "label": "Pre-ECMO cardiac arrest",
+            "checked": false
+          },
+          {
+            "label": "Impairment of cerebral autoregulation",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "High risk patient groups",
+        "checked": false,
+        "type": "subchecklist",
+        "layout": "checklist",
+        "items": [
+          {
+            "label": "Premature infants",
+            "checked": false
+          },
+          {
+            "label": "ECPR",
+            "checked": false
+          },
+          {
+            "label": "Congenital heart disease",
+            "checked": false
+          },
+          {
+            "label": "Recent CPB",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Mechanical risk factors",
+        "checked": false,
+        "type": "subchecklist",
+        "layout": "checklist",
+        "items": [
+          {
+            "label": "Anti-coagulation",
+            "checked": false
+          },
+          {
+            "label": "Alteration in blood flow",
+            "checked": false
+          },
+          {
+            "label": "Blood exposure to artificial surface",
+            "checked": false
+          },
+          {
+            "label": "Systemic inflammatory response",
+            "checked": false
+          },
+          {
+            "label": "Cannulation type/strategy",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_030",
+    "title": "Cranial Ultrasound (CUS)",
+    "content": "",
+    "keywords": "Cranial Ultrasound (CUS); HEAD CT; CRANIAL ULTRASOUND; CUS",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Population:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patients with open fontanelle",
+            "checked": false
+          },
+          {
+            "label": "Obtained prior to ECMO (when feasible)",
+            "checked": false
+          },
+          {
+            "label": "Obtained after ECMO initiation everyday x 3–5 days in infants with abnormal CUS and high-risk infants with open fontanelle.",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Benefits:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Easy to do at bedside/portable",
+            "checked": false
+          },
+          {
+            "label": "No radiation",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Caveats:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Utility based on skill of ultrasonographer",
+            "checked": false
+          },
+          {
+            "label": "If abnormal CUS consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_040",
+    "title": "Head CT",
+    "content": "",
+    "keywords": "Head CT; NIRS; CUS",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Population:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Patients with cardiac arrest or ECPR (obtain within 24 hours if clinically feasible)",
+            "checked": false
+          },
+          {
+            "label": "Acute change in neurologic status, mental status, pupillary changes, seizures, focal neurologic deficit, or weakness",
+            "checked": false
+          },
+          {
+            "label": "Change from baseline in other monitoring (i.e. change in NIRS, change on CUS, seizures on EEG)",
+            "checked": false
+          },
+          {
+            "label": "Portable head CT when possible—sufficient sensitivity to detect many neurologic insults",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Large body habitus may limit the ability to perform (check with radiology tech for measurements if concerned)",
+                "checked": false
+              },
+              {
+                "label": "If unable to obtain portable and patient is stable on ECMO, see transport section",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Benefits:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "23–32% of patients getting head CT will require intervention (change in management, neurosurgical intervention, withdrawal of care)",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_050",
+    "title": "Continuous EEG",
+    "content": "",
+    "keywords": "Continuous EEG",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Population:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Seizures noted in between 18-23% of neonatal and pediatric ECMO patients with ~50-80% of those seizures being subclinical",
+            "checked": false
+          },
+          {
+            "label": "Consider EEG in all ECMO patients for the first 48 hours with initiation 12–24 hours post cannulation.",
+            "checked": false
+          },
+          {
+            "label": "Can consider early discontinuation in patients who are awake and neurologically appropriate",
+            "checked": false
+          },
+          {
+            "label": "Most seizures are detected in the first 24 hours of EEG monitoring with ¾ of seizures detected within first 72 hours in one study",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "If seizures present continue EEG for at least 24 hours post seizure control",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Poor background reactivity and lack of variation have been associated with poor prognosis of ECMO patients",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Limitations:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "May be limited by epileptologist availability to read 24 hours, machine/technology availability",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_060",
+    "title": "Cerebral Oximetry (NIRS- near-infrared spectroscopy)",
+    "content": "",
+    "keywords": "Cerebral Oximetry (NIRS- near-infrared spectroscopy); NIRS; CEREBRAL OXIMETRY; NEUROLOGIC INJURY",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Utilized to follow TRENDS in cerebral tissue oxygenation",
+        "checked": false
+      },
+      {
+        "label": "A 20% decrease from baseline has been associated with neurologic injury and may warrant additional work-up",
+        "checked": false
+      },
+      {
+        "label": "Population:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "All ECMO patients",
+            "checked": false
+          },
+          {
+            "label": "Okay to defer utilization while the EEG is in place, if it’s not feasible to place both due to available real estate",
+            "checked": false
+          },
+          {
+            "label": "Okay to consider intermittent monitoring in awake, neurologically appropriate patients",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Limitations:",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Few studies with ECMO patients",
+            "checked": false
+          },
+          {
+            "label": "May have changes in NIRS during variations in ECMO flow but not necessarily correlation with clinical change or neurologic injury",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_070",
+    "title": "Transcranial Doppler",
+    "content": "",
+    "keywords": "Transcranial Doppler; NEUROLOGIC INJURY",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Measure of cerebral blood flow velocities and pulsatility index can detect neurologic injury",
+        "checked": false
+      },
+      {
+        "label": "Can measure CBF velocity in anterior, middle and posterior cerebral circulation as well as internal carotid",
+        "checked": false
+      },
+      {
+        "label": "CBF seems to be decreased in ECMO patients compared to controls (sick and healthy) and higher after decannulation",
+        "checked": false
+      },
+      {
+        "label": "May be able to predict risk before it happens",
+        "checked": false
+      },
+      {
+        "label": "Current Evidence",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Limited to small studies",
+            "checked": false
+          },
+          {
+            "label": "Focal elevations/asymmetries also associated with neurologic injuries 1–4 days prior to notation of injury",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Benefits",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Non-invasive, portable",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Limitations",
+        "class": "list-section",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Operator dependent—must account for user variation during interpretation",
+            "checked": false
+          },
+          {
+            "label": "May have limited center availability and experience for machine availability and radiologist interpretation",
+            "checked": false
+          },
+          {
+            "label": "May have decreased ability to utilize this technology based on decreased cardiac function as there may be reduced cerebral pulsatility",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_080",
+    "title": "Adjunct Technology—More Data Emerging",
+    "content": "",
+    "keywords": "Adjunct Technology—More Data Emerging",
+    "layout": "checklist",
+    "type": "subchecklist",
+    "items": [
+      {
+        "label": "Pupillometry",
+        "type": "list-comment",
+        "class": "mxt-20 mxb-16"
+      },
+      {
+        "label": "Population: Adjunct technology; data supporting use of pupilometry in ECMO populations is currently limited",
+        "type": "list-comment",
+        "class": "bullet ml-0"
+      },
+      {
+        "label": "Consider utilization in populations where there is difficulty in determining pupil reactivity or asymmetry",
+        "type": "list-comment",
+        "class": "bullet ml-0"
+      },
+      {
+        "label": "May be a good prognosticator of mortality in certain ECMO populations however, more data is needed",
+        "type": "list-comment",
+        "class": "bullet ml-0"
+      },
+      {
+        "label": "MRI",
+        "type": "list-comment",
+        "class": "mxt-20 mxb-16"
+      },
+      {
+        "label": "Low-field portable MRI has been shown to be safe and feasible on patients on ECMO. However, this technology is currently not widely available.",
+        "type": "list-comment",
+        "class": "bullet ml-0"
+      },
+      {
+        "label": "Population: All patients prior to discharge",
+        "type": "list-comment",
+        "class": "bullet ml-0"
+      },
+      {
+        "label": "Ideally obtained 7–10 days post-insult leading to ECMO or neurologic insult on ECMO.",
+        "type": "list-comment",
+        "class": "bullet hollow ml-1 end-list-1"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_200_090",
+    "title": "References",
+    "content": "checklists/ELSOBA_CHKLST_200/ELSOBA_CHKLST_200_090.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
   },
   {
     "id": "ELSOBA_CHKLST_210",
