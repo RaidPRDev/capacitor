@@ -17,13 +17,14 @@ import BaseList from '@/ui/controls/BaseList.vue';
 import BaseHeader from "@/ui/panels/BaseHeader.vue";
 import BaseToggle from '@/ui/controls/BaseToggle.vue';
 
-import { APP_ID } from '@/_core/Constants';
+import { APP_DRAWERS_ID, APP_ID } from '@/_core/Constants';
 import { IBaseListItemData } from '@/ui/types';
-import { IApp } from '@/types';
+import { IApp, IAppDrawerComponents } from '@/types';
 import { BranchItem, BranchViewData } from '@/types';
 import { flattenChecklist } from '@/utils/ObjectTools';
 
 import AppAlertPanel from '@/components/panels/AppAlertPanel.vue';
+import ImagePreviewPanel from '@/components/panels/ImagePreviewPanel.vue';
 import FavoriteAddedToast from "@/components/toasts/FavoriteAddedToast.vue";
 
 import useChecklistStore from "@/store/checklist.module";
@@ -67,6 +68,7 @@ const props = withDefaults(defineProps<IAppChecklistBottomPanelProps>(), {});
 // const state:IState = reactive({})
 
 const app = inject<IApp>(APP_ID) as IApp;
+const drawerComponents = inject<IAppDrawerComponents>(APP_DRAWERS_ID) as IAppDrawerComponents;
 
 const dataList = computed(() => {
   if (!props?.items) return [];
@@ -166,6 +168,16 @@ function addToFavorites() {
 }
 
 function onInternalLink(element: HTMLElement) {
+  // an inline figure: zoom it in the `top` drawer slot, which stacks over this
+  // one, so the checklist stays mounted with its ticks and scroll position
+  if (element?.tagName === 'IMG' && element.hasAttribute('data-preview')) {
+    drawerComponents.top = ImagePreviewPanel;
+    app.drawers.top.closeOutside = false;
+    app.drawers.top.props = { source: (element as HTMLImageElement).src, slot: 'top' };
+    app.drawers.top.open = true;
+    return;
+  }
+
   if (!element?.hasAttribute('data-link')) return;
   if (element.classList.contains("disabled")) return;
             
@@ -468,6 +480,13 @@ function processItemLabel(item:any) {
           pointer-events: all;
         }
 
+        // inline figures: tappable for zoom, never wider than the row
+        img {
+          pointer-events: all;
+          max-width: 100%;
+          height: auto;
+        }
+
         .ui-icon {
           display: none;
         }
@@ -499,6 +518,35 @@ function processItemLabel(item:any) {
         margin-bottom: 0.7rem;
         border-bottom: 1px solid transparent;
 
+        // citations/headings sit flush with the accordion title
+        &.sub-level-1:not(.bullet) {
+          padding-left: 0;
+        }
+
+        // an inline figure spans the full row width at any nesting level
+        &.figure, &.figure-caption {
+          padding-left: 0;
+
+          .inner-base-button {
+            padding-right: 0;
+          }
+        }
+
+        &.figure {
+          margin-top: 1.25rem;
+          margin-bottom: 0.35rem;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        // rows render at 16px here, so 'small' is the 2px step down
+        &.figure-caption {
+          @include getFontSize('small');
+          line-height: 1.35;
+        }
+
         .inner-base-button {
           padding: 0 2rem 0 0;
           .ui-body > .ui-label > ul {
@@ -507,13 +555,13 @@ function processItemLabel(item:any) {
         }
 
         &.bullet {
-          padding-left: 3rem;
+          padding-left: 2rem;
 
           &:after {
             content: "•";
             font-size: 1.35rem;
             position: absolute;
-            left: 2rem;
+            left: 1rem;
             line-height: 1;
             top: 0;
           }
@@ -542,7 +590,7 @@ function processItemLabel(item:any) {
           margin-left: 0;
           margin-bottom: 0;
           .inner-base-button {
-            padding-left: 3rem;
+            padding-left: 2rem;
           }
 
           &.bullet {
@@ -556,7 +604,27 @@ function processItemLabel(item:any) {
           margin-left: 0;
           margin-bottom: 0;
           .inner-base-button {
-            padding-left: 3rem;
+            padding-left: 2rem;
+          }
+
+          &.bullet {
+            padding-left: 0;
+            &:after {
+              left: 2rem;
+            }
+            .inner-base-button {
+              padding-left: 3rem;
+            }
+          }
+        }
+
+        &.end-list-2 {
+          border-bottom: 1px solid #BEBEBE;
+          padding-bottom: 1.35rem;
+          margin-left: 0;
+          margin-bottom: 0;
+          .inner-base-button {
+            padding-left: 2rem;
           }
 
           &.bullet {
@@ -567,27 +635,7 @@ function processItemLabel(item:any) {
             .inner-base-button {
               padding-left: 4rem;
             }
-          }           
-        }
-        
-        &.end-list-2 {
-          border-bottom: 1px solid #BEBEBE;
-          padding-bottom: 1.35rem;
-          margin-left: 0;
-          margin-bottom: 0;
-          .inner-base-button {
-            padding-left: 3rem;
           }
-
-          &.bullet {
-            padding-left: 0;
-            &:after {
-              left: 4rem;
-            }
-            .inner-base-button {
-              padding-left: 5rem;
-            }
-          }           
         }
       }
 

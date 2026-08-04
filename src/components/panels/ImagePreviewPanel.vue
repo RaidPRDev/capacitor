@@ -21,10 +21,12 @@ import CloseIcon from '@/assets/icons/close-icon.svg';
 
 interface IImagePreviewPanel {
   source: string;
+  // which drawer slot this was opened in; `top` when opened from another drawer
+  slot?: 'bottom' | 'top';
 }
 
 // Component Props Setup
-const props = withDefaults(defineProps<IImagePreviewPanel>(), {}) 
+const props = withDefaults(defineProps<IImagePreviewPanel>(), { slot: 'bottom' })
 
 const app = inject<IApp>(APP_ID) as IApp;
 const divScrollerRef = ref<HTMLElement>();
@@ -65,8 +67,8 @@ onMounted(() => {
     :icon="CloseIcon" 
     @triggered="() => {
       app.drawers.closeOutside = false;
-      app.drawers.bottom.open = !app.drawers.bottom.open;
-    }" 
+      app.drawers[props.slot].open = false;
+    }"
   />
   
 </BasePanel>

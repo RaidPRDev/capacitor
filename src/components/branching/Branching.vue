@@ -91,6 +91,8 @@ const currentDataType = props?.views?.length > 0 ? props?.views?.[0].dataType : 
 const currentView = computed<BranchViewData | null>(() => props?.views?.length > 0 ? props?.views?.[currentViewIndex.value] : null);
 const canGoBack = computed<boolean>(() => true);
 const canGoNext = computed<boolean>(() => currentView?.value !== null && currentView?.value?.branchTo !== null);
+const currentViewLastScrollPos = computed<number>(() => getViewHistoryByID(currentView?.value?.id!)?.scrollPos || 0);
+const shouldDisableListTransitions = computed<boolean>(() => currentDataType === "medications" && currentViewLastScrollPos.value > 0);
 
 const branchViewStyles = computed(() => {
   const adjustHeight = getWrapperMaskHeight();
@@ -515,7 +517,7 @@ function checkLastReferralScrollPosition() {
   // check last view scroll position
   if (DEBUG) console.log("getViewHistoryByID", getViewHistoryByID(currentView?.value?.id!));
   
-  const lastScrollPos = getViewHistoryByID(currentView?.value?.id!)?.scrollPos;
+  const lastScrollPos = currentViewLastScrollPos.value;
   if (lastScrollPos! > 0 && contentElement.value) {
     setTimeout(() => {
       if (contentElement.value) {
@@ -658,6 +660,7 @@ onUnmounted(() => {
         <View 
           :key="`${currentViewIndex}_${currentView?.id}_${route?.fullPath}`"
           :view="currentView" 
+          :disableListTransitions="shouldDisableListTransitions"
           @navigate="handleNavigate" 
           @triggered="handleTriggered"
           :class="[viewClassName, {

@@ -266,6 +266,20 @@ function onPanelCloseButton() {
   closePanel();
 }
 
+// Hidden escape hatch: tapping the logo 10 times dismisses the panel
+const LOGO_TAP_ESCAPE_COUNT = 10;
+const logoTapCount = ref<number>(0);
+
+function onLogoTap() {
+  if (state.isSaving) return;
+
+  logoTapCount.value += 1;
+  if (logoTapCount.value < LOGO_TAP_ESCAPE_COUNT) return;
+
+  logoTapCount.value = 0;
+  onPanelCloseButton();
+}
+
 </script>
 
 <template>
@@ -273,7 +287,18 @@ function onPanelCloseButton() {
   <template v-slot:headerSlot>
     <BaseHeader ref="headerRef" class="center-container" :innerClassName="`pxlr-30 pxt-18`">
       <template v-slot:headerLeft>
-        <div class="flex justify-center mxb-40"><img :src="Logo" width="120" height="89" /></div>
+        <div class="flex justify-center mxb-40">
+          <BaseButton
+            class="logo-button"
+            aria-label="ECMO Bedside Guide"
+            :usePressedState="false"
+            @triggered="onLogoTap"
+          >
+            <template v-slot:bodySlot>
+              <img :src="Logo" width="120" height="89" />
+            </template>
+          </BaseButton>
+        </div>
       </template>
     </BaseHeader>
   </template>

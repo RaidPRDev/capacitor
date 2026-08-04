@@ -2,7 +2,7 @@
   "name": "elso_app",
   "private": true,
   "version": "1.0.1",
-  "build_number": "323",
+  "build_number": "327",
   "type": "module",
   "scripts": {
     "start": "vite --host",
@@ -12,6 +12,10 @@
     "sync": "npx cap sync",
     "android_open": "npx cap open android",
     "android_run": "npx cap run android",
+    "ios_run": "pwsh -NoProfile -File tools/mac/Mac-Run-iOS.ps1",
+    "ios_live": "pwsh -NoProfile -File tools/mac/Mac-Run-iOS.ps1 -Live",
+    "ios_logs": "pwsh -NoProfile -File tools/mac/Mac-Logs-iOS.ps1",
+    "ios_doctor": "pwsh -NoProfile -File tools/mac/Mac-Doctor.ps1",
     "icons": "npx capacitor-assets generate"
   },
   "dependencies": {

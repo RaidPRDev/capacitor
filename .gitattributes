@@ -1,0 +1,3 @@
+# The Mac build helpers are executed by bash over ssh -- CRLF would break them.
+tools/mac/remote/*.sh text eol=lf
+*.sh text eol=lf

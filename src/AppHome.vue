@@ -317,8 +317,6 @@ onUnmounted(() => {
   :headerSlotProps="{ class: `z-index-1` }" 
   :footerSlotProps="{ 
     styles: { 
-      position: `fixed`,
-      top: `calc(${app.device.height}px - ${BOTTOM_HEADER_NAV_HEIGHT(app.device.isIOS ? 20 : 0)}px)`,
       height: `${BOTTOM_HEADER_NAV_HEIGHT(app.device.isIOS ? 20 : 0)}px` 
     } 
   }">

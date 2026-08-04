@@ -215,6 +215,13 @@ onMounted(() => {
     color: rgba(255, 255, 255, 0.35);
   }
 
+  // Push content clear of the notch / Dynamic Island camera bar
+  html.ios & {
+    .splash-container {
+      padding-top: max(env(safe-area-inset-top), 40px);
+    }
+  }
+
   @include queryheightmin('iphone-small') {
     .splash-container {
       padding-top: 14px;

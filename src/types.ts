@@ -233,6 +233,7 @@ export interface IBranchTypeProps {
   showRestart?: boolean;
   showFavorites?: boolean;
   showDebug?: boolean;
+  disableListTransitions?: boolean;
 }
 
 export type CalculatorParamType = Record<string, any>;
