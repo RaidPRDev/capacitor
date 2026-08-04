@@ -5075,7 +5075,7 @@
             "checked": false
           },
           {
-            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to Identification and management of recirculation in venovenous ECMO for more information..",
+            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to <a href='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' data-link='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' target='_blank'>Identification and management of recirculation in venovenous ECMO</a> for more information..",
             "checked": false
           },
           {
@@ -6020,7 +6020,7 @@
             "checked": false
           },
           {
-            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to Identification and management of recirculation in venovenous ECMO for more information.",
+            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to <a href='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' data-link='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' target='_blank'>Identification and management of recirculation in venovenous ECMO</a> for more information.",
             "checked": false
           },
           {
@@ -7060,7 +7060,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Labib A, August E, Agerstrand C, et al. Extracorporeal Life Support Organization Guideline for Transport and Retrieval of Adult and Pediatric Patients with ECMO Support. ASAIO J. 2022;68(4):447-455. doi:10.1097/MAT.0000000000001653",
+            "label": "Labib A, August E, Agerstrand C, et al. <a href='https://journals.lww.com/asaiojournal/fulltext/2022/04000/extracorporeal_life_support_organization_guideline.1.aspx' data-link='https://journals.lww.com/asaiojournal/fulltext/2022/04000/extracorporeal_life_support_organization_guideline.1.aspx' target='_blank'>Extracorporeal Life Support Organization Guideline for Transport and Retrieval of Adult and Pediatric Patients with ECMO Support</a>. ASAIO J. 2022;68(4):447-455. doi:10.1097/MAT.0000000000001653",
             "type": "list-comment",
             "class": "mxb-16"
           },
@@ -7955,67 +7955,67 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Besnier E, Boubèche S, Clavier T, et al. Early Positive Fluid Balance is Associated with Mortality in Patients Treated with Veno-Arterial Extra Corporeal Membrane Oxygenation For Cardiogenic Shock: a Retrospective Cohort Study. Shock. 2020;53(4):426-433. doi:10.1097/SHK.0000000000001381",
+            "label": "Besnier E, Boubèche S, Clavier T, et al. <a href='https://www.ovid.com/jnls/shockjournal/abstract/10.1097/shk.0000000000001381~early-positive-fluid-balance-is-associated-with-mortality-in?redirectionsource=fulltextview' data-link='https://www.ovid.com/jnls/shockjournal/abstract/10.1097/shk.0000000000001381~early-positive-fluid-balance-is-associated-with-mortality-in?redirectionsource=fulltextview' target='_blank'>Early Positive Fluid Balance is Associated with Mortality in Patients Treated with Veno-Arterial Extra Corporeal Membrane Oxygenation For Cardiogenic Shock: a Retrospective Cohort Study</a>. Shock. 2020;53(4):426-433. doi:10.1097/SHK.0000000000001381",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Brodie D, Slutsky AS, Combes A. Extracorporeal Life Support for Adults With Respiratory Failure and Related Indications: A Review. JAMA. 2019;322(6):557-568. doi:10.1001/jama.2019.9302",
+            "label": "Brodie D, Slutsky AS, Combes A. <a href='https://jamanetwork.com/journals/jama/article-abstract/2747676' data-link='https://jamanetwork.com/journals/jama/article-abstract/2747676' target='_blank'>Extracorporeal Life Support for Adults With Respiratory Failure and Related Indications: A Review</a>. JAMA. 2019;322(6):557-568. doi:10.1001/jama.2019.9302",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Lindholm JA. Cannulation for veno-venous extracorporeal membrane oxygenation. J Thorac Dis. 2018;10(Suppl 5):S606-S612. doi:10.21037/jtd.2018.03.101",
+            "label": "Lindholm JA. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC5911563/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC5911563/' target='_blank'>Cannulation for veno-venous extracorporeal membrane oxygenation</a>. J Thorac Dis. 2018;10(Suppl 5):S606-S612. doi:10.21037/jtd.2018.03.101",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Lorusso R, Shekar K, MacLaren G, et al. ELSO Interim Guidelines for Venoarterial Extracorporeal Membrane Oxygenation in Adult Cardiac Patients. ASAIO J. 2021;67(8):827-844. doi:10.1097/MAT.0000000000001510",
+            "label": "Lorusso R, Shekar K, MacLaren G, et al. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001510~elso-interim-guidelines-for-venoarterial-extracorporeal' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001510~elso-interim-guidelines-for-venoarterial-extracorporeal' target='_blank'>ELSO Interim Guidelines for Venoarterial Extracorporeal Membrane Oxygenation in Adult Cardiac Patients</a>. ASAIO J. 2021;67(8):827-844. doi:10.1097/MAT.0000000000001510",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Monnet X, Marik P, Teboul JL. Passive leg raising for predicting fluid responsiveness: a systematic review and meta-analysis. Intensive Care Med. 2016;42(12):1935-1947. doi:10.1007/s00134-015-4134-1",
+            "label": "Monnet X, Marik P, Teboul JL. <a href='https://link.springer.com/article/10.1007/s00134-015-4134-1' data-link='https://link.springer.com/article/10.1007/s00134-015-4134-1' target='_blank'>Passive leg raising for predicting fluid responsiveness: a systematic review and meta-analysis</a>. Intensive Care Med. 2016;42(12):1935-1947. doi:10.1007/s00134-015-4134-1",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Pohlmann JR, Toomasian JM, Hampton CE, Cook KE, Annich GM, Bartlett RH. The relationships between air exposure, negative pressure, and hemolysis. ASAIO J. 2009;55(5):469-473. doi:10.1097/MAT.0b013e3181b28a5a",
+            "label": "Pohlmann JR, Toomasian JM, Hampton CE, Cook KE, Annich GM, Bartlett RH. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC3662481/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC3662481/' target='_blank'>The relationships between air exposure, negative pressure, and hemolysis</a>. ASAIO J. 2009;55(5):469-473. doi:10.1097/MAT.0b013e3181b28a5a",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Schmidt M, Bailey M, Kelly J, et al. Impact of fluid balance on outcome of adult patients treated with extracorporeal membrane oxygenation. Intensive Care Med. 2014;40(9):1256-1266. doi:10.1007/s00134-014-3360-2",
+            "label": "Schmidt M, Bailey M, Kelly J, et al. <a href='https://link.springer.com/article/10.1007/s00134-014-3360-2' data-link='https://link.springer.com/article/10.1007/s00134-014-3360-2' target='_blank'>Impact of fluid balance on outcome of adult patients treated with extracorporeal membrane oxygenation</a>. Intensive Care Med. 2014;40(9):1256-1266. doi:10.1007/s00134-014-3360-2",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Sidebotham D. Troubleshooting adult ECMO. J Extra Corpor Technol. 2011;43(1):P27-P32.",
+            "label": "Sidebotham D. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC4680094/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC4680094/' target='_blank'>Troubleshooting adult ECMO</a>. J Extra Corpor Technol. 2011;43(1):P27-P32.",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Tonna JE, Abrams D, Brodie D, et al. Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO). ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
+            "label": "Tonna JE, Abrams D, Brodie D, et al. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001432~management-of-adult-patients-supported-with-venovenous' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001432~management-of-adult-patients-supported-with-venovenous' target='_blank'>Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO)</a>. ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Walker JL, Gelfond J, Zarzabal LA, Darling E. Calculating mixed venous saturation during veno-venous extracorporeal membrane oxygenation. Perfusion. 2009;24(5):333-339. doi:10.1177/0267659109354790",
+            "label": "Walker JL, Gelfond J, Zarzabal LA, Darling E. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC2943384/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC2943384/' target='_blank'>Calculating mixed venous saturation during veno-venous extracorporeal membrane oxygenation</a>. Perfusion. 2009;24(5):333-339. doi:10.1177/0267659109354790",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Walter JM, Kurihara C, Corbridge TC, Bharat A. Chugging in patients on veno-venous extracorporeal membrane oxygenation: An under-recognized driver of intravenous fluid administration in patients with acute respiratory distress syndrome?. Heart Lung. 2018;47(4):398-400. doi:10.1016/j.hrtlng.2018.03.011",
+            "label": "Walter JM, Kurihara C, Corbridge TC, Bharat A. <a href='https://www.heartandlung.org/article/S0147-9563(18)30008-6/fulltext' data-link='https://www.heartandlung.org/article/S0147-9563(18)30008-6/fulltext' target='_blank'>Chugging in patients on veno-venous extracorporeal membrane oxygenation: An under-recognized driver of intravenous fluid administration in patients with acute respiratory distress syndrome?</a>. Heart Lung. 2018;47(4):398-400. doi:10.1016/j.hrtlng.2018.03.011",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Wang S, Chin BJ, Gentile F, Kunselman AR, Palanzo D, Ündar A. Potential Danger of Pre-Pump Clamping on Negative Pressure-Associated Gaseous Microemboli Generation During Extracorporeal Life Support--An In Vitro Study. Artif Organs. 2016;40(1):89-94. doi:10.1111/aor.12540",
+            "label": "Wang S, Chin BJ, Gentile F, Kunselman AR, Palanzo D, Ündar A. <a href='https://onlinelibrary.wiley.com/doi/10.1111/aor.12540' data-link='https://onlinelibrary.wiley.com/doi/10.1111/aor.12540' target='_blank'>Potential Danger of Pre-Pump Clamping on Negative Pressure-Associated Gaseous Microemboli Generation During Extracorporeal Life Support--An In Vitro Study</a>. Artif Organs. 2016;40(1):89-94. doi:10.1111/aor.12540",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Zakhary B, Vercaemst L, Mason P, Lorusso R, Brodie D. How I manage drainage insufficiency on extracorporeal membrane oxygenation. Crit Care. 2020;24(1):151. Published 2020 Apr 15. doi:10.1186/s13054-020-02870-1",
+            "label": "Zakhary B, Vercaemst L, Mason P, Lorusso R, Brodie D. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC7161276/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC7161276/' target='_blank'>How I manage drainage insufficiency on extracorporeal membrane oxygenation</a>. Crit Care. 2020;24(1):151. Published 2020 Apr 15. doi:10.1186/s13054-020-02870-1",
             "type": "list-comment",
             "class": "mxb-16"
           }
@@ -9431,37 +9431,37 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Farhat A, Li X, Huet B, Tweed J, Morriss MC, Raman L. Routine Neuroimaging: Understanding Brain Injury in Pediatric Extracorporeal Membrane Oxygenation. Crit Care Med. 2022;50(3):480-490. doi:10.1097/CCM.0000000000005308",
+            "label": "Farhat A, Li X, Huet B, Tweed J, Morriss MC, Raman L. <a href='https://journals.lww.com/ccmjournal/abstract/2022/03000/routine_neuroimaging__understanding_brain_injury.13.aspx' data-link='https://journals.lww.com/ccmjournal/abstract/2022/03000/routine_neuroimaging__understanding_brain_injury.13.aspx' target='_blank'>Routine Neuroimaging: Understanding Brain Injury in Pediatric Extracorporeal Membrane Oxygenation</a>. Crit Care Med. 2022;50(3):480-490. doi:10.1097/CCM.0000000000005308",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Miroz JP, Ben-Hamouda N, Bernini A, et al. Neurological Pupil index for Early Prognostication After Venoarterial Extracorporeal Membrane Oxygenation. Chest. 2020;157(5):1167-1174. doi:10.1016/j.chest.2019.11.037",
+            "label": "Miroz JP, Ben-Hamouda N, Bernini A, et al. <a href='https://journal.chestnet.org/article/S0012-3692(19)34449-6/abstract' data-link='https://journal.chestnet.org/article/S0012-3692(19)34449-6/abstract' target='_blank'>Neurological Pupil index for Early Prognostication After Venoarterial Extracorporeal Membrane Oxygenation.</a> Chest. 2020;157(5):1167-1174. doi:10.1016/j.chest.2019.11.037",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Okochi S, Shakoor A, Barton S, et al. Prevalence of Seizures in Pediatric Extracorporeal Membrane Oxygenation Patients as Measured by Continuous Electroencephalography. Pediatr Crit Care Med. 2018;19(12):1162-1167. doi:10.1097/PCC.0000000000001730",
+            "label": "Okochi S, Shakoor A, Barton S, et al. <a href='https://journals.lww.com/pccmjournal/abstract/2018/12000/prevalence_of_seizures_in_pediatric_extracorporeal.9.aspx' data-link='https://journals.lww.com/pccmjournal/abstract/2018/12000/prevalence_of_seizures_in_pediatric_extracorporeal.9.aspx' target='_blank'>Prevalence of Seizures in Pediatric Extracorporeal Membrane Oxygenation Patients as Measured by Continuous Electroencephalography</a>. Pediatr Crit Care Med. 2018;19(12):1162-1167. doi:10.1097/PCC.0000000000001730",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Pandiyan P, Cvetkovic M, Antonini MV, Shappley RKH, Karmakar SA, Raman L. Clinical Guidelines for Routine Neuromonitoring in Neonatal and Pediatric Patients Supported on Extracorporeal Membrane Oxygenation. ASAIO J. 2023;69(10):895-900. doi:10.1097/MAT.0000000000001896",
+            "label": "Pandiyan P, Cvetkovic M, Antonini MV, Shappley RKH, Karmakar SA, Raman L. <a href='https://journals.lww.com/asaiojournal/fulltext/2023/10000/clinical_guidelines_for_routine_neuromonitoring_in.1.aspx' data-link='https://journals.lww.com/asaiojournal/fulltext/2023/10000/clinical_guidelines_for_routine_neuromonitoring_in.1.aspx' target='_blank'>Clinical Guidelines for Routine Neuromonitoring in Neonatal and Pediatric Patients Supported on Extracorporeal Membrane Oxygenation</a>. ASAIO J. 2023;69(10):895-900. doi:10.1097/MAT.0000000000001896",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Riker RR, Sawyer ME, Fischman VG, et al. Neurological Pupil Index and Pupillary Light Reflex by Pupillometry Predict Outcome Early After Cardiac Arrest. Neurocrit Care. 2020;32(1):152-161. doi:10.1007/s12028-019-00717-4",
+            "label": "Riker RR, Sawyer ME, Fischman VG, et al. <a href='https://link.springer.com/article/10.1007/s12028-019-00717-4' data-link='https://link.springer.com/article/10.1007/s12028-019-00717-4' target='_blank'>Neurological Pupil Index and Pupillary Light Reflex by Pupillometry Predict Outcome Early After Cardiac Arrest.</a> Neurocrit Care. 2020;32(1):152-161. doi:10.1007/s12028-019-00717-4",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Sabir H, Kipfmueller F, Bagci S, et al. Feasibility of bedside portable MRI in neonates and children during ECLS. Crit Care. 2023;27(1):134. Published 2023 Apr 4. doi:10.1186/s13054-023-04416-7",
+            "label": "Sabir H, Kipfmueller F, Bagci S, et al. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC10071221/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC10071221/' target='_blank'>Feasibility of bedside portable MRI in neonates and children during ECLS</a>. Crit Care. 2023;27(1):134. Published 2023 Apr 4. doi:10.1186/s13054-023-04416-7",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Tsou PY, Garcia AV, Yiu A, Vaidya DM, Bembea MM. Association of Cerebral Oximetry with Outcomes after Extracorporeal Membrane Oxygenation. Neurocrit Care. 2020;33(2):429-437. doi:10.1007/s12028-019-00892-4",
+            "label": "Tsou PY, Garcia AV, Yiu A, Vaidya DM, Bembea MM. <a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC7842183/' data-link='https://pmc.ncbi.nlm.nih.gov/articles/PMC7842183/' target='_blank'>Association of Cerebral Oximetry with Outcomes after Extracorporeal Membrane Oxygenation</a>. Neurocrit Care. 2020;33(2):429-437. doi:10.1007/s12028-019-00892-4",
             "type": "list-comment",
             "class": "mxb-16"
           }
@@ -11588,23 +11588,36 @@
                 ]
               },
               {
-                "label": "Transesophageal echocardiography (TEE)",
-                "checked": false,
-                "type": "subchecklist",
-                "layout": "checklist",
-                "items": [
-                  {
-                    "label": "TEE probe, machine, and certified provider available",
-                    "checked": false
-                  }
-                ]
+                "label": "<img data-preview=\"true\" class=\"width-100\" src=\"/assets/data/app/html/checklists/ELSOBA_CHKLST_310/images/ELSOBA_CHKLST_310_040_IMG_1.png\" />",
+                "type": "list-comment",
+                "class": "mxb-16 figure"
+              },
+              {
+                "label": "Figure 1.<br>Fluoroscopy images obtained during ProtekDuo® insertion. Fluoroscopic images of (a) introducer sheath with balloon-tipped wedge pressure catheter in right PA, (b) introducer sheath with stiff wire in right PA after removal of balloon-tipped wedge pressure catheter, (c) stiff wire in branch of right PA after removal of introducer, and (d) ProtekDuo® cannula positioned with a tip in main PA. Abbreviations: PA: Pulmonary artery. From Brewer M, Dacey C, Maybauer MO. Adaptive ECMO therapeutics: The integral role of the ProtekDuo® cannula. In: Firstenberg MS, editor. Evolving therapies and technologies in extracorporeal membrane oxygenation. London: IntechOpen; 2024. Available from: http://dx.doi.org/10.5772/intechopen.1005327. Distributed under terms of the CC BY 3.0 <a href='https://creativecommons.org/licenses/by/3.0/' data-link='https://creativecommons.org/licenses/by/3.0/' target='_blank'>https://creativecommons.org/licenses/by/3.0/</a>",
+                "type": "list-comment",
+                "class": "mxb-16 figure-caption"
               }
             ]
           },
           {
-            "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_310_040' target='_self'>View Figures 1 and 2</a>",
+            "label": "Transesophageal echocardiography (TEE)",
             "type": "list-comment",
-            "class": "mxb-16"
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "TEE probe, machine, and certified provider available",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "<img data-preview=\"true\" class=\"width-100\" src=\"/assets/data/app/html/checklists/ELSOBA_CHKLST_310/images/ELSOBA_CHKLST_310_040_IMG_2.png\" />",
+            "type": "list-comment",
+            "class": "mxb-16 figure"
+          },
+          {
+            "label": "Figure 2.<br>TEE modified RV inflow/outflow view in X-plane. Abbreviations: LA: Left atrium, PA: Pulmonary artery, RV: Right ventricle, RVOT: Right ventricular outflow tract, TEE: Transesophageal echocardiogram. From Brewer M, Dacey C, Maybauer MO. Adaptive ECMO therapeutics: The integral role of the ProtekDuo® cannula. In: Firstenberg MS, editor. Evolving therapies and technologies in extracorporeal membrane oxygenation. London: IntechOpen; 2024. Available from: http://dx.doi.org/10.5772/intechopen.1005327. Distributed under terms of the CC BY 3.0 <a href='https://creativecommons.org/licenses/by/3.0/' data-link='https://creativecommons.org/licenses/by/3.0/' target='_blank'>https://creativecommons.org/licenses/by/3.0/</a>",
+            "type": "list-comment",
+            "class": "mxb-16 figure-caption"
           }
         ]
       },
@@ -11620,28 +11633,18 @@
             "class": "mxb-16"
           },
           {
-            "label": "Crawford B, Rawal S, Rackauskas M, Maybauer MO. Transesophageal Echocardiography-Guided ProtekDuo Percutaneous Temporary Right Ventricular Assist Device Cannulation Technique. Ann Card Anaesth. 2024;27(3):280-281. doi:10.4103/aca.aca_58_24",
+            "label": "Crawford B, Rawal S, Rackauskas M, Maybauer MO. <a href='https://www.ovid.com/jnls/aoca/fulltext/10.4103/aca.aca_58_24~transesophageal-echocardiography-guided-protekduo' data-link='https://www.ovid.com/jnls/aoca/fulltext/10.4103/aca.aca_58_24~transesophageal-echocardiography-guided-protekduo' target='_blank'>Transesophageal Echocardiography-Guided ProtekDuo Percutaneous Temporary Right Ventricular Assist Device Cannulation Technique</a>. Ann Card Anaesth. 2024;27(3):280-281. doi:10.4103/aca.aca_58_24",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Landolt L, Janelle GM, Ricks W, Rackauskas M, Maybauer MO. Transesophageal Echocardiography Guided Veno-Pulmonary Extracorporeal Membrane Oxygenation Cannula Insertion Technique. ASAIO J. 2024;70(7):e99-e100. doi:10.1097/MAT.0000000000002147",
+            "label": "Landolt L, Janelle GM, Ricks W, Rackauskas M, Maybauer MO. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002147~transesophageal-echocardiography-guided-veno-pulmonary' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002147~transesophageal-echocardiography-guided-veno-pulmonary' target='_blank'>Transesophageal Echocardiography Guided Veno-Pulmonary Extracorporeal Membrane Oxygenation Cannula Insertion Technique</a>. ASAIO J. 2024;70(7):e99-e100. doi:10.1097/MAT.0000000000002147",
             "type": "list-comment",
             "class": "mxb-16"
           }
         ]
       }
     ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_310_040",
-    "title": "Technical Aspects",
-    "content": "checklists/ELSOBA_CHKLST_310/ELSOBA_CHKLST_310_040.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
   },
   {
     "id": "ELSOBA_CHKLST_330",
@@ -12052,12 +12055,12 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Brewer JM, Maybauer MO. Technique for Weaning From Peripheral Venopulmonary Extracorporeal Membrane Oxygenation in Combined Cardiopulmonary Failure. ASAIO J. 2025;71(2):e23-e27. doi:10.1097/MAT.0000000000002251",
+            "label": "Brewer JM, Maybauer MO. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002251~technique-for-weaning-from-peripheral-venopulmonary' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002251~technique-for-weaning-from-peripheral-venopulmonary' target='_blank'>Technique for Weaning From Peripheral Venopulmonary Extracorporeal Membrane Oxygenation in Combined Cardiopulmonary Failure</a>. ASAIO J. 2025;71(2):e23-e27. doi:10.1097/MAT.0000000000002251",
             "type": "list-comment",
             "class": "mxb-16"
           },
           {
-            "label": "Tonna JE, Abrams D, Brodie D, et al. Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO). ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
+            "label": "Tonna JE, Abrams D, Brodie D, et al. <a href='https://www.elso.org/portals/0/files/pdf/management_of_adult_patients_supported_with.1.pdf' data-link='https://www.elso.org/portals/0/files/pdf/management_of_adult_patients_supported_with.1.pdf' target='_blank'>Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO)</a>. ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
             "type": "list-comment",
             "class": "mxb-16"
           }

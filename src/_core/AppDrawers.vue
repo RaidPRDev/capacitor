@@ -84,6 +84,15 @@ function onDrawerAfterLeave() {}
           <component class="drawers drawer-bottom" v-if="app.drawers.bottom.open" :is="props?.components.bottom" v-bind="app?.drawers?.bottom?.props"></component>
         </transition>
 
+        <!-- stacks over the bottom drawer, so a panel opened from inside one stays
+             mounted. Wrapped because a panel with inheritAttrs:false drops the
+             class it needs to position itself, and would flow in below instead. -->
+        <transition :name="'fade'" @after-enter="onDrawerAfterEnter" @after-leave="onDrawerAfterLeave">
+          <div class="drawers drawer-top" v-if="app.drawers.top.open">
+            <component :is="props?.components.top" v-bind="app?.drawers?.top?.props"></component>
+          </div>
+        </transition>
+
       </div>
 
     </div>
@@ -119,7 +128,10 @@ function onDrawerAfterLeave() {}
 .drawer-top {
   top: 0;
   left: 0;
-  width: 316px;
+  width: 100%;
+  height: 100%;
+  // the bottom drawer's panel is z-index 1; this has to win the tie
+  z-index: 2;
 }
 .drawer-bottom {
   bottom: 0;

@@ -176,7 +176,7 @@ const computedList = computed(() => {
         :disabled="data.item.class ? data.item.class?.indexOf(`disabled`) >= 0 : false"
         :bodyClassName="`text-left`"
         :label="data.item.label"
-        :accessoryIcon="ChecklistBadge"
+        :accessoryIcon="computedList?.[data.item.index].data.totalChecks > 0 ? ChecklistBadge : undefined"
         :accessoryIconProps="{ 
           completed: computedList?.[data.item.index].data.totalCompleted,
           total: computedList?.[data.item.index].data.totalChecks,
