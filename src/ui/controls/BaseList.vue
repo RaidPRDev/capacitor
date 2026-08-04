@@ -87,7 +87,7 @@ const setTransitionStyles = (index: number, isTransition?: boolean) => {
     :class="[`list-item`, props?.listItemClass]"  
     :data-index="index"
     :data-group-header="item?.groupType === `GroupHeader` ? true : null"
-    :style="setTransitionStyles(index, hasTransitioned)"
+    :style="setTransitionStyles(index, hasTransitioned || !props?.transitionEnabled)"
   >
     <slot name="listItemSlot" :item="{ ...item, index: index }">
       <BaseButton 

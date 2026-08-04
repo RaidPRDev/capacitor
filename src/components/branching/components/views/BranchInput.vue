@@ -131,6 +131,8 @@ const { addToast } = toasterService;
 const preHtmlContent = ref<string>("");
 const postHtmlContent = ref<string>("");
 
+const shouldUseListTransitions = computed(() => !props?.disableListTransitions);
+
 const computedList = computed(() => {
   if (mounted.value) {
     if (!props.view?.items) return null;
@@ -576,7 +578,12 @@ function getAriaResultLabel(view: any) {
   </div>
 
   <form ref="baseFormRef" class="branch-input-container">
-    <BaseList class="items-list gapx-8" :dataProvider="computedList">
+    <BaseList
+      class="items-list gapx-8"
+      :dataProvider="computedList"
+      :transitionEnabled="shouldUseListTransitions"
+      :transitionAppear="shouldUseListTransitions"
+    >
       <template v-slot:listItemSlot="data">
         
         <BaseButton 

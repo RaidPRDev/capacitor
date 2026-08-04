@@ -92,7 +92,7 @@ const currentView = computed<BranchViewData | null>(() => props?.views?.length >
 const canGoBack = computed<boolean>(() => true);
 const canGoNext = computed<boolean>(() => currentView?.value !== null && currentView?.value?.branchTo !== null);
 const currentViewLastScrollPos = computed<number>(() => getViewHistoryByID(currentView?.value?.id!)?.scrollPos || 0);
-const shouldDisableListTransitions = computed<boolean>(() => currentDataType === "medications" && currentViewLastScrollPos.value > 0);
+const shouldDisableListTransitions = computed<boolean>(() => currentViewLastScrollPos.value > 0);
 
 const branchViewStyles = computed(() => {
   const adjustHeight = getWrapperMaskHeight();
