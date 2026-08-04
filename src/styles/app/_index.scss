@@ -61,6 +61,13 @@ a {
   }
 }
 
+// break long DOIs/URLs instead of letting them widen the row
+.ui-label,
+.data-content {
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
 .formula-color {
   color: $secondary-blue;
 }

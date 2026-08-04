@@ -220,7 +220,7 @@
       },
       {
         "label": "Circuit Change (Emergent and Elective)",
-        "class": "disabled",
+        "class": "",
         "branchTo": "ELSOBA_CHKLST_020"
       },      
       {
@@ -297,6 +297,11 @@
         "label": "Manage Drainage Insufficiency on ECMO",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_147"
+      },
+      {
+        "label": "Venopulmonary (VP) ECMO Initiation",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_310"
       }
     ]
   },
@@ -856,13 +861,614 @@
   {
     "id": "ELSOBA_CHKLST_020",
     "title": "Circuit Change (Emergent and Elective)",
-    "content": "",
-    "layout": "checklist",
-    "keywords": "Circuit; Circuit change; Elective; Emergent",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "list",
     "showFavorites": true,
-    "useScroll": true, 
+    "useScroll": true,
+    "keywords": "Circuit; Circuit change; Elective; Emergent",
+    "sort": "ByActive",
+    "items": [
+      {
+        "label": "Elective ECMO Circuit Change",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_020-1"
+      },
+      {
+        "label": "Emergent ECMO Circuit Change",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_020-2"
+      },
+      {
+        "label": "References",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_020-3"
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_020-1",
+    "title": "Elective ECMO Circuit Change",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "Elective ECMO Circuit Change; CIRCUIT CHANGE; ELECTIVE; PROCEDURE; ECMO MANAGEMENT",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Risk/Benefit Considerations",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "When an ECMO circuit is no longer able to provide adequate support or becomes a significant potential risk to the patient, an elective ECMO Circuit Change should be planned",
+            "checked": false
+          },
+          {
+            "label": "Postponing an ECMO Circuit Change may unnecessarily place the patient at risk of additional complications",
+            "checked": false
+          },
+          {
+            "label": "Unnecessary ECMO Circuit Changes should be avoided due to patient risks outlined below as well as to avoid unnecessary resource burdens",
+            "checked": false
+          },
+          {
+            "label": "If perceived ECMO circuit problem can be safely resolved by an isolated small component change, discuss component change rather than ECMO circuit change",
+            "checked": false
+          },
+          {
+            "label": "If perceived ECMO circuit problem is the result of an issue with the cannulae, a circuit change itself will not resolve the problem",
+            "checked": false
+          },
+          {
+            "label": "An ECMO circuit change may require additional blood product exposures, especially in neonatal/pediatric patients",
+            "checked": false
+          },
+          {
+            "label": "An ECMO circuit change will dilute circulating medications",
+            "checked": false
+          },
+          {
+            "label": "An ECMO Circuit Change results in additional foreign surface exposure and potentially an inflammatory response",
+            "checked": false
+          },
+          {
+            "label": "Risk inherent with every ECMO Circuit Change:",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Embolism",
+                "checked": false
+              },
+              {
+                "label": "Infection",
+                "checked": false
+              },
+              {
+                "label": "Instability or code during circuit change and sequelae of such",
+                "checked": false
+              },
+              {
+                "label": "Procedural catastrophe",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Indications",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Consumptive Coagulopathy",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Products consumed in ECMO circuit (positive feedback loop of coagulation) resulting in clotting within the ECMO circuit and usually a bleeding patient",
+                "checked": false
+              },
+              {
+                "label": "Patient may present as in Disseminated Intravascular Coagulation (DIC)",
+                "checked": false
+              },
+              {
+                "label": "This condition is diagnosed as profound and documented as increasing over a 12-hour period despite appropriate replacement products (FFP, Cryo, Platelets) and systemic anticoagulation",
+                "checked": false
+              },
+              {
+                "label": "RULE OUT: surgical bleeding or coagulopathy not associated with the ECMO Circuit (dilutional, trauma, hypothermia)",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Critical Hemolysis/Centrifugal Pump Thrombosis",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Visualization or auditory confirmation of clot presence in centrifugal pump head",
+                "checked": false
+              },
+              {
+                "label": "Critical plasma free hemoglobin (confirmed with a repeated result, no other symptoms necessary)",
+                "checked": false
+              },
+              {
+                "label": "Elevated plasma free hemoglobin with clinical signs of hemolysis (hematuria, pink effluent)",
+                "checked": false
+              },
+              {
+                "label": "Be cautious of false elevation of PFHB results",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Draw technique",
+                    "checked": false
+                  },
+                  {
+                    "label": "Hyperbilirubinemia",
+                    "checked": false
+                  },
+                  {
+                    "label": "Hematochromatosis",
+                    "checked": false
+                  },
+                  {
+                    "label": "Ferritin",
+                    "checked": false
+                  },
+                  {
+                    "label": "Ancillary or other devices as source of hemolysis (Impella, CVVHD/CRRT)",
+                    "checked": false
+                  },
+                  {
+                    "label": "Flow/cannula/shunt physiology as source of hemolysis as changing circuit will not eliminate these sources",
+                    "checked": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Membrane Lung Dysfunction",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Oxygenator Resistance",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Increased resistance within the oxygenator (clot)",
+                    "checked": false
+                  },
+                  {
+                    "label": "Evidenced by:",
+                    "checked": false,
+                    "type": "subchecklist",
+                    "layout": "checklist",
+                    "items": [
+                      {
+                        "label": "Decreasing flow over time with the centrifugal pump at the same or higher RPM and unchanged patient pre-load and afterload and cannula position verified",
+                        "checked": false
+                      },
+                      {
+                        "label": "Increasing transmembrane pressure with constant flow and viscosity, continues to increase with subsequent drops in flows at increasing RPMs",
+                        "checked": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "Oxygenator Gas Transfer",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Oxygen transfer significantly less than predicted by manufacturer",
+                    "checked": false,
+                    "type": "subchecklist",
+                    "layout": "checklist",
+                    "items": [
+                      {
+                        "label": "Note the effect of hemoglobin on the oxy-hemoglobin dissociation curve.",
+                        "checked": false
+                      },
+                      {
+                        "label": "Note the effect of acidosis on oxy-hemoglobin dissociation curve.",
+                        "checked": false
+                      },
+                      {
+                        "label": "Note the SvO2 of venous blood entering oxygenator.",
+                        "checked": false
+                      },
+                      {
+                        "label": "Note that saturation is a much greater contributor to gas exchange than pO2; oxygen transfer can be estimated with pre-oxygenator saturation and post-oxygenator saturation if measured and the pO2 portion of the equation eliminated (no circuit gas draws needed if saturations are measured and trustworthy).",
+                        "checked": false
+                      }
+                    ]
+                  },
+                  {
+                    "label": "CO2 clearance significantly less than predicted by manufacturer, or unable to maintain physiologic pCO2 delivery on maximum sweep gas rate per manufacturer",
+                    "checked": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Code Status and Consent",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Ensure that an ECMO Circuit Change aligns with the patient’s goals of care",
+            "checked": false
+          },
+          {
+            "label": "An elective ECMO Circuit Change should only proceed with a patient who is full code status given the significant potential for resuscitation to be required during the ECMO Circuit Change procedure (momentary cessation of ECMO). Patients with active Do Not Attempt Resuscitation (DNAR) orders must consent to rescind DNAR for the procedure",
+            "checked": false
+          },
+          {
+            "label": "For elective ECMO Circuit Changes, consent should be obtained prior to proceeding",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Resources",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Personnel Available",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Physician or Provider",
+                "checked": false
+              },
+              {
+                "label": "Perfusionist or ECMO Specialist",
+                "checked": false
+              },
+              {
+                "label": "Sterile Perfusionist/ECMO Specialist/Physician/Provider",
+                "checked": false
+              },
+              {
+                "label": "Primary Care Team (Nursing, Respiratory Therapy)",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "New ECMO Circuit Primed and Prepared for Initiation of Support",
+            "checked": false
+          },
+          {
+            "label": "Emergency Medications, Blood Products",
+            "checked": false
+          },
+          {
+            "label": "Sterile Supplies",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Prep/Antiseptic",
+                "checked": false
+              },
+              {
+                "label": "Drapes",
+                "checked": false
+              },
+              {
+                "label": "Gowns, Gloves, Hats, Masks",
+                "checked": false
+              },
+              {
+                "label": "Sterile Tray/Peel Packs with Clamps and Scissors/Blades",
+                "checked": false
+              },
+              {
+                "label": "Connectors",
+                "checked": false
+              },
+              {
+                "label": "Physiologic Solution for fill/air-free connection (Syringe or Basin and Bulb Syringe)",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Roles",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Physician or Provider:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Run Code/Resuscitation if necessary",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Perfusionist or ECMO Specialist:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Operate ECMO circuits and fill air-free connections",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Sterile Perfusionist/ECMO Specialist/Physician/Provider:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Make sterile cuts and connections to the ECMO circuit",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Primary Care Team (Nursing, Respiratory Therapy):",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Manage the patient throughout the ECMO Circuit Change as needed and/or indicated",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Preparations",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Prepare a new ECMO circuit for initiation of support",
+            "checked": false
+          },
+          {
+            "label": "Sterile person preps in ECMO lines/cannulas near where connections/cuts desired for ECMO circuit change using antiseptic with appropriate dry time and creating a sterile field with sterile drapes/towels.",
+            "checked": false
+          },
+          {
+            "label": "New ECMO Circuit is clamped and handed up to the sterile field",
+            "checked": false
+          },
+          {
+            "label": "A sterile person secures and prepares the new circuit by making any necessary cuts and inserting any needed connectors",
+            "checked": false
+          },
+          {
+            "label": "A sterile person orients the new ECMO circuit and prepares clamps, scissors, and/or blades for easy accessibility",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Timeout",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Positive patient identification",
+            "checked": false
+          },
+          {
+            "label": "Brief outline of roles and plan",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Confirm emergency medications are prepared and who will deliver if needed",
+                "checked": false
+              },
+              {
+                "label": "Confirm emergency airway or ventilator settings and who will operate",
+                "checked": false
+              },
+              {
+                "label": "Confirm orientation of new ECMO circuit and preparedness of perfusionist/ECMO Specialist to cease ECMO flow on old circuit, fill air-free connections, and initiation ECMO on new circuit",
+                "checked": false
+              },
+              {
+                "label": "Confirm sterile person has sterile scissors/blade, sterile clamps, any necessary connectors, and physiologic fill solution is ready",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "ECMO Circuit Change Procedure",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "During this procedure the primary care team manages patient care/resuscitation as clinically indicated",
+            "checked": false
+          },
+          {
+            "label": "Sterile person loudly announces to room “Off ECMO” while clamping inflow and outflow lines—both proximal and distal—to desired cut/connection location",
+            "checked": false
+          },
+          {
+            "label": "Sterile person either cuts lines or removes lines from cannula with great care to not score cannula connectors or disrupt cannula placement",
+            "checked": false
+          },
+          {
+            "label": "Sterile person prepares to connect the new circuit to patient access/cannulae and instructs perfusionist/ECMO Specialist to “Fill” using the physiologic solution in a syringe or bulb syringe",
+            "checked": false
+          },
+          {
+            "label": "Perfusionist/ECMO Specialist creates a steady stream of fluid to allow for air-free connection. Repeat for additional ECMO lines",
+            "checked": false
+          },
+          {
+            "label": "Perfusionist/ECMO Specialist and Sterile person confirm directionality and air-free connections",
+            "checked": false
+          },
+          {
+            "label": "Sterile person loudly announces to room “Go On ECMO”",
+            "checked": false
+          },
+          {
+            "label": "Sterile person and Perfusionist/ECMO Specialist remove clamps from the new circuit and patient access/cannulae while Perfusionist/ECMO Specialist increases RPMs initiating ECMO Flow via new circuit",
+            "checked": false
+          },
+          {
+            "label": "Team confirms adequacy of ECMO support, sends new labs, and requests imaging if any risk of cannula placement changes occurred, including if CPR was initiated at any point.",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_020-2",
+    "title": "Emergent ECMO Circuit Change",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "Emergent ECMO Circuit Change; EMERGENT; CIRCUIT CHANGE; ECMO MANAGEMENT; PROCEDURE",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Indications",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Massive air entrainment with the inability to re-prime/de-air circuit",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Source must be resolved prior to proceeding",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Acute thrombosis of pump or oxygenator preventing forward flow",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Circuit change will not resolve thrombosis of cannulae",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Acute complete oxygenator gas exchange failure after ruling out oxygenator source/delivery issues and administration of methylene blue",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "ECMO Circuit Change Procedure",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Initiate ECMO Emergency Response per hospital policy clearly indicating to all that the patient is off ECMO support",
+            "checked": false
+          },
+          {
+            "label": "Confirm code status is full code",
+            "checked": false
+          },
+          {
+            "label": "Primary care team focuses on patient care/resuscitation as clinically indicated",
+            "checked": false
+          },
+          {
+            "label": "Perfusionist/ECMO Specialist moves back-up ECMO circuit into room, ensures air-free, gases on and heater on, clamps new circuit and arranges in manner to allow for circuit change, cuts lines and inserts appropriately sized connectors",
+            "checked": false
+          },
+          {
+            "label": "Perfusionist/ECMO Specialist preps ECMO lines where cut to be made. Clamps ECMO lines proximal and distal to cut location. Cuts lines and requests team member to fill with saline flush as attaches to new circuit connectors",
+            "checked": false
+          },
+          {
+            "label": "Perfusionist/ECMO Specialist and another team member confirm directionality and air-free connections",
+            "checked": false
+          },
+          {
+            "label": "Perfusionist/ECMO Specialist removes clamps from new circuit and patient access/cannulae and increases RPMs initiating ECMO Flow via new circuit",
+            "checked": false
+          },
+          {
+            "label": "Team confirms adequacy of ECMO support, sends new labs, requests imaging if any risk of cannula placement changes occurred including if CPR was initiated at any point",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_020-3",
+    "title": "References",
+    "content": "checklists/ELSOBA_CHKLST_020/ELSOBA_CHKLST_020-3.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
     "items": []
-  },  
+  },
   {
     "id": "ELSOBA_CHKLST_030",
     "title": "Circuit Monitoring",
@@ -7730,9 +8336,9 @@
             ]
           },
           { 
-            "label": "Refer to <a class='disabled' href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>", 
+            "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>Circuit Change (Emergent and Elective)</a>",
             "type": "comment",
-            "class": "note disabled hide"
+            "class": "note"
           },
           { 
             "label": "Refer to <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_035'>Coming Off ECMO Emergently</a>", 
@@ -7845,9 +8451,9 @@
             ]
           },
           {
-            "label": "If the answer is <b>YES</b> to either without an alternative explanation, consider ML or <a class='disabled' href='#' data-link='CHECKLISTS##ELSOBA_CHKLST_020'>circuit change</a>.",
+            "label": "If the answer is <b>YES</b> to either without an alternative explanation, consider ML or <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_020'>circuit change</a>.",
             "type": "comment",
-            "class": "note disabled hide"
+            "class": "note"
           },
           { 
             "label": "Evaluate coagulation:", 
@@ -10723,6 +11329,317 @@
     "title": "Step 4: Prepare for Decannulation",
     "content": "checklists/ELSOBA_CHKLST_FLOW_350/ELSOBA_CHKLST_FLOW_350__6.html",
     "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_310",
+    "title": "Venopulmonary (VP) ECMO Initiation",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "VP ECMO; VP MANAGEMENT; ECMO; ECMO MANAGEMENT; VENOPULMONARY; INITIATION; VP INITIATION",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Indication for VP ECMO",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Acute right ventricular (RV) failure",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Acute RV failure secondary to acute respiratory failure or ARDS",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Clinical diagnosis (not yet fully defined, physician discretion)",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Mostly by hemodynamic and echocardiographic assessment",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Moderate to severe RV dysfunction",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Moderate to severe RV dilation",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "More than 2 vasopressors / inotropes in use, or high doses",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "Increase in Lactic Acid and drop in SVO2 to 40’s",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "PAPI = Pulmonary Artery Pulsatility Index = (systolic PAP - diastolic PAP) / CVP <0.9 indicates possible RV failure",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1"
+          },
+          {
+            "label": "PAPI >0.9 indicates that the RV is likely normal",
+            "type": "list-comment",
+            "class": "bullet hollow ml-1 end-list-1"
+          }
+        ]
+      },
+      {
+        "label": "Cannula",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Dual-site single-lumen cannulas (VP ECMO configuration)",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Left or right femoral vein multistage drainage cannula (21–25 Fr, 50–55 cm)",
+                "checked": false
+              },
+              {
+                "label": "Left or right internal jugular vein single stage return cannula (17–21 Fr, 50 cm)",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Single-site dual-lumen cannulas ((dl)VP ECMO configuration)",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "ProtekDuo cannula 29 or 31 Fr",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Drainage from right atrium",
+                    "checked": false
+                  },
+                  {
+                    "label": "Return to pulmonary artery (1–2 cm beyond pulmonic valve)",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Spectrum Medical cannula 24, 27, 31 Fr",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Drainage from right atrium and right ventricle",
+                    "checked": false
+                  },
+                  {
+                    "label": "Return to pulmonary artery (1–2 cm beyond pulmonic valve)",
+                    "checked": false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Cannulation technique for VP and (dl)VP ECMO and initiation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Modified Seldinger technique",
+            "checked": false
+          },
+          {
+            "label": "Usually access to right internal jugular vein (RIJV) or the left subclavian vein",
+            "checked": false
+          },
+          {
+            "label": "8 Fr or 9 Fr introducer sheath placement",
+            "checked": false
+          },
+          {
+            "label": "A balloon-tipped wedge pressure catheter is advanced through the sheath into the right pulmonary artery (PA)",
+            "checked": false
+          },
+          {
+            "label": "Using transesophageal echocardiography (TEE) or fluoroscopy guidance",
+            "checked": false
+          },
+          {
+            "label": "A long 0.035-inch Lunderquist (Cook Medical) or Amplatz (Boston Scientific) extra stiff wire is positioned within the right PA through the balloon catheter",
+            "checked": false
+          },
+          {
+            "label": "The balloon catheter and introducer sheath are then removed, while keeping the stiff wire properly positioned in the right PA.",
+            "checked": false
+          },
+          {
+            "label": "Under fluoroscopic guidance, the entry site is progressively dilated to just below the necessary diameter for the chosen cannula",
+            "checked": false
+          },
+          {
+            "label": "Again, take great care to maintain the position of the wire in the right PA.",
+            "checked": false
+          },
+          {
+            "label": "The cannula then is inserted over the guidewire until the tip of the cannula is in the right PA. Once the cannula is inserted, the internal dilator is removed and both cannula ports are clamped.",
+            "checked": false
+          },
+          {
+            "label": "A primed ECMO circuit may be wet-to-wet connected",
+            "checked": false
+          },
+          {
+            "label": "The clamps are then carefully removed",
+            "checked": false
+          },
+          {
+            "label": "Pump flow is gradually increased at the clinician’s judgment",
+            "checked": false
+          },
+          {
+            "label": "The device is secured at the insertion site with care to avoid direct suturing to the cannula body, as this may cause cannula erosion",
+            "checked": false
+          },
+          {
+            "label": "Suture rings are provided in the dual lumen cannula kits",
+            "checked": false
+          },
+          {
+            "label": "Chest x-ray for cannula position verification",
+            "checked": false
+          },
+          {
+            "label": "Perform a tansthoracic echocardiogram (TTE) to rule out complications",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": [
+              {
+                "label": "Tamponade",
+                "checked": false
+              },
+              {
+                "label": "Perforation",
+                "checked": false
+              },
+              {
+                "label": "Pulmonic regurgitation",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "TTE to verify RV decompression and to guide increase of VP ECMO flow",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Technical Aspects",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Fluoroscopy and transesophageal echocardiography are both well-described techniques for cannula placement in the pulmonary artery.",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Fluoroscopy",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "Machine and radiology technician available",
+                    "checked": false
+                  },
+                  {
+                    "label": "Sterile cover for machine",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "label": "Transesophageal echocardiography (TEE)",
+                "checked": false,
+                "type": "subchecklist",
+                "layout": "checklist",
+                "items": [
+                  {
+                    "label": "TEE probe, machine, and certified provider available",
+                    "checked": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_310_040' target='_self'>View Figures 1 and 2</a>",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      },
+      {
+        "label": "References",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Brewer M, Dacey C, Maybauer MO. Adaptive ECMO therapeutics: The integral role of the ProtekDuo® cannula. In: Firstenberg MS, ed. Evolving Therapies and Technologies in Extracorporeal Membrane Oxygenation. IntechOpen; 2024.",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Crawford B, Rawal S, Rackauskas M, Maybauer MO. Transesophageal Echocardiography-Guided ProtekDuo Percutaneous Temporary Right Ventricular Assist Device Cannulation Technique. Ann Card Anaesth. 2024;27(3):280-281. doi:10.4103/aca.aca_58_24",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Landolt L, Janelle GM, Ricks W, Rackauskas M, Maybauer MO. Transesophageal Echocardiography Guided Veno-Pulmonary Extracorporeal Membrane Oxygenation Cannula Insertion Technique. ASAIO J. 2024;70(7):e99-e100. doi:10.1097/MAT.0000000000002147",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_310_040",
+    "title": "Technical Aspects",
+    "content": "checklists/ELSOBA_CHKLST_310/ELSOBA_CHKLST_310_040.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
     "branchTo": "",
     "items": []
   },
