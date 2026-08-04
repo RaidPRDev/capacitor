@@ -544,6 +544,7 @@ function processItemLabel(item:any) {
         // rows render at 16px here, so 'small' is the 2px step down
         &.figure-caption {
           @include getFontSize('small');
+          line-height: 1.35;
         }
 
         .inner-base-button {
