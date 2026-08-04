@@ -12,6 +12,7 @@ import { BranchViewData } from '@/types';
 interface IBranchViewProps {
   view: BranchViewData | null;
   height?: number | undefined;
+  disableListTransitions?: boolean;
 }
 
 const props = withDefaults(defineProps<IBranchViewProps>(), {});
@@ -59,6 +60,7 @@ function triggered(dataProps: any) {
       :is="props?.view?.component" 
       :view="props?.view" 
       :showTitle="view?.showTitle" 
+      :disableListTransitions="props?.disableListTransitions"
       @navigate="navigate"
       @triggered="triggered"
     />

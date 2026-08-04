@@ -18,11 +18,14 @@ param()
 Write-Banner 'Doctor'
 
 Write-Step 'Windows side'
-foreach ($exe in 'ssh', 'scp', 'tar') {
+foreach ($exe in 'ssh', 'scp') {
     $cmd = Get-Command $exe -ErrorAction SilentlyContinue
     if ($cmd) { Write-Ok "$exe -> $($cmd.Source)" }
     else { Write-Warn "$exe not found -- install the Windows OpenSSH client feature" }
 }
+# Not the PATH lookup: Mac-Sync always uses bsdtar by full path. See _common.ps1.
+if (Test-Path -LiteralPath $TarExe) { Write-Ok "tar -> $TarExe" }
+else { Write-Warn "bsdtar not found at $TarExe -- falling back to 'tar' on PATH" }
 Write-Note "project    $LocalRoot"
 Write-Note "lan ip     $(try { Get-LocalLanIp } catch { 'unknown' })  (live reload host)"
 

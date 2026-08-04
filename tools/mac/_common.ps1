@@ -16,6 +16,12 @@ $MacTarget  = "$MacUser@$MacHost"
 $LocalRoot  = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 $RemoteTools = "$MacProject/tools/mac/remote"
 
+# Windows' bundled bsdtar, resolved by full path on purpose. Launching these
+# scripts from Git Bash (npm run ios_run) puts MSYS GNU tar first on PATH, and
+# GNU tar reads "-f C:\Users\..." as a remote host:path -- "Cannot connect to C".
+$TarExe = Join-Path $env:SystemRoot 'System32\tar.exe'
+if (-not (Test-Path -LiteralPath $TarExe)) { $TarExe = 'tar' }
+
 $SshOptions = @(
   '-o', 'ConnectTimeout=10'
   '-o', 'StrictHostKeyChecking=accept-new'

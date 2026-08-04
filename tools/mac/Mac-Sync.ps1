@@ -79,7 +79,7 @@ $tarball  = Join-Path $env:TEMP "elso-sync-$stamp.tar.gz"
 $tarArgs[3] = $tarball
 
 Write-Step 'Packing working tree'
-& tar @tarArgs @paths
+& $TarExe @tarArgs @paths
 if ($LASTEXITCODE -ne 0) { throw 'tar failed while packing the project' }
 $sizeMb = [math]::Round((Get-Item $tarball).Length / 1MB, 1)
 Write-Ok "$sizeMb MB archive"

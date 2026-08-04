@@ -87,6 +87,8 @@ const computedList = computed(() => {
   return null;
 })
 
+const shouldUseListTransitions = computed(() => !props?.disableListTransitions);
+
 function onButtonClick(item: BranchItem) {
   if (item.class?.indexOf(`disabled`) >= 0) return;
   if (item?.link) {
@@ -102,8 +104,19 @@ function onButtonClick(item: BranchItem) {
   <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" v-html="props?.view?.title" class="title transform-z mxb-16"></h2>
   <div @click="onContentTrigger" v-if="props?.view?.content" v-html="props?.view?.content" class="text-content mb-1 transform-z"></div>
   
-  <transition-group name="list-scale-fade-in" tag="div" class="flex flex-column gapx-16">
-    <div v-for="(item, index) in computedList" :key="`item-${index}` " class="" :style="{ transitionDelay: 0.15 * index + 's' }">
+  <transition-group
+    name="list-scale-fade-in"
+    tag="div"
+    class="flex flex-column gapx-16"
+    :css="shouldUseListTransitions"
+    :appear="shouldUseListTransitions"
+  >
+    <div
+      v-for="(item, index) in computedList"
+      :key="`item-${index}` "
+      class=""
+      :style="shouldUseListTransitions ? { transitionDelay: 0.15 * index + 's' } : undefined"
+    >
       <BaseButton 
         :class="classnames(`variant-blue width-100`, item.class)" 
         :disabled="item.class?.indexOf(`disabled`) > 0"
