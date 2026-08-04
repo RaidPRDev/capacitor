@@ -149,6 +149,12 @@
         "content": "Monitoring DTI Challenges Table",
         "class": "",
         "branchTo": "ELSOBA_MED_010__TABLE__4"
+      },
+      {
+        "label": "The Anticoagulation Ladder",
+        "content": "The Anticoagulation Ladder",
+        "class": "",
+        "branchTo": "ELSOBA_MED_010__TABLE__5"
       }
     ]
   },
@@ -216,6 +222,16 @@
     "id": "ELSOBA_MED_010__TABLE__4",
     "title": "Monitoring DTI Challenges Table",
     "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__4.html",
+    "layout": "default",
+    "useScroll": true,
+    "showFavorites": true,
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_MED_010__TABLE__5",
+    "title": "The Anticoagulation Ladder",
+    "content": "medications/ELSOBA_MED_010/ELSOBA_MED_010__TABLE__5.html",
     "layout": "default",
     "useScroll": true,
     "showFavorites": true,

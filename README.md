@@ -149,6 +149,23 @@ npx capacitor-assets generate
 
 ## 🍎 iOS Development
 
+### 🖥️ Build & run iOS from Windows (network Mac)
+
+The Mac on the LAN can be driven over ssh from Windows — no need to sit at it, and no
+AppFlow round trip for simulator testing. See [`tools/mac/README.md`](tools/mac/README.md).
+
+```powershell
+cd tools\mac
+.\Mac-Doctor.ps1     # check both machines
+.\Mac-Setup.ps1      # first run only
+.\Mac-Run-iOS.ps1    # build + launch in the Mac's iOS Simulator
+.\Mac-Run-iOS.ps1 -Live   # hot reload from the local vite dev server
+```
+
+Or via npm: `npm run ios_run`, `npm run ios_live`, `npm run ios_logs`, `npm run ios_doctor`.
+
+Simulator builds only — device builds and TestFlight remain on AppFlow.
+
 ### 🔐 Renew Distribution/Dev Certificate
 
 1. Open **Keychain Access** → `Certificate Assistant > Request a Certificate from a Certificate Authority`

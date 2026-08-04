@@ -965,7 +965,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Consumptive Coagulopathy",
+            "label": "<b>Consumptive Coagulopathy</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -983,13 +983,13 @@
                 "checked": false
               },
               {
-                "label": "RULE OUT: surgical bleeding or coagulopathy not associated with the ECMO Circuit (dilutional, trauma, hypothermia)",
+                "label": "<b>RULE OUT</b>: surgical bleeding or coagulopathy not associated with the ECMO Circuit (dilutional, trauma, hypothermia)",
                 "checked": false
               }
             ]
           },
           {
-            "label": "Critical Hemolysis/Centrifugal Pump Thrombosis",
+            "label": "<b>Critical Hemolysis/Centrifugal Pump Thrombosis</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -1041,13 +1041,13 @@
             ]
           },
           {
-            "label": "Membrane Lung Dysfunction",
+            "label": "<b>Membrane Lung Dysfunction</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
               {
-                "label": "Oxygenator Resistance",
+                "label": "<b>Oxygenator Resistance</b>",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -1075,7 +1075,7 @@
                 ]
               },
               {
-                "label": "Oxygenator Gas Transfer",
+                "label": "<b>Oxygenator Gas Transfer</b>",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -4443,7 +4443,7 @@
   {
     "id": "ELSOBA_CHKLST_110-1",
     "title": "Pre-Cannulation (Primary Hybrid)",
-    "content": "Use this checklist when planning hybrid ECMO cannulation before ECMO initiation. Hybrid is an ECMO configuration combining drainage and/or return across more than one mode (VVA, VP/OxyRVAD, VA + LV unloading) to match physiology a single mode cannot meet.",
+    "content": "Use this checklist when planning hybrid ECMO cannulation before ECMO initiation.<br><b>Hybrid</b> is an ECMO configuration combining drainage and/or return across more than one mode (VVA, VP/OxyRVAD, VA + LV unloading) to match physiology a single mode cannot meet.",
     "layout": "checklist",
     "keywords": "Pre-Cannulation (Primary Hybrid); CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE",
     "showFavorites": true,
@@ -4965,7 +4965,7 @@
             "checked": false
           },
           {
-            "label": "DO NOT increase flow before the new limb is fully de-aired.",
+            "label": "<b>DO NOT increase flow before the new limb is fully de-aired.</b>",
             "checked": false
           }
         ]
@@ -5009,12 +5009,12 @@
             "checked": false
           },
           {
-            "label": "Target configuration achieved? Go to Termination Achieved.",
+            "label": "Target configuration achieved? Go to <b>Termination Achieved</b>.",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           },
           {
-            "label": "Target configuration not achieved? Go to Termination NOT achieved.",
+            "label": "Target configuration not achieved? Go to <b>Termination NOT achieved</b>.",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           }
@@ -5083,11 +5083,11 @@
             "checked": false
           },
           {
-            "label": "LV overload? Escalate LV unloading pathway. Refer to Monitoring and Managing LV Distension on VA ECMO Algorithm.",
+            "label": "<b>LV overload? Escalate LV unloading pathway.</b> Refer to Monitoring and Managing LV Distension on VA ECMO Algorithm.",
             "checked": false
           },
           {
-            "label": "PA/RV injury (rupture, hemorrhage, valve injury, arrhythmia, effusion)? Echo and surgical consult.",
+            "label": "<b>PA/RV injury (rupture, hemorrhage, valve injury, arrhythmia, effusion)? Echo and surgical consult.</b>",
             "checked": false
           },
           {
@@ -5103,7 +5103,7 @@
             "checked": false
           },
           {
-            "label": "DO NOT persist with a failed configuration without senior review.",
+            "label": "<b>DO NOT persist with a failed configuration without senior review.</b>",
             "checked": false
           }
         ]
@@ -5137,7 +5137,7 @@
   {
     "id": "ELSOBA_CHKLST_110-2",
     "title": "Switch Mode (Conversion to Hybrid)",
-    "content": "Use this checklist when converting an existing ECMO configuration to hybrid support during ongoing ECMO. This is designed to add or change drainage/return limbs to match physiology that the current single-mode configuration cannot meet. Out of scope: isolated access or cannula-site complications.",
+    "content": "Use this checklist when converting an existing ECMO configuration to hybrid support during ongoing ECMO. This is designed to add or change drainage/return limbs to match physiology that the current single-mode configuration cannot meet.<br><b>Out of scope</b>: isolated access or cannula-site complications.",
     "layout": "checklist",
     "keywords": "Switch Mode (Conversion to Hybrid); CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE",
     "showFavorites": true,
@@ -5210,7 +5210,7 @@
             "checked": false
           },
           {
-            "label": "Proceed to Currently on VV — Pre-Conversion Screen",
+            "label": "Proceed to <b>Currently on VV — Pre-Conversion Screen</b>",
             "class": "list-section",
             "layout": "checklist",
             "type": "subchecklist",
@@ -5222,7 +5222,7 @@
             ]
           },
           {
-            "label": "Proceed to Currently on VA — Pre-Conversion Screen",
+            "label": "Proceed to <b>Currently on VA — Pre-Conversion Screen</b>",
             "class": "list-section",
             "layout": "checklist",
             "type": "subchecklist",
@@ -5234,7 +5234,7 @@
             ]
           },
           {
-            "label": "Proceed to Currently on VA — Pre-Conversion Screen",
+            "label": "Proceed to <b>Currently on VA — Pre-Conversion Screen</b>",
             "class": "list-section",
             "layout": "checklist",
             "type": "subchecklist",
@@ -5246,7 +5246,7 @@
             ]
           },
           {
-            "label": "Proceed to Currently on VA — Pre-Conversion Screen",
+            "label": "Proceed to <b>Currently on VA — Pre-Conversion Screen</b>",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           }
@@ -5738,7 +5738,7 @@
                 "checked": false
               },
               {
-                "label": "DO NOT increase flow before the new limb is fully de-aired.",
+                "label": "<b>DO NOT increase flow before the new limb is fully de-aired.</b>",
                 "checked": false
               }
             ]
@@ -5850,7 +5850,7 @@
                 "checked": false
               },
               {
-                "label": "DO NOT advance the cannula against resistance.",
+                "label": "<b>DO NOT advance the cannula against resistance.</b>",
                 "checked": false
               }
             ]
@@ -5914,7 +5914,7 @@
                 "checked": false
               },
               {
-                "label": "Escalate immediately if LV overload is severe or worsening.",
+                "label": "<b>Escalate immediately if LV overload is severe or worsening.</b>",
                 "checked": false
               }
             ]
@@ -5996,7 +5996,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Call senior ECMO, procedural, surgical, and perfusion support if unsafe or ineffective.",
+            "label": "<b>Call senior ECMO, procedural, surgical, and perfusion support if unsafe or ineffective.</b>",
             "checked": false
           },
           {
@@ -6028,11 +6028,11 @@
             "checked": false
           },
           {
-            "label": "LV overload? Escalate LV unloading pathway.",
+            "label": "<b>LV overload? Escalate LV unloading pathway.</b>",
             "checked": false
           },
           {
-            "label": "PA/RV injury (rupture, hemorrhage, valve injury, arrhythmia, effusion)? Echo and surgical consult.",
+            "label": "<b>PA/RV injury (rupture, hemorrhage, valve injury, arrhythmia, effusion)? Echo and surgical consult.</b>",
             "checked": false
           },
           {
@@ -6048,7 +6048,7 @@
             "checked": false
           },
           {
-            "label": "DO NOT persist with a failed configuration without senior review.",
+            "label": "<b>DO NOT persist with a failed configuration without senior review.</b>",
             "checked": false
           }
         ]
@@ -6322,7 +6322,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Identify the need for transport",
+            "label": "<b>Identify the need for transport</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -6366,7 +6366,7 @@
             ]
           },
           {
-            "label": "Communication:",
+            "label": "<b>Communication:</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -6394,7 +6394,7 @@
             ]
           },
           {
-            "label": "Prepare the equipment used for transport:",
+            "label": "<b>Prepare the equipment used for transport:</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -6418,7 +6418,7 @@
             ]
           },
           {
-            "label": "Prepare ECMO for transport:",
+            "label": "<b>Prepare ECMO for transport:</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -6454,7 +6454,7 @@
             ]
           },
           {
-            "label": "Immediately before transport:",
+            "label": "<b>Immediately before transport:</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -6605,7 +6605,7 @@
             "type": "subchecklist",
             "items": [
               {
-                "label": "Power Sources (DISCONNECTED)",
+                "label": "<b>Power Sources</b> (DISCONNECTED)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6621,7 +6621,7 @@
                 ]
               },
               {
-                "label": "Oxygen Tank (FULL TANK)",
+                "label": "<b>Oxygen Tank</b> (FULL TANK)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6637,7 +6637,7 @@
                 ]
               },
               {
-                "label": "Green Gas Line (TRANSFERRED to O<sub>2</sub> tank)",
+                "label": "<b>Green Gas Line</b> (TRANSFERRED to O<sub>2</sub> tank)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6649,7 +6649,7 @@
                 ]
               },
               {
-                "label": "Gas Supply Hoses (DISCONNECTED)",
+                "label": "<b>Gas Supply Hoses</b> (DISCONNECTED)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6661,11 +6661,11 @@
                 ]
               },
               {
-                "label": "Heater Cooler (SWITCHED OFF)",
+                "label": "<b>Heater Cooler</b> (SWITCHED OFF)",
                 "checked": false
               },
               {
-                "label": "Circuit (Pump drive, pump head, 3-ways, caps)",
+                "label": "<b>Circuit</b> (Pump drive, pump head, 3-ways, caps)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6693,7 +6693,7 @@
             "type": "subchecklist",
             "items": [
               {
-                "label": "Power Sources (RECONNECTED to UPS)",
+                "label": "<b>Power Sources</b> (RECONNECTED to UPS)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6709,7 +6709,7 @@
                 ]
               },
               {
-                "label": "Gas Supply Hoses (RECONNECTED)",
+                "label": "<b>Gas Supply Hoses</b> (RECONNECTED)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6725,7 +6725,7 @@
                 ]
               },
               {
-                "label": "Green Gas Line (TRANSFERRED)",
+                "label": "<b>Green Gas Line</b> (TRANSFERRED)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6737,7 +6737,7 @@
                 ]
               },
               {
-                "label": "Oxygen Tank (REMOVED)",
+                "label": "<b>Oxygen Tank</b> (REMOVED)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6749,7 +6749,7 @@
                 ]
               },
               {
-                "label": "Heater Cooler (SWITCHED ON)",
+                "label": "<b>Heater Cooler</b> (SWITCHED ON)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -6761,7 +6761,7 @@
                 ]
               },
               {
-                "label": "Circuit (Pump drive, pump head, 3-ways, caps)",
+                "label": "<b>Circuit</b> (Pump drive, pump head, 3-ways, caps)",
                 "checked": false,
                 "type": "subchecklist",
                 "layout": "checklist",
@@ -7251,7 +7251,7 @@
   {
     "id": "ELSOBA_CHKLST_147",
     "title": "Manage Drainage Insufficiency on ECMO",
-    "content": "Pre-pump failure to deliver venous blood at the required rate. Signs: Chatter/chugging, swings in Pven, flow that won't rise with RPM. Trigger intervention on circuit signs: By the time hypoxia (VV) or hypotension (VA) appears, hemolysis and microemboli have already occurred. Approach is similar for VA and VV; specifics noted below. This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "content": "Pre-pump failure to deliver venous blood at the required rate.<br><b>Signs</b>: Chatter/chugging, swings in Pven, flow that won't rise with RPM.<br><b>Trigger intervention on circuit signs</b>: By the time hypoxia (VV) or hypotension (VA) appears, hemolysis and microemboli have already occurred. Approach is similar for VA and VV; specifics noted below.<br><br>This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
     "layout": "checklist",
     "keywords": "VV ECMO; VA ECMO; DRAINAGE INSUFFICIENCY; MANAGEMENT; ECMO",
     "showFavorites": true,
@@ -7336,7 +7336,7 @@
             "checked": false
           },
           {
-            "label": "Note: Excessively negative drainage pressure causes vessel collapse, cavitation, hemolysis, and microemboli. Operator-set over-speed is the single most common cause.",
+            "label": "<b>Note</b>: Excessively negative drainage pressure causes vessel collapse, cavitation, hemolysis, and microemboli. Operator-set over-speed is the single most common cause.",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           }
@@ -7397,7 +7397,7 @@
             ]
           },
           {
-            "label": "Note: Mixed pictures are common. When in doubt, run pathways in parallel.",
+            "label": "<b>Note</b>: Mixed pictures are common. When in doubt, run pathways in parallel.",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           }
@@ -7410,7 +7410,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Position",
+            "label": "<b>Position</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -7422,11 +7422,11 @@
             ]
           },
           {
-            "label": "Warning: Avoid head-down tilt in raised ICP, recent neurosurgery, severe pulmonary edema, or severe ARDS.",
+            "label": "<b>Warning</b>: Avoid head-down tilt in raised ICP, recent neurosurgery, severe pulmonary edema, or severe ARDS.",
             "checked": false
           },
           {
-            "label": "Agitation/Valsalva",
+            "label": "<b>Agitation/Valsalva</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -7438,7 +7438,7 @@
             ]
           },
           {
-            "label": "Intrathoracic/intra-abdominal pressure",
+            "label": "<b>Intrathoracic/intra-abdominal pressure</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -7450,7 +7450,7 @@
             ]
           },
           {
-            "label": "Cannula position",
+            "label": "<b>Cannula position</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -7462,7 +7462,7 @@
             ]
           },
           {
-            "label": "Confirm by POCUS/echo",
+            "label": "<b>Confirm by POCUS/echo</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -7474,7 +7474,7 @@
             ]
           },
           {
-            "label": "Bleeding",
+            "label": "<b>Bleeding</b>",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
@@ -7528,17 +7528,17 @@
                 "checked": false
               },
               {
-                "label": "If responsive—e.g., flow rises, Pven normalizes, chatter resolves—resuscitate to euvolemia (adequate oxygen delivery – capillary refill, mentation, urine output, lactate), then STOP.",
+                "label": "<b>If responsive</b>—e.g., flow rises, Pven normalizes, chatter resolves—resuscitate to euvolemia (adequate oxygen delivery – capillary refill, mentation, urine output, lactate), then STOP.",
                 "checked": false
               },
               {
-                "label": "If non-responsive, no further crystalloid.",
+                "label": "<b>If non-responsive</b>, no further crystalloid.",
                 "checked": false
               }
             ]
           },
           {
-            "label": "Note: Positive crystalloid balance is associated with prolonged ECMO duration and higher mortality.",
+            "label": "<b>Note</b>: Positive crystalloid balance is associated with prolonged ECMO duration and higher mortality.",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           }
@@ -7575,7 +7575,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "If two interventions don't help, return to Recognition: Identify the event",
+            "label": "If two interventions don't help, return to <b>Recognition: Identify the event</b>",
             "checked": false
           },
           {
@@ -7691,7 +7691,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Clues:",
+            "label": "<b>Clues</b>:",
             "class": "list-section",
             "layout": "checklist",
             "type": "subchecklist",
@@ -7720,7 +7720,7 @@
             "class": "mxt-20 mxb-16"
           },
           {
-            "label": "Causes:",
+            "label": "<b>Causes</b>:",
             "type": "list-comment",
             "class": "mxt-20 mxb-16"
           },
@@ -7941,7 +7941,7 @@
             "layout": "checklist",
             "items": [
               {
-                "label": "If two interventions worsen the situation, stop and reassess from Recognition: Identify the Event.",
+                "label": "If two interventions worsen the situation, stop and reassess from <b>Recognition: Identify the Event</b>.",
                 "checked": false
               }
             ]
@@ -9388,7 +9388,7 @@
             "class": "mxt-20 mxb-16"
           },
           {
-            "label": "Population: Adjunct technology; data supporting use of pupilometry in ECMO populations is currently limited",
+            "label": "<b>Population</b>: Adjunct technology; data supporting use of pupilometry in ECMO populations is currently limited",
             "type": "list-comment",
             "class": "bullet ml-0"
           },
@@ -9413,7 +9413,7 @@
             "class": "bullet ml-0"
           },
           {
-            "label": "Population: All patients prior to discharge",
+            "label": "<b>Population</b>: All patients prior to discharge",
             "type": "list-comment",
             "class": "bullet ml-0"
           },
@@ -11506,7 +11506,7 @@
             "checked": false
           },
           {
-            "label": "The cannula then is inserted over the guidewire until the tip of the cannula is in the right PA. Once the cannula is inserted, the internal dilator is removed and both cannula ports are clamped.",
+            "label": "The cannula then is inserted <b>over the guidewire</b> until the tip of the cannula is in the <b>right PA</b>. Once the cannula is inserted, the internal dilator is removed and both cannula ports are clamped.",
             "checked": false
           },
           {
