@@ -181,6 +181,16 @@
         color: #0B247A!important;
       }
 
+      // A full-width grouping band in a single-column table, where every cell is
+      // td:first-of-type and so blue by default (ELSOBA_CHKLST_200's
+      // neuromonitoring table reserves that blue for its title row). Restores the
+      // #tableBody td default grey above.
+      &.bg-band {
+        background-color: #eeecec!important;
+        color: #0B247A!important;
+        font-weight: 500;
+      }
+
       &.head-bold {
         font-weight: 500;
         font-size: 15px;

@@ -752,7 +752,7 @@ export function enforceRange(input: IMathEnforeRangeParams): { error: string, mi
  * - "sqrt"     → "√"
  * - "^2"       → "²"
  * - "^3"       → "³"
- * - "pi"       → "π"
+ * - "pi"       → "π"  (lower-case only; "PI" is pulsatility index)
  * - "theta"    → "θ"
  * - "alpha"    → "α"
  * - "beta"     → "β"
@@ -799,7 +799,10 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\^2\b/g, `²`],
     [/\^3\b/g, `³`],
     [/\^(\d+)/g, `<sup>$1</sup>`], // generic superscript for ^n
-    [/\bpi\b/gi, `π`],
+    // lower-case only: upper-case "PI" is the clinical abbreviation for
+    // pulsatility index, not the constant (ELSOBA_CHKLST_200's TCD row read
+    // "pulsatility index (π)"). Formulas write the constant lower-case.
+    [/\bpi\b/g, `π`],
     [/\btheta\b/gi, `θ`],
     [/\balpha\b/gi, `α`],
     [/\bbeta\b/gi, `β`],

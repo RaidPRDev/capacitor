@@ -269,8 +269,8 @@
         "branchTo": "ELSOBA_CHKLST_210"
       },
       {
-        "label": "VP ECMO Management",
-        "class": "disabled",
+        "label": "Venopulmonary (VP) ECMO Management",
+        "class": "",
         "branchTo": "ELSOBA_CHKLST_320"
       },
       {
@@ -7691,7 +7691,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "<b>Clues</b>:",
+            "label": "Clues:",
             "class": "list-section",
             "layout": "checklist",
             "type": "subchecklist",
@@ -8986,9 +8986,9 @@
             "class": "bullet hollow ml-1 end-list-1"
           },
           {
-            "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_200_010' target='_self'>View the ELSO neuromonitoring figure</a>",
-            "type": "list-comment",
-            "class": "mxb-16"
+            "label": "<div class='data-content'><div class='table-wrapper'><div class='tableBody' id='tableBody'><table><tr><td class='head-bold'>Neuromonitoring in Neonates and Children Undergoing ECMO</td></tr><tr><td class='bg-band'>RECOMMENDED</td></tr><tr><td class='bg-white'><b>HUS</b><br>HUS should be obtained pre- and post-ECMO initiation, and considered daily for three to five days if initial HUS is abnormal or in high-risk infants with open fontanelle. HUS should be performed as needed if clinical indication, followed by series of HUS as required.</td></tr><tr><td class='bg-white'><b>Continuous EEG</b><br>cEEG monitoring can be considered within 12–24 hours after ECMO cannulation for at least 24–48 hours. Consider prolonged cEEG, (at least 24 hours) if seizures/interictal abnormalities detected (intermittent EEG in resource limited settings).</td></tr><tr><td class='bg-white'><b>Cerebral rSO2</b><br>Consider continuous rSO2 monitoring (frontal probes) in all patients on ECMO to follow trends in cerebral tissue oxygenation. A decline >20% from baseline can be associated with injury and may warrant further workup.</td></tr><tr><td class='bg-white'><b>Head CT</b><br>Head CT should be obtained in infants and children on ECMO if there is a clinical concern of an acute neurological insult or if abnormal findings are noticed on other neuromonitoring modalities, such as head ultrasound or cerebral oximetry.</td></tr><tr><td class='bg-band'>OPTIONAL</td></tr><tr><td class='bg-white'><b>SSEP</b><br>Evidence on role of Somatosensory Evoked Potential to detect neurological injuries is limited in patients on ECMO support and is not recommended for routine neuro monitoring.</td></tr><tr><td class='bg-white'><b>TCD</b><br>Cerebral Blood Flow Velocities (CBFV) and pulsatility index (PI) measurement through TCD ultrasound may detect neurological injuries, but, to date, evidence on ECMO patients is limited, and is not recommended for routine monitoring.</td></tr><tr><td class='bg-white'><b>Brain Injury Biomarkers</b><br>Plasma brain injury markers are under investigation to detect neurological injuries on ECMO, but currently are not rapidly available, and are not recommended for routine monitoring.</td></tr><tr><td class='bg-white'><b>Pupillometry</b><br>Pupillometry may help with early neuroprognostication, however limited studies are available, and is not recommended for routine monitoring on ECMO.</td></tr></table></div></div></div>",
+            "type": "comment",
+            "class": "list-section"
           }
         ]
       },
@@ -9133,7 +9133,7 @@
                 "checked": false
               },
               {
-                "label": "If abnormal CUS consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
+                "label": "If abnormal CUS, consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
                 "checked": false
               }
             ]
@@ -9468,16 +9468,6 @@
         ]
       }
     ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_200_010",
-    "title": "Background",
-    "content": "checklists/ELSOBA_CHKLST_200/ELSOBA_CHKLST_200_010.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
   },
   {
     "id": "ELSOBA_CHKLST_210",
@@ -11639,6 +11629,453 @@
           },
           {
             "label": "Landolt L, Janelle GM, Ricks W, Rackauskas M, Maybauer MO. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002147~transesophageal-echocardiography-guided-veno-pulmonary' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002147~transesophageal-echocardiography-guided-veno-pulmonary' target='_blank'>Transesophageal Echocardiography Guided Veno-Pulmonary Extracorporeal Membrane Oxygenation Cannula Insertion Technique</a>. ASAIO J. 2024;70(7):e99-e100. doi:10.1097/MAT.0000000000002147",
+            "type": "list-comment",
+            "class": "mxb-16"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ELSOBA_CHKLST_320",
+    "title": "Venopulmonary (VP) ECMO Management",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "layout": "checklist",
+    "keywords": "VP ECMO; VP MANAGEMENT; ECMO; ECMO MANAGEMENT; VENOPULMONARY",
+    "showFavorites": true,
+    "useScroll": true,
+    "items": [
+      {
+        "label": "Scope",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Applies after VP ECMO is initiated and running",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "For setup/cannulation, see <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_310' target='_self'>VP ECMO Initiation Guide</a>",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "For liberation, see <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_330' target='_self'>VP ECMO Weaning Guide</a>",
+            "type": "list-comment",
+            "class": "bullet ml-0 end-list-0"
+          }
+        ]
+      },
+      {
+        "label": "Daily Targets",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Perfusion:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "MAP > 65, decreasing lactate, adequate UOP, improving organ function",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Oxygenation:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Acceptable SpO<sub>2</sub> (> 88-92%)",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "RV unloading:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Decreasing CVP",
+                "checked": false
+              },
+              {
+                "label": "Improved RV size/function",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Ventilation:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Acceptable pH/PaCO2",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "System Check",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Every shift, check the following:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Flow",
+                "checked": false
+              },
+              {
+                "label": "RPM",
+                "checked": false
+              },
+              {
+                "label": "Sweep",
+                "checked": false
+              },
+              {
+                "label": "FsO<sub>2</sub>",
+                "checked": false
+              },
+              {
+                "label": "Pressures",
+                "checked": false
+              },
+              {
+                "label": "Alarms",
+                "checked": false
+              },
+              {
+                "label": "Oxygen source is connected and functioning",
+                "checked": false
+              },
+              {
+                "label": "Membrane lung (no clot, good gas exchange, stable ∆P)",
+                "checked": false
+              },
+              {
+                "label": "Cannula(s) are secure, depth is unchanged",
+                "checked": false
+              },
+              {
+                "label": "No bleeding or swelling at the cannulation site",
+                "checked": false
+              },
+              {
+                "label": "Alarms are on",
+                "checked": false
+              },
+              {
+                "label": "Backup equipment is available",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Flow",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "<b>Goal</b>: adequate perfusion, RV unloading, and oxygen delivery",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Avoid suction/chatter",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "label": "Low flow/chatter check:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Preload? (hypovolemia, diuresis)",
+                "checked": false
+              },
+              {
+                "label": "Intrathoracic pressure? (PEEP, cough)",
+                "checked": false
+              },
+              {
+                "label": "Cannula issue? (malposition, kink)",
+                "checked": false
+              },
+              {
+                "label": "Tamponade/pneumothorax",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Gas Exchange",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Sweep CO<sub>2</sub>/pH",
+            "checked": false
+          },
+          {
+            "label": "FsO<sub>2</sub> + flow = oxygenation",
+            "checked": false
+          },
+          {
+            "label": "Check ABG after a major change",
+            "checked": false
+          },
+          {
+            "label": "Hypoxemia check:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Low flow versus high CO",
+                "checked": false
+              },
+              {
+                "label": "Gas source/sweep/FsO<sub>2</sub>",
+                "checked": false
+              },
+              {
+                "label": "Membrane lung failure",
+                "checked": false
+              },
+              {
+                "label": "Native lung (edema, atelectasis, PTX)",
+                "checked": false
+              },
+              {
+                "label": "VO<sub>2</sub>/demand (fever, sepsis, agitation)",
+                "checked": false
+              },
+              {
+                "label": "Anemia",
+                "checked": false
+              },
+              {
+                "label": "Cannula problem",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Ventilator",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Lung-protective/rest settings",
+            "checked": false
+          },
+          {
+            "label": "Avoid high pressures",
+            "checked": false
+          },
+          {
+            "label": "Extubate/mobilize if feasible",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Monitoring",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Trend: MAP, CVP, lactate, UOP, SvO<sub>2</sub>",
+            "checked": false
+          },
+          {
+            "label": "Echo (every 2–3 days): RV size/function, LV filling/output",
+            "checked": false
+          }
+        ]
+      },
+      {
+        "label": "Anticoagulation",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Follow institutional protocol.",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Watch for bleeding, clots, or hemolysis",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Escalation Triggers",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Call ECMO team <b>immediately</b> if:",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
+              {
+                "label": "Hypoxemia despite optimization",
+                "checked": false
+              },
+              {
+                "label": "Shock despite adequate flow",
+                "checked": false
+              },
+              {
+                "label": "Lactate or organ failure",
+                "checked": false
+              },
+              {
+                "label": "Worsening RV failure (CVP, dilation)",
+                "checked": false
+              },
+              {
+                "label": "New LV failure or pulmonary edema",
+                "checked": false
+              },
+              {
+                "label": "Cannula migration suspected",
+                "checked": false
+              },
+              {
+                "label": "Circuit clot",
+                "checked": false
+              },
+              {
+                "label": "Membrane lung failure",
+                "checked": false
+              },
+              {
+                "label": "Hemolysis",
+                "checked": false
+              },
+              {
+                "label": "Major bleeding",
+                "checked": false
+              },
+              {
+                "label": "Sudden flow loss or collapse",
+                "checked": false
+              },
+              {
+                "label": "Arrhythmia",
+                "checked": false
+              },
+              {
+                "label": "Tamponade",
+                "checked": false
+              },
+              {
+                "label": "Pneumothorax",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Daily Questions",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Is support still appropriate?",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Is there a Right ventricle (RV) versus lung versus Left ventricle (LV) problem?",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Do you need more support (e.g., LV support) or different modes (e.g., VA, hybrid VAP) or configuration (e.g., V-VP or VV-P, or peripheral versus central)?",
+            "type": "list-comment",
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Is the patient ready for weaning? Refer to the <a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_330' target='_self'>Venopulmonary (VP) ECMO Weaning</a> Checklist",
+            "type": "list-comment",
+            "class": "bullet ml-0 end-list-0"
+          }
+        ]
+      },
+      {
+        "label": "References",
+        "class": "",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          {
+            "label": "Brewer JM, Broman LM, Swol J, Lorusso R, Conrad SA, Maybauer MO. <a href='https://journals.sagepub.com/doi/10.1177/02676591231210457?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed' data-link='https://journals.sagepub.com/doi/10.1177/02676591231210457?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed' target='_blank'>Standardized nomenclature for peripheral percutaneous cannulation of the pulmonary artery in extracorporeal membrane oxygenation: Current uptake and recommendations for improvement</a>. Perfusion. 2024;39(8):1538-1544. doi:10.1177/02676591231210457",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Brewer M, Dacey C, O. Maybauer M. Adaptive ECMO Therapeutics: The Integral Role of the ProtekDuo® Cannula [Internet]. Evolving Therapies and Technologies in Extracorporeal Membrane Oxygenation. IntechOpen; 2024. <a href='https://doi.org/10.5772/intechopen.1005327' data-link='https://doi.org/10.5772/intechopen.1005327' target='_blank'>https://doi.org/10.5772/intechopen.1005327</a>",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Brewer JM, Lorusso R, Broman LM, Conrad SA, Swol J, Maybauer MO. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002239~central-venopulmonary-extracorporeal-membrane-oxygenation' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000002239~central-venopulmonary-extracorporeal-membrane-oxygenation' target='_blank'>Central Venopulmonary Extracorporeal Membrane Oxygenation: Background and Standardized Nomenclature</a>. ASAIO J. 2024;70(9):e123-e128. doi:10.1097/MAT.0000000000002239",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Lorusso R, Shekar K, MacLaren G, et al. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001510~elso-interim-guidelines-for-venoarterial-extracorporeal' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001510~elso-interim-guidelines-for-venoarterial-extracorporeal' target='_blank'>ELSO Interim Guidelines for Venoarterial Extracorporeal Membrane Oxygenation in Adult Cardiac Patients</a>. ASAIO J. 2021;67(8):827-844. doi:10.1097/MAT.0000000000001510",
+            "type": "list-comment",
+            "class": "mxb-16"
+          },
+          {
+            "label": "Tonna JE, Abrams D, Brodie D, et al. <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001432~management-of-adult-patients-supported-with-venovenous' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001432~management-of-adult-patients-supported-with-venovenous' target='_blank'>Management of Adult Patients Supported with Venovenous Extracorporeal Membrane Oxygenation (VV ECMO): Guideline from the Extracorporeal Life Support Organization (ELSO)</a>. ASAIO J. 2021;67(6):601-610. doi:10.1097/MAT.0000000000001432",
             "type": "list-comment",
             "class": "mxb-16"
           }
