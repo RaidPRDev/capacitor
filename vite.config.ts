@@ -7,7 +7,7 @@ import customHmr from "./src/plugins/customreload/CustomHmr";
 import { APP_HEADER_HEIGHT, BOTTOM_HEADER_NAV_HEIGHT } from "./constants";
 
 const { version: APP_VERSION, build_number: APP_BUILD_NUMBER } = require('./package.json');
-const { appId: APPLICATION_ID, appName: APPLICATION_NAME } = require('./capacitor.config.json');
+const { appId: APPLICATION_ID, appName: APPLICATION_NAME, distribution: DISTRIBUTION = {} } = require('./capacitor.config.json');
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({command, mode}) => {
@@ -23,9 +23,12 @@ export default defineConfig(async ({command, mode}) => {
   const ISIOS = !!/ios/.exec(PLATFORM);
   const ISANDROID = !!/android/.exec(PLATFORM);
   const CLARITY_ID = process?.env?.CLARITY_ID ?? "oztc10g5eg";
-  const SHOW_DEBUG = true;
-  
+  // Per-distribution, set in capacitor.config.<name>.json and applied by app.config.js
+  const DISTRIBUTION_NAME = DISTRIBUTION.name ?? "";
+  const SHOW_DEBUG = DISTRIBUTION.showDebug ?? true;
+
   console.log("[PLATFORM]", PLATFORM);
+  console.log("[DISTRIBUTION]", DISTRIBUTION_NAME);
   console.log("[APPLICATION_ID]", APPLICATION_ID);
   console.log("[APPLICATION_NAME]", APPLICATION_NAME);
   console.log("[APP_VERSION]", APP_VERSION);
@@ -41,6 +44,7 @@ export default defineConfig(async ({command, mode}) => {
     define: {
       'import.meta.env.APPLICATION_ID': JSON.stringify(APPLICATION_ID),
       'import.meta.env.APPLICATION_NAME': JSON.stringify(APPLICATION_NAME),
+      'import.meta.env.DISTRIBUTION': JSON.stringify(DISTRIBUTION_NAME),
       'import.meta.env.APP_VERSION': JSON.stringify(APP_VERSION),
       'import.meta.env.PLATFORM': JSON.stringify(PLATFORM),
       'import.meta.env.BUILD_DATE': JSON.stringify(new Date(BUILD_DATE)),

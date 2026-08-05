@@ -1,0 +1,12 @@
+{
+  "appId": "com.ecmo.bedside",
+  "appName": "ECMO Bedside Guide (Beta)",
+  "webDir": "dist",
+  "distribution": {
+    "name": "elso",
+    "label": "ELSO client - client Apple/Google accounts",
+    "displayName": "ECMO Bedside Guide",
+    "iosDisplayName": "Bedside Guide",
+    "showDebug": false
+  }
+}

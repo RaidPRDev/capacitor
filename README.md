@@ -27,10 +27,79 @@ This app is built using the **Ionic Framework**, **Capacitor**, and **AppFlow** 
 > ⚠️ **Notice:** AppFlow will be deprecated in **December 2027**.  
 > 👉 **Alternative:** [CapAwesome Cloud](https://cloud.capawesome.io/#pricing)
 
-### 📦 App IDs
+### 📦 App IDs & Distributions
 
-- **Staging App ID:** `com.sweetrush.staging.elso`  
-- **Production App ID:** `com.sweetrush.elso`
+One repo builds for every store account. Each distribution is a
+`capacitor.config.<name>.json` at the project root, and `CAPACITOR_CONFIG`
+picks the one to build:
+
+| Profile     | App ID                       | Accounts                     |
+| ----------- | ---------------------------- | ---------------------------- |
+| `sweetrush` | `com.sweetrush.staging.elso` | SweetRush internal (staging) |
+| `elso`      | `com.ecmo.bedside`           | ELSO client                  |
+
+```powershell
+npm run config_list            # list profiles, * marks the applied one
+$env:CAPACITOR_CONFIG='elso'   # then build/sync as usual
+npm run build
+```
+
+```bash
+CAPACITOR_CONFIG=elso npm run build     # macOS / CI / AppFlow
+node app.config.js elso                 # switch without building
+node app.config.js elso --dry-run       # show what would change
+```
+
+`npm run build`, `sync`, `android_run` and `android_open` all run
+`app.config.js` first. It copies the selected profile over
+`capacitor.config.json` and writes the identity into the native projects:
+
+- `android/app/build.gradle` — `applicationId`
+- `android/app/src/main/res/values/strings.xml` — app name, package, URL scheme
+- `ios/App/App.xcodeproj/project.pbxproj` — `PRODUCT_BUNDLE_IDENTIFIER`
+- `ios/App/App/Info.plist` — `CFBundleDisplayName`
+
+It also runs on `postinstall`, so an AppFlow build picks up the profile from
+`npm install` onward even if the build script is ever reconfigured.
+
+With `CAPACITOR_CONFIG` unset it re-applies the `capacitor.config.json` already
+in place, so a plain build never switches distribution behind your back.
+Commit whichever profile is applied — that is the repo default.
+
+**In AppFlow, set `CAPACITOR_CONFIG` in the app's environment and nothing else.**
+The native project files are rewritten inside the throwaway build checkout,
+before gradle/xcodebuild read them — those edits are never committed and are
+discarded with the container. Both AppFlow apps build from this one repo and
+branch; only the env var differs.
+
+The gradle `namespace` and the `MainActivity` java package deliberately stay
+`com.sweetrush.staging.elso` for every profile. Only `applicationId` decides
+store identity, so nothing has to move on disk when the profile changes.
+
+> ⚠️ Run `npm run update_version` (version + build number) **before**
+> `npm run build` — both scripts write to the native projects.
+
+#### Adding a distribution
+
+Copy an existing profile to `capacitor.config.<name>.json` and edit it:
+
+```json
+{
+  "appId": "com.sweetrush.elso",
+  "appName": "ECMO Bedside Guide",
+  "webDir": "dist",
+  "distribution": {
+    "name": "production",
+    "label": "SweetRush production",
+    "displayName": "Bedside Guide",
+    "showDebug": false
+  }
+}
+```
+
+`displayName` is the home-screen name; `androidDisplayName` / `iosDisplayName`
+override it per platform. `showDebug` drives `import.meta.env.SHOW_DEBUG` (the
+in-app debug panel), and `name` is exposed as `import.meta.env.DISTRIBUTION`.
 
 ---
 

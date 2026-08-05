@@ -50,6 +50,11 @@ else
   PLATFORM=ios npm run build
 fi
 
+# The bundle id in project.pbxproj has to match the synced capacitor.config.json.
+# `npm run build` already does this, but --skip-web never gets there.
+say "Applying distribution config"
+node app.config.js
+
 # ------------------------------------------------- live reload config (temp)
 # Both files live in the Mac's throwaway copy of the repo, but restore them
 # anyway so a later non-live build never picks up a stale dev-server URL.

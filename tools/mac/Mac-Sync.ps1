@@ -14,8 +14,8 @@
   to skip the vite build on the Mac.
 
 .PARAMETER WebOnly
-  Send just dist/ and capacitor.config.json -- the fast loop after a local
-  `npm run build`. Implies -IncludeDist.
+  Send just dist/, the capacitor config and tools/ -- the fast loop after a
+  local `npm run build`. Implies -IncludeDist.
 
 .PARAMETER IncludeAndroid
   Also send the android/ project. Skipped by default -- it is 39 MB of generated
@@ -64,7 +64,7 @@ if ($IncludeAndroid) {
 }
 
 if ($WebOnly) {
-    $paths = @('./dist', './capacitor.config.json', './tools')
+    $paths = @('./dist', './capacitor.config.json', './app.config.js', './tools')
 } else {
     $paths = Get-ChildItem -LiteralPath $LocalRoot -Force |
         Where-Object { $_.Name -notin $skipTopLevel } |
