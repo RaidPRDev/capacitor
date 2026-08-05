@@ -4,7 +4,7 @@
   "webDir": "dist",
   "distribution": {
     "name": "sweetrush",
-    "label": "SweetRush internal staging - SweetRush Apple/Google accounts",
+    "label": "SweetRush internal staging",
     "displayName": "Bedside Guide",
     "showDebug": true
   }

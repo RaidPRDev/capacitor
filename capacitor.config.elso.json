@@ -4,7 +4,7 @@
   "webDir": "dist",
   "distribution": {
     "name": "elso",
-    "label": "ELSO client - client Apple/Google accounts",
+    "label": "ELSO client",
     "displayName": "ECMO Bedside Guide",
     "iosDisplayName": "Bedside Guide",
     "showDebug": false
