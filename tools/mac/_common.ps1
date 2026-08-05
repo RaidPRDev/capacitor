@@ -42,6 +42,34 @@ function Write-Banner {
     Write-Host "  $MacTarget : $MacProject" -ForegroundColor DarkGray
 }
 
+# --- distribution ---------------------------------------------------------------
+# Apply a distribution profile before the tree is synced, so the Mac builds the
+# app id you asked for. ssh does not carry this PC's environment across, so the
+# profile has to be baked into capacitor.config.json here rather than read on the
+# Mac. Falls back to CAPACITOR_CONFIG, then to whatever is already applied.
+function Use-Distribution {
+    param([string]$Name)
+
+    if (-not $Name) { $Name = $env:CAPACITOR_CONFIG }
+
+    if ($Name) {
+        Write-Step "Applying distribution '$Name'"
+        Push-Location $LocalRoot
+        try {
+            & node app.config.js $Name
+            if ($LASTEXITCODE -ne 0) { throw "app.config.js failed for distribution '$Name'" }
+        } finally {
+            Pop-Location
+        }
+        # Keep child processes (the -Live dev server) from re-resolving it differently.
+        $env:CAPACITOR_CONFIG = $Name
+    }
+
+    $config = Get-Content -LiteralPath (Join-Path $LocalRoot 'capacitor.config.json') -Raw | ConvertFrom-Json
+    $applied = if ($config.distribution.name) { $config.distribution.name } else { '(unnamed)' }
+    Write-Ok "distribution $applied -- $($config.appId)"
+}
+
 # --- ssh ----------------------------------------------------------------------
 # Quote a value for a POSIX shell so simulator names with spaces survive the trip.
 function ConvertTo-ShQuote {

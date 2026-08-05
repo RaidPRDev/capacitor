@@ -14,6 +14,11 @@
 .PARAMETER Configuration
   Debug (default) or Release.
 
+.PARAMETER Distribution
+  Distribution profile to build, e.g. sweetrush or elso (see `npm run config_list`).
+  Applied to capacitor.config.json and the native projects before the sync.
+  Defaults to $env:CAPACITOR_CONFIG, then to whatever is already applied.
+
 .PARAMETER Live
   Live reload: build the app pointing at http://<this-pc>:3005 and start the
   dev server here if it is not already running.
@@ -42,11 +47,14 @@
   .\Mac-Run-iOS.ps1 -Live
 .EXAMPLE
   .\Mac-Run-iOS.ps1 -Device 'iPad Air 11-inch (M4)' -Screenshot
+.EXAMPLE
+  .\Mac-Run-iOS.ps1 -Distribution elso
 #>
 [CmdletBinding()]
 param(
     [string]$Device,
     [ValidateSet('Debug', 'Release')][string]$Configuration = 'Debug',
+    [string]$Distribution,
     [switch]$Live,
     [switch]$Screenshot,
     [switch]$Logs,
@@ -63,6 +71,8 @@ param(
 if (-not $Device) { $Device = $DefaultSim }
 
 Write-Banner "Run iOS on $Device$(if ($Live) { '  [live reload]' })"
+
+Use-Distribution -Name $Distribution
 
 # ------------------------------------------------------------- live dev server
 $liveUrl = $null

@@ -66,8 +66,29 @@ Every script supports `-?` / `Get-Help` for its full switch list.
 .\Mac-Run-iOS.ps1 -SkipBuild -NoSync                # just relaunch the last build
 .\Mac-Run-iOS.ps1 -UseWindowsBuild                  # run vite here, send dist/, skip it on the Mac
 .\Mac-Run-iOS.ps1 -NoGui                            # headless; screenshots still work
+.\Mac-Run-iOS.ps1 -Distribution elso                # build the client app id instead
 .\Mac-Build-iOS.ps1 -Verbose2                       # full xcodebuild log
 ```
+
+## Which distribution gets built
+
+`-Distribution <name>` applies a profile (`npm run config_list`) to
+`capacitor.config.json` **and** the native projects before the tree is synced, so
+the Mac builds that app id. Without it, the profile falls back to
+`$env:CAPACITOR_CONFIG` and then to whatever is currently applied — every run
+prints which one it picked:
+
+```
+   ok distribution sweetrush -- com.sweetrush.staging.elso
+```
+
+The switch is sticky: it rewrites the working tree, so the *next* run without
+`-Distribution` builds the same one. Switch back with `-Distribution sweetrush`
+or `npm run config -- sweetrush`.
+
+> ssh does not carry this PC's environment to the Mac, so the profile is resolved
+> here and baked into the files that get synced. That is why the Mac never reads
+> `CAPACITOR_CONFIG` itself.
 
 ## Configuration
 

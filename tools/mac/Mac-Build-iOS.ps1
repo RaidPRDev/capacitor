@@ -12,6 +12,11 @@
 .PARAMETER Configuration
   Debug (default) or Release.
 
+.PARAMETER Distribution
+  Distribution profile to build, e.g. sweetrush or elso (see `npm run config_list`).
+  Applied to capacitor.config.json and the native projects before the sync.
+  Defaults to $env:CAPACITOR_CONFIG, then to whatever is already applied.
+
 .PARAMETER UseWindowsBuild
   Build the web bundle here with `npm run build`, send dist/ and let the Mac skip
   vite entirely. Faster when this PC is the stronger machine.
@@ -34,6 +39,7 @@
 param(
     [string]$Device,
     [ValidateSet('Debug', 'Release')][string]$Configuration = 'Debug',
+    [string]$Distribution,
     [switch]$UseWindowsBuild,
     [switch]$NoSync,
     [switch]$Clean,
@@ -45,6 +51,8 @@ param(
 if (-not $Device) { $Device = $DefaultSim }
 
 Write-Banner "Build iOS ($Configuration) for $Device"
+
+Use-Distribution -Name $Distribution
 
 if ($UseWindowsBuild) {
     Write-Step 'Building web bundle locally (PLATFORM=ios)'

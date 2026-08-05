@@ -233,6 +233,14 @@ cd tools\mac
 
 Or via npm: `npm run ios_run`, `npm run ios_live`, `npm run ios_logs`, `npm run ios_doctor`.
 
+These build whichever distribution is currently applied. To simulate the client
+app, pass the profile through — `CAPACITOR_CONFIG` alone does not reach the Mac:
+
+```powershell
+.\Mac-Run-iOS.ps1 -Distribution elso
+npm run ios_run -- -Distribution elso
+```
+
 Simulator builds only — device builds and TestFlight remain on AppFlow.
 
 ### 🔐 Renew Distribution/Dev Certificate
