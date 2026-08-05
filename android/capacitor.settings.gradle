@@ -9,4 +9,4 @@ include ':capacitor-haptics'
 project(':capacitor-haptics').projectDir = new File('../node_modules/@capacitor/haptics/android')
 
 include ':my-clarity-capacitator-plugin'
-project(':my-clarity-capacitator-plugin').projectDir = new File('../my-clarity-capacitator-plugin/android')
+project(':my-clarity-capacitator-plugin').projectDir = new File('../capacitator/plugins/my-clarity-capacitator-plugin/android')

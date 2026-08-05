@@ -29,7 +29,7 @@
     "@capacitor/haptics": "^7.0.0",
     "@capacitor/ios": "^7.0.0",
     "@streamparser/json-whatwg": "^0.0.21",
-    "my-clarity-capacitator-plugin": "file:my-clarity-capacitator-plugin"
+    "my-clarity-capacitator-plugin": "file:capacitator/plugins/my-clarity-capacitator-plugin"
   },
   "overrides": {
     "@capacitor/assets": {

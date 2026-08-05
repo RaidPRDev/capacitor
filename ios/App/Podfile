@@ -13,7 +13,7 @@ def capacitor_pods
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
   pod 'CapacitorHaptics', :path => '../../node_modules/@capacitor/haptics'
-  pod 'MyClarityCapacitatorPlugin', :path => '../../my-clarity-capacitator-plugin'
+  pod 'MyClarityCapacitatorPlugin', :path => '../../capacitator/plugins/my-clarity-capacitator-plugin'
 end
 
 target 'App' do

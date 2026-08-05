@@ -45,7 +45,7 @@ Test-MacSsh
 if ($WebOnly) { $IncludeDist = $true }
 
 # bsdtar's --exclude is NOT anchored: "--exclude=./dist" would also drop
-# my-clarity-capacitator-plugin/dist, which the build needs. So top-level
+# capacitator/plugins/*/dist, which the build needs. So top-level
 # directories are skipped by simply not naming them, and --exclude is reserved
 # for patterns that are unambiguous wherever they appear.
 $skipTopLevel = @('.git', 'node_modules', 'build', 'certs', '.vscode', 'project-backup.zip')
