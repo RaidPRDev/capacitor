@@ -9134,7 +9134,8 @@
               },
               {
                 "label": "If abnormal CUS, consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
-                "checked": false
+                "type": "comment",
+                "class": "note"
               }
             ]
           }
