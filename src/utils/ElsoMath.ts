@@ -767,6 +767,7 @@ export function enforceRange(input: IMathEnforeRangeParams): { error: string, mi
  * - "SvO2"     → "SvO₂"
  * - "SaO2"     → "SaO₂"
  * - "SpO2"     → "SpO₂"
+ * - "rSO2"     → "rSO₂"
  * - "SpreO2"   → "S<sub class='math-sub'>pre</sub>O₂"
  * - "SpostO2"  → "S<sub class='math-sub'>post</sub>O₂"
  * - "FsO2"     → "FsO₂"
@@ -819,6 +820,8 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bSvO2\b/g, `SvO${sub2wmr}`],
     [/\bSaO2\b/g, `SaO${sub2wmr}`],
     [/\bSpO2\b/g, `SpO${sub2wmr}`],
+    // not reachable via \bO2\b — no word boundary between the S and the O
+    [/\brSO2\b/g, `rSO${sub2wmr}`],
     [/\bPPRE-ML\b/g, `P<sub class=\"math-sub\">PRE-ML</sub>`],
     [/\bPPOST-ML\b/g, `P<sub class=\"math-sub\">POST-ML</sub>`],
     [/\bSpreO2\b/g, `S<sub class=\"math-sub\">pre</sub>O${sub2wmr}`],
