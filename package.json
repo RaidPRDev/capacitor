@@ -2,7 +2,7 @@
   "name": "elso_app",
   "private": true,
   "version": "1.0.1",
-  "build_number": "335",
+  "build_number": "336",
   "type": "module",
   "scripts": {
     "postinstall": "node app.config.js",
