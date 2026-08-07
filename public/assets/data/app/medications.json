@@ -114,12 +114,6 @@
     "branchTo": "",
     "items": [
       {
-        "label": "The Anticoagulation Ladder",
-        "content": "The Anticoagulation Ladder",
-        "class": "",
-        "branchTo": "ELSOBA_MED_010__TABLE__5"
-      },
-      {
         "label": "Argatroban",
         "content": "Argatroban",
         "branchTo": "ELSOBA_MED_010__1"
@@ -155,7 +149,13 @@
         "content": "Monitoring DTI Challenges Table",
         "class": "",
         "branchTo": "ELSOBA_MED_010__TABLE__4"
-      }      
+      },
+      {
+        "label": "The Anticoagulation Ladder",
+        "content": "The Anticoagulation Ladder",
+        "class": "",
+        "branchTo": "ELSOBA_MED_010__TABLE__5"
+      }   
     ]
   },
   {
