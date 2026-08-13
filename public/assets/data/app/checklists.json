@@ -11694,7 +11694,7 @@
             "type": "subchecklist",
             "items": [
               {
-                "label": "Acceptable SpO<sub>2</sub> (> 88-92%)",
+                "label": "Acceptable SpO2 (> 88-92%)",
                 "checked": false
               }
             ]
@@ -12229,7 +12229,7 @@
             "checked": false
           },
           {
-            "label": "Once the SGF is 1 L/min and the FSO2 is 0.21, and the patient has maintained targetrespiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
+            "label": "Once the SGF is 1 L/min and the FSO2 is 0.21, and the patient has maintained target respiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
             "checked": false
           },
           {
