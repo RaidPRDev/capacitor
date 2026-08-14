@@ -6488,7 +6488,7 @@
                 "checked": false
               },
               {
-                "label": "Allow for ready access to hand crank or backup pump, so that flow can be re-established promptly in the event of in transit console failure.",
+                "label": "Allow for ready access to hand crank or backup pump, so that flow can be re-established promptly in the event of in-transit console failure.",
                 "checked": false
               },
               {
@@ -7010,7 +7010,7 @@
                 "checked": false
               },
               {
-                "label": "3/8\" x1/2\" Reducer",
+                "label": "3/8\" x 1/2\" Reducer",
                 "checked": false
               },
               {
@@ -8686,7 +8686,7 @@
             "checked": false
           },
           {
-            "label": "Cannulation bag,",
+            "label": "Cannulation bag",
             "checked": false
           },
           {
