@@ -297,11 +297,6 @@
         "label": "Manage Drainage Insufficiency on ECMO",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_147"
-      },
-      {
-        "label": "Venopulmonary (VP) ECMO Initiation",
-        "class": "",
-        "branchTo": "ELSOBA_CHKLST_310"
       }
     ]
   },
@@ -378,7 +373,12 @@
         "label": "Switch Mode",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_270"
-      }  
+      },
+      {
+        "label": "Venopulmonary (VP) ECMO Initiation",
+        "class": "",
+        "branchTo": "ELSOBA_CHKLST_310"
+      }
     ]
   },
   {
@@ -655,108 +655,113 @@
         "items": [
           {
             "label": "Well-secure the cannulas with stitches or sutures devices according to the institutional protocol.",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Use a 2 to 3-point securing strategy to stabilize tubings using available devices (tubing holders, catheter holders, self-adhering bandage, tape, etc.) adapted to the insertion site.",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Avoid unnecessary manipulation.",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
-            "label": "Carefully avoid any traction on tubings/cannula during mobilization, transports, and physical therapy. Consider having a dedicated person for lines and tubing through patient movement, e.g., pressure area care and transportation of the patient.",
-            "type": "list-comment",
+            "label": "Carefully avoid any traction on tubings/cannula during mobilization, transports, and physical therapy.",
+            "checked": false,
+            "class": "bullet ml-0"
+          },
+          {
+            "label": "Consider having a dedicated person for lines and tubing through patient movement, e.g., pressure area care and transportation of the patient.",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "At least once per shift, measure the length of the exposed portion of the cannula from the insertion site to a point clearly and univocally discussed/shared with the whole team (e.g., end of wire-reinforced portion, holding ring, PC connector, etc.). If there is any major mobilization or any doubt of a potential displacement, repeat the measurement.",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
-            "label": "Compare the exposed portion measurement with the previous one. If there is greater than a 5 mm difference for adults, 3mm for children or 2mm in neonates patients, discuss the need for diagnostic exams (ultrasonography and/or radiography) with the ECMOlogist. A minimal difference could be related to an evolving edema.",
-            "type": "list-comment",
+            "label": "Compare the exposed portion measurement with the previous one. If there is greater than a 5 mm difference for adults, 3 mm for children or 2 mm in neonates patients, discuss the need for diagnostic exams (ultrasonography and/or radiography) with the ECMOlogist. A minimal difference could be related to an evolving edema.",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "At least once per shift, observe exit sites or bleeding through the dressing if transparent OR",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Observe exit sites during dressing replacement. If complications are detected, increase monitoring frequency. Carefully look for:",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Integrity of the perilesional skin",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet hollow ml-1"
           },
           {
             "label": "Integrity of the anchoring sutures, if any OR integrity of sutureless devices",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet hollow ml-1"
           },
           {
             "label": "Signs of bleeding",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet hollow ml-1"
           },
           {
             "label": "Signs of non hemorrhagic oozing",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet hollow ml-1"
           },
           {
             "label": "Signs of infection/inflammation: report to the ECMOlogist and discuss the need to perform a wound swab",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet hollow ml-1"
           },
           {
             "label": "Perform routine dressing replacement for central venous access device (CVAD) dressings based on the dressing type, institutional policies, and current clinical guidelines",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Perform unscheduled dressing changes immediately if the current dressing becomes compromised, loose, or soiled",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Use an aseptic technique when replacing cannula dressing",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Select the antiseptic solution for the cannula exit sites according to the most recent guidelines for CVADs management and to institutional policies when replacing the cannula dressing",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Avoid direct and prolonged contact between PC connectors and alcohol-based antiseptic solutions",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "When replacing dressings or holders/tapes, stabilize the cannula or the tubing with on-hand",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "Remove the dressing toward the exit site—NOT toward the tubing",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "If there are any inexperienced staff at the bedside (e.g., students, new nurses or residents, etc.), quickly review the <a href='#' data-link='PANIC##ELSOBA_PANIC_010' target='_self'>Accidental Decannulation</a> protocol before leaving them alone for any reason or time",
-            "type": "list-comment",
-            "class": "bullet ml-0 end-list-0"
+            "type": "comment",
+            "class": "note"
           }
         ]
       },
@@ -839,7 +844,7 @@
             "checked": false
           },
           {
-            "label": "Report any dressing replacement if performed by specifying the type",
+            "label": "Report any dressing replacement—if performed—by specifying the type",
             "checked": false
           },
           {
@@ -1099,7 +1104,7 @@
                         "checked": false
                       },
                       {
-                        "label": "Note that saturation is a much greater contributor to gas exchange than pO2; oxygen transfer can be estimated with pre-oxygenator saturation and post-oxygenator saturation if measured and the pO2 portion of the equation eliminated (no circuit gas draws needed if saturations are measured and trustworthy).",
+                        "label": "Note that saturation is a much greater contributor to gas exchange than PO2; oxygen transfer can be estimated with pre-oxygenator saturation and post-oxygenator saturation if measured and the PO2 portion of the equation eliminated (no circuit gas draws needed if saturations are measured and trustworthy).",
                         "checked": false
                       }
                     ]
@@ -1315,7 +1320,7 @@
                 "checked": false
               },
               {
-                "label": "Confirm orientation of new ECMO circuit and preparedness of perfusionist/ECMO Specialist to cease ECMO flow on old circuit, fill air-free connections, and initiation ECMO on new circuit",
+                "label": "Confirm orientation of new ECMO circuit and preparedness of perfusionist/ECMO Specialist to cease ECMO flow on old circuit, fill air-free connections, and initiate ECMO on new circuit",
                 "checked": false
               },
               {
@@ -7282,11 +7287,11 @@
                 "checked": false
               },
               {
-                "label": "sustained or swinging Pven,",
+                "label": "sustained or swinging Pven",
                 "checked": false
               },
               {
-                "label": "drainage line color change.",
+                "label": "drainage line color change",
                 "checked": false
               }
             ]
@@ -7423,7 +7428,8 @@
           },
           {
             "label": "<b>Warning</b>: Avoid head-down tilt in raised ICP, recent neurosurgery, severe pulmonary edema, or severe ARDS.",
-            "checked": false
+            "type": "comment", 
+            "class": "note" 
           },
           {
             "label": "<b>Agitation/Valsalva</b>",
@@ -7797,7 +7803,7 @@
             "layout": "checklist",
             "items": [
               {
-                "label": "rely on flow, chatter, line inspection",
+                "label": "Rely on flow, chatter, line inspection",
                 "checked": false
               },
               {
@@ -11374,7 +11380,7 @@
             "class": "bullet hollow ml-1"
           },
           {
-            "label": "Increase in Lactic Acid and drop in SVO2 to 40’s",
+            "label": "Increase in Lactic Acid and drop in SvO2 to 40s",
             "type": "list-comment",
             "class": "bullet hollow ml-1"
           },
@@ -11477,11 +11483,7 @@
             "checked": false
           },
           {
-            "label": "Using transesophageal echocardiography (TEE) or fluoroscopy guidance",
-            "checked": false
-          },
-          {
-            "label": "A long 0.035-inch Lunderquist (Cook Medical) or Amplatz (Boston Scientific) extra stiff wire is positioned within the right PA through the balloon catheter",
+            "label": "Using transesophageal echocardiography (TEE) or fluoroscopy guidance, a long 0.035-inch Lunderquist (Cook Medical) or Amplatz (Boston Scientific) extra stiff wire is positioned within the right PA through the balloon catheter",
             "checked": false
           },
           {
@@ -11592,12 +11594,12 @@
           },
           {
             "label": "Transesophageal echocardiography (TEE)",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet ml-0"
           },
           {
             "label": "TEE probe, machine, and certified provider available",
-            "type": "list-comment",
+            "checked": false,
             "class": "bullet hollow ml-1"
           },
           {
