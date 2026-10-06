@@ -11,6 +11,12 @@
     "isRootParent": true,
     "items": [
       {
+        "label": "ELSO Guidelines",
+        "branchTo": "ELSOBA_RES_160",
+        "link": "https://www.elso.org/ecmo-resources/elso-ecmo-guidelines.aspx",
+        "class": ""
+      }, 
+      {
         "label": "Accidental Decannulation Resources",
         "branchTo": "ELSOBA_RES_010",
         "class": ""
@@ -84,13 +90,7 @@
         "label": "PT/Ambulation on ECMO Resources",
         "branchTo": "ELSOBA_RES_150",
         "class": ""
-      },   
-      {
-        "label": "ELSO Guidelines",
-        "branchTo": "ELSOBA_RES_160",
-        "link": "https://www.elso.org/ecmo-resources/elso-ecmo-guidelines.aspx",
-        "class": ""
-      }   
+      }        
     ]
   },
   {

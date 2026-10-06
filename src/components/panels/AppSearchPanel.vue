@@ -48,14 +48,20 @@ interface ISearchDataItem {
 interface ISearchItemRender {
   id?: string;
   groupType: BaseListGroupType;
-  label?: string; 
+  label?: string;
+  subLabel?: string;
   type?: string;
   path?: string;
+  link?: string;
   data?: any;
 }
 type ISearchFlatDataItem = ISearchDataItem & { id?:string, groupType?: "GroupHeader" | "GroupItem" }
 
 const SEARCH_CHAR_MIN = 3;
+
+// ids look like ELSOBA_CHKLST_320; plain words never contain an underscore
+const isIdTerm = (term: string) => term.indexOf("_") > -1 || term.startsWith("elsoba");
+const isIdSearch = ref<boolean>(false);
 
 const app = inject<IApp>(APP_ID) as IApp;
 const timeoutInput = shallowRef<ReturnType<typeof setTimeout>>();
@@ -99,8 +105,15 @@ async function searchItems(term:string) {
   if (!__searchDataIsLoaded) await loadSearchData();
  
   timeoutSearch.value = setTimeout(() => {
+    const lowerTerm = term?.trim().toLowerCase();
+    isIdSearch.value = isIdTerm(lowerTerm);
+
     let filteredSearchData:Record<string, ISearchFlatDataItem> = {}
     for (let key in __internalSearchDataV2) {
+      if (isIdSearch.value) {
+        if (key.toLowerCase().indexOf(lowerTerm) > -1) filteredSearchData[key] = __internalSearchDataV2[key];
+        continue;
+      }
       if (!__internalSearchDataV2[key].data.hasOwnProperty("keywords")) continue;
       if (__internalSearchDataV2[key].data.keywords.indexOf(term?.toLowerCase()) > -1) {
         filteredSearchData[key] = __internalSearchDataV2[key];
@@ -118,10 +131,12 @@ const fetchResults = computed(() => {
     const routePath = item.groupType === "GroupItem" ? item.data?.path : ""
     return ({ 
       id: item.id, 
-      label: item.label, 
+      label: item.label,
+      subLabel: isIdSearch.value && item.groupType === "GroupItem" ? item.id : "",
       type: item.type,
       groupType: item.groupType,
       path: routePath,
+      link: item.data?.link,
     });
   })
   
@@ -164,7 +179,8 @@ function groupAndFlattenItemsByType(data:Record<string, ISearchFlatDataItem>) {
     result.push({ groupType: "GroupHeader", label: capitalizeFirstLetter(type), id: `${type}_${ts}_${countIdx}` });
     countIdx++;
     
-    sortItemsByProperty(sortedGroup[type] as ISearchFlatDataItem[], "title", "asc");
+    if (isIdSearch.value) sortedGroup[type].sort((a, b) => `${a.id}`.localeCompare(`${b.id}`, undefined, { numeric: true }));
+    else sortItemsByProperty(sortedGroup[type] as ISearchFlatDataItem[], "title", "asc");
 
     // Add Group Item Types
     sortedGroup[type].forEach(item => {
@@ -238,6 +254,12 @@ const panelStyles = computed(() => {
 })
 
 function goToSection(data:{ item: ISearchItemRender }) {
+  // same as the menu item: external links open outside the app
+  if (data.item.link) {
+    window.open(data.item.link, "_blank");
+    return;
+  }
+
   // console.log("goToSection")
   nextTick(() => {
     app.drawers.bottom.open = !app.drawers.bottom.open;
@@ -297,8 +319,10 @@ onMounted(() => {
         <BaseButton v-else
           :class="`variant-blue width-100`" 
           :innerClassName="`px-20 justify-between gapx-20`"
-          :bodyClassName="`text-left`"
+          :bodyClassName="`text-left flex-column gapx-8`"
+          :subLabelClassName="`search-id`"
           :label="data.item.label"
+          :subLabel="data.item.subLabel"
           :accessory-icon="UpRightArrowIcon"
           @triggered="() => goToSection(data as any)"
         />
@@ -346,6 +370,11 @@ onMounted(() => {
   &.fade-out {
     opacity: 0;
   }
+}
+:deep(.search-id) {
+  font-size: 12px;
+  opacity: 0.75;
+  word-break: break-all;
 }
 .group-header {
   font-size: 16px;

@@ -5,7 +5,7 @@
     "heading": "Medication",
     "class": "plr-1",
     "title": "",
-    "content": "Medications are organized by class. Choose a medication class to see medications and dosing guidance included within that category. <div class='note'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "Medications are organized by class. Choose a medication class to see medications and dosing guidance included within that category. <div class='note'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
@@ -97,7 +97,7 @@
         "class": "disabled"
       },      
       {
-        "label": "References",
+        "label": "Suggested Readings",
         "branchTo": "ELSOBA_MED_170",
         "class": ""
       }      
@@ -106,7 +106,7 @@
   {
     "id": "ELSOBA_MED_010",
     "title": "Anticoagulants",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
@@ -243,13 +243,18 @@
   {
     "id": "ELSOBA_MED_030",
     "title": "Antimicrobials",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
     "items": [
+      {
+        "label": "Antimicrobial physicochemical and pharmacokinetic characteristics",
+        "content": "Antimicrobial physicochemical and pharmacokinetic characteristics",
+        "branchTo": "ELSOBA_MED_030__TABLE__1"
+      },
       {
         "label": "Amikacin",
         "content": "Amikacin",
@@ -471,13 +476,8 @@
         "branchTo": "ELSOBA_MED_030__44"
       },
       {
-        "label": "Antimicrobial physicochemical and pharmacokinetic characteristics",
-        "content": "Antimicrobial physicochemical and pharmacokinetic characteristics",
-        "branchTo": "ELSOBA_MED_030__TABLE__1"
-      },
-      {
-        "label": "Resources",
-        "content": "Resources",
+        "label": "Suggested Readings",
+        "content": "Suggested Readings",
         "branchTo": "ELSOBA_MED_030__RESOURCES"
       }
     ]
@@ -934,7 +934,7 @@
   },
   {
     "id": "ELSOBA_MED_030__RESOURCES",
-    "title": "Resources",
+    "title": "Suggested Readings",
     "content": "medications/ELSOBA_MED_030/ELSOBA_MED_030__RESOURCES.html",
     "layout": "default",
     "useScroll": true,
@@ -947,13 +947,18 @@
   {
     "id": "ELSOBA_MED_050",
     "title": "Anti-seizure",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
     "items": [
+      {
+        "label": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
+        "content": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
+        "branchTo": "ELSOBA_MED_050__TABLE__1"
+      },
       {
         "label": "Brivaracetam",
         "content": "Brivaracetam",
@@ -1003,12 +1008,7 @@
         "label": "Valproate",
         "content": "Valproate",
         "branchTo": "ELSOBA_MED_050__10"
-      },
-      {
-        "label": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
-        "content": "Intravenous Antiseizure Agents Physicochemical and Pharmacokinetic Characteristics",
-        "branchTo": "ELSOBA_MED_050__TABLE__1"
-      }
+      }      
     ]
   },
   {
@@ -1126,7 +1126,7 @@
   {
     "id": "ELSOBA_MED_070",
     "title": "Blood Products",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
@@ -1265,7 +1265,7 @@
   {
     "id": "ELSOBA_MED_075",
     "title": "Hemostatic Agents",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
@@ -1340,13 +1340,18 @@
   {
     "id": "ELSOBA_MED_100",
     "title": "Neuromuscular Blocking Agents",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
     "items": [
+      {
+        "label": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
+        "content": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
+        "branchTo": "ELSOBA_MED_100__TABLE__1"
+      },
       {
         "label": "Atracurium",
         "content": "Atracurium",
@@ -1376,12 +1381,7 @@
         "label": "Vecuronium",
         "content": "Vecuronium",
         "branchTo": "ELSOBA_MED_100__6"
-      },
-      {
-        "label": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
-        "content": "Intravenous Neuromuscular Blocking Agents Physicochemical and Pharmacokinetic Characteristics",
-        "branchTo": "ELSOBA_MED_100__TABLE__1"
-      }
+      }      
     ]
   },
   {
@@ -1460,7 +1460,7 @@
     "id": "ELSOBA_MED_110",
     "title": "Opioids",
     "class": "plr-1",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a>",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
@@ -1561,13 +1561,18 @@
   {
     "id": "ELSOBA_MED_120",
     "title": "Pulmonary Vasodilators, Parenteral",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a></div>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a></div>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
     "showFavorites": true,
     "branchTo": "",
     "items": [
+      {
+        "label": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
+        "content": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
+        "branchTo": "ELSOBA_MED_120__TABLE__1"
+      },
       {
         "label": "Alprostadil",
         "content": "Alprostadil",
@@ -1587,12 +1592,7 @@
         "label": "Treprostinil",
         "content": "Treprostinil",
         "branchTo": "ELSOBA_MED_120__4"
-      },
-      {
-        "label": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
-        "content": "Intravenous Pulmonary Vasodilators Physicochemical and Pharmacokinetic Characteristics",
-        "branchTo": "ELSOBA_MED_120__TABLE__1"
-      }
+      }      
     ]
   },
   {
@@ -1650,7 +1650,7 @@
   {
     "id": "ELSOBA_MED_130",
     "title": "Sedatives",
-    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication References.</a>",
+    "content": "<div class='note note-heading'>For additional information on medications, visit the <a class='' href='#' data-link='MEDICATIONS##ELSOBA_MED_170' target='_self'>Medication Suggested Readings.</a>",
     "class": "plr-1",
     "layout": "list",
     "useScroll": true,
@@ -1736,7 +1736,7 @@
   },
   {
     "id": "ELSOBA_MED_170",
-    "title": "References",
+    "title": "Suggested Readings",
     "content": "medications/ELSOBA_MED_170/ELSOBA_MED_170.html",
     "layout": "default",
     "useScroll": true,

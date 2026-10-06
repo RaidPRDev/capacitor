@@ -305,7 +305,8 @@ function processItemLabel(item:any) {
               updateCheckData(data.item, !toggled);
             }
           }"
-          :triggerCallback="() => {
+          :triggerCallback="({ e }: { e: Event }) => {
+            if ((e?.target as HTMLElement)?.closest?.('a')) return;
             const toggled = (data.item as BranchViewData).checked;
             updateCheckData(data.item, toggled);
           }"
@@ -473,12 +474,13 @@ function processItemLabel(item:any) {
         padding-left: 4rem;
       }
 
+      // links in checkbox rows too; the row's triggerCallback skips them
+      a {
+        pointer-events: all;
+      }
+
       &.no-checkbox, &.comment, &.list-comment {
         pointer-events: none;
-
-        a {
-          pointer-events: all;
-        }
 
         // inline figures: tappable for zoom, never wider than the row
         img {

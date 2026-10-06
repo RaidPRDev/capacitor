@@ -86,6 +86,7 @@ export async function startJSONCompiler() {
   for (let i = 0; i < DATA.length; i++) {
     await compileJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);  
     await compileSearchJSONData(`${DATA[i]}`, DATA_PATH, COMPILED_DATA_PATH);
+    await compileIdSearchJSONData(`${DATA[i]}`, DATA_PATH);
   }
 
   // write search json
@@ -456,6 +457,77 @@ export async function compileSearchJSONData(file: string, sourcePath: string = "
   // await fs.writeFile(`${targetPath}/${file}_compiled.json`, JSON.stringify(parsedData, null, 0), 'utf8');
 
   return parsedData;
+}
+
+// Index every screen reachable from the section root by id only (no keywords), so search can look up any id.
+export async function compileIdSearchJSONData(file: string, sourcePath: string = "") {
+  const data = await fs.readFile(`${sourcePath}/${file}.json`, 'utf8');
+  const views: BranchViewData[] = JSON.parse(data);
+  if (!views.length) return;
+
+  const byId = new Map(views.map((view) => [`${view.id}`, view]));
+  const isDisabled = (item: any) => `${item?.class ?? ""}`.indexOf("disabled") > -1;
+
+  // branchTo targets plus the data-id buttons inside a view's html content
+  const linksOf = (view: BranchViewData) => {
+    const links: string[] = [];
+    const walk = (node: any) => {
+      if (Array.isArray(node)) return node.forEach(walk);
+      if (!node || typeof node !== "object" || isDisabled(node)) return;
+      for (const key in node) {
+        const value = node[key];
+        if (key === "branchTo" && typeof value === "string") links.push(value);
+        else if (key === "content" && typeof value === "string" && value.endsWith(".html")) {
+          const htmlFile = `${sourcePath}/html/${value}`;
+          if (!fsSync.existsSync(htmlFile)) continue;
+          for (const match of fsSync.readFileSync(htmlFile, "utf8").matchAll(/"data-id"\s*:\s*"([^"]+)"/g)) links.push(match[1]);
+        }
+        else if (typeof value === "object") walk(value);
+      }
+    }
+    walk(view);
+    return links;
+  }
+
+  // breadth-first, so each screen gets its shortest path from the root
+  const rootId = `${views[0].id}`;
+  const parents = new Map<string, string | null>([[rootId, null]]);
+  const queue = [rootId];
+  while (queue.length) {
+    const view = byId.get(queue.shift()!)!;
+    if (isDisabled(view)) continue;
+    for (const link of linksOf(view)) {
+      if (!byId.has(link) || parents.has(link) || isDisabled(byId.get(link))) continue;
+      parents.set(link, `${view.id}`);
+      queue.push(link);
+    }
+  }
+
+  const indexed = new Set(searchData.map((item) => item.id));
+  const pathOf = (id: string) => {
+    const chain: string[] = [];
+    for (let current: string | null | undefined = id; current && current !== rootId; current = parents.get(current)) chain.unshift(current);
+    return [file, ...chain].join("/");
+  }
+
+  parents.forEach((_, id) => {
+    const view = byId.get(id)!;
+
+    // menu items that open an external link rather than a screen of their own
+    if (!isDisabled(view)) view.items?.forEach((item: any) => {
+      if (!item?.link || !item.branchTo || byId.has(item.branchTo) || indexed.has(item.branchTo) || isDisabled(item)) return;
+      indexed.add(item.branchTo);
+      searchData.push({ category: file, id: item.branchTo, title: item.label || item.branchTo, path: pathOf(id), link: item.link });
+    })
+
+    if (indexed.has(id)) return;
+    searchData.push({
+      category: file,
+      id,
+      title: view.title || view.heading || id,
+      path: pathOf(id),
+    })
+  })
 }
 
 function iterateArray(arr:Array<any> = [], parent: Record<string, any> | null = null, callback?:Function) {

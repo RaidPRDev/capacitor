@@ -242,6 +242,7 @@ export interface ISearchData {
   category: string;
   id: string;
   title: string;
-  keywords: string;
+  keywords?: string;
   path: string;
+  link?: string;
 }

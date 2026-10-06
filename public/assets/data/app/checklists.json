@@ -814,7 +814,7 @@
         ]
       },
       {
-        "label": "Signs of Accidental Decannulation",
+        "label": "<span class='primary-red'>⚠</span> Signs of Accidental Decannulation",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -856,7 +856,7 @@
             "checked": false
           },
           {
-            "label": "If this is the case, update the ELSO registry",
+            "label": "If this is the case, update the ELSO Registry",
             "checked": false
           }
         ]
@@ -884,7 +884,7 @@
         "branchTo": "ELSOBA_CHKLST_020-2"
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_020-3"
       }
@@ -1466,7 +1466,7 @@
   },
   {
     "id": "ELSOBA_CHKLST_020-3",
-    "title": "References",
+    "title": "Suggested Readings",
     "content": "checklists/ELSOBA_CHKLST_020/ELSOBA_CHKLST_020-3.html",
     "layout": "default",
     "useScroll": true,
@@ -4439,7 +4439,7 @@
         "branchTo": "ELSOBA_CHKLST_110-2"
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_110-3"
       }
@@ -5080,7 +5080,7 @@
             "checked": false
           },
           {
-            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to <a href='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' data-link='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' target='_blank'>Identification and management of recirculation in venovenous ECMO</a> for more information..",
+            "label": "Excessive recirculation? Reposition or change drainage strategy. Refer to <a href='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' data-link='https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf' target='_blank'>Identification and management of recirculation in venovenous ECMO</a> for more information.",
             "checked": false
           },
           {
@@ -5088,7 +5088,7 @@
             "checked": false
           },
           {
-            "label": "<b>LV overload? Escalate LV unloading pathway.</b> Refer to Monitoring and Managing LV Distension on VA ECMO Algorithm.",
+            "label": "<b>LV overload? Escalate LV unloading pathway.</b>",
             "checked": false
           },
           {
@@ -6086,7 +6086,7 @@
   },
   {
     "id": "ELSOBA_CHKLST_110-3",
-    "title": "References",
+    "title": "Suggested Reading",
     "content": "",
     "layout": "checklist",
     "keywords": "References; CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE; CONVERSION",
@@ -7955,7 +7955,7 @@
         ]
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -8527,7 +8527,7 @@
   {
     "id": "ELSOBA_CHKLST_165",
     "title": "Mobile ECMO",
-    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources.",
+    "content": "This checklist should be adapted to align with institutional policies, specific patient conditions, and available resources. For additional guidance, refer to the <a href='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001653~extracorporeal-life-support-organization-guideline-for' data-link='https://www.ovid.com/jnls/asaiojournal/fulltext/10.1097/mat.0000000000001653~extracorporeal-life-support-organization-guideline-for' target='_blank'>ELSO Transport Guidelines</a>.",
     "layout": "checklist",
     "keywords": "MOBILE; ECMO; MOBILE ECMO; POST-TRANSPORT; PRE-TRANSPORT; EQUIPMENT; TRANSPORTATION; TRANSPORT",
     "showFavorites": true,
@@ -8540,7 +8540,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "List type of ECMO referral",
+            "label": "List type of ECMO referral (e.g., VA, VV, VP, hybrid)",
             "checked": false
           },
           {
@@ -8548,7 +8548,7 @@
             "checked": false
           },
           {
-            "label": "Determine mode of transport",
+            "label": "Determine mode of transport (e.g., ground, air (fixed or rotary wing))",
             "checked": false
           }
         ]
@@ -8600,11 +8600,11 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Have right radial arterial line (preferred; avoid groin if able)",
+            "label": "Have right radial arterial line (preferred;)",
             "checked": false
           },
           {
-            "label": "Have central line (avoid groin if able)",
+            "label": "Have central line",
             "checked": false
           },
           {
@@ -8612,7 +8612,7 @@
             "checked": false
           },
           {
-            "label": "Perform pregnancy test if not completed this admission",
+            "label": "Perform pregnancy test if indicated and if consent is available from the awake patient",
             "checked": false
           },
           {
@@ -8670,6 +8670,13 @@
                 "checked": false
               }
             ]
+          },
+          {
+            "label": "Parent/guardian/proxy available to speak with ECMO team",
+            "checked": false,
+            "type": "subchecklist",
+            "layout": "checklist",
+            "items": []
           }
         ]
       },
@@ -8716,11 +8723,7 @@
             "checked": false
           },
           {
-            "label": "ELSO Mobile",
-            "checked": false
-          },
-          {
-            "label": "Suction unit/canister/tubing/yanker",
+            "label": "Suction unit/canister/tubing/yankauer",
             "checked": false
           },
           {
@@ -8763,6 +8766,14 @@
               },
               {
                 "label": "Power cord",
+                "checked": false
+              },
+              {
+                "label": "Electrodes",
+                "checked": false
+              },
+              {
+                "label": "Oximeter probe",
                 "checked": false
               }
             ]
@@ -9139,7 +9150,11 @@
                 "checked": false
               },
               {
-                "label": "If abnormal CUS, consider head CT (CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
+                "label": "If abnormal CUS, consider head CT",
+                "checked": false
+              },
+              {
+                "label": "(CUS has low specificity for hemorrhage/ischemic changes, may miss bleeds in certain areas of the brain)",
                 "type": "comment",
                 "class": "note"
               }
@@ -9196,7 +9211,7 @@
             "type": "subchecklist",
             "items": [
               {
-                "label": "23–32% of patients getting head CT will require intervention (change in management, neurosurgical intervention, withdrawal of care)",
+                "label": "23–32% of patients getting head CT will require intervention (change in management, neurosurgical intervention, withdrawal of supportive therapies)",
                 "checked": false
               }
             ]
@@ -9432,7 +9447,7 @@
         ]
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -11615,7 +11630,7 @@
         ]
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -11696,7 +11711,7 @@
             "type": "subchecklist",
             "items": [
               {
-                "label": "Acceptable SpO2 (> 88-92%)",
+                "label": "Acceptable SpO2 (> 88–92%)",
                 "checked": false
               }
             ]
@@ -11882,7 +11897,15 @@
               {
                 "label": "VO<sub>2</sub>/demand (fever, sepsis, agitation)",
                 "checked": false
-              },
+              }
+            ]
+          },
+          {
+            "label": "VO2/demand (fever, sepsis, agitation)",
+            "class": "list-section",
+            "layout": "checklist",
+            "type": "subchecklist",
+            "items": [
               {
                 "label": "Anemia",
                 "checked": false
@@ -12052,7 +12075,7 @@
         ]
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -12117,7 +12140,7 @@
             "class": "bullet ml-0"
           },
           {
-            "label": "A single specialized dual-lumen cannula (ProtekDuo, Spectrum Medical)",
+            "label": "A single specialized dual-lumen VP ECMO cannula",
             "type": "list-comment",
             "class": "bullet hollow ml-1"
           },
@@ -12171,17 +12194,17 @@
             "checked": false
           },
           {
-            "label": "Start 2 phased weaning process",
+            "label": "Start two-phased weaning process",
             "checked": false,
             "type": "subchecklist",
             "layout": "checklist",
             "items": [
               {
-                "label": "1st wean respiratory support",
+                "label": "Phase 1: wean respiratory support",
                 "checked": false
               },
               {
-                "label": "2nd wean RV support",
+                "label": "Phase 1: wean RV support",
                 "checked": false
               }
             ]
@@ -12211,7 +12234,7 @@
             "checked": false
           },
           {
-            "label": "Decrease sweep gas oxygen inlet oxygen fraction (FSO<sub>2</sub>) by 0.10 increments approximately every six hours.",
+            "label": "Decrease sweep gas oxygen inlet oxygen fraction (F<sub>s</sub>O<sub>2</sub>) by 10% increments approximately every six hours.",
             "checked": false
           },
           {
@@ -12231,7 +12254,7 @@
             "checked": false
           },
           {
-            "label": "Once the SGF is 1 L/min and the FSO2 is 0.21, and the patient has maintained target respiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
+            "label": "Once the SGF is 1 L/min and the FSO2 is 21%, and the patient has maintained target respiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
             "checked": false
           },
           {
@@ -12279,11 +12302,11 @@
             "checked": false
           },
           {
-            "label": "If mean arterial pressure (MAP) > 75 mmHg, start milrinone (0.125–0.5 mcg/kg/min)",
+            "label": "If mean arterial pressure (MAP) > 75 mmHg, consider milrinone (0.125–0.5 mcg/kg/min)",
             "checked": false
           },
           {
-            "label": "If mean arterial pressure (MAP) < 65 mmHg, start epinephrine (0.01–0.05 mcg/kg/min)",
+            "label": "If mean arterial pressure (MAP) < 65 mmHg, consider epinephrine (0.01–0.05 mcg/kg/min)",
             "checked": false
           },
           {
@@ -12489,7 +12512,7 @@
         ]
       },
       {
-        "label": "References",
+        "label": "Suggested Reading",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",

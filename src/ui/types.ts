@@ -150,6 +150,7 @@ export interface IBaseListItemData {
   type?: string;
   groupType?: BaseListGroupType;
   label?: string;
+  subLabel?: string;
   class?: string;
   icon?: any;
   iconProps?: any;
