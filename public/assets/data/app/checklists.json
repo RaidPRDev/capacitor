@@ -844,7 +844,7 @@
             "checked": false
           },
           {
-            "label": "Report any dressing replacement—if performed—by specifying the type",
+            "label": "Report any dressing replacement— if performed— by specifying the type",
             "checked": false
           },
           {
@@ -6045,7 +6045,7 @@
             "checked": false
           },
           {
-            "label": "Hemolysis?vAssess pump and oxygenator. Consider component change.",
+            "label": "Hemolysis? Assess pump and oxygenator. Consider component change.",
             "checked": false
           },
           {
@@ -8600,7 +8600,7 @@
         "type": "subchecklist",
         "items": [
           {
-            "label": "Have right radial arterial line (preferred;)",
+            "label": "Have right radial arterial line (preferred)",
             "checked": false
           },
           {
