@@ -367,12 +367,12 @@
       {
         "label": "Pre-Cannulation",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_225"
+        "branchTo": "ELSOBA_CHKLST_FLOW_225"
       },  
       {
         "label": "Switch Mode",
         "class": "",
-        "branchTo": "ELSOBA_CHKLST_270"
+        "branchTo": "ELSOBA_CHKLST_FLOW_270"
       },
       {
         "label": "Venopulmonary (VP) ECMO Initiation",
@@ -808,7 +808,7 @@
             "checked": false
           },
           {
-            "label": "If there is a purulent discharge, consider need",
+            "label": "If there is a purulent discharge, culture, consider antimicrobials, and consider physical treatment such as change in cannulation site, surgical exploration or negative/pressure wound therapy",
             "checked": false
           }
         ]
@@ -884,7 +884,7 @@
         "branchTo": "ELSOBA_CHKLST_020-2"
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_020-3"
       }
@@ -3049,15 +3049,14 @@
                 "class": "note"
               },
               { 
-                "label": "Search for alternative causes for thrombocytopenia", 
-                "type": "list-comment", 
-                "class": "bullet ml-0" 
+                "label": "Search for alternative causes for thrombocytopenia, including but not limited to:",
+                "type": "list-comment",
+                "class": "bullet ml-0"
               },
-              { 
-                "label": "Drugs, consumptive coagulopathy (check for signs of membrane clotting!), virus infection (e.g., CMV), etc.", 
-                "type": "list-comment", 
-                "class": "bullet hollow ml-1 end-list-1" 
-              }
+              { "label": "Drugs", "type": "list-comment", "class": "bullet hollow ml-1" },
+              { "label": "Consumptive coagulopathy (check for signs of membrane clotting!)", "type": "list-comment", "class": "bullet hollow ml-1" },
+              { "label": "Virus infection (e.g., CMV)", "type": "list-comment", "class": "bullet hollow ml-1" },
+              { "label": "Filters (HF, hemadsorption, RRT)", "type": "list-comment", "class": "bullet hollow ml-1 end-list-1" }
             ]
           }
         ]
@@ -3176,666 +3175,702 @@
   
   
   {
-    "id": "ELSOBA_CHKLST_225",
+    "id": "ELSOBA_CHKLST_FLOW_225",
+    "showTitle": false,
+    "useScroll": true,
+    "showFavorites": true,
     "title": "Pre-Cannulation",
-    "content": "Reference this checklist before cannulating a patient for ECMO.",
-    "layout": "checklist",
-    "keywords": "Cannulation; Percutaneous; Procedure; Pre-cannulation; Steps; Intent; Approach; Sequence; Guidewires; Cannulas; Time Out; Intended Approach; Anticoagulation Bolus",
-    "doc": "",
-    "showFavorites": true,
-    "useScroll": true, 
-    "items": [
-      {
-        "label": "Is the patient an ECMO Candidate?",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Confirmed", "checked": false },
-          { "label": "Not confirmed", "checked": false }
-        ]
-      },
-      {
-        "label": "Absolute Contraindications",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "DNR order for ECPR", "checked": false },
-          { "label": "Severe aortic regurgitation for VA", "checked": false },
-          { "label": "Established severe multiorgan failure/Futility", "checked": false },
-          { "label": "Hopeless neurological prognosis", "checked": false }
-        ]
-      },
-      {
-        "label": "Intent",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Bridge to Recovery", "checked": false },
-          { "label": "Bridge to Decision", "checked": false },
-          { "label": "Bridge to Investigation", "checked": false },
-          { "label": "Bridge to Device", "checked": false },
-          { "label": "Bridge to Transplant", "checked": false }
-        ]
-      },   
-      {
-        "label": "Intended Mode",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "VV ECMO", "checked": false },
-          { "label": "VA ECMO", "checked": false },
-          { "label": "VP ECMO", "checked": false },
-          { "label": "Hybrid", "checked": false }
-        ]
-      },   
-      {
-        "label": "Intended Approach",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Are there any known blocked vessels?", "checked": false },
-          { "label": "Bailout plan if primary site fails.", "checked": false },
-          { "label": "Neck", "checked": false },
-          { "label": "Groin", "checked": false },
-          { "label": "Transthoracic", "checked": false }
-        ]        
-      },
-      {
-        "label": "Target Maximum Flow",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { 
-            "label": "What is the patient’s weight?",
-            "checked": false,
-            "layout": "checklist",
-            "type": "subchecklist",
-            "items": [
-              { "label": "80 mL/kg/min (adult)", "checked": false },
-              { "label": "120 mL/kg/min (neonate/pediatric)", "checked": false },
-              { "label": "200 mL/kg/min (shunted single ventricle or sepsis)", "checked": false }
-            ]          
-          }          
-        ]        
-      },
-      {
-        "label": "Circuit",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Venous line diameter", "checked": false },
-          { "label": "Pump maximum flow", "checked": false },
-          { "label": "Membrane lung size and rated flow", "checked": false },
-          { "label": "Arterial line size", "checked": false },
-          { "label": "Priming volume (Clear/Blood)", "checked": false }
-        ]        
-      },
-      {
-        "label": "Check cannulas",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Check vessel size against cannula size charts and maximum flow rate", "checked": false },
-          { "label": "Bring 2x intended cannulas, guidewires connected and one size larger and smaller", "checked": false }
-        ]        
-      },
-      {
-        "label": "Check cannulas",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Check guidewire size and length versus access to be wired out and cannula to be inserted", "checked": false },
-          { 
-            "label": "Check connectors versus circuit tubing diameter", 
-            "checked": false,
-            "layout": "checklist",
-            "type": "subchecklist",
-            "items": [
-              { "label": "0.025\" for ¼\" cannulas", "checked": false },
-              { "label": "0.035\" for 3/8\" cannulas", "checked": false }
-            ]     
-          }
-        ]        
-      },
-      {
-        "label": "Confirm consent",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Yes", "checked": false },
-          { "label": "No", "checked": false }
-        ]        
-      },
-      {
-        "label": "Anticoagulation Bolus",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Medication", "checked": false },
-          { "label": "Dose", "checked": false },
-          { "label": "Timing", "checked": false }
-        ]        
-      },
-      {
-        "label": "IV Access for procedure separate from lines to be guidewire exchanged",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Medication", "checked": false },
-          { "label": "Dose", "checked": false },
-          { "label": "Timing", "checked": false }
-        ]        
-      },
-      {
-        "label": "Position the patient",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Is the Bovie pad needed/on?", "checked": false }
-        ]        
-      },
-      {
-        "label": "Imaging",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Ultrasound", "checked": false },
-          { 
-            "label": "X-ray screening", 
-            "checked": false,
-            "layout": "checklist",
-            "type": "subchecklist",
-            "items": [
-              { "label": "Is the bed x-ray compatible?", "checked": false },
-              { "label": "Lead aprons", "checked": false },
-              { "label": "Radiation safety of surrounding area", "checked": false }
-            ]
-          }
-        ]        
-      },
-      {
-        "label": "Sequence",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Placing access then full re-prep", "checked": false },
-          { "label": "Full Prep first (makes pivoting to new site more difficult)", "checked": false }
-        ]        
-      },
-      {
-        "label": "Time out",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Patient", "checked": false },
-          { "label": "Consent", "checked": false },
-          { "label": "Mode", "checked": false },
-          { "label": "Vessels", "checked": false },
-          { "label": "Prime (Clear or Blood: what is prime potassium if blood)", "checked": false },
-          { "label": "Initial flow and sweep (CO2 bleed in plan)", "checked": false },
-          { "label": "Initial plan for ventilation", "checked": false }
-        ]        
-      },
-      {
-        "label": "Prep and Drape",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Neck", "checked": false },
-          { "label": "Groin", "checked": false },
-          { "label": "Chest", "checked": false }
-        ]        
-      },
-      {
-        "label": "Pause to ensure team readiness and agreement",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          { "label": "Confirmed", "checked": false },
-          { "label": "Not confirmed", "checked": false }
-        ]        
-      }
-    ]
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225.html",
+    "keywords": "Cannulation; Percutaneous; Procedure; Pre-cannulation; Steps; Intent; Approach; Sequence; Guidewires; Cannulas; Time Out; Intended Approach; Anticoagulation Bolus; Algorithm; Candidacy; Contraindications; Strategy; Equipment; Preparation; Target flow",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_225__2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Phase 1: Candidacy",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225__2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_225__3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Do Not Cannulate",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225__3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_225__4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Phase 2: Strategy",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225__4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_225__5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Phase 3: Equipment",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225__5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_225__6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Phase 4: Preparation",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225__6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_FLOW_225__7",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Phase 5: Procedure",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_225/ELSOBA_CHKLST_FLOW_225__7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
   },
 
 
-
-
   {
-    "id": "ELSOBA_CHKLST_270",
+    "id": "ELSOBA_CHKLST_FLOW_270",
+    "showTitle": false,
+    "useScroll": true,
+    "showFavorites": true,
     "title": "Switch Mode",
-    "content": "",
-    "layout": "list",
-    "keywords": "",
-    "doc": "",
-    "showFavorites": true,
-    "useScroll": true, 
-    "items": [
-      {
-        "label": "Switch from CPB to VA ECMO",
-        "branchTo": "ELSOBA_CHKLST_270-10",
-        "class": ""
-      },
-      {
-        "label": "Switch from VA ECMO to CPB",
-        "branchTo": "ELSOBA_CHKLST_270-20",
-        "class": ""
-      },
-      {
-        "label": "Switch from VV ECMO to CPB",
-        "branchTo": "ELSOBA_CHKLST_270-30",
-        "class": ""
-      }
-    ]
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_FLOW_270.html",
+    "keywords": "CPB; ECMO; Procedure; Cardiopulmonary bypass; Central CPB; Peripheral CPB; Central VA ECMO; Peripheral VA ECMO; VA ECMO; VV ECMO; Postcardiotomy ECMO; Switch; Switch mode; Algorithm",
+    "layout": "html",
+    "branchTo": "",
+    "__branchTo": "",
+    "items": []
   },
   {
-    "id": "ELSOBA_CHKLST_270-10",
-    "title": "Switch from CPB to VA ECMO",
-    "content": "Use this checklist when you need to switch from Cardiopulmonary Bypass (CPB) to VA ECMO. This is designed to initiate postcardiotomy ECMO in a patient that cannot wean from cardiopulmonary bypass after a cardiothoracic intervention.",
-    "layout": "checklist",
-    "keywords": "CPB;  ECMO; Procedure; Central CPB; Peripheral CPB; Central VA ECMO; Peripheral VA ECMO; VA ECMO; switch; switch mode",
-    "doc": "",
-    "showFavorites": true,
-    "useScroll": true, 
-    "items": [
-      {
-        "layout": "checklist",
-        "type": "subchecklist",
-        "label": "Switching from central CPB to central VA ECMO OR from peripheral CPB to peripheral VA ECMO",
-        "items": [
-          { "label": "Identify the roles and responsibilities with ECLS team members.", "checked": false },
-          { 
-            "label": "Bring the ECMO system and circuit of choice to the operating room.", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "Assemble and prime the ECMO system of choice.", "checked": false },
-              { "label": "<b>OR</b>", "type": "comment", "class": "" },
-              { "label": "Use the first expiring pre-assembled and/or primed circuit available (according to Institution protocol).", "checked": false }
-            ] 
-          },
-          { "label": "Connect the ECMO gas blender to the gas source.", "checked": false },
-          { "label": "Connect the ECMO membrane lung (ML) to the Heater unit/Heater-Cooler unit and normalize the temperature according to the patient's needs.", "checked": false },
-          { "label": "Prepare the required straight connectors for drainage and return line, according to cardiopulmonary bypass (CPB) and ECMO circuit tubing sizes.", "checked": false },
-
-          { "label": "Possible configuration for the adults, small adults, and older (larger) children:", "type": "comment", "class": "" },
-          { "label": "½ - ⅜  connector for venous line if a ½ venous line was used during the CPB.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "⅜ - ⅜ connector for venous line if a ⅜ venous line was used during.", "type": "list-comment", "class": "bullet ml-0" },
-          { "label": "⅜ - ⅜ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-
-          { "label": "Possible configuration for pediatric patients:", "type": "comment", "class": "" },
-          { "label": "⅜ - ¼ connector for venous line if a ⅜ venous line was used during the CPB.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "¼ - ¼ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-          { "label": "Possible configuration for infants:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connectors for venous and arterial lines.", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-          
-          { "label": "Possible configuration for neonates:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connector for venous line.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "3/16 - ¼ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-          { "label": "Consider pre-oxygenating the patient increasing FsO2 to 100% to compensate for the temporary pump stop.", "checked": false },
-          { "label": "Place the sterile portion of the ECMO lines in the sterile field keeping two clamps on the non-sterile portions.", "checked": false },
-          { "label": "Clamp the drainage/return ECMO lines where required according to desired tubing length and cut as needed.", "checked": false },
-          { "label": "Insert the required straight connectors on the drainage/return ECMO lines.", "checked": false },
-          { "label": "The lead surgeon asks the perfusionist for a CPB pump STOP.", "checked": false },
-          { "label": "The perfusionist stops the CPB pump and verbally confirms.", "checked": false },
-          { "label": "Clamp the venous and arterial CPB lines close to the cannula.", "checked": false },
-          { "label": "Place another clamp at 10-15 cm and cut between the two clamps.", "checked": false },
-          { "label": "Connect the drainage/return ECMO lines using an air-free technique.", "checked": false },
-          { "label": "Verify that no air is present.", "checked": false },
-          { "label": "Unclamp the ECMO lines and ask the perfusionist to START the ECMO pump.", "checked": false },
-          { "label": "Remove the clamp on the ECMO drainage line, start the ECMO pump and when safe, remove the clamp on the return side and Confirm ECMO ON.", "checked": false },
-          { "label": "Restart the Sweep Gas Flow.", "checked": false },
-          { "label": "Verify that the target extracorporeal blood flow (EBF) is achieved.", "checked": false },
-          { "label": "Adjust the ECMO gas blender settings as necessary.", "checked": false },
-          { "label": "Adjust the Heater Unit/Heater-Cooler Unit water temperature as necessary.", "checked": false },
-          { "label": "Consider processing the blood inside the CPB circuit through a cell saver device to conserve blood loss.", "checked": false },
-          { "label": "DO NOT reverse anticoagulation.", "checked": false },
-          { "label": "Carefully monitor ACT without administering an additional dose until in range for ECMO (according to Institutional protocol).", "checked": false },
-          { "label": "Switch to the anticoagulation management/monitoring strategy adapted to the patient's characteristics and according to Institutional protocol.", "checked": false },
-          { "label": "Dress the insertion sites and adjust the tubing to meet the desired configuration.", "checked": false },
-          { "label": "When ready, move the patient to the ICU or desired location.", "checked": false }
-        ]
-      },
-      {
-        "layout": "checklist",
-        "type": "subchecklist",
-        "label": "Switching from central CPB to peripheral VA ECMO",
-        "items": [
-          { "label": "Identify the roles and responsibilities with ECLS team members.", "checked": false },
-          { 
-            "label": "Bring ECMO system and circuit of choice to the operating room.", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "Assemble and prime the ECMO system of choice.", "checked": false },
-              { "label": "<b>OR</b>", "type": "comment", "class": "" },
-              { "label": "Use the first expiring pre-assembled/primed circuit available, according to Institution protocol.", "checked": false }
-            ] 
-          },
-          { "label": "Connect the ECMO gas blender to the gas source.", "checked": false },
-          { "label": "Connect the ECMO ML to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "checked": false },
-          { "label": "Prepare the required straight connectors for drainage and return line, according to CPB and  ECMO circuit tubing sizes.", "checked": false },
-
-          { "label": "Possible configuration for the adult/small adult/older (larger) children:", "type": "comment", "class": "" },
-          { "label": "½ - ⅜ connector for venous line if a ½ venous line was used during the CPB", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "<b>OR</b>", "type": "comment", "class": "" },
-          { "label": "⅜ - ⅜ connector for venous line if a ⅜ venous line was used during.", "type": "list-comment", "class": "bullet ml-0" },
-          { "label": "⅜ - ⅜ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-          { "label": "Possible configuration for pediatric patients: ", "type": "comment", "class": "" },
-          { "label": "⅜ - ¼ connector for venous line if a ⅜ venous line was used during the CPB.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "¼ - ¼ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-          { "label": "Possible configuration for infants:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connectors for venous and arterial lines. ", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-          
-          { "label": "Possible configuration for neonates:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connector for venous line.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "3/16 - ¼ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-          
-          { "label": "Place the sterile portion of the ECMO lines in the sterile field keeping two clamps on the non-sterile portions.", "class": "", "checked": false },
-          { "label": "Clamp the drainage/return ECMO lines where required according to desired tubing length and cut as needed.", "class": "", "checked": false },
-          { "label": "Insert the required straight connectors on the drainage/return ECMO lines.", "class": "", "checked": false },
-          { "label": "Select the cannulae according to the patient's characteristics, expected insertion sites, and target extracorporeal blood flow (EBF). Refer to the Cannulas for additional information and specifications.", "class": "", "checked": false },
-          { 
-            "label": "Refer to <a class='' href='#' data-link='EQUIPMENT##ELSOBA_EQUIP_010' target='_self'>Cannulas</a>", 
-            "type": "comment",
-            "class": "note"
-          },
-          { "label": "Bring the cannulas to the sterile field.", "class": "", "checked": false },
-          { "label": "Expose the target insertion sites, providing antiseptic solution (according to Institution protocol).", "class": "", "checked": false },
-          { "label": "Insert the drainage and return cannulas.", "class": "", "checked": false },
-          { "label": "Consider inserting a distal perfusion cannula and connect it to the return cannula.", "class": "", "checked": false },
-          { "label": "Once ready, connect the ECMO circuit to the peripheral cannulas using an air-free technique.", "class": "", "checked": false },
-          { "label": "Verify that no air is present in the circuit.", "class": "", "checked": false },
-          { "label": "Gradually start ECMO flow and sweep gas flow and gradually wean from CPB, providing consistent oxygen delivery throughout the procedure.", "class": "", "checked": false },
-          { "label": "Verify that target EBF is achieved.", "class": "", "checked": false },
-          { "label": "Adjust ECMO gas blender settings as necessary.", "class": "", "checked": false },
-          { "label": "Adjust Heater Unit/Heater-Cooler Unit water temperature as necessary.", "class": "", "checked": false },
-          { "label": "Once able to provide full ECMO EBF, clamp CPB lines and stop the pump.", "class": "", "checked": false },
-          { "label": "Carefully remove CPB cannulas and repair the insertion sites as needed.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false },
-          { "label": "DO NOT reverse anticoagulation.", "class": "", "checked": false },
-          { "label": "Carefully monitor ACT without administering an additional dose until within range for ECMO (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Switch to the anticoagulation management/monitoring strategy adapted to patient's characteristics (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Dress the insertion sites and adjust the tubing to meet the desired configuration.", "class": "", "checked": false },
-          { "label": "When ready, move the patient to the ICU or desired location.", "class": "", "checked": false }
-        ]
-      }      
-    ]
+    "id": "ELSOBA_CHKLST_270_A",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "CPB → VA ECMO",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
   },
   {
-    "id": "ELSOBA_CHKLST_270-20",
-    "title": "Switch from VA ECMO to CPB",
-    "content": "Use this checklist when you need to switch from VA ECMO to Cardiopulmonary Bypass (CPB). This procedure is required to initiate a cardiothoracic intervention requiring conventional CPB in a patient on VA ECMO.",
-    "layout": "checklist",
-    "keywords": "CPB; ECMO; Procedure; Central CPB; Peripheral CPB; Central VA ECMO; Peripheral VA ECMO; VA ECMO; switch; switch mode",
-    "doc": "",
-    "showFavorites": true,
-    "useScroll": true, 
-    "items": [
-      {
-        "layout": "checklist",
-        "type": "subchecklist",
-        "label": "Switching from central VA ECMO to central CPB OR from peripheral VA ECMO to peripheral CPB",
-        "items": [
-          { "label": "Identify the roles and responsibilities with ECLS team members.", "checked": false },
-          { "label": "Bring a CPB system and circuit of choice to the operating room.", "checked": false },
-          { "label": "Assemble and prime the CPB system of choice", "checked": false },
-          { "label": "<b>OR</b>", "type": "comment" },
-          { "label": "Use the first expiring pre-assembled/primed circuit available (according to Institution protocol).", "checked": false },
-          { "label": "Connect the CPB gas blender to the gas source.", "checked": false },
-          { "label": "Connect the CPB membrane lung to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "checked": false },
-          { "label": "Prepare the required straight connectors for drainage and return line, according to CPB and ECMO circuit tubing sizes.", "checked": false },
-
-          { "label": "Possible configuration for the adult/small adult/older (larger) children:", "type": "comment", "class": "" },
-          { "label": "⅜ - ⅜ connectors for venous and arterial lines.", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-
-          { "label": "Possible configuration for pediatric patients:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connector for venous and arterial lines.", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-
-          { "label": "Possible configuration for infants and neonates:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connectors for venous and arterial lines.", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-          
-          { "label": "Possible configuration for neonates:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connector for venous line.", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-
-          { "label": "Prepare the ECMO cannulas and the distal portion of the ECMO tubings to be introduced to the sterile field, providing antiseptic solution to the incision area and cannulas/tubings (according to Institution protocol).", "class": "", "checked": false },
-          { "label": "Introduce the sterile portion of the CPB lines to the sterile field, keeping two clamps on the non-sterile portions.", "class": "", "checked": false },
-          { "label": "Clamp the drainage/return CPB lines according to the desired tubing length and cut.", "class": "", "checked": false },
-          { "label": "Insert the required straight connectors on the drainage/return CPB lines.", "class": "", "checked": false },
-          { "label": "Continue the ACT monitoring and anticoagulation management strategy according to the Institution protocol for CPB throughout the procedure.", "class": "", "checked": false },
-          { "label": "Once ACT > 400\", the leading surgeon will typically ask the perfusionist to STOP the ECMO pump.", "class": "", "checked": false },
-          { "label": "The perfusionist stops the ECMO pump and verbally confirms.", "class": "", "checked": false },
-          { "label": "Place clamps on the drainage and return ECMO lines close to the cannulas. Put another clamp on both sides at 10/15 cm and cut between the two clamps.", "class": "", "checked": false },
-          { "label": "Connect the drainage/return ECMO lines using an air-free technique.", "class": "", "checked": false },
-          { "label": "Verify that no air is present in the circuit.", "class": "", "checked": false },
-          { "label": "Unclamp the CPB lines and ask the perfusionist to START the CPB pump.", "class": "", "checked": false },
-          { "label": "The perfusionist removes the clamp on the CPB drainage line, starts the CPB centrifugal pump and when safe, removes the clamp on return side and confirms ON BYPASS.", "class": "", "checked": false },
-          { "label": "OR", "class": "", "type": "comment" },
-          { "label": "Remove the clamp on the return side and start the CPB roller pump, release the clamp on the drainage line and confirm ON BYPASS.", "class": "", "checked": false },
-          { "label": "Restart the sweep gas flow.", "class": "", "checked": false },
-          { "label": "Verify that the target extracorporeal blood flow is achieved.", "class": "", "checked": false },
-          { "label": "Adjust the CPB gas blender settings as necessary.", "class": "", "checked": false },
-          { "label": "Adjust the HCU water temperature as necessary to reach target temperature according to the patient and the procedure.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false },
-          { "label": "Consider connecting the drainage and return line of the CPB circuit through a straight connector to create a loop.", "class": "", "checked": false },
-          { "label": "Keep the ECMO circuit running to be used at the end of CPB, if possible and desired.", "class": "", "checked": false },
-          { "label": "If the circuit is retained, reduce the sweep gas flow to 0 and disconnect the gas line from the ML gas inlet.", "class": "", "checked": false },
-
-          { "label": "At the end of the procedure, if is ECMO still required:", "class": "", "type": "comment" },
-          { "label": "Gradually start ECMO flow and sweep gas flow.", "class": "", "checked": false },
-          { "label": "Gradually wean from CPB to provide consistent expected oxygen delivery throughout the procedure.", "class": "", "checked": false },
-          { "label": "Verify that the target extracorporeal blood flow is achieved.", "class": "", "checked": false },
-          { "label": "Adjust the ECMO gas blender settings as necessary.", "class": "", "checked": false },
-          { "label": "Adjust the Heater Unit/Heater-Cooler Unit water temperature as necessary.", "class": "", "checked": false },
-          { "label": "Once able to provide full ECMO extracorporeal blood flow, clamp the CPB lines and stop the pump.", "class": "", "checked": false },
-          { "label": "Carefully remove the CPB cannulas and repair the insertion sites as needed.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false },
-          { "label": "DO NOT reverse anticoagulation.", "class": "", "checked": false },
-          { "label": "Carefully monitor ACT without administering an additional dose until in range for ECMO (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Switch to the anticoagulation management/monitoring strategy adapted to patient's characteristics (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Dress the insertion sites and adjust the tubing according to the desired configuration.", "class": "", "checked": false },
-          { "label": "Once ready, move the patient to the ICU or alternative location, as required.", "class": "", "checked": false },
-
-          { "label": "At the end of the procedure, if ECMO is NOT required:", "class": "", "type": "comment" },
-          { "label": "Wean from CPB.", "class": "", "checked": false },
-          { "label": "Proceed with anticoagulation reversal, according to Institutional protocol.", "class": "", "checked": false },
-          { "label": "Remove the CPB cannulas, repairing insertion points as needed.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB and ECMO circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false }
-        ]
-      },
-      {
-        "layout": "checklist",
-        "type": "subchecklist",
-        "label": "Switching from peripheral VA ECMO to central CPB",
-        "items": [
-          { "label": "Identify the roles & responsibilities with ECLS team members.", "checked": false },
-          { "label": "Bring a CPB system and circuit of choice to the operating room.", "checked": false },
-          { 
-            "label": "Assemble and prime the CPB system of choice <b>OR</b>", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "Use the first expiring pre-assembled/primed circuit available (according to Institution protocol).", "checked": false }
-            ] 
-          },
-          { "label": "Connect the CPB gas blender to the gas source.", "class": "", "checked": false },
-          { "label": "Connect the CPB membrane lung to the Heater Unit/Heater-Cooler Unit and normalize the temperature according to the patient's needs.", "class": "", "checked": false },
-          { "label": "Prepare the required straight connectors for drainage and return line, according to CPB and ECMO circuit tubing sizes.", "class": "", "checked": false },
-
-          { "label": "Possible configuration for the adult/small adult/older (larger) children:", "type": "comment", "class": "" },
-          { "label": "½ - ⅜ connector for venous line if a ½ venous line was used during the CPB", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "<b>OR</b>", "type": "comment", "class": "" },
-          { "label": "⅜ - ⅜ connector for venous line if a ⅜ venous line was used during CPB.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "⅜ - ⅜ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-          { "label": "Possible configuration for pediatric patients: ", "type": "comment", "class": "" },
-          { "label": "⅜ - ¼ connector for venous line if a ⅜ venous line was used during the CPB.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "¼ - ¼ connector for arterial line. ", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-
-          { "label": "Possible configuration for infants:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connectors for venous and arterial lines.", "type": "list-comment", "class": "bullet mxt-20 ml-0 end-list-0" },
-          
-          { "label": "Possible configuration for neonates:", "type": "comment", "class": "" },
-          { "label": "¼ - ¼ connector for venous line.", "type": "list-comment", "class": "bullet mxt-20 ml-0" },
-          { "label": "3/16 - ¼ connector for arterial line.", "type": "list-comment", "class": "bullet ml-0 end-list-0" },
-          
-          { "label": "Introduce the sterile portion of the CPB lines on the sterile field keeping two clamps on the non-sterile portions.", "class": "", "checked": false },
-          { "label": "Clamp the drainage/return CPB lines according to the desired tubing length and cut.", "class": "", "checked": false },
-          { "label": "Insert the required straight connectors on the drainage/return CPB lines.", "class": "", "checked": false },
-          { "label": "Proceed to the ACT monitoring and anticoagulation management strategy according to the Institution protocol for CPB.", "class": "", "checked": false },
-          { "label": "As ACT > 300\", proceed to CPB cannulation according to the planned procedure and the patient's characteristics.", "class": "", "checked": false },
-          { "label": "As ACT > 400\", connect the CPB circuit lines to the venous and arterial cannulae using an air-free technique.", "class": "", "checked": false },
-          { "label": "Verify that no air is present in the CPB circuit.", "class": "", "checked": false },
-          { "label": "Unclamp the CPB lines and ask the perfusionist to START the CPB pump.", "class": "", "checked": false },
-          { "label": "The perfusionist removes the clamp on the CPB drainage line.", "class": "", "checked": false },
-          { "label": "The perfusionist starts the CPB centrifugal pump and when safe, removes the clamp on the return side.", "class": "", "checked": false },
-          { 
-            "label": "Verbally confirm CPB PUMP ON <b>OR</b>", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "The perfusionist removes the clamp on the return side and starts the CPB roller pump, releases the clamp on the drainage line and confirms CPB PUMP ON.", "checked": false }
-            ] 
-          },
-          { "label": "Increase CPB extracorporeal blood flow and sweep gas flow.", "class": "", "checked": false },
-          { "label": "Gradually wean from ECMO, to provide consistent expected oxygen delivery throughout the procedure.", "class": "", "checked": false },
-          { "label": "Clamp the venous and arterial ECMO lines close to the cannulas.", "class": "", "checked": false },
-          { "label": "Stop the ECMO pump.", "class": "", "checked": false },
-          { "label": "Place another clamp on both the venous and arterial lines at 10/15 cm.", "class": "", "checked": false },
-          { "label": "Cut between each of the two clamps.", "class": "", "checked": false },
-          { "label": "Flush the ECMO cannulas and distal perfusion catheter, then clamp.", "class": "", "checked": false },
-          { 
-            "label": "Consider keeping the ECMO circuit running by inserting an A-V bridge connecting the drainage and return line of the ECMO circuit through Y connectors.", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "If so, go to zero sweep gas flow and disconnect the gas line from the ML gas inlet.", "checked": false }
-            ] 
-          },
-          { "label": "Reconnect the drainage and return ECMO lines to the ECMO cannulas using an air-free technique.", "class": "", "checked": false },
-          { "label": "When ready, proceed with aortic cross clamping and administration of cardioplegic drugs.", "class": "", "checked": false },
-          { "label": "Verify that target extracorporeal blood flow is achieved.", "class": "", "checked": false },
-          { "label": "Adjust CPB gas blender settings as necessary.", "class": "", "checked": false },
-          { "label": "Adjust the Heater Unit/Heater-Cooler Unit water temperature as necessary to reach target temperature.", "class": "", "checked": false },
-           
-          { "label": "At the end of the procedure, if ECMO is still required:", "class": "", "type": "comment" },
-          { "label": "Gradually start ECMO flow and sweep gas flow and gradually wean from CPB, to provide consistent expected oxygen delivery.", "class": "", "checked": false },
-          { "label": "Verify that the target extracorporeal blood flow is achieved.", "class": "", "checked": false },
-          { "label": "Adjust ECMO gas blender settings as necessary.", "class": "", "checked": false },
-          { "label": "Adjust the Heater Unit/Heater-Cooler Unit water temperature as necessary.", "class": "", "checked": false },
-          { "label": "Once able to provide full extracorporeal blood flow on ECMO, clamp CPB lines and stop the CPB pump.", "class": "", "checked": false },
-          { "label": "Carefully remove CPB cannulas and repair the insertion sites as needed.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB and ECMO circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false },
-          { "label": "DO NOT reverse anticoagulation.", "class": "", "checked": false },
-          { "label": "Carefully monitor ACT without administering an additional dose until in range for ECMO (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Switch to the anticoagulation management/monitoring strategy adapted to patient's characteristics (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Dress the insertion sites and adjust the tubing according to Institution protocol.", "class": "", "checked": false },
-          { "label": "Once ready, move the patient to the ICU or alternative location, as required.", "class": "", "checked": false },
-          
-          { "label": "At the end of the procedure, if ECMO is NOT required:", "class": "", "type": "comment" },
-          { "label": "Wean from CPB.", "class": "", "checked": false },
-          { "label": "Proceed with anticoagulation reversal, according to Institutional protocol.", "class": "", "checked": false },
-          { "label": "Remove the CPB and ECMO cannulas, repairing as needed.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB and ECMO circuit through a cell saver device.", "class": "", "checked": false }
-
-        ]
-      }      
-    ]
+    "id": "ELSOBA_CHKLST_270_A1_1",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 1: Set Up the ECMO System",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A1_1.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
   },
   {
-    "id": "ELSOBA_CHKLST_270-30",
-    "title": "Switch from VV ECMO to CPB",
-    "content": "Use this checklist when you need to switch from VV ECMO to Cardiopulmonary Bypass (CPB). This procedure is required to initiate a cardiothoracic intervention requiring conventional CPB in a patient on VV ECMO.",
-    "layout": "checklist",
-    "keywords": "CPB; ECMO; Procedure; Central CPB; Peripheral CPB; Central VA ECMO; Peripheral VA ECMO; VA ECMO; switch; switch mode",
-    "doc": "",
-    "showFavorites": true,
-    "useScroll": true, 
-    "items": [
-      {
-        "layout": "checklist",
-        "type": "subchecklist",
-        "label": "Switching from peripheral VV ECMO to central OR peripheral CPB",
-        "items": [
-          { "label": "Identify the roles and responsibilities with ECLS team members.", "checked": false },
-          { "label": "Assemble and prime the CPB system of choice", "checked": false },
-          { "label": "<b>OR</b>", "type": "comment" },
-          { "label": "Use the first expiring pre-assembled/primed circuit available (according to Institution protocol).", "class": "", "checked": false },
-          { "label": "Connect the CPB gas blender to the gas source.", "class": "", "checked": false },
-          { "label": "Connect the CPB membrane lung to the Heater Unit/Heater-Cooler Unit and normalize temperature according to the patient's temperature.", "class": "", "checked": false },
-          { "label": "Consider pre-oxygenating the patient increasing FsO2 to 100%, to compensate for the temporary pump stop.", "class": "", "checked": false },
-          { "label": "Introduce the sterile portion of the CPB lines to the sterile field, keeping two clamps on the non-sterile portions.", "class": "", "checked": false },
-          { "label": "Clamp the drainage/return CPB lines according to the desired tubing length and cut.", "class": "", "checked": false },
-          { "label": "Insert the required straight connectors on the drainage/return CPB lines (if not included in the cannulas).", "class": "", "checked": false },
-          { "label": "Continue ACT monitoring and anticoagulation management strategy according to the Institution protocol for CPB throughout the procedure.", "class": "", "checked": false },
-          { "label": "As ACT > 300\", proceed to CPB cannulation according to the planned procedure and the patient's characteristics.", "class": "", "checked": false },
-          { "label": "As ACT > 400\", connect the CPB circuit lines to the venous and arterial cannulae using an air free technique.", "class": "", "checked": false },
-          { "label": "Verify that no air is present in the CPB circuit.", "class": "", "checked": false },
-          { "label": "Unclamp the CPB lines and ask the perfusionist to START the CPB pump.", "class": "", "checked": false },
-          { "label": "The perfusionist removes the clamp on the CPB drainage line.", "class": "", "checked": false },
-
-          { 
-            "label": "The perfusionist starts the CPB centrifugal pump and when safe, removes the clamp on the return side.", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "The perfusionist verbally confirms CPB PUMP ON", "checked": false },
-              { "label": "<b>OR</b>", "type": "comment" },
-              { "label": "Removes the clamp on the return side and starts the CPB roller pump, releases the clamp on the drainage line and verbally confirms CPB PUMP ON. ", "checked": false }
-            ] 
-          },
-
-          { "label": "Support the patient with CPB as required until ready for aortic cross clamping and administration of cardioplegic drugs.", "class": "", "checked": false },
-          { "label": "As full bypass is initiated, start CPB sweep gas flow (SGF). ", "class": "", "checked": false },
-
-          { 
-            "label": "Stop ECMO SGF.", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "Decrease ECMO blood flow to the minimum safe level according to the circuit size and anticoagulation, maintaining the circuit function,", "checked": false },
-              { "label": "<b>OR</b>", "type": "comment" },
-              { "label": "Decrease ECMO SGF.", "checked": false }
-            ] 
-          },
-
-          { "label": "Adjust the CPB gas blender settings as necessary.", "class": "", "checked": false },
-          { "label": "Adjust the Heater Unit/Heater-Cooler Unit water temperature as necessary to reach the target temperature according to the patient and the procedure.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB and ECMO circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false },
-
-          { 
-            "label": "Consider keeping the ECMO circuit running by inserting an A-V bridge connecting the drainage and return line of the ECMO circuit through Y connectors.", 
-            "type": "subchecklist",
-            "layout": "checklist",
-            "checked": false,
-            "items": [
-              { "label": "If so, go to zero SGF and disconnect the gas line from the ML gas inlet.", "checked": false }
-            ] 
-          },
-
-          { "label": "At the end of the procedure:", "class": "", "type": "comment" },
-          { "label": "Wean from CPB, gradually increasing ECMO extracorporeal blood flow and SGF to provide the required respiratory support, according to the patient's needs.", "class": "", "checked": false },
-          { "label": "DO NOT reverse anticoagulation.", "class": "", "checked": false },
-          { "label": "Carefully monitor ACT without administering additional dose until in range for ECMO (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Switch to the anticoagulation management/monitoring strategy adapted to patient's characteristics (according to Institutional protocol).", "class": "", "checked": false },
-          { "label": "Remove the CPB cannulas, repairing insertion sites as needed.", "class": "", "checked": false },
-          { "label": "Consider processing the blood inside the CPB and ECMO circuit through a cell saver device to conserve blood loss.", "class": "", "checked": false },
-          { "label": "Once ready, move the patient to the ICU or alternative location, as desired.", "class": "", "checked": false }
-        ]
-      }
-    ]
+    "id": "ELSOBA_CHKLST_270_A1_2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 2: Prepare the Lines",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A1_2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A1_3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Pump Stop and Switch",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A1_3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A1_4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 4: Establish ECMO Support",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A1_4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A1_5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 5: Anticoagulation",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A1_5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A1_6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: Handoff",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A1_6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A2_1",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 1: Set Up the ECMO System",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A2_1.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A2_2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 2: Prepare the Lines",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A2_2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A2_3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Peripheral Cannulation",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A2_3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A2_4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 4: Wean From CPB Onto ECMO",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A2_4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A2_5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 5: Anticoagulation",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A2_5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_A2_6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: Handoff",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_A2_6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "VA ECMO → CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_1",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 1: Set Up the CPB System",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_1.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 2: Prepare the Field",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_3_ACT",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Pump Stop and Switch",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_3_ACT.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_3_ACT_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ACT Not Yet > 400 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_3_ACT_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Pump Stop and Switch",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 4: Establish Bypass",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 5: Preserve the ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_5_ACT",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 5: Preserve the ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_5_ACT.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_5_ACT_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Circuit ACT Not Yet > 500 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_5_ACT_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_5_ACT_YES",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Circuit ACT > 500 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_5_ACT_YES.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: End of Procedure",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_6_YES",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ECMO Still Required",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_6_YES.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B1_6_NO",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ECMO Not Required",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B1_6_NO.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_1",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 1: Set Up the CPB System",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_1.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 2: Prepare the Field",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_3_ACT300",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_3_ACT300.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_3_ACT300_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ACT Not Yet > 300 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_3_ACT300_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_3_ACT400",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_3_ACT400.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_3_ACT400_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ACT Not Yet > 400 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_3_ACT400_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_3_CONNECT",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_3_CONNECT.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 4: Start Bypass",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 5: Take ECMO Off",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: Preserve the ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_6_ACT",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: Preserve the ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_6_ACT.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_6_ACT_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Circuit ACT Not Yet > 500 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_6_ACT_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_6_ACT_YES",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Circuit ACT > 500 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_6_ACT_YES.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_7",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 7: On Bypass",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_8",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 8: End of Procedure",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_8.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_8_YES",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ECMO Still Required",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_8_YES.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_B2_8_NO",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ECMO Not Required",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_B2_8_NO.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "VV ECMO → CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_1",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 1: Set Up the CPB System",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_1.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_2",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 2: Prepare the Field",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_2.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_3_ACT300",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_3_ACT300.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_3_ACT300_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ACT Not Yet > 300 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_3_ACT300_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_3",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_3.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_3_ACT400",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_3_ACT400.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_3_ACT400_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "ACT Not Yet > 400 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_3_ACT400_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_3_CONNECT",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 3: Cannulate and Connect CPB",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_3_CONNECT.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_4",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 4: Start Bypass",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_4.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_5",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 5: Idle the VV ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_5.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_6",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: Preserve the ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_6.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_6_ACT",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 6: Preserve the ECMO Circuit",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_6_ACT.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_6_ACT_NOTYET",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Circuit ACT Not Yet > 500 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_6_ACT_NOTYET.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_6_ACT_YES",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Circuit ACT > 500 s",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_6_ACT_YES.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
+  },
+  {
+    "id": "ELSOBA_CHKLST_270_C1_7",
+    "showTitle": false,
+    "useScroll": true,
+    "title": "Step 7: End of Procedure",
+    "content": "checklists/ELSOBA_CHKLST_FLOW_270/ELSOBA_CHKLST_270_C1_7.html",
+    "layout": "html",
+    "branchTo": "",
+    "items": []
   },
 
 
@@ -4439,7 +4474,7 @@
         "branchTo": "ELSOBA_CHKLST_110-2"
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "branchTo": "ELSOBA_CHKLST_110-3"
       }
@@ -6086,7 +6121,7 @@
   },
   {
     "id": "ELSOBA_CHKLST_110-3",
-    "title": "Suggested Reading",
+    "title": "Suggested Readings",
     "content": "",
     "layout": "checklist",
     "keywords": "References; CANNULATION; PROCEDURE; HYBRID; PRE-CANNULATION; SWITCH MODE; CONVERSION",
@@ -7955,7 +7990,7 @@
         ]
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -8687,11 +8722,16 @@
         "type": "subchecklist",
         "items": [
           {
+            "label": "If international transport, ensure electrical and equipment compatibility. Also, don't forget passports.",
+            "type": "comment",
+            "class": "note"
+          },
+          {
             "label": "Transport trolley/cart and power cords",
             "checked": false
           },
           {
-            "label": "ECMO console/motor/power cord and bridge",
+            "label": "ECMO console, motor, power cord, circuit and flow probe",
             "checked": false
           },
           {
@@ -9447,7 +9487,7 @@
         ]
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -9659,7 +9699,7 @@
                 "layout": "checklist",
                 "items": [
                   { "label": "One staff member at the head end guides the procedure, and holds the artificial airway and the jugular ECMO cannula, if present.", "checked": false },
-                  { "label": "One staff member at the feet end holds the ECMO cannula and tubing while monitoring ECMO parameters.", "checked": false },
+                  { "label": "One staff member at the feet end holds the femoral tubing while monitoring ECMO parameters.", "checked": false },
                   { "label": "At least two staff members standing on each side of the bed to help turn the patient using the double-sheets technique.", "checked": false }
                 ]
               },
@@ -10711,10 +10751,42 @@
             ]
           },
           { 
-            "label": "<b>Note:</b> Case reports and case series have reported successful management of bleeding of patients with ECMO with prolonged periods of no anticoagulation.", 
+            "label": "<b>Note:</b> Case reports and case series have reported successful management of bleeding of patients with ECMO with prolonged periods of no anticoagulation.",
             "type": "comment",
             "class": "note"
           }
+        ]
+      },
+      {
+        "label": "Discrepancy between aPTT and AntiXa with UFH Table",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Refer to the <a href='#' class='' data-link='MEDICATIONS##ELSOBA_MED_010__TABLE__2' target='_self'>Discrepancy between aPTT and AntiXa with UFH Table</a> under Medications.", "type": "comment", "class": "note" }
+        ]
+      },
+      {
+        "label": "Major Bleeding Classifications",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Refer to the <a href='#' class='' data-link='MEDICATIONS##ELSOBA_MED_010__TABLE__3' target='_self'>Major Bleeding Classifications</a> under Medications.", "type": "comment", "class": "note" }
+        ]
+      },
+      {
+        "label": "Monitoring DTI Challenges Table",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Refer to the <a href='#' class='' data-link='MEDICATIONS##ELSOBA_MED_010__TABLE__4' target='_self'>Monitoring DTI Challenges Table</a> under Medications.", "type": "comment", "class": "note" }
+        ]
+      },
+      {
+        "label": "The Anticoagulation Ladder",
+        "layout": "checklist",
+        "type": "subchecklist",
+        "items": [
+          { "label": "Refer to <a href='#' class='' data-link='MEDICATIONS##ELSOBA_MED_010__TABLE__5' target='_self'>The Anticoagulation Ladder</a> under Medications.", "type": "comment", "class": "note" }
         ]
       },
       {
@@ -11630,7 +11702,7 @@
         ]
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -11893,11 +11965,7 @@
               {
                 "label": "Native lung (edema, atelectasis, PTX)",
                 "checked": false
-              },
-              {
-                "label": "VO<sub>2</sub>/demand (fever, sepsis, agitation)",
-                "checked": false
-              }
+              } 
             ]
           },
           {
@@ -12075,7 +12143,7 @@
         ]
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -12254,7 +12322,7 @@
             "checked": false
           },
           {
-            "label": "Once the SGF is 1 L/min and the FSO2 is 21%, and the patient has maintained target respiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
+            "label": "Once the SGF is 1 L/min and the F<sub>s</sub>O<sub>2</sub> is 21%, and the patient has maintained target respiratory parameters on these settings for up to 6 hours, perform an ECMO discontinuation trial by disconnecting the gas sources from the circuit (“off blender”) while continuing RV support",
             "checked": false
           },
           {
@@ -12408,34 +12476,6 @@
         ]
       },
       {
-        "label": "Figures",
-        "class": "",
-        "layout": "checklist",
-        "type": "subchecklist",
-        "items": [
-          {
-            "label": "Figures 1 and 2. From Brewer JM, Maybauer MO. Technique for Weaning From Peripheral Venopulmonary Extracorporeal Membrane Oxygenation in Combined Cardiopulmonary Failure. ASAIO J. 2025;71(2):e23-e27. doi:10.1097/MAT.0000000000002251. CI, cardiac index; CVP, central venous pressure; FAC, fractional area change; F<sub>S</sub>O<sub>2</sub>, sweep gas oxygen inlet oxygen fraction; h, hour; MAP, mean arterial pressure; ML, membrane lung; MPI, myocardial performance index; PAPi, pulmonary artery pulsatility index; RV, right ventricle; SGF, sweep gas flow.",
-            "type": "list-comment",
-            "class": "mxb-16"
-          },
-          {
-            "label": "<sup>a</sup> Minimal pharmacological support is considered no more than two drugs at doses of dobutamine <5mcg/kg/min (or equivalent), norepinephrine or epinephrine <0.05mcg/kg/min (or equivalent), or milrinone <0.25mcg/kg/min",
-            "type": "list-comment",
-            "class": "mxb-16"
-          },
-          {
-            "label": "<sup>b</sup> No echocardiographic parameters have been validated in patients on VP ECMO. Our practice is to use a combination of parameters to assess RV systolic function. Clinicians must consider important factors that may affect the accuracy of each parameter including image quality, load-dependence including ECMO flow and valvular dysfunction, and the presence or absence of an opened pericardium.",
-            "type": "list-comment",
-            "class": "mxb-16"
-          },
-          {
-            "label": "<a href='#' data-link='CHECKLIST##ELSOBA_CHKLST_330_050' target='_self'>View Figures 1 and 2</a>",
-            "type": "list-comment",
-            "class": "mxb-16"
-          }
-        ]
-      },
-      {
         "label": "Special Considerations",
         "class": "",
         "layout": "checklist",
@@ -12453,11 +12493,13 @@
               },
               {
                 "label": "First, the pathophysiological mechanisms contributing to RV failure often persist in patients with respiratory failure, even when using VV ECMO",
-                "checked": false
+                "type": "list-comment",
+                "class": "bullet ml-2"
               },
               {
                 "label": "Second, there is no evidence that switching from VP to VV ECMO is superior, and some studies suggest VP ECMO may provide benefits over VV ECMO, particularly in patients with respiratory failure due to COVID-19",
-                "checked": false
+                "type": "list-comment",
+                "class": "bullet ml-2"
               },
               {
                 "label": "Maintaining VP ECMO avoids additional procedures that increase both risk and cost",
@@ -12512,7 +12554,7 @@
         ]
       },
       {
-        "label": "Suggested Reading",
+        "label": "Suggested Readings",
         "class": "",
         "layout": "checklist",
         "type": "subchecklist",
@@ -12530,15 +12572,5 @@
         ]
       }
     ]
-  },
-  {
-    "id": "ELSOBA_CHKLST_330_050",
-    "title": "Figures",
-    "content": "checklists/ELSOBA_CHKLST_330/ELSOBA_CHKLST_330_050.html",
-    "layout": "default",
-    "useScroll": true,
-    "showFavorites": true,
-    "branchTo": "",
-    "items": []
   }
 ]

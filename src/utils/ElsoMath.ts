@@ -829,7 +829,8 @@ export function convertMathSymbols(input: string | undefined): string {
     [/\bPpostO2\b/g, `P<sub class=\"math-sub\">post</sub>O${sub2wmr}`],
     [/\bHctpre\b/g, `Hct<sub class=\"math-sub\">PRE</sub>`],
     [/\bHctpost\b/g, `Hct<sub class=\"math-sub\">POST</sub>`],
-    [/\bFsO2\b/g, `FsO${sub2wmr}`],
+    // content writes both FsO2 and FSO2 (ELSOBA_CHKLST_330)
+    [/\bF([sS])O2\b/g, `F$1O${sub2wmr}`],
     [/\bFiO2\b/g, `FiO${sub2wmr}`],
     [/\bPAW\b/g, `P<sub class=\"math-sub pad\">AW</sub>`],
     [/\bParO2\b/g, `ParO${sub2wmr}`],

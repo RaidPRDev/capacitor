@@ -180,6 +180,30 @@ function handleTriggered(data: { dataProps?: IHtmlParserDataProps }) {
   emit("triggered", data?.dataProps);
 }
 
+const LINK_TYPES: Record<string, string> = {
+  CHECKLIST: 'checklists',
+  PANIC: 'panic',
+  EQUIPMENT: 'equipment',
+  MEDICATIONS: 'medications',
+  CALCULATORS: 'calculators',
+};
+
+// inline <a data-link='TYPE##ID'>; HtmlParserComponent renders the attribute as "datalink"
+function onContentClick(e: MouseEvent) {
+  const anchor = (e.target as HTMLElement)?.closest?.('[datalink], [data-link]');
+  if (!anchor) return;
+  e.preventDefault();
+
+  const [type, id] = (anchor.getAttribute('datalink') ?? anchor.getAttribute('data-link') ?? '').split('##');
+  if (type?.indexOf('http') === 0) {
+    window.open(type, '_blank');
+    return;
+  }
+  if (!LINK_TYPES[type] || !id) return;
+
+  emit("triggered", { ['data-id']: id, ['data-type']: LINK_TYPES[type] });
+}
+
 onMounted(async () => {
   observer.observe(content?.value!, { attributes: true, childList: true, subtree: true });
   const rawHtml = await loadHTMLFile(`/assets/data/app/html/${props?.view?.content}`);
@@ -218,7 +242,7 @@ onUnmounted(() => {
 
 <template>
   <h2 v-if="props?.showTitle && props?.view?.title?.length! > 0" v-html="props?.view?.title" class="transform-z"></h2>
-  <div ref="content">
+  <div ref="content" @click="onContentClick">
     <HtmlParserComponent :htmlString="`${htmlContent}`" @triggered="handleTriggered" />
   </div>
   

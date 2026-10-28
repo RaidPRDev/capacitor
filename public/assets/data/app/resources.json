@@ -17,6 +17,12 @@
         "class": ""
       }, 
       {
+        "label": "ELSO Publications",
+        "branchTo": "ELSOBA_RES_160",
+        "link": "https://www.elso.org/publications.aspx",
+        "class": ""
+      }, 
+      {
         "label": "Accidental Decannulation Resources",
         "branchTo": "ELSOBA_RES_010",
         "class": ""

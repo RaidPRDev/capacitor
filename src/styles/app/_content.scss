@@ -96,6 +96,17 @@
     @extend .__note;
   }
 
+  .critical {
+    @extend .__note;
+    background-color: rgba($primary-red, 0.1);
+  }
+
+  // matches the checklist drawer's note rows
+  .reference {
+    @extend .__note;
+    background-color: aliceblue;
+  }
+
   ul {
     &.no-bullet {
       padding-left: 0;
